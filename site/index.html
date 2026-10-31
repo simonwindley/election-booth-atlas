@@ -217,6 +217,7 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
             <option value="share">Primary vote share</option>
             <option value="tcp">Two-candidate preferred</option>
             <option value="swing">Primary swing since last election</option>
+            <option value="tcpswing">2CP swing since last election</option>
             <option value="gap">Gap vs another election</option>
             <option value="primary">Leader on primary votes</option>
             <option value="tcpwin">Winner after preferences (2PP/2CP)</option>
@@ -509,6 +510,14 @@ function metricValueContest(cid) {
   if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
   if (state.metric === 'tcpwin') { const w = idx.elected.get(eid + '|' + cid); const t = contestTcp(eid, cid); const cat = w ? ((w.party === 'LIB' || w.party === 'NAT') ? 'COAL' : (PARTIES.includes(w.party) ? w.party : 'OTH')) : null; const win = t ? t.pair[0] : null; return { cat, strength: win ? win.share : 0.5, label: 'Elected', text: w ? `${w.surname}, ${PARTY_NAME[w.party] || w.party}${win ? ' · ' + pct(win.share) + ' 2CP' : ''}` : '–' }; }
   if (state.metric === 'tcp') { const t = contestTcp(eid, cid); if (!t) return { v: null, label: '2CP', text: 'no final pair' }; const mine = t.pair.find(x => (x.party === 'LIB' || x.party === 'NAT' ? 'COAL' : x.party) === p); return mine ? { v: mine.share, label: `${PARTY_NAME[p]} 2CP`, text: pct(mine.share) } : { v: null, label: '2CP', text: `${PARTY_NAME[p]} not in final two` }; }
+  if (state.metric === 'tcpswing') {
+    const t = eid === LIVE.election ? liveProjection(cid) : contestTcp(eid, cid); const mine = t && t.pair.find(x => grpParty(x.party) === p);
+    if (!mine) return { v: null, label: '2CP swing', text: t ? `${PARTY_NAME[p]} not in the final two` : 'no final pair' };
+    const other = PREV[eid], oc = other ? contestIn(other, cid, eid) : null; const q = oc ? contestTcp(other, oc.contest_id) : null; const was = q && q.pair.find(x => grpParty(x.party) === p);
+    if (!was) return { v: null, label: '2CP swing', text: q ? `${PARTY_NAME[p]} not in the final two in ${idx.electionById.get(other).name.replace('Victorian ', '')}` : 'no comparison' };
+    const how = eid === LIVE.election ? (t.method === 'projected' ? ' · projected' : t.method === 'official' ? '' : ' · count so far') : '';
+    return { v: mine.share - was.share, label: `${PARTY_NAME[p]} 2CP swing vs ${idx.electionById.get(other).name.replace('Victorian ', '')}`, text: pts(mine.share - was.share) + ' pts' + how };
+  }
   const other = state.metric === 'swing' ? PREV[eid] : state.gap;
   const oc = other ? contestIn(other, cid, eid) : null;
   if (!oc) return { v: null, label: state.metric === 'swing' ? 'Swing' : 'Gap', text: 'no electorate of this name' };
@@ -523,6 +532,16 @@ function metricValue(bid) {
   if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
   if (state.metric === 'tcpwin') { const t = tcpShares(eid, bid); if (!t) return { cat: null, label: 'After preferences', text: 'no 2CP count at this booth' }; const top = [...t].sort((a, b) => b.share - a.share)[0]; const cat = (top.party === 'LIB' || top.party === 'NAT') ? 'COAL' : (PARTIES.includes(top.party) ? top.party : 'OTH'); return { cat, strength: top.share, label: 'Ahead after preferences', text: `${top.cand ? top.cand.surname : cat} ${pct(top.share)}` }; }
   if (state.metric === 'tcp') { const t = tcpShares(eid, bid); if (!t) return { v: null, label: '2CP', text: 'not counted' }; const mine = t.find(x => (x.party === 'LIB' || x.party === 'NAT' ? 'COAL' : x.party) === p); return mine ? { v: mine.share, label: `${PARTY_NAME[p]} 2CP`, text: pct(mine.share) } : { v: null, label: '2CP', text: `${PARTY_NAME[p]} not in final two` }; }
+  if (state.metric === 'tcpswing') {
+    const t = tcpShares(eid, bid); const mine = t && t.find(x => grpParty(x.party) === p);
+    if (!mine) return { v: null, label: '2CP swing', text: t ? `${PARTY_NAME[p]} not in the final two` : 'no 2CP count' };
+    const b0 = idx.boothsByKey.get(eid + '|' + bid), other = PREV[eid];
+    if (!other || !b0.venue_id) return { v: null, label: '2CP swing', text: 'no comparison' };
+    const prevBooths = (idx.boothsByVenue.get(b0.venue_id) || []).filter(x => x.election_id === other && x.booth_type === 'ordinary');
+    let votes = 0, tot = 0; for (const x of prevBooths) { const q = tcpShares(other, x.booth_id); if (!q) continue; const m = q.find(y => grpParty(y.party) === p); if (!m) continue; tot += q.reduce((a, y) => a + y.votes, 0); votes += m.votes; }
+    if (!tot) return { v: null, label: '2CP swing', text: `${PARTY_NAME[p]} not in the final two there in ${idx.electionById.get(other).name.replace('Victorian ', '')}` };
+    return { v: mine.share - votes / tot, label: `${PARTY_NAME[p]} 2CP swing vs ${idx.electionById.get(other).name.replace('Victorian ', '')}`, text: pts(mine.share - votes / tot) + ' pts' };
+  }
   const b = idx.boothsByKey.get(eid + '|' + bid);
   const other = state.metric === 'swing' ? PREV[eid] : state.gap;
   if (!other || !b.venue_id) return { v: null, label: state.metric === 'swing' ? 'Swing' : 'Gap', text: 'no comparison' };
@@ -557,8 +576,9 @@ async function renderMap() {
   } else {
     const vs = vals.map(x => x.m.v).filter(v => v != null); const lim = Math.max(0.05, quantile(vs.map(Math.abs), 0.95) || 0.1);
     colorOf = (x) => x.m.v == null ? null : divColor(state.party, x.m.v, lim);
-    const other = state.metric === 'swing' ? PREV[eid] : state.gap;
-    legend = legendRamp(`${PARTY_NAME[state.party]} primary, change since ${other ? idx.electionById.get(other).name : '–'}`, [NEG(), css('--surface-2'), partyColor(state.party)], [pts(-lim, 0), '0', pts(lim, 0)], byContest ? 'Points of the formal vote, electorates matched by name. Boundaries can differ between elections, so read this as indicative.' : 'Points of the formal vote at the same venue. Hollow: no matching booth.', byContest);
+    const other = state.metric === 'gap' ? state.gap : PREV[eid];
+    const what = state.metric === 'tcpswing' ? 'two-candidate preferred' : 'primary';
+    legend = legendRamp(`${PARTY_NAME[state.party]} ${what}, change since ${other ? idx.electionById.get(other).name : '–'}`, [NEG(), css('--surface-2'), partyColor(state.party)], [pts(-lim, 0), '0', pts(lim, 0)], state.metric === 'tcpswing' ? (byContest ? `Points of the 2CP, electorates matched by name. Hollow: ${PARTY_NAME[state.party]} not in the final two at one of the two elections.${eid === LIVE.election ? ' Live: projected from booth swings where the final two match 2022.' : ''}` : `Points of the 2CP at the same venue. Hollow: no 2CP count, or ${PARTY_NAME[state.party]} not in the final two at one of the two elections.`) : byContest ? 'Points of the formal vote, electorates matched by name. Boundaries can differ between elections, so read this as indicative.' : 'Points of the formal vote at the same venue. Hollow: no matching booth.', byContest);
   }
   if (eid === LIVE.election) legend.append(liveLegendNote(byContest));
   el('legend').innerHTML = ''; el('legend').append(legend);
