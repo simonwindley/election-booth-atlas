@@ -696,12 +696,29 @@ function renderDetail(eid, bid) {
     const v = idx.venueById.get(b.venue_id); const series = venueSeries(b.venue_id);
     root.append(h('h3', {}, 'This venue over time'));
     if (v) root.append(h('div', { class: 'hint', style: 'margin-bottom:6px' }, `${v.premises || ''}${v.suburb ? ', ' + v.suburb : ''}`));
-    root.append(seriesChart(series, 340, 200));
-    root.append(seriesTable(series));
+    root.append(seriesBlock(series, 340, 200));
     root.append(h('div', { style: 'margin-top:8px' }, h('button', { class: 'btn', onclick: () => { openVenue(b.venue_id); showView('venue'); } }, 'Open in Venue view')));
   } else {
     root.append(h('h3', {}, 'This venue over time'), h('div', { class: 'hint' }, 'This booth has no coordinates yet, so it cannot be linked to other elections.'));
   }
+}
+// a venue's series with an All / State / Federal switch (the choice sticks for the session and across reloads)
+function seriesBlock(series, W, H) {
+  const wrap = h('div');
+  const lvl = (e) => e.level === 'federal' ? 'federal' : 'state';
+  const pick = (which) => which === 'all' ? series : series.filter(s => lvl(s.election) === which);
+  const draw = () => {
+    wrap.innerHTML = '';
+    const which = state.seriesLevel || 'all';
+    const seg = h('div', { class: 'seg', style: 'display:inline-flex;margin-bottom:6px;font-size:12px' });
+    for (const [v, label] of [['all', 'All'], ['state', 'State'], ['federal', 'Federal']]) seg.append(h('button', { 'aria-pressed': String(v === which), style: 'padding:3px 10px', onclick: () => { state.seriesLevel = v; try { localStorage.setItem('atlas.seriesLevel', v); } catch (e) {} draw(); } }, label));
+    const sub = pick(which);
+    wrap.append(seg);
+    if (!sub.length) { wrap.append(h('div', { class: 'hint' }, `No ${which} elections at this venue.`)); return; }
+    wrap.append(seriesChart(sub, W, H), seriesTable(sub));
+  };
+  draw();
+  return wrap;
 }
 function seriesTable(series) {
   const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), ...PARTIES.map(p => h('th', { class: 'num' }, PARTY_SHORT[p])), h('th', { class: 'num' }, 'Formal'))),
@@ -759,7 +776,7 @@ function openVenue(vid) {
   const root = el('venue-detail'); root.innerHTML = '';
   const names = [...new Set(booths.map(b => b.booth_name))];
   root.append(h('h2', { style: 'font-family:var(--font-display);font-weight:500;font-size:18px;margin:0 0 2px' }, v ? (v.premises || names[0]) : names[0]), h('div', { class: 'meta', style: 'color:var(--fg-2);font-size:12px;margin-bottom:10px' }, v ? [v.address, v.suburb, v.postcode].filter(Boolean).join(', ') : 'approximate location', ' · booth names: ', names.join(', ')));
-  root.append(seriesChart(series, 520, 260), seriesTable(series));
+  root.append(seriesBlock(series, 520, 260));
   root.append(h('h3', { style: 'margin-top:14px' }, 'Booths at this venue'));
   const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'Booth'), h('th', {}, 'Electorate'), h('th', { class: 'num' }, 'Formal'))), h('tbody', {}, ...booths.filter(b => b.booth_type === 'ordinary' || b.booth_type === 'early').sort((a, b) => idx.electionById.get(a.election_id).date.localeCompare(idx.electionById.get(b.election_id).date)).map(b => { const c = idx.contestById.get(b.election_id + '|' + b.contest_id); const ps = partyShares(b.election_id, b.booth_id); return h('tr', {}, h('td', {}, shortName(idx.electionById.get(b.election_id))), h('td', {}, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setElection(b.election_id); select(b.election_id, b.booth_id, true); showView('map'); } }, b.booth_name), b.booth_type === 'early' ? h('span', { class: 'hint' }, ' (pre-poll)') : ''), h('td', {}, c ? c.contest_name : b.contest_id), h('td', { class: 'num' }, fmt(ps.formal))); })));
   root.append(h('div', { class: 'tablewrap' }, t));
@@ -1157,7 +1174,7 @@ const candLinks = (r) => ({ wikipedia: r.wikipedia_url || '', parliament: r.parl
 function liveSetup(register) {
   LIVE.register = register; LIVE.meta = register.meta || {};
   if (!D.elections.some(e => e.election_id === LIVE.election)) D.elections.push({ election_id: LIVE.election, level: 'state', date: '2026-11-28', name: 'Victorian state election 2026' });
-  try { LIVE.seenAt = localStorage.getItem('atlas.liveSeenAt') || null; } catch (e) {}
+  try { LIVE.seenAt = localStorage.getItem('atlas.liveSeenAt') || null; state.seriesLevel = localStorage.getItem('atlas.seriesLevel') || 'all'; } catch (e) {}
   if (!LIVE.seenAt) LIVE.seenAt = new Date(Date.now() - 15 * 60000).toISOString();
   rebuildLiveTables(null);
 }
