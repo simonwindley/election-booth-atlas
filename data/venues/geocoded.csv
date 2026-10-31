@@ -1,40 +1,40 @@
 booth_id,lat,lon,via,type,display_name,dist_from_district_centroid_km
-vic-albert-park-ferrars,-37.8332519,144.9551506,name,primary,"Ferrars Street, South Melbourne, Melbourne, Victoria, 3205, Australia",1.5
-vic-albert-park-port-melbourne-east,-37.8388331,144.9449407,name,sports_centre,"Port Melbourne Community Centre and Trugo Club, Esplanade East, Port Melbourne, Melbourne,",1.4
+vic-albert-park-ferrars,-37.8332519,144.9551506,name,primary,"Ferrars Street, South Melbourne, Melbourne, Victoria, 3205, Australia",1.9
+vic-albert-park-port-melbourne-east,-37.8388331,144.9449407,name,sports_centre,"Port Melbourne Community Centre and Trugo Club, Esplanade East, Port Melbourne, Melbourne,",1.8
 vic-ashwood-alamein,-37.8683603,145.0797334,name,station,"Alamein, Ashburn Grove, Ashburton, Melbourne, Victoria, 3147, Australia",2.3
 vic-ashwood-camberwell-south,-37.8478566,145.0621525,name,school,"Camberwell South Primary School, 4, Peate Avenue, Glen Iris, Melbourne, Victoria, 3146, Au",4.3
 vic-ashwood-jordanville-south,-37.8736635,145.1122691,stem,station,"Jordanville, Windsor Avenue, Mount Waverley, Melbourne, Victoria, 3149, Australia",1.0
-vic-bass-catani,-38.1948042,145.6413285,name,administrative,"Catani, Melbourne, Victoria, Australia",22.3
-vic-bass-clyde,-38.1326419,145.3380884,name,administrative,"Clyde, Melbourne, Victoria, 3978, Australia",23.7
-vic-bayswater-knoxfield-north,-37.8897731,145.2496342,stem,administrative,"Knoxfield, Melbourne, Victoria, 3180, Australia",4.3
-vic-bayswater-wantirna-north,-37.8523357,145.2259721,stem,administrative,"Wantirna, Melbourne, Victoria, Australia",3.3
-vic-bellarine-collendina,-38.2657155,144.5452718,name,neighbourhood,"Collendina, Ocean Grove, Victoria, 3226, Australia",7.3
-vic-bellarine-indented-head,-38.1397178,144.7094652,name,administrative,"Indented Head, Victoria, Australia",14.4
-vic-bellarine-surfside,-38.2613509,144.54258,name,school,"Surfside Primary School, 31, John Dory Drive, Collendina, Ocean Grove, Victoria, 3226, Aus",6.9
-vic-benambra-kergunyah,-36.3274125,147.0293812,name,hamlet,"Kergunyah, Victoria, 3691, Australia",6.4
-vic-benambra-tallangatta-valley,-36.2469373,147.360854,name,tertiary,"Tallangatta Creek Road, Tallangatta Valley, Victoria, 3701, Australia",28.5
-vic-benambra-victory,-36.1154533,146.8465278,name,school,"Victory Lutheran College, 28, Drage Road, West Wodonga, Victoria, 3690, Australia",24.8
-vic-bendigo-east-sedgwick,-36.8689118,144.3190293,name,administrative,"Sedgwick, Victoria, Australia",17.4
-vic-bendigo-west-eaglehawk-west,-36.7077015,144.2632351,stem,administrative,"Eaglehawk, Bendigo, Victoria, Australia",20.0
-vic-bendigo-west-ironbark,-36.7559063,144.2668733,name,administrative,"Ironbark, Bendigo, Victoria, Australia",14.9
-vic-bendigo-west-specimen-hill,-36.7142716,144.2471805,name,peak,"Specimen Hill, Bendigo, Victoria, 3556, Australia",19.0
+vic-bass-catani,-38.1948042,145.6413285,name,administrative,"Catani, Melbourne, Victoria, Australia",16.5
+vic-bass-clyde,-38.1326419,145.3380884,name,administrative,"Clyde, Melbourne, Victoria, 3978, Australia",19.8
+vic-bayswater-knoxfield-north,-37.8897731,145.2496342,stem,administrative,"Knoxfield, Melbourne, Victoria, 3180, Australia",4.6
+vic-bayswater-wantirna-north,-37.8523357,145.2259721,stem,administrative,"Wantirna, Melbourne, Victoria, Australia",3.1
+vic-bellarine-collendina,-38.2657155,144.5452718,name,neighbourhood,"Collendina, Ocean Grove, Victoria, 3226, Australia",8.5
+vic-bellarine-indented-head,-38.1397178,144.7094652,name,administrative,"Indented Head, Victoria, Australia",18.1
+vic-bellarine-surfside,-38.2613509,144.54258,name,school,"Surfside Primary School, 31, John Dory Drive, Collendina, Ocean Grove, Victoria, 3226, Aus",8.0
+vic-benambra-kergunyah,-36.3274125,147.0293812,name,hamlet,"Kergunyah, Victoria, 3691, Australia",5.4
+vic-benambra-tallangatta-valley,-36.2469373,147.360854,name,tertiary,"Tallangatta Creek Road, Tallangatta Valley, Victoria, 3701, Australia",29.7
+vic-benambra-victory,-36.1154533,146.8465278,name,school,"Victory Lutheran College, 28, Drage Road, West Wodonga, Victoria, 3690, Australia",24.7
+vic-bendigo-east-sedgwick,-36.8689118,144.3190293,name,administrative,"Sedgwick, Victoria, Australia",17.7
+vic-bendigo-west-eaglehawk-west,-36.7077015,144.2632351,stem,administrative,"Eaglehawk, Bendigo, Victoria, Australia",19.8
+vic-bendigo-west-ironbark,-36.7559063,144.2668733,name,administrative,"Ironbark, Bendigo, Victoria, Australia",14.8
+vic-bendigo-west-specimen-hill,-36.7142716,144.2471805,name,peak,"Specimen Hill, Bendigo, Victoria, 3556, Australia",18.8
 vic-bentleigh-bentleigh-central,-37.9175354,145.0369346,stem,station,"Bentleigh, Caulfield-Frankston Rail Trail, Bentleigh, Melbourne, Victoria, 3204, Australia",2.1
 vic-bentleigh-mckinnon-east,-37.9118354,145.0648816,name,school,"McKinnon Secondary College East Campus, 20, Market Boulevard, Virginia Park, Bentleigh Eas",2.2
 vic-berwick-centre-road,-38.0488964,145.3242713,name,secondary,"Centre Road, Alira, Berwick, Melbourne, Victoria, 3806, Australia",2.9
 vic-berwick-ramlegh-park,-38.1143324,145.343525,name,park,"Ramlegh Reserve, Clyde North, Melbourne, Victoria, 3978, Australia",8.5
 vic-berwick-tulliallan,-38.0776317,145.3267537,name,residential,"Tulliallan, Cranbourne North, Melbourne, Victoria, Australia",5.0
-vic-box-hill-koonung-heights,-37.8020318,145.1037089,name,place_of_worship,"Koonung Heights Uniting Church, Belmore Road, Balwyn East, Balwyn, Melbourne, Victoria, 31",2.5
-vic-box-hill-middlefield,-37.8019792,145.1508138,name,park,"Middlefield Drive Reserve, Blackburn North, Melbourne, Victoria, 3130, Australia",3.3
-vic-broadmeadows-hume-central,-37.6804576,144.9123982,name,school,"Hume Central Secondary College Dimboola Road Campus, 39, Dimboola Road, Broadmeadows, Melb",1.9
+vic-box-hill-koonung-heights,-37.8020318,145.1037089,name,place_of_worship,"Koonung Heights Uniting Church, Belmore Road, Balwyn East, Balwyn, Melbourne, Victoria, 31",2.1
+vic-box-hill-middlefield,-37.8019792,145.1508138,name,park,"Middlefield Drive Reserve, Blackburn North, Melbourne, Victoria, 3130, Australia",3.4
+vic-broadmeadows-hume-central,-37.6804576,144.9123982,name,school,"Hume Central Secondary College Dimboola Road Campus, 39, Dimboola Road, Broadmeadows, Melb",2.0
 vic-brunswick-carlton-north,-37.7845585,144.9728553,name,administrative,"Carlton North, Melbourne, Victoria, 3054, Australia",2.4
-vic-bulleen-bulleen-west,-37.7688992,145.0871992,stem,administrative,"Bulleen, Melbourne, Victoria, 3105, Australia",3.8
+vic-bulleen-bulleen-west,-37.7688992,145.0871992,stem,administrative,"Bulleen, Melbourne, Victoria, 3105, Australia",4.0
 vic-bundoora-bundoora,-37.6982468,145.0596757,name,administrative,"Bundoora, Melbourne, Victoria, 3083, Australia",1.6
 vic-bundoora-norris-bank,-37.6951174,145.0473594,name,park,"Norris Bank Parklands, 135, Bundoora, Melbourne, Victoria, 3083, Australia",2.7
 vic-bundoora-streeton,-37.726491,145.0983829,name,residential,"Streeton Views, Yallambie, Melbourne, Victoria, Australia",3.5
 vic-bundoora-watsonia-heights,-37.7157102,145.0999569,name,school,"Watsonia Heights Primary School, 61, Henry Street, Greensborough, Melbourne, Victoria, 308",2.7
 vic-bundoora-watsonia-south,-37.7109468,145.0837808,stem,station,"Watsonia, Greensborough Highway, Watsonia, Melbourne, Victoria, 3087, Australia",1.4
 vic-bundoora-yulong-park,-37.6970276,145.0614953,name,park,"Yulong Reserve, Bundoora, Melbourne, Victoria, 3083, Australia",1.5
-vic-carrum-banyan-fields,-38.0948822,145.1867312,name,school,"Banyan Fields Primary School, 90, Cadles Road, Carrum Downs, Melbourne, Victoria, 3201, Au",2.2
+vic-carrum-banyan-fields,-38.0948822,145.1867312,name,school,"Banyan Fields Primary School, 90, Cadles Road, Carrum Downs, Melbourne, Victoria, 3201, Au",3.7
 vic-caulfield-bundeera,-37.8949507,145.0296668,name,residential,"Bundeera Road, Caulfield South, Melbourne, Victoria, 3162, Australia",1.6
 vic-caulfield-caulfield-west,-37.8773433,145.0422715,stem,station,"Caulfield, Normanby Road, Caulfield East, Melbourne, Victoria, 3145, Australia",2.0
 vic-caulfield-elsternwick,-37.8849937,145.0010231,name,station,"Elsternwick, Horne Street, Elsternwick, Melbourne, Victoria, 3185, Australia",1.7
@@ -43,83 +43,84 @@ vic-caulfield-glenhuntly-east,-37.8923791,145.0413689,stem,administrative,"Glen 
 vic-caulfield-ormond,-37.9042587,145.0394811,name,station,"Ormond, Caulfield-Frankston Rail Trail, Ormond, Melbourne, Victoria, 3204, Australia",2.9
 vic-clarinda-coomoora,-37.9851348,145.1512731,name,nature_reserve,"Coomoora Woodland Flora and Fauna Reserve, Keysborough, Melbourne, Victoria, Australia",4.9
 vic-clarinda-loxwood,-37.987,145.1566567,name,park,"Loxwood Avenue Reserve, Keysborough, Melbourne, Victoria, 3173, Australia",5.4
-vic-cranbourne-clyde,-38.1326419,145.3380884,name,administrative,"Clyde, Melbourne, Victoria, 3978, Australia",6.9
-vic-cranbourne-clyde-north,-38.0949384,145.3628251,name,administrative,"Clyde North, Melbourne, Victoria, Australia",8.1
-vic-cranbourne-courtenay-gardens,-38.0795137,145.2828867,name,school,"Courtenay Gardens Primary School, 62-76, Courtenay Avenue, Cranbourne North, Melbourne, Vi",2.6
-vic-cranbourne-ramlegh-park,-38.1143324,145.343525,name,park,"Ramlegh Reserve, Clyde North, Melbourne, Victoria, 3978, Australia",6.6
+vic-cranbourne-clyde,-38.1326419,145.3380884,name,administrative,"Clyde, Melbourne, Victoria, 3978, Australia",9.1
+vic-cranbourne-clyde-north,-38.0949384,145.3628251,name,administrative,"Clyde North, Melbourne, Victoria, Australia",10.9
+vic-cranbourne-courtenay-gardens,-38.0795137,145.2828867,name,school,"Courtenay Gardens Primary School, 62-76, Courtenay Avenue, Cranbourne North, Melbourne, Vi",5.0
+vic-cranbourne-ramlegh-park,-38.1143324,145.343525,name,park,"Ramlegh Reserve, Clyde North, Melbourne, Victoria, 3978, Australia",9.2
 vic-croydon-civic-square,-37.8016415,145.282038,name,residential,"Civic Square, Croydon, Melbourne, Victoria, 3136, Australia",0.9
-vic-essendon-moonee-ponds,-37.765935,144.9192614,name,station,"Moonee Ponds, Norwood Crescent, Moonee Ponds, Melbourne, Victoria, 3039, Australia",0.9
+vic-essendon-moonee-ponds,-37.765935,144.9192614,name,station,"Moonee Ponds, Norwood Crescent, Moonee Ponds, Melbourne, Victoria, 3039, Australia",1.0
 vic-eureka-bacchus-marsh-central,-37.6997208,144.4029972,stem,park,"Bacchus Marsh Racecourse and Recreation Reserve, Maddingley, Victoria, 3340, Australia",34.0
 vic-eureka-clarkes-hill,-37.498943,143.978809,name,administrative,"Clarkes Hill, Ballarat, Victoria, Australia",23.3
 vic-eureka-mount-wallace,-37.734301,144.2176022,name,administrative,"Mount Wallace, Victoria, Australia",17.9
 vic-euroa-cooma,-36.409381,145.0728646,name,administrative,"Cooma, Victoria, Australia",44.1
 vic-euroa-seymour-east,-37.0241543,145.1362432,stem,administrative,"Seymour, Victoria, Australia",34.5
-vic-evelyn-lilydale-heights,-37.7453525,145.3411801,name,school,"Lilydale Heights College, 17-19, Nelson Road, Lilydale, Melbourne, Victoria, 3140, Austral",3.3
-vic-evelyn-mt-evelyn-south,-37.7873186,145.3883037,stem,administrative,"Mount Evelyn, Melbourne, Victoria, 3796, Australia",3.0
+vic-evelyn-lilydale-heights,-37.7453525,145.3411801,name,school,"Lilydale Heights College, 17-19, Nelson Road, Lilydale, Melbourne, Victoria, 3140, Austral",2.7
+vic-evelyn-mt-evelyn-south,-37.7873186,145.3883037,stem,administrative,"Mount Evelyn, Melbourne, Victoria, 3796, Australia",3.6
 vic-footscray-footscray-east,-37.7981339,144.897345,stem,administrative,"Footscray, Melbourne, Victoria, 3011, Australia",3.1
-vic-footscray-footscray-park,-37.7933306,144.9039329,name,park,"Footscray Park, Footscray, Melbourne, Victoria, Australia",3.7
+vic-footscray-footscray-park,-37.7933306,144.9039329,name,park,"Footscray Park, Footscray, Melbourne, Victoria, Australia",3.8
 vic-footscray-kingsville-south,-37.8306664,144.8713429,name,administrative,"South Kingsville, Melbourne, Victoria, Australia",3.8
-vic-footscray-kingsville-west,-37.8115027,144.8707647,name,post_office,"Australia Post - Kingsville West LPO, 339, Somerville Road, Yarraville, Melbourne, Victori",1.7
+vic-footscray-kingsville-west,-37.8115027,144.8707647,name,post_office,"Australia Post - Kingsville West LPO, 339, Somerville Road, Yarraville, Melbourne, Victori",1.8
 vic-frankston-john-paul-college,-38.1361013,145.1384414,name,school,"John Paul College, 161, McMahons Road, Frankston, Melbourne, Victoria, 3199, Australia",1.6
-vic-geelong-bannockburn-west,-38.0443362,144.1738367,stem,administrative,"Bannockburn, Victoria, Australia",19.9
-vic-geelong-belmont-west,-38.1785947,144.3421337,stem,administrative,"Belmont, Geelong, Victoria, Australia",2.9
-vic-geelong-fyans-park,-38.153991,144.3257879,name,school,"Fyans Park Primary School, 37, Cook Street, Newtown, Geelong, Victoria, 3220, Australia",2.4
-vic-geelong-geelong-east,-38.1555531,144.3801967,name,administrative,"East Geelong, Geelong, Victoria, Australia",2.4
-vic-geelong-kidman,-38.186513,144.3347107,name,park,"Kidman Reserve, Belmont, Geelong, Victoria, Australia",4.0
-vic-geelong-manifold-heights-west,-38.1388955,144.3361831,name,place_of_worship,"Mano Baps, 163, Shannon Avenue, Manifold Heights, Geelong, Victoria, 3218, Australia",2.2
-vic-geelong-st-helens,-38.1212743,144.3582023,name,residential,"Saint Helens, Helen Street, Rippleside, Geelong, Victoria, 3215, Australia",3.6
-vic-geelong-whittington,-38.1771013,144.3920658,name,administrative,"Whittington, Geelong, Victoria, 3219, Australia",4.3
-vic-geelong-whittington-south,-38.1771013,144.3920658,stem,administrative,"Whittington, Geelong, Victoria, 3219, Australia",4.3
-vic-gippsland-south-staceys-bridge,-38.556638,146.5151285,name,administrative,"Staceys Bridge, Victoria, Australia",19.0
+vic-geelong-bannockburn-west,-38.0443362,144.1738367,stem,administrative,"Bannockburn, Victoria, Australia",19.3
+vic-geelong-belmont-west,-38.1785947,144.3421337,stem,administrative,"Belmont, Geelong, Victoria, Australia",3.2
+vic-geelong-fyans-park,-38.153991,144.3257879,name,school,"Fyans Park Primary School, 37, Cook Street, Newtown, Geelong, Victoria, 3220, Australia",2.0
+vic-geelong-geelong-east,-38.1555531,144.3801967,name,administrative,"East Geelong, Geelong, Victoria, Australia",2.9
+vic-geelong-kidman,-38.186513,144.3347107,name,park,"Kidman Reserve, Belmont, Geelong, Victoria, Australia",4.2
+vic-geelong-manifold-heights-west,-38.1388955,144.3361831,name,place_of_worship,"Mano Baps, 163, Shannon Avenue, Manifold Heights, Geelong, Victoria, 3218, Australia",1.6
+vic-geelong-st-helens,-38.1212743,144.3582023,name,residential,"Saint Helens, Helen Street, Rippleside, Geelong, Victoria, 3215, Australia",3.4
+vic-geelong-whittington,-38.1771013,144.3920658,name,administrative,"Whittington, Geelong, Victoria, 3219, Australia",4.9
+vic-geelong-whittington-south,-38.1771013,144.3920658,stem,administrative,"Whittington, Geelong, Victoria, 3219, Australia",4.9
+vic-gippsland-south-staceys-bridge,-38.556638,146.5151285,name,administrative,"Staceys Bridge, Victoria, Australia",19.4
 vic-glen-waverley-glen-waverley-central,-37.8796677,145.1629162,stem,station,"Glen Waverley, Kingsway, Glen Waverley, Melbourne, Victoria, 3150, Australia",2.1
 vic-glen-waverley-mitcham-south,-37.8180929,145.1928003,stem,station,"Mitcham, Mitcham Road, Mitcham, Melbourne, Victoria, 3132, Australia",5.3
 vic-greenvale-greenvale-park,-37.6227625,144.8927846,name,park,"Greenvale Reservoir Park, Greenvale, Melbourne, Victoria, 3059, Australia",2.6
-vic-hastings-baxter,-38.1940808,145.160517,name,station,"Baxter, Somerville to Baxter Trail, Baxter, Melbourne, Victoria, 3911, Australia",7.2
-vic-hastings-westpark,-38.2966342,145.1742471,name,neighbourhood,"Westpark, Melbourne, Victoria, 3915, Australia",7.0
+vic-hastings-baxter,-38.1940808,145.160517,name,station,"Baxter, Somerville to Baxter Trail, Baxter, Melbourne, Victoria, 3911, Australia",6.9
+vic-hastings-westpark,-38.2966342,145.1742471,name,neighbourhood,"Westpark, Melbourne, Victoria, 3915, Australia",6.7
 vic-hawthorn-camberwell-south,-37.8478566,145.0621525,name,school,"Camberwell South Primary School, 4, Peate Avenue, Glen Iris, Melbourne, Victoria, 3146, Au",1.5
-vic-hawthorn-chatham-south,-37.8242309,145.0886628,stem,station,"Chatham, Stanley Terrace, Surrey Hills, Melbourne, Victoria, 3127, Australia",2.5
-vic-hawthorn-highfield,-37.8363266,145.0856679,name,park,"Highfield Park, Camberwell, Melbourne, Victoria, 3124, Australia",2.0
-vic-hawthorn-kooyong,-37.841394,145.0358402,name,administrative,"Kooyong, Melbourne, Victoria, Australia",2.5
-vic-hawthorn-willison,-37.8353952,145.0701111,name,station,"Willison, Stodart Street, Camberwell, Melbourne, Victoria, 3124, Australia",0.6
+vic-hawthorn-chatham-south,-37.8242309,145.0886628,stem,station,"Chatham, Stanley Terrace, Surrey Hills, Melbourne, Victoria, 3127, Australia",2.4
+vic-hawthorn-highfield,-37.8363266,145.0856679,name,park,"Highfield Park, Camberwell, Melbourne, Victoria, 3124, Australia",1.9
+vic-hawthorn-kooyong,-37.841394,145.0358402,name,administrative,"Kooyong, Melbourne, Victoria, Australia",2.6
+vic-hawthorn-willison,-37.8353952,145.0701111,name,station,"Willison, Stodart Street, Camberwell, Melbourne, Victoria, 3124, Australia",0.5
 vic-ivanhoe-streeton,-37.726491,145.0983829,name,residential,"Streeton Views, Yallambie, Melbourne, Victoria, Australia",4.4
-vic-kororoit-deer-park-north,-37.7556852,144.7741406,name,school,"Deer Park North Primary School, 18-36, Mawson Avenue, Deer Park, Melbourne, Victoria, 3023",1.6
-vic-kororoit-stevensville,-37.7366304,144.7812723,name,school,"Stevensville Primary School, 52, Kings Road, St Albans, Melbourne, Victoria, 3021, Austral",1.9
-vic-lara-fyansford,-38.1416752,144.3096802,name,administrative,"Fyansford, Geelong, Victoria, Australia",7.5
-vic-lara-norlane-west,-38.0890495,144.3434343,name,neighbourhood,"Norlane West, Norlane, Geelong, Victoria, 3214, Australia",1.0
-vic-lara-st-helens,-38.1212743,144.3582023,name,residential,"Saint Helens, Helen Street, Rippleside, Geelong, Victoria, 3215, Australia",4.5
+vic-kororoit-deer-park-north,-37.7556852,144.7741406,name,school,"Deer Park North Primary School, 18-36, Mawson Avenue, Deer Park, Melbourne, Victoria, 3023",1.5
+vic-kororoit-stevensville,-37.7366304,144.7812723,name,school,"Stevensville Primary School, 52, Kings Road, St Albans, Melbourne, Victoria, 3021, Austral",1.1
+vic-lara-bisinella,-38.1824949,144.4626969,name,residential,"Bisinella Court, Leopold, Victoria, 3224, Australia",18.7
+vic-lara-fyansford,-38.1416752,144.3096802,name,administrative,"Fyansford, Geelong, Victoria, Australia",17.9
+vic-lara-norlane-west,-38.0890495,144.3434343,name,neighbourhood,"Norlane West, Norlane, Geelong, Victoria, 3214, Australia",11.6
+vic-lara-st-helens,-38.1212743,144.3582023,name,residential,"Saint Helens, Helen Street, Rippleside, Geelong, Victoria, 3215, Australia",13.6
 vic-laverton-ardeer,-37.7758681,144.8014637,name,administrative,"Ardeer, Melbourne, Victoria, 3022, Australia",4.9
 vic-laverton-laverton,-37.8637978,144.7723486,name,station,"Laverton, Railway Avenue, Laverton, Melbourne, Victoria, 3028, Australia",5.3
 vic-laverton-tottenham-north,-37.799268,144.863206,stem,station,"Tottenham, Sunshine Road, West Footscray, Melbourne, Victoria, 3012, Australia",7.5
 vic-lowan-horsham-south,-36.7520309,142.3218938,name,secondary,"Horsham-Lubeck Road, Drung, Victoria, 3401, Australia",36.6
-vic-macedon-toolern,-37.6074215,144.5941995,name,administrative,"Toolern Vale, Melbourne, Victoria, 3337, Australia",30.3
-vic-melbourne-melbourne,-37.8142454,144.9631732,name,city,"Melbourne, Victoria, Australia",1.6
-vic-melbourne-queen-victoria,-37.8219725,144.9717214,name,park,"Queen Victoria Gardens, Melbourne, Victoria, Australia",2.7
-vic-melbourne-south-kensington,-37.7995027,144.9248067,name,station,"South Kensington, Childers Street, Kensington, Melbourne, Victoria, 3031, Australia",2.8
+vic-macedon-toolern,-37.6074215,144.5941995,name,administrative,"Toolern Vale, Melbourne, Victoria, 3337, Australia",24.6
+vic-melbourne-melbourne,-37.8142454,144.9631732,name,city,"Melbourne, Victoria, Australia",2.1
+vic-melbourne-queen-victoria,-37.8219725,144.9717214,name,park,"Queen Victoria Gardens, Melbourne, Victoria, Australia",3.2
+vic-melbourne-south-kensington,-37.7995027,144.9248067,name,station,"South Kensington, Childers Street, Kensington, Melbourne, Victoria, 3031, Australia",2.3
 vic-mildura-nandaly,-35.3117042,142.6782631,name,administrative,"Nandaly, Victoria, Australia",41.9
-vic-mill-park-greenbrook,-37.6472967,145.0359019,name,tertiary,"Greenbrook Drive, Epping, Melbourne, Victoria, 3076, Australia",1.5
-vic-mill-park-lalor-north-east,-37.6596146,145.0340882,stem,school,"Lalor North Secondary College, 114, Childs Road, Lalor, Melbourne, Victoria, 3075, Austral",2.0
-vic-mill-park-meadow-glen,-37.6456677,145.0563582,name,park,"Meadow Glen Reserve, Epping, Melbourne, Victoria, 3076, Australia",0.5
-vic-monbulk-canterbury-gardens,-37.8307321,145.2944319,name,park,"Canterbury Gardens, 42-78, Bayswater North, Melbourne, Victoria, 3153, Australia",7.8
-vic-monbulk-monbulk-central,-37.9076776,145.3565729,stem,station,"Belgrave (Narrow-gauge), 1, Old Monbulk Road, Belgrave, Melbourne, Victoria, 3160, Austral",3.9
-vic-monbulk-wandin-east,-37.81237,145.462204,name,administrative,"Wandin East, Melbourne, Victoria, Australia",10.9
-vic-mordialloc-keysborough-gardens,-38.00976,145.1610494,name,school,"Keysborough Gardens Primary School, 10, Homeleigh Road, Somerfield Estate, Keysborough, Me",5.9
-vic-mordialloc-keysborough-park,-37.989631,145.1590044,name,park,"Keysborough Community Park, Keysborough, Melbourne, Victoria, Australia",5.9
+vic-mill-park-greenbrook,-37.6472967,145.0359019,name,tertiary,"Greenbrook Drive, Epping, Melbourne, Victoria, 3076, Australia",1.8
+vic-mill-park-lalor-north-east,-37.6596146,145.0340882,stem,school,"Lalor North Secondary College, 114, Childs Road, Lalor, Melbourne, Victoria, 3075, Austral",0.9
+vic-mill-park-meadow-glen,-37.6456677,145.0563582,name,park,"Meadow Glen Reserve, Epping, Melbourne, Victoria, 3076, Australia",2.2
+vic-monbulk-canterbury-gardens,-37.8307321,145.2944319,name,park,"Canterbury Gardens, 42-78, Bayswater North, Melbourne, Victoria, 3153, Australia",7.1
+vic-monbulk-monbulk-central,-37.9076776,145.3565729,stem,station,"Belgrave (Narrow-gauge), 1, Old Monbulk Road, Belgrave, Melbourne, Victoria, 3160, Austral",4.2
+vic-monbulk-wandin-east,-37.81237,145.462204,name,administrative,"Wandin East, Melbourne, Victoria, Australia",11.2
+vic-mordialloc-keysborough-gardens,-38.00976,145.1610494,name,school,"Keysborough Gardens Primary School, 10, Homeleigh Road, Somerfield Estate, Keysborough, Me",6.0
+vic-mordialloc-keysborough-park,-37.989631,145.1590044,name,park,"Keysborough Community Park, Keysborough, Melbourne, Victoria, Australia",5.6
 vic-morwell-morwell-central,-38.2317359,146.4065784,name,school,"Morwell Central Primary School, 47-87, McDonald Street, Morwell, Victoria, 3840, Australia",4.0
-vic-mulgrave-noble-park-north,-37.9512702,145.1908377,name,administrative,"Noble Park North, Melbourne, Victoria, Australia",2.1
-vic-mulgrave-springvale-north,-37.9345015,145.1567149,name,retail,"Springvale North Shopping Centre, Springvale, Melbourne, Victoria, Australia",1.6
-vic-narre-warren-north-hallam-valley,-38.0425325,145.3156989,name,recreation_ground,"Hallam Valley Reserve, Narre Warren, Melbourne, Victoria, 3805, Australia",7.0
-vic-nepean-mccrae,-38.3599791,144.9338501,name,administrative,"McCrae, Melbourne, Victoria, 3938, Australia",2.2
-vic-nepean-rosebud,-38.3710325,144.9095115,name,administrative,"Rosebud, Melbourne, Victoria, Australia",0.7
-vic-nepean-waterfall-gully,-38.3777517,144.9194801,name,residential,"Waterfall Gully, Rosebud, Melbourne, Victoria, 3939, Australia",0.4
-vic-niddrie-avondale-heights-north,-37.7614537,144.862141,stem,administrative,"Avondale Heights, Melbourne, Victoria, 3034, Australia",2.6
-vic-niddrie-calder-rise,-37.7164002,144.8230432,name,park,"Calder Rise Park, Keilor, Melbourne, Victoria, 3036, Australia",5.4
-vic-niddrie-niddrie,-37.7397699,144.8847881,name,administrative,"Niddrie, Melbourne, Victoria, Australia",0.7
+vic-mulgrave-noble-park-north,-37.9512702,145.1908377,name,administrative,"Noble Park North, Melbourne, Victoria, Australia",2.0
+vic-mulgrave-springvale-north,-37.9345015,145.1567149,name,retail,"Springvale North Shopping Centre, Springvale, Melbourne, Victoria, Australia",1.8
+vic-narre-warren-north-hallam-valley,-38.0425325,145.3156989,name,recreation_ground,"Hallam Valley Reserve, Narre Warren, Melbourne, Victoria, 3805, Australia",6.5
+vic-nepean-mccrae,-38.3599791,144.9338501,name,administrative,"McCrae, Melbourne, Victoria, 3938, Australia",1.7
+vic-nepean-rosebud,-38.3710325,144.9095115,name,administrative,"Rosebud, Melbourne, Victoria, Australia",1.0
+vic-nepean-waterfall-gully,-38.3777517,144.9194801,name,residential,"Waterfall Gully, Rosebud, Melbourne, Victoria, 3939, Australia",0.7
+vic-niddrie-avondale-heights-north,-37.7614537,144.862141,stem,administrative,"Avondale Heights, Melbourne, Victoria, 3034, Australia",2.5
+vic-niddrie-calder-rise,-37.7164002,144.8230432,name,park,"Calder Rise Park, Keilor, Melbourne, Victoria, 3036, Australia",5.2
+vic-niddrie-niddrie,-37.7397699,144.8847881,name,administrative,"Niddrie, Melbourne, Victoria, Australia",1.0
 vic-northcote-darebin-parklands,-37.7734417,145.0333747,name,park,"Darebin Parklands, Alphington, Melbourne, Victoria, Australia",2.6
-vic-oakleigh-carnegie-west,-37.8862294,145.0585695,stem,station,"Carnegie, Shepparson Avenue, Carnegie, Melbourne, Victoria, 3163, Australia",3.5
-vic-oakleigh-clayton-east,-37.9038127,145.1234926,name,neighbourhood,"Clayton North, Oakleigh East, Melbourne, Victoria, 3166, Australia",2.7
-vic-oakleigh-davies-reserve,-37.9201674,145.1030943,name,park,"Davies Reserve, Oakleigh South, Melbourne, Victoria, 3167, Australia",2.2
-vic-oakleigh-glenhuntly-east,-37.8923791,145.0413689,stem,administrative,"Glen Huntly, Melbourne, Victoria, Australia",4.7
-vic-oakleigh-huntingdale,-37.9107647,145.1020573,name,station,"Huntingdale, North Road, Oakleigh South, Melbourne, Victoria, 3167, Australia",1.3
+vic-oakleigh-carnegie-west,-37.8862294,145.0585695,stem,station,"Carnegie, Shepparson Avenue, Carnegie, Melbourne, Victoria, 3163, Australia",3.0
+vic-oakleigh-clayton-east,-37.9038127,145.1234926,name,neighbourhood,"Clayton North, Oakleigh East, Melbourne, Victoria, 3166, Australia",3.1
+vic-oakleigh-davies-reserve,-37.9201674,145.1030943,name,park,"Davies Reserve, Oakleigh South, Melbourne, Victoria, 3167, Australia",2.5
+vic-oakleigh-glenhuntly-east,-37.8923791,145.0413689,stem,administrative,"Glen Huntly, Melbourne, Victoria, Australia",4.2
+vic-oakleigh-huntingdale,-37.9107647,145.1020573,name,station,"Huntingdale, North Road, Oakleigh South, Melbourne, Victoria, 3167, Australia",1.7
 vic-ovens-valley-bundalong,-36.0329624,146.1658428,name,village,"Bundalong, Victoria, Australia",49.7
 vic-ovens-valley-everton,-36.442907,146.5618738,name,administrative,"Everton, Victoria, Australia",11.4
 vic-ovens-valley-oxley,-36.4487715,146.3731118,name,administrative,"Oxley, Victoria, Australia",6.4
@@ -131,27 +132,27 @@ vic-pakenham-pakenham-hills,-38.055072,145.4971704,name,residential,"Pakenham Hi
 vic-point-cook-altona-meadows-cc,-37.8814419,144.7845482,name,administrative,"Altona Meadows, Melbourne, Victoria, 3028, Australia",3.9
 vic-point-cook-jamieson-way,-37.8950706,144.7460549,name,tertiary,"Jamieson Way, Point Cook Gardens, Point Cook, Melbourne, Victoria, 3030, Australia",0.3
 vic-point-cook-seabrook-central,-37.8806797,144.7578334,stem,administrative,"Seabrook, Melbourne, Victoria, Australia",2.0
-vic-polwarth-irrewillipe-east,-38.433696,143.483871,name,administrative,"Irrewillipe East, Victoria, Australia",15.8
+vic-polwarth-irrewillipe-east,-38.433696,143.483871,name,administrative,"Irrewillipe East, Victoria, Australia",18.2
 vic-prahran-fawkner-park,-37.8414609,144.9818683,name,park,"Fawkner Park, South Yarra, Melbourne, Victoria, Australia",1.4
 vic-prahran-redan-central,-37.859959,144.9901531,stem,residential,"Redan Street, St Kilda, Melbourne, Victoria, 3182, Australia",1.3
 vic-prahran-st-kilda-east,-37.8668218,145.0021657,name,administrative,"St Kilda East, Melbourne, Victoria, 3183, Australia",2.1
 vic-preston-keon-park,-37.6960332,145.0116642,name,station,"Keon Park, Platform 2, Keon Park, Reservoir, Melbourne, Victoria, 3073, Australia",3.2
-vic-richmond-atherton-gardens,-37.8046796,144.9785318,name,residential,"Atherton Gardens Housing Estate, Fitzroy, Melbourne, Victoria, Australia",1.4
+vic-richmond-atherton-gardens,-37.8046796,144.9785318,name,residential,"Atherton Gardens Housing Estate, Fitzroy, Melbourne, Victoria, Australia",1.5
 vic-ringwood-mitcham-south,-37.8180929,145.1928003,stem,station,"Mitcham, Mitcham Road, Mitcham, Melbourne, Victoria, 3132, Australia",1.9
 vic-ringwood-nunawading,-37.820503,145.1751332,name,station,"Nunawading, Springvale Road, Nunawading, Melbourne, Victoria, 3131, Australia",3.5
 vic-ringwood-nunawading-east,-37.8550995,145.1630847,name,sports_centre,"Nunawading Basketball Stadium, Burwood Highway, Burwood East, Melbourne, Victoria, 3151, A",6.1
 vic-ringwood-southwood,-37.8591268,145.21615,name,residential,"Southwood Close, Wantirna, Melbourne, Victoria, 3152, Australia",4.5
-vic-ripon-smeaton,-37.313193,143.964309,name,administrative,"Smeaton, Victoria, 3364, Australia",46.8
+vic-ripon-smeaton,-37.313193,143.964309,name,administrative,"Smeaton, Victoria, 3364, Australia",49.7
 vic-rowville-carrington,-37.9168018,145.2876881,name,residential,"Carrington, Lysterfield, Melbourne, Victoria, Australia",4.0
 vic-rowville-flamingo,-37.868625,145.2223906,name,park,"Flamingo Reserve, Wantirna South, Melbourne, Victoria, 3152, Australia",4.2
 vic-rowville-knox-park,-37.8955824,145.2580224,name,park,"Knox Park, Knoxfield, Melbourne, Victoria, 3180, Australia",1.2
-vic-shepparton-st-georges-road,-36.3859249,145.4073695,name,tertiary,"St Georges Road, Shepparton, Victoria, 3630, Australia",13.0
-vic-shepparton-tallygaroopna,-36.2394885,145.4407566,name,administrative,"Tallygaroopna, Victoria, 3634, Australia",6.2
-vic-south-barwon-armstrong-creek,-38.2341184,144.3709512,name,administrative,"Armstrong Creek, Geelong, Victoria, Australia",5.5
-vic-south-barwon-belmont-west,-38.1785947,144.3421337,stem,administrative,"Belmont, Geelong, Victoria, Australia",6.2
-vic-south-barwon-highton-central,-38.1709191,144.3190212,stem,administrative,"Highton, Geelong, Victoria, Australia",6.3
-vic-south-barwon-mount-duneed-central,-38.2316529,144.3170763,stem,administrative,"Mount Duneed, Geelong, Victoria, 3217, Australia",0.9
-vic-south-barwon-waurn-ponds,-38.2158244,144.3061193,name,station,"Waurn Ponds, Muir Road, Mount Duneed, Geelong, Victoria, 3217, Australia",1.3
+vic-shepparton-st-georges-road,-36.3859249,145.4073695,name,tertiary,"St Georges Road, Shepparton, Victoria, 3630, Australia",10.8
+vic-shepparton-tallygaroopna,-36.2394885,145.4407566,name,administrative,"Tallygaroopna, Victoria, 3634, Australia",8.0
+vic-south-barwon-armstrong-creek,-38.2341184,144.3709512,name,administrative,"Armstrong Creek, Geelong, Victoria, Australia",4.3
+vic-south-barwon-belmont-west,-38.1785947,144.3421337,stem,administrative,"Belmont, Geelong, Victoria, Australia",4.7
+vic-south-barwon-highton-central,-38.1709191,144.3190212,stem,administrative,"Highton, Geelong, Victoria, Australia",5.4
+vic-south-barwon-mount-duneed-central,-38.2316529,144.3170763,stem,administrative,"Mount Duneed, Geelong, Victoria, 3217, Australia",1.6
+vic-south-barwon-waurn-ponds,-38.2158244,144.3061193,name,station,"Waurn Ponds, Muir Road, Mount Duneed, Geelong, Victoria, 3217, Australia",1.7
 vic-south-west-coast-grassmere,-38.2853758,142.5237312,name,administrative,"Grassmere, Victoria, Australia",19.9
 vic-south-west-coast-portland,-38.1927003,141.9067865,name,tertiary,"Portland Road, Bessiebelle, Victoria, 3304, Australia",35.2
 vic-south-west-coast-wangoom,-38.329565,142.5787675,name,administrative,"Wangoom, Victoria, Australia",25.4
@@ -164,103 +165,103 @@ vic-sunbury-bulla,-37.6347957,144.8027227,name,administrative,"Bulla, Melbourne,
 vic-sunbury-goonawarra,-37.5726347,144.7537233,name,neighbourhood,"Goonawarra, Sunbury, Melbourne, Victoria, 3429, Australia",8.3
 vic-sunbury-sunbury-central,-37.5796938,144.7295281,stem,administrative,"Sunbury, Melbourne, Victoria, 3429, Australia",9.0
 vic-sydenham-sydenham,-37.6997223,144.7653295,name,administrative,"Sydenham, Melbourne, Victoria, 3037, Australia",0.7
-vic-tarneit-bellbridge-east,-37.8734,144.7072662,stem,residential,"Bellbridge, Hoppers Crossing, Melbourne, Victoria, Australia",2.5
-vic-tarneit-tarneit-rise,-37.8371258,144.6649374,name,school,"Tarneit Rise Primary School, 51-71, Hummingbird Boulevard, The Rise, Tarneit, Melbourne, V",3.2
-vic-thomastown-epping-north-west,-37.6232871,145.0083619,stem,park,"Proposed Epping North Rail Line Easement, Epping, Melbourne, Victoria, 3076, Australia",5.3
-vic-thomastown-lalor-north-east,-37.6596146,145.0340882,stem,school,"Lalor North Secondary College, 114, Childs Road, Epping, Melbourne, Victoria, 3076, Austra",2.1
-vic-warrandyte-warrandyte-south,-37.7648724,145.2373106,name,administrative,"Warrandyte South, Melbourne, Victoria, Australia",3.0
+vic-tarneit-bellbridge-east,-37.8734,144.7072662,stem,residential,"Bellbridge, Hoppers Crossing, Melbourne, Victoria, Australia",2.1
+vic-tarneit-tarneit-rise,-37.8371258,144.6649374,name,school,"Tarneit Rise Primary School, 51-71, Hummingbird Boulevard, The Rise, Tarneit, Melbourne, V",4.1
+vic-thomastown-epping-north-west,-37.6232871,145.0083619,stem,park,"Proposed Epping North Rail Line Easement, Epping, Melbourne, Victoria, 3076, Australia",5.8
+vic-thomastown-lalor-north-east,-37.6596146,145.0340882,stem,school,"Lalor North Secondary College, 114, Childs Road, Epping, Melbourne, Victoria, 3076, Austra",2.9
+vic-warrandyte-warrandyte-south,-37.7648724,145.2373106,name,administrative,"Warrandyte South, Melbourne, Victoria, Australia",2.3
 vic-werribee-riverbend,-37.884461,144.6444478,name,residential,"Riverbend, Werribee, Melbourne, Victoria, Australia",1.8
 vic-werribee-riverwalk,-37.9168565,144.6472807,name,residential,"Riverwalk, Werribee, Melbourne, Victoria, Australia",1.9
 vic-williamstown-brooklyn,-37.8160898,144.8414748,name,administrative,"Brooklyn, Melbourne, Victoria, Australia",3.5
 vic-williamstown-kingsville-south,-37.8306664,144.8713429,name,administrative,"South Kingsville, Melbourne, Victoria, Australia",0.8
 vic-williamstown-spotswood-west,-37.8307331,144.8858865,stem,station,"Spotswood, Hall Street, Spotswood, Melbourne, Victoria, 3015, Australia",1.6
-vic-dandenong-doveton-north,-37.9887542,145.2385975,stem,administrative,"Doveton, Melbourne, Victoria, 3177, Australia",3.0
-vic-dandenong-loxwood,-37.987,145.1566567,name,park,"Loxwood Avenue Reserve, Keysborough, Melbourne, Victoria, 3173, Australia",4.9
-vic-dandenong-yarraman-oaks,-37.9707973,145.1925216,name,school,"Yarraman Oaks Primary School, 27, Liege Avenue, Noble Park, Melbourne, Victoria, 3174, Aus",1.6
+vic-dandenong-doveton-north,-37.9887542,145.2385975,stem,administrative,"Doveton, Melbourne, Victoria, 3177, Australia",2.7
+vic-dandenong-loxwood,-37.987,145.1566567,name,park,"Loxwood Avenue Reserve, Keysborough, Melbourne, Victoria, 3173, Australia",5.1
+vic-dandenong-yarraman-oaks,-37.9707973,145.1925216,name,school,"Yarraman Oaks Primary School, 27, Liege Avenue, Noble Park, Melbourne, Victoria, 3174, Aus",1.8
 vic-eildon-buxton,-37.4352955,145.7170196,name,administrative,"Buxton, Victoria, 3711, Australia",10.0
 vic-eildon-kangaroo-ground,-37.6918649,145.2158904,name,administrative,"Kangaroo Ground, Melbourne, Victoria, 3097, Australia",42.6
 vic-eildon-merton,-37.734704,145.3862316,name,park,"Merton Court Reserve, Coldstream, Melbourne, Victoria, Australia",35.2
 vic-eltham-glen-katherine,-37.6929464,145.1313561,name,park,"Glen Katherine Drive Reserve, St Helena, Melbourne, Victoria, 3088, Australia",1.3
 vic-eltham-holy-trinity-eltham-north,-37.6984015,145.1353724,name,school,"Holy Trinity Primary School, 92-96, Weidlich Road, Eltham North, Melbourne, Victoria, 3095",0.6
 vic-eltham-sherbourne,-37.7137067,145.1336635,name,park,"Sherbourne Road Reserve, Montmorency, Melbourne, Victoria, 3094, Australia",1.6
-vic-gippsland-east-dargo,-37.8434543,147.5883564,name,secondary,"Bairnsdale - Dargo Road, Bairnsdale, Victoria, 3875, Australia",17.2
-vic-gippsland-east-lucknow-west,-37.804602,147.6702097,stem,administrative,"Lucknow, Victoria, Australia",8.9
+vic-gippsland-east-dargo,-37.8434543,147.5883564,name,secondary,"Bairnsdale - Dargo Road, Bairnsdale, Victoria, 3875, Australia",16.9
+vic-gippsland-east-lucknow-west,-37.804602,147.6702097,stem,administrative,"Lucknow, Victoria, Australia",8.7
 vic-kalkallo-craigieburn-north-west,-37.5748787,144.920198,stem,post_office,"Craigieburn North Post Office, 300-332, Grand Boulevard, Highlands, Craigieburn, Melbourne",4.1
 vic-kalkallo-elevation,-37.6012131,144.8990217,name,tertiary,"Elevation Boulevard, Aston, Craigieburn, Melbourne, Victoria, 3064, Australia",7.5
 vic-kalkallo-mickleham-north,-37.5281435,144.9078864,name,community_centre,"Mickleham North Community Centre, Blackmore Road, Merrifield, Mickleham, Melbourne, Victor",2.9
 vic-kalkallo-wallan,-37.4138855,144.9774549,name,administrative,"Wallan, Victoria, 3756, Australia",14.6
 vic-kew-balwyn-north-west,-37.7919518,145.0842372,stem,administrative,"Balwyn North, Melbourne, Victoria, 3104, Australia",2.1
 vic-kew-balwyn-west,-37.8091737,145.0833678,stem,administrative,"Balwyn, Melbourne, Victoria, 3103, Australia",1.6
-vic-malvern-armadale-east,-37.8563442,145.0193207,stem,station,"Armadale, Morey Street, Armadale, Melbourne, Victoria, 3143, Australia",1.8
+vic-malvern-armadale-east,-37.8563442,145.0193207,stem,station,"Armadale, Morey Street, Armadale, Melbourne, Victoria, 3143, Australia",1.7
 vic-malvern-kooyong,-37.841394,145.0358402,name,administrative,"Kooyong, Melbourne, Victoria, Australia",2.0
-vic-melton-melton-west,-37.6798651,144.5528895,name,administrative,"Melton West, Melbourne, Victoria, Australia",1.6
-vic-melton-toolern,-37.6074215,144.5941995,name,administrative,"Toolern Vale, Melbourne, Victoria, 3337, Australia",10.3
+vic-melton-melton-west,-37.6798651,144.5528895,name,administrative,"Melton West, Melbourne, Victoria, Australia",3.1
+vic-melton-toolern,-37.6074215,144.5941995,name,administrative,"Toolern Vale, Melbourne, Victoria, 3337, Australia",9.4
 vic-murray-plains-bamawm-extension,-36.184519,144.6003292,name,administrative,"Bamawm Extension, Victoria, Australia",45.4
 vic-murray-plains-dingwall,-35.808604,143.8481751,name,administrative,"Dingwall, Victoria, Australia",35.6
-vic-narre-warren-south-casey-central,-38.0676649,145.3000822,name,mall,"Casey Central, 400, Cranbourne Road, Narre Warren South, Melbourne, Victoria, 3977, Austra",1.9
-vic-narre-warren-south-courtenay-gardens,-38.0795137,145.2828867,name,school,"Courtenay Gardens Primary School, 62-76, Courtenay Avenue, Cranbourne North, Melbourne, Vi",3.1
-vic-narre-warren-south-hillsmeade,-38.0617329,145.305354,name,park,"Hillsmeade Drive Reserve, Narre Warren South, Melbourne, Victoria, 3805, Australia",1.7
-vic-narre-warren-south-tulliallan,-38.0776317,145.3267537,name,residential,"Tulliallan, Cranbourne North, Melbourne, Victoria, Australia",4.3
+vic-narre-warren-south-casey-central,-38.0676649,145.3000822,name,mall,"Casey Central, 400, Cranbourne Road, Narre Warren South, Melbourne, Victoria, 3977, Austra",2.7
+vic-narre-warren-south-courtenay-gardens,-38.0795137,145.2828867,name,school,"Courtenay Gardens Primary School, 62-76, Courtenay Avenue, Cranbourne North, Melbourne, Vi",4.1
+vic-narre-warren-south-hillsmeade,-38.0617329,145.305354,name,park,"Hillsmeade Drive Reserve, Narre Warren South, Melbourne, Victoria, 3805, Australia",2.2
+vic-narre-warren-south-tulliallan,-38.0776317,145.3267537,name,residential,"Tulliallan, Cranbourne North, Melbourne, Victoria, Australia",4.7
 vic-sandringham-cheltenham,-37.9670081,145.0546951,name,station,"Cheltenham, Caulfield-Frankston Rail Trail, Pennydale, Cheltenham, Melbourne, Victoria, 31",2.3
 vic-sandringham-cheltenham-west,-37.9670081,145.0546951,stem,station,"Cheltenham, Caulfield-Frankston Rail Trail, Pennydale, Cheltenham, Melbourne, Victoria, 31",2.3
 vic-sandringham-highett-south,-37.9484438,145.04188,stem,station,"Highett, Railway Parade, Highett, Melbourne, Victoria, 3190, Australia",1.8
 vic-sandringham-mentone-west,-37.988324,145.0697779,name,sports_centre,"Mentone Sports and Aquatic Centre, Como Parade West, Mentone, Melbourne, Victoria, 3194, A",4.7
 vic-wendouree-ballarat-central,-37.5627279,143.8501516,name,administrative,"Ballarat Central, Ballarat, Victoria, Australia",1.6
-vic-altona-altona-meadows-cc,-37.8814419,144.7845482,name_reused,administrative,"Altona Meadows, Melbourne, Victoria, 3028, Australia",1.7
-vic-altona-jamieson-way,-37.8950706,144.7460549,name_reused,tertiary,"Jamieson Way, Point Cook Gardens, Point Cook, Melbourne, Victoria, 3030, Australia",2.6
-vic-altona-laverton,-37.8637978,144.7723486,name_reused,station,"Laverton, Railway Avenue, Laverton, Melbourne, Victoria, 3028, Australia",1.6
-vic-altona-seabrook-central,-37.8806797,144.7578334,stem_reused,administrative,"Seabrook, Melbourne, Victoria, Australia",0.8
-vic-bayswater-canterbury-gardens,-37.8307321,145.2944319,name_reused,park,"Canterbury Gardens, 42-78, Bayswater North, Melbourne, Victoria, 3153, Australia",3.7
-vic-bayswater-southwood,-37.8591268,145.21615,name_reused,residential,"Southwood Close, Wantirna, Melbourne, Victoria, 3152, Australia",4.2
+vic-altona-altona-meadows-cc,-37.8814419,144.7845482,name_reused,administrative,"Altona Meadows, Melbourne, Victoria, 3028, Australia",3.1
+vic-altona-jamieson-way,-37.8950706,144.7460549,name_reused,tertiary,"Jamieson Way, Point Cook Gardens, Point Cook, Melbourne, Victoria, 3030, Australia",3.0
+vic-altona-laverton,-37.8637978,144.7723486,name_reused,station,"Laverton, Railway Avenue, Laverton, Melbourne, Victoria, 3028, Australia",1.8
+vic-altona-seabrook-central,-37.8806797,144.7578334,stem_reused,administrative,"Seabrook, Melbourne, Victoria, Australia",1.4
+vic-bayswater-canterbury-gardens,-37.8307321,145.2944319,name_reused,park,"Canterbury Gardens, 42-78, Bayswater North, Melbourne, Victoria, 3153, Australia",3.6
+vic-bayswater-southwood,-37.8591268,145.21615,name_reused,residential,"Southwood Close, Wantirna, Melbourne, Victoria, 3152, Australia",4.1
 vic-buninyong-clarkes-hill,-37.498943,143.978809,name_reused,administrative,"Clarkes Hill, Ballarat, Victoria, Australia",17.1
 vic-burwood-alamein,-37.8683603,145.0797334,name_reused,station,"Alamein, Ashburn Grove, Ashburton, Melbourne, Victoria, 3147, Australia",2.4
-vic-burwood-chatham-south,-37.8242309,145.0886628,stem_reused,station,"Chatham, Stanley Terrace, Surrey Hills, Melbourne, Victoria, 3127, Australia",3.0
-vic-burwood-highfield,-37.8363266,145.0856679,name_reused,park,"Highfield Park, Camberwell, Melbourne, Victoria, 3124, Australia",1.8
-vic-burwood-jordanville-south,-37.8736635,145.1122691,stem_reused,station,"Jordanville, Windsor Avenue, Mount Waverley, Melbourne, Victoria, 3149, Australia",3.0
+vic-burwood-chatham-south,-37.8242309,145.0886628,stem_reused,station,"Chatham, Stanley Terrace, Surrey Hills, Melbourne, Victoria, 3127, Australia",2.9
+vic-burwood-highfield,-37.8363266,145.0856679,name_reused,park,"Highfield Park, Camberwell, Melbourne, Victoria, 3124, Australia",1.7
+vic-burwood-jordanville-south,-37.8736635,145.1122691,stem_reused,station,"Jordanville, Windsor Avenue, Mount Waverley, Melbourne, Victoria, 3149, Australia",3.1
 vic-clarinda-clayton-east,-37.9038127,145.1234926,name_reused,neighbourhood,"Clayton North, Oakleigh East, Melbourne, Victoria, 3166, Australia",5.4
 vic-clarinda-davies-reserve,-37.9201674,145.1030943,name_reused,park,"Davies Reserve, Oakleigh South, Melbourne, Victoria, 3167, Australia",3.7
 vic-clarinda-springvale-north,-37.9345015,145.1567149,name_reused,retail,"Springvale North Shopping Centre, Springvale, Melbourne, Victoria, Australia",4.2
-vic-cranbourne-casey-central,-38.0676649,145.3000822,name_reused,mall,"Casey Central, 400, Cranbourne Road, Narre Warren South, Melbourne, Victoria, 3977, Austra",4.5
-vic-ferntree-gully-flamingo,-37.868625,145.2223906,name_reused,park,"Flamingo Reserve, Wantirna South, Melbourne, Victoria, 3152, Australia",2.6
-vic-ferntree-gully-knox-park,-37.8955824,145.2580224,name_reused,park,"Knox Park, Knoxfield, Melbourne, Victoria, 3180, Australia",2.5
-vic-ferntree-gully-knoxfield-north,-37.8897731,145.2496342,stem_reused,administrative,"Knoxfield, Melbourne, Victoria, 3180, Australia",1.8
-vic-ferntree-gully-wantirna-north,-37.8523357,145.2259721,stem_reused,administrative,"Wantirna, Melbourne, Victoria, Australia",3.2
+vic-cranbourne-casey-central,-38.0676649,145.3000822,name_reused,mall,"Casey Central, 400, Cranbourne Road, Narre Warren South, Melbourne, Victoria, 3977, Austra",6.9
+vic-ferntree-gully-flamingo,-37.868625,145.2223906,name_reused,park,"Flamingo Reserve, Wantirna South, Melbourne, Victoria, 3152, Australia",3.4
+vic-ferntree-gully-knox-park,-37.8955824,145.2580224,name_reused,park,"Knox Park, Knoxfield, Melbourne, Victoria, 3180, Australia",1.2
+vic-ferntree-gully-knoxfield-north,-37.8897731,145.2496342,stem_reused,administrative,"Knoxfield, Melbourne, Victoria, 3180, Australia",0.7
+vic-ferntree-gully-wantirna-north,-37.8523357,145.2259721,stem_reused,administrative,"Wantirna, Melbourne, Victoria, Australia",4.4
 vic-footscray-ardeer,-37.7758681,144.8014637,name_reused,administrative,"Ardeer, Melbourne, Victoria, 3022, Australia",5.8
-vic-footscray-tottenham-north,-37.799268,144.863206,stem_reused,station,"Tottenham, Sunshine Road, West Footscray, Melbourne, Victoria, 3012, Australia",0.2
+vic-footscray-tottenham-north,-37.799268,144.863206,stem_reused,station,"Tottenham, Sunshine Road, West Footscray, Melbourne, Victoria, 3012, Australia",0.3
 vic-forest-hill-mitcham-south,-37.8180929,145.1928003,stem_reused,station,"Mitcham, Mitcham Road, Mitcham, Melbourne, Victoria, 3132, Australia",4.0
-vic-gembrook-officer-east,-38.0662897,145.4116963,stem_reused,station,"Officer, Civic Drive, Officer, Melbourne, Victoria, 3809, Australia",6.1
-vic-gembrook-pakenham-hills,-38.055072,145.4971704,name_reused,residential,"Pakenham Hills Estate, Pakenham, Melbourne, Victoria, Australia",8.1
+vic-gembrook-officer-east,-38.0662897,145.4116963,stem_reused,station,"Officer, Civic Drive, Officer, Melbourne, Victoria, 3809, Australia",17.1
+vic-gembrook-pakenham-hills,-38.055072,145.4971704,name_reused,residential,"Pakenham Hills Estate, Pakenham, Melbourne, Victoria, Australia",14.9
 vic-keysborough-coomoora,-37.9851348,145.1512731,name_reused,nature_reserve,"Coomoora Woodland Flora and Fauna Reserve, Keysborough, Melbourne, Victoria, Australia",0.7
 vic-keysborough-keysborough-park,-37.989631,145.1590044,name_reused,park,"Keysborough Community Park, Keysborough, Melbourne, Victoria, Australia",1.2
 vic-keysborough-loxwood,-37.987,145.1566567,name_reused,park,"Loxwood Avenue Reserve, Keysborough, Melbourne, Victoria, 3173, Australia",0.8
-vic-melbourne-carlton-north,-37.7845585,144.9728553,name_reused,administrative,"Carlton North, Melbourne, Victoria, 3054, Australia",2.3
-vic-melton-bacchus-marsh-central,-37.6997208,144.4029972,stem_reused,park,"Bacchus Marsh Racecourse and Recreation Reserve, Maddingley, Victoria, 3340, Australia",13.0
+vic-melbourne-carlton-north,-37.7845585,144.9728553,name_reused,administrative,"Carlton North, Melbourne, Victoria, 3054, Australia",2.4
+vic-melton-bacchus-marsh-central,-37.6997208,144.4029972,stem_reused,park,"Bacchus Marsh Racecourse and Recreation Reserve, Maddingley, Victoria, 3340, Australia",10.9
 vic-mount-waverley-glen-waverley-central,-37.8796677,145.1629162,stem_reused,station,"Glen Waverley, Kingsway, Glen Waverley, Melbourne, Victoria, 3150, Australia",1.0
-vic-narre-warren-south-centre-road,-38.0488964,145.3242713,name_reused,secondary,"Centre Road, Alira, Berwick, Melbourne, Victoria, 3806, Australia",3.0
+vic-narre-warren-south-centre-road,-38.0488964,145.3242713,name_reused,secondary,"Centre Road, Alira, Berwick, Melbourne, Victoria, 3806, Australia",2.7
 vic-st-albans-ardeer,-37.7758681,144.8014637,name_reused,administrative,"Ardeer, Melbourne, Victoria, 3022, Australia",2.9
-vic-thomastown-norris-bank,-37.6951174,145.0473594,name_reused,park,"Norris Bank Parklands, 135, Bundoora, Melbourne, Victoria, 3083, Australia",4.0
-vic-yuroke-craigieburn-north-west,-37.5748787,144.920198,stem_reused,post_office,"Craigieburn North Post Office, 300-332, Grand Boulevard, Highlands, Craigieburn, Melbourne",4.3
-vic-yuroke-greenvale-park,-37.6227625,144.8927846,name_reused,park,"Greenvale Reservoir Park, Greenvale, Melbourne, Victoria, 3059, Australia",2.2
-vic-bass-lakeside-east,-38.0646586,145.4561176,stem,school,"Lakeside College, 2, Portobello Road, Pakenham, Melbourne, Victoria, 3810, Australia",29.2
-vic-benambra-bullioh,-36.1936505,147.3347792,name,hamlet,"Bullioh, Victoria, 3700, Australia",27.4
-vic-benambra-running-creek,-36.55082,147.053362,name,administrative,"Running Creek, Victoria, Australia",31.1
+vic-thomastown-norris-bank,-37.6951174,145.0473594,name_reused,park,"Norris Bank Parklands, 135, Bundoora, Melbourne, Victoria, 3083, Australia",4.1
+vic-yuroke-craigieburn-north-west,-37.5748787,144.920198,stem_reused,post_office,"Craigieburn North Post Office, 300-332, Grand Boulevard, Highlands, Craigieburn, Melbourne",6.7
+vic-yuroke-greenvale-park,-37.6227625,144.8927846,name_reused,park,"Greenvale Reservoir Park, Greenvale, Melbourne, Victoria, 3059, Australia",1.2
+vic-bass-lakeside-east,-38.0646586,145.4561176,stem,school,"Lakeside College, 2, Portobello Road, Pakenham, Melbourne, Victoria, 3810, Australia",23.1
+vic-benambra-bullioh,-36.1936505,147.3347792,name,hamlet,"Bullioh, Victoria, 3700, Australia",28.7
+vic-benambra-running-creek,-36.55082,147.053362,name,administrative,"Running Creek, Victoria, Australia",30.3
 vic-benambra-sandy-creek,-36.3606545,147.1249582,name,administrative,"Sandy Creek, Victoria, 3695, Australia",12.3
-vic-benambra-tawonga,-36.6737935,147.171192,name,administrative,"Tawonga, Victoria, 3697, Australia",46.2
+vic-benambra-tawonga,-36.6737935,147.171192,name,administrative,"Tawonga, Victoria, 3697, Australia",45.6
 vic-buninyong-mount-wallace,-37.734301,144.2176022,name,administrative,"Mount Wallace, Victoria, Australia",25.8
 vic-buninyong-scarsdale,-37.6783735,143.6624015,name,administrative,"Scarsdale, Victoria, Australia",25.0
 vic-buninyong-springbank,-37.5190795,144.0600727,name,administrative,"Springbank, Victoria, Australia",17.8
 vic-eltham-eltham-woods,-37.7079708,145.1678061,name,park,"Eltham Woods, Eltham, Melbourne, Victoria, 3095, Australia",2.4
 vic-euroa-arcadia,-36.5556005,145.3855546,name,administrative,"Arcadia, Victoria, Australia",22.6
 vic-euroa-caniambo,-36.4663285,145.5997061,name,administrative,"Caniambo, Victoria, 3630, Australia",40.3
-vic-gembrook-avebury,-38.0243404,145.325887,name,park,"Avebury Drive Reserve Playground, Berwick, Melbourne, Victoria, 3806, Australia",8.6
-vic-gippsland-east-bairnsdale-east,-37.856353,147.6503814,name,administrative,"East Bairnsdale, Victoria, Australia",14.5
-vic-gippsland-east-benambra,-36.9548589,147.7020482,name,village,"Benambra, Victoria, Australia",88.1
-vic-gippsland-east-ensay,-37.386553,147.8120316,name,administrative,"Ensay, Victoria, 3895, Australia",40.5
-vic-gippsland-east-meerlieu,-38.0149145,147.4048078,name,administrative,"Meerlieu, Victoria, Australia",41.9
-vic-gippsland-south-berrys-creek,-38.4128395,146.0679343,name,administrative,"Berrys Creek, Victoria, Australia",30.5
-vic-gippsland-south-kilmany,-38.124251,146.9121061,name,administrative,"Kilmany, Victoria, Australia",53.2
-vic-gippsland-south-mardan,-38.4703235,146.1337975,name,administrative,"Mardan, Victoria, Australia",25.8
-vic-gippsland-south-stradbroke,-38.2778205,147.0385158,name,administrative,"Stradbroke, Victoria, Australia",55.9
+vic-gembrook-avebury,-38.0243404,145.325887,name,park,"Avebury Drive Reserve Playground, Berwick, Melbourne, Victoria, 3806, Australia",17.6
+vic-gippsland-east-bairnsdale-east,-37.856353,147.6503814,name,administrative,"East Bairnsdale, Victoria, Australia",14.3
+vic-gippsland-east-benambra,-36.9548589,147.7020482,name,village,"Benambra, Victoria, Australia",88.3
+vic-gippsland-east-ensay,-37.386553,147.8120316,name,administrative,"Ensay, Victoria, 3895, Australia",40.7
+vic-gippsland-east-meerlieu,-38.0149145,147.4048078,name,administrative,"Meerlieu, Victoria, Australia",41.7
+vic-gippsland-south-berrys-creek,-38.4128395,146.0679343,name,administrative,"Berrys Creek, Victoria, Australia",31.2
+vic-gippsland-south-kilmany,-38.124251,146.9121061,name,administrative,"Kilmany, Victoria, Australia",52.2
+vic-gippsland-south-mardan,-38.4703235,146.1337975,name,administrative,"Mardan, Victoria, Australia",26.7
+vic-gippsland-south-stradbroke,-38.2778205,147.0385158,name,administrative,"Stradbroke, Victoria, Australia",55.1
 vic-hastings-woodlands-primary,-38.135274,145.2038946,name,school,"Woodlands Primary School, 10, Gum Nut Drive, Langwarrin, Melbourne, Victoria, 3910, Austra",12.0
 vic-lowan-dadswells-bridge,-36.9041935,142.4954709,name,administrative,"Dadswells Bridge, Victoria, Australia",36.9
 vic-lowan-dooen,-36.6420495,142.2363532,name,administrative,"Dooen, Victoria, Australia",45.2
@@ -271,30 +272,30 @@ vic-lowan-pimpinio,-36.610489,142.0775293,name,administrative,"Pimpinio, Victori
 vic-lowan-quantong,-36.7516265,142.0460238,name,administrative,"Quantong, Victoria, Australia",32.3
 vic-lowan-riverside,-36.715822,142.2453447,name,administrative,"Riverside, Victoria, Australia",37.5
 vic-lowan-wonwondah-north,-36.8779204,142.1639758,name,tertiary,"North East Wonwondah Road, Wonwondah, Victoria, 3401, Australia",18.2
-vic-macedon-clarkefield,-37.4835828,144.7452422,name,station,"Clarkefield, Station Street, Clarkefield, Victoria, 3430, Australia",27.8
+vic-macedon-clarkefield,-37.4835828,144.7452422,name,station,"Clarkefield, Station Street, Clarkefield, Victoria, 3430, Australia",22.1
 vic-mildura-culgoa,-35.707047,143.1146408,name,administrative,"Culgoa, Victoria, 3530, Australia",100.7
 vic-mildura-yaapeet,-35.6928455,142.0644271,name,administrative,"Yaapeet, Victoria, Australia",85.2
 vic-murray-plains-ballendella,-36.2932625,144.6746348,name,administrative,"Ballendella, Victoria, Australia",58.5
 vic-murray-plains-macorna,-35.9165735,143.9933424,name,administrative,"Macorna, Victoria, Australia",20.4
-vic-narracan-cora-lynn,-38.1436888,145.6042711,name,administrative,"Cora Lynn, Melbourne, Victoria, Australia",30.9
-vic-narracan-drouin-college,-38.146687,145.8509178,name,school,"Drouin Secondary College, 52, Main South Road, Drouin, Victoria, 3818, Australia",9.8
-vic-narracan-hill-end,-38.0031841,146.1446509,name,administrative,"Hill End, Victoria, Australia",20.8
-vic-narracan-lillico,-38.1227125,145.9642586,name,administrative,"Lillico, Victoria, Australia",1.1
-vic-narracan-neerim-junction,-37.9199415,145.9684284,name,administrative,"Neerim Junction, Victoria, 3832, Australia",21.8
-vic-narracan-rokeby,-38.067227,145.9277796,name,administrative,"Rokeby, Victoria, Australia",5.9
-vic-narracan-tanjil-south,-38.09989,146.2654378,name,administrative,"Tanjil South, Victoria, Australia",27.2
-vic-narracan-tetoora-road,-38.28031,145.8863768,name,administrative,"Tetoora Road, Victoria, Australia",19.3
-vic-narracan-willow-grove,-38.072303,146.1784909,name,administrative,"Willow Grove, Victoria, Australia",20.1
+vic-narracan-cora-lynn,-38.1436888,145.6042711,name,administrative,"Cora Lynn, Melbourne, Victoria, Australia",32.3
+vic-narracan-drouin-college,-38.146687,145.8509178,name,school,"Drouin Secondary College, 52, Main South Road, Drouin, Victoria, 3818, Australia",11.0
+vic-narracan-hill-end,-38.0031841,146.1446509,name,administrative,"Hill End, Victoria, Australia",19.8
+vic-narracan-lillico,-38.1227125,145.9642586,name,administrative,"Lillico, Victoria, Australia",0.8
+vic-narracan-neerim-junction,-37.9199415,145.9684284,name,administrative,"Neerim Junction, Victoria, 3832, Australia",22.1
+vic-narracan-rokeby,-38.067227,145.9277796,name,administrative,"Rokeby, Victoria, Australia",6.9
+vic-narracan-tanjil-south,-38.09989,146.2654378,name,administrative,"Tanjil South, Victoria, Australia",25.8
+vic-narracan-tetoora-road,-38.28031,145.8863768,name,administrative,"Tetoora Road, Victoria, Australia",19.5
+vic-narracan-willow-grove,-38.072303,146.1784909,name,administrative,"Willow Grove, Victoria, Australia",18.8
 vic-ovens-valley-boorhaman,-36.2144293,146.2878067,name,hamlet,"Boorhaman, Victoria, 3678, Australia",26.8
 vic-ovens-valley-cheshunt,-36.8290825,146.4430019,name,administrative,"Cheshunt, Victoria, Australia",45.1
 vic-ovens-valley-greta-west,-36.5314236,146.2307806,name,hamlet,"Greta West, Victoria, 3675, Australia",22.0
 vic-ovens-valley-londrigan,-36.3438825,146.4371521,name,administrative,"Londrigan, Victoria, Australia",8.8
 vic-ovens-valley-myrrhee,-36.744227,146.3048256,name,administrative,"Myrrhee, Victoria, 3732, Australia",37.6
-vic-polwarth-fyansford,-38.1416752,144.3096802,name,administrative,"Fyansford, Geelong, Victoria, Australia",67.9
-vic-ripon-ascot,-36.707622,144.33634,name,administrative,"Ascot, Bendigo, Victoria, Australia",88.2
-vic-ripon-stuart-mill,-36.794598,143.2827333,name,administrative,"Stuart Mill, Victoria, 3478, Australia",41.1
-vic-shepparton-naring,-36.055268,145.5816782,name,administrative,"Naring, Victoria, Australia",29.8
-vic-shepparton-yalca-north,-35.9279728,145.2355743,name,community_centre,"Yalca North Public Hall, Murray Valley Highway, Yielima, Victoria, 3638, Australia",40.4
+vic-polwarth-fyansford,-38.1416752,144.3096802,name,administrative,"Fyansford, Geelong, Victoria, Australia",66.1
+vic-ripon-ascot,-36.707622,144.33634,name,administrative,"Ascot, Bendigo, Victoria, Australia",92.6
+vic-ripon-stuart-mill,-36.794598,143.2827333,name,administrative,"Stuart Mill, Victoria, 3478, Australia",41.2
+vic-shepparton-naring,-36.055268,145.5816782,name,administrative,"Naring, Victoria, Australia",31.9
+vic-shepparton-yalca-north,-35.9279728,145.2355743,name,community_centre,"Yalca North Public Hall, Murray Valley Highway, Yielima, Victoria, 3638, Australia",42.5
 vic-south-west-coast-gorae-west,-38.2428074,141.482697,name,hamlet,"Gorae West, Victoria, 3305, Australia",71.2
 vic-sunbury-melbourne-airport,-37.6764488,144.8365383,name,administrative,"Melbourne Airport, Melbourne, Victoria, 3045, Australia",5.3
-vic-yan-yean-wallan,-37.4138855,144.9774549,name,administrative,"Wallan, Victoria, 3756, Australia",21.8
+vic-yan-yean-wallan,-37.4138855,144.9774549,name,administrative,"Wallan, Victoria, 3756, Australia",26.2

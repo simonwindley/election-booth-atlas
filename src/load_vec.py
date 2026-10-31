@@ -84,7 +84,7 @@ def parse_distribution(rows):
     i = 2
     while i < len(rows):
         r = rows[i]
-        m = re.match(r'Transfer of (\d+) ballot papers of (.+?) \((\d+)(?:st|nd|rd|th) excluded candidate\)', r[0])
+        m = re.match(r'Transfer of (\d+) ballot[- ]papers of (.+?) \((\d+)(?:st|nd|rd|th) excluded candidate\)', r[0])
         if m:
             count_no += 1
             excl = m.group(2).strip()

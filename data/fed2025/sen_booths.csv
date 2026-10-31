@@ -1,0 +1,2073 @@
+election_id,booth_id,contest_id,booth_name,premises,formal,informal
+fed2025,fed-2942,fed-197,Bayswater,,1795,67
+fed2025,fed-2945,fed-197,Bayswater West,,1203,53
+fed2025,fed-2948,fed-197,Boronia,,1155,42
+fed2025,fed-2949,fed-209,Vermont East,,1027,27
+fed2025,fed-2950,fed-197,Ferntree Gully Heights,,1187,32
+fed2025,fed-2951,fed-197,Ferntree Gully West,,1682,55
+fed2025,fed-2952,fed-197,Wantirna West,,1004,31
+fed2025,fed-2953,fed-209,Heathmont (Deakin),,636,17
+fed2025,fed-2954,fed-197,Heathmont East,,692,8
+fed2025,fed-2956,fed-197,Knoxfield,,1205,55
+fed2025,fed-2957,fed-197,Ferntree Gully South West,,933,28
+fed2025,fed-2958,fed-197,Wantirna South West,,1066,26
+fed2025,fed-2959,fed-197,Lysterfield,,1654,66
+fed2025,fed-2960,fed-209,Vermont Central,,1427,27
+fed2025,fed-2961,fed-197,Ferntree Gully Central,,1779,71
+fed2025,fed-2962,fed-209,Heathmont North,,1660,44
+fed2025,fed-2963,fed-197,Rowville,,1103,49
+fed2025,fed-2964,fed-197,Rowville East,,704,28
+fed2025,fed-2965,fed-197,Scoresby,,1551,54
+fed2025,fed-2966,fed-197,Knoxfield Central,,1040,30
+fed2025,fed-2969,fed-197,Boronia West,,1298,54
+fed2025,fed-2970,fed-197,Wantirna East,,1130,35
+fed2025,fed-2971,fed-197,Wantirna,,1532,44
+fed2025,fed-2973,fed-197,Wantirna Central,,1375,35
+fed2025,fed-2974,fed-197,Wantirna South,,931,35
+fed2025,fed-2977,fed-198,Alfredton,,823,23
+fed2025,fed-2978,fed-198,Alfredton West,,2041,81
+fed2025,fed-2979,fed-233,Ararat,,811,35
+fed2025,fed-2982,fed-233,Ararat West,,580,26
+fed2025,fed-2986,fed-198,Ballarat,,1093,29
+fed2025,fed-2990,fed-198,Ballarat North,,1616,54
+fed2025,fed-2991,fed-198,Lake Wendouree,,1230,29
+fed2025,fed-2993,fed-198,Redan,,662,9
+fed2025,fed-2996,fed-233,Beaufort,,940,46
+fed2025,fed-2998,fed-198,Black Hill,,1275,35
+fed2025,fed-3002,fed-198,Brown Hill,,1267,54
+fed2025,fed-3004,fed-198,Bungaree,,495,11
+fed2025,fed-3005,fed-198,Buninyong,,1687,46
+fed2025,fed-3006,fed-198,Cardigan Village,,316,15
+fed2025,fed-3007,fed-198,Canadian,,1120,47
+fed2025,fed-3008,fed-198,Cape Clear,,214,13
+fed2025,fed-3009,fed-233,Snake Valley,,527,18
+fed2025,fed-3012,fed-198,Clunes,,794,21
+fed2025,fed-3014,fed-198,Creswick,,994,33
+fed2025,fed-3015,fed-198,Creswick North,,587,29
+fed2025,fed-3018,fed-198,Delacombe,,1048,44
+fed2025,fed-3019,fed-198,Dereel,,332,13
+fed2025,fed-3020,fed-233,Derrinallum,,260,16
+fed2025,fed-3022,fed-233,Elmhurst,,85,4
+fed2025,fed-3027,fed-198,Haddon,,773,40
+fed2025,fed-3029,fed-233,Lake Bolac,,306,13
+fed2025,fed-3032,fed-198,Learmonth,,290,18
+fed2025,fed-3034,fed-198,Linton,,322,16
+fed2025,fed-3035,fed-233,Lismore,,326,15
+fed2025,fed-3037,fed-198,Magpie,,369,13
+fed2025,fed-3040,fed-198,Miners Rest,,1108,44
+fed2025,fed-3042,fed-198,Mount Clear,,1303,37
+fed2025,fed-3043,fed-198,Mount Pleasant,,802,20
+fed2025,fed-3045,fed-233,Moyston,,238,9
+fed2025,fed-3046,fed-198,Napoleons,,524,13
+fed2025,fed-3048,fed-198,Newington,,612,20
+fed2025,fed-3049,fed-198,Newlyn,,595,21
+fed2025,fed-3054,fed-198,Sebastopol North,,1533,69
+fed2025,fed-3056,fed-198,Rokewood,,181,2
+fed2025,fed-3057,fed-198,Ross Creek,,579,23
+fed2025,fed-3059,fed-198,Sebastopol,,1232,66
+fed2025,fed-3060,fed-233,Skipton,,421,19
+fed2025,fed-3063,fed-198,Smythesdale,,714,33
+fed2025,fed-3068,fed-198,Ballarat East,,1110,29
+fed2025,fed-3072,fed-198,Wendouree,,833,39
+fed2025,fed-3074,fed-198,Wendouree North,,1119,55
+fed2025,fed-3075,fed-198,Wendouree West,,666,23
+fed2025,fed-3078,fed-233,Willaura,,206,10
+fed2025,fed-3085,fed-320,Alphington,,1466,28
+fed2025,fed-3086,fed-320,Fairfield North,,1062,23
+fed2025,fed-3087,fed-320,Reservoir Upper,,1131,51
+fed2025,fed-3088,fed-320,Darebin,,645,38
+fed2025,fed-3091,fed-320,Fairfield,,1823,43
+fed2025,fed-3095,fed-320,Edgar North,,1220,104
+fed2025,fed-3096,fed-320,Northcote,,1159,16
+fed2025,fed-3097,fed-320,Northcote North,,1045,23
+fed2025,fed-3098,fed-320,Northcote South,,2137,40
+fed2025,fed-3099,fed-320,Northcote West,,689,10
+fed2025,fed-3101,fed-320,Preston,,783,25
+fed2025,fed-3102,fed-320,Preston East,,1170,51
+fed2025,fed-3104,fed-320,Preston North East,,989,57
+fed2025,fed-3105,fed-320,Preston South,,778,12
+fed2025,fed-3107,fed-320,Regent,,1693,56
+fed2025,fed-3108,fed-320,Reservoir,,1482,68
+fed2025,fed-3109,fed-320,Reservoir Central,,1014,54
+fed2025,fed-3110,fed-320,Reservoir East,,774,35
+fed2025,fed-3111,fed-320,Reservoir North,,1680,79
+fed2025,fed-3112,fed-320,Reservoir North East,,867,43
+fed2025,fed-3113,fed-320,Reservoir South,,752,28
+fed2025,fed-3115,fed-320,Edgar,,840,40
+fed2025,fed-3117,fed-320,Thornbury East,,1693,70
+fed2025,fed-3118,fed-320,Thornbury South,,2016,39
+fed2025,fed-3119,fed-320,Westgarth,,814,18
+fed2025,fed-3125,fed-224,Avoca,,769,22
+fed2025,fed-3126,fed-224,Bealiba,,146,9
+fed2025,fed-3129,fed-200,Bendigo Central,,1253,57
+fed2025,fed-3132,fed-200,Flora Hill,,1057,31
+fed2025,fed-3134,fed-200,Big Hill,,529,16
+fed2025,fed-3136,fed-224,Timor,,123,17
+fed2025,fed-3137,fed-224,Bridgewater,,296,15
+fed2025,fed-3139,fed-200,California Gully,,312,15
+fed2025,fed-3142,fed-200,Bendigo,,531,8
+fed2025,fed-3143,fed-224,Charlton,,615,19
+fed2025,fed-3144,fed-200,Bendigo North,,1126,56
+fed2025,fed-3145,fed-224,Concongella,,192,3
+fed2025,fed-3147,fed-224,Donald,,750,42
+fed2025,fed-3148,fed-224,Dunolly,,497,33
+fed2025,fed-3149,fed-200,Eaglehawk,,1159,46
+fed2025,fed-3151,fed-200,Epsom,,1246,42
+fed2025,fed-3154,fed-200,Golden Square,,1537,57
+fed2025,fed-3156,fed-200,Goornong,,344,11
+fed2025,fed-3158,fed-224,Great Western,,203,16
+fed2025,fed-3159,fed-224,Halls Gap,,147,8
+fed2025,fed-3160,fed-200,Huntly,,1496,52
+fed2025,fed-3161,fed-224,Inglewood,,572,36
+fed2025,fed-3164,fed-200,Eaglehawk East,,650,23
+fed2025,fed-3165,fed-200,Kangaroo Flat,,1396,73
+fed2025,fed-3166,fed-200,Kennington,,1083,35
+fed2025,fed-3169,fed-224,Landsborough,,172,3
+fed2025,fed-3171,fed-233,Lexton,,194,7
+fed2025,fed-3173,fed-200,Lockwood,,631,23
+fed2025,fed-3174,fed-200,Long Gully,,322,14
+fed2025,fed-3175,fed-200,Maiden Gully,,1220,41
+fed2025,fed-3177,fed-200,Marong,,672,37
+fed2025,fed-3178,fed-224,Maryborough,,884,49
+fed2025,fed-3179,fed-224,Maryborough East,,564,27
+fed2025,fed-3180,fed-224,Moonambel,,149,4
+fed2025,fed-3184,fed-224,Newbridge,,249,13
+fed2025,fed-3187,fed-200,Quarry Hill,,706,26
+fed2025,fed-3188,fed-200,Raywood,,261,11
+fed2025,fed-3191,fed-200,Sailors Gully,,275,13
+fed2025,fed-3192,fed-224,St Arnaud,,1259,80
+fed2025,fed-3195,fed-200,Bendigo East,,488,14
+fed2025,fed-3198,fed-200,Spring Gully,,852,30
+fed2025,fed-3199,fed-224,Stawell,,573,31
+fed2025,fed-3202,fed-224,Stawell West,,455,18
+fed2025,fed-3203,fed-200,Strathdale,,290,7
+fed2025,fed-3205,fed-224,Talbot,,326,10
+fed2025,fed-3206,fed-224,Tarnagulla,,147,7
+fed2025,fed-3209,fed-233,Waubra,,151,4
+fed2025,fed-3210,fed-224,Wedderburn,,677,52
+fed2025,fed-3211,fed-200,White Hills South,,642,23
+fed2025,fed-3212,fed-200,White Hills,,649,21
+fed2025,fed-3213,fed-200,Woodvale,,161,4
+fed2025,fed-3220,fed-217,Wheelers Hill West,,838,28
+fed2025,fed-3221,fed-205,Glen Waverley Lower,,1151,44
+fed2025,fed-3222,fed-217,Mulgrave South,,492,37
+fed2025,fed-3223,fed-217,Clayton,,882,37
+fed2025,fed-3227,fed-201,Mulgrave East (Bruce),,1250,48
+fed2025,fed-3228,fed-205,The Glen,,1278,31
+fed2025,fed-3230,fed-205,Glen Waverley Heights,,721,16
+fed2025,fed-3233,fed-205,Jells Park,,1011,26
+fed2025,fed-3235,fed-205,Glen Waverley South,,1760,38
+fed2025,fed-3237,fed-217,Mulgrave,,922,34
+fed2025,fed-3238,fed-217,Mulgrave Central,,1124,60
+fed2025,fed-3241,fed-217,Mount Waverley Lower (Hotham),,995,27
+fed2025,fed-3242,fed-205,Syndal South,,1198,16
+fed2025,fed-3243,fed-205,Wheelers Hill Central (Chisholm),,817,38
+fed2025,fed-3246,fed-205,Wheelers Hill,,1128,24
+fed2025,fed-3247,fed-205,Wheelers Hill South,,1048,35
+fed2025,fed-3250,fed-208,Anakie,,356,15
+fed2025,fed-3251,fed-200,Axedale,,532,15
+fed2025,fed-3252,fed-326,Bacchus Marsh,,917,32
+fed2025,fed-3253,fed-326,Ballan,,1257,45
+fed2025,fed-3258,fed-203,Meadow Heights South,,879,80
+fed2025,fed-3259,fed-326,Blackwood,,309,9
+fed2025,fed-3260,fed-226,Bolinda,,349,11
+fed2025,fed-3263,fed-226,Bullengarook,,223,4
+fed2025,fed-3265,fed-200,Campbells Creek,,749,18
+fed2025,fed-3266,fed-224,Carisbrook,,357,25
+fed2025,fed-3267,fed-200,Castlemaine,,937,24
+fed2025,fed-3268,fed-200,Castlemaine North,,200,0
+fed2025,fed-3269,fed-200,Chewton,,344,13
+fed2025,fed-3273,fed-203,Coolaroo,,977,108
+fed2025,fed-3275,fed-203,Craigieburn,,1393,72
+fed2025,fed-3276,fed-326,Darley,,1170,51
+fed2025,fed-3277,fed-198,Daylesford,,1228,42
+fed2025,fed-3278,fed-198,Drummond,,199,12
+fed2025,fed-3280,fed-198,Elaine,,311,11
+fed2025,fed-3281,fed-200,Elphinstone,,254,4
+fed2025,fed-3282,fed-200,Axe Creek,,485,16
+fed2025,fed-3284,fed-226,Gisborne,,1225,31
+fed2025,fed-3286,fed-198,Glenlyon,,541,21
+fed2025,fed-3287,fed-198,Gordon,,635,22
+fed2025,fed-3288,fed-203,Greenvale,,1752,138
+fed2025,fed-3289,fed-200,Guildford,,257,4
+fed2025,fed-3290,fed-200,Harcourt,,586,11
+fed2025,fed-3292,fed-200,Heathcote,,1379,92
+fed2025,fed-3293,fed-198,Hepburn Springs,,656,19
+fed2025,fed-3298,fed-200,Kyneton,,1674,48
+fed2025,fed-3299,fed-226,Lancefield,,1244,40
+fed2025,fed-3302,fed-226,Macedon,,761,10
+fed2025,fed-3304,fed-200,Maldon,,767,31
+fed2025,fed-3305,fed-200,Malmsbury,,630,24
+fed2025,fed-3306,fed-200,Mandurang,,505,14
+fed2025,fed-3307,fed-203,Broadmeadows,,883,92
+fed2025,fed-3308,fed-198,Meredith,,444,18
+fed2025,fed-3312,fed-198,Mount Egerton,,353,5
+fed2025,fed-3313,fed-226,Mount Macedon,,467,11
+fed2025,fed-3316,fed-326,Myrniong,,254,13
+fed2025,fed-3317,fed-226,New Gisborne,,896,27
+fed2025,fed-3318,fed-226,Newham,,414,6
+fed2025,fed-3319,fed-200,Newstead,,492,15
+fed2025,fed-3320,fed-200,Pyalong,,313,8
+fed2025,fed-3321,fed-200,Redesdale,,280,2
+fed2025,fed-3322,fed-226,Riddell,,1321,35
+fed2025,fed-3323,fed-226,Romsey,,1867,76
+fed2025,fed-3326,fed-200,Strathfieldsaye,,1485,40
+fed2025,fed-3327,fed-326,Sunbury,,1047,41
+fed2025,fed-3329,fed-326,Sunbury North,,786,13
+fed2025,fed-3330,fed-326,Sunbury West,,1229,38
+fed2025,fed-3332,fed-200,Taradale,,368,9
+fed2025,fed-3333,fed-200,Tooborac,,165,7
+fed2025,fed-3334,fed-326,Toolern Vale,,532,15
+fed2025,fed-3335,fed-198,Trentham,,778,12
+fed2025,fed-3336,fed-200,Tylden,,411,9
+fed2025,fed-3337,fed-198,Warrenheip,,700,23
+fed2025,fed-3338,fed-200,Castlemaine South,,702,9
+fed2025,fed-3339,fed-226,Woodend,,1366,50
+fed2025,fed-3340,fed-198,Yandoit,,198,3
+fed2025,fed-3346,fed-321,Albion,,1174,66
+fed2025,fed-3347,fed-321,Sunshine North West,,616,44
+fed2025,fed-3348,fed-225,Avondale Heights,,579,21
+fed2025,fed-3350,fed-321,Sunshine East,,1058,63
+fed2025,fed-3352,fed-326,Diggers Rest,,1542,57
+fed2025,fed-3354,fed-321,Sunshine West South,,818,41
+fed2025,fed-3355,fed-321,Kealba,,1112,83
+fed2025,fed-3356,fed-309,Keilor,,1185,52
+fed2025,fed-3357,fed-309,Keilor Downs,,1065,63
+fed2025,fed-3358,fed-225,Keilor East,,935,61
+fed2025,fed-3359,fed-309,Kings Park,,605,27
+fed2025,fed-3361,fed-321,St Albans East,,817,44
+fed2025,fed-3362,fed-321,St Albans North (Fraser),,692,53
+fed2025,fed-3363,fed-321,St Albans South,,714,36
+fed2025,fed-3364,fed-321,St Albans South East,,715,43
+fed2025,fed-3365,fed-321,St Albans West,,620,43
+fed2025,fed-3367,fed-321,Sunshine North,,655,28
+fed2025,fed-3372,fed-204,Mooroolbark North,,1018,24
+fed2025,fed-3373,fed-204,Chirnside Park,,1927,75
+fed2025,fed-3375,fed-204,Coldstream,,841,36
+fed2025,fed-3376,fed-209,Croydon Central,,453,15
+fed2025,fed-3378,fed-209,Croydon North,,852,11
+fed2025,fed-3379,fed-209,Croydon West,,789,24
+fed2025,fed-3380,fed-226,Diamond Creek,,2023,70
+fed2025,fed-3381,fed-226,Diamond Creek East,,970,41
+fed2025,fed-3383,fed-209,Donvale,,448,8
+fed2025,fed-3384,fed-204,Gruyere,,287,5
+fed2025,fed-3385,fed-226,Hurstbridge,,1527,42
+fed2025,fed-3386,fed-209,Ringwood Upper,,1470,35
+fed2025,fed-3389,fed-204,Lilydale,,1261,41
+fed2025,fed-3391,fed-204,Lilydale West,,990,25
+fed2025,fed-3392,fed-204,Mooroolbark West,,885,41
+fed2025,fed-3394,fed-209,Ringwood Central,,876,28
+fed2025,fed-3395,fed-226,Panton Hill,,444,9
+fed2025,fed-3396,fed-209,Park Orchards,,977,20
+fed2025,fed-3398,fed-209,Ringwood,,770,20
+fed2025,fed-3399,fed-209,Ringwood East,,764,14
+fed2025,fed-3400,fed-209,Ringwood Heights,,1080,20
+fed2025,fed-3402,fed-204,Mooroolbark Upper,,1300,44
+fed2025,fed-3403,fed-204,St Andrews (Casey),,444,14
+fed2025,fed-3404,fed-229,Donvale South (Menzies),,705,21
+fed2025,fed-3405,fed-229,Warrandyte (Menzies),,1091,19
+fed2025,fed-3406,fed-220,North Warrandyte,,793,3
+fed2025,fed-3409,fed-204,Wonga Park,,916,26
+fed2025,fed-3410,fed-204,Yarra Glen,,1255,42
+fed2025,fed-3411,fed-226,Yarrambat,,926,25
+fed2025,fed-3416,fed-205,Ashburton,,1675,23
+fed2025,fed-3417,fed-205,Ashwood,,1364,27
+fed2025,fed-3420,fed-229,Blackburn South,,1717,34
+fed2025,fed-3422,fed-229,Box Hill Central,,943,16
+fed2025,fed-3424,fed-229,Box Hill South,,1092,18
+fed2025,fed-3425,fed-205,Glen Iris East,,729,10
+fed2025,fed-3426,fed-205,Burwood Central,,1079,25
+fed2025,fed-3427,fed-221,Chatham,,1413,18
+fed2025,fed-3430,fed-205,Mount Waverley West,,1353,30
+fed2025,fed-3431,fed-205,Hartwell (Chisholm),,1039,15
+fed2025,fed-3432,fed-221,Camberwell West (Kooyong),,1024,16
+fed2025,fed-3435,fed-229,Kerrimuir,,1526,29
+fed2025,fed-3438,fed-229,Mont Albert,,1171,21
+fed2025,fed-3439,fed-205,Mount Waverley South,,1614,29
+fed2025,fed-3440,fed-229,Surrey Hills,,1301,12
+fed2025,fed-3441,fed-229,Box Hill North,,852,18
+fed2025,fed-3443,fed-205,Wattle Park (Chisholm),,677,15
+fed2025,fed-3444,fed-205,Mount Waverley Upper,,690,15
+fed2025,fed-3449,fed-233,Aireys Inlet,,576,3
+fed2025,fed-3451,fed-233,Anglesea,,932,17
+fed2025,fed-3452,fed-233,Apollo Bay,,891,37
+fed2025,fed-3454,fed-208,Bannockburn,,1548,60
+fed2025,fed-3457,fed-328,Barwon Heads,,1334,20
+fed2025,fed-3458,fed-233,Beeac,,266,9
+fed2025,fed-3460,fed-208,Highton South,,1666,50
+fed2025,fed-3462,fed-328,Bellbrae,,643,16
+fed2025,fed-3464,fed-208,Belmont North,,2364,52
+fed2025,fed-3465,fed-233,Birregurra,,454,13
+fed2025,fed-3467,fed-328,Ceres,,258,2
+fed2025,fed-3468,fed-328,Clifton Springs,,1640,52
+fed2025,fed-3470,fed-233,Colac East,,899,43
+fed2025,fed-3472,fed-233,Colac West,,580,31
+fed2025,fed-3474,fed-328,Connewarre,,369,6
+fed2025,fed-3475,fed-233,Cororooke,,383,12
+fed2025,fed-3476,fed-233,Cressy,,97,3
+fed2025,fed-3477,fed-233,Deans Marsh,,207,6
+fed2025,fed-3478,fed-328,Drysdale,,1587,47
+fed2025,fed-3479,fed-233,Elliminyt,,976,51
+fed2025,fed-3480,fed-233,Forrest,,188,4
+fed2025,fed-3481,fed-328,Freshwater Creek,,166,5
+fed2025,fed-3483,fed-233,Gellibrand River,,211,6
+fed2025,fed-3487,fed-328,Grovedale,,1897,73
+fed2025,fed-3488,fed-208,Highton North,,1590,25
+fed2025,fed-3490,fed-233,Inverleigh,,849,26
+fed2025,fed-3492,fed-233,Irrewillipe,,266,8
+fed2025,fed-3495,fed-233,Lavers Hill,,119,10
+fed2025,fed-3496,fed-328,Leopold,,1958,62
+fed2025,fed-3497,fed-198,Lethbridge,,557,21
+fed2025,fed-3498,fed-233,Lorne,,478,8
+fed2025,fed-3503,fed-233,Moriac,,788,25
+fed2025,fed-3504,fed-328,Mount Duneed,,699,13
+fed2025,fed-3506,fed-208,Belmont,,1103,18
+fed2025,fed-3508,fed-328,Ocean Grove West,,753,15
+fed2025,fed-3510,fed-328,Point Lonsdale,,1022,18
+fed2025,fed-3511,fed-328,Portarlington,,1004,40
+fed2025,fed-3512,fed-328,Queenscliff,,500,6
+fed2025,fed-3514,fed-328,St Leonards,,1081,50
+fed2025,fed-3517,fed-198,Teesdale,,1092,35
+fed2025,fed-3518,fed-328,Torquay,,1037,29
+fed2025,fed-3519,fed-328,Wallington,,644,14
+fed2025,fed-3520,fed-233,Warrion,,138,5
+fed2025,fed-3523,fed-233,Winchelsea,,814,39
+fed2025,fed-3524,fed-233,Winchelsea South,,528,12
+fed2025,fed-3528,fed-208,Geelong South,,1139,38
+fed2025,fed-3530,fed-208,Bell Park,,1002,52
+fed2025,fed-3532,fed-208,Geelong West Upper,,1000,37
+fed2025,fed-3533,fed-208,Newtown South,,2101,45
+fed2025,fed-3535,fed-208,Corio Central,,1522,75
+fed2025,fed-3536,fed-208,Corio West,,605,23
+fed2025,fed-3538,fed-208,Geelong,,1772,48
+fed2025,fed-3539,fed-208,Geelong West,,1131,27
+fed2025,fed-3540,fed-208,Hamlyn Heights,,1264,53
+fed2025,fed-3541,fed-208,Herne Hill,,1551,32
+fed2025,fed-3543,fed-208,Lara CBD,,1453,61
+fed2025,fed-3544,fed-208,Lara Central,,944,32
+fed2025,fed-3545,fed-208,Manifold Heights,,1504,42
+fed2025,fed-3546,fed-208,Newcomb,,986,43
+fed2025,fed-3547,fed-208,Newcomb South,,673,39
+fed2025,fed-3548,fed-208,Norlane,,1080,75
+fed2025,fed-3549,fed-208,North Shore,,848,72
+fed2025,fed-3550,fed-208,Bell Post Hill,,1386,71
+fed2025,fed-3552,fed-208,Newtown,,1519,41
+fed2025,fed-3554,fed-208,Thomson,,1065,44
+fed2025,fed-3558,fed-209,Antonio Park,,1008,27
+fed2025,fed-3559,fed-229,Blackburn (Menzies),,714,18
+fed2025,fed-3560,fed-209,Blackburn North (Deakin),,775,20
+fed2025,fed-3561,fed-229,Blackburn West,,682,16
+fed2025,fed-3562,fed-209,Burwood Heights (Deakin),,1671,57
+fed2025,fed-3563,fed-205,Glen Waverley East,,777,24
+fed2025,fed-3564,fed-209,Vermont South,,1316,45
+fed2025,fed-3565,fed-209,Forest Hill,,362,8
+fed2025,fed-3566,fed-209,Blackburn Lake,,1525,26
+fed2025,fed-3567,fed-205,Glen Waverley West,,1332,42
+fed2025,fed-3568,fed-209,Heatherdale,,945,15
+fed2025,fed-3569,fed-205,Glen Waverley North,,914,15
+fed2025,fed-3570,fed-229,Laburnum,,1113,14
+fed2025,fed-3572,fed-209,Mitcham,,913,17
+fed2025,fed-3573,fed-205,Burwood East,,840,28
+fed2025,fed-3576,fed-209,Nunawading South,,1545,27
+fed2025,fed-3577,fed-209,Forest Hill East,,1348,31
+fed2025,fed-3578,fed-209,Blackburn North Heights,,1317,26
+fed2025,fed-3579,fed-205,Mount Waverley North,,1139,17
+fed2025,fed-3580,fed-205,Burwood East Lower,,437,9
+fed2025,fed-3581,fed-209,Mitcham Lower,,1335,27
+fed2025,fed-3583,fed-209,Vermont North,,941,16
+fed2025,fed-3584,fed-209,Vermont South Lower,,1090,26
+fed2025,fed-3587,fed-210,Frankston North,,1190,80
+fed2025,fed-3588,fed-210,Frankston South West,,1145,26
+fed2025,fed-3589,fed-210,Karingal Central,,776,26
+fed2025,fed-3590,fed-210,Frankston South East,,1702,56
+fed2025,fed-3593,fed-210,Frankston South,,1286,28
+fed2025,fed-3594,fed-210,Frankston Central,,989,36
+fed2025,fed-3596,fed-210,Frankston East,,1227,75
+fed2025,fed-3598,fed-210,Frankston Heights,,1131,49
+fed2025,fed-3599,fed-210,Frankston Rail,,902,35
+fed2025,fed-3600,fed-210,Frankston,,1579,44
+fed2025,fed-3601,fed-210,Seaford South,,1208,51
+fed2025,fed-3602,fed-210,Karingal,,1567,73
+fed2025,fed-3603,fed-210,Karingal Heights,,1328,67
+fed2025,fed-3604,fed-211,Mount Eliza West,,836,16
+fed2025,fed-3605,fed-211,Mornington,,1470,51
+fed2025,fed-3606,fed-211,Mornington South,,651,10
+fed2025,fed-3607,fed-211,Mount Eliza (Flinders),,908,24
+fed2025,fed-3608,fed-210,Mount Eliza North,,486,9
+fed2025,fed-3609,fed-211,Mornington Park,,981,45
+fed2025,fed-3613,fed-211,Balnarring,,940,34
+fed2025,fed-3614,fed-323,Bass,,313,14
+fed2025,fed-3615,fed-211,Baxter (Flinders),,772,37
+fed2025,fed-3616,fed-223,Bayles,,701,27
+fed2025,fed-3617,fed-211,Bittern,,776,31
+fed2025,fed-3618,fed-211,Blairgowrie,,778,30
+fed2025,fed-3619,fed-211,Boneo,,369,6
+fed2025,fed-3622,fed-323,Corinella,,704,38
+fed2025,fed-3623,fed-323,Cowes,,809,25
+fed2025,fed-3625,fed-211,Crib Point,,776,34
+fed2025,fed-3627,fed-323,Dalyston,,361,11
+fed2025,fed-3628,fed-216,Devon Meadows,,880,42
+fed2025,fed-3629,fed-211,Dromana,,1161,32
+fed2025,fed-3631,fed-211,Flinders,,482,11
+fed2025,fed-3634,fed-323,Grantville,,762,40
+fed2025,fed-3635,fed-211,Hastings,,669,28
+fed2025,fed-3636,fed-323,Kilcunda,,252,7
+fed2025,fed-3637,fed-223,Koo Wee Rup,,1247,66
+fed2025,fed-3639,fed-223,Lang Lang,,1004,63
+fed2025,fed-3640,fed-210,Langwarrin,,2049,75
+fed2025,fed-3641,fed-323,Loch,,353,18
+fed2025,fed-3645,fed-211,Moorooduc,,506,19
+fed2025,fed-3646,fed-211,Mount Martha,,1644,31
+fed2025,fed-3647,fed-323,Newhaven,,571,20
+fed2025,fed-3648,fed-323,Nyora,,649,35
+fed2025,fed-3649,fed-216,Pearcedale,,1526,62
+fed2025,fed-3650,fed-323,Poowong,,432,13
+fed2025,fed-3652,fed-211,Portsea,,211,3
+fed2025,fed-3653,fed-211,Red Hill,,734,13
+fed2025,fed-3654,fed-323,Rhyll,,283,7
+fed2025,fed-3656,fed-211,Rosebud East,,1019,57
+fed2025,fed-3657,fed-211,Rosebud West,,896,57
+fed2025,fed-3658,fed-211,Rye,,1245,64
+fed2025,fed-3660,fed-323,San Remo,,567,16
+fed2025,fed-3661,fed-211,Shoreham,,331,8
+fed2025,fed-3662,fed-211,Somers,,631,9
+fed2025,fed-3663,fed-211,Somerville West,,1542,50
+fed2025,fed-3664,fed-211,Sorrento,,692,18
+fed2025,fed-3665,fed-216,Tooradin,,656,24
+fed2025,fed-3666,fed-211,Tootgarook,,723,29
+fed2025,fed-3667,fed-211,Tyabb,,1022,29
+fed2025,fed-3669,fed-323,Wonthaggi,,799,35
+fed2025,fed-3671,fed-323,Wonthaggi North,,645,37
+fed2025,fed-3676,fed-212,Newport West,,1345,41
+fed2025,fed-3677,fed-212,Altona Gate,,1076,62
+fed2025,fed-3678,fed-212,Altona North,,1009,81
+fed2025,fed-3681,fed-321,Footscray Central,,1033,17
+fed2025,fed-3685,fed-321,Footscray South,,1305,20
+fed2025,fed-3686,fed-321,West Footscray,,474,5
+fed2025,fed-3688,fed-321,Yarraville South,,1356,50
+fed2025,fed-3692,fed-321,Maribyrnong,,1223,44
+fed2025,fed-3693,fed-212,Newport,,1521,34
+fed2025,fed-3695,fed-212,Altona Lakes,,642,45
+fed2025,fed-3696,fed-321,Seddon,,1488,42
+fed2025,fed-3697,fed-321,Spotswood (Fraser),,637,15
+fed2025,fed-3698,fed-321,South Kingsville (Fraser),,442,18
+fed2025,fed-3699,fed-321,Sunshine,,901,52
+fed2025,fed-3701,fed-321,Braybrook,,1054,55
+fed2025,fed-3702,fed-212,Williamstown,,788,11
+fed2025,fed-3703,fed-212,Williamstown North,,1607,37
+fed2025,fed-3704,fed-212,Williamstown South,,1962,46
+fed2025,fed-3705,fed-212,Williamstown West,,1290,25
+fed2025,fed-3706,fed-321,Yarraville,,1169,24
+fed2025,fed-3707,fed-321,Yarraville Central,,1435,25
+fed2025,fed-3713,fed-213,Alberton,,416,23
+fed2025,fed-3716,fed-323,Arawata,,253,5
+fed2025,fed-3718,fed-213,Bairnsdale,,950,55
+fed2025,fed-3720,fed-213,Bairnsdale West,,968,48
+fed2025,fed-3722,fed-323,Bena,,373,19
+fed2025,fed-3727,fed-213,Boisdale,,365,18
+fed2025,fed-3729,fed-213,Boolarra,,557,15
+fed2025,fed-3731,fed-213,Briagolong,,499,16
+fed2025,fed-3732,fed-213,Bruthen,,465,20
+fed2025,fed-3733,fed-213,Buchan,,142,3
+fed2025,fed-3741,fed-213,Ellaswood,,334,16
+fed2025,fed-3743,fed-213,Cobains,,166,10
+fed2025,fed-3744,fed-213,Cowwarr,,188,7
+fed2025,fed-3748,fed-213,Devon North,,367,19
+fed2025,fed-3750,fed-323,Drouin South,,421,22
+fed2025,fed-3751,fed-323,Dumbalk,,374,13
+fed2025,fed-3753,fed-213,Eagle Point,,372,23
+fed2025,fed-3754,fed-323,Ellinbank,,416,6
+fed2025,fed-3757,fed-323,Fish Creek,,622,19
+fed2025,fed-3760,fed-323,Foster,,1016,58
+fed2025,fed-3763,fed-213,Glengarry,,572,30
+fed2025,fed-3765,fed-213,Glenmaggie,,210,7
+fed2025,fed-3766,fed-213,Golden Beach,,246,12
+fed2025,fed-3767,fed-213,Gormandale,,376,24
+fed2025,fed-3770,fed-213,Heyfield,,981,62
+fed2025,fed-3772,fed-323,Inverloch,,1211,38
+fed2025,fed-3775,fed-323,Kongwak,,223,3
+fed2025,fed-3776,fed-323,Koonwarra,,421,14
+fed2025,fed-3777,fed-323,Korumburra,,1695,103
+fed2025,fed-3778,fed-213,Lakes Entrance,,868,39
+fed2025,fed-3779,fed-323,Leongatha,,1477,83
+fed2025,fed-3780,fed-323,Leongatha South,,382,15
+fed2025,fed-3781,fed-213,Lindenow,,472,13
+fed2025,fed-3783,fed-213,Loch Sport,,429,35
+fed2025,fed-3784,fed-213,Longford,,400,11
+fed2025,fed-3786,fed-213,Maffra,,1664,95
+fed2025,fed-3787,fed-213,Mallacoota,,553,26
+fed2025,fed-3789,fed-213,Marlo,,305,10
+fed2025,fed-3790,fed-323,Meeniyan,,579,26
+fed2025,fed-3792,fed-213,Metung,,497,18
+fed2025,fed-3794,fed-323,Mirboo North,,1083,48
+fed2025,fed-3796,fed-323,Mount Eccles,,164,4
+fed2025,fed-3799,fed-213,Nambrok,,243,8
+fed2025,fed-3800,fed-323,Narracan,,153,4
+fed2025,fed-3801,fed-323,Nerrena,,374,12
+fed2025,fed-3802,fed-213,Newmerella,,438,16
+fed2025,fed-3805,fed-213,Nowa Nowa,,129,9
+fed2025,fed-3807,fed-213,Omeo,,349,18
+fed2025,fed-3808,fed-213,Orbost,,821,48
+fed2025,fed-3810,fed-213,Paynesville,,868,43
+fed2025,fed-3811,fed-213,Port Albert,,249,10
+fed2025,fed-3812,fed-323,Port Franklin,,202,8
+fed2025,fed-3815,fed-213,Rosedale,,767,40
+fed2025,fed-3817,fed-213,Sale,,1501,64
+fed2025,fed-3818,fed-213,Sale East,,882,25
+fed2025,fed-3819,fed-213,Sale North,,299,4
+fed2025,fed-3820,fed-213,Seaspray,,147,7
+fed2025,fed-3824,fed-213,Stratford,,952,43
+fed2025,fed-3827,fed-213,Swifts Creek,,224,15
+fed2025,fed-3830,fed-323,Tarwin Lower,,566,17
+fed2025,fed-3832,fed-323,Thorpdale,,278,18
+fed2025,fed-3834,fed-213,Toongabbie,,407,18
+fed2025,fed-3835,fed-323,Toora,,446,24
+fed2025,fed-3836,fed-213,Toorloo Arm,,364,12
+fed2025,fed-3838,fed-323,Welshpool,,381,19
+fed2025,fed-3840,fed-213,Woodside,,320,11
+fed2025,fed-3844,fed-213,Eastwood,,756,35
+fed2025,fed-3845,fed-323,Yanakie,,188,8
+fed2025,fed-3846,fed-213,Yarram,,1033,63
+fed2025,fed-3847,fed-213,Yinnar,,694,25
+fed2025,fed-3852,fed-214,Bentleigh,,2005,71
+fed2025,fed-3853,fed-214,Bentleigh West,,1782,49
+fed2025,fed-3854,fed-214,Brighton,,1992,29
+fed2025,fed-3855,fed-214,Brighton Beach,,1155,18
+fed2025,fed-3857,fed-214,Brighton East,,1213,28
+fed2025,fed-3859,fed-214,Caulfield South West,,1064,22
+fed2025,fed-3860,fed-214,Caulfield South,,950,16
+fed2025,fed-3864,fed-214,Caulfield South Central (Goldstein),,578,12
+fed2025,fed-3865,fed-214,Elsternwick Park,,810,13
+fed2025,fed-3866,fed-214,Brighton North,,1664,27
+fed2025,fed-3867,fed-214,Hampton,,1307,18
+fed2025,fed-3868,fed-214,Hampton Central,,1047,25
+fed2025,fed-3869,fed-214,Highett,,1483,45
+fed2025,fed-3872,fed-214,Highett West,,1609,42
+fed2025,fed-3873,fed-214,Brighton East Upper,,1417,19
+fed2025,fed-3874,fed-214,Hampton North,,1396,30
+fed2025,fed-3875,fed-214,Middle Brighton,,656,11
+fed2025,fed-3879,fed-322,Ripponlea,,1334,35
+fed2025,fed-3880,fed-322,Balaclava,,1104,32
+fed2025,fed-3881,fed-214,Sandringham,,1063,18
+fed2025,fed-3882,fed-214,Sandringham North,,1293,23
+fed2025,fed-3887,fed-217,Bentleigh Central (Hotham),,689,33
+fed2025,fed-3889,fed-217,Carnegie,,2220,50
+fed2025,fed-3890,fed-217,Carnegie East,,1401,35
+fed2025,fed-3891,fed-205,Carnegie North,,1390,28
+fed2025,fed-3893,fed-205,Chadstone,,1399,48
+fed2025,fed-3895,fed-217,Coatesville,,2469,94
+fed2025,fed-3896,fed-214,Caulfield South East,,1568,40
+fed2025,fed-3897,fed-214,Carnegie West (Goldstein),,926,26
+fed2025,fed-3899,fed-217,Hughesdale,,1618,21
+fed2025,fed-3900,fed-217,Coatesville North,,1240,37
+fed2025,fed-3902,fed-214,McKinnon,,1205,33
+fed2025,fed-3903,fed-205,Malvern East,,1061,22
+fed2025,fed-3904,fed-217,Murrumbeena,,1417,31
+fed2025,fed-3905,fed-217,Murrumbeena South,,1680,31
+fed2025,fed-3906,fed-217,Oakleigh,,1562,68
+fed2025,fed-3907,fed-217,Oakleigh Central,,896,17
+fed2025,fed-3909,fed-217,Oakleigh South,,1207,22
+fed2025,fed-3912,fed-214,McKinnon East (Goldstein),,1514,48
+fed2025,fed-3913,fed-214,Ormond West,,1598,39
+fed2025,fed-3917,fed-221,Armadale,,1214,26
+fed2025,fed-3918,fed-221,Hawthorn East South,,1378,17
+fed2025,fed-3919,fed-205,Glen Iris Central,,634,10
+fed2025,fed-3920,fed-221,Camberwell,,1340,23
+fed2025,fed-3921,fed-221,Hawthorn East,,774,16
+fed2025,fed-3922,fed-205,Camberwell South (Chisholm),,959,16
+fed2025,fed-3924,fed-322,Caulfield,,704,21
+fed2025,fed-3926,fed-322,Caulfield East,,1002,29
+fed2025,fed-3928,fed-322,Caulfield North,,1088,21
+fed2025,fed-3929,fed-322,Caulfield Upper,,1648,33
+fed2025,fed-3930,fed-205,Darling,,954,10
+fed2025,fed-3932,fed-205,Gardiner,,1212,21
+fed2025,fed-3933,fed-205,Glen Iris,,1470,26
+fed2025,fed-3934,fed-205,Ashburton South,,1495,18
+fed2025,fed-3939,fed-221,Malvern (Kooyong),,1510,27
+fed2025,fed-3940,fed-221,Malvern Central,,706,18
+fed2025,fed-3941,fed-221,Armadale North,,723,22
+fed2025,fed-3942,fed-221,Malvern South (Kooyong),,532,12
+fed2025,fed-3943,fed-221,Armadale Central,,581,10
+fed2025,fed-3944,fed-221,Prahran North East,,1126,13
+fed2025,fed-3945,fed-221,Toorak,,1225,25
+fed2025,fed-3946,fed-221,Toorak Central,,1450,22
+fed2025,fed-3947,fed-221,Toorak West,,595,4
+fed2025,fed-3956,fed-210,Carrum Downs,,1444,68
+fed2025,fed-3958,fed-201,Dandenong Central,,676,52
+fed2025,fed-3959,fed-223,Clyde (La Trobe),,415,9
+fed2025,fed-3960,fed-216,Cranbourne,,683,32
+fed2025,fed-3961,fed-216,Cranbourne Park,,1006,56
+fed2025,fed-3962,fed-201,Dandenong,,779,53
+fed2025,fed-3964,fed-219,Dandenong South,,1043,155
+fed2025,fed-3965,fed-219,Dandenong West,,817,73
+fed2025,fed-3966,fed-216,Hampton Park East,,1499,126
+fed2025,fed-3967,fed-216,Cranbourne North West,,788,41
+fed2025,fed-3968,fed-219,Keysborough,,2459,78
+fed2025,fed-3970,fed-201,Dandenong North West,,1272,85
+fed2025,fed-3972,fed-219,Keysborough East,,823,51
+fed2025,fed-3974,fed-219,Noble Park,,754,73
+fed2025,fed-3976,fed-201,Dandenong North Lower,,911,54
+fed2025,fed-3977,fed-201,Dandenong North,,1298,86
+fed2025,fed-3978,fed-201,Noble Park North (Bruce),,1048,54
+fed2025,fed-3979,fed-210,Skye,,1150,36
+fed2025,fed-3981,fed-219,Noble Park Lower,,1010,58
+fed2025,fed-3982,fed-201,Dandenong North East,,819,56
+fed2025,fed-3983,fed-219,Noble Park West,,498,34
+fed2025,fed-3988,fed-217,Bentleigh East,,772,29
+fed2025,fed-3989,fed-219,Cheltenham East,,965,29
+fed2025,fed-3990,fed-219,Cheltenham North,,916,37
+fed2025,fed-3991,fed-219,Cheltenham South,,770,23
+fed2025,fed-3992,fed-217,Clarinda,,1339,69
+fed2025,fed-3993,fed-217,Clarinda South,,923,50
+fed2025,fed-3994,fed-217,Clayton South,,1104,72
+fed2025,fed-3996,fed-219,Dingley Village,,2052,72
+fed2025,fed-3997,fed-217,Noble Park Upper,,1031,69
+fed2025,fed-3998,fed-217,Springvale Central,,506,18
+fed2025,fed-4000,fed-219,Kingston Heath,,1297,35
+fed2025,fed-4001,fed-219,Dingley South,,651,18
+fed2025,fed-4002,fed-219,Mentone Park,,755,21
+fed2025,fed-4003,fed-214,Moorabbin Central,,654,14
+fed2025,fed-4004,fed-217,Bentleigh South (Hotham),,262,4
+fed2025,fed-4005,fed-214,Moorabbin South,,1276,45
+fed2025,fed-4007,fed-219,Springvale South East,,423,30
+fed2025,fed-4008,fed-217,Springvale,,836,53
+fed2025,fed-4009,fed-219,Springvale South,,763,71
+fed2025,fed-4010,fed-217,Springvale West,,555,22
+fed2025,fed-4011,fed-219,Spring Valley,,650,40
+fed2025,fed-4012,fed-217,Clayton South East,,1519,61
+fed2025,fed-4014,fed-217,Moorabbin North,,1307,61
+fed2025,fed-4019,fed-218,Baranduda,,997,25
+fed2025,fed-4020,fed-218,Barnawartha,,523,13
+fed2025,fed-4023,fed-218,Beechworth,,1172,43
+fed2025,fed-4024,fed-218,Benalla,,1582,96
+fed2025,fed-4028,fed-218,Bethanga,,367,11
+fed2025,fed-4029,fed-218,Bonegilla,,397,18
+fed2025,fed-4033,fed-218,Bright,,276,7
+fed2025,fed-4038,fed-218,Chiltern,,683,32
+fed2025,fed-4039,fed-324,Cobram,,824,49
+fed2025,fed-4040,fed-218,Corryong,,761,19
+fed2025,fed-4041,fed-218,Cudgewa,,207,4
+fed2025,fed-4043,fed-218,Dederang,,277,11
+fed2025,fed-4046,fed-218,Eldorado,,242,11
+fed2025,fed-4047,fed-218,Eskdale,,232,8
+fed2025,fed-4052,fed-218,Gapsted,,283,12
+fed2025,fed-4053,fed-218,Glenrowan,,531,21
+fed2025,fed-4054,fed-218,Goorambat,,232,7
+fed2025,fed-4059,fed-218,Harrietville,,101,1
+fed2025,fed-4060,fed-324,Invergordon,,240,3
+fed2025,fed-4062,fed-324,Katamatite,,213,9
+fed2025,fed-4063,fed-324,Katandra West,,320,16
+fed2025,fed-4065,fed-218,Tangambalanga,,629,17
+fed2025,fed-4071,fed-218,Milawa,,439,10
+fed2025,fed-4075,fed-218,Mount Beauty,,944,28
+fed2025,fed-4077,fed-218,Moyhu,,374,15
+fed2025,fed-4078,fed-218,Mudgegonga,,211,11
+fed2025,fed-4081,fed-218,Myrtleford,,1097,48
+fed2025,fed-4083,fed-324,Numurkah,,1727,110
+fed2025,fed-4086,fed-218,Porepunkah,,267,10
+fed2025,fed-4088,fed-218,Rutherglen,,968,53
+fed2025,fed-4089,fed-324,St James,,131,6
+fed2025,fed-4091,fed-218,Springhurst,,211,8
+fed2025,fed-4092,fed-218,Stanley,,330,4
+fed2025,fed-4095,fed-218,Tallangatta,,668,29
+fed2025,fed-4097,fed-218,Tarrawingee,,377,7
+fed2025,fed-4098,fed-218,Tatong,,132,6
+fed2025,fed-4103,fed-324,Tungamah,,181,15
+fed2025,fed-4104,fed-218,Wahgunyah,,588,31
+fed2025,fed-4105,fed-218,Walwa,,160,12
+fed2025,fed-4106,fed-218,Wandiligong,,103,1
+fed2025,fed-4107,fed-218,Wangaratta,,876,41
+fed2025,fed-4111,fed-218,West End,,1343,56
+fed2025,fed-4112,fed-218,Whitfield,,207,4
+fed2025,fed-4113,fed-218,Whorouly,,284,6
+fed2025,fed-4117,fed-218,Wodonga Central,,1685,104
+fed2025,fed-4119,fed-218,Wodonga South,,1084,48
+fed2025,fed-4121,fed-218,Wooragee,,348,11
+fed2025,fed-4122,fed-324,Wunghnu,,377,16
+fed2025,fed-4124,fed-218,Yackandandah,,916,22
+fed2025,fed-4125,fed-324,Yarrawonga,,882,44
+fed2025,fed-4127,fed-324,Yarroweyah,,301,12
+fed2025,fed-4128,fed-218,Yarrunga,,904,47
+fed2025,fed-4131,fed-219,Aspendale,,1867,58
+fed2025,fed-4133,fed-214,Beaumaris,,1253,31
+fed2025,fed-4135,fed-219,Mentone West (Isaacs),,1437,36
+fed2025,fed-4136,fed-214,Beaumaris North,,1162,31
+fed2025,fed-4138,fed-214,Black Rock,,1092,13
+fed2025,fed-4139,fed-214,Black Rock South,,1237,36
+fed2025,fed-4140,fed-210,Bonbeach,,1414,37
+fed2025,fed-4141,fed-210,Carrum,,1367,43
+fed2025,fed-4142,fed-219,Chelsea,,457,10
+fed2025,fed-4143,fed-210,Chelsea Central (Dunkley),,1678,65
+fed2025,fed-4144,fed-210,Chelsea Heights (Dunkley),,1028,43
+fed2025,fed-4145,fed-214,Cheltenham (Goldstein),,1099,27
+fed2025,fed-4148,fed-219,Edithvale,,1975,46
+fed2025,fed-4150,fed-219,Mentone,,1399,30
+fed2025,fed-4154,fed-219,Mordialloc East,,1115,39
+fed2025,fed-4155,fed-219,Parkdale,,1720,56
+fed2025,fed-4156,fed-219,Parkdale Central,,990,12
+fed2025,fed-4157,fed-219,Parkdale East,,1617,49
+fed2025,fed-4158,fed-210,Patterson Lakes,,1247,55
+fed2025,fed-4159,fed-210,Seaford,,1229,37
+fed2025,fed-4160,fed-210,Seaford North,,1067,42
+fed2025,fed-4164,fed-220,Rosanna East,,2418,58
+fed2025,fed-4165,fed-220,Bundoora (Jagajaga),,1167,40
+fed2025,fed-4168,fed-220,Ivanhoe South,,984,15
+fed2025,fed-4170,fed-220,Bundoora Central,,809,34
+fed2025,fed-4171,fed-220,Heidelberg Heights,,1063,29
+fed2025,fed-4172,fed-220,Heidelberg,,1531,37
+fed2025,fed-4174,fed-220,Olympic Village,,1252,64
+fed2025,fed-4175,fed-220,Heidelberg West,,1130,53
+fed2025,fed-4176,fed-220,Ivanhoe,,2266,37
+fed2025,fed-4178,fed-220,Ivanhoe East,,2107,34
+fed2025,fed-4181,fed-320,Kingsbury,,1101,53
+fed2025,fed-4182,fed-220,Macleod,,1755,50
+fed2025,fed-4186,fed-220,Rosanna,,1237,25
+fed2025,fed-4189,fed-220,Rosanna Central,,917,14
+fed2025,fed-4191,fed-220,Watsonia,,1548,44
+fed2025,fed-4192,fed-220,Watsonia Central,,1197,30
+fed2025,fed-4193,fed-220,Watsonia North,,1772,79
+fed2025,fed-4195,fed-220,Yallambie,,1778,72
+fed2025,fed-4198,fed-221,Hawthorn West,,1155,24
+fed2025,fed-4199,fed-221,Hawthorn East Central,,2089,34
+fed2025,fed-4200,fed-221,Balwyn,,1442,36
+fed2025,fed-4203,fed-221,Balwyn North,,1804,47
+fed2025,fed-4204,fed-221,Bellevue,,1150,24
+fed2025,fed-4205,fed-221,Greythorn (Kooyong),,1091,27
+fed2025,fed-4208,fed-221,Balwyn North Central,,1529,27
+fed2025,fed-4209,fed-221,Canterbury,,656,6
+fed2025,fed-4210,fed-221,Canterbury West,,493,10
+fed2025,fed-4212,fed-221,Surrey Hills North,,1270,17
+fed2025,fed-4213,fed-221,Canterbury South,,1757,24
+fed2025,fed-4214,fed-221,Kew West,,1125,19
+fed2025,fed-4215,fed-221,Deepdene,,1201,18
+fed2025,fed-4217,fed-221,Glenferrie,,861,10
+fed2025,fed-4218,fed-221,Hawthorn Central,,2180,34
+fed2025,fed-4220,fed-221,Hawthorn South,,690,7
+fed2025,fed-4222,fed-221,Hawthorn,,1748,29
+fed2025,fed-4223,fed-221,Kew North,,1037,26
+fed2025,fed-4224,fed-221,Kew,,1881,41
+fed2025,fed-4225,fed-221,Kew East,,781,15
+fed2025,fed-4226,fed-221,Kew East Central,,1428,30
+fed2025,fed-4228,fed-221,Kew South,,1007,15
+fed2025,fed-4229,fed-221,Kew North West,,646,5
+fed2025,fed-4230,fed-229,Surrey Hills West (Menzies),,1107,16
+fed2025,fed-4236,fed-212,Altona,,1324,47
+fed2025,fed-4237,fed-212,Altona Meadows,,1335,85
+fed2025,fed-4238,fed-212,Altona West,,1412,49
+fed2025,fed-4240,fed-321,Sunshine West,,1101,85
+fed2025,fed-4241,fed-222,Bellbridge,,1731,92
+fed2025,fed-4242,fed-309,Deer Park,,863,66
+fed2025,fed-4244,fed-309,Deer Park West,,1113,61
+fed2025,fed-4245,fed-326,Eynesbury,,1208,38
+fed2025,fed-4246,fed-326,Kurunjang,,1120,59
+fed2025,fed-4248,fed-212,Laverton North,,927,40
+fed2025,fed-4249,fed-208,Little River,,320,11
+fed2025,fed-4250,fed-326,Melton,,1432,92
+fed2025,fed-4251,fed-326,Coburn,,1234,100
+fed2025,fed-4252,fed-326,Melton South,,1978,110
+fed2025,fed-4253,fed-222,Mossfiel,,1284,56
+fed2025,fed-4255,fed-309,Rockbank,,1238,51
+fed2025,fed-4256,fed-212,Seaholme,,1076,38
+fed2025,fed-4259,fed-222,Werribee Central,,1005,42
+fed2025,fed-4260,fed-222,Galvin Park,,708,25
+fed2025,fed-4261,fed-222,Werribee South,,409,12
+fed2025,fed-4262,fed-222,Iramoo,,1790,85
+fed2025,fed-4263,fed-326,West Melton,,1233,78
+fed2025,fed-4264,fed-222,Woodville,,864,46
+fed2025,fed-4267,fed-223,Beaconsfield (La Trobe),,1427,36
+fed2025,fed-4268,fed-223,Beaconsfield Upper,,1031,21
+fed2025,fed-4269,fed-204,Belgrave,,852,26
+fed2025,fed-4270,fed-204,Belgrave South,,1795,44
+fed2025,fed-4271,fed-201,Berwick (Bruce),,1380,36
+fed2025,fed-4273,fed-197,Boronia East,,1074,40
+fed2025,fed-4274,fed-197,Boronia North,,1299,42
+fed2025,fed-4277,fed-201,Doveton West,,876,72
+fed2025,fed-4279,fed-201,Endeavour Hills,,1084,70
+fed2025,fed-4280,fed-201,Endeavour Hills East,,1395,75
+fed2025,fed-4281,fed-201,Endeavour Hills North,,851,52
+fed2025,fed-4282,fed-197,Ferntree Gully,,1013,45
+fed2025,fed-4283,fed-197,Ferntree Gully North,,1171,30
+fed2025,fed-4284,fed-197,Upper Ferntree Gully (Aston),,768,25
+fed2025,fed-4285,fed-204,Ferny Creek,,742,22
+fed2025,fed-4286,fed-201,Fountain Gate,,1533,92
+fed2025,fed-4287,fed-201,Endeavour Hills Upper,,1481,72
+fed2025,fed-4288,fed-201,Hallam,,1479,113
+fed2025,fed-4291,fed-204,Menzies Creek,,521,17
+fed2025,fed-4292,fed-204,Monbulk,,1475,42
+fed2025,fed-4296,fed-223,Officer,,884,21
+fed2025,fed-4298,fed-204,Sassafras,,434,10
+fed2025,fed-4299,fed-204,Selby,,681,17
+fed2025,fed-4300,fed-204,Tecoma,,1637,41
+fed2025,fed-4301,fed-197,The Basin,,1380,36
+fed2025,fed-4302,fed-204,The Patch,,575,10
+fed2025,fed-4303,fed-204,Upwey,,1193,32
+fed2025,fed-4307,fed-218,Alexandra,,1309,55
+fed2025,fed-4308,fed-220,Greensborough North,,1408,41
+fed2025,fed-4309,fed-226,Arthurs Creek,,678,19
+fed2025,fed-4310,fed-324,Avenel,,438,14
+fed2025,fed-4312,fed-226,Beveridge,,1471,53
+fed2025,fed-4313,fed-218,Bonnie Doon,,200,3
+fed2025,fed-4314,fed-220,Briar Hill,,1349,36
+fed2025,fed-4315,fed-324,Broadford,,1670,77
+fed2025,fed-4317,fed-226,Darraweit Guim,,241,4
+fed2025,fed-4318,fed-226,Doreen,,1255,38
+fed2025,fed-4320,fed-218,Eildon,,409,13
+fed2025,fed-4321,fed-232,Epping,,1098,102
+fed2025,fed-4322,fed-232,Epping Central,,1232,104
+fed2025,fed-4323,fed-218,Euroa,,1426,71
+fed2025,fed-4324,fed-218,Flowerdale,,347,23
+fed2025,fed-4325,fed-218,Glenburn,,212,4
+fed2025,fed-4329,fed-220,Greenhills,,1294,49
+fed2025,fed-4330,fed-220,Greensborough,,1412,41
+fed2025,fed-4333,fed-218,Jamieson,,125,7
+fed2025,fed-4334,fed-226,Woodstock,,1071,42
+fed2025,fed-4335,fed-324,Kilmore,,1328,64
+fed2025,fed-4336,fed-218,Kinglake,,760,23
+fed2025,fed-4337,fed-218,Kinglake West,,814,32
+fed2025,fed-4338,fed-324,Longwood,,221,6
+fed2025,fed-4339,fed-218,Mansfield,,757,22
+fed2025,fed-4340,fed-226,Mernda,,1557,48
+fed2025,fed-4343,fed-203,Mickleham,,2046,80
+fed2025,fed-4345,fed-232,Mill Park,,1165,43
+fed2025,fed-4347,fed-220,Montmorency,,1338,33
+fed2025,fed-4348,fed-220,Montmorency South,,2241,47
+fed2025,fed-4349,fed-232,South Morang,,1608,78
+fed2025,fed-4351,fed-324,Nagambie,,980,47
+fed2025,fed-4353,fed-226,Plenty,,1016,34
+fed2025,fed-4354,fed-324,Puckapunyal,,204,0
+fed2025,fed-4355,fed-218,Ruffy,,158,3
+fed2025,fed-4356,fed-324,Seymour,,926,36
+fed2025,fed-4358,fed-218,Strathbogie,,272,7
+fed2025,fed-4360,fed-218,Swanpool,,219,11
+fed2025,fed-4362,fed-218,Taggerty,,312,19
+fed2025,fed-4363,fed-324,Tallarook,,201,7
+fed2025,fed-4365,fed-232,Mill Park North,,988,48
+fed2025,fed-4366,fed-218,Thornton,,209,9
+fed2025,fed-4367,fed-218,Toolangi,,239,9
+fed2025,fed-4369,fed-218,Violet Town,,480,26
+fed2025,fed-4370,fed-226,Wallan Central,,743,22
+fed2025,fed-4371,fed-226,Wallan Wallan,,1494,76
+fed2025,fed-4372,fed-226,Wandong,,581,27
+fed2025,fed-4374,fed-226,Whittlesea,,1514,75
+fed2025,fed-4375,fed-232,Wollert,,858,42
+fed2025,fed-4377,fed-226,Yan Yean,,469,19
+fed2025,fed-4379,fed-218,Yea,,839,33
+fed2025,fed-4383,fed-323,Bona Vista,,306,8
+fed2025,fed-4384,fed-323,Buln Buln,,445,14
+fed2025,fed-4385,fed-223,Bunyip,,1169,57
+fed2025,fed-4387,fed-213,Churchill,,419,13
+fed2025,fed-4389,fed-213,Traralgon North,,703,31
+fed2025,fed-4390,fed-323,Darnum,,378,13
+fed2025,fed-4391,fed-323,Drouin,,1257,72
+fed2025,fed-4392,fed-323,Drouin West,,465,17
+fed2025,fed-4395,fed-223,Garfield,,702,31
+fed2025,fed-4396,fed-213,Hazelwood North,,411,16
+fed2025,fed-4399,fed-323,Jindivick,,246,4
+fed2025,fed-4400,fed-323,Labertouche,,239,9
+fed2025,fed-4403,fed-323,Longwarry,,947,53
+fed2025,fed-4405,fed-323,Moe,,963,44
+fed2025,fed-4406,fed-323,Moe Central,,338,31
+fed2025,fed-4407,fed-323,Moe West,,564,24
+fed2025,fed-4408,fed-213,Morwell,,1090,70
+fed2025,fed-4410,fed-213,Morwell Estate,,1003,79
+fed2025,fed-4412,fed-223,Nar Nar Goon,,526,17
+fed2025,fed-4415,fed-323,Neerim South,,690,38
+fed2025,fed-4416,fed-323,Newborough,,353,15
+fed2025,fed-4417,fed-323,Newborough East,,824,38
+fed2025,fed-4418,fed-323,Nilma,,541,17
+fed2025,fed-4419,fed-323,Noojee,,205,3
+fed2025,fed-4421,fed-223,Pakenham,,1204,60
+fed2025,fed-4427,fed-323,Trafalgar,,1181,49
+fed2025,fed-4428,fed-213,Traralgon,,1907,94
+fed2025,fed-4429,fed-213,Traralgon East,,1189,47
+fed2025,fed-4430,fed-213,Traralgon South,,326,11
+fed2025,fed-4432,fed-213,Tyers,,349,15
+fed2025,fed-4433,fed-223,Tynong,,541,17
+fed2025,fed-4434,fed-323,Warragul,,1105,44
+fed2025,fed-4435,fed-323,Warragul East,,667,28
+fed2025,fed-4436,fed-323,Warragul North,,795,21
+fed2025,fed-4438,fed-323,Willowgrove,,436,9
+fed2025,fed-4439,fed-213,Yallourn North,,450,20
+fed2025,fed-4440,fed-323,Yarragon,,716,25
+fed2025,fed-4452,fed-224,Beulah,,229,7
+fed2025,fed-4453,fed-224,Beverford,,125,14
+fed2025,fed-4454,fed-224,Birchip,,561,30
+fed2025,fed-4460,fed-224,Cabarita,,457,23
+fed2025,fed-4462,fed-224,Cardross,,403,22
+fed2025,fed-4472,fed-224,Dimboola,,675,41
+fed2025,fed-4478,fed-224,Goroke,,238,7
+fed2025,fed-4481,fed-224,Haven,,452,17
+fed2025,fed-4482,fed-224,Hopetoun,,393,30
+fed2025,fed-4483,fed-224,Horsham,,787,42
+fed2025,fed-4484,fed-224,Horsham North,,541,25
+fed2025,fed-4485,fed-224,Horsham West,,864,46
+fed2025,fed-4486,fed-224,Irymple,,971,69
+fed2025,fed-4487,fed-224,Jeparit,,236,14
+fed2025,fed-4489,fed-224,Kaniva,,535,23
+fed2025,fed-4496,fed-224,Koorlong,,267,13
+fed2025,fed-4498,fed-224,Lake Boga,,368,13
+fed2025,fed-4504,fed-224,Manangatang,,182,13
+fed2025,fed-4505,fed-224,Merbein,,955,75
+fed2025,fed-4509,fed-224,Mildura,,1163,77
+fed2025,fed-4511,fed-224,Mildura Deakin,,662,43
+fed2025,fed-4512,fed-224,Mildura South,,524,23
+fed2025,fed-4513,fed-224,Mildura West,,590,18
+fed2025,fed-4515,fed-224,Minyip,,304,15
+fed2025,fed-4519,fed-224,Murrayville,,185,5
+fed2025,fed-4520,fed-224,Murtoa,,429,27
+fed2025,fed-4522,fed-224,Nangiloc,,177,13
+fed2025,fed-4524,fed-224,Natimuk,,310,12
+fed2025,fed-4527,fed-224,Nhill,,985,78
+fed2025,fed-4528,fed-224,Nichols Point,,448,17
+fed2025,fed-4530,fed-224,Nyah,,241,12
+fed2025,fed-4531,fed-224,Nyah West,,235,13
+fed2025,fed-4532,fed-224,Ouyen,,671,61
+fed2025,fed-4537,fed-224,Piangil,,161,5
+fed2025,fed-4539,fed-224,Rainbow,,373,35
+fed2025,fed-4540,fed-224,Red Cliffs,,1091,78
+fed2025,fed-4543,fed-224,Robinvale,,848,66
+fed2025,fed-4545,fed-224,Rupanyup,,276,12
+fed2025,fed-4546,fed-224,Sea Lake,,338,23
+fed2025,fed-4552,fed-224,Swan Hill,,604,30
+fed2025,fed-4559,fed-224,Underbool,,140,5
+fed2025,fed-4563,fed-224,Warracknabeal,,1133,65
+fed2025,fed-4568,fed-224,Horsham East,,745,26
+fed2025,fed-4572,fed-224,Woomelang,,145,7
+fed2025,fed-4574,fed-224,Woorinen,,178,7
+fed2025,fed-4575,fed-224,Wycheproof,,441,18
+fed2025,fed-4580,fed-225,Aberfeldie,,1231,32
+fed2025,fed-4582,fed-225,Essendon Heights,,1391,41
+fed2025,fed-4585,fed-225,Essendon North,,1060,18
+fed2025,fed-4586,fed-225,Essendon,,1088,30
+fed2025,fed-4587,fed-225,Essendon West,,934,20
+fed2025,fed-4588,fed-225,Gladstone Park (Maribyrnong),,1516,118
+fed2025,fed-4589,fed-225,Gladstone Park West,,934,55
+fed2025,fed-4590,fed-225,Essendon East,,1958,47
+fed2025,fed-4591,fed-225,Glenroy West,,1343,55
+fed2025,fed-4592,fed-225,Keilor Heights,,1396,55
+fed2025,fed-4593,fed-225,Keilor Park,,344,9
+fed2025,fed-4594,fed-225,Keilor South,,1156,51
+fed2025,fed-4597,fed-225,Essendon South,,1221,31
+fed2025,fed-4599,fed-225,Moonee Ponds West,,1783,42
+fed2025,fed-4600,fed-225,Airport West,,2161,102
+fed2025,fed-4601,fed-225,Niddrie Central,,1343,36
+fed2025,fed-4603,fed-225,Strathmore,,1570,44
+fed2025,fed-4604,fed-225,Strathmore North,,1064,19
+fed2025,fed-4606,fed-225,Tullamarine,,1580,92
+fed2025,fed-4607,fed-203,Westmeadows,,1434,84
+fed2025,fed-4610,fed-228,Abbotsford,,803,25
+fed2025,fed-4612,fed-225,Ascot Vale Central,,1281,27
+fed2025,fed-4613,fed-225,Ascot Vale East,,1315,28
+fed2025,fed-4614,fed-225,Ascot Vale West,,728,14
+fed2025,fed-4616,fed-234,Brunswick East,,1458,34
+fed2025,fed-4617,fed-234,Brunswick South,,1139,12
+fed2025,fed-4619,fed-234,Brunswick South West,,1431,35
+fed2025,fed-4621,fed-228,Carlton,,999,38
+fed2025,fed-4622,fed-234,Carlton Central (Wills),,1538,22
+fed2025,fed-4624,fed-228,Carlton South,,1164,24
+fed2025,fed-4625,fed-320,Clifton Hill,,1287,23
+fed2025,fed-4626,fed-228,Collingwood,,1343,41
+fed2025,fed-4628,fed-234,Delbridge,,1238,18
+fed2025,fed-4629,fed-228,East Melbourne,,1490,14
+fed2025,fed-4630,fed-234,Princes Hill (Wills),,1539,20
+fed2025,fed-4631,fed-228,Fitzroy,,1457,36
+fed2025,fed-4633,fed-234,Fitzroy North,,1115,11
+fed2025,fed-4634,fed-225,Flemington,,1387,40
+fed2025,fed-4635,fed-228,Hotham,,817,36
+fed2025,fed-4638,fed-234,Merri,,1214,28
+fed2025,fed-4640,fed-228,North Melbourne,,1123,14
+fed2025,fed-4641,fed-228,North Melbourne Central,,1636,32
+fed2025,fed-4642,fed-228,Parkville,,1096,16
+fed2025,fed-4643,fed-228,Richmond Central,,1899,44
+fed2025,fed-4655,fed-228,Fawkner Park (Melbourne),,871,17
+fed2025,fed-4656,fed-322,Duggan,,1089,21
+fed2025,fed-4657,fed-322,Bridport,,889,11
+fed2025,fed-4661,fed-322,Elwood,,1196,27
+fed2025,fed-4662,fed-322,Elwood North,,1739,43
+fed2025,fed-4663,fed-322,Emerald Hill,,1902,41
+fed2025,fed-4665,fed-322,Port Melbourne West,,1606,34
+fed2025,fed-4667,fed-228,Hawksburn,,1872,42
+fed2025,fed-4668,fed-228,South Yarra South,,1126,41
+fed2025,fed-4669,fed-322,Kerferd,,1425,18
+fed2025,fed-4670,fed-322,Middle Park,,1145,22
+fed2025,fed-4672,fed-322,Port Melbourne,,1260,50
+fed2025,fed-4673,fed-228,Prahran,,1077,28
+fed2025,fed-4674,fed-322,Prahran East (Macnamara),,769,19
+fed2025,fed-4677,fed-228,Richmond,,1900,45
+fed2025,fed-4678,fed-228,Burnley,,1514,32
+fed2025,fed-4679,fed-228,Cremorne,,1630,27
+fed2025,fed-4681,fed-322,St Kilda,,1955,29
+fed2025,fed-4682,fed-322,Alfred Square,,1254,40
+fed2025,fed-4683,fed-322,St Kilda North,,1471,23
+fed2025,fed-4684,fed-322,St Kilda Park,,1662,30
+fed2025,fed-4685,fed-322,St Kilda West,,670,10
+fed2025,fed-4686,fed-322,Sandridge,,1005,30
+fed2025,fed-4687,fed-322,South Melbourne,,1383,50
+fed2025,fed-4688,fed-228,South Yarra,,1288,18
+fed2025,fed-4689,fed-322,Windsor,,1133,17
+fed2025,fed-4692,fed-229,Doncaster East Lower,,723,48
+fed2025,fed-4694,fed-229,Bulleen,,1340,61
+fed2025,fed-4696,fed-229,Doncaster East Central,,598,10
+fed2025,fed-4697,fed-229,Doncaster,,330,23
+fed2025,fed-4698,fed-229,Doncaster Central,,1732,47
+fed2025,fed-4699,fed-229,Doncaster East,,1333,55
+fed2025,fed-4700,fed-229,Doncaster Heights,,704,28
+fed2025,fed-4702,fed-229,Doncaster South,,848,24
+fed2025,fed-4703,fed-229,Doncaster West,,361,10
+fed2025,fed-4704,fed-220,Eltham,,2277,49
+fed2025,fed-4705,fed-220,Eltham East,,2288,49
+fed2025,fed-4706,fed-220,Eltham North,,966,19
+fed2025,fed-4707,fed-220,Lower Plenty,,1314,27
+fed2025,fed-4708,fed-229,Templestowe Lower,,814,36
+fed2025,fed-4709,fed-229,Donvale Upper,,1026,25
+fed2025,fed-4710,fed-229,Templestowe East,,1219,36
+fed2025,fed-4711,fed-229,Templestowe,,820,30
+fed2025,fed-4712,fed-229,Templestowe Heights,,1862,69
+fed2025,fed-4713,fed-229,Templestowe Park,,1124,32
+fed2025,fed-4714,fed-229,Templestowe Valley,,844,17
+fed2025,fed-4715,fed-229,Doncaster Gardens,,592,17
+fed2025,fed-4716,fed-229,Bulleen Lower,,913,31
+fed2025,fed-4721,fed-324,Ardmona,,389,19
+fed2025,fed-4723,fed-324,Bamawm,,199,3
+fed2025,fed-4726,fed-224,Boort,,555,23
+fed2025,fed-4727,fed-324,Bunbartha,,233,8
+fed2025,fed-4728,fed-324,Byrneside,,306,15
+fed2025,fed-4729,fed-224,Calivil,,106,7
+fed2025,fed-4730,fed-224,Cohuna,,1308,91
+fed2025,fed-4731,fed-324,Colbinabbin,,262,12
+fed2025,fed-4732,fed-324,Congupna,,454,20
+fed2025,fed-4735,fed-324,Dhurringile,,138,6
+fed2025,fed-4736,fed-224,Dingee,,190,5
+fed2025,fed-4738,fed-324,Dookie,,238,14
+fed2025,fed-4741,fed-324,Echuca,,959,39
+fed2025,fed-4742,fed-324,Echuca East,,805,45
+fed2025,fed-4744,fed-324,Echuca West,,352,7
+fed2025,fed-4747,fed-200,Elmore,,468,19
+fed2025,fed-4748,fed-324,Girgarre,,229,9
+fed2025,fed-4751,fed-324,Gowrie,,977,55
+fed2025,fed-4753,fed-324,Gunbower,,239,16
+fed2025,fed-4754,fed-324,Guthrie,,827,51
+fed2025,fed-4758,fed-324,Katunga,,422,14
+fed2025,fed-4759,fed-224,Kerang,,1066,63
+fed2025,fed-4760,fed-224,Kerang North,,952,49
+fed2025,fed-4761,fed-324,Kialla,,468,12
+fed2025,fed-4762,fed-324,Kialla West,,567,26
+fed2025,fed-4763,fed-324,Shepparton Central,,973,44
+fed2025,fed-4764,fed-224,Koondrook,,670,53
+fed2025,fed-4769,fed-324,Kyabram,,386,21
+fed2025,fed-4771,fed-324,Ky Valley,,317,7
+fed2025,fed-4772,fed-224,Lake Charm,,179,8
+fed2025,fed-4774,fed-324,Lancaster,,288,15
+fed2025,fed-4776,fed-224,Leitchville,,313,30
+fed2025,fed-4777,fed-324,Lemnos,,138,8
+fed2025,fed-4778,fed-324,Lockington,,499,17
+fed2025,fed-4781,fed-324,Merrigum,,306,15
+fed2025,fed-4787,fed-324,Mooroopna Park,,775,48
+fed2025,fed-4788,fed-324,Murchison,,539,35
+fed2025,fed-4789,fed-224,Murrabit,,209,7
+fed2025,fed-4792,fed-324,Nanneella,,222,5
+fed2025,fed-4793,fed-324,Nathalia,,834,42
+fed2025,fed-4794,fed-324,Orrvale,,430,21
+fed2025,fed-4796,fed-324,Picola,,339,19
+fed2025,fed-4798,fed-224,Pyramid Hill,,368,14
+fed2025,fed-4799,fed-224,Quambatook,,139,7
+fed2025,fed-4800,fed-200,Rochester,,954,52
+fed2025,fed-4801,fed-324,Rushworth,,679,49
+fed2025,fed-4802,fed-224,Serpentine,,176,12
+fed2025,fed-4805,fed-324,Shepparton East,,443,20
+fed2025,fed-4806,fed-324,Shepparton North,,1205,56
+fed2025,fed-4807,fed-324,Shepparton South,,831,49
+fed2025,fed-4808,fed-324,Stanhope,,455,24
+fed2025,fed-4809,fed-324,Strathmerton,,420,15
+fed2025,fed-4812,fed-324,Tatura,,1466,90
+fed2025,fed-4815,fed-324,Tongala,,578,39
+fed2025,fed-4816,fed-324,Toolamba,,308,5
+fed2025,fed-4818,fed-324,Torrumbarry,,114,2
+fed2025,fed-4820,fed-324,Undera,,221,14
+fed2025,fed-4822,fed-324,Wanganui,,534,20
+fed2025,fed-4824,fed-324,Wilmot,,1177,82
+fed2025,fed-4842,fed-203,Broadmeadows North,,1469,153
+fed2025,fed-4843,fed-232,Campbellfield (Scullin),,833,130
+fed2025,fed-4846,fed-234,Fawkner East,,998,50
+fed2025,fed-4847,fed-234,Fawkner,,1620,145
+fed2025,fed-4848,fed-234,Glenroy,,1498,80
+fed2025,fed-4851,fed-234,Glenroy North,,834,29
+fed2025,fed-4852,fed-234,Glenroy East,,1164,115
+fed2025,fed-4853,fed-234,Hadfield,,1411,67
+fed2025,fed-4855,fed-232,Lalor,,912,85
+fed2025,fed-4856,fed-232,Lalor East,,1242,106
+fed2025,fed-4857,fed-232,Lalor North,,626,49
+fed2025,fed-4858,fed-232,Lalor Park,,664,47
+fed2025,fed-4859,fed-232,Lalor West,,1539,152
+fed2025,fed-4860,fed-234,Fawkner North,,1163,103
+fed2025,fed-4861,fed-232,Bundoora West,,1355,80
+fed2025,fed-4862,fed-232,Thomastown,,549,44
+fed2025,fed-4863,fed-232,Thomastown East,,798,55
+fed2025,fed-4864,fed-232,Thomastown Meadows,,1064,116
+fed2025,fed-4865,fed-232,Thomastown West,,1420,164
+fed2025,fed-4866,fed-203,Dallas,,947,104
+fed2025,fed-4868,fed-204,Badger Creek,,442,15
+fed2025,fed-4869,fed-197,Bayswater North,,1710,55
+fed2025,fed-4870,fed-204,Mount Evelyn West,,1466,50
+fed2025,fed-4874,fed-223,Cockatoo,,1482,57
+fed2025,fed-4875,fed-209,Croydon,,2003,69
+fed2025,fed-4876,fed-209,Croydon East,,1410,27
+fed2025,fed-4877,fed-209,Croydon South,,878,18
+fed2025,fed-4879,fed-209,Ringwood East Central,,1581,25
+fed2025,fed-4880,fed-223,Emerald (La Trobe),,1526,48
+fed2025,fed-4881,fed-223,Gembrook,,996,36
+fed2025,fed-4882,fed-204,Gladysdale,,404,14
+fed2025,fed-4883,fed-204,Healesville,,410,10
+fed2025,fed-4884,fed-204,Hoddles Creek,,361,9
+fed2025,fed-4885,fed-204,Kilsyth (Casey),,1247,62
+fed2025,fed-4887,fed-204,Kilsyth South,,836,31
+fed2025,fed-4888,fed-204,Launching Place,,729,22
+fed2025,fed-4889,fed-204,Macclesfield,,618,18
+fed2025,fed-4890,fed-223,Maryknoll,,393,11
+fed2025,fed-4891,fed-218,Marysville,,389,21
+fed2025,fed-4892,fed-204,Millgrove,,626,25
+fed2025,fed-4894,fed-204,Montrose,,1600,36
+fed2025,fed-4895,fed-204,Montrose South,,559,14
+fed2025,fed-4896,fed-204,Mooroolbark,,457,13
+fed2025,fed-4897,fed-204,Mooroolbark East,,1443,47
+fed2025,fed-4898,fed-204,Mooroolbark South,,1059,38
+fed2025,fed-4900,fed-204,Mount Evelyn,,1221,39
+fed2025,fed-4901,fed-218,Narbethong,,174,8
+fed2025,fed-4902,fed-223,Nar Nar Goon North,,321,4
+fed2025,fed-4903,fed-204,Olinda,,498,20
+fed2025,fed-4904,fed-223,Pakenham North,,1600,85
+fed2025,fed-4907,fed-204,Seville,,1081,52
+fed2025,fed-4909,fed-204,Silvan,,675,26
+fed2025,fed-4910,fed-209,Tinternvale,,1433,27
+fed2025,fed-4912,fed-223,Pakenham Heights,,573,14
+fed2025,fed-4914,fed-204,Wandin Yallock,,1073,34
+fed2025,fed-4917,fed-204,Warburton,,659,25
+fed2025,fed-4918,fed-204,Warburton East,,440,18
+fed2025,fed-4919,fed-204,Wesburn,,630,37
+fed2025,fed-4920,fed-204,Woori Yallock,,1193,39
+fed2025,fed-4921,fed-204,Yarra Junction,,907,43
+fed2025,fed-4933,fed-233,Allansford,,746,31
+fed2025,fed-4934,fed-224,Apsley,,258,5
+fed2025,fed-4937,fed-233,Balmoral,,186,2
+fed2025,fed-4939,fed-233,Bolwarra,,285,6
+fed2025,fed-4941,fed-233,Branxholme,,159,6
+fed2025,fed-4947,fed-233,Camperdown,,1637,87
+fed2025,fed-4952,fed-233,Casterton,,907,48
+fed2025,fed-4953,fed-233,Cavendish,,227,6
+fed2025,fed-4959,fed-233,Cobden,,1005,48
+fed2025,fed-4962,fed-233,Coleraine,,451,27
+fed2025,fed-4966,fed-233,Dartmoor,,255,8
+fed2025,fed-4973,fed-233,Dunkeld,,275,5
+fed2025,fed-4975,fed-233,Ecklin South,,264,6
+fed2025,fed-4976,fed-224,Edenhope,,509,22
+fed2025,fed-4982,fed-233,Glenthompson,,112,2
+fed2025,fed-4985,fed-233,Hamilton,,1026,36
+fed2025,fed-4989,fed-224,Harrow,,141,3
+fed2025,fed-4990,fed-233,Hawkesdale,,203,4
+fed2025,fed-4994,fed-233,Heywood,,655,27
+fed2025,fed-4998,fed-233,Portland South,,228,11
+fed2025,fed-5003,fed-233,Koroit,,1183,50
+fed2025,fed-5008,fed-233,Macarthur,,305,8
+fed2025,fed-5009,fed-233,Mailors Flat,,453,18
+fed2025,fed-5011,fed-233,Merino,,167,5
+fed2025,fed-5016,fed-233,Mortlake,,738,40
+fed2025,fed-5023,fed-233,Narrawong,,279,8
+fed2025,fed-5024,fed-233,Nelson,,133,1
+fed2025,fed-5026,fed-233,Noorat,,435,19
+fed2025,fed-5028,fed-233,Nullawarre,,316,10
+fed2025,fed-5030,fed-233,Panmure,,397,12
+fed2025,fed-5031,fed-233,Hamilton North,,395,19
+fed2025,fed-5032,fed-233,Penshurst,,360,16
+fed2025,fed-5033,fed-233,Peterborough,,162,13
+fed2025,fed-5037,fed-233,Port Campbell,,260,3
+fed2025,fed-5038,fed-233,Port Fairy,,1378,40
+fed2025,fed-5039,fed-233,Portland Central,,1145,45
+fed2025,fed-5041,fed-233,Portland North,,210,6
+fed2025,fed-5044,fed-233,Purnim,,316,9
+fed2025,fed-5049,fed-233,Scotts Creek,,215,4
+fed2025,fed-5050,fed-233,Simpson,,320,13
+fed2025,fed-5055,fed-233,Tarrington,,176,1
+fed2025,fed-5057,fed-233,Terang,,1028,57
+fed2025,fed-5060,fed-233,Timboon,,598,24
+fed2025,fed-5063,fed-233,Warrnambool East,,918,31
+fed2025,fed-5072,fed-233,Warrnambool,,1015,28
+fed2025,fed-5078,fed-233,Warrnambool West,,760,31
+fed2025,fed-5082,fed-233,Woodford,,456,11
+fed2025,fed-5083,fed-233,Woolsthorpe,,277,17
+fed2025,fed-5086,fed-234,Brunswick,,1998,38
+fed2025,fed-5087,fed-320,Bell,,1744,36
+fed2025,fed-5088,fed-234,Brunswick North,,2364,53
+fed2025,fed-5089,fed-234,Brunswick North East,,2087,40
+fed2025,fed-5090,fed-234,Brunswick North West,,926,17
+fed2025,fed-5091,fed-234,Coburg,,1582,48
+fed2025,fed-5092,fed-234,Coburg East,,851,43
+fed2025,fed-5093,fed-234,Coburg North West,,1659,63
+fed2025,fed-5094,fed-234,Coburg South,,156,5
+fed2025,fed-5096,fed-234,Coburg West,,2153,55
+fed2025,fed-5098,fed-320,Croxton,,813,14
+fed2025,fed-5101,fed-234,Coburg Lake (Wills),,1131,28
+fed2025,fed-5102,fed-234,Brunswick West,,1017,27
+fed2025,fed-5103,fed-234,Coburg North,,888,40
+fed2025,fed-5104,fed-234,Moreland South,,1495,38
+fed2025,fed-5105,fed-234,Moreland,,1530,53
+fed2025,fed-5107,fed-320,Newlands,,1386,48
+fed2025,fed-5108,fed-225,Oak Park (Maribyrnong),,1309,43
+fed2025,fed-5109,fed-234,Pascoe Vale,,1225,48
+fed2025,fed-5110,fed-234,Pascoe Vale Central,,523,25
+fed2025,fed-5111,fed-234,Pascoe Vale North,,1896,90
+fed2025,fed-5112,fed-234,Pascoe Vale South (Wills),,1316,52
+fed2025,fed-5113,fed-234,Oak Park West,,844,24
+fed2025,fed-5114,fed-320,Preston West,,1419,73
+fed2025,fed-5115,fed-320,Regent West,,279,9
+fed2025,fed-5116,fed-320,Reservoir West,,1371,50
+fed2025,fed-5117,fed-320,Thornbury,,1496,32
+fed2025,fed-8891,fed-323,Cape Paterson,,301,8
+fed2025,fed-8893,fed-212,Altona Bay,,686,27
+fed2025,fed-8894,fed-222,Glenorden,,1127,61
+fed2025,fed-8895,fed-222,Manorvale,,1132,39
+fed2025,fed-8897,fed-326,Westlake,,1320,72
+fed2025,fed-8898,fed-218,Tolmie,,112,2
+fed2025,fed-8899,fed-232,Mill Park West,,1513,90
+fed2025,fed-8900,fed-224,Swan Hill West,,691,31
+fed2025,fed-8907,fed-309,Sydenham East,,276,11
+fed2025,fed-11513,fed-197,Rowville North East,,1409,32
+fed2025,fed-11514,fed-197,Heathmont West,,919,16
+fed2025,fed-11515,fed-326,Sunbury East,,1578,57
+fed2025,fed-11516,fed-326,Sunbury Heights,,1840,67
+fed2025,fed-11517,fed-211,Rosebud South,,1061,45
+fed2025,fed-11518,fed-233,Princetown,,135,4
+fed2025,fed-11520,fed-211,Mount Martha North,,1644,60
+fed2025,fed-11521,fed-205,Bennettswood,,1163,23
+fed2025,fed-11525,fed-209,Croydon Town,,867,30
+fed2025,fed-11527,fed-217,Clarinda North,,1298,50
+fed2025,fed-11529,fed-226,Wattle Glen,,886,22
+fed2025,fed-11647,fed-216,Cranbourne West,,2195,126
+fed2025,fed-11649,fed-232,Epping South,,1099,91
+fed2025,fed-11651,fed-223,Berwick South,,1238,30
+fed2025,fed-11652,fed-211,Mount Eliza Central,,471,12
+fed2025,fed-11655,fed-216,Hampton Park,,1186,57
+fed2025,fed-11656,fed-210,Langwarrin Park,,1827,57
+fed2025,fed-11763,fed-322,St Kilda MACNAMARA PPVC,,15264,300
+fed2025,fed-11876,fed-229,The Pines,,1323,52
+fed2025,fed-11885,fed-328,Grovedale West,,1769,51
+fed2025,fed-11886,fed-210,Frankston Heights East,,1203,61
+fed2025,fed-11888,fed-219,Aspendale Gardens,,1372,40
+fed2025,fed-11890,fed-232,Mill Park Heights,,1584,100
+fed2025,fed-11891,fed-226,Clonbinane,,147,5
+fed2025,fed-11892,fed-224,Mildura City Central,,1343,87
+fed2025,fed-11893,fed-228,Richmond West,,1039,45
+fed2025,fed-12078,fed-205,Burwood East Upper (Chisholm),,557,16
+fed2025,fed-12079,fed-197,Glen Park,,580,15
+fed2025,fed-12080,fed-225,Avondale Heights Central,,989,57
+fed2025,fed-12081,fed-220,St Helena (Jagajaga),,1322,41
+fed2025,fed-14318,fed-228,Melbourne MELBOURNE PPVC,,10357,162
+fed2025,fed-31044,fed-203,Craigieburn South,,2011,121
+fed2025,fed-31046,fed-309,Delahey,,1165,76
+fed2025,fed-31047,fed-203,Meadow Heights,,1828,204
+fed2025,fed-31048,fed-309,Keilor Downs West,,1357,80
+fed2025,fed-31050,fed-216,Hampton Park South,,1267,77
+fed2025,fed-31051,fed-210,Carrum Downs South,,1075,90
+fed2025,fed-31055,fed-222,Cambridge,,1329,47
+fed2025,fed-31056,fed-222,Derrimut Heath,,1012,45
+fed2025,fed-31057,fed-201,Berwick Lodge,,1144,33
+fed2025,fed-31058,fed-223,Pakenham Central,,1692,89
+fed2025,fed-31059,fed-211,Somerville East,,1161,55
+fed2025,fed-31295,fed-211,Dromana Beach,,374,13
+fed2025,fed-31452,fed-211,Mornington East,,1874,56
+fed2025,fed-31462,fed-210,Seaford East,,1640,78
+fed2025,fed-31465,fed-211,St Andrews Beach,,456,17
+fed2025,fed-31495,fed-223,Pakenham Upper,,506,14
+fed2025,fed-31536,fed-208,Geelong North CORIO PPVC,,13159,566
+fed2025,fed-31538,fed-201,Narre Warren Central,,1513,85
+fed2025,fed-31542,fed-218,West Wodonga PPVC,,7877,277
+fed2025,fed-31545,fed-204,Mount Dandenong,,759,18
+fed2025,fed-31573,fed-224,Swan Hill PPVC,,7453,348
+fed2025,fed-31575,fed-219,Cheltenham (Isaacs),,911,35
+fed2025,fed-31599,fed-224,Horsham PPVC,,10120,469
+fed2025,fed-31613,fed-204,Kallista,,674,12
+fed2025,fed-31621,fed-222,The Grange,,1529,79
+fed2025,fed-31622,fed-222,Thomas Chirnside,,992,36
+fed2025,fed-31623,fed-222,Westgrove,,1612,63
+fed2025,fed-31662,fed-213,Johnsonville,,554,29
+fed2025,fed-31697,fed-211,Hastings FLINDERS PPVC,,12140,458
+fed2025,fed-31743,fed-197,Rowville South,,1944,84
+fed2025,fed-31744,fed-197,Rowville Heights,,1879,71
+fed2025,fed-31762,fed-214,Bentleigh Central (Goldstein),,1085,44
+fed2025,fed-31765,fed-214,Mentone West (Goldstein),,785,18
+fed2025,fed-31766,fed-209,Croydon North Upper,,1124,36
+fed2025,fed-31767,fed-232,Epping East,,919,56
+fed2025,fed-31768,fed-232,Thomastown Heights,,716,59
+fed2025,fed-31769,fed-217,Carnegie Upper,,809,13
+fed2025,fed-31772,fed-233,Carpendeit,,239,8
+fed2025,fed-31773,fed-233,Warrnambool North Central,,2029,79
+fed2025,fed-31777,fed-205,Chadstone East,,744,16
+fed2025,fed-31778,fed-219,Springvale Lower,,963,39
+fed2025,fed-31783,fed-201,Narre Warren West,,1983,94
+fed2025,fed-31788,fed-220,Research,,1922,48
+fed2025,fed-31954,fed-200,Junortoun,,795,15
+fed2025,fed-31959,fed-222,Werribee LALOR PPVC,,13470,520
+fed2025,fed-31974,fed-210,Carrum Downs Central,,1610,72
+fed2025,fed-32002,fed-200,Kangaroo Flat South,,1185,55
+fed2025,fed-32033,fed-324,Echuca NICHOLLS PPVC,,9697,433
+fed2025,fed-32073,fed-233,Hamilton PPVC,,7215,297
+fed2025,fed-32094,fed-200,Bendigo BENDIGO PPVC,,19192,550
+fed2025,fed-32100,fed-213,Bairnsdale PPVC,,13713,627
+fed2025,fed-32107,fed-213,Traralgon PPVC,,14147,706
+fed2025,fed-32108,fed-209,Ringwood DEAKIN PPVC,,14877,279
+fed2025,fed-32326,fed-323,Kernot,,111,5
+fed2025,fed-32372,fed-216,Cranbourne North Central,,1478,70
+fed2025,fed-32528,fed-201,Narre Warren,,1593,80
+fed2025,fed-32535,fed-201,Berwick North,,1981,75
+fed2025,fed-32828,fed-208,Highton,,1629,32
+fed2025,fed-32829,fed-328,Grovedale East,,1065,31
+fed2025,fed-32894,fed-229,Doncaster North,,1255,45
+fed2025,fed-32904,fed-321,Sunshine West Central,,1121,66
+fed2025,fed-32908,fed-212,Seabrook,,1522,65
+fed2025,fed-32944,fed-204,Lilydale PPVC,,13517,403
+fed2025,fed-32953,fed-229,Doncaster East MENZIES PPVC,,14246,414
+fed2025,fed-33053,fed-228,Fitzroy Central,,1303,48
+fed2025,fed-33067,fed-328,Torquay North,,1379,33
+fed2025,fed-33071,fed-210,Langwarrin North,,1286,34
+fed2025,fed-33101,fed-326,Killara,,1101,27
+fed2025,fed-33109,fed-232,Mill Park East,,1693,83
+fed2025,fed-33121,fed-233,Warrnambool PPVC,,17549,692
+fed2025,fed-33122,fed-233,Warrnambool Polling Day PPVC,,0,0
+fed2025,fed-33123,fed-218,Benalla PPVC,,6690,270
+fed2025,fed-33124,fed-218,Wangaratta PPVC,,12811,432
+fed2025,fed-33125,fed-324,Yarrawonga NICHOLLS PPVC,,5825,288
+fed2025,fed-33128,fed-225,Essendon MARIBYRNONG PPVC,,17434,488
+fed2025,fed-33261,fed-321,West Footscray Central,,1907,50
+fed2025,fed-33282,fed-309,Taylors Lakes North,,1638,80
+fed2025,fed-33295,fed-216,Warneet,,808,33
+fed2025,fed-34011,fed-209,Ringwood North,,1557,49
+fed2025,fed-34013,fed-328,Geelong Central CORANGAMITE PPVC,,5454,164
+fed2025,fed-34031,fed-204,Lilydale Lake,,1237,33
+fed2025,fed-34056,fed-234,Brunswick WILLS PPVC,,18097,546
+fed2025,fed-34061,fed-217,Noble Park HOTHAM PPVC,,4257,251
+fed2025,fed-34062,fed-198,Ballarat BALLARAT PPVC,,13298,425
+fed2025,fed-34094,fed-309,Caroline Springs South,,2097,83
+fed2025,fed-34224,fed-323,Warragul MONASH PPVC,,17501,705
+fed2025,fed-34245,fed-232,South Morang Central,,2512,110
+fed2025,fed-34282,fed-205,Malvern CHISHOLM PPVC,,3777,84
+fed2025,fed-35015,fed-320,Murray,,601,32
+fed2025,fed-35016,fed-320,Bundoora South,,996,19
+fed2025,fed-35079,fed-205,Glen Waverley,,662,17
+fed2025,fed-35287,fed-210,Baxter (Dunkley),,505,23
+fed2025,fed-36400,fed-326,Hillside (Hawke),,1674,84
+fed2025,fed-36414,fed-210,Frankston DUNKLEY PPVC,,15377,558
+fed2025,fed-36432,fed-217,Mulgrave HOTHAM PPVC,,18813,620
+fed2025,fed-36435,fed-322,Southbank (Macnamara),,1782,37
+fed2025,fed-36440,fed-223,Berwick Fields (La Trobe),,408,11
+fed2025,fed-36441,fed-216,Hampton Park North (Holt),,1257,69
+fed2025,fed-36442,fed-216,Narre Warren South,,1431,74
+fed2025,fed-36443,fed-212,Point Cook,,1517,56
+fed2025,fed-38290,fed-216,Cranbourne HOLT PPVC,,17795,719
+fed2025,fed-38292,fed-213,Sale PPVC,,12516,557
+fed2025,fed-38297,fed-220,Heidelberg JAGAJAGA PPVC,,15549,403
+fed2025,fed-38298,fed-224,Mildura MALLEE PPVC,,9953,584
+fed2025,fed-38304,fed-326,Melton HAWKE PPVC,,17658,821
+fed2025,fed-38306,fed-221,Kew KOOYONG PPVC,,18498,282
+fed2025,fed-38307,fed-323,Wonthaggi PPVC,,12097,496
+fed2025,fed-38309,fed-321,Sunshine FRASER PPVC,,15535,804
+fed2025,fed-38335,fed-324,Shepparton PPVC,,12572,580
+fed2025,fed-38409,fed-204,Healesville Central,,946,31
+fed2025,fed-38411,fed-225,Gowanbrae,,1079,34
+fed2025,fed-38413,fed-197,Rowville Central,,859,25
+fed2025,fed-38432,fed-233,Portland PPVC,,7003,334
+fed2025,fed-46528,fed-201,Berwick Central,,891,28
+fed2025,fed-46531,fed-212,Point Cook Central,,1888,69
+fed2025,fed-46536,fed-321,Cairnlea (Fraser),,1556,78
+fed2025,fed-46541,fed-213,Lakes Entrance East,,181,9
+fed2025,fed-46542,fed-208,Highton West,,1747,41
+fed2025,fed-46544,fed-328,Ocean Grove South,,1597,41
+fed2025,fed-46545,fed-203,Craigieburn North,,2046,136
+fed2025,fed-46546,fed-203,Craigieburn West,,1671,86
+fed2025,fed-46548,fed-203,Roxburgh Park North,,1586,128
+fed2025,fed-46549,fed-203,Roxburgh Rise,,1710,126
+fed2025,fed-46551,fed-208,Lara Lake,,928,30
+fed2025,fed-46552,fed-309,Caroline Springs Central,,1634,58
+fed2025,fed-46557,fed-309,Hillside South,,1555,76
+fed2025,fed-46558,fed-218,West Wodonga Victory,,1655,70
+fed2025,fed-46561,fed-309,Sydenham Central,,613,23
+fed2025,fed-46564,fed-216,Lynbrook,,1178,54
+fed2025,fed-46568,fed-201,Endeavour Hills North East,,1326,63
+fed2025,fed-46584,fed-223,Pakenham LA TROBE PPVC,,16585,637
+fed2025,fed-46585,fed-223,Pakenham Polling Day PPVC,,0,0
+fed2025,fed-46595,fed-203,Roxburgh Homestead,,1813,164
+fed2025,fed-46625,fed-323,Cowes PPVC,,6405,198
+fed2025,fed-46761,fed-232,Epping SCULLIN PPVC,,17960,924
+fed2025,fed-47750,fed-232,Epping Views,,1671,107
+fed2025,fed-47802,fed-226,Laurimar,,1888,68
+fed2025,fed-47803,fed-226,Gisborne South,,786,16
+fed2025,fed-47808,fed-228,Docklands (Melbourne),,1603,32
+fed2025,fed-47810,fed-216,Cranbourne Heights,,1709,61
+fed2025,fed-47812,fed-201,Hallam East,,963,69
+fed2025,fed-47814,fed-216,Cranbourne North East,,951,49
+fed2025,fed-47816,fed-222,Manor Lakes,,2449,63
+fed2025,fed-47817,fed-223,Berwick Chase,,1786,32
+fed2025,fed-47818,fed-223,Pakenham Shearwater,,2984,102
+fed2025,fed-47822,fed-212,Point Cook North,,926,17
+fed2025,fed-47823,fed-222,Tarneit,,1678,69
+fed2025,fed-47825,fed-309,Derrimut,,1617,64
+fed2025,fed-47826,fed-309,Taylors Hill,,1440,56
+fed2025,fed-47827,fed-309,Caroline Springs North,,1407,43
+fed2025,fed-47828,fed-309,Taylors Lakes Central,,2335,158
+fed2025,fed-47829,fed-208,Corio,,1308,90
+fed2025,fed-47831,fed-309,Caroline Springs,,848,25
+fed2025,fed-51057,fed-326,Maddingley,,1363,27
+fed2025,fed-51219,fed-220,Bellfield,,1289,40
+fed2025,fed-51223,fed-208,Bell Park South,,706,43
+fed2025,fed-57719,fed-213,Newlands Arm,,275,7
+fed2025,fed-58453,fed-203,Mount Ridley,,2023,104
+fed2025,fed-58455,fed-212,Altona Green,,1675,85
+fed2025,fed-58456,fed-217,Noble Park North Upper,,548,51
+fed2025,fed-58457,fed-220,Eltham North Upper,,1220,22
+fed2025,fed-58458,fed-220,Greensborough JAGAJAGA PPVC,,18470,515
+fed2025,fed-58622,fed-224,Mildura South West,,820,39
+fed2025,fed-58623,fed-328,Geelong North CORANGAMITE PPVC,,968,30
+fed2025,fed-58629,fed-233,Colac PPVC,,8044,278
+fed2025,fed-58637,fed-209,Blackburn DEAKIN PPVC,,6844,153
+fed2025,fed-58638,fed-229,Ringwood MENZIES PPVC,,506,5
+fed2025,fed-58639,fed-204,Ringwood CASEY PPVC,,496,11
+fed2025,fed-58641,fed-322,Melbourne MACNAMARA PPVC,,1691,24
+fed2025,fed-58653,fed-217,Oakleigh HOTHAM PPVC,,17406,658
+fed2025,fed-58658,fed-223,Cranbourne LA TROBE PPVC,,632,26
+fed2025,fed-58714,fed-203,Brunswick CALWELL PPVC,,193,13
+fed2025,fed-58743,fed-221,Blackburn KOOYONG PPVC,,998,16
+fed2025,fed-58744,fed-226,Epping MCEWEN PPVC,,2345,118
+fed2025,fed-58752,fed-234,Essendon WILLS PPVC,,4342,120
+fed2025,fed-58762,fed-212,Footscray GELLIBRAND PPVC,,235,15
+fed2025,fed-58781,fed-201,Dandenong BRUCE PPVC,,17437,981
+fed2025,fed-58783,fed-216,Dandenong HOLT PPVC,,1260,54
+fed2025,fed-58802,fed-219,Dandenong ISAACS PPVC,,2920,234
+fed2025,fed-63158,fed-197,Boronia ASTON PPVC,,17558,685
+fed2025,fed-63669,fed-214,Elsternwick (Goldstein),,781,19
+fed2025,fed-63747,fed-309,Sydenham West,,1503,84
+fed2025,fed-63761,fed-217,Carnegie West (Hotham),,990,32
+fed2025,fed-63835,fed-216,Narre Warren South East (Holt),,289,17
+fed2025,fed-63986,fed-229,Mont Albert North,,864,15
+fed2025,fed-64001,fed-221,Camberwell South (Kooyong),,709,8
+fed2025,fed-64156,fed-226,Kangaroo Ground (McEwen),,61,0
+fed2025,fed-64267,fed-321,Footscray North,,1789,74
+fed2025,fed-64351,fed-234,Brunswick South East,,1778,23
+fed2025,fed-64353,fed-320,Collingwood North (Cooper),,936,9
+fed2025,fed-64602,fed-201,Narre Warren North,,1364,47
+fed2025,fed-64603,fed-216,Cranbourne East,,1959,86
+fed2025,fed-64604,fed-216,Lyndhurst,,2011,85
+fed2025,fed-64628,fed-208,Geelong Central CORIO PPVC,,19098,488
+fed2025,fed-64638,fed-229,Blackburn MENZIES PPVC,,13411,287
+fed2025,fed-64640,fed-212,Truganina South,,1703,57
+fed2025,fed-64641,fed-228,Northcote MELBOURNE PPVC,,509,24
+fed2025,fed-64642,fed-234,Northcote WILLS PPVC,,2486,66
+fed2025,fed-64648,fed-214,Oakleigh GOLDSTEIN PPVC,,896,29
+fed2025,fed-64652,fed-200,Kyneton East,,1105,30
+fed2025,fed-64658,fed-225,Kensington Central,,1564,33
+fed2025,fed-64674,fed-326,Brookfield,,1187,42
+fed2025,fed-64676,fed-323,Drouin Summerhill,,1092,37
+fed2025,fed-64682,fed-203,Avondale Heights CALWELL PPVC,,219,9
+fed2025,fed-64688,fed-214,Bentleigh South (Goldstein),,1561,43
+fed2025,fed-64689,fed-213,Churchill Central,,718,34
+fed2025,fed-64690,fed-197,Scoresby ASTON PPVC,,11787,311
+fed2025,fed-64692,fed-210,Carrum Downs North,,1792,68
+fed2025,fed-64709,fed-212,Hoppers Crossing GELLIBRAND PPVC,,973,36
+fed2025,fed-64711,fed-309,Sunshine GORTON PPVC,,1600,70
+fed2025,fed-65111,fed-212,Point Cook West,,1253,15
+fed2025,fed-65123,fed-210,Langwarrin Central,,1468,64
+fed2025,fed-65124,fed-211,Mount Eliza South,,1160,23
+fed2025,fed-65129,fed-223,Berwick LA TROBE PPVC,,13023,312
+fed2025,fed-65164,fed-201,Doveton,,1042,57
+fed2025,fed-65213,fed-205,Kew CHISHOLM PPVC,,251,5
+fed2025,fed-65214,fed-221,Malvern KOOYONG PPVC,,12699,195
+fed2025,fed-65221,fed-209,Mitcham North,,1777,41
+fed2025,fed-65394,fed-328,EAV Corangamite PPVC,,7,0
+fed2025,fed-65395,fed-204,EAV Casey PPVC,,14,0
+fed2025,fed-65398,fed-324,Seymour NICHOLLS PPVC,,7134,280
+fed2025,fed-65399,fed-209,Croydon Hills,,1787,40
+fed2025,fed-65402,fed-209,EAV Deakin PPVC,,21,0
+fed2025,fed-65408,fed-205,EAV Chisholm PPVC,,20,0
+fed2025,fed-65413,fed-216,EAV Holt PPVC,,12,0
+fed2025,fed-65422,fed-229,EAV Menzies PPVC,,18,0
+fed2025,fed-65426,fed-228,EAV Melbourne PPVC,,29,0
+fed2025,fed-65427,fed-322,EAV Macnamara PPVC,,30,0
+fed2025,fed-65428,fed-226,EAV McEwen PPVC,,9,0
+fed2025,fed-65431,fed-223,EAV La Trobe PPVC,,14,1
+fed2025,fed-65434,fed-211,EAV Flinders PPVC,,11,0
+fed2025,fed-65439,fed-212,EAV Gellibrand PPVC,,16,0
+fed2025,fed-65441,fed-309,EAV Gorton PPVC,,13,0
+fed2025,fed-65443,fed-214,EAV Goldstein PPVC,,21,0
+fed2025,fed-65451,fed-226,Wallan South,,1364,86
+fed2025,fed-65459,fed-213,EAV Gippsland PPVC,,10,0
+fed2025,fed-65461,fed-232,EAV Scullin PPVC,,19,0
+fed2025,fed-65462,fed-234,EAV Wills PPVC,,37,0
+fed2025,fed-65465,fed-320,EAV Cooper PPVC,,15,1
+fed2025,fed-65488,fed-324,EAV Nicholls PPVC,,10,0
+fed2025,fed-65491,fed-232,South Morang Lakes,,1023,35
+fed2025,fed-65492,fed-233,EAV Wannon PPVC,,8,0
+fed2025,fed-65507,fed-222,EAV Lalor PPVC,,10,0
+fed2025,fed-65510,fed-197,EAV Aston PPVC,,15,0
+fed2025,fed-65519,fed-217,EAV Hotham PPVC,,18,0
+fed2025,fed-65525,fed-222,Hoppers Crossing LALOR PPVC,,14298,633
+fed2025,fed-65528,fed-221,EAV Kooyong PPVC,,26,1
+fed2025,fed-65531,fed-203,EAV Calwell PPVC,,25,0
+fed2025,fed-65539,fed-219,EAV Isaacs PPVC,,15,0
+fed2025,fed-65543,fed-201,EAV Bruce PPVC,,17,0
+fed2025,fed-65547,fed-210,EAV Dunkley PPVC,,13,0
+fed2025,fed-65555,fed-323,EAV Monash PPVC,,7,0
+fed2025,fed-65556,fed-220,EAV Jagajaga PPVC,,21,0
+fed2025,fed-65557,fed-218,EAV Indi PPVC,,12,0
+fed2025,fed-65565,fed-200,EAV Bendigo PPVC,,14,1
+fed2025,fed-65566,fed-225,EAV Maribyrnong PPVC,,26,0
+fed2025,fed-65571,fed-198,EAV Ballarat PPVC,,9,0
+fed2025,fed-65583,fed-208,EAV Corio PPVC,,16,0
+fed2025,fed-65643,fed-224,EAV Mallee PPVC,,8,0
+fed2025,fed-65654,fed-229,Heidelberg MENZIES PPVC,,833,21
+fed2025,fed-65659,fed-322,Malvern MACNAMARA PPVC,,5821,86
+fed2025,fed-65662,fed-218,Bright PPVC,,2987,85
+fed2025,fed-65663,fed-218,Mansfield PPVC,,4565,154
+fed2025,fed-65680,fed-232,Mill Park SCULLIN PPVC,,14700,858
+fed2025,fed-65778,fed-320,Bundoora (Cooper),,443,20
+fed2025,fed-65860,fed-219,Keysborough West,,337,3
+fed2025,fed-65862,fed-213,Morwell GIPPSLAND PPVC,,9391,503
+fed2025,fed-65865,fed-226,Craigieburn MCEWEN PPVC,,1368,38
+fed2025,fed-65866,fed-222,Tarneit Central,,1571,53
+fed2025,fed-65867,fed-219,Noble Park ISAACS PPVC,,15386,772
+fed2025,fed-65871,fed-212,Truganina,,1817,86
+fed2025,fed-65874,fed-222,Wyndham Vale South,,1461,45
+fed2025,fed-65892,fed-218,Albury INDI PPVC,,1039,28
+fed2025,fed-65894,fed-217,McKinnon East (Hotham),,848,15
+fed2025,fed-65896,fed-226,Doreen Central,,1554,42
+fed2025,fed-65897,fed-223,Pakenham Springs,,2031,83
+fed2025,fed-65899,fed-200,Eaglehawk BENDIGO PPVC,,13584,660
+fed2025,fed-65902,fed-216,Berwick HOLT PPVC,,571,19
+fed2025,fed-65905,fed-323,Morwell MONASH PPVC,,988,49
+fed2025,fed-65962,fed-320,Mill Park COOPER PPVC,,888,40
+fed2025,fed-66007,fed-211,Rosebud PPVC,,19862,697
+fed2025,fed-66012,fed-232,Epping North,,1508,81
+fed2025,fed-66161,fed-203,Craigieburn CALWELL PPVC,,15962,952
+fed2025,fed-67006,fed-326,Harkness,,1128,33
+fed2025,fed-69887,fed-211,Dromana North,,928,37
+fed2025,fed-82771,fed-320,Northcote COOPER PPVC,,18148,559
+fed2025,fed-82784,fed-326,Sunbury HAWKE PPVC,,15239,472
+fed2025,fed-82787,fed-321,St Albans FRASER PPVC,,11233,681
+fed2025,fed-82829,fed-323,Erica,,229,7
+fed2025,fed-82831,fed-211,Mount Martha PPVC,,13541,362
+fed2025,fed-82833,fed-217,Valkstone,,835,23
+fed2025,fed-82837,fed-201,Noble Park BRUCE PPVC,,622,40
+fed2025,fed-82852,fed-204,Boronia CASEY PPVC,,3741,125
+fed2025,fed-82854,fed-218,Wodonga,,992,53
+fed2025,fed-82860,fed-216,Clyde (Holt),,1655,50
+fed2025,fed-82872,fed-222,Tarneit West,,2154,94
+fed2025,fed-82873,fed-222,Davis Creek,,1397,59
+fed2025,fed-82874,fed-212,Sanctuary Lakes,,1452,32
+fed2025,fed-82883,fed-212,Featherbrook,,1271,17
+fed2025,fed-82920,fed-226,Doreen East,,1091,35
+fed2025,fed-82921,fed-324,Kilmore Central,,1347,35
+fed2025,fed-82922,fed-232,Mernda Central (Scullin),,115,7
+fed2025,fed-82923,fed-226,Mernda Park (McEwen),,662,17
+fed2025,fed-82929,fed-213,Lucknow,,228,11
+fed2025,fed-82933,fed-223,Officer Central,,1998,58
+fed2025,fed-82935,fed-226,Woodend East,,921,14
+fed2025,fed-82955,fed-322,Albert Park,,1074,22
+fed2025,fed-82956,fed-225,Ascot Vale,,703,39
+fed2025,fed-82957,fed-228,Abbotsford South,,997,20
+fed2025,fed-82959,fed-233,Warrnambool Central,,1438,61
+fed2025,fed-82991,fed-219,Mentone North,,699,22
+fed2025,fed-82992,fed-198,Lucas,,1362,38
+fed2025,fed-83024,fed-222,Wyndham Vale,,916,20
+fed2025,fed-83035,fed-309,Burnside Heights,,1084,53
+fed2025,fed-83204,fed-213,Traralgon West,,855,19
+fed2025,fed-83206,fed-213,Lakes Entrance PPVC,,4301,184
+fed2025,fed-83216,fed-213,Bundalaguah,,266,8
+fed2025,fed-83246,fed-203,Mickleham East,,1460,56
+fed2025,fed-83247,fed-203,Aitken Creek,,1731,78
+fed2025,fed-83249,fed-326,Sunbury South,,780,15
+fed2025,fed-83253,fed-324,Kyabram West,,859,55
+fed2025,fed-83266,fed-216,Cranbourne South West,,1539,56
+fed2025,fed-83280,fed-216,Clyde North (Holt),,1139,26
+fed2025,fed-83281,fed-216,Cranbourne North Upper (Holt),,121,5
+fed2025,fed-83284,fed-324,Mooroopna,,718,50
+fed2025,fed-83308,fed-226,Whittlesea Central,,753,30
+fed2025,fed-83314,fed-226,Laurimar Central,,733,26
+fed2025,fed-83324,fed-226,Mernda South,,1385,59
+fed2025,fed-83361,fed-216,Cranbourne Central,,880,33
+fed2025,fed-83362,fed-201,Endeavour Hills Central,,668,24
+fed2025,fed-83365,fed-216,Lynbrook South,,808,19
+fed2025,fed-83415,fed-320,Heidelberg COOPER PPVC,,1476,44
+fed2025,fed-83416,fed-226,Wandong PPVC,,6174,233
+fed2025,fed-83471,fed-328,Leopold North,,950,27
+fed2025,fed-83482,fed-309,Fraser Rise,,1676,67
+fed2025,fed-83487,fed-216,Narre Warren South Central,,549,22
+fed2025,fed-83488,fed-309,Deer Park Central,,550,50
+fed2025,fed-83491,fed-200,Golden Square South,,473,16
+fed2025,fed-83517,fed-200,Castlemaine PPVC,,7487,214
+fed2025,fed-83608,fed-322,Port Melbourne Beach,,1493,36
+fed2025,fed-83613,fed-323,Leongatha East,,1081,56
+fed2025,fed-83617,fed-328,Torquay East,,581,15
+fed2025,fed-83618,fed-328,Ocean Grove,,662,16
+fed2025,fed-83622,fed-328,Armstrong Creek East,,1762,47
+fed2025,fed-83631,fed-232,Epping West,,1142,48
+fed2025,fed-83632,fed-198,Sebastopol PPVC,,13826,570
+fed2025,fed-83636,fed-232,Wollert South (Scullin),,1584,80
+fed2025,fed-83638,fed-323,Moe PPVC,,7366,328
+fed2025,fed-83651,fed-223,Pakenham West,,520,20
+fed2025,fed-83666,fed-223,Clyde North (La Trobe),,327,15
+fed2025,fed-83674,fed-228,Richmond South,,1283,24
+fed2025,fed-83686,fed-232,Mill Park Central,,1213,75
+fed2025,fed-83689,fed-232,Lalor Central,,419,32
+fed2025,fed-83695,fed-224,Maryborough PPVC,,5497,268
+fed2025,fed-83697,fed-211,Somerville,,757,40
+fed2025,fed-83698,fed-323,Drouin Central,,643,16
+fed2025,fed-83700,fed-223,Clyde North East,,1765,41
+fed2025,fed-83701,fed-233,Ararat PPVC,,3664,164
+fed2025,fed-83711,fed-204,Lilydale North,,749,36
+fed2025,fed-83712,fed-204,Kilsyth East,,489,11
+fed2025,fed-83713,fed-205,Mount Waverley,,567,8
+fed2025,fed-83714,fed-229,Blackburn Upper,,762,21
+fed2025,fed-83715,fed-209,Bedford Park,,773,22
+fed2025,fed-83724,fed-229,Templestowe West,,217,3
+fed2025,fed-83728,fed-204,Croydon CASEY PPVC,,3316,112
+fed2025,fed-83731,fed-204,Healesville PPVC,,5282,170
+fed2025,fed-83733,fed-212,Williamstown Bayview,,456,16
+fed2025,fed-83734,fed-212,Altona Meadows East,,860,34
+fed2025,fed-83755,fed-209,Croydon DEAKIN PPVC,,11760,304
+fed2025,fed-83756,fed-219,Keysborough South,,327,3
+fed2025,fed-83757,fed-210,Patterson Central,,1155,47
+fed2025,fed-83764,fed-225,Footscray MARIBYRNONG PPVC,,634,17
+fed2025,fed-83765,fed-203,Craigieburn Central,,1332,110
+fed2025,fed-83770,fed-328,Grovedale Central,,1279,50
+fed2025,fed-83771,fed-203,Roxburgh Park,,868,77
+fed2025,fed-83772,fed-211,Hastings West,,1161,54
+fed2025,fed-83774,fed-224,Outer Mildura PPVC,,9412,511
+fed2025,fed-83780,fed-326,Strathtulloh,,1650,42
+fed2025,fed-83781,fed-225,Avondale Heights West,,370,14
+fed2025,fed-83793,fed-203,Meadow Heights Central,,677,63
+fed2025,fed-83796,fed-309,Keilor Village,,536,18
+fed2025,fed-83798,fed-197,Bayswater South,,504,13
+fed2025,fed-83805,fed-234,Pascoe Vale Middle,,875,32
+fed2025,fed-83808,fed-203,Attwood,,895,40
+fed2025,fed-83809,fed-211,Mount Martha Nepean,,754,21
+fed2025,fed-83810,fed-197,Rowville North,,463,21
+fed2025,fed-83811,fed-214,Beaumaris Central,,1571,35
+fed2025,fed-83815,fed-217,Moorabbin HOTHAM PPVC,,3105,99
+fed2025,fed-83817,fed-219,Moorabbin ISAACS PPVC,,8661,207
+fed2025,fed-83819,fed-324,Cobram NICHOLLS PPVC,,3873,182
+fed2025,fed-83838,fed-197,Rowville ASTON PPVC,,10437,292
+fed2025,fed-83864,fed-222,Werribee East,,1199,56
+fed2025,fed-83875,fed-228,South Yarra Central,,1352,15
+fed2025,fed-83897,fed-205,Melbourne CHISHOLM PPVC,,157,2
+fed2025,fed-83904,fed-212,Melbourne GELLIBRAND PPVC,,209,4
+fed2025,fed-83906,fed-214,Melbourne GOLDSTEIN PPVC,,126,2
+fed2025,fed-83914,fed-221,Melbourne KOOYONG PPVC,,260,7
+fed2025,fed-83918,fed-225,Melbourne MARIBYRNONG PPVC,,1646,29
+fed2025,fed-83927,fed-234,Melbourne WILLS PPVC,,887,16
+fed2025,fed-83933,fed-214,Malvern GOLDSTEIN PPVC,,728,18
+fed2025,fed-83939,fed-214,Moorabbin GOLDSTEIN PPVC,,6616,138
+fed2025,fed-83964,fed-212,Newport GELLIBRAND PPVC,,15114,494
+fed2025,fed-83965,fed-320,Melbourne COOPER PPVC,,246,2
+fed2025,fed-91128,fed-201,Mulgrave BRUCE PPVC,,0,0
+fed2025,fed-91143,fed-201,Cranbourne BRUCE PPVC,,852,28
+fed2025,fed-91155,fed-201,Berwick BRUCE PPVC,,11864,330
+fed2025,fed-91332,fed-204,Upper Ferntree Gully (Casey),,353,10
+fed2025,fed-91420,fed-320,Coburg Lake (Cooper),,164,1
+fed2025,fed-91464,fed-205,Mulgrave CHISHOLM PPVC,,9,4
+fed2025,fed-91477,fed-205,Pinewood (Chisholm),,1354,46
+fed2025,fed-91645,fed-209,Kilsyth (Deakin),,285,11
+fed2025,fed-91710,fed-209,Warranwood,,1705,37
+fed2025,fed-91788,fed-321,EAV Fraser PPVC,,22,0
+fed2025,fed-91799,fed-321,Melbourne FRASER PPVC,,890,15
+fed2025,fed-91831,fed-321,Footscray FRASER PPVC,,13168,429
+fed2025,fed-91941,fed-211,Frankston FLINDERS PPVC,,756,39
+fed2025,fed-92004,fed-212,Alamanda,,1597,22
+fed2025,fed-92050,fed-309,Kings Park South,,1108,88
+fed2025,fed-92053,fed-309,Cairnlea (Gorton),,314,13
+fed2025,fed-92206,fed-217,Sandown Park,,782,42
+fed2025,fed-92436,fed-220,Mill Park JAGAJAGA PPVC,,1740,70
+fed2025,fed-92669,fed-226,Mernda Central (McEwen),,2212,81
+fed2025,fed-92927,fed-225,Kensington,,1743,30
+fed2025,fed-93057,fed-323,Pakenham MONASH PPVC,,386,18
+fed2025,fed-97421,fed-208,Lara East,,248,7
+fed2025,fed-97435,fed-204,Upwey South,,645,18
+fed2025,fed-97439,fed-322,Elwood Central,,757,16
+fed2025,fed-97440,fed-205,Mount Waverley CHISHOLM PPVC,,11272,181
+fed2025,fed-97466,fed-228,Abbotsford MELBOURNE PPVC,,12896,244
+fed2025,fed-97520,fed-232,Greensborough SCULLIN PPVC,,699,28
+fed2025,fed-97522,fed-226,Mill Park MCEWEN PPVC,,5144,206
+fed2025,fed-97535,fed-210,Carrum Downs DUNKLEY PPVC,,15722,623
+fed2025,fed-97536,fed-309,Burnside,,939,40
+fed2025,fed-97548,fed-210,Carrum Downs West,,320,10
+fed2025,fed-97590,fed-223,Pakenham East,,658,21
+fed2025,fed-97599,fed-214,Hampton GOLDSTEIN PPVC,,18611,348
+fed2025,fed-97601,fed-219,Aspendale Central,,556,19
+fed2025,fed-97602,fed-219,Dingley,,371,26
+fed2025,fed-97603,fed-328,Torquay CORANGAMITE PPVC,,16729,354
+fed2025,fed-97617,fed-219,Mordialloc ISAACS PPVC,,16018,410
+fed2025,fed-97649,fed-213,Other Mobile Team 1,,175,9
+fed2025,fed-97652,fed-208,St Albans Park,,1578,72
+fed2025,fed-97669,fed-200,Junortoun PPVC,,8398,226
+fed2025,fed-97670,fed-324,Shepparton City PPVC,,9600,458
+fed2025,fed-97674,fed-212,Truganina East (Gellibrand),,1360,36
+fed2025,fed-97675,fed-222,Wyndham South,,1497,31
+fed2025,fed-97736,fed-214,Brighton GOLDSTEIN PPVC,,15020,287
+fed2025,fed-97742,fed-219,Hampton ISAACS PPVC,,411,10
+fed2025,fed-97753,fed-217,Mount Waverley HOTHAM PPVC,,1047,29
+fed2025,fed-97764,fed-216,Botanic Ridge,,2170,81
+fed2025,fed-97767,fed-208,Bannockburn North,,856,28
+fed2025,fed-97771,fed-219,Carrum Downs ISAACS PPVC,,338,12
+fed2025,fed-97828,fed-216,Casey Fields,,1453,44
+fed2025,fed-97837,fed-326,Pentland Hills,,512,14
+fed2025,fed-97855,fed-322,Brighton MACNAMARA PPVC,,4771,98
+fed2025,fed-97870,fed-225,Moonee Ponds MARIBYRNONG PPVC,,8821,220
+fed2025,fed-97871,fed-228,Footscray MELBOURNE PPVC,,151,8
+fed2025,fed-97922,fed-212,Point Cook GELLIBRAND PPVC,,20914,649
+fed2025,fed-97927,fed-212,Truganina GELLIBRAND PPVC,,7522,206
+fed2025,fed-97932,fed-309,St Albans GORTON PPVC,,8429,561
+fed2025,fed-97933,fed-309,Caroline Springs GORTON PPVC,,21225,882
+fed2025,fed-97935,fed-321,Caroline Springs FRASER PPVC,,1022,43
+fed2025,fed-97936,fed-218,Wodonga PPVC,,11366,437
+fed2025,fed-97937,fed-218,Seymour INDI PPVC,,784,31
+fed2025,fed-97955,fed-203,Essendon CALWELL PPVC,,1139,52
+fed2025,fed-98104,fed-320,Greensborough COOPER PPVC,,387,17
+fed2025,fed-98105,fed-320,Preston COOPER PPVC,,13101,456
+fed2025,fed-98106,fed-320,Abbotsford COOPER PPVC,,1858,14
+fed2025,fed-98111,fed-320,Northcote Central,,1044,24
+fed2025,fed-98112,fed-217,Melbourne HOTHAM PPVC,,132,3
+fed2025,fed-98113,fed-219,Melbourne ISAACS PPVC,,64,3
+fed2025,fed-98114,fed-232,Preston SCULLIN PPVC,,866,31
+fed2025,fed-98116,fed-328,Bellarine PPVC,,10995,315
+fed2025,fed-98117,fed-208,Lara PPVC,,9173,287
+fed2025,fed-98118,fed-225,Avondale Heights MARIBYRNONG PPVC,,10454,408
+fed2025,fed-98119,fed-216,Lynbrook HOLT PPVC,,7963,305
+fed2025,fed-98120,fed-204,Chirnside Park PPVC,,9567,266
+fed2025,fed-98121,fed-205,Oakleigh CHISHOLM PPVC,,1828,63
+fed2025,fed-98123,fed-233,Ballarat WANNON PPVC,,321,10
+fed2025,fed-98124,fed-209,Boronia DEAKIN PPVC,,783,27
+fed2025,fed-98125,fed-209,Scoresby DEAKIN PPVC,,969,19
+fed2025,fed-98129,fed-226,Greensborough MCEWEN PPVC,,4249,111
+fed2025,fed-98130,fed-229,Templestowe Lower PPVC,,9823,278
+fed2025,fed-98131,fed-224,Bendigo MALLEE PPVC,,322,5
+fed2025,fed-104111,fed-201,Hampton Park North (Bruce),,318,8
+fed2025,fed-104120,fed-201,Narre Warren South East (Bruce),,2250,98
+fed2025,fed-104131,fed-201,Berwick Fields (Bruce),,2410,70
+fed2025,fed-104227,fed-203,Gladstone Park (Calwell),,768,73
+fed2025,fed-104236,fed-204,Emerald (Casey),,332,9
+fed2025,fed-104250,fed-205,Burwood Heights (Chisholm),,126,3
+fed2025,fed-104312,fed-209,Blackburn (Deakin),,315,7
+fed2025,fed-104376,fed-321,Footscray,,1372,41
+fed2025,fed-104377,fed-321,Kingsville,,2064,43
+fed2025,fed-104547,fed-326,EAV Hawke PPVC,,13,1
+fed2025,fed-104608,fed-326,Caroline Springs HAWKE PPVC,,987,49
+fed2025,fed-104620,fed-309,Hillside (Gorton),,352,19
+fed2025,fed-104621,fed-309,Melton GORTON PPVC,,2463,74
+fed2025,fed-104648,fed-309,Essendon GORTON PPVC,,472,10
+fed2025,fed-104661,fed-322,Elsternwick (Macnamara),,1077,17
+fed2025,fed-104685,fed-322,Caulfield South Central (Macnamara),,558,9
+fed2025,fed-104728,fed-219,Keysborough Central,,778,38
+fed2025,fed-104735,fed-217,Noble Park North (Hotham),,293,21
+fed2025,fed-104750,fed-217,Dandenong HOTHAM PPVC,,744,39
+fed2025,fed-104790,fed-217,Clayton North,,1093,33
+fed2025,fed-104791,fed-217,Mulgrave East (Hotham),,580,19
+fed2025,fed-104793,fed-217,Oakleigh East,,1406,55
+fed2025,fed-104837,fed-220,Kangaroo Ground (Jagajaga),,579,11
+fed2025,fed-104864,fed-220,Doncaster East JAGAJAGA PPVC,,1389,30
+fed2025,fed-104940,fed-222,Truganina LALOR PPVC,,5194,151
+fed2025,fed-104966,fed-223,Berwick (La Trobe),,466,13
+fed2025,fed-105021,fed-223,Warragul LA TROBE PPVC,,680,27
+fed2025,fed-105087,fed-226,St Helena (McEwen),,617,17
+fed2025,fed-105103,fed-226,Sunbury MCEWEN PPVC,,1466,61
+fed2025,fed-105331,fed-229,Box Hill,,1154,25
+fed2025,fed-105480,fed-233,Torquay WANNON PPVC,,1805,36
+fed2025,fed-105494,fed-309,Aintree,,1830,44
+fed2025,fed-105495,fed-223,Clyde North Central (La Trobe),,2080,66
+fed2025,fed-105505,fed-223,Officer North,,1176,38
+fed2025,fed-105507,fed-221,Abbotsford KOOYONG PPVC,,938,10
+fed2025,fed-105508,fed-201,Dandenong Upper,,816,42
+fed2025,fed-105509,fed-211,Mornington Central,,868,27
+fed2025,fed-105510,fed-326,Bacchus Marsh PPVC,,10097,449
+fed2025,fed-105516,fed-203,Broadmeadows CALWELL PPVC,,12076,890
+fed2025,fed-108136,fed-201,Harkaway,,723,24
+fed2025,fed-108154,fed-201,Cranbourne North,,1128,36
+fed2025,fed-108357,fed-322,Southbank North,,1237,10
+fed2025,fed-108368,fed-229,Melbourne MENZIES PPVC,,131,1
+fed2025,fed-108369,fed-220,Melbourne JAGAJAGA PPVC,,133,4
+fed2025,fed-108370,fed-222,Melbourne LALOR PPVC,,126,1
+fed2025,fed-108371,fed-309,Melbourne GORTON PPVC,,237,3
+fed2025,fed-108372,fed-209,Melbourne DEAKIN PPVC,,82,2
+fed2025,fed-108373,fed-203,Melbourne CALWELL PPVC,,170,7
+fed2025,fed-108374,fed-232,Melbourne SCULLIN PPVC,,107,5
+fed2025,fed-108406,fed-233,Special Hospital Team 1,,255,11
+fed2025,fed-108409,fed-218,Special Hospital Team 1,,268,9
+fed2025,fed-108410,fed-200,Special Hospital Team 1,,235,24
+fed2025,fed-108411,fed-219,Special Hospital Team 1,,177,12
+fed2025,fed-108412,fed-224,Special Hospital Team 1,,133,8
+fed2025,fed-108413,fed-323,Special Hospital Team 1,,118,32
+fed2025,fed-108414,fed-197,Special Hospital Team 1,,110,3
+fed2025,fed-108417,fed-220,Special Hospital Team 1,,115,14
+fed2025,fed-108421,fed-328,Special Hospital Team 1,,273,12
+fed2025,fed-108422,fed-208,Special Hospital Team 1,,226,5
+fed2025,fed-108423,fed-225,Special Hospital Team 1,,135,15
+fed2025,fed-108476,fed-224,Special Hospital Team 2,,89,6
+fed2025,fed-108477,fed-203,Special Hospital Team 1,,118,11
+fed2025,fed-108478,fed-222,Special Hospital Team 1,,250,18
+fed2025,fed-108720,fed-328,Charlemont,,1184,28
+fed2025,fed-108760,fed-216,Carrum Downs HOLT PPVC,,1167,39
+fed2025,fed-108764,fed-223,Cranbourne North Upper (La Trobe),,637,15
+fed2025,fed-108774,fed-328,Mount Duneed Upper,,1762,31
+fed2025,fed-108775,fed-216,Special Hospital Team 1,,241,26
+fed2025,fed-108776,fed-210,Special Hospital Team 1,,144,2
+fed2025,fed-108777,fed-211,Special Hospital Team 1,,241,29
+fed2025,fed-108791,fed-328,Moolap,,444,16
+fed2025,fed-108794,fed-201,Rowville BRUCE PPVC,,494,20
+fed2025,fed-108798,fed-212,Werribee GELLIBRAND PPVC,,568,19
+fed2025,fed-108801,fed-222,Point Cook LALOR PPVC,,1030,42
+fed2025,fed-108802,fed-201,Lynbrook BRUCE PPVC,,6453,204
+fed2025,fed-108804,fed-232,Special Hospital Team 1,,91,7
+fed2025,fed-108810,fed-203,Greenvale South,,1730,99
+fed2025,fed-108811,fed-234,Special Hospital Team 1,,53,3
+fed2025,fed-108817,fed-234,Abbotsford WILLS PPVC,,1567,23
+fed2025,fed-108819,fed-321,Special Hospital Team 1,,89,4
+fed2025,fed-108820,fed-309,Special Hospital Team 1,,99,8
+fed2025,fed-108821,fed-234,Moonee Ponds WILLS PPVC,,882,20
+fed2025,fed-108822,fed-225,Brunswick MARIBYRNONG PPVC,,418,10
+fed2025,fed-108824,fed-326,Special Hospital Team 1,,168,39
+fed2025,fed-108825,fed-212,Special Hospital Team 1,,147,5
+fed2025,fed-108826,fed-234,Broadmeadows WILLS PPVC,,3165,177
+fed2025,fed-108828,fed-309,Truganina GORTON PPVC,,822,36
+fed2025,fed-108830,fed-320,Epping COOPER PPVC,,441,26
+fed2025,fed-108859,fed-228,Moonee Ponds MELBOURNE PPVC,,458,12
+fed2025,fed-108860,fed-228,Kew MELBOURNE PPVC,,1209,18
+fed2025,fed-108879,fed-198,Special Hospital Team 1,,274,21
+fed2025,fed-108882,fed-198,Special Hospital Team 2,,232,11
+fed2025,fed-108883,fed-233,Special Hospital Team 2,,22,1
+fed2025,fed-108884,fed-233,Special Hospital Team 3,,211,8
+fed2025,fed-108885,fed-233,Special Hospital Team 4,,185,3
+fed2025,fed-108887,fed-233,Special Hospital Team 5,,119,12
+fed2025,fed-108894,fed-203,Epping CALWELL PPVC,,1446,96
+fed2025,fed-108915,fed-205,Special Hospital Team 1,,168,11
+fed2025,fed-108916,fed-204,Special Hospital Team 1,,132,3
+fed2025,fed-108918,fed-209,Special Hospital Team 1,,166,3
+fed2025,fed-108919,fed-229,Special Hospital Team 1,,104,4
+fed2025,fed-108920,fed-209,Mount Waverley DEAKIN PPVC,,405,10
+fed2025,fed-108921,fed-204,Rowville CASEY PPVC,,1024,27
+fed2025,fed-108922,fed-218,Special Hospital Team 2,,244,16
+fed2025,fed-108926,fed-324,Special Hospital Team 1,,189,7
+fed2025,fed-108930,fed-222,Manor Lakes PPVC,,11617,360
+fed2025,fed-108942,fed-220,Preston JAGAJAGA PPVC,,591,21
+fed2025,fed-108944,fed-221,Heidelberg KOOYONG PPVC,,392,8
+fed2025,fed-108945,fed-208,Special Hospital Team 2,,164,12
+fed2025,fed-108946,fed-208,Torquay CORIO PPVC,,1277,43
+fed2025,fed-108953,fed-214,Special Hospital Team 1,,171,1
+fed2025,fed-108955,fed-217,Special Hospital Team 1,,211,9
+fed2025,fed-108989,fed-200,Special Hospital Team 2,,192,12
+fed2025,fed-109008,fed-228,Special Hospital Team 1,,65,3
+fed2025,fed-109010,fed-320,Special Hospital Team 1,,177,14
+fed2025,fed-109011,fed-322,Special Hospital Team 1,,216,10
+fed2025,fed-109014,fed-197,Special Hospital Team 2,,115,8
+fed2025,fed-109015,fed-223,Special Hospital Team 1,,131,13
+fed2025,fed-109016,fed-201,Special Hospital Team 1,,96,14
+fed2025,fed-109019,fed-221,Special Hospital Team 1,,169,2
+fed2025,fed-109022,fed-213,Special Hospital Team 1,,210,18
+fed2025,fed-109023,fed-323,Special Hospital Team 2,,154,13
+fed2025,fed-109039,fed-326,Special Hospital Team 2,,170,7
+fed2025,fed-109041,fed-218,Special Hospital Team 3,,245,15
+fed2025,fed-109042,fed-209,Special Hospital Team 2,,141,19
+fed2025,fed-109047,fed-328,Special Hospital Team 2,,302,23
+fed2025,fed-109048,fed-205,Special Hospital Team 2,,99,8
+fed2025,fed-109049,fed-229,Special Hospital Team 2,,80,3
+fed2025,fed-109051,fed-224,Special Hospital Team 3,,137,5
+fed2025,fed-109052,fed-218,Leneva,,377,9
+fed2025,fed-109053,fed-224,Special Hospital Team 4,,178,5
+fed2025,fed-109054,fed-205,Special Hospital Team 3,,292,15
+fed2025,fed-109055,fed-209,Special Hospital Team 3,,229,21
+fed2025,fed-109056,fed-229,Special Hospital Team 3,,109,4
+fed2025,fed-109057,fed-212,Special Hospital Team 2,,165,10
+fed2025,fed-109058,fed-224,Special Hospital Team 5,,237,28
+fed2025,fed-109059,fed-224,Special Hospital Team 6,,225,13
+fed2025,fed-109060,fed-328,Special Hospital Team 3,,192,18
+fed2025,fed-109061,fed-233,Dennington,,684,30
+fed2025,fed-109062,fed-222,Special Hospital Team 2,,112,6
+fed2025,fed-109064,fed-208,Special Hospital Team 3,,286,88
+fed2025,fed-109066,fed-323,Special Hospital Team 3,,77,4
+fed2025,fed-109068,fed-217,Special Hospital Team 2,,134,8
+fed2025,fed-109069,fed-219,Special Hospital Team 2,,181,55
+fed2025,fed-109070,fed-214,Special Hospital Team 2,,178,20
+fed2025,fed-109072,fed-201,Special Hospital Team 2,,106,5
+fed2025,fed-109073,fed-210,Special Hospital Team 2,,199,11
+fed2025,fed-109074,fed-211,Special Hospital Team 2,,192,17
+fed2025,fed-109075,fed-223,Special Hospital Team 2,,250,12
+fed2025,fed-109076,fed-198,Special Hospital Team 3,,167,5
+fed2025,fed-109077,fed-323,Special Hospital Team 4,,120,6
+fed2025,fed-109079,fed-211,Special Hospital Team 3,,225,16
+fed2025,fed-109081,fed-220,Special Hospital Team 2,,138,4
+fed2025,fed-109082,fed-220,Special Hospital Team 3,,140,5
+fed2025,fed-109084,fed-324,Special Hospital Team 2,,190,29
+fed2025,fed-109088,fed-221,Special Hospital Team 2,,123,14
+fed2025,fed-109089,fed-221,Special Hospital Team 3,,140,7
+fed2025,fed-109090,fed-224,Stawell PPVC,,2990,106
+fed2025,fed-109096,fed-213,Special Hospital Team 2,,257,16
+fed2025,fed-109097,fed-213,Special Hospital Team 3,,305,22
+fed2025,fed-109098,fed-211,Special Hospital Team 4,,311,23
+fed2025,fed-109099,fed-213,Remote Mobile Team 1,,172,10
+fed2025,fed-109101,fed-324,Special Hospital Team 3,,361,8
+fed2025,fed-109102,fed-324,Special Hospital Team 4,,276,14
+fed2025,fed-109104,fed-203,Special Hospital Team 2,,77,7
+fed2025,fed-109105,fed-203,Special Hospital Team 3,,15,1
+fed2025,fed-109106,fed-321,Special Hospital Team 2,,42,3
+fed2025,fed-109107,fed-321,Special Hospital Team 3,,58,7
+fed2025,fed-109108,fed-309,Special Hospital Team 2,,50,6
+fed2025,fed-109109,fed-309,Special Hospital Team 3,,44,4
+fed2025,fed-109110,fed-225,Special Hospital Team 2,,108,5
+fed2025,fed-109111,fed-225,Special Hospital Team 3,,79,3
+fed2025,fed-109112,fed-232,Special Hospital Team 2,,135,15
+fed2025,fed-109113,fed-232,Special Hospital Team 3,,288,20
+fed2025,fed-109114,fed-234,Special Hospital Team 2,,92,3
+fed2025,fed-109115,fed-234,Special Hospital Team 3,,110,12
+fed2025,fed-109117,fed-200,Special Hospital Team 3,,251,16
+fed2025,fed-109121,fed-200,Special Hospital Team 4,,188,6
+fed2025,fed-109122,fed-210,Special Hospital Team 3,,174,7
+fed2025,fed-109127,fed-328,Ocean Grove PPVC,,10626,203
+fed2025,fed-109128,fed-226,Special Hospital Team 2,,116,8
+fed2025,fed-109129,fed-226,Special Hospital Team 1,,67,2
+fed2025,fed-109130,fed-228,Special Hospital Team 2,,158,4
+fed2025,fed-109131,fed-320,Special Hospital Team 2,,70,2
+fed2025,fed-109132,fed-320,Special Hospital Team 3,,105,1
+fed2025,fed-109140,fed-322,Special Hospital Team 2,,78,11
+fed2025,fed-109141,fed-322,Special Hospital Team 3,,32,1
+fed2025,fed-109200,fed-324,Kyabram PPVC,,3775,166
+fed2025,fed-109306,fed-210,Other Mobile Team 1,,252,12
+fed2025,fed-109308,fed-200,Other Mobile Team 1,,168,6
+fed2025,fed-109310,fed-213,Other Mobile Team 2,,50,1
+fed2025,fed-109311,fed-232,Other Mobile Team 1,,70,11
+fed2025,fed-109313,fed-324,Other Mobile Team 1,,27,2
+fed2025,fed-109315,fed-222,Other Mobile Team 1,,30,0
+fed2025,fed-109316,fed-326,Other Mobile Team 1,,24,2
+fed2025,fed-109406,fed-218,Wangaratta Polling Day PPVC,,0,0
+fed2025,fed-109407,fed-218,Other Mobile Team 1,,39,1
+fed2025,fed-109420,fed-224,Other Mobile Team 1,,83,4
+fed2025,fed-109426,fed-228,Other Mobile Team 1,,13,0
+fed2025,fed-109434,fed-208,Other Mobile Team 1,,87,4
+fed2025,fed-109436,fed-233,Other Mobile Team 1,,41,1
+fed2025,fed-109437,fed-198,Other Mobile Team 1,,69,2
+fed2025,fed-109438,fed-212,Other Mobile Team 1,,24,1
+fed2025,fed-109446,fed-309,Other Mobile Team 1,,32,0
+fed2025,fed-109477,fed-226,Kalkallo (McEwen),,1469,40
+fed2025,fed-109480,fed-214,Moorabbin West,,1127,36
+fed2025,fed-109495,fed-221,Ashburton KOOYONG PPVC,,3815,52
+fed2025,fed-109497,fed-205,Ashburton CHISHOLM PPVC,,12279,210
+fed2025,fed-109499,fed-210,Mount Eliza DUNKLEY PPVC,,2506,57
+fed2025,fed-109521,fed-218,Special Hospital Team 4,,93,3
+fed2025,fed-109528,fed-222,Karwan,,957,26
+fed2025,fed-109548,fed-198,Ballarat West PPVC,,14769,466
+fed2025,fed-109552,fed-322,Docklands (Macnamara),,122,3
+fed2025,fed-109556,fed-228,Southbank (Melbourne),,171,2
+fed2025,fed-109557,fed-228,St Kilda MELBOURNE PPVC,,1965,24
+fed2025,fed-109570,fed-226,Diamond Creek West,,773,20
+fed2025,fed-109574,fed-226,Gisborne PPVC,,8129,170
+fed2025,fed-109595,fed-222,Wimba,,1046,19
+fed2025,fed-109597,fed-309,Thornhill Park,,1116,33
+fed2025,fed-109612,fed-224,Eaglehawk MALLEE PPVC,,389,18
+fed2025,fed-109614,fed-226,Wollert South (McEwen),,49,2
+fed2025,fed-109667,fed-216,Hastings HOLT PPVC,,488,23
+fed2025,fed-109673,fed-223,Clyde LA TROBE PPVC,,5585,135
+fed2025,fed-109684,fed-216,Clyde North Central (Holt),,427,10
+fed2025,fed-109696,fed-216,Clyde HOLT PPVC,,8045,247
+fed2025,fed-109703,fed-216,Narre Warren South West,,902,48
+fed2025,fed-109735,fed-222,Truganina East (Lalor),,85,2
+fed2025,fed-109748,fed-321,Newport FRASER PPVC,,2721,68
+fed2025,fed-109749,fed-234,Preston WILLS PPVC,,1431,60
+fed2025,fed-109752,fed-225,Broadmeadows MARIBYRNONG PPVC,,2659,137
+fed2025,fed-109762,fed-226,Laurimar East,,874,35
+fed2025,fed-109764,fed-228,Brunswick MELBOURNE PPVC,,791,11
+fed2025,fed-109768,fed-309,Sydenham PPVC,,12282,578
+fed2025,fed-109788,fed-203,Greenvale North,,1667,62
+fed2025,fed-109790,fed-309,St Albans North (Gorton),,118,16
+fed2025,fed-109791,fed-223,Dandenong LA TROBE PPVC,,527,26
+fed2025,fed-109792,fed-216,Frankston HOLT PPVC,,289,15
+fed2025,fed-119909,fed-197,Heathmont (Aston),,341,4
+fed2025,fed-119934,fed-197,Ringwood ASTON PPVC,,1447,29
+fed2025,fed-119987,fed-200,Echuca BENDIGO PPVC,,863,52
+fed2025,fed-120024,fed-201,Cranbourne North Upper (Bruce),,1363,50
+fed2025,fed-120035,fed-201,Clyde BRUCE PPVC,,533,14
+fed2025,fed-120040,fed-201,Beaconsfield (Bruce),,329,22
+fed2025,fed-120074,fed-203,Campbellfield (Calwell),,253,38
+fed2025,fed-120075,fed-203,Kalkallo (Calwell),,113,12
+fed2025,fed-120122,fed-205,Mount Waverley Lower (Chisholm),,395,15
+fed2025,fed-120129,fed-205,Blackburn CHISHOLM PPVC,,937,25
+fed2025,fed-120136,fed-205,Malvern (Chisholm),,402,8
+fed2025,fed-120139,fed-205,Malvern South (Chisholm),,1166,32
+fed2025,fed-120165,fed-205,Camberwell West (Chisholm),,644,7
+fed2025,fed-120356,fed-209,Donvale South (Deakin),,308,10
+fed2025,fed-120384,fed-209,Doncaster East DEAKIN PPVC,,1463,39
+fed2025,fed-120398,fed-210,Mount Eliza (Dunkley),,371,7
+fed2025,fed-120433,fed-210,Mordialloc DUNKLEY PPVC,,2728,74
+fed2025,fed-120474,fed-211,Mount Eliza FLINDERS PPVC,,4974,88
+fed2025,fed-120513,fed-212,Spotswood (Gellibrand),,489,6
+fed2025,fed-120514,fed-212,South Kingsville (Gellibrand),,503,8
+fed2025,fed-120692,fed-217,Wheelers Hill Central (Hotham),,445,20
+fed2025,fed-120719,fed-217,Pinewood (Hotham),,381,12
+fed2025,fed-120752,fed-217,Malvern HOTHAM PPVC,,736,13
+fed2025,fed-120845,fed-219,Chelsea Central (Isaacs),,370,13
+fed2025,fed-120846,fed-219,Chelsea Heights (Isaacs),,1201,47
+fed2025,fed-120937,fed-221,Hartwell (Kooyong),,490,8
+fed2025,fed-120940,fed-221,Surrey Hills West (Kooyong),,992,15
+fed2025,fed-120977,fed-226,St Andrews (McEwen),,283,12
+fed2025,fed-121050,fed-322,Fawkner Park (Macnamara),,181,3
+fed2025,fed-121079,fed-225,Pascoe Vale South (Maribyrnong),,438,12
+fed2025,fed-121119,fed-228,Prahran East (Melbourne),,645,14
+fed2025,fed-121135,fed-228,Carlton Central (Melbourne),,494,4
+fed2025,fed-121138,fed-228,Princes Hill (Melbourne),,303,3
+fed2025,fed-121142,fed-228,Collingwood North (Melbourne),,594,9
+fed2025,fed-121196,fed-229,Wattle Park (Menzies),,864,17
+fed2025,fed-121204,fed-229,Burwood East Upper (Menzies),,679,16
+fed2025,fed-121212,fed-229,Mount Waverley MENZIES PPVC,,489,5
+fed2025,fed-121220,fed-229,Ashburton MENZIES PPVC,,623,7
+fed2025,fed-121233,fed-229,Greythorn (Menzies),,887,25
+fed2025,fed-121251,fed-229,Kew MENZIES PPVC,,1057,28
+fed2025,fed-121268,fed-229,Blackburn North (Menzies),,528,11
+fed2025,fed-121368,fed-232,Mernda Park (Scullin),,607,19
+fed2025,fed-121440,fed-234,Oak Park (Wills),,473,15
+fed2025,fed-124006,fed-213,Special Hospital Team 4,,145,6
+fed2025,fed-124009,fed-228,Melbourne CBD South Central (Melbourne),,2154,9
+fed2025,fed-124010,fed-228,Melbourne CBD North East (Melbourne),,802,13
+fed2025,fed-124011,fed-322,Melbourne CBD North West (Macnamara),,71,1
+fed2025,fed-124012,fed-234,Melbourne CBD South Central (Wills),,0,0
+fed2025,fed-124013,fed-234,Melbourne CBD North East (Wills),,49,2
+fed2025,fed-124014,fed-197,Special Hospital Team 3,,76,1
+fed2025,fed-124015,fed-197,Special Hospital Team 4,,98,14
+fed2025,fed-124016,fed-201,Special Hospital Team 3,,83,4
+fed2025,fed-124017,fed-228,Melbourne CBD North West (Melbourne),,1859,33
+fed2025,fed-124018,fed-322,Melbourne CBD North East (Macnamara),,47,0
+fed2025,fed-124019,fed-322,Melbourne CBD South Central (Macnamara),,0,0
+fed2025,fed-124020,fed-320,Melbourne CBD South Central (Cooper),,0,0
+fed2025,fed-124021,fed-320,Melbourne CBD North East (Cooper),,37,0
+fed2025,fed-124022,fed-320,Melbourne CBD North West (Cooper),,41,1
+fed2025,fed-124024,fed-221,Melbourne CBD North East (Kooyong),,28,0
+fed2025,fed-124025,fed-221,Melbourne CBD South Central (Kooyong),,0,0
+fed2025,fed-124026,fed-221,Melbourne CBD North West (Kooyong),,37,1
+fed2025,fed-124027,fed-212,Melbourne CBD South Central (Gellibrand),,0,0
+fed2025,fed-124028,fed-212,Melbourne CBD North East (Gellibrand),,10,0
+fed2025,fed-124029,fed-212,Melbourne CBD North West (Gellibrand),,23,0
+fed2025,fed-124030,fed-225,Melbourne CBD South Central (Maribyrnong),,0,0
+fed2025,fed-124031,fed-225,Melbourne CBD North East (Maribyrnong),,17,0
+fed2025,fed-124032,fed-225,Melbourne CBD North West (Maribyrnong),,63,1
+fed2025,fed-124033,fed-234,Melbourne CBD North West (Wills),,49,1
+fed2025,fed-124034,fed-201,Dandenong Polling Day PPVC,,0,0
+fed2025,fed-124036,fed-324,Special Hospital Team 5,,99,8
+fed2025,fed-124037,fed-205,Special Hospital Team 4,,148,5
+fed2025,fed-124038,fed-309,Deanside,,1009,24
+fed2025,fed-124039,fed-225,Special Hospital Team 4,,96,10
+fed2025,fed-124040,fed-234,Special Hospital Team 4,,34,1
+fed2025,fed-124042,fed-321,Special Hospital Team 4,,82,2
+fed2025,fed-124043,fed-328,Special Hospital Team 4,,182,6
+fed2025,fed-124044,fed-222,Special Hospital Team 3,,296,5
+fed2025,fed-124047,fed-228,Melbourne CBD PPVC,,0,0
+fed2025,fed-124049,fed-229,Special Hospital Team 4,,117,7
+fed2025,fed-124127,fed-197,Special Hospital Team 5,,88,12
+fed2025,fed-124128,fed-220,Warrandyte (Jagajaga),,150,1
+fed2025,fed-124142,fed-219,Special Hospital Team 3,,9,2
+fed2025,fed-124143,fed-204,Special Hospital Team 2,,73,5
+fed2025,fed-124144,fed-217,Special Hospital Team 3,,73,5
+fed2025,fed-124145,fed-221,Special Hospital Team 4,,120,3
+fed2025,fed-124146,fed-197,Special Hospital Team 6,,115,4
+fed2025,fed-124147,fed-201,Special Hospital Team 4,,144,16
+fed2025,fed-124148,fed-229,Special Hospital Team 5,,133,6
+fed2025,fed-124158,fed-328,Other Mobile Team 1,,20,1

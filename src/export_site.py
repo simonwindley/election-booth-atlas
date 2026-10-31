@@ -78,6 +78,49 @@ def main(db, out):
     sizes['lc_candidates'] = write(out, 'lc_candidates', q('SELECT election_id, contest_id, candidate_id, "group", party, party_name, name, is_atl FROM lc_candidates'))
     for eid in [r[0] for r in con.execute('SELECT DISTINCT election_id FROM lc_votes')]:
         sizes['lc_votes_' + eid] = write(out, 'lc_votes_' + eid, q(f"SELECT election_id, contest_id, booth_id, booth_type, candidate_id, votes FROM lc_votes WHERE election_id = '{eid}'"))
+    # upper house summaries for the region view: group totals (ATL / BTL), who was elected in what order, and preference flows
+    sizes['lc_groups'] = write(out, 'lc_groups', q('''
+        SELECT v.election_id, v.contest_id, c."group" AS grp, c.party, c.party_name,
+               SUM(CASE WHEN c.is_atl = 1 THEN v.votes ELSE 0 END) AS atl, SUM(CASE WHEN c.is_atl = 0 THEN v.votes ELSE 0 END) AS btl, SUM(v.votes) AS total
+        FROM lc_votes v JOIN lc_candidates c ON c.election_id = v.election_id AND c.candidate_id = v.candidate_id
+        GROUP BY 1, 2, 3, 4, 5'''))
+    lcc = q('SELECT election_id, contest_id, candidate_id, "group" AS grp, party, party_name, name FROM lc_candidates WHERE is_atl = 0')
+    import re as _re
+    def _nk(x):
+        return _re.sub(r'[^a-z]', '', str(x).lower())
+    lcc['nk'] = lcc.name.map(_nk)
+    cand_by = {(r.election_id, r.contest_id, r.nk): r for r in lcc.itertuples()}
+    def who(eid, cid, name):
+        return cand_by.get((eid, cid, _nk(name)))
+    # elected: the first count at which each candidate is flagged elected
+    el = q("SELECT election_id, contest_id, MIN(count_no) AS count_no, \"column\" AS name FROM lc_dop WHERE elected = 1 GROUP BY 1, 2, 4 ORDER BY 1, 2, 3")
+    rows = []
+    for (eid, cid), g in el.groupby(['election_id', 'contest_id'], sort=False):
+        for order, r in enumerate(g.sort_values('count_no').itertuples(), start=1):
+            c = who(eid, cid, r.name)
+            rows.append({'election_id': eid, 'contest_id': cid, 'name': r.name, 'party': c.party if c else 'OTH', 'party_name': c.party_name if c else '', 'grp': c.grp if c else '', 'order_elected': order, 'count_no': int(r.count_no)})
+    sizes['lc_result'] = write(out, 'lc_result', pd.DataFrame(rows))
+    # Senate (federal upper house) by polling place: party totals per booth, group totals per division, senators elected
+    try:
+        sizes['sen_booth_party'] = write(out, 'sen_booth_party', q('''SELECT election_id, booth_id, party, SUM(atl) AS atl, SUM(votes) AS votes FROM sen_groups GROUP BY 1, 2, 3'''))
+        sizes['sen_div_groups'] = write(out, 'sen_div_groups', q('''SELECT election_id, contest_id, grp, party_name, party, SUM(atl) AS atl, SUM(votes) AS votes FROM sen_groups GROUP BY 1, 2, 3, 4, 5'''))
+        sizes['sen_booths'] = write(out, 'sen_booths', q('SELECT election_id, booth_id, contest_id, formal, informal FROM sen_booths'))
+        sizes['senators'] = write(out, 'senators', q('SELECT * FROM senators_elected'))
+    except Exception as ex:
+        print('no senate tables:', ex)
+    # flows: for every exclusion (and surplus) of a candidate, where the vote value went, by receiving candidate
+    dop = q("SELECT election_id, contest_id, count_no, description, \"column\" AS name, value FROM lc_dop WHERE value IS NOT NULL AND value <> 0 AND \"column\" <> 'TOTAL'")
+    m = dop.description.str.extract(r'^(Exclusion|Surplus) of (.+?), ([\d,]+) ballot papers')
+    dop['kind'] = m[0].str.lower(); dop['from_name'] = m[1]
+    dop = dop[dop.kind.notna() & (dop.name != dop.from_name)]
+    fl = dop.groupby(['election_id', 'contest_id', 'kind', 'from_name', 'name'], as_index=False).value.sum()
+    fl = fl[fl.value > 0]
+    def party_of(r, col):
+        c = who(r.election_id, r.contest_id, getattr(r, col)); return c.party if c else ('EXH' if getattr(r, col) == 'Exhausted' else 'OTH')
+    fl['from_party'] = [party_of(r, 'from_name') for r in fl.itertuples()]
+    fl['to_party'] = [party_of(r, 'name') for r in fl.itertuples()]
+    fl = fl.rename(columns={'name': 'to_name'})
+    sizes['lc_flows'] = write(out, 'lc_flows', fl[['election_id', 'contest_id', 'kind', 'from_name', 'from_party', 'to_name', 'to_party', 'value']])
     # 2026 pre-election register (declared candidates etc.), straight from data/vic2026
     for name in ['contests', 'candidates', 'retiring', 'withdrawals']:
         p = f'data/vic2026/{name}.csv'

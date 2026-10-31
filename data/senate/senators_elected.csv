@@ -1,0 +1,43 @@
+election_id,given_name,surname,party_name,party_ab_src,party,order_elected
+fed2010,Kim John,CARR,Australian Labor Party,ALP,ALP,1
+fed2010,Michael,RONALDSON,Liberal,LP,LIB,2
+fed2010,Richard,DI NATALE,Australian Greens,GRN,GRN,3
+fed2010,Stephen Michael,CONROY,Australian Labor Party,ALP,ALP,4
+fed2010,Bridget,McKENZIE,The Nationals,NP,NAT,5
+fed2010,John,MADIGAN,Democratic Labor Party (DLP) of Australia,DLP,DLP,6
+fed2013,Mitch,FIFIELD,Liberal,LP,LIB,1
+fed2013,Gavin,MARSHALL,Australian Labor Party,ALP,ALP,2
+fed2013,Scott,RYAN,Liberal,LP,LIB,3
+fed2013,Jacinta,COLLINS,Australian Labor Party,ALP,ALP,4
+fed2013,Janet,RICE,The Greens,GRN,GRN,5
+fed2013,Ricky,MUIR,Australian Motoring Enthusiast Party,AMEP,OTH,6
+fed2016,Mitch,FIFIELD,Liberal,LP,LIB,1
+fed2016,Kim,CARR,Australian Labor Party,ALP,ALP,2
+fed2016,Richard,DI NATALE,The Greens,GRN,GRN,3
+fed2016,Bridget,McKENZIE,The Nationals,NP,NAT,4
+fed2016,Stephen Michael,CONROY,Australian Labor Party,ALP,ALP,5
+fed2016,Scott,RYAN,Liberal,LP,LIB,6
+fed2016,Jacinta,COLLINS,Australian Labor Party,ALP,ALP,7
+fed2016,James,PATERSON,Liberal,LP,LIB,8
+fed2016,Gavin,MARSHALL,Australian Labor Party,ALP,ALP,9
+fed2016,Derryn,HINCH,Derryn Hinch's Justice Party,DHJP,DHJ,10
+fed2016,Janet,RICE,The Greens,GRN,GRN,11
+fed2016,Jane,HUME,Liberal,LP,LIB,12
+fed2019,James,PATERSON,Liberal,LP,LIB,1
+fed2019,Raffaele,CICCONE,Australian Labor Party,ALP,ALP,2
+fed2019,Jane,HUME,Liberal,LP,LIB,3
+fed2019,Jess,WALSH,Australian Labor Party,ALP,ALP,4
+fed2019,Janet,RICE,The Greens (VIC),GVIC,GRN,5
+fed2019,David,VAN,Liberal,LP,LIB,6
+fed2022,Sarah,HENDERSON,Liberal,LP,LIB,1
+fed2022,Linda,WHITE,Australian Labor Party,ALP,ALP,2
+fed2022,Bridget,McKENZIE,The Nationals,NP,NAT,3
+fed2022,Jana,STEWART,Australian Labor Party,ALP,ALP,4
+fed2022,Lidia,THORPE,The Greens,GVIC,GRN,5
+fed2022,Ralph,BABET,United Australia Party,UAPP,UAP,6
+fed2025,Raffaele,CICCONE,Australian Labor Party,ALP,ALP,1
+fed2025,James,PATERSON,Liberal,LP,LIB,2
+fed2025,Jess,WALSH,Australian Labor Party,ALP,ALP,3
+fed2025,Jane,HUME,Liberal,LP,LIB,4
+fed2025,Steph,HODGINS-MAY,The Greens,GVIC,GRN,5
+fed2025,Michelle,ANANDA-RAJAH,Australian Labor Party,ALP,ALP,6

@@ -1,0 +1,21 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+vic-altona,vic-altona-derrimut,Derrimut,aec_name_match,2.4
+vic-altona,vic-altona-laverton,Laverton,aec_name_match,2.6
+vic-bendigo-east,vic-bendigo-east-kangaroo-flat,Kangaroo Flat,aec_name_match,1.6
+vic-bendigo-west,vic-bendigo-west-eaglehawk-west,Eaglehawk West,geocoded_approx,1.9
+vic-bendigo-west,vic-bendigo-west-white-hills,White Hills,aec_name_match,2.6
+vic-bulleen,vic-bulleen-doncaster,Doncaster,aec_name_match,1.2
+vic-bulleen,vic-bulleen-doncaster-central,Doncaster Central,aec_name_match,1.3
+vic-bulleen,vic-bulleen-manningham,Manningham,aec_name_match,1.4
+vic-doncaster,vic-doncaster-lower-templestowe,Lower Templestowe,aec_name_match,1.2
+vic-forest-hill,vic-forest-hill-glen-waverley,Glen Waverley,aec_name_match,1.4
+vic-gembrook,vic-gembrook-berwick-lodge,Berwick Lodge,aec_name_match,1.8
+vic-macedon,vic-macedon-kyneton,Kyneton,aec_name_match,5.6
+vic-melton,vic-melton-ballan,Ballan,aec_name_match,4.6
+vic-mornington,vic-mornington-derinya,Derinya,aec_name_match,1.1
+vic-narre-warren-north,vic-narre-warren-north-berwick,Berwick,aec_name_match,1.7
+vic-narre-warren-north,vic-narre-warren-north-mitchell,Mitchell,aec_name_match,38.2
+vic-nepean,vic-nepean-balnarring,Balnarring,aec_name_match,1.2
+vic-ripon,vic-ripon-creswick,Creswick,aec_name_match,3.9
+vic-scoresby,vic-scoresby-glen-waverley,Glen Waverley,aec_name_match,1.4
+vic-tarneit,vic-tarneit-derrimut,Derrimut,aec_name_match,6.2

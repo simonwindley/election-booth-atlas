@@ -9,13 +9,13 @@ vic-bendigo-west-sandhurst,type reservoir
 vic-bendigo-west-sparrowhawk,type drain
 vic-berwick-avebury,"43 km from district, outside footprint 7 km"
 vic-box-hill-starling,"37 km from district, outside footprint 4 km"
-vic-box-hill-warrawong,"27 km from district, outside footprint 4 km"
+vic-box-hill-warrawong,"26 km from district, outside footprint 4 km"
 vic-brighton-berendale,no hit
 vic-brunswick-blyth,"17 km from district, outside footprint 3 km"
 vic-brunswick-edward,"22 km from district, outside footprint 3 km"
 vic-brunswick-glen-nichol,no hit
 vic-brunswick-mitchell-street,"9 km from district, outside footprint 3 km"
-vic-bulleen-st-gregory-s,"20 km from district, outside footprint 5 km"
+vic-bulleen-st-gregory-s,"20 km from district, outside footprint 4 km"
 vic-caulfield-alma,"41 km from district, outside footprint 3 km"
 vic-caulfield-clarence,"44 km from district, outside footprint 3 km"
 vic-caulfield-glen-eira,type convenience
@@ -35,29 +35,28 @@ vic-footscray-maidstone-west,type clinic
 vic-footscray-maribyrnong-river,type river
 vic-frankston-frankston-beach,type beach
 vic-frankston-frankston-forest,type bus_stop
-vic-geelong-aberdeen,"46 km from district, outside footprint 20 km"
-vic-geelong-barwon,"32 km from district, outside footprint 20 km"
+vic-geelong-aberdeen,"46 km from district, outside footprint 19 km"
+vic-geelong-barwon,"32 km from district, outside footprint 19 km"
 vic-geelong-kardinia-park,type stadium
-vic-geelong-shannon,"41 km from district, outside footprint 20 km"
+vic-geelong-shannon,"41 km from district, outside footprint 19 km"
 vic-gippsland-south-sandy-point,type yes
 vic-gippsland-south-wurruk,no hit
 vic-hastings-woodlands,"28 km from district, outside footprint 17 km"
 vic-ivanhoe-golf-links,"21 km from district, outside footprint 3 km"
 vic-ivanhoe-ivanhoe-west,type industrial
 vic-kororoit-mount-derrimut,type grassland
-vic-kororoit-rockbank,"9 km from district, outside footprint 3 km"
-vic-kororoit-rockbank-north,"9 km from district, outside footprint 3 km"
-vic-lara-bisinella,"15 km from district, outside footprint 8 km"
+vic-kororoit-rockbank,"10 km from district, outside footprint 3 km"
+vic-kororoit-rockbank-north,"10 km from district, outside footprint 3 km"
 vic-lowan-antwerp,no hit
 vic-lowan-hamilton-central,type trunk
 vic-lowan-netherby,type ridge
-vic-melbourne-north-melbourne-east,"9 km from district, outside footprint 3 km"
+vic-melbourne-north-melbourne-east,"10 km from district, outside footprint 3 km"
 vic-mildura-cullulleraine,no hit
 vic-mildura-mildura-ranfurly,no hit
 vic-mill-park-marymeade,no hit
 vic-mill-park-morang-south,type farmyard
-vic-mill-park-the-lakes,"34 km from district, outside footprint 5 km"
-vic-mordialloc-chapel,"40 km from district, outside footprint 6 km"
+vic-mill-park-the-lakes,"33 km from district, outside footprint 7 km"
+vic-mordialloc-chapel,"39 km from district, outside footprint 7 km"
 vic-mornington-osborne,type wood
 vic-morwell-morwell-east,type river
 vic-morwell-traralgon-north-east,type tower
@@ -120,5 +119,5 @@ vic-lowan-serviceton,no hit
 vic-lowan-yanac,type unclassified
 vic-murray-plains-yarrawalla-south,type unclassified
 vic-prahran-alma,"46 km from district, outside footprint 4 km"
-vic-ripon-litchfield,"109 km from district, outside footprint 96 km"
+vic-ripon-litchfield,"109 km from district, outside footprint 98 km"
 vic-south-west-coast-portland-south-west-tafe,no hit

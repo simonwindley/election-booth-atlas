@@ -1,0 +1,1910 @@
+election_id,booth_id,contest_id,booth_name,premises,formal,informal
+fed2016,fed-2942,fed-197,Bayswater,,2423,153
+fed2016,fed-2945,fed-197,Bayswater West,,1794,78
+fed2016,fed-2947,fed-197,Blackwood Park,,957,36
+fed2016,fed-2948,fed-197,Boronia,,1464,83
+fed2016,fed-2949,fed-209,Eastmont,,1430,49
+fed2016,fed-2950,fed-197,Fairhills,,1545,103
+fed2016,fed-2951,fed-197,Ferntree Gully West,,1876,91
+fed2016,fed-2952,fed-197,Wantirna West,,1593,50
+fed2016,fed-2953,fed-209,Heathmont,,1434,51
+fed2016,fed-2954,fed-209,Heathmont East,,1064,23
+fed2016,fed-2956,fed-197,Knoxfield,,1889,122
+fed2016,fed-2957,fed-197,Kent Park,,954,47
+fed2016,fed-2958,fed-197,Knox Gardens,,2257,73
+fed2016,fed-2959,fed-197,Lysterfield,,2592,117
+fed2016,fed-2960,fed-209,Morack,,1789,59
+fed2016,fed-2961,fed-197,Mountain Gate,,2327,153
+fed2016,fed-2962,fed-209,Ringwood South,,2518,85
+fed2016,fed-2963,fed-197,Rowville,,2654,171
+fed2016,fed-2964,fed-197,Rowville East,,1544,90
+fed2016,fed-2965,fed-197,Scoresby,,2575,134
+fed2016,fed-2966,fed-197,Watersedge,,1453,55
+fed2016,fed-2969,fed-197,Studfield East,,1695,72
+fed2016,fed-2970,fed-197,Templeton,,1545,70
+fed2016,fed-2971,fed-197,Wantirna,,1936,87
+fed2016,fed-2973,fed-197,Wantirna Central,,2306,108
+fed2016,fed-2974,fed-197,Wantirna South,,1451,60
+fed2016,fed-2977,fed-198,Alfredton,,770,19
+fed2016,fed-2978,fed-198,Alfredton West,,2603,107
+fed2016,fed-2979,fed-233,Ararat,,2234,174
+fed2016,fed-2982,fed-233,Ararat West,,1591,99
+fed2016,fed-2986,fed-198,Ballarat,,1599,59
+fed2016,fed-2990,fed-198,Ballarat North,,2048,86
+fed2016,fed-2991,fed-198,Ballarat North West,,1394,38
+fed2016,fed-2993,fed-198,Ballarat South,,1093,61
+fed2016,fed-2994,fed-198,Ballarat South West,,550,14
+fed2016,fed-2996,fed-233,Beaufort,,1092,85
+fed2016,fed-2998,fed-198,Black Hill,,1548,77
+fed2016,fed-3002,fed-198,Brown Hill,,1749,87
+fed2016,fed-3003,fed-233,Buangor,,135,6
+fed2016,fed-3004,fed-198,Bungaree,,469,19
+fed2016,fed-3005,fed-198,Buninyong,,2050,58
+fed2016,fed-3006,fed-198,Cardigan Village,,264,10
+fed2016,fed-3007,fed-198,Canadian,,1317,72
+fed2016,fed-3008,fed-207,Cape Clear,,188,15
+fed2016,fed-3009,fed-233,Snake Valley,,518,30
+fed2016,fed-3012,fed-198,Clunes,,849,55
+fed2016,fed-3014,fed-198,Creswick,,1222,63
+fed2016,fed-3015,fed-198,Creswick North,,515,27
+fed2016,fed-3018,fed-198,Delacombe,,1510,74
+fed2016,fed-3019,fed-207,Dereel,,247,15
+fed2016,fed-3020,fed-233,Derrinallum,,259,24
+fed2016,fed-3022,fed-233,Elmhurst,,160,7
+fed2016,fed-3027,fed-198,Haddon,,1005,46
+fed2016,fed-3029,fed-233,Lake Bolac,,242,14
+fed2016,fed-3032,fed-198,Learmonth,,350,19
+fed2016,fed-3034,fed-207,Linton,,286,32
+fed2016,fed-3035,fed-233,Lismore,,305,22
+fed2016,fed-3037,fed-198,Magpie,,370,15
+fed2016,fed-3040,fed-198,Miners Rest,,1327,64
+fed2016,fed-3042,fed-198,Mount Clear,,1720,56
+fed2016,fed-3043,fed-198,Mount Pleasant,,1146,37
+fed2016,fed-3045,fed-233,Moyston,,221,10
+fed2016,fed-3046,fed-198,Napoleons,,601,24
+fed2016,fed-3048,fed-198,Newington,,716,28
+fed2016,fed-3049,fed-198,Newlyn,,587,21
+fed2016,fed-3050,fed-233,Pomonal,,169,8
+fed2016,fed-3054,fed-198,Redan,,1119,77
+fed2016,fed-3056,fed-207,Rokewood,,215,9
+fed2016,fed-3057,fed-198,Ross Creek,,621,31
+fed2016,fed-3059,fed-198,Sebastopol,,1688,109
+fed2016,fed-3060,fed-233,Skipton,,348,32
+fed2016,fed-3063,fed-207,Smythesdale,,618,35
+fed2016,fed-3064,fed-198,Soldiers Hill,,640,26
+fed2016,fed-3066,fed-233,Streatham,,142,3
+fed2016,fed-3067,fed-233,Tatyoon,,76,3
+fed2016,fed-3068,fed-198,The Stockade,,1266,53
+fed2016,fed-3072,fed-198,Wendouree,,1276,67
+fed2016,fed-3073,fed-198,Wendouree East,,817,43
+fed2016,fed-3074,fed-198,Wendouree North,,1484,84
+fed2016,fed-3075,fed-198,Wendouree West,,639,62
+fed2016,fed-3078,fed-233,Willaura,,253,7
+fed2016,fed-3085,fed-199,Alphington,,1308,47
+fed2016,fed-3086,fed-199,Alphington North,,1130,58
+fed2016,fed-3087,fed-199,Boldrewood,,1800,137
+fed2016,fed-3088,fed-199,Burbank,,720,74
+fed2016,fed-3091,fed-199,Fairfield,,1726,54
+fed2016,fed-3092,fed-199,Fairfield North,,967,52
+fed2016,fed-3095,fed-199,Merrilands,,1551,156
+fed2016,fed-3096,fed-199,Northcote,,1601,54
+fed2016,fed-3097,fed-199,Northcote North,,1352,76
+fed2016,fed-3098,fed-199,Northcote South,,2324,63
+fed2016,fed-3099,fed-199,Northcote West,,893,11
+fed2016,fed-3101,fed-199,Preston,,1007,57
+fed2016,fed-3102,fed-199,Preston East,,1372,101
+fed2016,fed-3104,fed-199,Preston North East,,1262,121
+fed2016,fed-3105,fed-199,Preston South,,1268,59
+fed2016,fed-3107,fed-199,Regent,,2151,137
+fed2016,fed-3108,fed-199,Reservoir,,1187,59
+fed2016,fed-3109,fed-199,Reservoir Central,,1537,183
+fed2016,fed-3110,fed-199,Reservoir East,,914,57
+fed2016,fed-3111,fed-199,Reservoir North,,2161,188
+fed2016,fed-3112,fed-199,Reservoir North East,,1044,84
+fed2016,fed-3113,fed-199,Reservoir South,,807,52
+fed2016,fed-3115,fed-199,Ruthven,,1927,217
+fed2016,fed-3117,fed-199,Thornbury East,,2213,128
+fed2016,fed-3118,fed-199,Thornbury South,,2202,97
+fed2016,fed-3119,fed-199,Westgarth,,1016,25
+fed2016,fed-3124,fed-233,Amphitheatre,,179,6
+fed2016,fed-3125,fed-233,Avoca,,789,51
+fed2016,fed-3126,fed-233,Bealiba,,151,12
+fed2016,fed-3129,fed-200,Bendigo Central,,1536,59
+fed2016,fed-3132,fed-200,Flora Hill,,1643,72
+fed2016,fed-3134,fed-200,Big Hill,,820,30
+fed2016,fed-3136,fed-233,Bowenvale,,459,28
+fed2016,fed-3137,fed-231,Bridgewater,,328,20
+fed2016,fed-3139,fed-200,California Gully,,749,32
+fed2016,fed-3142,fed-200,Central Deborah,,781,26
+fed2016,fed-3143,fed-224,Charlton,,656,35
+fed2016,fed-3144,fed-200,Comet Hill,,2003,128
+fed2016,fed-3145,fed-224,Concongella,,468,23
+fed2016,fed-3147,fed-224,Donald,,893,48
+fed2016,fed-3148,fed-233,Dunolly,,633,41
+fed2016,fed-3149,fed-200,Eaglehawk,,1354,93
+fed2016,fed-3151,fed-200,Epsom,,2106,105
+fed2016,fed-3153,fed-224,Glenorchy,,165,5
+fed2016,fed-3154,fed-200,Golden Square,,2373,134
+fed2016,fed-3156,fed-200,Goornong,,293,9
+fed2016,fed-3158,fed-224,Great Western,,256,14
+fed2016,fed-3159,fed-224,Halls Gap,,277,12
+fed2016,fed-3160,fed-200,Huntly,,1357,65
+fed2016,fed-3161,fed-231,Inglewood,,602,44
+fed2016,fed-3164,fed-200,Jobs Gully,,1466,78
+fed2016,fed-3165,fed-200,Kangaroo Flat,,2012,125
+fed2016,fed-3166,fed-200,Strath Hill,,1247,62
+fed2016,fed-3167,fed-231,Korong Vale,,136,5
+fed2016,fed-3169,fed-233,Landsborough,,118,9
+fed2016,fed-3171,fed-233,Lexton,,195,4
+fed2016,fed-3173,fed-200,Lockwood,,803,35
+fed2016,fed-3174,fed-200,Long Gully,,807,42
+fed2016,fed-3175,fed-200,Maiden Gully,,1751,98
+fed2016,fed-3176,fed-224,Marnoo,,141,5
+fed2016,fed-3177,fed-200,Marong,,735,33
+fed2016,fed-3178,fed-233,Maryborough,,2216,173
+fed2016,fed-3179,fed-233,Maryborough East,,1628,88
+fed2016,fed-3180,fed-233,Moonambel,,213,11
+fed2016,fed-3184,fed-200,Newbridge,,235,11
+fed2016,fed-3187,fed-200,Quarry Hill,,989,30
+fed2016,fed-3188,fed-200,Raywood,,317,11
+fed2016,fed-3191,fed-200,Eaglehawk North,,614,41
+fed2016,fed-3192,fed-224,St Arnaud,,1517,128
+fed2016,fed-3195,fed-200,Bendigo East,,603,16
+fed2016,fed-3198,fed-200,Spring Gully,,1220,45
+fed2016,fed-3199,fed-224,Stawell,,1482,129
+fed2016,fed-3202,fed-224,Stawell West,,1204,91
+fed2016,fed-3203,fed-200,Strathdale,,1707,42
+fed2016,fed-3205,fed-233,Talbot,,579,35
+fed2016,fed-3206,fed-200,Tarnagulla,,158,5
+fed2016,fed-3208,fed-224,Watchem,,92,3
+fed2016,fed-3209,fed-233,Waubra,,162,2
+fed2016,fed-3210,fed-231,Wedderburn,,549,50
+fed2016,fed-3211,fed-200,Weeroona,,968,42
+fed2016,fed-3212,fed-200,White Hills,,1087,44
+fed2016,fed-3213,fed-200,Woodvale,,242,12
+fed2016,fed-3220,fed-201,Brandon Park,,1969,102
+fed2016,fed-3221,fed-201,Brentwood,,2426,104
+fed2016,fed-3222,fed-201,Clareville,,1439,107
+fed2016,fed-3223,fed-205,Clayton,,990,58
+fed2016,fed-3225,fed-205,Clayton North,,1340,72
+fed2016,fed-3227,fed-201,Gladeswood,,2385,132
+fed2016,fed-3228,fed-201,The Glen,,1687,63
+fed2016,fed-3230,fed-201,Glen Waverley Heights,,1107,35
+fed2016,fed-3233,fed-201,Jells Park,,1610,54
+fed2016,fed-3235,fed-201,Mount View,,2720,65
+fed2016,fed-3237,fed-201,Mulgrave,,1432,85
+fed2016,fed-3238,fed-201,Albany Rise,,2102,149
+fed2016,fed-3239,fed-205,Oakleigh East,,2104,97
+fed2016,fed-3240,fed-205,Pinewood (Chisholm),,1359,40
+fed2016,fed-3241,fed-205,Sussex Heights,,1559,63
+fed2016,fed-3242,fed-205,Syndal South (Chisholm),,1506,35
+fed2016,fed-3243,fed-201,Waverley Meadows,,1390,88
+fed2016,fed-3246,fed-201,Wheelers Hill,,1602,48
+fed2016,fed-3247,fed-201,Wheelers Hill South,,1840,85
+fed2016,fed-3250,fed-208,Anakie,,409,23
+fed2016,fed-3251,fed-200,Axedale,,676,29
+fed2016,fed-3252,fed-198,Bacchus Marsh,,2066,119
+fed2016,fed-3253,fed-198,Ballan,,1637,108
+fed2016,fed-3258,fed-203,Bethal,,1586,165
+fed2016,fed-3259,fed-198,Blackwood,,296,11
+fed2016,fed-3260,fed-226,Bolinda,,362,11
+fed2016,fed-3263,fed-226,Bullengarook,,351,16
+fed2016,fed-3265,fed-200,Campbells Creek,,1161,45
+fed2016,fed-3266,fed-233,Carisbrook,,834,53
+fed2016,fed-3267,fed-200,Castlemaine,,1377,58
+fed2016,fed-3268,fed-200,Castlemaine North,,1549,60
+fed2016,fed-3269,fed-200,Chewton,,655,26
+fed2016,fed-3273,fed-203,Coolaroo,,1380,169
+fed2016,fed-3275,fed-203,Craigieburn (Calwell),,1144,109
+fed2016,fed-3276,fed-198,Darley,,2921,138
+fed2016,fed-3277,fed-198,Daylesford,,1624,86
+fed2016,fed-3278,fed-198,Drummond,,222,12
+fed2016,fed-3280,fed-198,Elaine,,300,16
+fed2016,fed-3281,fed-200,Elphinstone,,303,19
+fed2016,fed-3282,fed-200,Eppalock,,473,10
+fed2016,fed-3284,fed-226,Gisborne,,2058,73
+fed2016,fed-3286,fed-198,Glenlyon,,507,21
+fed2016,fed-3287,fed-198,Gordon,,653,24
+fed2016,fed-3288,fed-203,Greenvale,,1929,88
+fed2016,fed-3289,fed-200,Guildford,,336,16
+fed2016,fed-3290,fed-200,Harcourt,,796,46
+fed2016,fed-3292,fed-200,Heathcote,,1571,106
+fed2016,fed-3293,fed-198,Hepburn Springs,,666,36
+fed2016,fed-3298,fed-200,Kyneton,,1719,87
+fed2016,fed-3299,fed-226,Lancefield,,1275,61
+fed2016,fed-3302,fed-200,Macedon,,998,30
+fed2016,fed-3304,fed-200,Maldon,,1182,67
+fed2016,fed-3305,fed-200,Malmsbury,,644,32
+fed2016,fed-3306,fed-200,Mandurang,,550,4
+fed2016,fed-3307,fed-203,Meadows,,1020,135
+fed2016,fed-3308,fed-207,Meredith,,426,16
+fed2016,fed-3312,fed-198,Mount Egerton,,305,12
+fed2016,fed-3313,fed-200,Mount Macedon,,609,14
+fed2016,fed-3316,fed-198,Myrniong,,417,23
+fed2016,fed-3317,fed-226,New Gisborne,,1420,56
+fed2016,fed-3318,fed-200,Newham,,484,8
+fed2016,fed-3319,fed-200,Newstead,,669,40
+fed2016,fed-3320,fed-226,Pyalong,,393,23
+fed2016,fed-3321,fed-200,Redesdale,,280,10
+fed2016,fed-3322,fed-226,Riddell,,1640,85
+fed2016,fed-3323,fed-226,Romsey,,2071,97
+fed2016,fed-3326,fed-200,Strathfieldsaye,,2116,82
+fed2016,fed-3327,fed-226,Sunbury,,1994,107
+fed2016,fed-3329,fed-226,Sunbury North,,1351,45
+fed2016,fed-3330,fed-226,Sunbury West,,2461,111
+fed2016,fed-3332,fed-200,Taradale,,342,8
+fed2016,fed-3333,fed-226,Tooborac,,177,7
+fed2016,fed-3334,fed-309,Toolern Vale,,490,21
+fed2016,fed-3335,fed-198,Trentham,,849,43
+fed2016,fed-3336,fed-200,Tylden,,497,14
+fed2016,fed-3337,fed-198,Warrenheip,,772,42
+fed2016,fed-3338,fed-200,Winters Flat,,764,32
+fed2016,fed-3339,fed-200,Woodend,,2570,103
+fed2016,fed-3340,fed-198,Yandoit,,186,10
+fed2016,fed-3345,fed-309,Albanvale,,1652,171
+fed2016,fed-3346,fed-212,Albion,,1319,91
+fed2016,fed-3347,fed-225,Sunshine North West,,923,73
+fed2016,fed-3348,fed-225,Avondale Heights,,1978,251
+fed2016,fed-3350,fed-212,Sunvale (Gellibrand),,879,48
+fed2016,fed-3352,fed-309,Diggers Rest,,906,51
+fed2016,fed-3354,fed-212,Glengala South,,953,68
+fed2016,fed-3355,fed-225,Kealba,,1318,143
+fed2016,fed-3356,fed-203,Keilor,,2490,131
+fed2016,fed-3357,fed-203,Keilor Downs,,1861,137
+fed2016,fed-3358,fed-225,Keilor East,,1742,156
+fed2016,fed-3359,fed-309,Kings Park,,1896,177
+fed2016,fed-3361,fed-225,St Albans East,,1629,175
+fed2016,fed-3362,fed-225,St Albans North,,1400,132
+fed2016,fed-3363,fed-225,St Albans South,,1045,90
+fed2016,fed-3364,fed-225,St Albans South East,,1559,132
+fed2016,fed-3365,fed-225,St Albans West (Maribyrnong),,1682,179
+fed2016,fed-3367,fed-225,Sunshine North,,1188,66
+fed2016,fed-3368,fed-225,Sunvale (Maribyrnong),,556,40
+fed2016,fed-3372,fed-204,Bimbadeen Heights,,1667,64
+fed2016,fed-3373,fed-204,Chirnside Park,,2579,113
+fed2016,fed-3375,fed-204,Coldstream,,980,53
+fed2016,fed-3376,fed-209,Croydon Central (Deakin),,1632,70
+fed2016,fed-3377,fed-229,Croydon Hills (Menzies),,2154,77
+fed2016,fed-3378,fed-229,Croydon North (Menzies),,915,3
+fed2016,fed-3379,fed-209,Croydon West,,1247,40
+fed2016,fed-3380,fed-232,Diamond Creek,,2484,109
+fed2016,fed-3381,fed-232,Diamond Creek East,,1712,75
+fed2016,fed-3382,fed-204,Dixons Creek,,224,8
+fed2016,fed-3383,fed-229,Donvale,,857,26
+fed2016,fed-3384,fed-204,Gruyere,,346,13
+fed2016,fed-3385,fed-232,Hurstbridge (Scullin),,1572,57
+fed2016,fed-3386,fed-209,Kalinda (Deakin),,1741,63
+fed2016,fed-3387,fed-220,Kangaroo Ground (Jagajaga),,599,7
+fed2016,fed-3389,fed-204,Lilydale,,1707,89
+fed2016,fed-3391,fed-204,Lilydale West,,2361,128
+fed2016,fed-3392,fed-204,Manchester,,1660,75
+fed2016,fed-3394,fed-209,Norwood,,1304,52
+fed2016,fed-3395,fed-226,Panton Hill,,686,18
+fed2016,fed-3396,fed-229,Park Orchards,,1569,29
+fed2016,fed-3398,fed-209,Ringwood,,981,35
+fed2016,fed-3399,fed-209,Ringwood East,,1069,40
+fed2016,fed-3400,fed-209,Ringwood Heights,,1212,30
+fed2016,fed-3401,fed-229,Ringwood North (Menzies),,1338,37
+fed2016,fed-3402,fed-204,Rolling Hills,,1584,27
+fed2016,fed-3403,fed-226,St Andrews,,700,22
+fed2016,fed-3404,fed-229,Tunstall,,1335,60
+fed2016,fed-3405,fed-229,Warrandyte,,1770,50
+fed2016,fed-3406,fed-220,Warrandyte North,,1157,21
+fed2016,fed-3409,fed-229,Wonga Park,,1309,34
+fed2016,fed-3410,fed-204,Yarra Glen,,1305,62
+fed2016,fed-3411,fed-232,Yarrambat (Scullin),,688,18
+fed2016,fed-3416,fed-215,Ashburton,,1963,44
+fed2016,fed-3417,fed-205,Ashwood,,2480,81
+fed2016,fed-3420,fed-205,Blackburn South,,2379,62
+fed2016,fed-3421,fed-205,Box Hill,,1181,42
+fed2016,fed-3422,fed-205,Box Hill Central,,992,44
+fed2016,fed-3424,fed-205,Box Hill South,,1296,16
+fed2016,fed-3425,fed-215,Burwood,,951,23
+fed2016,fed-3426,fed-205,Burwood Central,,1477,58
+fed2016,fed-3427,fed-221,Chatham,,1225,26
+fed2016,fed-3429,fed-205,Elgar Park,,1469,47
+fed2016,fed-3430,fed-205,Essex Heights,,2384,74
+fed2016,fed-3431,fed-221,Hartwell,,1746,42
+fed2016,fed-3432,fed-221,Highfield Park,,1765,50
+fed2016,fed-3435,fed-205,Kerrimuir,,1999,84
+fed2016,fed-3436,fed-205,Koonung Heights (Chisholm),,1602,59
+fed2016,fed-3438,fed-205,Mont Albert,,1320,21
+fed2016,fed-3439,fed-205,Mount Waverley South,,2847,75
+fed2016,fed-3440,fed-205,Surrey Hills,,1435,39
+fed2016,fed-3441,fed-205,Tyne,,1011,22
+fed2016,fed-3443,fed-205,Wattle Park,,1775,60
+fed2016,fed-3444,fed-205,Waverley North,,1056,29
+fed2016,fed-3449,fed-207,Aireys Inlet,,558,14
+fed2016,fed-3451,fed-207,Anglesea,,1127,33
+fed2016,fed-3452,fed-207,Apollo Bay,,833,51
+fed2016,fed-3454,fed-207,Bannockburn,,2466,116
+fed2016,fed-3457,fed-207,Barwon Heads,,1810,43
+fed2016,fed-3458,fed-207,Beeac,,270,15
+fed2016,fed-3460,fed-207,Highton South,,2106,63
+fed2016,fed-3462,fed-207,Bellbrae,,1136,37
+fed2016,fed-3464,fed-207,Belmont North,,1951,75
+fed2016,fed-3465,fed-207,Birregurra,,446,20
+fed2016,fed-3467,fed-207,Ceres,,550,11
+fed2016,fed-3468,fed-208,Clifton Springs,,2673,147
+fed2016,fed-3470,fed-207,Colac East,,1595,98
+fed2016,fed-3472,fed-207,Colac West,,642,35
+fed2016,fed-3474,fed-207,Connewarre,,309,6
+fed2016,fed-3475,fed-207,Cororooke,,367,15
+fed2016,fed-3476,fed-207,Cressy,,101,6
+fed2016,fed-3477,fed-207,Deans Marsh,,236,10
+fed2016,fed-3478,fed-208,Drysdale,,2090,87
+fed2016,fed-3479,fed-207,Elliminyt,,1302,69
+fed2016,fed-3480,fed-207,Forrest,,215,3
+fed2016,fed-3481,fed-207,Freshwater Creek,,243,4
+fed2016,fed-3483,fed-207,Gellibrand River,,169,14
+fed2016,fed-3487,fed-207,Grovedale,,2687,119
+fed2016,fed-3488,fed-207,Highton North,,976,18
+fed2016,fed-3490,fed-207,Inverleigh,,801,38
+fed2016,fed-3492,fed-207,Irrewillipe,,196,5
+fed2016,fed-3495,fed-207,Lavers Hill,,113,3
+fed2016,fed-3496,fed-208,Leopold,,4692,253
+fed2016,fed-3497,fed-207,Lethbridge,,540,27
+fed2016,fed-3498,fed-207,Lorne,,542,22
+fed2016,fed-3503,fed-207,Moriac,,735,31
+fed2016,fed-3504,fed-207,Mount Duneed,,907,24
+fed2016,fed-3506,fed-207,Oberon,,1462,66
+fed2016,fed-3508,fed-207,Ocean Grove West,,2777,69
+fed2016,fed-3510,fed-207,Point Lonsdale,,1395,31
+fed2016,fed-3511,fed-208,Portarlington,,1726,104
+fed2016,fed-3512,fed-207,Queenscliff,,568,34
+fed2016,fed-3514,fed-208,St Leonards,,1477,59
+fed2016,fed-3517,fed-207,Teesdale,,822,35
+fed2016,fed-3518,fed-207,Torquay,,2007,58
+fed2016,fed-3519,fed-207,Wallington,,702,26
+fed2016,fed-3520,fed-207,Warrion,,135,3
+fed2016,fed-3523,fed-207,Winchelsea,,1010,75
+fed2016,fed-3524,fed-207,Winchelsea South,,257,7
+fed2016,fed-3528,fed-208,Geelong South,,1755,60
+fed2016,fed-3530,fed-208,Bell Park,,1522,135
+fed2016,fed-3532,fed-208,Britannia,,1364,41
+fed2016,fed-3533,fed-208,Chilwell,,2281,57
+fed2016,fed-3535,fed-208,Corio Central,,1475,87
+fed2016,fed-3536,fed-208,Corio West,,1334,103
+fed2016,fed-3538,fed-208,Geelong,,1972,91
+fed2016,fed-3539,fed-208,Geelong West,,1218,53
+fed2016,fed-3540,fed-208,Hamlyn Heights,,1590,58
+fed2016,fed-3541,fed-208,Herne Hill,,1350,44
+fed2016,fed-3543,fed-208,Lara,,2655,142
+fed2016,fed-3544,fed-208,Lara Central,,2052,105
+fed2016,fed-3545,fed-208,Manifold Heights,,1639,48
+fed2016,fed-3546,fed-208,Newcomb,,1428,84
+fed2016,fed-3547,fed-208,Newcomb South,,1369,109
+fed2016,fed-3548,fed-208,Norlane,,2017,162
+fed2016,fed-3549,fed-208,North Shore,,1089,101
+fed2016,fed-3550,fed-208,Rollins,,1740,98
+fed2016,fed-3552,fed-208,Newtown,,1851,53
+fed2016,fed-3554,fed-208,Thomson,,1387,80
+fed2016,fed-3558,fed-209,Antonio Park,,1336,41
+fed2016,fed-3559,fed-209,Blackburn,,1007,23
+fed2016,fed-3560,fed-209,Blackburn North,,1586,45
+fed2016,fed-3561,fed-209,Blackburn West,,2565,98
+fed2016,fed-3562,fed-205,Burwood Heights,,2035,111
+fed2016,fed-3563,fed-201,Camelot,,1088,34
+fed2016,fed-3564,fed-209,Charlesworth Park,,2073,67
+fed2016,fed-3565,fed-205,Forest Hill,,1098,35
+fed2016,fed-3566,fed-209,Blackburn Lake,,1656,54
+fed2016,fed-3567,fed-201,Glendal,,1919,88
+fed2016,fed-3568,fed-209,Heatherdale,,1063,33
+fed2016,fed-3569,fed-201,Highvale,,1438,56
+fed2016,fed-3570,fed-209,Laburnum (Deakin),,1270,31
+fed2016,fed-3572,fed-209,Mitcham,,1108,38
+fed2016,fed-3573,fed-205,Manooka,,994,56
+fed2016,fed-3575,fed-209,Mitcham North (Deakin),,2146,95
+fed2016,fed-3576,fed-209,Nunawading South,,2066,75
+fed2016,fed-3577,fed-209,Parkmore,,1795,55
+fed2016,fed-3578,fed-209,Springview,,1871,58
+fed2016,fed-3579,fed-205,Syndal North,,1715,67
+fed2016,fed-3580,fed-205,Tally Ho (Chisholm),,1567,56
+fed2016,fed-3581,fed-209,Rangeview,,1545,48
+fed2016,fed-3583,fed-209,Vermont North,,1134,46
+fed2016,fed-3584,fed-209,Weeden Heights,,1733,68
+fed2016,fed-3587,fed-210,Aldercourt,,1473,118
+fed2016,fed-3588,fed-210,Baden Powell,,1540,42
+fed2016,fed-3589,fed-210,Ballam Park,,943,55
+fed2016,fed-3590,fed-210,Mt Erin,,2146,108
+fed2016,fed-3592,fed-210,Bruce Park,,927,34
+fed2016,fed-3593,fed-210,Derinya,,1629,49
+fed2016,fed-3594,fed-210,Frankston,,1469,77
+fed2016,fed-3596,fed-210,Frankston East,,1644,72
+fed2016,fed-3598,fed-210,Frankston Heights,,1034,43
+fed2016,fed-3599,fed-210,Frankston Rail,,1051,70
+fed2016,fed-3600,fed-210,Frankston South,,2297,104
+fed2016,fed-3601,fed-210,Kananook,,1488,83
+fed2016,fed-3602,fed-210,Karingal,,1777,135
+fed2016,fed-3603,fed-210,Karingal Heights,,1592,84
+fed2016,fed-3604,fed-210,Kunyung,,1433,29
+fed2016,fed-3605,fed-210,Mornington,,2368,97
+fed2016,fed-3606,fed-210,Mornington South,,2240,90
+fed2016,fed-3607,fed-210,Mt Eliza,,2199,80
+fed2016,fed-3608,fed-210,Mt Eliza North,,826,33
+fed2016,fed-3609,fed-210,Tanti Park,,1663,113
+fed2016,fed-3613,fed-211,Balnarring,,1164,19
+fed2016,fed-3614,fed-211,Bass,,431,21
+fed2016,fed-3615,fed-211,Baxter (Flinders),,790,35
+fed2016,fed-3616,fed-211,Bayles,,614,23
+fed2016,fed-3617,fed-211,Bittern,,933,51
+fed2016,fed-3618,fed-211,Blairgowrie,,857,41
+fed2016,fed-3619,fed-211,Boneo,,625,18
+fed2016,fed-3622,fed-211,Corinella,,683,43
+fed2016,fed-3623,fed-211,Cowes,,1227,54
+fed2016,fed-3624,fed-211,Cranbourne South,,2031,88
+fed2016,fed-3625,fed-211,Crib Point,,938,52
+fed2016,fed-3627,fed-211,Dalyston,,374,29
+fed2016,fed-3628,fed-211,Devon Meadows,,850,60
+fed2016,fed-3629,fed-211,Dromana,,2028,88
+fed2016,fed-3631,fed-211,Flinders,,551,10
+fed2016,fed-3634,fed-211,Grantville,,744,31
+fed2016,fed-3635,fed-211,Hastings,,2282,142
+fed2016,fed-3636,fed-211,Kilcunda,,256,11
+fed2016,fed-3637,fed-211,Kooweerup,,1328,78
+fed2016,fed-3639,fed-211,Lang Lang,,888,62
+fed2016,fed-3640,fed-210,Langwarrin,,3050,168
+fed2016,fed-3641,fed-227,Loch,,285,12
+fed2016,fed-3644,fed-211,Merricks North,,224,3
+fed2016,fed-3645,fed-211,Moorooduc,,667,28
+fed2016,fed-3646,fed-211,Mt Martha,,2408,74
+fed2016,fed-3647,fed-211,Newhaven,,738,26
+fed2016,fed-3648,fed-227,Nyora,,631,51
+fed2016,fed-3649,fed-211,Pearcedale,,1710,100
+fed2016,fed-3650,fed-227,Poowong,,492,20
+fed2016,fed-3652,fed-211,Portsea,,300,2
+fed2016,fed-3653,fed-211,Red Hill,,973,14
+fed2016,fed-3654,fed-211,Rhyll,,356,16
+fed2016,fed-3656,fed-211,Rosebud East,,1855,124
+fed2016,fed-3657,fed-211,Rosebud West,,1906,119
+fed2016,fed-3658,fed-211,Rye,,1509,93
+fed2016,fed-3660,fed-211,San Remo,,635,27
+fed2016,fed-3661,fed-211,Shoreham,,272,5
+fed2016,fed-3662,fed-211,Somers,,536,20
+fed2016,fed-3663,fed-211,Somerville West,,2601,130
+fed2016,fed-3664,fed-211,Sorrento,,830,31
+fed2016,fed-3665,fed-211,Tooradin,,694,33
+fed2016,fed-3666,fed-211,Tootgarook,,1105,61
+fed2016,fed-3667,fed-211,Tyabb,,1295,57
+fed2016,fed-3669,fed-227,Wonthaggi,,1079,63
+fed2016,fed-3671,fed-227,Wonthaggi North,,1177,65
+fed2016,fed-3676,fed-212,Altona East,,1500,61
+fed2016,fed-3677,fed-212,Altona Gate,,1431,136
+fed2016,fed-3678,fed-212,Altona North,,2038,213
+fed2016,fed-3680,fed-212,Footscray,,1374,77
+fed2016,fed-3681,fed-212,Footscray Central,,1218,48
+fed2016,fed-3685,fed-212,Footscray South,,1561,50
+fed2016,fed-3686,fed-212,Footscray West,,1700,91
+fed2016,fed-3687,fed-212,Kingsville,,2065,106
+fed2016,fed-3688,fed-212,Yarraville South,,1630,90
+fed2016,fed-3690,fed-212,Maidstone (Gellibrand),,944,62
+fed2016,fed-3692,fed-225,Maribyrnong,,2025,106
+fed2016,fed-3693,fed-212,Newport,,1641,73
+fed2016,fed-3694,fed-212,Newport East,,1440,60
+fed2016,fed-3695,fed-212,Newport West,,1297,102
+fed2016,fed-3696,fed-212,Seddon,,1537,50
+fed2016,fed-3697,fed-212,Spotswood,,1064,40
+fed2016,fed-3698,fed-212,South Kingsville,,1292,86
+fed2016,fed-3699,fed-212,Sunshine,,1080,65
+fed2016,fed-3701,fed-225,Tottenham North (Maribyrnong),,886,64
+fed2016,fed-3702,fed-212,Williamstown,,710,16
+fed2016,fed-3703,fed-212,Williamstown North,,1756,55
+fed2016,fed-3704,fed-212,Williamstown South,,2444,81
+fed2016,fed-3705,fed-212,Williamstown West,,2471,107
+fed2016,fed-3706,fed-212,Yarraville,,1279,62
+fed2016,fed-3707,fed-212,Yarraville Central,,1734,46
+fed2016,fed-3713,fed-213,Alberton,,332,22
+fed2016,fed-3716,fed-227,Arawata,,184,6
+fed2016,fed-3718,fed-213,Bairnsdale,,1411,94
+fed2016,fed-3720,fed-213,Bairnsdale West,,1568,88
+fed2016,fed-3722,fed-227,Bena,,266,14
+fed2016,fed-3727,fed-213,Boisdale,,413,23
+fed2016,fed-3729,fed-213,Boolarra,,619,29
+fed2016,fed-3731,fed-213,Briagolong,,498,25
+fed2016,fed-3732,fed-213,Bruthen,,596,47
+fed2016,fed-3733,fed-213,Buchan,,197,6
+fed2016,fed-3738,fed-213,Cann River,,175,13
+fed2016,fed-3741,fed-213,Ellaswood,,349,25
+fed2016,fed-3743,fed-213,Cobains,,183,5
+fed2016,fed-3744,fed-213,Cowwarr,,208,7
+fed2016,fed-3748,fed-213,Devon North,,329,25
+fed2016,fed-3750,fed-227,Drouin South,,532,17
+fed2016,fed-3751,fed-227,Dumbalk,,410,16
+fed2016,fed-3753,fed-213,Eagle Point,,473,22
+fed2016,fed-3754,fed-227,Ellinbank,,294,7
+fed2016,fed-3757,fed-227,Fish Creek,,634,30
+fed2016,fed-3760,fed-227,Foster,,1060,80
+fed2016,fed-3763,fed-213,Glengarry,,714,29
+fed2016,fed-3765,fed-213,Glenmaggie,,155,9
+fed2016,fed-3766,fed-213,Golden Beach,,190,19
+fed2016,fed-3767,fed-213,Gormandale,,348,21
+fed2016,fed-3770,fed-213,Heyfield,,1145,92
+fed2016,fed-3772,fed-227,Inverloch,,1931,112
+fed2016,fed-3775,fed-227,Kongwak,,231,6
+fed2016,fed-3776,fed-227,Koonwarra,,399,16
+fed2016,fed-3777,fed-227,Korumburra,,1991,129
+fed2016,fed-3778,fed-213,Lakes Entrance,,1635,136
+fed2016,fed-3779,fed-227,Leongatha,,2805,171
+fed2016,fed-3780,fed-227,Leongatha South,,297,12
+fed2016,fed-3781,fed-213,Lindenow,,660,34
+fed2016,fed-3783,fed-213,Loch Sport,,338,18
+fed2016,fed-3784,fed-213,Longford,,532,26
+fed2016,fed-3786,fed-213,Maffra,,2213,122
+fed2016,fed-3787,fed-213,Mallacoota,,595,25
+fed2016,fed-3789,fed-213,Marlo,,280,12
+fed2016,fed-3790,fed-227,Meeniyan,,714,35
+fed2016,fed-3792,fed-213,Metung,,508,18
+fed2016,fed-3794,fed-227,Mirboo North,,1395,87
+fed2016,fed-3796,fed-227,Mount Eccles,,179,3
+fed2016,fed-3799,fed-213,Nambrok-Denison,,301,10
+fed2016,fed-3800,fed-227,Narracan,,196,3
+fed2016,fed-3801,fed-227,Nerrena,,301,17
+fed2016,fed-3802,fed-213,Newmerella,,339,15
+fed2016,fed-3804,fed-213,Nicholson,,508,23
+fed2016,fed-3805,fed-213,Nowa Nowa,,172,11
+fed2016,fed-3806,fed-213,Nungurner,,233,9
+fed2016,fed-3807,fed-213,Omeo,,319,12
+fed2016,fed-3808,fed-213,Orbost,,994,67
+fed2016,fed-3810,fed-213,Paynesville,,1339,79
+fed2016,fed-3811,fed-213,Port Albert,,230,20
+fed2016,fed-3812,fed-227,Port Franklin,,170,8
+fed2016,fed-3815,fed-213,Rosedale,,911,54
+fed2016,fed-3817,fed-213,Sale,,1563,96
+fed2016,fed-3818,fed-213,Sale East,,1303,45
+fed2016,fed-3819,fed-213,Sale North,,1347,84
+fed2016,fed-3820,fed-213,Seaspray,,181,7
+fed2016,fed-3824,fed-213,Stratford,,1090,48
+fed2016,fed-3827,fed-213,Swifts Creek,,261,17
+fed2016,fed-3830,fed-227,Tarwin Lower,,551,41
+fed2016,fed-3832,fed-227,Thorpdale,,324,10
+fed2016,fed-3834,fed-213,Toongabbie,,453,25
+fed2016,fed-3835,fed-227,Toora,,500,27
+fed2016,fed-3836,fed-213,Toorloo Arm,,584,33
+fed2016,fed-3838,fed-227,Welshpool,,417,18
+fed2016,fed-3839,fed-213,Won Wron,,181,13
+fed2016,fed-3840,fed-213,Woodside,,350,22
+fed2016,fed-3844,fed-213,Eastwood,,1277,56
+fed2016,fed-3845,fed-227,Yanakie,,162,1
+fed2016,fed-3846,fed-213,Yarram,,1114,85
+fed2016,fed-3847,fed-213,Yinnar,,825,34
+fed2016,fed-3852,fed-214,Bentleigh,,2591,120
+fed2016,fed-3853,fed-214,Bentleigh West,,1914,86
+fed2016,fed-3854,fed-214,Brighton,,2723,76
+fed2016,fed-3855,fed-214,Brighton Beach,,1248,25
+fed2016,fed-3857,fed-214,Brighton High,,1008,33
+fed2016,fed-3859,fed-214,Elsternwick Central,,1174,45
+fed2016,fed-3860,fed-214,Caulfield South,,1410,65
+fed2016,fed-3862,fed-214,Dendy,,1584,40
+fed2016,fed-3863,fed-230,Elsternwick (Melbourne Ports),,1295,52
+fed2016,fed-3864,fed-214,Elsternwick North (Goldstein),,741,19
+fed2016,fed-3865,fed-214,Elsternwick South,,1044,23
+fed2016,fed-3866,fed-214,Gardenvale,,1842,55
+fed2016,fed-3867,fed-214,Hampton,,2191,41
+fed2016,fed-3868,fed-214,Hampton Central,,1032,24
+fed2016,fed-3869,fed-214,Highett,,1404,53
+fed2016,fed-3872,fed-214,Highett West,,1828,75
+fed2016,fed-3873,fed-214,Landcox,,2206,72
+fed2016,fed-3874,fed-214,Ludstone,,1817,59
+fed2016,fed-3875,fed-214,Middle Brighton,,2046,56
+fed2016,fed-3877,fed-214,Hampton East,,1418,72
+fed2016,fed-3879,fed-230,Ripponlea East,,1365,52
+fed2016,fed-3880,fed-230,Ripponlea North,,1502,46
+fed2016,fed-3881,fed-214,Sandringham,,1677,52
+fed2016,fed-3882,fed-214,Sandringham North,,1261,25
+fed2016,fed-3887,fed-217,Bentleigh Central (Hotham),,1901,107
+fed2016,fed-3889,fed-215,Carnegie,,1791,62
+fed2016,fed-3890,fed-215,Carnegie East (Higgins),,1352,59
+fed2016,fed-3891,fed-215,Carnegie North,,1190,39
+fed2016,fed-3893,fed-215,Chadstone,,1559,63
+fed2016,fed-3895,fed-217,Coatesville,,2881,143
+fed2016,fed-3896,fed-214,Glenhuntly,,2218,105
+fed2016,fed-3897,fed-214,Glenhuntly East (Goldstein),,982,35
+fed2016,fed-3899,fed-217,Hughesdale,,1841,76
+fed2016,fed-3900,fed-217,Hughesdale South,,1582,90
+fed2016,fed-3902,fed-214,McKinnon,,1409,55
+fed2016,fed-3903,fed-215,Malvern East,,2495,54
+fed2016,fed-3904,fed-215,Murrumbeena,,1482,66
+fed2016,fed-3905,fed-217,Murrumbeena South (Hotham),,1260,45
+fed2016,fed-3906,fed-205,Oakleigh (Chisholm),,1453,97
+fed2016,fed-3907,fed-217,Oakleigh Central,,1032,43
+fed2016,fed-3909,fed-217,Oakleigh South,,1813,104
+fed2016,fed-3912,fed-214,McKinnon East (Goldstein),,1531,63
+fed2016,fed-3913,fed-214,Ormond West,,1776,69
+fed2016,fed-3917,fed-215,Armadale,,1351,33
+fed2016,fed-3918,fed-221,Auburn South,,1599,31
+fed2016,fed-3919,fed-215,Burwood West,,1391,33
+fed2016,fed-3920,fed-221,Camberwell,,1632,45
+fed2016,fed-3921,fed-221,Camberwell Middle,,1270,37
+fed2016,fed-3922,fed-215,Camberwell South (Higgins),,1277,34
+fed2016,fed-3924,fed-230,Caulfield,,680,35
+fed2016,fed-3926,fed-230,Caulfield East,,1332,60
+fed2016,fed-3928,fed-230,Caulfield North,,1912,74
+fed2016,fed-3929,fed-230,Caulfield Upper,,1321,54
+fed2016,fed-3930,fed-215,Darling,,1310,28
+fed2016,fed-3932,fed-215,Gardiner,,1398,45
+fed2016,fed-3933,fed-215,Glen Iris,,1820,50
+fed2016,fed-3934,fed-215,Glen Iris South,,1720,34
+fed2016,fed-3939,fed-215,Malvern,,2194,74
+fed2016,fed-3940,fed-215,Malvern Central,,997,18
+fed2016,fed-3941,fed-215,Malvern Lower,,1163,34
+fed2016,fed-3942,fed-215,Malvern South,,1937,50
+fed2016,fed-3943,fed-215,Malvern West,,763,14
+fed2016,fed-3944,fed-215,Orrong,,1302,53
+fed2016,fed-3945,fed-215,Toorak,,1569,33
+fed2016,fed-3946,fed-215,Toorak Central,,1250,35
+fed2016,fed-3947,fed-215,Toorak West,,1168,29
+fed2016,fed-3956,fed-219,Carrum Downs,,2246,137
+fed2016,fed-3957,fed-219,Chandler,,1364,88
+fed2016,fed-3958,fed-201,Cleeland,,1691,183
+fed2016,fed-3959,fed-223,Clyde (La Trobe),,230,7
+fed2016,fed-3960,fed-216,Cranbourne,,1761,109
+fed2016,fed-3961,fed-216,Cranbourne Park,,1978,120
+fed2016,fed-3962,fed-201,Dandenong,,980,96
+fed2016,fed-3964,fed-219,Dandenong South,,1553,228
+fed2016,fed-3965,fed-201,Dandenong West,,1384,124
+fed2016,fed-3966,fed-216,Hampton Park East,,2202,182
+fed2016,fed-3967,fed-216,Lyndhurst,,1584,103
+fed2016,fed-3968,fed-219,Keysborough,,2410,109
+fed2016,fed-3970,fed-201,Lyndale,,2331,229
+fed2016,fed-3972,fed-219,Noble Park South,,1703,136
+fed2016,fed-3974,fed-219,Noble Park (Isaacs),,1238,120
+fed2016,fed-3976,fed-201,Oakwood Park,,1282,122
+fed2016,fed-3977,fed-201,Rosewood Downs,,2195,179
+fed2016,fed-3978,fed-201,Silverton,,2253,182
+fed2016,fed-3979,fed-219,Skye (Isaacs),,1378,79
+fed2016,fed-3981,fed-219,Wallarano,,2010,167
+fed2016,fed-3982,fed-201,Wooranna Park,,1708,139
+fed2016,fed-3983,fed-201,Yarraman Park,,1025,89
+fed2016,fed-3988,fed-217,Bentleigh East,,1340,72
+fed2016,fed-3989,fed-217,Cheltenham East,,1712,84
+fed2016,fed-3990,fed-217,Cheltenham North,,1839,108
+fed2016,fed-3991,fed-217,Cheltenham South,,1150,47
+fed2016,fed-3992,fed-217,Clarinda,,1851,148
+fed2016,fed-3993,fed-217,Clarinda South,,1898,130
+fed2016,fed-3994,fed-217,Clayton South,,2310,175
+fed2016,fed-3996,fed-217,Dingley Village,,2447,99
+fed2016,fed-3997,fed-201,Harrisfield,,1872,139
+fed2016,fed-3998,fed-217,Heatherhill,,1180,63
+fed2016,fed-4000,fed-217,Kingston Heath,,2024,94
+fed2016,fed-4001,fed-217,Kingswood,,1658,63
+fed2016,fed-4002,fed-217,Mentone Park (Hotham),,903,34
+fed2016,fed-4003,fed-217,Southmoor,,786,32
+fed2016,fed-4004,fed-217,Moorabbin South (Hotham),,1364,68
+fed2016,fed-4005,fed-217,Moorabbin South East,,1662,76
+fed2016,fed-4006,fed-201,Sandown Park,,1800,140
+fed2016,fed-4007,fed-217,Southvale,,606,36
+fed2016,fed-4008,fed-217,Springvale,,1146,78
+fed2016,fed-4009,fed-217,Springvale South,,1608,135
+fed2016,fed-4010,fed-217,Springvale West,,1036,88
+fed2016,fed-4011,fed-217,Spring Valley,,1213,74
+fed2016,fed-4012,fed-217,Westall,,1800,127
+fed2016,fed-4014,fed-217,Moorabbin Heights,,1597,95
+fed2016,fed-4019,fed-218,Baranduda,,1215,39
+fed2016,fed-4020,fed-218,Barnawartha,,653,17
+fed2016,fed-4023,fed-218,Beechworth,,1563,70
+fed2016,fed-4024,fed-218,Benalla,,2063,111
+fed2016,fed-4028,fed-218,Bethanga,,387,18
+fed2016,fed-4029,fed-218,Bonegilla,,664,21
+fed2016,fed-4033,fed-218,Bright,,742,36
+fed2016,fed-4038,fed-218,Chiltern,,852,40
+fed2016,fed-4039,fed-231,Cobram,,2208,212
+fed2016,fed-4040,fed-218,Corryong,,799,43
+fed2016,fed-4041,fed-218,Cudgewa,,173,18
+fed2016,fed-4043,fed-218,Dederang,,269,9
+fed2016,fed-4046,fed-218,Eldorado,,219,9
+fed2016,fed-4047,fed-218,Eskdale,,180,13
+fed2016,fed-4052,fed-218,Gapsted,,341,29
+fed2016,fed-4053,fed-218,Glenrowan,,497,16
+fed2016,fed-4054,fed-218,Goorambat,,210,9
+fed2016,fed-4059,fed-218,Harrietville,,158,4
+fed2016,fed-4060,fed-231,Invergordon,,280,12
+fed2016,fed-4062,fed-231,Katamatite,,320,10
+fed2016,fed-4063,fed-231,Katandra West,,333,28
+fed2016,fed-4065,fed-218,Tangambalanga,,710,24
+fed2016,fed-4071,fed-218,Milawa,,461,14
+fed2016,fed-4072,fed-218,Mitta Mitta,,92,8
+fed2016,fed-4075,fed-218,Mount Beauty,,558,14
+fed2016,fed-4077,fed-218,Moyhu,,355,17
+fed2016,fed-4078,fed-218,Mudgegonga,,268,5
+fed2016,fed-4081,fed-218,Myrtleford,,1352,121
+fed2016,fed-4083,fed-231,Numurkah,,2106,157
+fed2016,fed-4086,fed-218,Porepunkah,,431,20
+fed2016,fed-4088,fed-218,Rutherglen,,1247,83
+fed2016,fed-4089,fed-218,St James,,175,9
+fed2016,fed-4091,fed-218,Springhurst,,183,8
+fed2016,fed-4092,fed-218,Stanley,,212,3
+fed2016,fed-4095,fed-218,Tallangatta,,725,35
+fed2016,fed-4097,fed-218,Tarrawingee,,272,5
+fed2016,fed-4098,fed-218,Tatong,,151,3
+fed2016,fed-4103,fed-218,Tungamah,,199,21
+fed2016,fed-4104,fed-218,Wahgunyah,,620,52
+fed2016,fed-4105,fed-218,Walwa,,181,7
+fed2016,fed-4106,fed-218,Wandiligong,,148,11
+fed2016,fed-4107,fed-218,Wangaratta,,1498,59
+fed2016,fed-4111,fed-218,West End,,1729,91
+fed2016,fed-4112,fed-218,Whitfield,,218,13
+fed2016,fed-4113,fed-218,Whorouly,,264,13
+fed2016,fed-4117,fed-218,Wodonga Central,,2438,172
+fed2016,fed-4119,fed-218,Wodonga South,,2323,154
+fed2016,fed-4121,fed-218,Wooragee,,263,12
+fed2016,fed-4122,fed-231,Wunghnu,,324,13
+fed2016,fed-4124,fed-218,Yackandandah,,1042,49
+fed2016,fed-4125,fed-231,Yarrawonga,,1640,90
+fed2016,fed-4127,fed-231,Yarroweyah,,827,54
+fed2016,fed-4128,fed-218,Yarrunga,,906,57
+fed2016,fed-4131,fed-219,Aspendale,,2364,118
+fed2016,fed-4133,fed-214,Beaumaris,,1754,53
+fed2016,fed-4135,fed-219,Beaumaris East (Isaacs),,1733,61
+fed2016,fed-4136,fed-214,Beaumaris North,,1922,53
+fed2016,fed-4138,fed-214,Black Rock,,1342,29
+fed2016,fed-4139,fed-214,Black Rock South,,1789,68
+fed2016,fed-4140,fed-219,Bonbeach,,1360,41
+fed2016,fed-4141,fed-219,Carrum,,1457,65
+fed2016,fed-4142,fed-219,Chelsea,,657,22
+fed2016,fed-4143,fed-219,Chelsea Central,,2126,103
+fed2016,fed-4144,fed-219,Chelsea Heights,,2919,171
+fed2016,fed-4145,fed-214,Cheltenham (Goldstein),,1043,28
+fed2016,fed-4148,fed-219,Edithvale,,2282,85
+fed2016,fed-4150,fed-219,Mentone,,1893,70
+fed2016,fed-4154,fed-219,Mordialloc East,,1845,88
+fed2016,fed-4155,fed-219,Parkdale,,2019,61
+fed2016,fed-4156,fed-219,Parkdale Central,,1261,46
+fed2016,fed-4157,fed-219,Parkdale East,,2361,88
+fed2016,fed-4158,fed-219,Patterson Lakes,,3069,149
+fed2016,fed-4159,fed-210,Seaford,,1517,57
+fed2016,fed-4160,fed-210,Seaford North,,1168,58
+fed2016,fed-4164,fed-220,Banyule,,1943,76
+fed2016,fed-4165,fed-220,Bundoora (Jagajaga),,1216,78
+fed2016,fed-4167,fed-220,Eaglemont,,1223,31
+fed2016,fed-4168,fed-220,Fairy Hills,,1264,26
+fed2016,fed-4170,fed-232,Grimshaw,,1646,106
+fed2016,fed-4171,fed-220,Waiora,,908,26
+fed2016,fed-4172,fed-220,Heidelberg,,2252,83
+fed2016,fed-4174,fed-220,Olympic Village,,1900,169
+fed2016,fed-4175,fed-220,Heidelberg West,,1250,87
+fed2016,fed-4176,fed-220,Ivanhoe,,2404,75
+fed2016,fed-4178,fed-220,Ivanhoe East,,1538,43
+fed2016,fed-4181,fed-199,Kingsbury,,1382,94
+fed2016,fed-4182,fed-220,Macleod,,2501,99
+fed2016,fed-4186,fed-220,Rosanna,,1741,50
+fed2016,fed-4189,fed-220,Viewbank,,2206,111
+fed2016,fed-4191,fed-220,Watsonia,,2474,130
+fed2016,fed-4192,fed-220,Watsonia Central,,1337,62
+fed2016,fed-4193,fed-232,Watsonia North,,2203,119
+fed2016,fed-4195,fed-220,Yallambie,,2040,85
+fed2016,fed-4198,fed-221,Auburn,,1508,45
+fed2016,fed-4199,fed-221,Auburn North,,2134,55
+fed2016,fed-4200,fed-221,Balwyn,,1495,51
+fed2016,fed-4201,fed-221,Balwyn Central,,1533,57
+fed2016,fed-4203,fed-221,Balwyn North,,2681,101
+fed2016,fed-4204,fed-221,Bellevue,,1618,57
+fed2016,fed-4205,fed-221,Greythorn,,2608,89
+fed2016,fed-4208,fed-221,Boroondara,,1886,57
+fed2016,fed-4209,fed-221,Camberwell East,,804,17
+fed2016,fed-4210,fed-221,Camberwell North,,813,23
+fed2016,fed-4212,fed-221,Canterbury North,,1468,36
+fed2016,fed-4213,fed-221,Canterbury South,,2207,38
+fed2016,fed-4214,fed-221,Cotham,,1576,31
+fed2016,fed-4215,fed-221,Deepdene,,1431,32
+fed2016,fed-4217,fed-221,Glenferrie,,1180,20
+fed2016,fed-4218,fed-221,Glenferrie Central,,1868,33
+fed2016,fed-4220,fed-221,Glenferrie South,,601,12
+fed2016,fed-4222,fed-221,Hawthorn,,1914,67
+fed2016,fed-4223,fed-221,Hyde Park,,1322,35
+fed2016,fed-4224,fed-221,Kew,,2674,85
+fed2016,fed-4225,fed-221,Kew East,,1269,57
+fed2016,fed-4226,fed-221,Kew North,,1954,64
+fed2016,fed-4228,fed-221,Kew South,,1239,22
+fed2016,fed-4229,fed-221,Studley Park,,1202,24
+fed2016,fed-4230,fed-221,Surrey Hills West,,1159,32
+fed2016,fed-4236,fed-212,Altona,,1772,105
+fed2016,fed-4237,fed-222,Altona Meadows (Lalor),,1556,135
+fed2016,fed-4238,fed-212,Altona West,,1982,112
+fed2016,fed-4240,fed-212,Ardeer South,,1539,125
+fed2016,fed-4241,fed-222,Bellbridge,,2980,191
+fed2016,fed-4242,fed-309,Deer Park,,2379,225
+fed2016,fed-4244,fed-309,Deer Park West,,1725,205
+fed2016,fed-4245,fed-309,Exford,,1058,43
+fed2016,fed-4246,fed-309,Kurunjang,,1670,97
+fed2016,fed-4248,fed-222,Laverton North,,1387,97
+fed2016,fed-4249,fed-222,Little River,,400,21
+fed2016,fed-4250,fed-309,Melton,,2390,190
+fed2016,fed-4251,fed-309,Coburn,,1908,155
+fed2016,fed-4252,fed-309,Melton South,,1762,134
+fed2016,fed-4253,fed-222,Mossfiel,,1824,97
+fed2016,fed-4255,fed-309,Rockbank,,655,62
+fed2016,fed-4256,fed-212,Seaholme,,1500,111
+fed2016,fed-4258,fed-222,Werribee,,986,37
+fed2016,fed-4259,fed-222,Werribee Central,,2558,186
+fed2016,fed-4260,fed-222,Galvin Park,,1404,95
+fed2016,fed-4261,fed-222,Werribee South,,836,56
+fed2016,fed-4262,fed-222,Iramoo,,2601,131
+fed2016,fed-4263,fed-309,Westmelton,,2075,172
+fed2016,fed-4264,fed-222,Woodville,,1822,93
+fed2016,fed-4267,fed-223,Beaconsfield,,2521,89
+fed2016,fed-4268,fed-223,Beaconsfield Upper,,1235,40
+fed2016,fed-4269,fed-223,Belgrave,,1136,24
+fed2016,fed-4270,fed-223,Belgrave South,,1914,80
+fed2016,fed-4271,fed-223,Berwick,,1847,52
+fed2016,fed-4273,fed-197,Boronia East (Aston),,912,44
+fed2016,fed-4274,fed-197,Boronia North,,1643,88
+fed2016,fed-4277,fed-216,Doveton West,,1241,109
+fed2016,fed-4279,fed-216,Endeavour Hills,,1829,167
+fed2016,fed-4280,fed-216,Endeavour Hills East,,2250,186
+fed2016,fed-4281,fed-216,Endeavour Hills North,,1305,74
+fed2016,fed-4282,fed-223,Ferntree Gully,,1366,54
+fed2016,fed-4283,fed-223,Ferntree Gully North,,897,39
+fed2016,fed-4284,fed-223,Ferntree Gully Upper,,1395,67
+fed2016,fed-4285,fed-223,Ferny Creek,,721,20
+fed2016,fed-4286,fed-216,Fountain Gate,,2009,150
+fed2016,fed-4287,fed-216,Gleneagles,,2703,217
+fed2016,fed-4288,fed-216,Hallam,,2426,199
+fed2016,fed-4289,fed-223,Harkaway,,703,20
+fed2016,fed-4290,fed-223,Kallista (La Trobe),,249,5
+fed2016,fed-4291,fed-223,Menzies Creek,,480,19
+fed2016,fed-4292,fed-204,Monbulk,,1669,67
+fed2016,fed-4294,fed-223,Narre Warren East,,288,9
+fed2016,fed-4295,fed-223,Narre Warren North (La Trobe),,1233,46
+fed2016,fed-4296,fed-223,Officer,,1053,30
+fed2016,fed-4298,fed-223,Sassafras,,601,17
+fed2016,fed-4299,fed-223,Selby,,735,19
+fed2016,fed-4300,fed-223,Tecoma,,2034,69
+fed2016,fed-4301,fed-223,The Basin (La Trobe),,1679,90
+fed2016,fed-4302,fed-204,The Patch,,581,14
+fed2016,fed-4303,fed-223,Upwey,,1951,53
+fed2016,fed-4307,fed-218,Alexandra,,1354,79
+fed2016,fed-4308,fed-232,Apollo Parkways,,1925,75
+fed2016,fed-4309,fed-226,Arthurs Creek,,478,18
+fed2016,fed-4310,fed-231,Avenel,,489,33
+fed2016,fed-4312,fed-226,Beveridge,,816,46
+fed2016,fed-4313,fed-218,Bonnie Doon,,332,16
+fed2016,fed-4314,fed-220,Briar Hill,,1091,48
+fed2016,fed-4315,fed-226,Broadford,,1951,114
+fed2016,fed-4317,fed-226,Darraweit Guim,,312,10
+fed2016,fed-4318,fed-226,Doreen,,1269,38
+fed2016,fed-4320,fed-218,Eildon,,431,45
+fed2016,fed-4321,fed-232,Epping,,2076,164
+fed2016,fed-4322,fed-232,Epping East,,2193,155
+fed2016,fed-4323,fed-231,Euroa,,1830,110
+fed2016,fed-4324,fed-218,Flowerdale,,344,21
+fed2016,fed-4325,fed-218,Glenburn,,239,11
+fed2016,fed-4329,fed-220,Greenhills,,1723,68
+fed2016,fed-4330,fed-220,Greensborough,,1778,103
+fed2016,fed-4333,fed-218,Jamieson,,166,7
+fed2016,fed-4334,fed-226,Donnybrook,,135,6
+fed2016,fed-4335,fed-226,Kilmore,,2884,160
+fed2016,fed-4336,fed-218,Kinglake,,731,40
+fed2016,fed-4337,fed-218,Kinglake West,,728,34
+fed2016,fed-4338,fed-231,Longwood,,247,3
+fed2016,fed-4339,fed-218,Mansfield,,1078,46
+fed2016,fed-4340,fed-226,Mernda,,3735,185
+fed2016,fed-4343,fed-226,Mickleham,,1246,69
+fed2016,fed-4345,fed-232,Mill Park,,1722,99
+fed2016,fed-4347,fed-220,Montmorency,,2487,87
+fed2016,fed-4348,fed-220,Montmorency South,,1645,42
+fed2016,fed-4349,fed-232,South Morang (Scullin),,1961,116
+fed2016,fed-4351,fed-231,Nagambie,,1078,74
+fed2016,fed-4352,fed-218,Piries-Goughs Bay,,108,10
+fed2016,fed-4353,fed-232,Plenty,,1166,60
+fed2016,fed-4354,fed-226,Puckapunyal,,225,3
+fed2016,fed-4355,fed-231,Ruffy,,94,2
+fed2016,fed-4356,fed-226,Seymour,,1554,95
+fed2016,fed-4358,fed-231,Strathbogie,,277,13
+fed2016,fed-4360,fed-218,Swanpool,,284,15
+fed2016,fed-4362,fed-218,Taggerty,,280,7
+fed2016,fed-4363,fed-226,Tallarook,,301,15
+fed2016,fed-4365,fed-232,The Stables,,2392,135
+fed2016,fed-4366,fed-218,Thornton,,179,12
+fed2016,fed-4367,fed-218,Toolangi,,243,12
+fed2016,fed-4369,fed-231,Violet Town,,575,23
+fed2016,fed-4370,fed-226,Wallan East,,678,26
+fed2016,fed-4371,fed-226,Wallan Wallan,,2241,152
+fed2016,fed-4372,fed-226,Wandong,,1183,74
+fed2016,fed-4374,fed-226,Whittlesea,,2455,146
+fed2016,fed-4375,fed-226,Wollert,,186,18
+fed2016,fed-4377,fed-226,Yan Yean,,500,38
+fed2016,fed-4378,fed-218,Yarck,,293,10
+fed2016,fed-4379,fed-218,Yea,,980,59
+fed2016,fed-4383,fed-227,Bona Vista,,370,9
+fed2016,fed-4384,fed-227,Buln Buln,,472,19
+fed2016,fed-4385,fed-227,Bunyip,,1299,57
+fed2016,fed-4387,fed-213,Churchill,,887,81
+fed2016,fed-4389,fed-213,Traralgon North,,2297,118
+fed2016,fed-4390,fed-227,Darnum,,409,11
+fed2016,fed-4391,fed-227,Drouin,,2720,173
+fed2016,fed-4392,fed-227,Drouin West,,449,21
+fed2016,fed-4395,fed-227,Garfield,,860,45
+fed2016,fed-4396,fed-213,Hazelwood North,,798,40
+fed2016,fed-4399,fed-227,Jindivick,,267,4
+fed2016,fed-4400,fed-227,Labertouche,,228,6
+fed2016,fed-4403,fed-227,Longwarry,,945,65
+fed2016,fed-4405,fed-227,Moe,,1932,118
+fed2016,fed-4406,fed-227,Moe Central,,954,51
+fed2016,fed-4407,fed-227,Moe West,,1120,69
+fed2016,fed-4408,fed-213,Morwell,,1272,81
+fed2016,fed-4410,fed-213,Morwell Estate,,1756,116
+fed2016,fed-4412,fed-227,Nar Nar Goon,,653,43
+fed2016,fed-4415,fed-227,Neerim South,,908,46
+fed2016,fed-4416,fed-227,Newborough,,1504,100
+fed2016,fed-4417,fed-227,Newborough East,,1217,57
+fed2016,fed-4418,fed-227,Nilma,,516,19
+fed2016,fed-4419,fed-227,Noojee,,194,6
+fed2016,fed-4421,fed-227,Pakenham,,2332,154
+fed2016,fed-4423,fed-227,Rawson,,260,11
+fed2016,fed-4427,fed-227,Trafalgar,,1665,100
+fed2016,fed-4428,fed-213,Traralgon,,2596,153
+fed2016,fed-4429,fed-213,Traralgon East,,2227,150
+fed2016,fed-4430,fed-213,Traralgon South,,414,21
+fed2016,fed-4432,fed-213,Tyers,,417,22
+fed2016,fed-4433,fed-227,Tynong,,443,21
+fed2016,fed-4434,fed-227,Warragul,,1007,33
+fed2016,fed-4435,fed-227,Warragul East,,1105,51
+fed2016,fed-4436,fed-227,Warragul North,,1504,49
+fed2016,fed-4438,fed-227,Willowgrove,,564,22
+fed2016,fed-4439,fed-227,Yallourn North,,549,31
+fed2016,fed-4440,fed-227,Yarragon,,831,41
+fed2016,fed-4451,fed-224,Berriwillock,,137,7
+fed2016,fed-4452,fed-224,Beulah,,179,11
+fed2016,fed-4453,fed-224,Beverford,,226,14
+fed2016,fed-4454,fed-224,Birchip,,473,27
+fed2016,fed-4455,fed-224,Boundary Bend,,73,3
+fed2016,fed-4457,fed-224,Brim,,96,4
+fed2016,fed-4460,fed-224,Cabarita,,508,25
+fed2016,fed-4462,fed-224,Cardross,,406,28
+fed2016,fed-4472,fed-224,Dimboola,,798,70
+fed2016,fed-4478,fed-224,Goroke,,240,6
+fed2016,fed-4481,fed-224,Haven,,522,19
+fed2016,fed-4482,fed-224,Hopetoun,,400,24
+fed2016,fed-4483,fed-224,Horsham,,1150,57
+fed2016,fed-4484,fed-224,Horsham North,,819,62
+fed2016,fed-4485,fed-224,Horsham West,,1137,52
+fed2016,fed-4486,fed-224,Irymple,,1273,99
+fed2016,fed-4487,fed-224,Jeparit,,270,26
+fed2016,fed-4489,fed-224,Kaniva,,621,34
+fed2016,fed-4496,fed-224,Koorlong,,291,13
+fed2016,fed-4497,fed-224,Laharum,,167,0
+fed2016,fed-4498,fed-224,Lake Boga,,530,25
+fed2016,fed-4504,fed-224,Manangatang,,183,8
+fed2016,fed-4505,fed-224,Merbein,,1212,102
+fed2016,fed-4509,fed-224,Mildura,,1706,124
+fed2016,fed-4511,fed-224,Mildura Deakin,,1441,90
+fed2016,fed-4512,fed-224,Mildura South,,994,63
+fed2016,fed-4513,fed-224,Mildura West,,1265,66
+fed2016,fed-4515,fed-224,Minyip,,275,20
+fed2016,fed-4519,fed-224,Murrayville,,219,13
+fed2016,fed-4520,fed-224,Murtoa,,480,24
+fed2016,fed-4522,fed-224,Nangiloc,,195,17
+fed2016,fed-4524,fed-224,Natimuk,,368,25
+fed2016,fed-4527,fed-224,Nhill,,1187,104
+fed2016,fed-4528,fed-224,Nichols Point,,551,20
+fed2016,fed-4529,fed-224,Nullawil,,83,1
+fed2016,fed-4530,fed-224,Nyah,,357,22
+fed2016,fed-4531,fed-224,Nyah West,,283,22
+fed2016,fed-4532,fed-224,Ouyen,,562,43
+fed2016,fed-4534,fed-224,Patchewollock,,63,2
+fed2016,fed-4537,fed-224,Piangil,,186,5
+fed2016,fed-4539,fed-224,Rainbow,,393,28
+fed2016,fed-4540,fed-224,Red Cliffs,,1377,104
+fed2016,fed-4543,fed-224,Robinvale,,1017,79
+fed2016,fed-4545,fed-224,Rupanyup,,276,13
+fed2016,fed-4546,fed-224,Sea Lake,,396,26
+fed2016,fed-4549,fed-224,Speed,,92,2
+fed2016,fed-4551,fed-224,Sunnycliffs,,214,3
+fed2016,fed-4552,fed-224,Swan Hill,,1345,89
+fed2016,fed-4558,fed-224,Ultima,,112,4
+fed2016,fed-4559,fed-224,Underbool,,130,6
+fed2016,fed-4562,fed-224,Walpeup,,83,1
+fed2016,fed-4563,fed-224,Warracknabeal,,1248,107
+fed2016,fed-4566,fed-224,Wemen,,89,3
+fed2016,fed-4567,fed-224,Werrimull,,103,6
+fed2016,fed-4568,fed-224,Horsham East,,883,49
+fed2016,fed-4572,fed-224,Woomelang,,134,9
+fed2016,fed-4574,fed-224,Woorinen,,254,18
+fed2016,fed-4575,fed-224,Wycheproof,,465,22
+fed2016,fed-4580,fed-225,Aberfeldie,,1475,43
+fed2016,fed-4582,fed-225,Buckley Park,,1858,85
+fed2016,fed-4585,fed-225,Essendon North,,1672,59
+fed2016,fed-4586,fed-225,Essendon South,,1550,60
+fed2016,fed-4587,fed-225,Essendon West,,1581,65
+fed2016,fed-4588,fed-203,Gladstone Park,,2194,174
+fed2016,fed-4589,fed-203,Gladstone Views,,1582,108
+fed2016,fed-4590,fed-225,Glenbervie,,1798,54
+fed2016,fed-4591,fed-234,Glenroy West,,1218,73
+fed2016,fed-4592,fed-225,Keilor Heights,,2048,173
+fed2016,fed-4593,fed-203,Keilor Park,,1264,127
+fed2016,fed-4594,fed-225,Keilor South,,2100,157
+fed2016,fed-4597,fed-225,Moonee Ponds Central,,1394,34
+fed2016,fed-4599,fed-225,Moonee Ponds West,,1848,61
+fed2016,fed-4600,fed-225,Airport West,,2845,223
+fed2016,fed-4601,fed-225,Niddrie Central,,2038,107
+fed2016,fed-4603,fed-225,Strathmore (Maribyrnong),,2147,95
+fed2016,fed-4604,fed-234,Strathmore North,,1577,67
+fed2016,fed-4606,fed-203,Tullamarine,,1641,142
+fed2016,fed-4607,fed-203,Westmeadows,,2187,150
+fed2016,fed-4610,fed-228,Abbotsford,,1400,35
+fed2016,fed-4612,fed-228,Ascot Vale Central,,1245,83
+fed2016,fed-4613,fed-228,Ascot Vale East,,1345,32
+fed2016,fed-4614,fed-228,Ascot Vale West,,1649,71
+fed2016,fed-4616,fed-234,Brunswick East,,1583,83
+fed2016,fed-4617,fed-234,Brunswick South,,1332,55
+fed2016,fed-4618,fed-234,Brunswick South East (Wills),,1334,41
+fed2016,fed-4619,fed-234,Brunswick South West,,1706,69
+fed2016,fed-4621,fed-228,Carlton,,1768,102
+fed2016,fed-4622,fed-228,Carlton Central,,2034,48
+fed2016,fed-4624,fed-228,Carlton South,,1172,15
+fed2016,fed-4625,fed-199,Clifton Hill,,1528,36
+fed2016,fed-4626,fed-228,Collingwood,,1594,73
+fed2016,fed-4627,fed-199,Collingwood North (Batman),,1100,20
+fed2016,fed-4628,fed-228,Delbridge,,1154,24
+fed2016,fed-4629,fed-228,East Melbourne,,1628,30
+fed2016,fed-4630,fed-228,Princes Hill,,1582,33
+fed2016,fed-4631,fed-228,Fitzroy,,1803,60
+fed2016,fed-4633,fed-228,Fitzroy North,,1872,50
+fed2016,fed-4634,fed-228,Flemington,,1837,81
+fed2016,fed-4635,fed-228,Hotham Hill,,1447,59
+fed2016,fed-4636,fed-228,Kensington,,1682,49
+fed2016,fed-4637,fed-228,Melbourne (Melbourne),,2420,55
+fed2016,fed-4638,fed-234,Merri,,1250,40
+fed2016,fed-4639,fed-228,Newmarket,,1335,28
+fed2016,fed-4640,fed-228,North Melbourne,,1317,32
+fed2016,fed-4641,fed-228,North Melbourne Central,,2369,51
+fed2016,fed-4642,fed-228,Parkville,,1381,29
+fed2016,fed-4643,fed-228,Richmond Central,,2534,94
+fed2016,fed-4644,fed-228,Richmond North,,1014,61
+fed2016,fed-4650,fed-228,Special Hospital Team 1,,69,2
+fed2016,fed-4651,fed-228,Special Hospital Team 2,,99,5
+fed2016,fed-4652,fed-228,Special Hospital Team 3,,37,0
+fed2016,fed-4653,fed-228,Special Hospital Team 4,,28,2
+fed2016,fed-4655,fed-230,Fawkner Park (Melbourne Ports),,1878,29
+fed2016,fed-4656,fed-230,Argyle,,1168,32
+fed2016,fed-4657,fed-230,Bridport,,2357,83
+fed2016,fed-4661,fed-230,Elwood,,1803,44
+fed2016,fed-4662,fed-230,Elwood North,,2284,59
+fed2016,fed-4663,fed-230,Emerald Hill,,1681,57
+fed2016,fed-4665,fed-230,Graham,,1731,57
+fed2016,fed-4667,fed-215,Hawksburn,,2802,84
+fed2016,fed-4668,fed-215,Hawksburn Central,,1192,65
+fed2016,fed-4669,fed-230,Kerferd,,1997,62
+fed2016,fed-4670,fed-230,Middle Park,,1158,28
+fed2016,fed-4672,fed-230,Port Melbourne,,2725,123
+fed2016,fed-4673,fed-215,Prahran,,1611,51
+fed2016,fed-4674,fed-215,Prahran East,,1838,67
+fed2016,fed-4677,fed-228,Richmond,,3180,105
+fed2016,fed-4678,fed-228,Burnley,,1997,66
+fed2016,fed-4679,fed-228,Cremorne,,1940,52
+fed2016,fed-4681,fed-230,St Kilda,,1779,49
+fed2016,fed-4682,fed-230,St Kilda Beach,,1155,29
+fed2016,fed-4683,fed-230,St Kilda North,,1356,41
+fed2016,fed-4684,fed-230,St Kilda Park,,1610,53
+fed2016,fed-4685,fed-230,St Kilda South,,1618,46
+fed2016,fed-4686,fed-230,Sandridge,,1082,73
+fed2016,fed-4687,fed-230,South Melbourne,,2164,90
+fed2016,fed-4688,fed-215,South Yarra,,772,11
+fed2016,fed-4689,fed-215,Windsor,,1059,31
+fed2016,fed-4690,fed-230,Special Hospital Team 1,,142,7
+fed2016,fed-4692,fed-229,Beverley Hills,,1689,96
+fed2016,fed-4694,fed-229,Bulleen,,2106,138
+fed2016,fed-4696,fed-229,Donburn,,1137,39
+fed2016,fed-4697,fed-229,Doncaster,,1515,91
+fed2016,fed-4698,fed-229,Doncaster Central,,2045,124
+fed2016,fed-4699,fed-229,Doncaster East,,2286,157
+fed2016,fed-4700,fed-229,Doncaster Heights,,1368,78
+fed2016,fed-4702,fed-229,Doncaster South,,1071,55
+fed2016,fed-4703,fed-229,Doncaster West,,555,29
+fed2016,fed-4704,fed-220,Eltham,,2752,76
+fed2016,fed-4705,fed-220,Eltham East,,2643,65
+fed2016,fed-4706,fed-220,Eltham North,,1196,27
+fed2016,fed-4707,fed-220,Lower Plenty,,1436,44
+fed2016,fed-4708,fed-229,Lower Templestowe,,1503,109
+fed2016,fed-4709,fed-229,Milgate,,1719,47
+fed2016,fed-4710,fed-229,Serpell,,2534,111
+fed2016,fed-4711,fed-229,Templestowe,,1454,61
+fed2016,fed-4712,fed-229,Templestowe Heights,,3396,182
+fed2016,fed-4713,fed-229,Templestowe Park,,1672,70
+fed2016,fed-4714,fed-229,Templestowe Valley,,1417,75
+fed2016,fed-4715,fed-229,Doncaster Gardens,,1275,77
+fed2016,fed-4716,fed-229,Yarraleen,,2076,146
+fed2016,fed-4721,fed-231,Ardmona,,479,40
+fed2016,fed-4723,fed-231,Bamawm,,188,6
+fed2016,fed-4725,fed-231,Barmah,,153,16
+fed2016,fed-4726,fed-231,Boort,,599,24
+fed2016,fed-4727,fed-231,Bunbartha,,196,8
+fed2016,fed-4728,fed-231,Byrneside,,380,20
+fed2016,fed-4729,fed-231,Calivil,,104,2
+fed2016,fed-4730,fed-224,Cohuna,,1431,125
+fed2016,fed-4731,fed-231,Colbinabbin,,270,14
+fed2016,fed-4732,fed-231,Congupna,,637,44
+fed2016,fed-4735,fed-231,Dhurringile,,201,3
+fed2016,fed-4736,fed-231,Dingee,,189,8
+fed2016,fed-4738,fed-231,Dookie,,236,7
+fed2016,fed-4741,fed-231,Echuca,,1690,106
+fed2016,fed-4742,fed-231,Echuca East,,1348,90
+fed2016,fed-4744,fed-231,Echuca South,,944,53
+fed2016,fed-4746,fed-231,Echuca West,,496,17
+fed2016,fed-4747,fed-200,Elmore,,414,32
+fed2016,fed-4748,fed-231,Girgarre,,344,23
+fed2016,fed-4751,fed-231,Gowrie Street,,1631,103
+fed2016,fed-4753,fed-231,Gunbower,,280,19
+fed2016,fed-4754,fed-231,Guthrie Street,,1493,73
+fed2016,fed-4758,fed-231,Katunga,,431,20
+fed2016,fed-4759,fed-224,Kerang,,1311,87
+fed2016,fed-4760,fed-224,Kerang North,,914,73
+fed2016,fed-4761,fed-231,Kialla,,559,19
+fed2016,fed-4762,fed-231,Kialla West,,658,37
+fed2016,fed-4763,fed-231,Knight Street,,1339,85
+fed2016,fed-4764,fed-224,Koondrook,,570,30
+fed2016,fed-4769,fed-231,Kyabram,,2732,199
+fed2016,fed-4771,fed-231,Ky Valley,,485,36
+fed2016,fed-4772,fed-224,Lake Charm,,198,4
+fed2016,fed-4773,fed-224,Lalbert,,69,2
+fed2016,fed-4774,fed-231,Lancaster,,518,30
+fed2016,fed-4776,fed-224,Leitchville,,352,27
+fed2016,fed-4777,fed-231,Lemnos,,414,20
+fed2016,fed-4778,fed-231,Lockington,,535,26
+fed2016,fed-4781,fed-231,Merrigum,,395,32
+fed2016,fed-4783,fed-231,Mitiamo,,74,4
+fed2016,fed-4787,fed-231,Mooroopna Park,,2468,220
+fed2016,fed-4788,fed-231,Murchison,,595,36
+fed2016,fed-4789,fed-224,Murrabit,,246,12
+fed2016,fed-4792,fed-231,Nanneella,,302,16
+fed2016,fed-4793,fed-231,Nathalia,,964,61
+fed2016,fed-4794,fed-231,Orrvale,,538,32
+fed2016,fed-4796,fed-231,Picola,,180,11
+fed2016,fed-4798,fed-231,Pyramid Hill,,336,27
+fed2016,fed-4799,fed-224,Quambatook,,153,10
+fed2016,fed-4800,fed-231,Rochester,,1470,128
+fed2016,fed-4801,fed-231,Rushworth,,733,62
+fed2016,fed-4802,fed-231,Serpentine,,168,8
+fed2016,fed-4805,fed-231,Shepparton East,,580,21
+fed2016,fed-4806,fed-231,Shepparton North,,2170,124
+fed2016,fed-4807,fed-231,Shepparton South,,1749,155
+fed2016,fed-4808,fed-231,Stanhope,,548,34
+fed2016,fed-4809,fed-231,Strathmerton,,555,42
+fed2016,fed-4812,fed-231,Tatura,,1804,135
+fed2016,fed-4815,fed-231,Tongala,,879,69
+fed2016,fed-4816,fed-231,Toolamba,,365,14
+fed2016,fed-4817,fed-231,Toolleen,,124,7
+fed2016,fed-4818,fed-231,Torrumbarry,,143,8
+fed2016,fed-4820,fed-231,Undera,,291,14
+fed2016,fed-4821,fed-231,Waaia,,263,12
+fed2016,fed-4822,fed-231,Wanganui,,1219,74
+fed2016,fed-4824,fed-231,Wilmot Road,,2091,220
+fed2016,fed-4825,fed-231,Wyuna,,207,11
+fed2016,fed-4842,fed-203,Broadmeadows North,,1872,199
+fed2016,fed-4843,fed-203,Campbellfield,,1486,254
+fed2016,fed-4846,fed-234,Fawkner East,,1560,185
+fed2016,fed-4847,fed-234,Fawkner North,,1761,273
+fed2016,fed-4848,fed-234,Glenroy,,1471,163
+fed2016,fed-4851,fed-234,Glenroy North,,747,66
+fed2016,fed-4852,fed-234,Gowrie Park,,1490,210
+fed2016,fed-4853,fed-234,Hadfield,,1611,138
+fed2016,fed-4855,fed-232,Lalor,,1766,191
+fed2016,fed-4856,fed-232,Lalor East,,1977,189
+fed2016,fed-4857,fed-232,Lalor North,,1180,96
+fed2016,fed-4858,fed-232,Lalor Park,,1595,200
+fed2016,fed-4859,fed-232,Lalor West,,1717,155
+fed2016,fed-4860,fed-234,Moomba Park,,1286,163
+fed2016,fed-4861,fed-199,Norris Bank (Batman),,2067,176
+fed2016,fed-4862,fed-232,Thomastown,,846,93
+fed2016,fed-4863,fed-232,Thomastown East,,1245,156
+fed2016,fed-4864,fed-232,Thomastown Meadows,,1730,198
+fed2016,fed-4865,fed-232,Thomastown West,,2933,381
+fed2016,fed-4866,fed-203,Upfield,,1217,165
+fed2016,fed-4868,fed-204,Badger Creek,,1145,62
+fed2016,fed-4869,fed-204,Bayswater North,,2454,108
+fed2016,fed-4870,fed-204,Birmingham,,2267,127
+fed2016,fed-4873,fed-223,Clematis,,517,28
+fed2016,fed-4874,fed-223,Cockatoo,,1757,82
+fed2016,fed-4875,fed-209,Croydon (Deakin),,1180,31
+fed2016,fed-4876,fed-204,Croydon East,,2121,91
+fed2016,fed-4877,fed-209,Croydon South,,1016,26
+fed2016,fed-4879,fed-209,Alexandra Road,,1917,73
+fed2016,fed-4880,fed-223,Emerald,,2273,98
+fed2016,fed-4881,fed-223,Gembrook,,1093,47
+fed2016,fed-4882,fed-204,Gladysdale,,478,32
+fed2016,fed-4883,fed-204,Healesville,,999,44
+fed2016,fed-4884,fed-204,Hoddles Creek,,375,12
+fed2016,fed-4885,fed-204,Kilsyth,,2610,137
+fed2016,fed-4887,fed-204,Kilsyth South,,1222,50
+fed2016,fed-4888,fed-204,Launching Place,,925,62
+fed2016,fed-4889,fed-223,Macclesfield,,625,21
+fed2016,fed-4890,fed-227,Maryknoll,,326,10
+fed2016,fed-4891,fed-218,Marysville,,374,13
+fed2016,fed-4892,fed-204,Millgrove,,652,37
+fed2016,fed-4894,fed-204,Montrose,,2266,112
+fed2016,fed-4895,fed-204,Montrose South,,937,30
+fed2016,fed-4896,fed-204,Mooroolbark,,1272,72
+fed2016,fed-4897,fed-204,Mooroolbark East,,2136,96
+fed2016,fed-4898,fed-204,Mooroolbark South,,1600,58
+fed2016,fed-4899,fed-223,Mount Dandenong (La Trobe),,485,16
+fed2016,fed-4900,fed-204,Mount Evelyn,,1491,68
+fed2016,fed-4901,fed-218,Narbethong,,174,8
+fed2016,fed-4902,fed-227,Nar Nar Goon North,,283,10
+fed2016,fed-4903,fed-223,Olinda,,472,5
+fed2016,fed-4904,fed-227,Pakenham North,,2322,126
+fed2016,fed-4905,fed-223,Pakenham Upper (La Trobe),,167,9
+fed2016,fed-4907,fed-204,Seville,,1383,69
+fed2016,fed-4909,fed-204,Silvan,,748,25
+fed2016,fed-4910,fed-209,Tinternvale,,1897,59
+fed2016,fed-4912,fed-227,Toomuc Valley,,258,8
+fed2016,fed-4914,fed-204,Wandin Yallock,,1442,56
+fed2016,fed-4917,fed-204,Warburton,,698,32
+fed2016,fed-4918,fed-204,Warburton East,,475,26
+fed2016,fed-4919,fed-204,Wesburn,,786,57
+fed2016,fed-4920,fed-204,Woori Yallock,,1643,84
+fed2016,fed-4921,fed-204,Yarra Junction,,972,59
+fed2016,fed-4933,fed-233,Allansford,,834,54
+fed2016,fed-4934,fed-224,Apsley,,295,11
+fed2016,fed-4937,fed-233,Balmoral,,274,7
+fed2016,fed-4939,fed-233,Bolwarra,,317,26
+fed2016,fed-4941,fed-233,Branxholme,,147,6
+fed2016,fed-4945,fed-233,Byaduk,,99,5
+fed2016,fed-4947,fed-233,Camperdown,,1981,149
+fed2016,fed-4948,fed-233,Caramut,,122,7
+fed2016,fed-4952,fed-233,Casterton,,1156,96
+fed2016,fed-4953,fed-233,Cavendish,,254,11
+fed2016,fed-4959,fed-233,Cobden,,1120,101
+fed2016,fed-4962,fed-233,Coleraine,,623,35
+fed2016,fed-4963,fed-233,Condah,,187,5
+fed2016,fed-4966,fed-233,Dartmoor,,238,20
+fed2016,fed-4973,fed-233,Dunkeld,,365,12
+fed2016,fed-4975,fed-233,Ecklin South,,203,7
+fed2016,fed-4976,fed-224,Edenhope,,552,51
+fed2016,fed-4982,fed-233,Glenthompson,,152,5
+fed2016,fed-4985,fed-233,Hamilton,,1956,112
+fed2016,fed-4989,fed-224,Harrow,,159,8
+fed2016,fed-4990,fed-233,Hawkesdale,,264,9
+fed2016,fed-4994,fed-233,Heywood,,780,67
+fed2016,fed-4998,fed-233,Portland TAFE,,773,62
+fed2016,fed-5003,fed-233,Koroit,,1215,55
+fed2016,fed-5008,fed-233,Macarthur,,263,7
+fed2016,fed-5009,fed-233,Mailors Flat,,415,21
+fed2016,fed-5011,fed-233,Merino,,219,19
+fed2016,fed-5016,fed-233,Mortlake,,777,37
+fed2016,fed-5021,fed-233,Naringal,,164,5
+fed2016,fed-5023,fed-233,Narrawong,,220,16
+fed2016,fed-5024,fed-233,Nelson,,122,4
+fed2016,fed-5026,fed-233,Noorat,,443,16
+fed2016,fed-5028,fed-233,Nullawarre,,283,13
+fed2016,fed-5029,fed-233,Orford,,98,6
+fed2016,fed-5030,fed-233,Panmure,,295,13
+fed2016,fed-5031,fed-233,Patterson Park,,1036,47
+fed2016,fed-5032,fed-233,Penshurst,,315,16
+fed2016,fed-5033,fed-233,Peterborough,,165,7
+fed2016,fed-5037,fed-233,Port Campbell,,223,9
+fed2016,fed-5038,fed-233,Port Fairy,,1476,71
+fed2016,fed-5039,fed-233,Portland Central,,1780,96
+fed2016,fed-5041,fed-233,Portland North,,162,8
+fed2016,fed-5044,fed-233,Purnim,,264,8
+fed2016,fed-5049,fed-233,Scotts Creek,,205,4
+fed2016,fed-5050,fed-233,Simpson,,373,18
+fed2016,fed-5055,fed-233,Tarrington,,240,7
+fed2016,fed-5057,fed-233,Terang,,1162,103
+fed2016,fed-5060,fed-233,Timboon,,779,36
+fed2016,fed-5061,fed-224,Toolondo,,127,5
+fed2016,fed-5063,fed-233,Tower Square,,1398,63
+fed2016,fed-5064,fed-233,Tyrendarra,,124,7
+fed2016,fed-5072,fed-233,Warrnambool,,3920,295
+fed2016,fed-5078,fed-233,Warrnambool West,,1141,91
+fed2016,fed-5082,fed-233,Woodford,,383,10
+fed2016,fed-5083,fed-233,Woolsthorpe,,273,14
+fed2016,fed-5084,fed-233,Yambuk,,184,11
+fed2016,fed-5086,fed-234,Anstey,,2425,93
+fed2016,fed-5087,fed-199,Bell,,1871,66
+fed2016,fed-5088,fed-234,Brunswick North,,2637,141
+fed2016,fed-5089,fed-234,Brunswick North East,,2220,105
+fed2016,fed-5090,fed-234,Brunswick North West,,1262,58
+fed2016,fed-5091,fed-234,Coburg,,1984,145
+fed2016,fed-5092,fed-234,Coburg East,,1544,130
+fed2016,fed-5093,fed-234,Coburg North,,2856,185
+fed2016,fed-5094,fed-234,Coburg South,,796,52
+fed2016,fed-5096,fed-234,Coburg West,,2599,184
+fed2016,fed-5098,fed-199,Croxton,,1106,37
+fed2016,fed-5101,fed-234,Lake Park,,684,30
+fed2016,fed-5102,fed-234,Melville,,1539,75
+fed2016,fed-5103,fed-234,Merlynston,,981,73
+fed2016,fed-5104,fed-234,Mitchell,,1907,100
+fed2016,fed-5105,fed-234,Moreland,,1727,141
+fed2016,fed-5106,fed-234,Murray (Wills),,679,41
+fed2016,fed-5107,fed-199,Newlands (Batman),,782,52
+fed2016,fed-5108,fed-234,Oak Park,,1436,79
+fed2016,fed-5109,fed-234,Pascoe Vale,,1534,69
+fed2016,fed-5110,fed-234,Pascoe Vale Central,,785,49
+fed2016,fed-5111,fed-234,Pascoe Vale North,,2095,175
+fed2016,fed-5112,fed-234,Pascoe Vale South,,2131,100
+fed2016,fed-5113,fed-234,Pascoe Vale West,,897,50
+fed2016,fed-5114,fed-199,Preston West,,2111,136
+fed2016,fed-5115,fed-199,Regent West,,845,51
+fed2016,fed-5116,fed-199,Reservoir West,,1342,62
+fed2016,fed-5117,fed-199,Thornbury,,2084,74
+fed2016,fed-8891,fed-227,Cape Paterson,,347,11
+fed2016,fed-8893,fed-212,Altona Bay (Gellibrand),,1121,68
+fed2016,fed-8894,fed-222,Glenorden,,1737,131
+fed2016,fed-8895,fed-222,Manorvale,,1986,115
+fed2016,fed-8897,fed-309,Westlake,,1785,112
+fed2016,fed-8898,fed-218,Tolmie,,184,4
+fed2016,fed-8899,fed-232,Findon,,2406,184
+fed2016,fed-8900,fed-224,Swan Hill West,,1284,100
+fed2016,fed-8907,fed-203,Taylors Lakes,,2629,240
+fed2016,fed-11513,fed-197,Park Ridge,,2121,92
+fed2016,fed-11514,fed-209,Heathmont High,,1107,21
+fed2016,fed-11515,fed-226,Sunbury East,,1968,97
+fed2016,fed-11516,fed-226,Sunbury Heights,,2116,97
+fed2016,fed-11517,fed-211,Rosebud South,,1430,95
+fed2016,fed-11518,fed-233,Wiridjil,,145,5
+fed2016,fed-11520,fed-211,Mt Martha North (Flinders),,3318,114
+fed2016,fed-11521,fed-205,Bennettswood,,1560,86
+fed2016,fed-11525,fed-209,Croydon Town (Deakin),,1100,50
+fed2016,fed-11527,fed-217,Heatherton North,,1030,76
+fed2016,fed-11529,fed-232,Wattle Glen,,790,22
+fed2016,fed-11584,fed-230,Special Hospital Team 2,,201,9
+fed2016,fed-11647,fed-216,Cranbourne West,,3795,260
+fed2016,fed-11649,fed-232,Epping South,,1854,128
+fed2016,fed-11651,fed-223,Berwick South,,2172,88
+fed2016,fed-11652,fed-210,Mt Eliza Central,,963,19
+fed2016,fed-11655,fed-216,Hampton Park,,2056,184
+fed2016,fed-11656,fed-210,Langwarrin Park,,2404,125
+fed2016,fed-11762,fed-228,Melbourne West MELBOURNE PPVC,,3988,75
+fed2016,fed-11763,fed-230,St Kilda PPVC,,9775,305
+fed2016,fed-11875,fed-229,Gumnut Gully,,1300,39
+fed2016,fed-11876,fed-229,The Pines,,1575,61
+fed2016,fed-11885,fed-207,Mandama,,2121,90
+fed2016,fed-11886,fed-210,Kingsley Park,,1506,77
+fed2016,fed-11888,fed-219,Aspendale Gardens,,3096,130
+fed2016,fed-11890,fed-232,Mill Park Heights,,2395,146
+fed2016,fed-11891,fed-226,Clonbinane,,282,8
+fed2016,fed-11892,fed-224,Mildura City Central,,1539,131
+fed2016,fed-11893,fed-228,Richmond West,,1177,56
+fed2016,fed-12078,fed-205,Eley Park,,1325,61
+fed2016,fed-12079,fed-209,Glen Park,,885,52
+fed2016,fed-12080,fed-225,Avondale Heights Central,,2456,225
+fed2016,fed-12081,fed-220,St Helena (Jagajaga),,1931,67
+fed2016,fed-14318,fed-228,Melbourne Central MELBOURNE PPVC,,4478,79
+fed2016,fed-30188,fed-197,Divisional Office (PREPOLL),,122,4
+fed2016,fed-30189,fed-198,Divisional Office (PREPOLL),,833,37
+fed2016,fed-30190,fed-199,Divisional Office (PREPOLL),,10,0
+fed2016,fed-30191,fed-200,Divisional Office (PREPOLL),,29,0
+fed2016,fed-30192,fed-201,Divisional Office (PREPOLL),,643,16
+fed2016,fed-30194,fed-203,Divisional Office (PREPOLL),,115,4
+fed2016,fed-30195,fed-204,Divisional Office (PREPOLL),,182,7
+fed2016,fed-30196,fed-205,Divisional Office (PREPOLL),,54,1
+fed2016,fed-30198,fed-207,Divisional Office (PREPOLL),,18,1
+fed2016,fed-30199,fed-208,Divisional Office (PREPOLL),,40,1
+fed2016,fed-30200,fed-209,Divisional Office (PREPOLL),,1268,52
+fed2016,fed-30201,fed-210,Divisional Office (PREPOLL),,5541,257
+fed2016,fed-30202,fed-211,Divisional Office (PREPOLL),,0,0
+fed2016,fed-30203,fed-212,Divisional Office (PREPOLL),,644,36
+fed2016,fed-30204,fed-213,Divisional Office (PREPOLL),,342,11
+fed2016,fed-30205,fed-214,Divisional Office (PREPOLL),,2062,47
+fed2016,fed-30206,fed-215,Divisional Office (PREPOLL),,188,6
+fed2016,fed-30207,fed-216,Divisional Office (PREPOLL),,1189,46
+fed2016,fed-30208,fed-217,Divisional Office (PREPOLL),,51,6
+fed2016,fed-30209,fed-218,Divisional Office (PREPOLL),,0,0
+fed2016,fed-30210,fed-219,Divisional Office (PREPOLL),,127,2
+fed2016,fed-30211,fed-220,Divisional Office (PREPOLL),,0,0
+fed2016,fed-30212,fed-221,Divisional Office (PREPOLL),,1028,19
+fed2016,fed-30213,fed-222,Divisional Office (PREPOLL),,520,21
+fed2016,fed-30214,fed-223,Divisional Office (PREPOLL),,6,0
+fed2016,fed-30215,fed-224,Divisional Office (PREPOLL),,0,0
+fed2016,fed-30216,fed-225,Divisional Office (PREPOLL),,735,28
+fed2016,fed-30217,fed-226,Divisional Office (PREPOLL),,28,2
+fed2016,fed-30219,fed-228,Divisional Office (PREPOLL),,0,0
+fed2016,fed-30220,fed-229,Divisional Office (PREPOLL),,224,7
+fed2016,fed-30221,fed-230,Divisional Office (PREPOLL),,0,0
+fed2016,fed-30222,fed-231,Divisional Office (PREPOLL),,352,21
+fed2016,fed-30223,fed-232,Divisional Office (PREPOLL),,0,0
+fed2016,fed-30224,fed-233,Divisional Office (PREPOLL),,0,0
+fed2016,fed-30225,fed-234,Divisional Office (PREPOLL),,0,0
+fed2016,fed-31044,fed-203,Craigieburn South,,2008,148
+fed2016,fed-31046,fed-309,Delahey,,2879,243
+fed2016,fed-31047,fed-203,Meadow Heights,,2616,306
+fed2016,fed-31048,fed-203,Monmia,,2827,272
+fed2016,fed-31050,fed-216,Coral Park,,1954,126
+fed2016,fed-31051,fed-219,Rowellyn Park,,2215,124
+fed2016,fed-31055,fed-222,Cambridge,,2217,110
+fed2016,fed-31056,fed-222,Derrimut Heath,,2064,140
+fed2016,fed-31057,fed-223,Berwick Lodge,,1481,85
+fed2016,fed-31058,fed-227,Pakenham Central,,1461,103
+fed2016,fed-31059,fed-211,Somerville East,,1890,104
+fed2016,fed-31295,fed-211,Dromana Beach,,650,25
+fed2016,fed-31452,fed-210,Mornington East (Dunkley),,2522,110
+fed2016,fed-31462,fed-210,Belvedere Park,,2093,141
+fed2016,fed-31465,fed-211,St Andrews Beach,,535,18
+fed2016,fed-31495,fed-227,Pakenham Upper (McMillan),,392,23
+fed2016,fed-31518,fed-211,Rye PPVC,,4208,149
+fed2016,fed-31522,fed-211,Special Hospital Team 1,,382,44
+fed2016,fed-31523,fed-211,Special Hospital Team 2,,336,31
+fed2016,fed-31529,fed-204,Special Hospital Team 1,,332,16
+fed2016,fed-31530,fed-210,Special Hospital Team 2,,306,16
+fed2016,fed-31532,fed-217,Special Hospital Team 2,,185,12
+fed2016,fed-31533,fed-208,Special Hospital Team 1,,274,8
+fed2016,fed-31534,fed-210,Special Hospital Team 1,,157,11
+fed2016,fed-31535,fed-208,Special Hospital Team 2,,495,29
+fed2016,fed-31536,fed-208,Geelong CORIO PPVC,,11125,439
+fed2016,fed-31537,fed-201,Special Hospital Team 1,,99,5
+fed2016,fed-31538,fed-223,Oatlands,,1912,104
+fed2016,fed-31540,fed-227,Special Hospital Team 1,,296,16
+fed2016,fed-31542,fed-218,Wodonga PPVC,,11619,560
+fed2016,fed-31545,fed-204,Mount Dandenong (Casey),,515,10
+fed2016,fed-31548,fed-207,Special Hospital Team 1,,291,12
+fed2016,fed-31549,fed-227,Special Hospital Team 2,,382,24
+fed2016,fed-31550,fed-227,Special Hospital Team 3,,167,9
+fed2016,fed-31551,fed-227,Special Hospital Team 4,,231,16
+fed2016,fed-31552,fed-223,Special Hospital Team 1,,135,19
+fed2016,fed-31554,fed-223,Special Hospital Team 2,,90,8
+fed2016,fed-31555,fed-214,Special Hospital Team 1,,123,7
+fed2016,fed-31556,fed-227,Divisional Office (PREPOLL),,14,1
+fed2016,fed-31557,fed-214,Special Hospital Team 2,,199,12
+fed2016,fed-31562,fed-198,Special Hospital Team 1,,358,8
+fed2016,fed-31563,fed-199,Special Hospital Team 1,,224,26
+fed2016,fed-31564,fed-219,Special Hospital Team 1,,446,57
+fed2016,fed-31568,fed-219,Special Hospital Team 2,,111,13
+fed2016,fed-31572,fed-209,Special Hospital Team 1,,286,25
+fed2016,fed-31573,fed-224,Swan Hill PPVC,,4858,239
+fed2016,fed-31575,fed-217,Cheltenham (Hotham),,1132,37
+fed2016,fed-31581,fed-217,Special Hospital Team 1,,120,26
+fed2016,fed-31583,fed-209,Special Hospital Team 2,,156,11
+fed2016,fed-31585,fed-231,Special Hospital Team 1,,225,6
+fed2016,fed-31586,fed-231,Special Hospital Team 2,,182,7
+fed2016,fed-31587,fed-231,Special Hospital Team 3,,34,1
+fed2016,fed-31588,fed-231,Special Hospital Team 4,,335,13
+fed2016,fed-31589,fed-231,Special Hospital Team 5,,142,10
+fed2016,fed-31590,fed-234,Special Hospital Team 1,,143,8
+fed2016,fed-31591,fed-232,Special Hospital Team 1,,75,6
+fed2016,fed-31594,fed-198,Special Hospital Team 2,,375,19
+fed2016,fed-31597,fed-215,Special Hospital Team 1,,126,6
+fed2016,fed-31598,fed-215,Special Hospital Team 2,,93,2
+fed2016,fed-31599,fed-224,Horsham PPVC,,8142,351
+fed2016,fed-31601,fed-220,Special Hospital Team 1,,270,13
+fed2016,fed-31602,fed-224,Special Hospital Team 1,,245,10
+fed2016,fed-31604,fed-224,Special Hospital Team 2,,183,4
+fed2016,fed-31606,fed-224,Special Hospital Team 3,,220,7
+fed2016,fed-31611,fed-224,Stawell PPVC,,0,0
+fed2016,fed-31613,fed-204,Kallista (Casey),,683,17
+fed2016,fed-31615,fed-218,Special Hospital Team 1,,430,18
+fed2016,fed-31619,fed-197,Special Hospital Team 1,,240,19
+fed2016,fed-31620,fed-197,Special Hospital Team 2,,247,6
+fed2016,fed-31621,fed-222,The Grange,,2935,150
+fed2016,fed-31622,fed-222,Thomas Chirnside,,1337,68
+fed2016,fed-31623,fed-222,Westgrove,,2578,142
+fed2016,fed-31624,fed-222,Special Hospital Team 1,,209,12
+fed2016,fed-31625,fed-205,Special Hospital Team 1,,55,4
+fed2016,fed-31627,fed-205,Special Hospital Team 2,,329,26
+fed2016,fed-31662,fed-213,Johnsonville,,623,25
+fed2016,fed-31697,fed-211,Hastings PPVC,,9473,393
+fed2016,fed-31723,fed-229,Special Hospital Team 1,,243,19
+fed2016,fed-31724,fed-229,Special Hospital Team 2,,226,20
+fed2016,fed-31743,fed-197,Heany Park,,3722,198
+fed2016,fed-31744,fed-197,Karoo,,3084,136
+fed2016,fed-31749,fed-221,Special Hospital Team 1,,149,12
+fed2016,fed-31751,fed-221,Special Hospital Team 2,,151,18
+fed2016,fed-31752,fed-221,Special Hospital Team 3,,211,10
+fed2016,fed-31762,fed-214,Bentleigh Central (Goldstein),,907,41
+fed2016,fed-31765,fed-214,Beaumaris East (Goldstein),,1029,31
+fed2016,fed-31766,fed-229,Yarra Road,,1704,65
+fed2016,fed-31767,fed-232,Meadowglen,,1499,113
+fed2016,fed-31768,fed-232,Thomastown Heights,,1118,105
+fed2016,fed-31769,fed-215,Carnegie Upper,,993,27
+fed2016,fed-31772,fed-233,Carpendeit,,158,8
+fed2016,fed-31773,fed-233,Warrnambool North Central,,2582,177
+fed2016,fed-31777,fed-205,Chadstone East,,1657,102
+fed2016,fed-31778,fed-217,Coomoora (Hotham),,2028,105
+fed2016,fed-31783,fed-216,Maramba,,3007,176
+fed2016,fed-31788,fed-220,Research,,2353,78
+fed2016,fed-31844,fed-229,Warranwood,,2265,68
+fed2016,fed-31846,fed-201,Pinewood (Bruce),,1318,56
+fed2016,fed-31954,fed-200,Junortoun,,925,27
+fed2016,fed-31958,fed-212,Special Hospital Team 1,,167,13
+fed2016,fed-31959,fed-222,Werribee PPVC,,12349,642
+fed2016,fed-31964,fed-228,Special Hospital Team 5,,34,1
+fed2016,fed-31965,fed-228,Special Hospital Team 6,,12,0
+fed2016,fed-31966,fed-228,Special Hospital Team 7,,14,0
+fed2016,fed-31974,fed-219,Lyrebird,,2080,138
+fed2016,fed-31984,fed-212,Melbourne (Gellibrand),,152,4
+fed2016,fed-32002,fed-200,Kangaroo Flat South,,1854,109
+fed2016,fed-32004,fed-215,Melbourne (Higgins),,183,1
+fed2016,fed-32011,fed-200,Special Hospital Team 1,,240,14
+fed2016,fed-32012,fed-200,Special Hospital Team 2,,242,14
+fed2016,fed-32013,fed-200,Special Hospital Team 3,,253,9
+fed2016,fed-32014,fed-200,Special Hospital Team 4,,327,17
+fed2016,fed-32015,fed-233,Special Hospital Team 1,,356,24
+fed2016,fed-32016,fed-233,Special Hospital Team 2,,308,20
+fed2016,fed-32017,fed-233,Special Hospital Team 3,,364,13
+fed2016,fed-32018,fed-222,Melbourne (Lalor),,108,4
+fed2016,fed-32020,fed-216,Special Hospital Team 1,,140,13
+fed2016,fed-32021,fed-221,Melbourne (Kooyong),,141,5
+fed2016,fed-32022,fed-213,Special Hospital Team 1,,256,5
+fed2016,fed-32023,fed-213,Special Hospital Team 2,,224,10
+fed2016,fed-32025,fed-213,Special Hospital Team 3,,369,19
+fed2016,fed-32033,fed-231,Echuca MURRAY PPVC,,5808,299
+fed2016,fed-32034,fed-205,Special Hospital Team 3,,9,0
+fed2016,fed-32038,fed-230,Melbourne (Melbourne Ports),,775,16
+fed2016,fed-32039,fed-199,Melbourne (Batman),,133,1
+fed2016,fed-32041,fed-225,Melbourne (Maribyrnong),,112,2
+fed2016,fed-32045,fed-205,Melbourne (Chisholm),,93,0
+fed2016,fed-32073,fed-233,Hamilton PPVC,,3839,221
+fed2016,fed-32076,fed-225,Special Hospital Team 1,,55,4
+fed2016,fed-32092,fed-214,Sandringham PPVC,,7367,166
+fed2016,fed-32094,fed-200,Bendigo PPVC,,15027,546
+fed2016,fed-32100,fed-213,Bairnsdale PPVC,,8613,443
+fed2016,fed-32107,fed-213,Traralgon PPVC,,8574,415
+fed2016,fed-32108,fed-209,Ringwood DEAKIN PPVC,,9112,285
+fed2016,fed-32110,fed-233,Portland INTERSTATE PPVC,,0,0
+fed2016,fed-32326,fed-211,Kernot,,165,4
+fed2016,fed-32372,fed-216,Courtney Gardens,,2885,173
+fed2016,fed-32528,fed-223,Narre Warren (La Trobe),,2084,139
+fed2016,fed-32535,fed-223,Timbarra,,2625,119
+fed2016,fed-32687,fed-207,Special Hospital Team 2,,241,33
+fed2016,fed-32828,fed-207,Highton,,1771,55
+fed2016,fed-32829,fed-207,Grovedale East,,2225,89
+fed2016,fed-32870,fed-232,Special Hospital Team 2,,92,7
+fed2016,fed-32894,fed-229,Manningham,,1158,49
+fed2016,fed-32895,fed-226,Special Hospital Team 1,,104,6
+fed2016,fed-32904,fed-212,Glengala,,1255,112
+fed2016,fed-32908,fed-222,Seabrook (Lalor),,2885,170
+fed2016,fed-32909,fed-234,Melbourne (Wills),,159,6
+fed2016,fed-32944,fed-204,Lilydale PPVC,,14103,612
+fed2016,fed-32947,fed-205,Box Hill CHISHOLM PPVC,,7465,205
+fed2016,fed-32953,fed-229,Doncaster East PPVC,,9960,348
+fed2016,fed-33053,fed-228,Fitzroy East,,1858,46
+fed2016,fed-33067,fed-207,Torquay North,,3242,108
+fed2016,fed-33071,fed-210,Langwarrin North,,1624,70
+fed2016,fed-33101,fed-226,Killara,,1476,54
+fed2016,fed-33109,fed-232,Blossom Park,,2410,159
+fed2016,fed-33121,fed-233,Warrnambool PPVC,,12897,671
+fed2016,fed-33122,fed-233,Warrnambool INTERSTATE PPVC,,0,0
+fed2016,fed-33123,fed-218,Benalla PPVC,,5041,229
+fed2016,fed-33124,fed-218,Wangaratta PPVC,,12068,495
+fed2016,fed-33125,fed-231,Yarrawonga PPVC,,3734,179
+fed2016,fed-33128,fed-225,Moonee Ponds MARIBYRNONG PPVC,,10827,456
+fed2016,fed-33261,fed-212,Footscray North,,1503,65
+fed2016,fed-33280,fed-224,Special Hospital Team 4,,236,23
+fed2016,fed-33282,fed-203,Taylors Lakes North,,2875,206
+fed2016,fed-33295,fed-211,Blind Bight,,801,54
+fed2016,fed-33305,fed-225,Essendon,,1571,46
+fed2016,fed-34000,fed-210,Skye (Dunkley),,1068,65
+fed2016,fed-34007,fed-210,Mt Martha North (Dunkley),,508,17
+fed2016,fed-34011,fed-209,Ringwood North (Deakin),,1168,49
+fed2016,fed-34013,fed-207,Barwon CORANGAMITE PPVC,,15759,598
+fed2016,fed-34017,fed-215,Oakleigh (Higgins),,515,23
+fed2016,fed-34030,fed-217,Oakleigh (Hotham),,421,19
+fed2016,fed-34031,fed-204,Lilydale Lake,,1708,68
+fed2016,fed-34055,fed-210,Special Hospital Team 3,,209,14
+fed2016,fed-34056,fed-234,Glenroy WILLS PPVC,,9984,707
+fed2016,fed-34061,fed-217,Springvale HOTHAM PPVC,,6754,443
+fed2016,fed-34062,fed-198,Ballarat PPVC,,16267,885
+fed2016,fed-34094,fed-309,Brookside,,3457,192
+fed2016,fed-34224,fed-227,Warragul PPVC,,10460,398
+fed2016,fed-34241,fed-205,Oakleigh CHISHOLM PPVC,,6588,291
+fed2016,fed-34244,fed-223,Boronia LA TROBE PPVC,,4627,185
+fed2016,fed-34245,fed-226,Mill Park Lakes (McEwen),,2292,124
+fed2016,fed-34282,fed-215,Malvern HIGGINS PPVC,,12612,305
+fed2016,fed-35015,fed-199,Murray (Batman),,275,31
+fed2016,fed-35016,fed-199,Bundoora South,,905,15
+fed2016,fed-35079,fed-201,Wayburne,,1094,39
+fed2016,fed-35287,fed-210,Baxter (Dunkley),,1058,67
+fed2016,fed-35329,fed-211,Clyde (Flinders),,291,11
+fed2016,fed-35527,fed-309,Divisional Office (PREPOLL),,121,5
+fed2016,fed-36391,fed-309,Special Hospital Team 1,,95,5
+fed2016,fed-36400,fed-309,Hillside,,2759,153
+fed2016,fed-36414,fed-210,Frankston DUNKLEY PPVC,,9860,368
+fed2016,fed-36416,fed-211,Mornington East (Flinders),,805,39
+fed2016,fed-36421,fed-234,Newlands (Wills),,659,25
+fed2016,fed-36422,fed-208,St Albans Park,,2041,100
+fed2016,fed-36426,fed-232,St Helena (Scullin),,1014,31
+fed2016,fed-36427,fed-207,Special Hospital Team 3,,200,7
+fed2016,fed-36432,fed-201,Mulgrave PPVC,,6527,207
+fed2016,fed-36435,fed-230,Southbank,,2064,42
+fed2016,fed-36440,fed-223,Berwick Fields,,2782,143
+fed2016,fed-36441,fed-216,Kilberry Valley,,1970,107
+fed2016,fed-36442,fed-216,Narre Warren South (Holt),,3165,202
+fed2016,fed-36443,fed-222,Boardwalk,,3244,147
+fed2016,fed-38284,fed-309,Caroline Springs PPVC,,11543,663
+fed2016,fed-38290,fed-216,Cranbourne HOLT PPVC,,10470,578
+fed2016,fed-38292,fed-213,Sale PPVC,,8209,354
+fed2016,fed-38297,fed-220,Heidelberg JAGAJAGA PPVC,,9990,354
+fed2016,fed-38298,fed-224,Mildura MALLEE PPVC,,13783,831
+fed2016,fed-38299,fed-219,Edithvale PPVC,,7579,303
+fed2016,fed-38304,fed-309,Melton GORTON PPVC,,10891,649
+fed2016,fed-38306,fed-221,Hawthorn KOOYONG PPVC,,9968,212
+fed2016,fed-38307,fed-227,Wonthaggi PPVC,,3737,224
+fed2016,fed-38309,fed-225,Sunshine MARIBYRNONG PPVC,,8480,660
+fed2016,fed-38329,fed-219,Special Hospital Team 3,,236,23
+fed2016,fed-38335,fed-231,Shepparton PPVC,,11452,596
+fed2016,fed-38409,fed-204,Healesville Central,,1981,119
+fed2016,fed-38411,fed-234,Gowanbrae,,1137,56
+fed2016,fed-38413,fed-197,Rowville Central,,1642,77
+fed2016,fed-38428,fed-228,Melbourne CBD MELBOURNE PPVC,,3543,49
+fed2016,fed-38432,fed-233,Portland PPVC,,4584,297
+fed2016,fed-46528,fed-223,Parkhill,,1282,47
+fed2016,fed-46529,fed-227,Pakenham Lakeside,,1093,45
+fed2016,fed-46531,fed-222,Point Cook,,2626,135
+fed2016,fed-46536,fed-309,Cairnlea,,2704,151
+fed2016,fed-46541,fed-213,Lakes Entrance East,,797,49
+fed2016,fed-46542,fed-207,Highton West,,2485,66
+fed2016,fed-46544,fed-207,Ocean Grove South,,2534,71
+fed2016,fed-46545,fed-226,Craigieburn North,,2140,143
+fed2016,fed-46546,fed-226,Craigieburn West,,1148,72
+fed2016,fed-46547,fed-203,Greenvale South,,2521,213
+fed2016,fed-46548,fed-203,Somerton,,2056,157
+fed2016,fed-46549,fed-203,Roxburgh Rise,,1688,144
+fed2016,fed-46551,fed-208,Lara Lake,,1638,64
+fed2016,fed-46552,fed-309,Creekside,,2246,143
+fed2016,fed-46554,fed-208,Special Hospital Team 3,,183,6
+fed2016,fed-46557,fed-309,Parkwood Green,,2653,170
+fed2016,fed-46558,fed-218,West Wodonga Victory,,3267,185
+fed2016,fed-46561,fed-203,Sydenham Central (Calwell),,1154,73
+fed2016,fed-46564,fed-216,Lynbrook,,2651,106
+fed2016,fed-46565,fed-223,Hillsmeade (La Trobe),,2814,132
+fed2016,fed-46567,fed-216,Strathaird,,1957,102
+fed2016,fed-46568,fed-216,Thomas Mitchell,,1869,118
+fed2016,fed-46584,fed-227,Pakenham PPVC,,8358,362
+fed2016,fed-46585,fed-227,Pakenham INTERSTATE PPVC,,0,0
+fed2016,fed-46590,fed-220,Special Hospital Team 2,,68,1
+fed2016,fed-46595,fed-203,Roxburgh Homestead,,2917,303
+fed2016,fed-46625,fed-211,Cowes PPVC,,3058,121
+fed2016,fed-46639,fed-218,Special Hospital Team 2,,273,4
+fed2016,fed-46761,fed-232,South Morang SCULLIN PPVC,,8205,379
+fed2016,fed-47750,fed-232,Epping Views,,3381,196
+fed2016,fed-47752,fed-226,South Morang (McEwen),,383,18
+fed2016,fed-47779,fed-233,Special Hospital Team 4,,218,7
+fed2016,fed-47802,fed-226,Laurimar,,3606,201
+fed2016,fed-47803,fed-226,Gisborne South,,1345,42
+fed2016,fed-47808,fed-228,Docklands,,1400,27
+fed2016,fed-47810,fed-216,Cranbourne Heights,,1281,71
+fed2016,fed-47812,fed-216,Hallam East,,1112,75
+fed2016,fed-47813,fed-216,Cranbourne North (Holt),,1611,60
+fed2016,fed-47814,fed-216,Cranbourne North East,,1448,64
+fed2016,fed-47816,fed-222,Manor Lakes,,2192,84
+fed2016,fed-47817,fed-223,Berwick Chase,,2561,76
+fed2016,fed-47818,fed-227,Pakenham Shearwater (McMillan),,2189,101
+fed2016,fed-47822,fed-222,Point Cook North,,2155,88
+fed2016,fed-47823,fed-222,Tarneit,,3135,136
+fed2016,fed-47825,fed-309,Derrimut,,2136,119
+fed2016,fed-47826,fed-309,Taylors Hill,,2407,151
+fed2016,fed-47827,fed-309,Springside,,1754,68
+fed2016,fed-47828,fed-203,Taylors Lakes Central,,2113,160
+fed2016,fed-47829,fed-208,Hendy,,1583,106
+fed2016,fed-47831,fed-309,Caroline Springs,,2319,101
+fed2016,fed-47832,fed-203,Sydenham West (Calwell),,2233,160
+fed2016,fed-51057,fed-198,Maddingley,,2189,121
+fed2016,fed-51219,fed-220,Bellfield,,1205,41
+fed2016,fed-51222,fed-208,Beacon Point,,1152,52
+fed2016,fed-51223,fed-208,Bell Park South,,800,77
+fed2016,fed-57719,fed-213,Newlands Arm,,283,14
+fed2016,fed-58453,fed-226,Mount Ridley,,2104,98
+fed2016,fed-58455,fed-212,Altona Green,,3134,243
+fed2016,fed-58456,fed-201,Waverley Park,,1042,93
+fed2016,fed-58457,fed-220,Glendale,,1523,40
+fed2016,fed-58458,fed-220,Briar Hill PPVC,,9918,328
+fed2016,fed-58622,fed-224,Mildura South West,,1151,71
+fed2016,fed-58623,fed-207,Geelong CORANGAMITE PPVC,,4076,107
+fed2016,fed-58629,fed-207,Colac PPVC,,5591,298
+fed2016,fed-58636,fed-226,Sunbury West PPVC,,6126,198
+fed2016,fed-58637,fed-209,Box Hill DEAKIN PPVC,,3591,136
+fed2016,fed-58638,fed-229,Ringwood MENZIES PPVC,,3506,80
+fed2016,fed-58639,fed-204,Ringwood CASEY PPVC,,1435,44
+fed2016,fed-58641,fed-230,Melbourne Central MELBOURNE PORTS PPVC,,1853,31
+fed2016,fed-58642,fed-218,Special Hospital Team 3,,208,16
+fed2016,fed-58653,fed-217,Oakleigh HOTHAM PPVC,,5622,251
+fed2016,fed-58658,fed-223,Cranbourne LA TROBE PPVC,,866,34
+fed2016,fed-58714,fed-203,Glenroy CALWELL PPVC,,3995,318
+fed2016,fed-58743,fed-221,Box Hill KOOYONG PPVC,,2786,54
+fed2016,fed-58744,fed-226,South Morang MCEWEN PPVC,,6609,300
+fed2016,fed-58752,fed-234,Moonee Ponds WILLS PPVC,,3935,126
+fed2016,fed-58762,fed-212,Footscray PPVC,,8982,394
+fed2016,fed-58763,fed-228,Moonee Ponds MELBOURNE PPVC,,3491,102
+fed2016,fed-58781,fed-201,Dandenong BRUCE PPVC,,5260,271
+fed2016,fed-58782,fed-230,Melbourne West MELBOURNE PORTS PPVC,,1734,29
+fed2016,fed-58783,fed-216,Dandenong HOLT PPVC,,5103,243
+fed2016,fed-58802,fed-219,Dandenong ISAACS PPVC,,1352,90
+fed2016,fed-58803,fed-230,Melbourne CBD MELBOURNE PORTS PPVC,,607,12
+fed2016,fed-63146,fed-197,The Basin (Aston),,306,19
+fed2016,fed-63155,fed-197,Special Hospital Team 3,,8,0
+fed2016,fed-63158,fed-197,Boronia ASTON PPVC,,6635,435
+fed2016,fed-63272,fed-201,Syndal South (Bruce),,302,7
+fed2016,fed-63365,fed-204,Croydon Central (Casey),,574,22
+fed2016,fed-63367,fed-204,Croydon North (Casey),,429,12
+fed2016,fed-63369,fed-204,Croydon (Casey),,403,20
+fed2016,fed-63372,fed-204,Croydon Town (Casey),,438,21
+fed2016,fed-63600,fed-212,Tottenham North (Gellibrand),,359,22
+fed2016,fed-63601,fed-212,Altona Meadows (Gellibrand),,1043,84
+fed2016,fed-63602,fed-212,Seabrook (Gellibrand),,266,15
+fed2016,fed-63605,fed-212,Sunshine GELLIBRAND PPVC,,8753,808
+fed2016,fed-63669,fed-214,Elsternwick (Goldstein),,1251,46
+fed2016,fed-63745,fed-309,Sydenham Central (Gorton),,320,19
+fed2016,fed-63747,fed-309,Sydenham West (Gorton),,1569,115
+fed2016,fed-63761,fed-215,Glenhuntly East (Higgins),,1174,57
+fed2016,fed-63782,fed-215,Murrumbeena South (Higgins),,888,39
+fed2016,fed-63833,fed-216,Narre Warren (Holt),,259,10
+fed2016,fed-63835,fed-216,Hillsmeade (Holt),,228,13
+fed2016,fed-63836,fed-217,Carnegie East (Hotham),,273,13
+fed2016,fed-63938,fed-219,Coomoora (Isaacs),,330,16
+fed2016,fed-63986,fed-221,Koonung Heights (Kooyong),,575,14
+fed2016,fed-64001,fed-221,Camberwell South (Kooyong),,759,14
+fed2016,fed-64095,fed-223,Narre Warren South (La Trobe),,263,3
+fed2016,fed-64126,fed-226,Craigieburn (McEwen),,1140,87
+fed2016,fed-64155,fed-226,Hurstbridge (McEwen),,301,15
+fed2016,fed-64156,fed-226,Kangaroo Ground (McEwen),,240,1
+fed2016,fed-64158,fed-226,Yarrambat (McEwen),,421,18
+fed2016,fed-64267,fed-225,Maidstone (Maribyrnong),,1765,96
+fed2016,fed-64351,fed-228,Brunswick South East (Melbourne),,348,4
+fed2016,fed-64353,fed-228,Collingwood North (Melbourne),,880,16
+fed2016,fed-64358,fed-230,Elsternwick North (Melbourne Ports),,727,25
+fed2016,fed-64362,fed-229,Croydon Central (Menzies),,445,12
+fed2016,fed-64394,fed-229,Kalinda (Menzies),,596,18
+fed2016,fed-64477,fed-232,Norris Bank (Scullin),,426,32
+fed2016,fed-64576,fed-234,Strathmore (Wills),,353,9
+fed2016,fed-64602,fed-216,Narre Warren North (Holt),,667,23
+fed2016,fed-64603,fed-216,Cranbourne East,,2698,121
+fed2016,fed-64604,fed-216,Lyndhurst West,,2094,70
+fed2016,fed-64605,fed-223,Pakenham Shearwater (La Trobe),,579,26
+fed2016,fed-64608,fed-208,Special Hospital Team 4,,228,11
+fed2016,fed-64618,fed-199,Special Hospital Team 2,,289,7
+fed2016,fed-64628,fed-208,Barwon CORIO PPVC,,5468,256
+fed2016,fed-64629,fed-208,Corio PPVC,,8122,423
+fed2016,fed-64638,fed-229,Box Hill MENZIES PPVC,,1302,54
+fed2016,fed-64640,fed-222,Truganina South,,2215,119
+fed2016,fed-64641,fed-228,Northcote MELBOURNE PPVC,,1759,33
+fed2016,fed-64642,fed-234,Northcote WILLS PPVC,,2595,65
+fed2016,fed-64643,fed-199,Thornbury BATMAN PPVC,,5564,224
+fed2016,fed-64645,fed-309,St Albans West (Gorton),,449,36
+fed2016,fed-64648,fed-214,Oakleigh GOLDSTEIN PPVC,,1118,27
+fed2016,fed-64652,fed-200,Kyneton East,,1315,61
+fed2016,fed-64653,fed-203,Jacana,,462,24
+fed2016,fed-64656,fed-215,Oakleigh HIGGINS PPVC,,2518,80
+fed2016,fed-64658,fed-228,Kensington Central,,1518,45
+fed2016,fed-64659,fed-219,Cheltenham (Isaacs),,248,13
+fed2016,fed-64666,fed-222,Altona Bay (Lalor),,618,36
+fed2016,fed-64673,fed-201,Special Hospital Team 2,,275,9
+fed2016,fed-64674,fed-309,Brookfield,,1399,78
+fed2016,fed-64675,fed-211,Cranbourne FLINDERS PPVC,,2061,113
+fed2016,fed-64676,fed-227,Drouin Summerhill,,812,30
+fed2016,fed-64679,fed-198,Wendouree PPVC,,8414,394
+fed2016,fed-64682,fed-203,Gladstone Park PPVC,,10077,716
+fed2016,fed-64688,fed-214,Moorabbin South (Goldstein),,572,14
+fed2016,fed-64689,fed-213,Churchill North,,619,32
+fed2016,fed-64690,fed-197,Wantirna South PPVC,,9354,324
+fed2016,fed-64692,fed-219,Carrum Downs North,,2759,125
+fed2016,fed-64693,fed-226,Special Hospital Team 2,,98,3
+fed2016,fed-64694,fed-226,Special Hospital Team 3,,45,27
+fed2016,fed-64709,fed-212,Hoppers Crossing GELLIBRAND PPVC,,1718,75
+fed2016,fed-64710,fed-201,Tally Ho (Bruce),,211,7
+fed2016,fed-64711,fed-309,Sunshine GORTON PPVC,,4898,317
+fed2016,fed-64713,fed-198,Melton BALLARAT PPVC,,2428,140
+fed2016,fed-65105,fed-214,Special Hospital Team 3,,222,17
+fed2016,fed-65108,fed-203,Special Hospital Team 1,,167,11
+fed2016,fed-65111,fed-222,Point Cook East,,1856,54
+fed2016,fed-65123,fed-210,Langwarrin Hall,,1543,93
+fed2016,fed-65124,fed-210,Mt Eliza South,,1188,21
+fed2016,fed-65129,fed-223,Berwick LA TROBE PPVC,,12671,441
+fed2016,fed-65164,fed-216,Doveton,,1496,156
+fed2016,fed-65213,fed-215,Hawthorn HIGGINS PPVC,,1437,30
+fed2016,fed-65214,fed-221,Malvern KOOYONG PPVC,,543,13
+fed2016,fed-65221,fed-229,Mitcham North (Menzies),,437,10
+fed2016,fed-65241,fed-212,Special Hospital Team 2,,45,0
+fed2016,fed-65242,fed-309,Special Hospital Team 2,,99,7
+fed2016,fed-65394,fed-207,BLV Corangamite PPVC,,10,0
+fed2016,fed-65395,fed-204,BLV Casey PPVC,,17,0
+fed2016,fed-65398,fed-226,Seymour PPVC,,4033,197
+fed2016,fed-65399,fed-209,Croydon Hills (Deakin),,250,9
+fed2016,fed-65402,fed-209,BLV Deakin PPVC,,16,0
+fed2016,fed-65408,fed-205,BLV Chisholm PPVC,,21,0
+fed2016,fed-65413,fed-216,BLV Holt PPVC,,6,0
+fed2016,fed-65422,fed-229,BLV Menzies PPVC,,4,0
+fed2016,fed-65424,fed-205,Laburnum (Chisholm),,482,14
+fed2016,fed-65426,fed-228,BLV Melbourne PPVC,,18,0
+fed2016,fed-65427,fed-230,BLV Melbourne Ports PPVC,,19,0
+fed2016,fed-65428,fed-226,BLV McEwen PPVC,,0,0
+fed2016,fed-65431,fed-223,BLV La Trobe PPVC,,7,0
+fed2016,fed-65434,fed-211,BLV Flinders PPVC,,14,0
+fed2016,fed-65439,fed-212,BLV Gellibrand PPVC,,9,0
+fed2016,fed-65441,fed-309,BLV Gorton PPVC,,10,0
+fed2016,fed-65443,fed-214,BLV Goldstein PPVC,,17,2
+fed2016,fed-65451,fed-226,Wallan South,,1440,86
+fed2016,fed-65459,fed-213,BLV Gippsland PPVC,,7,0
+fed2016,fed-65461,fed-232,BLV Scullin PPVC,,6,0
+fed2016,fed-65462,fed-234,BLV Wills PPVC,,27,0
+fed2016,fed-65465,fed-199,BLV Batman PPVC,,7,1
+fed2016,fed-65488,fed-231,BLV Murray PPVC,,7,0
+fed2016,fed-65491,fed-226,Mill Park Lakes East,,1270,64
+fed2016,fed-65492,fed-233,BLV Wannon PPVC,,10,0
+fed2016,fed-65507,fed-222,BLV Lalor PPVC,,8,0
+fed2016,fed-65510,fed-197,BLV Aston PPVC,,9,0
+fed2016,fed-65519,fed-217,BLV Hotham PPVC,,10,1
+fed2016,fed-65524,fed-222,Special Hospital Team 2,,56,2
+fed2016,fed-65525,fed-222,Hoppers Crossing LALOR PPVC,,14869,781
+fed2016,fed-65527,fed-215,BLV Higgins PPVC,,21,0
+fed2016,fed-65528,fed-221,BLV Kooyong PPVC,,16,1
+fed2016,fed-65531,fed-203,BLV Calwell PPVC,,16,0
+fed2016,fed-65539,fed-219,BLV Isaacs PPVC,,9,0
+fed2016,fed-65541,fed-226,Puckapunyal PPVC,,0,0
+fed2016,fed-65543,fed-201,BLV Bruce PPVC,,16,0
+fed2016,fed-65547,fed-210,BLV Dunkley PPVC,,15,0
+fed2016,fed-65555,fed-227,BLV McMillan PPVC,,8,0
+fed2016,fed-65556,fed-220,BLV Jagajaga PPVC,,14,0
+fed2016,fed-65557,fed-218,BLV Indi PPVC,,9,0
+fed2016,fed-65564,fed-232,Mill Park Lakes (Scullin),,626,34
+fed2016,fed-65565,fed-200,BLV Bendigo PPVC,,21,0
+fed2016,fed-65566,fed-225,BLV Maribyrnong PPVC,,18,0
+fed2016,fed-65571,fed-198,BLV Ballarat PPVC,,16,0
+fed2016,fed-65583,fed-208,BLV Corio PPVC,,14,0
+fed2016,fed-65643,fed-224,BLV Mallee PPVC,,8,0
+fed2016,fed-65654,fed-229,Heidelberg MENZIES PPVC,,1208,31
+fed2016,fed-65659,fed-230,Malvern MELBOURNE PORTS PPVC,,3085,82
+fed2016,fed-65662,fed-218,Bright PPVC,,1027,40
+fed2016,fed-65663,fed-218,Mansfield PPVC,,2402,88
+fed2016,fed-65680,fed-232,Bundoora SCULLIN PPVC,,8915,367
+fed2016,fed-65687,fed-215,Fawkner Park (Higgins),,1309,21
+fed2016,fed-65696,fed-223,Cranbourne North (La Trobe),,326,10
+fed2016,fed-65704,fed-217,Cheltenham HOTHAM PPVC,,4965,228
+fed2016,fed-65706,fed-214,Cheltenham GOLDSTEIN PPVC,,4221,126
+fed2016,fed-65707,fed-219,Cheltenham ISAACS PPVC,,4190,143
+fed2016,fed-65724,fed-228,Other Mobile Team 1,,148,4
+fed2016,fed-65725,fed-230,Other Mobile Team 1,,41,5
+fed2016,fed-65736,fed-209,Other Mobile Team 1,,0,0
+fed2016,fed-65778,fed-199,Bundoora (Batman),,439,10
+fed2016,fed-65860,fed-219,Keysborough West,,643,18
+fed2016,fed-65862,fed-213,Morwell GIPPSLAND PPVC,,6625,405
+fed2016,fed-65865,fed-226,Craigieburn MCEWEN PPVC,,5550,328
+fed2016,fed-65866,fed-222,Tarneit North,,1902,75
+fed2016,fed-65867,fed-219,Springvale ISAACS PPVC,,4115,238
+fed2016,fed-65868,fed-219,Frankston ISAACS PPVC,,1928,71
+fed2016,fed-65871,fed-222,Truganina North,,1314,52
+fed2016,fed-65874,fed-222,Wyndham Vale South,,992,41
+fed2016,fed-65877,fed-222,Point Cook South,,2039,52
+fed2016,fed-65892,fed-218,Albury INDI PPVC,,1689,52
+fed2016,fed-65894,fed-217,McKinnon East (Hotham),,745,23
+fed2016,fed-65896,fed-226,Doreen Central,,1374,46
+fed2016,fed-65897,fed-227,Pakenham Springs,,1899,116
+fed2016,fed-65899,fed-200,Golden Square PPVC,,7119,301
+fed2016,fed-65901,fed-214,St Kilda GOLDSTEIN PPVC,,1680,33
+fed2016,fed-65902,fed-216,Berwick HOLT PPVC,,2636,108
+fed2016,fed-65904,fed-223,Boronia East (La Trobe),,946,37
+fed2016,fed-65905,fed-227,Morwell MCMILLAN PPVC,,2102,104
+fed2016,fed-65907,fed-219,Mentone Park (Isaacs),,1006,42
+fed2016,fed-65909,fed-224,Special Hospital Team 5,,283,15
+fed2016,fed-65910,fed-204,Other Mobile Team 1,,81,7
+fed2016,fed-65923,fed-205,Special Hospital Team 4,,1,1
+fed2016,fed-65941,fed-228,Special Hospital Team 8,,11,0
+fed2016,fed-65942,fed-228,Special Hospital Team 9,,12,0
+fed2016,fed-65943,fed-228,Special Hospital Team 10,,36,0
+fed2016,fed-65953,fed-234,Special Hospital Team 2,,10,0
+fed2016,fed-65957,fed-225,Special Hospital Team 2,,128,6
+fed2016,fed-65962,fed-199,Bundoora BATMAN PPVC,,2813,111
+fed2016,fed-65980,fed-233,Hamilton INTERSTATE PPVC,,0,0
+fed2016,fed-65997,fed-234,Special Hospital Team 3,,10,1
+fed2016,fed-65999,fed-234,Special Hospital Team 4,,8,0
+fed2016,fed-66007,fed-211,Dromana PPVC,,9444,447
+fed2016,fed-66012,fed-232,Epping North,,1333,69
+fed2016,fed-66026,fed-215,Special Hospital Team 3,,5,0
+fed2016,fed-66027,fed-215,Special Hospital Team 4,,11,0
+fed2016,fed-66032,fed-201,Noble Park (Bruce),,256,17
+fed2016,fed-66156,fed-223,Special Hospital Team 3,,20,0
+fed2016,fed-66157,fed-223,Special Hospital Team 4,,17,0
+fed2016,fed-66161,fed-203,Craigieburn CALWELL PPVC,,4511,287
+fed2016,fed-66703,fed-197,Special Hospital Team 4,,35,2
+fed2016,fed-67003,fed-201,Special Hospital Team 3,,14,1
+fed2016,fed-67006,fed-309,Arnolds Creek,,811,34
+fed2016,fed-69887,fed-211,Dromana North,,785,50
+fed2016,fed-82771,fed-199,Northcote BATMAN PPVC,,9141,333
+fed2016,fed-82772,fed-234,Thornbury WILLS PPVC,,970,37
+fed2016,fed-82778,fed-232,Special Hospital Team 3,,40,4
+fed2016,fed-82779,fed-218,Mount Beauty PPVC,,820,26
+fed2016,fed-82784,fed-226,Sunbury Central PPVC,,5030,244
+fed2016,fed-82787,fed-225,St Albans PPVC,,3690,300
+fed2016,fed-82792,fed-224,Other Mobile Team 1,,33,4
+fed2016,fed-82801,fed-309,Melbourne (Gorton),,49,0
+fed2016,fed-82802,fed-201,Melbourne (Bruce),,76,2
+fed2016,fed-82803,fed-232,Melbourne (Scullin),,67,1
+fed2016,fed-82805,fed-229,Melbourne (Menzies),,82,2
+fed2016,fed-82806,fed-209,Melbourne (Deakin),,43,1
+fed2016,fed-82807,fed-219,Melbourne (Isaacs),,54,1
+fed2016,fed-82808,fed-220,Melbourne (Jagajaga),,70,3
+fed2016,fed-82809,fed-203,Melbourne (Calwell),,63,6
+fed2016,fed-82810,fed-214,Melbourne (Goldstein),,98,0
+fed2016,fed-82811,fed-197,Melbourne (Aston),,50,2
+fed2016,fed-82812,fed-204,Melbourne (Casey),,29,4
+fed2016,fed-82813,fed-217,Melbourne (Hotham),,58,1
+fed2016,fed-82814,fed-223,Melbourne (La Trobe),,45,1
+fed2016,fed-82815,fed-226,Melbourne (McEwen),,65,1

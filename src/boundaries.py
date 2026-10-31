@@ -115,6 +115,8 @@ if __name__ == '__main__':
     vicmap('state_assembly_2013', 'vic_la_2013', 'LA')
     vicmap('state_council_2022', 'vic_lc_2022', 'LC')
     vicmap('state_council_2013', 'vic_lc_2013', 'LC')
+    vicmap('state_assembly_2001', 'vic_la_2001', 'LA')   # 2002, 2006 and 2010 state elections
+    vicmap('state_council_2005', 'vic_lc_2005', 'LC')    # 2006 and 2010 Legislative Council regions
     ids22 = {r.contest_name.upper(): r.contest_id for r in pd.read_csv('data/fed2022/contests.csv').itertuples()}
     ids25 = {r.contest_name.upper(): r.contest_id for r in pd.read_csv('data/fed2025/contests.csv').itertuples()}
     aec(f'{RAW}/aec/vic-july-2021-esri/E_VIC21_region.shp', 'fed_2021', ids22)

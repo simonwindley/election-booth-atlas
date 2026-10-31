@@ -15,14 +15,14 @@ LABEL_PARTY = {  # Wikipedia column / suffix label -> canonical code
     'labor': 'ALP', 'liberal': 'LIB', 'national': 'NAT', 'coalition': 'COAL', 'greens': 'GRN', 'one nation': 'ONP',
     'socialists': 'VSP', 'legalise cannabis': 'LCP', 'dlp': 'DLP', 'libertarian': 'LDP', 'sff': 'SFF', 'freedom': 'FRP',
     'ajp': 'AJP', 'family first': 'FFP', 'sustainable': 'SAP', 'new democrats': 'NDP', 'emi-reform': 'OTH', 'emi - reform': 'OTH',
-    'citizens party': 'CYA', 'democrats': 'OTH', 'socialist alliance': 'OTH', 'west party': 'OTH', 'independent': 'IND',
+    'citizens party': 'ACP', 'democrats': 'OTH', 'socialist alliance': 'OTH', 'west party': 'OTH', 'independent': 'IND',
 }
 SUFFIX_PARTY = {'l': 'LIB', 'lib': 'LIB', 'n': 'NAT', 'nat': 'NAT', 'ind': 'IND', 'ajp': 'AJP', 'ff': 'FFP', 'lbt': 'LDP', 'ldp': 'LDP',
                 'sa': 'SAP', 'sap': 'SAP', 'on': 'ONP', 'onp': 'ONP', 'lc': 'LCP', 'lcp': 'LCP', 'dlp': 'DLP', 'sff': 'SFF', 'frp': 'FRP',
-                'fp': 'FRP', 'vs': 'VSP', 'grn': 'GRN', 'alp': 'ALP', 'nd': 'NDP', 'cya': 'CYA', 'fus': 'FUS', 'hap': 'HAP', 'acp': 'CYA', 'cp': 'CYA', 'dem': 'OTH'}
+                'fp': 'FRP', 'vs': 'VSP', 'grn': 'GRN', 'alp': 'ALP', 'nd': 'NDP', 'cya': 'ACP', 'fus': 'FUS', 'hap': 'HAP', 'acp': 'ACP', 'cp': 'ACP', 'dem': 'OTH'}
 PARTY_LABEL = {'ALP': 'Labor', 'LIB': 'Liberal', 'NAT': 'National', 'GRN': 'Greens', 'ONP': 'One Nation', 'VSP': 'Victorian Socialists',
                'LCP': 'Legalise Cannabis', 'DLP': 'DLP', 'LDP': 'Libertarian', 'SFF': 'Shooters, Fishers & Farmers', 'FRP': 'Freedom Party',
-               'AJP': 'Animal Justice', 'FFP': 'Family First', 'SAP': 'Sustainable Australia', 'NDP': 'New Democrats', 'CYA': 'Citizens Party', 'IND': 'Independent', 'OTH': 'Other'}
+               'AJP': 'Animal Justice', 'FFP': 'Family First', 'SAP': 'Sustainable Australia', 'NDP': 'New Democrats', 'ACP': 'Citizens Party', 'IND': 'Independent', 'OTH': 'Other'}
 
 
 PARTY_URL = {  # each party's own candidate listing (checked October 2026; the VEC's nominations list supersedes these from 9 Nov)
@@ -30,7 +30,7 @@ PARTY_URL = {  # each party's own candidate listing (checked October 2026; the V
     'COAL': 'https://vic.liberal.org.au/candidates', 'GRN': 'https://greens.org.au/vic/candidates', 'ONP': 'https://www.onenation.org.au/candidates',
     'VSP': 'https://www.victoriansocialists.org.au/candidates', 'LCP': 'https://legalisecannabis.org.au/', 'AJP': 'https://animaljusticeparty.org/',
     'FFP': 'https://www.familyfirstparty.org.au/', 'LDP': 'https://www.libertarians.org.au/', 'SFF': 'https://www.shootersfishersandfarmers.org.au/',
-    'DLP': 'https://dlp.org.au/', 'SAP': 'https://www.sustainableaustralia.org.au/', 'CYA': 'https://citizensparty.org.au/',
+    'DLP': 'https://dlp.org.au/', 'SAP': 'https://www.sustainableaustralia.org.au/', 'ACP': 'https://citizensparty.org.au/',
 }
 
 

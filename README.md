@@ -9,7 +9,8 @@ changes.
 
 ```
 raw/                      # untouched source data
-  aec/2022, aec/2025      # AEC Tally Room CSVs, filtered to Victoria (event 27966, 31496)
+  aec/2010 … aec/2025     # AEC Tally Room CSVs, filtered to Victoria (events 15508, 17496, 20499, 24310, 27966, 31496)
+  aec/senate              # Senate first preferences by polling place, scraped from the Tally Room's per-booth pages (no CSV exists)
   aec/pp_history          # 2016 and 2019 polling place lists (used only for venue matching)
   vec/2022/districts.json # scrape of all 87 VEC district result pages (FP by voting centre,
                           #   2CP by voting centre, full distribution of preferences)
@@ -19,10 +20,12 @@ raw/                      # untouched source data
                           #   voting centre with ATL/BTL by candidate; the STV distribution)
   vec/2018/               # 2018 scrape (from the Internet Archive's copy of the old VEC results
                           #   site) + 2018 Legislative Council .xls files
+  vec/2014/, vec/2010/    # 2014 and 2010 scrapes, also from the Internet Archive (latest 2020 captures)
   vec/osm_geocodes_raw.json  # raw OpenStreetMap lookups for VEC-only booth names
   boundaries/             # Vicmap WFS extracts and AEC shapefiles as downloaded
 data/
-  vic2018/, vic2022/, vic2023n/, fed2022/, fed2025/   # normalised CSVs, one set per election
+  vic2010/ … vic2022/, vic2023n/, vicby-*/, fed2010/ … fed2025/   # normalised CSVs, one set per election
+  senate/                 # senators elected for Victoria at each federal election
   venues/                 # venue table, VEC booth -> venue matches, geocodes
   boundaries/             # simplified GeoJSON: vic_la_2013/2022, vic_lc_2013/2022, fed_2021/2024
   catchments/             # Voronoi booth catchments per election (+ H3 res-7 hex shares, review lists)
@@ -51,7 +54,7 @@ tools/                    # helpers for moving data through the browser pane
 
 | table | key | notes |
 |---|---|---|
-| `elections` | election_id | `vic2018`, `vic2022`, `vic2023n` (Narracan supplementary), `fed2022`, `fed2025`, and the by-elections `vicby-warrandyte-2023`, `vicby-mulgrave-2023`, `vicby-prahran-2025`, `vicby-werribee-2025`, `vicby-nepean-2026` |
+| `elections` | election_id | state: `vic2010`, `vic2014`, `vic2018`, `vic2022`, `vic2023n` (Narracan supplementary) and the by-elections `vicby-warrandyte-2023`, `vicby-mulgrave-2023`, `vicby-prahran-2025`, `vicby-werribee-2025`, `vicby-nepean-2026`; federal: `fed2010`, `fed2013`, `fed2016`, `fed2019`, `fed2022`, `fed2025` |
 | `contests` | election_id, contest_id | a district (`vic-albert-park`) or division (`fed-197`); enrolment/formal/informal for VEC |
 | `candidates` | election_id, candidate_id | surname, given_name, party_name (as published), `party` (canonical), ballot_position, elected |
 | `booths` | election_id, booth_id | `booth_type` is `ordinary` (election-day booth), `early` (pre-poll centre), or a declaration type (`postal`, `absent`, `provisional`, `early_declaration`, `marked_as_voted`) which is a synthetic district-level row |
@@ -64,6 +67,7 @@ tools/                    # helpers for moving data through the browser pane
 | `vec_booth_venue` | booth_id | VEC voting centre -> venue with `method` (`exact_unique`, `exact_cluster`, `exact_nearest`, `fuzzy` = review, `unmatched`) |
 | `geocoded` | booth_id | approximate coordinates for VEC booths with no AEC venue (Nominatim/OSM, locality level) |
 | `booth_geo` | election_id, booth_id | every booth's venue_id (a `g-` prefixed pseudo-venue for geocoded booths), lat, lon and `geo_source` |
+| `sen_groups` / `sen_booths` | election_id, booth_id | Senate first preferences by polling place (election-day and pre-poll booths only), per group: above-the-line votes and the group total including below-the-line; booth ids are the House ids. `senators_elected`: the six (twelve in 2016) Victorian senators per election, in order |
 | `lc_contests` / `lc_candidates` / `lc_votes` / `lc_dop` | | Legislative Council: region totals and quota; groups + candidates (with an `ATL` pseudo-candidate per group); votes by voting centre x candidate/ATL (booth ids shared with the Assembly); the STV count (ballot papers, transfer value, progressive total per count, `elected` flags) |
 
 Views: `booth_party_fp` (votes by canonical party per booth), `booth_party_share` (share of
@@ -73,8 +77,13 @@ at each election).
 ## Reconciliation (`python3 -m src.verify data/<election>`)
 
 * First preferences by voting centre sum exactly to the district formal vote, and informal to
-  informal, for every district in 2018 and 2022 (one documented exception: Ripon 2018, where the
-  only booth-level count the VEC published predates the recount by 24 votes).
+  informal, for every district in 2010, 2014, 2018 and 2022 (documented exceptions, each in the election's
+  `verify_exceptions.json`: Ripon 2018 and Prahran 2014, where the only booth-level count the VEC published
+  predates the recount; and a handful of districts in 2010 and 2014 whose archived distribution page carries
+  a first-preference total a few votes different from the rechecked district total).
+* Seats: 2010 ALP 43, LIB 35, NAT 10; 2014 ALP 47, LIB 30, NAT 8, GRN 2, IND 1. Federal (Vic): 2010 ALP 22 LIB 12 NAT 2 GRN 1;
+  2013 ALP 19 LIB 14 NAT 2 GRN 1 IND 1; 2016 ALP 18 LIB 14 NAT 3 GRN 1 IND 1; 2019 ALP 21 LIB 12 NAT 3 GRN 1 IND 1.
+* Senate booth totals reconcile to the booth formal vote in every election 2010–2025.
 * Distribution of preferences: transfers at every count sum to zero and the final progressive
   totals equal the formal vote, for all 76 (2022) and 47 (2018) districts with an official distribution.
 * Legislative Council votes by voting centre sum to the region formal vote in all 16 region-years.
@@ -139,16 +148,20 @@ This is what the static site loads (DuckDB-WASM for the tables, MapLibre for the
 ## Re-running
 
 ```
+python3 -m src.load_aec 15508 2010 raw/aec/2010 data/fed2010      # likewise 17496 2013, 20499 2016, 24310 2019
 python3 -m src.load_aec 27966 2022 raw/aec/2022 data/fed2022
 python3 -m src.load_aec 31496 2025 raw/aec/2025 data/fed2025
+python3 -m src.load_senate 27966 2022 raw/aec/senate/senate_pp_27966.json data/fed2022   # and the other five events
 python3 -m src.load_vec 2022 raw/vec/2022/districts.json data/vic2022
 python3 -m src.load_vec 2018 raw/vec/2018/districts.json data/vic2018
+python3 -m src.load_vec 2014 raw/vec/2014/districts.json data/vic2014   # districts.json = normalise_2018() over districts_wayback.json
+python3 -m src.load_vec 2010 raw/vec/2010/districts.json data/vic2010
 python3 -m src.load_lc 2022 raw/vec/2022/legislative_council data/vic2022
 python3 -m src.load_lc 2018 raw/vec/2018/legislative_council data/vic2018
 # by-elections: raw/vec/by_<seat><year>.json -> data/vicby-<seat>-<year> (see src/load_vec.load)
 python3 -m src.load_2026 raw/vec/2026/wikipedia_candidates_raw_2026-10-31.json data/vic2026 2026-10-31
 python3 -m src.verify data/vic2022 && python3 -m src.verify data/vic2018
-python3 -m src.match_venues data/vic2022/booths.csv,data/vic2018/booths.csv,data/vic2023n/booths.csv data/venues data/fed2022/booths.csv data/fed2025/booths.csv raw/aec/pp_history/booths_fed2016_2019.csv
+python3 -m src.match_venues data/vic2022/booths.csv,data/vic2018/booths.csv,data/vic2014/booths.csv,data/vic2010/booths.csv,data/vic2023n/booths.csv,<by-election booths…> data/venues data/fed2025/booths.csv data/fed2022/booths.csv data/fed2019/booths.csv data/fed2016/booths.csv data/fed2013/booths.csv data/fed2010/booths.csv
 python3 -m src.filter_geocodes raw/vec/osm_geocodes_raw.json data
 python3 -m src.boundaries
 python3 -m src.build_db data/elections.sqlite data
@@ -168,4 +181,5 @@ Requires pandas, xlrd, openpyxl, shapely, pyshp, h3, pyarrow.
   (captures from late 2019, i.e. final rechecked figures).
 * VEC indicative distributions: https://www.vec.vic.gov.au/results/electoral-statistics/state-election-statistics/full-preference-distributions
 * AEC Tally Room downloads: https://results.aec.gov.au/27966/Website/HouseDownloadsMenu-27966-Csv.htm and .../31496/...
-* Boundaries: Vicmap Admin state assembly/council polygons via the DataVic WFS (open-data-platform:state_assembly_2013/2022, state_council_2013/2022); AEC Victorian division shapefiles (July 2021, October 2024).
+* Boundaries: Vicmap Admin state assembly/council polygons via the DataVic WFS (open-data-platform:state_assembly_2001/2013/2022, state_council_2005/2013/2022); AEC Victorian division files: February 2010 (MapInfo, used at the 2010 election), December 2010 (2013 and 2016), July 2018 (2019), July 2021 (2022), October 2024 (2025).
+* Senate by polling place: the Tally Room's `SenatePollingPlaceFirstPrefs-<event>-<pp>.htm` pages (and the 2010/2013 VTR equivalents), ~2,000 per election, parsed in the browser into `raw/aec/senate/senate_pp_<event>.json`.

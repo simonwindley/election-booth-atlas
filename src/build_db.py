@@ -9,6 +9,7 @@ import pandas as pd
 
 ELECTIONS = {
     # election_id: (level, date, name)
+    'vic2010': ('state', '2010-11-27', 'Victorian state election 2010'),
     'vic2014': ('state', '2014-11-29', 'Victorian state election 2014'),
     'vic2018': ('state', '2018-11-24', 'Victorian state election 2018'),
     'vic2022': ('state', '2022-11-26', 'Victorian state election 2022'),
@@ -34,7 +35,7 @@ def main(db_path, data_dir):
     tables = {}
     for d in sorted(glob.glob(f'{data_dir}/*/')):
         eid = os.path.basename(d.rstrip('/'))
-        if eid in ('venues', 'vic2026', 'bundle', 'boundaries', 'catchments', 'analysis'):
+        if eid in ('venues', 'vic2026', 'bundle', 'boundaries', 'catchments', 'analysis', 'senate'):
             continue
         for f in glob.glob(f'{d}/*.csv'):
             t = os.path.basename(f)[:-4]
@@ -56,6 +57,8 @@ def main(db_path, data_dir):
     ab = ab.merge(venues[['vkey', 'venue_id']], on='vkey', how='left')
     ab[['election_id', 'booth_id', 'venue_id']].to_sql('aec_booth_venue', con, index=False)
     pd.read_csv(f'{data_dir}/venues/geocoded.csv').to_sql('geocoded', con, index=False)
+    if os.path.exists(f'{data_dir}/senate/senators_elected.csv'):
+        pd.read_csv(f'{data_dir}/senate/senators_elected.csv').to_sql('senators_elected', con, index=False)
     # booth -> venue, lat, lon for every election: AEC booths via their own venue ids, VEC via the match table
     con.executescript('''
     CREATE TABLE booth_geo AS
