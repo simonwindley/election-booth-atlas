@@ -1,0 +1,11 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-1,King,Ethelyn,Libertarian,,LDP,1,0
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-2,Ackerly,Celeste,Sustainable Australia Party - Stop Overdevelopment / Corruption,,SAP,2,0
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-3,Cook,Ian,,,IND,3,0
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-4,Foreman,Jane,Family First Victoria,,FFP,4,0
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-5,Mann,Courtney,Liberal,,LIB,5,0
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-6,Cvetkova,Kelly,Victorian Socialists,,VSP,6,0
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-7,Garad,Rhonda,Australian Greens,,GRN,7,0
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-8,Foster,Eden,Australian Labor Party,,ALP,8,1
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-9,Theodossopoulou,Tina,,,IND,9,0
+vicby-mulgrave-2023,vic-mulgrave,vic-mulgrave-10,Currie,Bronwyn,Animal Justice Party,,AJP,10,0

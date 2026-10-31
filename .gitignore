@@ -1,0 +1,11 @@
+# regenerable or scratch — not committed (see README.md "Re-running")
+data/elections.sqlite
+data/bundle/
+site/data_plain/
+site/data/live/snapshots/
+_to_delete/
+_incoming/
+__pycache__/
+*.pyc
+.DS_Store
+*.tmp

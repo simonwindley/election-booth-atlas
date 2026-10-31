@@ -1,0 +1,25 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+fed-203,fed-120075,Kalkallo (Calwell),aec,1.3
+fed-205,fed-120136,Malvern (Chisholm),aec,1.1
+fed-212,fed-124028,Melbourne CBD North East (Gellibrand),aec,9.1
+fed-212,fed-124029,Melbourne CBD North West (Gellibrand),aec,8.2
+fed-212,fed-124027,Melbourne CBD South Central (Gellibrand),aec,8.0
+fed-221,fed-124024,Melbourne CBD North East (Kooyong),aec,2.7
+fed-221,fed-124026,Melbourne CBD North West (Kooyong),aec,4.3
+fed-221,fed-124025,Melbourne CBD South Central (Kooyong),aec,3.5
+fed-222,fed-109735,Truganina East (Lalor),aec,2.3
+fed-225,fed-124031,Melbourne CBD North East (Maribyrnong),aec,4.4
+fed-225,fed-124032,Melbourne CBD North West (Maribyrnong),aec,2.8
+fed-225,fed-124030,Melbourne CBD South Central (Maribyrnong),aec,4.2
+fed-226,fed-64156,Kangaroo Ground (McEwen),aec,2.0
+fed-226,fed-109614,Wollert South (McEwen),aec,5.1
+fed-232,fed-82922,Mernda Central (Scullin),aec,1.2
+fed-234,fed-124013,Melbourne CBD North East (Wills),aec,1.9
+fed-234,fed-124033,Melbourne CBD North West (Wills),aec,1.6
+fed-234,fed-124012,Melbourne CBD South Central (Wills),aec,2.8
+fed-309,fed-92053,Cairnlea (Gorton),aec,1.3
+fed-320,fed-124021,Melbourne CBD North East (Cooper),aec,2.1
+fed-320,fed-124022,Melbourne CBD North West (Cooper),aec,3.1
+fed-320,fed-124020,Melbourne CBD South Central (Cooper),aec,3.2
+fed-322,fed-124018,Melbourne CBD North East (Macnamara),aec,1.3
+fed-322,fed-124011,Melbourne CBD North West (Macnamara),aec,1.5

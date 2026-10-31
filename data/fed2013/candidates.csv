@@ -1,0 +1,345 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+fed2013,fed-197,23382,EVANS,Rupert,Australian Labor Party,ALP,ALP,1,0
+fed2013,fed-197,24155,SPEER,Jennifer,Rise Up Australia Party,RUA,RUA,2,0
+fed2013,fed-197,23387,RAYMOND,Steve,The Greens,GRN,GRN,3,0
+fed2013,fed-197,23474,TUDGE,Alan,Liberal,LP,LIB,4,1
+fed2013,fed-197,23621,WATT,Bradley Walter,Palmer United Party,PUP,UAP,5,0
+fed2013,fed-197,24975,FOSTER,Tony,Family First Party,FFP,FFP,6,0
+fed2013,fed-197,23850,JENKINS,Charity,Sex Party,ASXP,FRP,7,0
+fed2013,fed-198,23570,FOSTER,Anne,Australian Christians,AUC,AUC,1,0
+fed2013,fed-198,24150,ROJAS,Ana,Rise Up Australia Party,RUA,RUA,2,0
+fed2013,fed-198,24206,DUNNE,Shane Edward,Katter's Australian Party,KAP,KAP,3,0
+fed2013,fed-198,23965,MATHIESON,Joshua,Sex Party,ASXP,FRP,4,0
+fed2013,fed-198,23344,HODGINS-MAY,Stephanie,The Greens,GRN,GRN,5,0
+fed2013,fed-198,23473,FITZGIBBON,John,Liberal,LP,LIB,6,0
+fed2013,fed-198,23978,VEREKER,Stephen,DLP Democratic Labour,DLP,DLP,7,0
+fed2013,fed-198,23678,MURPHY,Gerard Anthony,Palmer United Party,PUP,UAP,8,0
+fed2013,fed-198,24973,CLARK,Shane,Family First Party,FFP,FFP,9,0
+fed2013,fed-198,23305,KING,Catherine,Australian Labor Party,ALP,ALP,10,1
+fed2013,fed-199,24154,WINTERTON,Pat,Rise Up Australia Party,RUA,RUA,1,0
+fed2013,fed-199,24960,SMITHIES,Ken,Family First Party,FFP,FFP,2,0
+fed2013,fed-199,24747,SUTTON,Philip,,NAFD,IND,3,0
+fed2013,fed-199,23565,SOURIS,George,Liberal,LP,LIB,4,0
+fed2013,fed-199,23861,SLIWCZYNSKI,Lianna,Sex Party,ASXP,FRP,5,0
+fed2013,fed-199,23319,BHATHAL,Alexandra Kaur,The Greens,GRN,GRN,6,0
+fed2013,fed-199,23652,GUARDIANI,Franco,Palmer United Party,PUP,UAP,7,0
+fed2013,fed-199,23296,FEENEY,David,Australian Labor Party,ALP,ALP,8,1
+fed2013,fed-199,23984,LAVIN,Rosemary,Animal Justice Party,AJP,AJP,9,0
+fed2013,fed-200,23775,SHEEDY,Sarah,The Nationals,NP,NAT,1,0
+fed2013,fed-200,23318,CHESTERS,Lisa,Australian Labor Party,ALP,ALP,2,1
+fed2013,fed-200,23466,BICKLEY,Greg,Liberal,LP,LIB,3,0
+fed2013,fed-200,23329,SLADE,Lachlan,The Greens,GRN,GRN,4,0
+fed2013,fed-200,23876,CRUTCHFIELD,Charlie,Sex Party,ASXP,FRP,5,0
+fed2013,fed-200,24996,HOWARD,Alan,Family First Party,FFP,FFP,6,0
+fed2013,fed-200,23699,LEUNIG,Rod,Country Alliance,CYA,CYA,7,0
+fed2013,fed-200,24681,ABIKHAIR,Daniel Edward,Independent,IND,IND,8,0
+fed2013,fed-200,24748,RAHMANI,Matine,Independent,IND,IND,9,0
+fed2013,fed-200,24158,CADDY,Sandra,Rise Up Australia Party,RUA,RUA,10,0
+fed2013,fed-200,23618,DONLON,Anita Erika,Palmer United Party,PUP,UAP,11,0
+fed2013,fed-200,24203,STINGEL,Stephen John,Katter's Australian Party,KAP,KAP,12,0
+fed2013,fed-200,23559,MCDONALD,Ewan,Australian Christians,AUC,AUC,13,0
+fed2013,fed-201,24988,FILLIPONI,Rebecca,Family First Party,FFP,FFP,1,0
+fed2013,fed-201,23632,TUYAU,Paul Robert Jose,Palmer United Party,PUP,UAP,2,0
+fed2013,fed-201,23317,GRIFFIN,Alan,Australian Labor Party,ALP,ALP,3,1
+fed2013,fed-201,23574,CICCHIELLO,Emanuele,Liberal,LP,LIB,4,0
+fed2013,fed-201,24002,GONSALVEZ,Geraldine Marie Antoinette,DLP Democratic Labour,DLP,DLP,5,0
+fed2013,fed-201,24196,WHITE,Robert George,Rise Up Australia Party,RUA,RUA,6,0
+fed2013,fed-201,23354,KELEHER,Lynette,The Greens,GRN,GRN,7,0
+fed2013,fed-201,24955,UTH,Kiry,Independent,IND,IND,8,0
+fed2013,fed-203,24316,WATSON,Brett,Katter's Australian Party,KAP,KAP,1,0
+fed2013,fed-203,24989,GRAHAM,Paul,Family First Party,FFP,FFP,2,0
+fed2013,fed-203,23738,LETCHER,Bryce Newton,Palmer United Party,PUP,UAP,3,0
+fed2013,fed-203,23299,VAMVAKINOU,Maria,Australian Labor Party,ALP,ALP,4,1
+fed2013,fed-203,23894,SPIROVSKA,Nevena,Sex Party,ASXP,FRP,5,0
+fed2013,fed-203,23580,KHAN,Ali,Liberal,LP,LIB,6,0
+fed2013,fed-203,23581,BENGTSSON,Maria,Australian Christians,AUC,AUC,7,0
+fed2013,fed-203,24131,ROZARIO,Charles,Rise Up Australia Party,RUA,RUA,8,0
+fed2013,fed-203,23953,OMAR,Omar Jabir,DLP Democratic Labour,DLP,DLP,9,0
+fed2013,fed-203,23328,NEVILL,Joanna,The Greens,GRN,GRN,10,0
+fed2013,fed-204,23338,MEACHER,Steve,The Greens,GRN,GRN,1,0
+fed2013,fed-204,24972,COOMBES,Gary,Family First Party,FFP,FFP,2,0
+fed2013,fed-204,23362,FARRELL,Cathy,Australian Labor Party,ALP,ALP,3,0
+fed2013,fed-204,23734,LEAKE,Jeffrey Andrew,Country Alliance,CYA,CYA,4,0
+fed2013,fed-204,24232,BROWN,Mike,Australian Christians,AUC,AUC,5,0
+fed2013,fed-204,24762,McRAE,Jeanette,Independent,IND,IND,6,0
+fed2013,fed-204,24145,BARBIERI,Paul,Rise Up Australia Party,RUA,RUA,7,0
+fed2013,fed-204,23624,WILDE,Milton,Palmer United Party,PUP,UAP,8,0
+fed2013,fed-204,23592,SMITH,Tony,Liberal,LP,LIB,9,1
+fed2013,fed-205,23359,FERGEUS,Josh,The Greens,GRN,GRN,1,0
+fed2013,fed-205,23311,BURKE,Anna Elizabeth,Australian Labor Party,ALP,ALP,2,1
+fed2013,fed-205,23890,GROSSI,Luzio,Sex Party,ASXP,FRP,3,0
+fed2013,fed-205,24140,VASSILIOU,Melanie,Rise Up Australia Party,RUA,RUA,4,0
+fed2013,fed-205,23478,NGUYEN,John,Liberal,LP,LIB,5,0
+fed2013,fed-205,23610,WOODS,Brian Clifford,Palmer United Party,PUP,UAP,6,0
+fed2013,fed-205,24978,MYSZKA,Martin,Family First Party,FFP,FFP,7,0
+fed2013,fed-205,23575,JAYARATNE,Vidura Nalin,Secular Party of Australia,SPA,OTH,8,0
+fed2013,fed-205,23961,SHEA,Pat,DLP Democratic Labour,DLP,DLP,9,0
+fed2013,fed-207,23376,DAVIES,Lloyd,The Greens,GRN,GRN,1,0
+fed2013,fed-207,24165,RASHLEIGH,Helen,Rise Up Australia Party,RUA,RUA,2,0
+fed2013,fed-207,23566,BARRON,Alan,Australian Christians,AUC,AUC,3,0
+fed2013,fed-207,24956,WHITEHEAD,Adrian,Independent,IND,IND,4,0
+fed2013,fed-207,23366,CHEESEMAN,Darren,Australian Labor Party,ALP,ALP,5,0
+fed2013,fed-207,24994,WRAY,Peter,Family First Party,FFP,FFP,6,0
+fed2013,fed-207,23882,MILLARD,Jayden,Sex Party,ASXP,FRP,7,0
+fed2013,fed-207,23717,JACKMAN,Warren,Country Alliance,CYA,CYA,8,0
+fed2013,fed-207,23661,ROJEK,Buddy Igor,Palmer United Party,PUP,UAP,9,0
+fed2013,fed-207,23763,BLACK,Andrew,The Nationals,NP,NAT,10,0
+fed2013,fed-207,23526,HENDERSON,Sarah,Liberal,LP,LIB,11,1
+fed2013,fed-207,24515,STEEL,Nick,Australian Protectionist Party,APP,OTH,12,0
+fed2013,fed-208,23651,HARRINGTON,Anthony John,Palmer United Party,PUP,UAP,1,0
+fed2013,fed-208,24161,LEGRAND,Yann,Rise Up Australia Party,RUA,RUA,2,0
+fed2013,fed-208,23303,MARLES,Richard,Australian Labor Party,ALP,ALP,3,1
+fed2013,fed-208,24981,FENN,Brendan,Family First Party,FFP,FFP,4,0
+fed2013,fed-208,23467,READ,Peter,Liberal,LP,LIB,5,0
+fed2013,fed-208,23599,BULL,Sue,Socialist Alliance,SAL,SAP,6,0
+fed2013,fed-208,23560,ATHERTON,Patrick,Australian Christians,AUC,AUC,7,0
+fed2013,fed-208,23336,LACEY,Greg,The Greens,GRN,GRN,8,0
+fed2013,fed-208,23173,ASHER,Stephanie,Independent,IND,IND,9,0
+fed2013,fed-208,23854,MARTIN,Justine Deborah,Sex Party,ASXP,FRP,10,0
+fed2013,fed-209,23593,DOBBY,Ian,Australian Christians,AUC,AUC,1,0
+fed2013,fed-209,24142,DE ZILWA,Yasmin,Rise Up Australia Party,RUA,RUA,2,0
+fed2013,fed-209,23700,SMITH,Toni,Country Alliance,CYA,CYA,3,0
+fed2013,fed-209,23590,SUKKAR,Michael,Liberal,LP,LIB,4,1
+fed2013,fed-209,23644,GUARDIANI,Mario,Palmer United Party,PUP,UAP,5,0
+fed2013,fed-209,24234,RASKOVY,Steve,Katter's Australian Party,KAP,KAP,6,0
+fed2013,fed-209,24134,CARBONARI,John,Australia First Party,AFN,OTH,7,0
+fed2013,fed-209,23172,BARCLAY,Mike,Independent,IND,IND,8,0
+fed2013,fed-209,23881,BARBER,Stephen,Sex Party,ASXP,FRP,9,0
+fed2013,fed-209,24961,WESTBROOK,Hannah,Family First Party,FFP,FFP,10,0
+fed2013,fed-209,23356,POWELL,Brendan,The Greens,GRN,GRN,11,0
+fed2013,fed-209,23321,SYMON,Mike,Australian Labor Party,ALP,ALP,12,0
+fed2013,fed-210,23337,TILLER,Simon,The Greens,GRN,GRN,1,0
+fed2013,fed-210,23342,KILKENNY,Sonya,Australian Labor Party,ALP,ALP,2,0
+fed2013,fed-210,23726,RYDER,Kate Dolina,Palmer United Party,PUP,UAP,3,0
+fed2013,fed-210,24997,EASTMAN,Cameron,Family First Party,FFP,FFP,4,0
+fed2013,fed-210,24950,BURT,Rod,Independent,IND,IND,5,0
+fed2013,fed-210,23509,BILLSON,Bruce,Liberal,LP,LIB,6,1
+fed2013,fed-210,24319,GENTLE,Yvonne,Rise Up Australia Party,RUA,RUA,7,0
+fed2013,fed-210,23969,PALMI,Eloise,Sex Party,ASXP,FRP,8,0
+fed2013,fed-210,23169,BROFF,Roy,Independent,IND,IND,9,0
+fed2013,fed-211,23728,CLARK,Linda Ruth,Palmer United Party,PUP,UAP,1,0
+fed2013,fed-211,24790,MADIGAN,Paul,Independent,IND,IND,2,0
+fed2013,fed-211,23666,ZABANEH,John,Non-Custodial Parents Party (Equal Parenting),NCP,OTH,3,0
+fed2013,fed-211,24176,DORIAN,Angela,Rise Up Australia Party,RUA,RUA,4,0
+fed2013,fed-211,23557,BELSAR,Ashleigh,Australian Christians,AUC,AUC,5,0
+fed2013,fed-211,24785,McCORMACK,Denis,Independent,IND,IND,6,0
+fed2013,fed-211,23364,SINCLAIR,Joshua,Australian Labor Party,ALP,ALP,7,0
+fed2013,fed-211,24985,CLARK,David,Family First Party,FFP,FFP,8,0
+fed2013,fed-211,23497,HUNT,Greg,Liberal,LP,LIB,9,1
+fed2013,fed-211,23371,RUSH,Martin,The Greens,GRN,GRN,10,0
+fed2013,fed-212,24976,ARCH,Kerry,Family First Party,FFP,FFP,1,0
+fed2013,fed-212,23490,McCONNELL,David,Liberal,LP,LIB,2,0
+fed2013,fed-212,23577,O'NEILL,Anthony,Australian Christians,AUC,AUC,3,0
+fed2013,fed-212,23422,WATTS,Tim,Australian Labor Party,ALP,ALP,4,1
+fed2013,fed-212,23690,SINGLETON,Dwayne Robert,Palmer United Party,PUP,UAP,5,0
+fed2013,fed-212,23428,SWIFT,Rod,The Greens,GRN,GRN,6,0
+fed2013,fed-212,23886,CASHION,Allan,Sex Party,ASXP,FRP,7,0
+fed2013,fed-213,23608,GARDNER,Peter,Independent,IND,IND,1,0
+fed2013,fed-213,23923,LEITCH,Douglas,Sex Party,ASXP,FRP,2,0
+fed2013,fed-213,23306,McNEILL,Jeff,Australian Labor Party,ALP,ALP,3,0
+fed2013,fed-213,23758,CHESTER,Darren,The Nationals,NP,NAT,4,1
+fed2013,fed-213,24980,FOSTER,Angie,Family First Party,FFP,FFP,5,0
+fed2013,fed-213,24146,DORIAN,Peter,Rise Up Australia Party,RUA,RUA,6,0
+fed2013,fed-213,23715,MANGION,Sav,Country Alliance,CYA,CYA,7,0
+fed2013,fed-213,23613,GRAVENALL,Deborah Faye,Palmer United Party,PUP,UAP,8,0
+fed2013,fed-213,23568,GUERIN,Mark,Secular Party of Australia,SPA,OTH,9,0
+fed2013,fed-213,23333,CAMPBELL-SMITH,Scott,The Greens,GRN,GRN,10,0
+fed2013,fed-213,24606,BUCKLEY,Ben,Liberal Democrats,LDP,LDP,11,0
+fed2013,fed-214,23309,GUTTMANN,Daniel,Australian Labor Party,ALP,ALP,1,0
+fed2013,fed-214,23683,RYDER,Keith Rodney,Palmer United Party,PUP,UAP,2,0
+fed2013,fed-214,23377,READ,Rose,The Greens,GRN,GRN,3,0
+fed2013,fed-214,24233,HANNIE,Lynette,Rise Up Australia Party,RUA,RUA,4,0
+fed2013,fed-214,23487,ROBB,Andrew,Liberal,LP,LIB,5,1
+fed2013,fed-214,24968,JOYNER,Ian,Family First Party,FFP,FFP,6,0
+fed2013,fed-309,23392,JAYASURIYA,Dinesh,The Greens,GRN,GRN,1,0
+fed2013,fed-309,23865,HUNTER,Rhiannon,Sex Party,ASXP,FRP,2,0
+fed2013,fed-309,23576,CHADHUOL,Mabor,Australian Christians,AUC,AUC,3,0
+fed2013,fed-309,23972,DEVERALA,Michael,DLP Democratic Labour,DLP,DLP,4,0
+fed2013,fed-309,24209,MACARDY,Graham,Katter's Australian Party,KAP,KAP,5,0
+fed2013,fed-309,23304,O'CONNOR,Brendan,Australian Labor Party,ALP,ALP,6,1
+fed2013,fed-309,23771,BARNES,Anthony Paul,Palmer United Party,PUP,UAP,7,0
+fed2013,fed-309,23512,HUMPHREYS,Phil,Liberal,LP,LIB,8,0
+fed2013,fed-309,24986,AMBERLEY,Scott,Family First Party,FFP,FFP,9,0
+fed2013,fed-215,23480,O'DWYER,Kelly,Liberal,LP,LIB,1,1
+fed2013,fed-215,24984,BALDWIN,Jamie,Family First Party,FFP,FFP,2,0
+fed2013,fed-215,23332,CHAU,Wesa,Australian Labor Party,ALP,ALP,3,0
+fed2013,fed-215,24244,PRICE,Leanne,Rise Up Australia Party,RUA,RUA,4,0
+fed2013,fed-215,23669,DALL,Phillip Leslie,Palmer United Party,PUP,UAP,5,0
+fed2013,fed-215,23350,HARRISON,James,The Greens,GRN,GRN,6,0
+fed2013,fed-215,23161,WEBER,Graeme B,Independent,IND,IND,7,0
+fed2013,fed-216,23642,SINGH,Jatinder,Palmer United Party,PUP,UAP,1,0
+fed2013,fed-216,23582,BALANCY,Ricardo,Liberal,LP,LIB,2,0
+fed2013,fed-216,23408,McCULLOUGH,Jackie,The Greens,GRN,GRN,3,0
+fed2013,fed-216,24990,KEENAN,Pam,Family First Party,FFP,FFP,4,0
+fed2013,fed-216,23325,BYRNE,Anthony,Australian Labor Party,ALP,ALP,5,1
+fed2013,fed-216,24200,ELI,Jonathan,Rise Up Australia Party,RUA,RUA,6,0
+fed2013,fed-216,23932,SMITH,Lachlan John,Sex Party,ASXP,FRP,7,0
+fed2013,fed-216,23958,PALMA,Michael Joseph,DLP Democratic Labour,DLP,DLP,8,0
+fed2013,fed-216,23563,HILL,Vivian,Australian Christians,AUC,AUC,9,0
+fed2013,fed-217,24241,O'NEIL,Clare,Australian Labor Party,ALP,ALP,1,1
+fed2013,fed-217,25016,NOWLAND,Stephen,Family First Party,FFP,FFP,2,0
+fed2013,fed-217,23567,CADER,Fazal,Liberal,LP,LIB,3,0
+fed2013,fed-217,23349,WYATT,Lorna,The Greens,GRN,GRN,4,0
+fed2013,fed-217,23782,PORTER,Samuel Warren,Palmer United Party,PUP,UAP,5,0
+fed2013,fed-217,24248,VASSILIOU,Peter,Rise Up Australia Party,RUA,RUA,6,0
+fed2013,fed-218,24192,DUDLEY,Robert,Rise Up Australia Party,RUA,RUA,1,0
+fed2013,fed-218,23288,McGOWAN,Cathy,Independent,IND,IND,2,1
+fed2013,fed-218,24992,LEEWORTHY,Rick,Family First Party,FFP,FFP,3,0
+fed2013,fed-218,23528,MIRABELLA,Sophie,Liberal,LP,LIB,4,0
+fed2013,fed-218,23867,ASCHENBRENNER,Helma,Sex Party,ASXP,FRP,5,0
+fed2013,fed-218,24228,HAYES,William,Bullet Train For Australia,BTA,OTH,6,0
+fed2013,fed-218,23315,WALSH,Robyn,Australian Labor Party,ALP,ALP,7,0
+fed2013,fed-218,23370,O'CONNOR,Jenny,The Greens,GRN,GRN,8,0
+fed2013,fed-218,24201,ROURKE,Phil,Katter's Australian Party,KAP,KAP,9,0
+fed2013,fed-218,23643,MURPHY,Robert Denis,Palmer United Party,PUP,UAP,10,0
+fed2013,fed-218,24184,PODESTA,Jennifer,Independent,IND,IND,11,0
+fed2013,fed-219,25040,ELLIOTT,John,Family First Party,FFP,FFP,1,0
+fed2013,fed-219,23952,LEACH,James,DLP Democratic Labour,DLP,DLP,2,0
+fed2013,fed-219,24152,SEAMAN,Nadia,Rise Up Australia Party,RUA,RUA,3,0
+fed2013,fed-219,23616,GILL,Avtar Singh,Palmer United Party,PUP,UAP,4,0
+fed2013,fed-219,23547,DOBBY,Karen,Australian Christians,AUC,AUC,5,0
+fed2013,fed-219,23335,DREYFUS,Mark,Australian Labor Party,ALP,ALP,6,1
+fed2013,fed-219,23352,MILES,Sandra,The Greens,GRN,GRN,7,0
+fed2013,fed-219,23872,GRAHAM,Laith,Sex Party,ASXP,FRP,8,0
+fed2013,fed-219,23482,SPENCER,Garry,Liberal,LP,LIB,9,0
+fed2013,fed-220,23883,WALLIS,Nicholas,Sex Party,ASXP,FRP,1,0
+fed2013,fed-220,24987,EADIE,Tahlia,Family First Party,FFP,FFP,2,0
+fed2013,fed-220,23298,MACKLIN,Jenny,Australian Labor Party,ALP,ALP,3,1
+fed2013,fed-220,23671,SNAPE,Kitten Leigh,Palmer United Party,PUP,UAP,4,0
+fed2013,fed-220,23369,KEARNEY,Chris,The Greens,GRN,GRN,5,0
+fed2013,fed-220,23571,McGOWAN,Nick,Liberal,LP,LIB,6,0
+fed2013,fed-221,24807,HARRISON,Tiffany,Independent,IND,IND,1,0
+fed2013,fed-221,23485,FRYDENBERG,Josh,Liberal,LP,LIB,2,1
+fed2013,fed-221,23722,McNAMARA,Luke Gerard,Palmer United Party,PUP,UAP,3,0
+fed2013,fed-221,24250,KRIEDEMANN,Tim,Rise Up Australia Party,RUA,RUA,4,0
+fed2013,fed-221,23360,McLEOD,Helen,The Greens,GRN,GRN,5,0
+fed2013,fed-221,24869,ZUBAC,Angelina,Independent,IND,IND,6,0
+fed2013,fed-221,23326,KENNEDY,John,Australian Labor Party,ALP,ALP,7,0
+fed2013,fed-221,24969,CALDER,Jaxon,Family First Party,FFP,FFP,8,0
+fed2013,fed-223,23361,SCHILLING,Michael,The Greens,GRN,GRN,1,0
+fed2013,fed-223,23468,WOOD,Jason,Liberal,LP,LIB,2,1
+fed2013,fed-223,23880,LEAHY,Martin,Sex Party,ASXP,FRP,3,0
+fed2013,fed-223,23330,SMYTH,Laura,Australian Labor Party,ALP,ALP,4,0
+fed2013,fed-223,23956,JENKINS,Rachel,DLP Democratic Labour,DLP,DLP,5,0
+fed2013,fed-223,24977,MARTIN,Daniel,Family First Party,FFP,FFP,6,0
+fed2013,fed-223,23620,KENNEDY,Jason Grant,Palmer United Party,PUP,UAP,7,0
+fed2013,fed-223,24169,SEAMAN,Kevin,Rise Up Australia Party,RUA,RUA,8,0
+fed2013,fed-222,24308,VALE,Marion,Rise Up Australia Party,RUA,RUA,1,0
+fed2013,fed-222,23564,ROGERS,Geoff,Australian Christians,AUC,AUC,2,0
+fed2013,fed-222,23520,PAGE,Jonathan,Stable Population Party,SPP,OTH,3,0
+fed2013,fed-222,24084,FREEMAN,Michael,DLP Democratic Labour,DLP,DLP,4,0
+fed2013,fed-222,24872,MULLINS,Nathan,Independent,IND,IND,5,0
+fed2013,fed-222,23388,SHEFFIELD-BROTHERTON,Beck,The Greens,GRN,GRN,6,0
+fed2013,fed-222,23681,ZAPPIA,Joe,Palmer United Party,PUP,UAP,7,0
+fed2013,fed-222,24077,HARWOOD,Angel,Sex Party,ASXP,FRP,8,0
+fed2013,fed-222,23358,RYAN,Joanne,Australian Labor Party,ALP,ALP,9,1
+fed2013,fed-222,23476,SAMARA,Nihal,Liberal,LP,LIB,10,0
+fed2013,fed-222,25012,POLLARD,Daryl Andrew,Family First Party,FFP,FFP,11,0
+fed2013,fed-224,23475,CREWTHER,Chris,Liberal,LP,LIB,1,0
+fed2013,fed-224,23702,CORY,Mark Robert,Palmer United Party,PUP,UAP,2,0
+fed2013,fed-224,23918,MULCAHY,Amy,Sex Party,ASXP,FRP,3,0
+fed2013,fed-224,24249,CIRILLO,Vince,Katter's Australian Party,KAP,KAP,4,0
+fed2013,fed-224,23231,LAHY,Chris,Citizens Electoral Council,CEC,CYA,5,0
+fed2013,fed-224,24227,RIDGEWAY,Allen,Independent,IND,IND,6,0
+fed2013,fed-224,23398,MACALLISTER,Jane,The Greens,GRN,GRN,7,0
+fed2013,fed-224,24231,MIDDLETON,Tim,Rise Up Australia Party,RUA,RUA,8,0
+fed2013,fed-224,25025,BULLER,Neil,Family First Party,FFP,FFP,9,0
+fed2013,fed-224,23898,BROAD,Andrew,The Nationals,NP,NAT,10,1
+fed2013,fed-224,23706,COLDHAM,Michael,Country Alliance,CYA,CYA,11,0
+fed2013,fed-224,23316,SENIOR,Lydia,Australian Labor Party,ALP,ALP,12,0
+fed2013,fed-225,23390,KEECH,Richard,The Greens,GRN,GRN,1,0
+fed2013,fed-225,23552,PATERNO,Joe,Australian Christians,AUC,AUC,2,0
+fed2013,fed-225,23379,SHORTEN,Bill,Australian Labor Party,ALP,ALP,3,1
+fed2013,fed-225,23623,CUTLER,Philip William,Palmer United Party,PUP,UAP,4,0
+fed2013,fed-225,23966,KAVANAGH,Marguerita,DLP Democratic Labour,DLP,DLP,5,0
+fed2013,fed-225,23500,HATZAKORTZIAN,Ted,Liberal,LP,LIB,6,0
+fed2013,fed-225,24086,MYERS,Amy,Sex Party,ASXP,FRP,7,0
+fed2013,fed-225,25000,CARLSON,Hayleigh,Family First Party,FFP,FFP,8,0
+fed2013,fed-225,24217,TRUSCOTT,Jeff,Rise Up Australia Party,RUA,RUA,9,0
+fed2013,fed-226,24963,NEWTON,Barry,Family First Party,FFP,FFP,1,0
+fed2013,fed-226,23679,DANCE,Trevor Owen,Palmer United Party,PUP,UAP,2,0
+fed2013,fed-226,24173,VERDAN,Ferdie,Rise Up Australia Party,RUA,RUA,3,0
+fed2013,fed-226,23701,CRANSON,Ian,Country Alliance,CYA,CYA,4,0
+fed2013,fed-226,24202,STEVENS,Bruce,Katter's Australian Party,KAP,KAP,5,0
+fed2013,fed-226,23868,NASH,Victoria,Sex Party,ASXP,FRP,6,0
+fed2013,fed-226,23471,PETROVICH,Donna,Liberal,LP,LIB,7,0
+fed2013,fed-226,23312,MITCHELL,Rob,Australian Labor Party,ALP,ALP,8,1
+fed2013,fed-226,23365,BARKER,Neil,The Greens,GRN,GRN,9,0
+fed2013,fed-227,24235,AMOR,David John,Katter's Australian Party,KAP,KAP,1,0
+fed2013,fed-227,24683,PATTON,Gary,Senator Online (Internet Voting Bills/Issues),SOL,OTH,2,0
+fed2013,fed-227,23920,STAGGARD,Benjamin,Sex Party,ASXP,FRP,3,0
+fed2013,fed-227,23393,McKELVIE,Malcolm,The Greens,GRN,GRN,4,0
+fed2013,fed-227,24933,PARKER,John,Independent,IND,IND,5,0
+fed2013,fed-227,23988,KIS-RIGO,Andrew,DLP Democratic Labour,DLP,DLP,6,0
+fed2013,fed-227,23670,SHERRY,Matthew John,Palmer United Party,PUP,UAP,7,0
+fed2013,fed-227,24159,BAKER,Norman,Rise Up Australia Party,RUA,RUA,8,0
+fed2013,fed-227,23472,BROADBENT,Russell,Liberal,LP,LIB,9,1
+fed2013,fed-227,23331,NAUS,Anthony,Australian Labor Party,ALP,ALP,10,0
+fed2013,fed-227,20716,GATT,Leigh,Independent,IND,IND,11,0
+fed2013,fed-227,23704,FISHER,Ross,Country Alliance,CYA,CYA,12,0
+fed2013,fed-227,24982,CONLON,Luke,Family First Party,FFP,FFP,13,0
+fed2013,fed-228,24371,MAIN,Anthony,,NAFD,IND,1,0
+fed2013,fed-228,23493,ARMISTEAD,Sean,Liberal,LP,LIB,2,0
+fed2013,fed-228,24703,BORLAND,Kate,Independent,IND,IND,3,0
+fed2013,fed-228,24964,WALKER,Noelle,Family First Party,FFP,FFP,4,0
+fed2013,fed-228,23378,BANDT,Adam,The Greens,GRN,GRN,5,1
+fed2013,fed-228,23323,BOWTELL,Cath,Australian Labor Party,ALP,ALP,6,0
+fed2013,fed-228,23629,VRBNJAK,Martin,Palmer United Party,PUP,UAP,7,0
+fed2013,fed-228,23499,BAYLISS,Michael,Stable Population Party,SPP,OTH,8,0
+fed2013,fed-228,23957,MURPHY,Michael,DLP Democratic Labour,DLP,DLP,9,0
+fed2013,fed-228,23933,WALSHE,Nyree,Animal Justice Party,AJP,AJP,10,0
+fed2013,fed-228,24226,DAVIDSON,Josh,Bullet Train For Australia,BTA,OTH,11,0
+fed2013,fed-228,24188,KHOO,Joyce Mei Lin,Rise Up Australia Party,RUA,RUA,12,0
+fed2013,fed-228,23569,WILDING,Royston,Secular Party of Australia,SPA,OTH,13,0
+fed2013,fed-228,23927,MANGISI,James,Sex Party,ASXP,FRP,14,0
+fed2013,fed-228,24954,KIRKMAN,Frazer,Independent,IND,IND,15,0
+fed2013,fed-228,24764,CUMMINS,Paul,Australian Independents,AIN,IND,16,0
+fed2013,fed-230,23905,STAR,Melissa,Sex Party,ASXP,FRP,1,0
+fed2013,fed-230,23314,DANBY,Michael,Australian Labor Party,ALP,ALP,2,1
+fed2013,fed-230,24966,KEENAN,Robert,Family First Party,FFP,FFP,3,0
+fed2013,fed-230,23619,STODART,Toby Simon,Palmer United Party,PUP,UAP,4,0
+fed2013,fed-230,23976,STEFANO,Vince,DLP Democratic Labour,DLP,DLP,5,0
+fed2013,fed-230,23372,BIRRELL,Ann,The Greens,GRN,GRN,6,0
+fed2013,fed-230,23584,EKENDAHL,Kevin,Liberal,LP,LIB,7,0
+fed2013,fed-230,24195,QUINN,Margaret,Rise Up Australia Party,RUA,RUA,8,0
+fed2013,fed-230,23587,ARMSTRONG,Steven,Stable Population Party,SPP,OTH,9,0
+fed2013,fed-229,23483,ANDREWS,Kevin,Liberal,LP,LIB,1,1
+fed2013,fed-229,23389,CRANSTON,Richard,The Greens,GRN,GRN,2,0
+fed2013,fed-229,23351,KUMAR,Manoj,Australian Labor Party,ALP,ALP,3,0
+fed2013,fed-229,23636,GUARDIANI,Agostino,Palmer United Party,PUP,UAP,4,0
+fed2013,fed-229,24767,ROBINSON,Ramon,Independent,IND,IND,5,0
+fed2013,fed-229,24168,BAKER,Phil,Rise Up Australia Party,RUA,RUA,6,0
+fed2013,fed-229,24979,CONLON,Andrew,Family First Party,FFP,FFP,7,0
+fed2013,fed-231,23914,CHELLEW,Tristram,Sex Party,ASXP,FRP,1,0
+fed2013,fed-231,23477,STONE,Sharman,Liberal,LP,LIB,2,1
+fed2013,fed-231,24210,BOURKE,Michael John,Katter's Australian Party,KAP,KAP,3,0
+fed2013,fed-231,24110,BUCK,Wendy,Independent,IND,IND,4,0
+fed2013,fed-231,23380,STEVENS,Damien,The Greens,GRN,GRN,5,0
+fed2013,fed-231,23662,THOOLEN,Catriona Cecilia,Palmer United Party,PUP,UAP,6,0
+fed2013,fed-231,24221,SUMMER,Fern,Bullet Train For Australia,BTA,OTH,7,0
+fed2013,fed-231,24160,HUNGERFORD,Raymond,Rise Up Australia Party,RUA,RUA,8,0
+fed2013,fed-231,24967,WALKER,Alan,Family First Party,FFP,FFP,9,0
+fed2013,fed-231,23310,HIGGINS,Rod,Australian Labor Party,ALP,ALP,10,0
+fed2013,fed-231,23228,DAVY,Jeff,Citizens Electoral Council,CEC,CYA,11,0
+fed2013,fed-232,23627,COOPER,Peter Rex,Palmer United Party,PUP,UAP,1,0
+fed2013,fed-232,23324,GILES,Andrew,Australian Labor Party,ALP,ALP,2,1
+fed2013,fed-232,24983,CONLON,Katie,Family First Party,FFP,FFP,3,0
+fed2013,fed-232,23907,ROLPH,Nathan,Sex Party,ASXP,FRP,4,0
+fed2013,fed-232,23488,CHUGHA,Jag,Liberal,LP,LIB,5,0
+fed2013,fed-232,24212,GRECO,Domenic,Katter's Australian Party,KAP,KAP,6,0
+fed2013,fed-232,23383,LJUBICIC,Rose,The Greens,GRN,GRN,7,0
+fed2013,fed-233,23549,CORBETT,Therese,Australian Christians,AUC,AUC,1,0
+fed2013,fed-233,23341,BARLING,Michael,Australian Labor Party,ALP,ALP,2,0
+fed2013,fed-233,23381,EMANUELLE,Tim,The Greens,GRN,GRN,3,0
+fed2013,fed-233,23900,JOHNSON,Chris,Sex Party,ASXP,FRP,4,0
+fed2013,fed-233,25017,HABERFIELD,Craig,Family First Party,FFP,FFP,5,0
+fed2013,fed-233,23470,TEHAN,Dan,Liberal,LP,LIB,6,1
+fed2013,fed-233,23625,FERGUSON,Bradley Ian,Palmer United Party,PUP,UAP,7,0
+fed2013,fed-234,24929,O'CALLAGHAN,Dean,Independent,IND,IND,1,0
+fed2013,fed-234,23397,READ,Tim,The Greens,GRN,GRN,2,0
+fed2013,fed-234,23938,TRAJSTMAN,Adrian,Sex Party,ASXP,FRP,3,0
+fed2013,fed-234,23174,WINDISCH,Margarita,Socialist Alliance,SAL,SAP,4,0
+fed2013,fed-234,24991,GIGLIA,Concetta,Family First Party,FFP,FFP,5,0
+fed2013,fed-234,23638,MURRAY-DUFOULON,Anne Marie,Palmer United Party,PUP,UAP,6,0
+fed2013,fed-234,23479,HEGDE,Shilpa,Liberal,LP,LIB,7,0
+fed2013,fed-234,23322,THOMSON,Kelvin,Australian Labor Party,ALP,ALP,8,1

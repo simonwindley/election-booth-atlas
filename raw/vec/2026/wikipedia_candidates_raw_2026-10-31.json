@@ -1,0 +1,5207 @@
+{
+"assembly": [
+[
+{
+"bold": false,
+"text": "Electorate"
+},
+{
+"bold": false,
+"text": "Held by"
+},
+{
+"bold": false,
+"text": "Labor candidate"
+},
+{
+"bold": false,
+"text": "Coalition candidate"
+},
+{
+"bold": false,
+"text": "Greens candidate"
+},
+{
+"bold": false,
+"text": "One Nation candidate"
+},
+{
+"bold": false,
+"text": "Socialists candidate"
+},
+{
+"bold": false,
+"text": "Other candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Albert Park"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Nina Taylor"
+},
+{
+"bold": false,
+"text": "Andrew Cook (L)"
+},
+{
+"bold": false,
+"text": "Sonya Semmens"
+},
+{
+"bold": false,
+"text": "Tammy Lindrum"
+},
+{
+"bold": false,
+"text": "Colleen Bolger"
+},
+{
+"bold": false,
+"text": "Georgie Dragwidge (Ind) | Daniel O'Neill (AJP) | Adrian King (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Ashwood"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Matt Fregon"
+},
+{
+"bold": false,
+"text": "Theo Zographos (L)"
+},
+{
+"bold": false,
+"text": "Tim Randall"
+},
+{
+"bold": false,
+"text": "Steven Mitchell"
+},
+{
+"bold": false,
+"text": "Jacob van der Eynden"
+},
+{
+"bold": false,
+"text": "Hitendra Joshi (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Bass"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Chris Buckingham"
+},
+{
+"bold": false,
+"text": "Rochelle Halstead (L)"
+},
+{
+"bold": false,
+"text": "Sophie Thorn"
+},
+{
+"bold": false,
+"text": "Nikole Schellekens"
+},
+{
+"bold": false,
+"text": "Chris Jobe"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Bayswater"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Julie Buxton"
+},
+{
+"bold": false,
+"text": "David Kitchen (L)"
+},
+{
+"bold": false,
+"text": "Jess Kennedy"
+},
+{
+"bold": false,
+"text": "Kayte Bleakney"
+},
+{
+"bold": false,
+"text": "Alec Ferguson"
+},
+{
+"bold": false,
+"text": "Mathew Clarke (Ind) | Gary Coombs (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Bellarine"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Alison Marchant"
+},
+{
+"bold": false,
+"text": "Callum Whitehead (L)"
+},
+{
+"bold": false,
+"text": "Mitch Pope"
+},
+{
+"bold": false,
+"text": "Ross McRae"
+},
+{
+"bold": false,
+"text": "Ronan Keogh"
+},
+{
+"bold": false,
+"text": "Dom Williams (SA)"
+}
+],
+[
+{
+"bold": false,
+"text": "Benambra"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Steve Martin (L)"
+},
+{
+"bold": false,
+"text": "Graham Parton"
+},
+{
+"bold": false,
+"text": "Kellie Sheppard"
+},
+{
+"bold": false,
+"text": "Alex Vangalen"
+},
+{
+"bold": false,
+"text": "Lachie McKeeman (Ind) | Mike Fruery (AJP) | Tim Quilty (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Bendigo East"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Tim Rickwood"
+},
+{
+"bold": false,
+"text": "Andrew Lethlean (N)"
+},
+{
+"bold": false,
+"text": "Michael Tolhurst"
+},
+{
+"bold": false,
+"text": "Cheryl Hawken"
+},
+{
+"bold": false,
+"text": "Denali Norsen"
+},
+{
+"bold": false,
+"text": "Liz Wright (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Bendigo West"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Brenton Baldwin"
+},
+{
+"bold": false,
+"text": "David Hutchings (N)"
+},
+{
+"bold": false,
+"text": "Liza Shaw"
+},
+{
+"bold": false,
+"text": "Ellen Morgan"
+},
+{
+"bold": false,
+"text": "Tayne Shalevski"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Bentleigh"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Nick Staikos"
+},
+{
+"bold": false,
+"text": "Tynan Putt (L)"
+},
+{
+"bold": false,
+"text": "Karli McRostie"
+},
+{
+"bold": false,
+"text": "Herbert Lonsing"
+},
+{
+"bold": false,
+"text": "Liam Kruger"
+},
+{
+"bold": false,
+"text": "Tony Vainoras (ACP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Berwick"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Rana Khan"
+},
+{
+"bold": true,
+"text": "Brad Battin (L)"
+},
+{
+"bold": false,
+"text": "Roshan De Silva"
+},
+{
+"bold": false,
+"text": "Michael Piastrino"
+},
+{
+"bold": false,
+"text": "Nalinda Amarasiri Gunawardana"
+},
+{
+"bold": false,
+"text": "Vincenzo De Paolis (FF) | Ethelyn King (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Box Hill"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Paul Hamer"
+},
+{
+"bold": false,
+"text": "Sally Houguet (L)"
+},
+{
+"bold": false,
+"text": "Aaron Qin"
+},
+{
+"bold": false,
+"text": "Jamie Baker"
+},
+{
+"bold": false,
+"text": "Saravina Afaj"
+},
+{
+"bold": false,
+"text": "Heena Sinha Cheung (Ind) | Peter Fagg (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Brighton"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Bridget Mullahy"
+},
+{
+"bold": true,
+"text": "James Newbury (L)"
+},
+{
+"bold": false,
+"text": "Ebony Bain"
+},
+{
+"bold": false,
+"text": "Alexander Fagan"
+},
+{
+"bold": false,
+"text": "Jessica Smith"
+},
+{
+"bold": false,
+"text": "Anthony Hain (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Broadmeadows"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Kathleen Matthews-Ward"
+},
+{
+"bold": false,
+"text": "Baris Duzova (L)"
+},
+{
+"bold": false,
+"text": "Maryam Nasim"
+},
+{
+"bold": false,
+"text": "Ethan Keirs"
+},
+{
+"bold": false,
+"text": "Mutullah Can Yolbulan"
+},
+{
+"bold": false,
+"text": "Sue Bolton (SA) | Rachel Unicomb (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Brunswick"
+},
+{
+"bold": false,
+"text": "Greens"
+},
+{
+"bold": false,
+"text": "Gabriel Steger"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Adam Pulford"
+},
+{
+"bold": false,
+"text": "Adam Helman"
+},
+{
+"bold": false,
+"text": "Naomi Farmer"
+},
+{
+"bold": false,
+"text": "India Rose (AJP) | Mel Yuan (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Bulleen"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Tim Dale"
+},
+{
+"bold": true,
+"text": "Matthew Guy (L)"
+},
+{
+"bold": false,
+"text": "Tomas Lightbody"
+},
+{
+"bold": false,
+"text": "Mahdi Athari"
+},
+{
+"bold": false,
+"text": "Dimitrios Tafidis"
+},
+{
+"bold": false,
+"text": "Greg Rublee (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Bundoora"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Colin Brooks"
+},
+{
+"bold": false,
+"text": "Chris Parr (L)"
+},
+{
+"bold": false,
+"text": "Nina Laitala"
+},
+{
+"bold": false,
+"text": "Bruce Whalley"
+},
+{
+"bold": false,
+"text": "Sagar Sanyal"
+},
+{
+"bold": false,
+"text": "Melissa Murphy-Webster (Ind) | Chloe Nicolosi (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Carrum"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Sonya Kilkenny"
+},
+{
+"bold": false,
+"text": "Jeff Shelley (L)"
+},
+{
+"bold": false,
+"text": "Zoe Pegrum"
+},
+{
+"bold": false,
+"text": "Joshua Mathews"
+},
+{
+"bold": false,
+"text": "Reema Ababneh"
+},
+{
+"bold": false,
+"text": "Carolyn Moore(AJP) | Trevor Smith (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Caulfield"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Mikaela Stafrace"
+},
+{
+"bold": true,
+"text": "David Southwick (L)"
+},
+{
+"bold": false,
+"text": "Angel Dolejs\u00ed"
+},
+{
+"bold": false,
+"text": "Michael Abelman"
+},
+{
+"bold": false,
+"text": "Malak Ababneh"
+},
+{
+"bold": false,
+"text": "Genevi\u00e8ve Gilbert (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Clarinda"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Meng Heang Tak"
+},
+{
+"bold": false,
+"text": "John Paganis (L)"
+},
+{
+"bold": false,
+"text": "Conor Boyd-Eedle"
+},
+{
+"bold": false,
+"text": "Gavin Bain"
+},
+{
+"bold": false,
+"text": "Kit Message"
+},
+{
+"bold": false,
+"text": "Liam Roche (LBT) | Caroline White (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Cranbourne"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Pauline Richards"
+},
+{
+"bold": false,
+"text": "Gino Tripodi (L)"
+},
+{
+"bold": false,
+"text": "Annalise Mercer"
+},
+{
+"bold": false,
+"text": "Andrew Hirst"
+},
+{
+"bold": false,
+"text": "Reem Yunis"
+},
+{
+"bold": false,
+"text": "Shane Foreman (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Croydon"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Richard Farr"
+},
+{
+"bold": false,
+"text": "Toby Wooldridge (L)"
+},
+{
+"bold": false,
+"text": "Lini Fernando"
+},
+{
+"bold": false,
+"text": "Glenn Brindley"
+},
+{
+"bold": false,
+"text": "Beth Grimshaw"
+},
+{
+"bold": false,
+"text": "David Vanderwolf (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Dandenong"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Gabrielle Williams"
+},
+{
+"bold": false,
+"text": "William Billings (L)"
+},
+{
+"bold": false,
+"text": "Catherine D'Arcy"
+},
+{
+"bold": false,
+"text": "Glenda Wright"
+},
+{
+"bold": false,
+"text": "Jack McMahon"
+},
+{
+"bold": false,
+"text": "Jordan Forte (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Eildon"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Kevin Gibson"
+},
+{
+"bold": true,
+"text": "Cindy McLeish (L)"
+},
+{
+"bold": false,
+"text": "Talia Gulpilil"
+},
+{
+"bold": false,
+"text": "Tim Barber"
+},
+{
+"bold": false,
+"text": "Dylan Little"
+},
+{
+"bold": false,
+"text": "Chloe Bond (AJP) | Tom Ward (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Eltham"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Vicki Ward"
+},
+{
+"bold": false,
+"text": "Paul Byrnes (L)"
+},
+{
+"bold": false,
+"text": "Rachel Busbridge"
+},
+{
+"bold": false,
+"text": "Jessie Weatherly"
+},
+{
+"bold": false,
+"text": "Maeve Riches"
+},
+{
+"bold": false,
+"text": "Steven Marasea (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Essendon"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Katerine Theodosis"
+},
+{
+"bold": false,
+"text": "Tommy Le Deux (L)"
+},
+{
+"bold": false,
+"text": "James Williams"
+},
+{
+"bold": false,
+"text": "John Barnes"
+},
+{
+"bold": false,
+"text": "Michal Kedem"
+},
+{
+"bold": false,
+"text": "Oscar Yildiz (Ind) | Ava Adams (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Eureka"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Michaela Settle"
+},
+{
+"bold": false,
+"text": "Emma Muir (L)"
+},
+{
+"bold": false,
+"text": "Sam McColl"
+},
+{
+"bold": false,
+"text": "Paul Ballinger"
+},
+{
+"bold": false,
+"text": "Andy Raven"
+},
+{
+"bold": false,
+"text": "Wendy Morrison (AJP) | Ian Harkness (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Euroa"
+},
+{
+"bold": false,
+"text": "National"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Annabelle Cleeland (N)"
+},
+{
+"bold": false,
+"text": "Alysia Regan"
+},
+{
+"bold": false,
+"text": "Steve Campbell"
+},
+{
+"bold": false,
+"text": "Zoe Lyle"
+},
+{
+"bold": false,
+"text": "Karina Kelly (AJP) | Moussa Taouk (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Evelyn"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Analise Sherlock"
+},
+{
+"bold": true,
+"text": "Bridget Vallence (L)"
+},
+{
+"bold": false,
+"text": "Andrew Henley"
+},
+{
+"bold": false,
+"text": "Daniel Killey"
+},
+{
+"bold": false,
+"text": "James Scanlon"
+},
+{
+"bold": false,
+"text": "Jan Heald (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Footscray"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Katie Hall"
+},
+{
+"bold": false,
+"text": "Tim Chang (L)"
+},
+{
+"bold": false,
+"text": "Elena Pereyra"
+},
+{
+"bold": false,
+"text": "Alexander Lopez"
+},
+{
+"bold": false,
+"text": "Jasmine Duff"
+},
+{
+"bold": false,
+"text": "Minh Quan Nguyen (West) | Jess Marsh (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Frankston"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Paul Edbrooke"
+},
+{
+"bold": false,
+"text": "Bree Ambry (L)"
+},
+{
+"bold": false,
+"text": "Katie Goulas"
+},
+{
+"bold": false,
+"text": "Paul Stafford"
+},
+{
+"bold": false,
+"text": "Andrew Cheeseman"
+},
+{
+"bold": false,
+"text": "Chrysten Abraham (Ind) | Julie Harman (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Geelong"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Christine Couzens"
+},
+{
+"bold": false,
+"text": "Andy Pobjoy (L)"
+},
+{
+"bold": false,
+"text": "Emilie Flynn"
+},
+{
+"bold": false,
+"text": "John De Lorenzo"
+},
+{
+"bold": false,
+"text": "Bree Vanderpol"
+},
+{
+"bold": false,
+"text": "Brenden Grull (SA)"
+}
+],
+[
+{
+"bold": false,
+"text": "Gippsland East"
+},
+{
+"bold": false,
+"text": "National"
+},
+{
+"bold": false,
+"text": "Sonny Stephens"
+},
+{
+"bold": false,
+"text": "Gemma Rendell (N)"
+},
+{
+"bold": false,
+"text": "Ash Munro"
+},
+{
+"bold": false,
+"text": "Steve Goodman"
+},
+{
+"bold": false,
+"text": "Amy Espeseth"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Gippsland South"
+},
+{
+"bold": false,
+"text": "National"
+},
+{
+"bold": false,
+"text": "Amy Barry-Macaulay"
+},
+{
+"bold": true,
+"text": "Danny O'Brien (N)"
+},
+{
+"bold": false,
+"text": "Zave Evans"
+},
+{
+"bold": false,
+"text": "Bianca Wilke"
+},
+{
+"bold": false,
+"text": "Lachie McGennisken"
+},
+{
+"bold": false,
+"text": "Phillip Schuhmann (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Glen Waverley"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "John Mullahy"
+},
+{
+"bold": false,
+"text": "Jacky Sun (L)"
+},
+{
+"bold": false,
+"text": "Toyo White"
+},
+{
+"bold": false,
+"text": "Brad Cox"
+},
+{
+"bold": false,
+"text": "Nicholas Siow"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Greenvale"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Iwan Walters"
+},
+{
+"bold": false,
+"text": "Jim Overend (L)"
+},
+{
+"bold": false,
+"text": "Declan McGinness"
+},
+{
+"bold": false,
+"text": "Chris Moore"
+},
+{
+"bold": false,
+"text": "Kirill Smelov"
+},
+{
+"bold": false,
+"text": "Rosanna Furina (AJP) | Mazen John (ACP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Hastings"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Paul Mercurio"
+},
+{
+"bold": false,
+"text": "Frank Schiefler (L)"
+},
+{
+"bold": false,
+"text": "Isaac Willoughby"
+},
+{
+"bold": false,
+"text": "Peter Angelico"
+},
+{
+"bold": false,
+"text": "Michael Denman"
+},
+{
+"bold": false,
+"text": "Chloe Coulson (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Hawthorn"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Clive Crosby"
+},
+{
+"bold": true,
+"text": "John Pesutto (L)"
+},
+{
+"bold": false,
+"text": "Kylie Rocha"
+},
+{
+"bold": false,
+"text": "Paul Pribilovics"
+},
+{
+"bold": false,
+"text": "Tess McEnearney"
+},
+{
+"bold": false,
+"text": "Shima Ibuki (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Ivanhoe"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Anthony Carbines"
+},
+{
+"bold": false,
+"text": "Oscar Lopez (L)"
+},
+{
+"bold": false,
+"text": "Nina Crawley"
+},
+{
+"bold": false,
+"text": "Wayne Hutchins"
+},
+{
+"bold": false,
+"text": "Ben Milne"
+},
+{
+"bold": false,
+"text": "Michelle Kennedy (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Kalkallo"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Ros Spence"
+},
+{
+"bold": false,
+"text": "Eddie Dadisho (L)"
+},
+{
+"bold": false,
+"text": "Payal Tiwari"
+},
+{
+"bold": false,
+"text": "Troy Steans"
+},
+{
+"bold": false,
+"text": "Courtney Millett"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Kew"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "David Sun"
+},
+{
+"bold": true,
+"text": "Jess Wilson (L)"
+},
+{
+"bold": false,
+"text": "Jackie Carter"
+},
+{
+"bold": false,
+"text": "David Laird"
+},
+{
+"bold": false,
+"text": "Samantha Lincolne"
+},
+{
+"bold": false,
+"text": "Sophie Torney (Ind) | Ann Seeley (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Kororoit"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Luba Grigorovitch"
+},
+{
+"bold": false,
+"text": "Jack Chakoma (L)"
+},
+{
+"bold": false,
+"text": "Joyce McDonald"
+},
+{
+"bold": false,
+"text": "Seva Melnikov"
+},
+{
+"bold": false,
+"text": "Rayan Hassan"
+},
+{
+"bold": false,
+"text": "Vasundhara Kandpal (AJP) | Donna Southern (West)"
+}
+],
+[
+{
+"bold": false,
+"text": "Lara"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Ella George"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Theresa Slater"
+},
+{
+"bold": false,
+"text": "Stephen Spyros"
+},
+{
+"bold": false,
+"text": "Oliver Randall"
+},
+{
+"bold": false,
+"text": "Sarah Hathway (SA)"
+}
+],
+[
+{
+"bold": false,
+"text": "Laverton"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Sarah Connolly"
+},
+{
+"bold": false,
+"text": "Ghada Noune (L)"
+},
+{
+"bold": false,
+"text": "Lucy Nguyen"
+},
+{
+"bold": false,
+"text": "Rufo Paredes"
+},
+{
+"bold": false,
+"text": "Van Thanh Rudd"
+},
+{
+"bold": false,
+"text": "Shohre Mansouri (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Lowan"
+},
+{
+"bold": false,
+"text": "National"
+},
+{
+"bold": false,
+"text": "Sue Pavlovich"
+},
+{
+"bold": true,
+"text": "Emma Kealy (N)"
+},
+{
+"bold": false,
+"text": "Jeff Moran"
+},
+{
+"bold": false,
+"text": "Andrew Partridge"
+},
+{
+"bold": false,
+"text": "Jos Downey"
+},
+{
+"bold": false,
+"text": "Lee Ann Elms (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Macedon"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Annette Death"
+},
+{
+"bold": false,
+"text": "Kate Kendall (L)"
+},
+{
+"bold": false,
+"text": "Marley McRae McLeod"
+},
+{
+"bold": false,
+"text": "Damien Parolin"
+},
+{
+"bold": false,
+"text": "Catherine Wilson"
+},
+{
+"bold": false,
+"text": "Natalie Korinfsky (AJP) | Michael Seton (Ind) | Dom Bonanno (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Malvern"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Amelia Hamer (L)"
+},
+{
+"bold": false,
+"text": "Georgia Katsikis"
+},
+{
+"bold": false,
+"text": "Edward Bode"
+},
+{
+"bold": false,
+"text": "Gavin Leonard"
+},
+{
+"bold": false,
+"text": "Christina Zigouras (Ind) | David Segal (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Melbourne"
+},
+{
+"bold": false,
+"text": "Greens"
+},
+{
+"bold": false,
+"text": "Davydd Griffiths"
+},
+{
+"bold": false,
+"text": "Rafael Camillo (L)"
+},
+{
+"bold": true,
+"text": "Ellen Sandell"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Jordan van den Lamb"
+},
+{
+"bold": false,
+"text": "Naomi Jones (AJP) | Rowan Tuckfield (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Melton"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Broden Borg"
+},
+{
+"bold": false,
+"text": "Jarrod Bingham (L)"
+},
+{
+"bold": false,
+"text": "Veronika Levchenkova"
+},
+{
+"bold": false,
+"text": "Matthew Katselis"
+},
+{
+"bold": false,
+"text": "Daire Kelly"
+},
+{
+"bold": false,
+"text": "Fiona Adin-Jones (AJP) | Marlene West (FF) | Hayden Legro (West)"
+}
+],
+[
+{
+"bold": false,
+"text": "Mildura"
+},
+{
+"bold": false,
+"text": "National"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Jade Benham (N)"
+},
+{
+"bold": false,
+"text": "Katie Clements"
+},
+{
+"bold": false,
+"text": "Guy Cooper"
+},
+{
+"bold": false,
+"text": "Renee Nayef"
+},
+{
+"bold": false,
+"text": "Ali Cupper (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Mill Park"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Elizabeth Nealy"
+},
+{
+"bold": false,
+"text": "Joel Drysdale (L)"
+},
+{
+"bold": false,
+"text": "Binoy Zacharias"
+},
+{
+"bold": false,
+"text": "Arthur Tsoutsoulis"
+},
+{
+"bold": false,
+"text": "Jesse Lambourn"
+},
+{
+"bold": false,
+"text": "Eve Levens (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Monbulk"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Daniela De Martino"
+},
+{
+"bold": false,
+"text": "Clare Fitzmaurice (L)"
+},
+{
+"bold": false,
+"text": "Merran Blair"
+},
+{
+"bold": false,
+"text": "Adrian Dowell"
+},
+{
+"bold": false,
+"text": "Noah Briggs"
+},
+{
+"bold": false,
+"text": "Alyssa Wormald (AJP) | Craig Manners (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Mordialloc"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Tim Richardson"
+},
+{
+"bold": false,
+"text": "Paul O'Halloran (L)"
+},
+{
+"bold": false,
+"text": "Alex Breskin"
+},
+{
+"bold": false,
+"text": "Nadia Ticehurst"
+},
+{
+"bold": false,
+"text": "Mahee Hossain"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Mornington"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Kerry Macdonald"
+},
+{
+"bold": true,
+"text": "Chris Crewther (L)"
+},
+{
+"bold": false,
+"text": "Kai Titcher"
+},
+{
+"bold": false,
+"text": "Ashli Beards"
+},
+{
+"bold": false,
+"text": "Gene Brownlie"
+},
+{
+"bold": false,
+"text": "Adrian Maher | Melissa Goffin (Ind) | Adrian Maher (Ind)"
+}
+],
+[],
+[
+{
+"bold": false,
+"text": "Morwell"
+},
+{
+"bold": false,
+"text": "National"
+},
+{
+"bold": false,
+"text": "Tracie Lund"
+},
+{
+"bold": true,
+"text": "Martin Cameron (N)"
+},
+{
+"bold": false,
+"text": "Rochelle Hine"
+},
+{
+"bold": false,
+"text": "Casey Murphy"
+},
+{
+"bold": false,
+"text": "Natalie Acreman"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Mulgrave"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Eden Foster"
+},
+{
+"bold": false,
+"text": "Charles Tran (L)"
+},
+{
+"bold": false,
+"text": "Paul Schofield"
+},
+{
+"bold": false,
+"text": "Cody Rebbechi"
+},
+{
+"bold": false,
+"text": "Connor Buchanan"
+},
+{
+"bold": false,
+"text": "Ian Cook (Ind) | Fotini Theodossopoulou (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Murray Plains"
+},
+{
+"bold": false,
+"text": "National"
+},
+{
+"bold": false,
+"text": "Christine Grundy"
+},
+{
+"bold": false,
+"text": "Brett Hosking (N)"
+},
+{
+"bold": false,
+"text": "Zoe Cook"
+},
+{
+"bold": false,
+"text": "Garner Smith"
+},
+{
+"bold": false,
+"text": "Asyiqin Sanif"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Narracan"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Jannette Langley"
+},
+{
+"bold": true,
+"text": "Wayne Farnham (L)"
+},
+{
+"bold": false,
+"text": "Alyssa Weaver"
+},
+{
+"bold": false,
+"text": "Ben Lucas"
+},
+{
+"bold": false,
+"text": "Moss Page"
+},
+{
+"bold": false,
+"text": "Geoff Dethlefs (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Narre Warren North"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Belinda Wilson"
+},
+{
+"bold": false,
+"text": "Shemane Nathanielsz (L)"
+},
+{
+"bold": false,
+"text": "Hayley Perry"
+},
+{
+"bold": false,
+"text": "Sebastian Crutchfield"
+},
+{
+"bold": false,
+"text": "Lachlan McCracken"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Narre Warren South"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Stefan Koomen"
+},
+{
+"bold": false,
+"text": "Norliah Peterson (L)"
+},
+{
+"bold": false,
+"text": "Jill Nambu"
+},
+{
+"bold": false,
+"text": "Trevor Hammond"
+},
+{
+"bold": false,
+"text": "Bailey McCracken"
+},
+{
+"bold": false,
+"text": "Scott Watson (Ind) | Lydia Denker (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Nepean"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Anthony Marsh (L)"
+},
+{
+"bold": false,
+"text": "Sianan Healy"
+},
+{
+"bold": false,
+"text": "Darren Hercus"
+},
+{
+"bold": false,
+"text": "Seth Willcocks"
+},
+{
+"bold": false,
+"text": "Mike Brown (FF) | Kim Robbins (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Niddrie"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Ben Carroll"
+},
+{
+"bold": false,
+"text": "Samantha Byrne (L)"
+},
+{
+"bold": false,
+"text": "Lana Nguyen"
+},
+{
+"bold": false,
+"text": "Jason Taverna"
+},
+{
+"bold": false,
+"text": "Brendan Laws"
+},
+{
+"bold": false,
+"text": "Elisabetta Celata (West) | Salomae Haselgrove (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Northcote"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Kat Theophanous"
+},
+{
+"bold": false,
+"text": "Lynda Awad (L)"
+},
+{
+"bold": false,
+"text": "Campbell Gome"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Kath Larkin"
+},
+{
+"bold": false,
+"text": "Jim Penman (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Oakleigh"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Steve Dimopoulos"
+},
+{
+"bold": false,
+"text": "Martin Jung (L)"
+},
+{
+"bold": false,
+"text": "Hsiang-Han Hsieh"
+},
+{
+"bold": false,
+"text": "Brooke Carter"
+},
+{
+"bold": false,
+"text": "Rowdy Bugter"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Ovens Valley"
+},
+{
+"bold": false,
+"text": "National"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Tim McCurdy (N)"
+},
+{
+"bold": false,
+"text": "Ben Gilbert"
+},
+{
+"bold": false,
+"text": "James Rouel"
+},
+{
+"bold": false,
+"text": "Bronwyn Murphy"
+},
+{
+"bold": false,
+"text": "Steve Manning (Ind) | Julian Fidge (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Pakenham"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Alessandra Soliven"
+},
+{
+"bold": false,
+"text": "Radmila Dyson (L)"
+},
+{
+"bold": false,
+"text": "Nasser Yawari"
+},
+{
+"bold": false,
+"text": "Warren Pickering"
+},
+{
+"bold": false,
+"text": "Stephanie Grigg"
+},
+{
+"bold": false,
+"text": "Raymond French (Ind) | Kate Hands (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Pascoe Vale"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Anthony Cianflone"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Angelica Panopoulos"
+},
+{
+"bold": false,
+"text": "Andrew Forehan"
+},
+{
+"bold": false,
+"text": "Yasemin Shamsili"
+},
+{
+"bold": false,
+"text": "Jacob Andrewartha (SA) | Kathrine Ashton (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Point Cook"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Mathew Hilakari"
+},
+{
+"bold": false,
+"text": "Raja Reddy (L)"
+},
+{
+"bold": false,
+"text": "Ponraj Krishna Pandi"
+},
+{
+"bold": false,
+"text": "Cameron Reid"
+},
+{
+"bold": false,
+"text": "Taylor Laine"
+},
+{
+"bold": false,
+"text": "Mark Grech (West)"
+}
+],
+[
+{
+"bold": false,
+"text": "Polwarth"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Hutch Hussein"
+},
+{
+"bold": true,
+"text": "Richard Riordan (L)"
+},
+{
+"bold": false,
+"text": "Jesse Holden"
+},
+{
+"bold": false,
+"text": "Anna Malcolm"
+},
+{
+"bold": false,
+"text": "Lula Tolley"
+},
+{
+"bold": false,
+"text": "Brenton Carbins (ACP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Prahran"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Meghan Hopper"
+},
+{
+"bold": true,
+"text": "Rachel Westaway (L)"
+},
+{
+"bold": false,
+"text": "Angelica Di Camillo"
+},
+{
+"bold": false,
+"text": "Shaun Virsu"
+},
+{
+"bold": false,
+"text": "Clayton Doueihi"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Preston"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Nathan Lambert"
+},
+{
+"bold": false,
+"text": "Hamza Al Katranji (L)"
+},
+{
+"bold": false,
+"text": "Loki Sangarya"
+},
+{
+"bold": false,
+"text": "Franco Guardiani"
+},
+{
+"bold": false,
+"text": "Serena Ashmore"
+},
+{
+"bold": false,
+"text": "Peita Collard (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Richmond"
+},
+{
+"bold": false,
+"text": "Greens"
+},
+{
+"bold": false,
+"text": "Sarah McKenzie"
+},
+{
+"bold": false,
+"text": "Charles Aponso (L)"
+},
+{
+"bold": true,
+"text": "Gabrielle de Vietri"
+},
+{
+"bold": false,
+"text": "Harrison Rindfleish"
+},
+{
+"bold": false,
+"text": "Chris Dite"
+},
+{
+"bold": false,
+"text": "David Meyer (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Ringwood"
+},
+{
+"bold": false,
+"text": "Independent"
+},
+{
+"bold": false,
+"text": "Rachel Halse"
+},
+{
+"bold": false,
+"text": "Nick McGowan (L)"
+},
+{
+"bold": false,
+"text": "Amy Mills"
+},
+{
+"bold": false,
+"text": "John O'Connor"
+},
+{
+"bold": false,
+"text": "Jack Gardner"
+},
+{
+"bold": false,
+"text": "Prue Cutts (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Ripon"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Martha Haylett"
+},
+{
+"bold": false,
+"text": "Jo Armstrong (N) | Megan Read (L)"
+},
+{
+"bold": false,
+"text": "Tim Drylie"
+},
+{
+"bold": false,
+"text": "Donna Buxton"
+},
+{
+"bold": false,
+"text": "Taylah Brennan-Jones"
+},
+{
+"bold": false,
+"text": "Jeff Barry (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Rowville"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Muhammad Shahbaz"
+},
+{
+"bold": false,
+"text": "Max Williams (L)"
+},
+{
+"bold": false,
+"text": "Dave Massey"
+},
+{
+"bold": false,
+"text": "Bradley Watt"
+},
+{
+"bold": false,
+"text": "Lars Hiemstra"
+},
+{
+"bold": false,
+"text": "Scott Robson (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Sandringham"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Anastasia Sagris-Desmond"
+},
+{
+"bold": true,
+"text": "Brad Rowswell (L)"
+},
+{
+"bold": false,
+"text": "Timon Fotakis"
+},
+{
+"bold": false,
+"text": "Anthony Blight"
+},
+{
+"bold": false,
+"text": "Lauren Stevenson"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Shepparton"
+},
+{
+"bold": false,
+"text": "National"
+},
+{
+"bold": false,
+"text": "Cayla Fin"
+},
+{
+"bold": false,
+"text": "Shane Sali (N)"
+},
+{
+"bold": false,
+"text": "Grace Verney"
+},
+{
+"bold": false,
+"text": "Phillip Bryant"
+},
+{
+"bold": false,
+"text": "Karen Hocking"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "South Barwon"
+},
+{
+"bold": false,
+"text": "Independent"
+},
+{
+"bold": false,
+"text": "Rebecca Thistleton"
+},
+{
+"bold": false,
+"text": "Libby Pettit (L)"
+},
+{
+"bold": false,
+"text": "Izzy Scherrer"
+},
+{
+"bold": false,
+"text": "Josh Geard"
+},
+{
+"bold": false,
+"text": "Madilyn Gorman"
+},
+{
+"bold": false,
+"text": "Freya Hedley (SA) | Ron Nelson (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "South-West Coast"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Andrew Govanstone"
+},
+{
+"bold": true,
+"text": "Roma Britnell (L)"
+},
+{
+"bold": false,
+"text": "Silver Rose"
+},
+{
+"bold": false,
+"text": "Richard Hughes"
+},
+{
+"bold": false,
+"text": "Hera Sheppard"
+},
+{
+"bold": false,
+"text": "Tamhas Buchan (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "St Albans"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Natalie Suleyman"
+},
+{
+"bold": false,
+"text": "Rob Dunstan (L)"
+},
+{
+"bold": false,
+"text": "Bao Huynh"
+},
+{
+"bold": false,
+"text": "John Cowell"
+},
+{
+"bold": false,
+"text": "Leanna Nguyen"
+},
+{
+"bold": false,
+"text": "Lu\u1eadn Walker (West)"
+}
+],
+[
+{
+"bold": false,
+"text": "Sunbury"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Josh Bull"
+},
+{
+"bold": false,
+"text": "Simmone Cottom (L)"
+},
+{
+"bold": false,
+"text": "Lauren Granger-Brown"
+},
+{
+"bold": false,
+"text": "Elita Dabrowski"
+},
+{
+"bold": false,
+"text": "Adam Bremner"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Sydenham"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Uros Rasic"
+},
+{
+"bold": false,
+"text": "Nathalie Moussi (L)"
+},
+{
+"bold": false,
+"text": "Maggie Jane"
+},
+{
+"bold": false,
+"text": "Joh Bauch"
+},
+{
+"bold": false,
+"text": "Shania Khan"
+},
+{
+"bold": false,
+"text": "Maria Kerr (Ind) | Ashley Vandenburg (Ind) | Bruce Lancashire (West) | Nancy Croes (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Tarneit"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Dylan Wight"
+},
+{
+"bold": false,
+"text": "Venkat Ram Upparlapalle (L)"
+},
+{
+"bold": false,
+"text": "Rifai Raheem"
+},
+{
+"bold": false,
+"text": "Walter Villagonzalo"
+},
+{
+"bold": false,
+"text": "Leah Van Koulen"
+},
+{
+"bold": false,
+"text": "Andrew Elsbury (West) | Maurita Rahn (AJP)"
+}
+],
+[
+{
+"bold": false,
+"text": "Thomastown"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Bronwyn Halfpenny"
+},
+{
+"bold": false,
+"text": "Belinda Stojcevski (L)"
+},
+{
+"bold": false,
+"text": "Gavin Trewalla"
+},
+{
+"bold": false,
+"text": "Nadia Anthony"
+},
+{
+"bold": false,
+"text": "Priya Reddy"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Warrandyte"
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Nicole Werner (L)"
+},
+{
+"bold": false,
+"text": "Vanessa Muradian"
+},
+{
+"bold": false,
+"text": "Mark Burnside"
+},
+{
+"bold": false,
+"text": "John Stanley"
+},
+{
+"bold": false,
+"text": "Caleb Schwab (LBT)"
+}
+],
+[
+{
+"bold": false,
+"text": "Wendouree"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Juliana Addison"
+},
+{
+"bold": false,
+"text": "Gav Ronan (L)"
+},
+{
+"bold": false,
+"text": "Ellen Burns"
+},
+{
+"bold": false,
+"text": "Stuart Robinson"
+},
+{
+"bold": false,
+"text": "Chris Meagher"
+},
+{
+"bold": false,
+"text": "Melissa Collins (AJP) | Ruth Byrne (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Werribee"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "John Lister"
+},
+{
+"bold": false,
+"text": "Reece Clark (L)"
+},
+{
+"bold": false,
+"text": "Tushar Kumar"
+},
+{
+"bold": false,
+"text": "Paul Pateras"
+},
+{
+"bold": false,
+"text": "Sue Munro"
+},
+{
+"bold": false,
+"text": "Paul Hopper (West) | Matthew Emerson (FF)"
+}
+],
+[
+{
+"bold": false,
+"text": "Williamstown"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Melissa Horne"
+},
+{
+"bold": false,
+"text": "Paul Lindemann (L)"
+},
+{
+"bold": false,
+"text": "Ben Hocking"
+},
+{
+"bold": false,
+"text": "Catherine Loughnan"
+},
+{
+"bold": false,
+"text": "Oskar Martin"
+},
+{
+"bold": false,
+"text": "Gil Gannon (West) | Tony Briffa (Ind)"
+}
+],
+[
+{
+"bold": false,
+"text": "Yan Yean"
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": true,
+"text": "Lauren Kathage"
+},
+{
+"bold": false,
+"text": "Amanda Dow (L)"
+},
+{
+"bold": false,
+"text": "Gufran Mohammed"
+},
+{
+"bold": false,
+"text": "Jeremy Johnson"
+},
+{
+"bold": false,
+"text": "Andrew Bell"
+},
+{
+"bold": false,
+"text": "Sinan Okatan (AJP)"
+}
+]
+],
+"lc": {
+"Eastern Victoria": [
+[
+{
+"bold": false,
+"text": "Labor | candidates"
+},
+{
+"bold": false,
+"text": "Coalition | candidates"
+},
+{
+"bold": false,
+"text": "Greens | candidates"
+},
+{
+"bold": false,
+"text": "Legalise Cannabis | candidates"
+},
+{
+"bold": false,
+"text": "DLP | candidates"
+},
+{
+"bold": false,
+"text": "One Nation | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Renee Heath | Melina Bath | Matt Green"
+},
+{
+"bold": false,
+"text": "Mat Morgan"
+},
+{
+"bold": false,
+"text": "Danielle Burridge"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Neil Davison"
+}
+],
+[
+{
+"bold": false,
+"text": "SFF | candidates"
+},
+{
+"bold": false,
+"text": "Libertarian | candidates"
+},
+{
+"bold": false,
+"text": "Freedom | candidates"
+},
+{
+"bold": false,
+"text": "AJP | candidates"
+},
+{
+"bold": false,
+"text": "Family First | candidates"
+},
+{
+"bold": false,
+"text": "Socialists | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Helen Jaeges"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Max Forward"
+}
+],
+[
+{
+"bold": false,
+"text": "EMI - Reform | candidates"
+},
+{
+"bold": false,
+"text": "Sustainable | candidates"
+},
+{
+"bold": false,
+"text": "Independent | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Reade Smith"
+},
+{
+"bold": false,
+"text": "Antoinette Pitt"
+}
+],
+[]
+],
+"North Eastern Metropolitan": [
+[
+{
+"bold": false,
+"text": "Labor | candidates"
+},
+{
+"bold": false,
+"text": "Liberal | candidates"
+},
+{
+"bold": false,
+"text": "Greens | candidates"
+},
+{
+"bold": false,
+"text": "DLP | candidates"
+},
+{
+"bold": false,
+"text": "Libertarian | candidates"
+},
+{
+"bold": false,
+"text": "Legalise Cannabis | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Richard Welch | Deirdre Diamante | John Pyrros"
+},
+{
+"bold": true,
+"text": "Aiv Puglielli"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Gianni Del Rosario-Makridis"
+}
+],
+[
+{
+"bold": false,
+"text": "Family First | candidates"
+},
+{
+"bold": false,
+"text": "AJP | candidates"
+},
+{
+"bold": false,
+"text": "One Nation | candidates"
+},
+{
+"bold": false,
+"text": "Freedom | candidates"
+},
+{
+"bold": false,
+"text": "SFF | candidates"
+},
+{
+"bold": false,
+"text": "Socialists | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Chloe Nicolosi"
+},
+{
+"bold": false,
+"text": "Natalie Adams"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Lucas Deviesseux | Heather Maltby"
+}
+],
+[
+{
+"bold": false,
+"text": "Sustainable | candidates"
+},
+{
+"bold": false,
+"text": "EMI - Reform | candidates"
+},
+{
+"bold": false,
+"text": "Democrats | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Jack Corcoran | William Clow"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Leonie Green | Ryan Parris"
+}
+]
+],
+"Northern Metropolitan": [
+[
+{
+"bold": false,
+"text": "Labor | candidates"
+},
+{
+"bold": false,
+"text": "Liberal | candidates"
+},
+{
+"bold": false,
+"text": "Greens | candidates"
+},
+{
+"bold": false,
+"text": "DLP | candidates"
+},
+{
+"bold": false,
+"text": "Socialists | candidates"
+},
+{
+"bold": false,
+"text": "Legalise Cannabis | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Evan Mulholland | Bernadette Khoury"
+},
+{
+"bold": true,
+"text": "Anasina Gray-Barberio"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Omar Hassan | Louisa Bassini"
+},
+{
+"bold": false,
+"text": "Riley Aickin"
+}
+],
+[
+{
+"bold": false,
+"text": "Family First | candidates"
+},
+{
+"bold": false,
+"text": "AJP | candidates"
+},
+{
+"bold": false,
+"text": "Libertarian | candidates"
+},
+{
+"bold": false,
+"text": "Freedom | candidates"
+},
+{
+"bold": false,
+"text": "One Nation | candidates"
+},
+{
+"bold": false,
+"text": "SFF | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Imad Hirmiz"
+},
+{
+"bold": false,
+"text": "Peita Collard"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Mark Nicholson"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "EMI - Reform | candidates"
+},
+{
+"bold": false,
+"text": "Sustainable | candidates"
+},
+{
+"bold": false,
+"text": "Democrats | candidates"
+},
+{
+"bold": false,
+"text": "Socialist Alliance | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Bert Jessup"
+},
+{
+"bold": false,
+"text": "Andrew Rowse | Sahar Khalili"
+},
+{
+"bold": false,
+"text": "Meredith Lawrence | Chloe Beaton | Darren Saffin"
+}
+]
+],
+"Northern Victoria": [
+[
+{
+"bold": false,
+"text": "Coalition | candidates"
+},
+{
+"bold": false,
+"text": "Labor | candidates"
+},
+{
+"bold": false,
+"text": "Greens | candidates"
+},
+{
+"bold": false,
+"text": "SFF | candidates"
+},
+{
+"bold": false,
+"text": "Legalise Cannabis | candidates"
+},
+{
+"bold": false,
+"text": "One Nation | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": true,
+"text": "Steve Brooks | Gaelle Broad | Amanda Millar"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Cate Sinclair"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Wayne Taylor"
+},
+{
+"bold": true,
+"text": "Rikkie-Lee Tyrrell | Athol Thomas"
+}
+],
+[
+{
+"bold": false,
+"text": "Libertarian | candidates"
+},
+{
+"bold": false,
+"text": "Family First | candidates"
+},
+{
+"bold": false,
+"text": "AJP | candidates"
+},
+{
+"bold": false,
+"text": "DLP | candidates"
+},
+{
+"bold": false,
+"text": "Freedom | candidates"
+},
+{
+"bold": false,
+"text": "EMI - Reform | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Michael White"
+},
+{
+"bold": true,
+"text": "Georgie Purcell"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Socialists | candidates"
+},
+{
+"bold": false,
+"text": "Sustainable | candidates"
+},
+{
+"bold": false,
+"text": "Citizens Party | candidates"
+},
+{
+"bold": false,
+"text": "Independent | candidate"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Dorothy Lamond | Rohan Tyler"
+},
+{
+"bold": false,
+"text": "Paul Read"
+},
+{
+"bold": false,
+"text": "Chris Lahy | Jeff Davy"
+},
+{
+"bold": false,
+"text": "Kate White"
+}
+]
+],
+"South Eastern Metropolitan": [
+[
+{
+"bold": false,
+"text": "Labor | candidates"
+},
+{
+"bold": false,
+"text": "Liberal | candidates"
+},
+{
+"bold": false,
+"text": "Greens | candidates"
+},
+{
+"bold": false,
+"text": "Legalise Cannabis | candidates"
+},
+{
+"bold": false,
+"text": "Libertarian | candidates"
+},
+{
+"bold": false,
+"text": "DLP | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Phillip Pease | Ann-Marie Hermans"
+},
+{
+"bold": false,
+"text": "Matthew Kirwan"
+},
+{
+"bold": true,
+"text": "Rachel Payne"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Family First | candidates"
+},
+{
+"bold": false,
+"text": "Freedom | candidates"
+},
+{
+"bold": false,
+"text": "One Nation | candidates"
+},
+{
+"bold": false,
+"text": "AJP | candidates"
+},
+{
+"bold": false,
+"text": "SFF | candidates"
+},
+{
+"bold": false,
+"text": "Socialists | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Jane Foreman"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Colleen Harkin | Geoff Goddard"
+},
+{
+"bold": false,
+"text": "Tamara Champion"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Kelly Cvetkova | Keeley Hopper"
+}
+],
+[
+{
+"bold": false,
+"text": "Sustainable | candidates"
+},
+{
+"bold": false,
+"text": "EMI - Reform | candidates"
+},
+{
+"bold": false,
+"text": "Citizens Party | candidates"
+},
+{
+"bold": false,
+"text": "Democrats | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Brandon Hoult"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Gary Collie | Russell Bennett"
+},
+{
+"bold": false,
+"text": "Heath McKenzie | Jacqui Morel"
+}
+]
+],
+"Southern Metropolitan": [
+[
+{
+"bold": false,
+"text": "Liberal | candidates"
+},
+{
+"bold": false,
+"text": "Labor | candidates"
+},
+{
+"bold": false,
+"text": "Greens | candidates"
+},
+{
+"bold": false,
+"text": "Legalise Cannabis | candidates"
+},
+{
+"bold": false,
+"text": "Libertarian | candidates"
+},
+{
+"bold": false,
+"text": "DLP | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": true,
+"text": "David Davis | Georgie Crozier | Xavier Boffa"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Katherine Copsey"
+},
+{
+"bold": false,
+"text": "Zofia Pawlaczek"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "AJP | candidates"
+},
+{
+"bold": false,
+"text": "Sustainable | candidates"
+},
+{
+"bold": false,
+"text": "Family First | candidates"
+},
+{
+"bold": false,
+"text": "One Nation | candidates"
+},
+{
+"bold": false,
+"text": "Freedom | candidates"
+},
+{
+"bold": false,
+"text": "Socialists | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Daniel O'Neill"
+},
+{
+"bold": false,
+"text": "Bettina Terry"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Aaron Sanford | Kristina Kaulenas"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Catherine Holder | April Worsley"
+}
+],
+[
+{
+"bold": false,
+"text": "SFF | candidates"
+},
+{
+"bold": false,
+"text": "EMI - Reform | candidates"
+},
+{
+"bold": false,
+"text": "Democrats | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Clive Jackson | Phillip Broadbridge"
+}
+]
+],
+"Western Metropolitan": [
+[
+{
+"bold": false,
+"text": "Labor | candidates"
+},
+{
+"bold": false,
+"text": "Liberal | candidates"
+},
+{
+"bold": false,
+"text": "Greens | candidates"
+},
+{
+"bold": false,
+"text": "DLP | candidates"
+},
+{
+"bold": false,
+"text": "Legalise Cannabis | candidates"
+},
+{
+"bold": false,
+"text": "Socialists | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Roshena Campbell | Trung Luu"
+},
+{
+"bold": false,
+"text": "Brittney Henderson"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Xavier Menta"
+},
+{
+"bold": false,
+"text": "Anneke Demanuele | Jorge Jorquera"
+}
+],
+[
+{
+"bold": false,
+"text": "Family First | candidates"
+},
+{
+"bold": false,
+"text": "One Nation | candidates"
+},
+{
+"bold": false,
+"text": "Libertarian | candidates"
+},
+{
+"bold": false,
+"text": "SFF | candidates"
+},
+{
+"bold": false,
+"text": "AJP | candidates"
+},
+{
+"bold": false,
+"text": "Freedom | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": true,
+"text": "Moira Deeming"
+},
+{
+"bold": false,
+"text": "Fiona Lopez"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Shohre Mansouri"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Sustainable | candidates"
+},
+{
+"bold": false,
+"text": "EMI - Reform | candidates"
+},
+{
+"bold": false,
+"text": "Democrats | candidates"
+},
+{
+"bold": false,
+"text": "West Party | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Dennis Bilic"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Chris Thiery-Lai | Nigel Keenan"
+},
+{
+"bold": false,
+"text": "Joe Garra | Sahana Ramesh | Brett Patrikeos"
+}
+]
+],
+"Western Victoria": [
+[
+{
+"bold": false,
+"text": "Labor | candidates"
+},
+{
+"bold": false,
+"text": "Coalition | candidates"
+},
+{
+"bold": false,
+"text": "Greens | candidates"
+},
+{
+"bold": false,
+"text": "Legalise Cannabis | candidates"
+},
+{
+"bold": false,
+"text": "SFF | candidates"
+},
+{
+"bold": false,
+"text": "Libertarian | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": true,
+"text": "Bev McArthur | Graham Watt"
+},
+{
+"bold": true,
+"text": "Sarah Mansfield"
+},
+{
+"bold": false,
+"text": "Peter Mitchell"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "One Nation | candidates"
+},
+{
+"bold": false,
+"text": "DLP | candidates"
+},
+{
+"bold": false,
+"text": "Family First | candidates"
+},
+{
+"bold": false,
+"text": "AJP | candidates"
+},
+{
+"bold": false,
+"text": "Socialists | candidates"
+},
+{
+"bold": false,
+"text": "EMI - Reform | candidates"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Chris Burson | Vaughan Williams"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Dianne Colbert"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Ben Nunquam | Dominique Houzet"
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": "Freedom | candidates"
+},
+{
+"bold": false,
+"text": "Sustainable | candidates"
+},
+{
+"bold": false,
+"text": "Democrats | candidates"
+},
+{
+"bold": false,
+"text": "Socialist Alliance | candidates"
+},
+{
+"bold": false,
+"text": "Independent | candidate"
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": ""
+}
+],
+[
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Madeleine Wearne | Ian Chivers"
+},
+{
+"bold": false,
+"text": "Andy Meddick | Peter Kelly"
+},
+{
+"bold": false,
+"text": "Tim Gooden | Sue Bull | Ross Smith"
+},
+{
+"bold": false,
+"text": "Aleta Moriarty"
+}
+],
+[]
+]
+},
+"retiring": {
+"Labor": [
+"Jackson Taylor MLA (Bayswater) \u2013 announced 23 September 2025",
+"Steve McGhie MLA (Melton) \u2013 announced 23 September 2025",
+"Emma Vulin MLA (Pakenham) \u2013 announced 30 September 2025",
+"Jordan Crugnale MLA (Bass) \u2013 announced 2 October 2025",
+"Natalie Hutchins MLA (Sydenham) \u2013 announced 16 October 2025",
+"Shaun Leane MLC (North-Eastern Metropolitan Region) \u2013 announced 1 December 2025",
+"Danny Pearson MLA (Essendon) \u2013 announced 10 April 2026",
+"Mary-Anne Thomas MLA (Macedon) \u2013 announced 10 April 2026",
+"Gayle Tierney MLC (Western Victoria Region) \u2013 announced 10 April 2026",
+"Lily D'Ambrosio MLA (Mill Park) \u2013 announced 30 July 2026",
+"Harriet Shing MLC (Eastern Victoria Region) \u2013 announced 30 July 2026",
+"Jacinta Allan, MLA (Bendigo East) \u2013 announced 14 August 2026",
+"Maree Edwards MLA (Bendigo West) \u2013 announced 27 August 2026",
+"Sonja Terpstra MLC (North-Eastern Metropolitan Region) \u2013 announced 12 October 2026"
+],
+"Liberal": [
+"Bill Tilley MLA (Benambra) \u2013 announced 13 March 2024",
+"David Hodgett MLA (Croydon) \u2013 announced 6 August 2025",
+"Michael O'Brien MLA (Malvern) \u2013 announced 9 September 2025",
+"Kim Wells MLA (Rowville) \u2013 announced 14 September 2025",
+"Wendy Lovell MLC (Northern Victoria Region) \u2013 announced 5 January 2026",
+"Joe McCracken MLC (Western Victoria Region) \u2013 announced 12 January 2026"
+],
+"National": [
+"Peter Walsh MLA (Murray Plains) \u2013 announced 26 November 2024",
+"Tim Bull MLA (Gippsland East) \u2013 announced 19 May 2026",
+"Kim O'Keeffe MLA (Shepparton) \u2013 announced 21 July 2026"
+],
+"Greens": [
+"Tim Read \u2020 MLA (Brunswick) \u2013 announced 29 January 2026 (died 19 September 2026)"
+],
+"Legalise Cannabis": [
+"David Ettershank MLC (Western Metropolitan Region) \u2013 announced 2 June 2026"
+]
+},
+"withdrawals": [
+[
+{
+"bold": false,
+"text": "Date"
+},
+{
+"bold": false,
+"text": "Party"
+},
+{
+"bold": false,
+"text": "Candidate"
+},
+{
+"bold": false,
+"text": "Seat"
+},
+{
+"bold": false,
+"text": "Details"
+}
+],
+[
+{
+"bold": false,
+"text": "December 2025"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Andrew Kilmartin"
+},
+{
+"bold": false,
+"text": "Ripon"
+},
+{
+"bold": false,
+"text": "Withdrew due to Huntington's disease diagnosis"
+}
+],
+[
+{
+"bold": false,
+"text": "3 January 2026"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Family First"
+},
+{
+"bold": false,
+"text": "Bernie Finn"
+},
+{
+"bold": false,
+"text": "Western Metropolitan"
+},
+{
+"bold": false,
+"text": "Withdrew due to disagreements with party leadership"
+}
+],
+[
+{
+"bold": false,
+"text": "29 January 2026"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Greens"
+},
+{
+"bold": false,
+"text": "Tim Read"
+},
+{
+"bold": false,
+"text": "Brunswick"
+},
+{
+"bold": false,
+"text": "Withdrew due to metastatic cancer diagnosis"
+}
+],
+[
+{
+"bold": false,
+"text": "20 March 2026"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Dinesh Gourisetty"
+},
+{
+"bold": false,
+"text": "Western Metropolitan"
+},
+{
+"bold": false,
+"text": "Withdrew due to controversy over providing a character reference for a child sex offender"
+}
+],
+[
+{
+"bold": false,
+"text": "16 July 2026"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Socialist"
+},
+{
+"bold": false,
+"text": "Owen Cosgriff"
+},
+{
+"bold": false,
+"text": "Bendigo East"
+},
+{
+"bold": false,
+"text": "Withdrew due to a family illness"
+}
+],
+[
+{
+"bold": false,
+"text": "17 July 2026"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Moira Deeming"
+},
+{
+"bold": false,
+"text": "Western Metropolitan"
+},
+{
+"bold": false,
+"text": "Disendorsed after making unsubstantiated claims of assault against fellow MP Matthew Guy. Ran as a Family First candidate."
+}
+],
+[
+{
+"bold": false,
+"text": "25 August 2026"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Labor"
+},
+{
+"bold": false,
+"text": "Indah Johannes"
+},
+{
+"bold": false,
+"text": "Evelyn"
+},
+{
+"bold": false,
+"text": "Withdrew due to Hodgkin lymphoma diagnosis"
+}
+],
+[
+{
+"bold": false,
+"text": "1 October 2026"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "One Nation"
+},
+{
+"bold": false,
+"text": "Greg Hansford"
+},
+{
+"bold": false,
+"text": "Eastern Victoria"
+},
+{
+"bold": false,
+"text": "Withdrew due to health issues"
+}
+],
+[
+{
+"bold": false,
+"text": "12 October 2026"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "Liberal"
+},
+{
+"bold": false,
+"text": "Grant Hutchinson"
+},
+{
+"bold": false,
+"text": "Croydon"
+},
+{
+"bold": false,
+"text": "Disendorsed due to a legal dispute between the candidate and his law firm"
+}
+],
+[
+{
+"bold": false,
+"text": "31 October 2026"
+},
+{
+"bold": false,
+"text": ""
+},
+{
+"bold": false,
+"text": "One Nation"
+},
+{
+"bold": false,
+"text": "Matthew Collins"
+},
+{
+"bold": false,
+"text": "Melbourne"
+},
+{
+"bold": false,
+"text": "Withdrew over controversial social media posts"
+}
+],
+[]
+],
+"links": {
+"Political parties": "/wiki/List_of_political_parties_in_Australia#Victoria",
+"Jackson Taylor": "/wiki/Jackson_Taylor",
+"Steve McGhie": "/wiki/Steve_McGhie",
+"Emma Vulin": "/wiki/Emma_Vulin",
+"Jordan Crugnale": "/wiki/Jordan_Crugnale",
+"Natalie Hutchins": "/wiki/Natalie_Hutchins",
+"Shaun Leane": "/wiki/Shaun_Leane",
+"Danny Pearson": "/wiki/Danny_Pearson_(politician)",
+"Mary-Anne Thomas": "/wiki/Mary-Anne_Thomas",
+"Gayle Tierney": "/wiki/Gayle_Tierney",
+"Lily D'Ambrosio": "/wiki/Lily_D'Ambrosio",
+"Harriet Shing": "/wiki/Harriet_Shing",
+"Jacinta Allan": "/wiki/Jacinta_Allan",
+"Bendigo East": "/wiki/Bendigo_East",
+"Maree Edwards": "/wiki/Maree_Edwards",
+"Sonja Terpstra": "/wiki/Sonja_Terpstra",
+"Bill Tilley": "/wiki/Bill_Tilley",
+"David Hodgett": "/wiki/David_Hodgett",
+"Michael O'Brien": "/wiki/Michael_O'Brien_(Victorian_politician)",
+"Kim Wells": "/wiki/Kim_Wells_(Victorian_politician)",
+"Wendy Lovell": "/wiki/Wendy_Lovell",
+"Joe McCracken": "/wiki/Joe_McCracken",
+"Peter Walsh": "/wiki/Peter_Walsh_(Victorian_politician)",
+"Tim Bull": "/wiki/Tim_Bull",
+"Kim O'Keeffe": "/wiki/Kim_O'Keeffe",
+"Tim Read": "/wiki/Tim_Read",
+"David Ettershank": "/wiki/David_Ettershank",
+"Nina Taylor": "/wiki/Nina_Taylor",
+"Matt Fregon": "/wiki/Matt_Fregon",
+"Alison Marchant": "/wiki/Alison_Marchant",
+"Nick Staikos": "/wiki/Nick_Staikos",
+"Brad Battin": "/wiki/Brad_Battin",
+"Paul Hamer": "/wiki/Paul_Hamer",
+"James Newbury": "/wiki/James_Newbury",
+"Kathleen Matthews-Ward": "/wiki/Kathleen_Matthews-Ward",
+"Matthew Guy": "/wiki/Matthew_Guy",
+"Colin Brooks": "/wiki/Colin_Brooks_(politician)",
+"Sonya Kilkenny": "/wiki/Sonya_Kilkenny",
+"David Southwick": "/wiki/David_Southwick",
+"Meng Heang Tak": "/wiki/Meng_Heang_Tak",
+"Pauline Richards": "/wiki/Pauline_Richards",
+"Gabrielle Williams": "/wiki/Gabrielle_Williams",
+"Cindy McLeish": "/wiki/Cindy_McLeish",
+"Vicki Ward": "/wiki/Vicki_Ward",
+"John Barnes": "/wiki/John_Barnes_(Australian_footballer)",
+"Michaela Settle": "/wiki/Michaela_Settle",
+"Annabelle Cleeland": "/wiki/Annabelle_Cleeland",
+"Bridget Vallence": "/wiki/Bridget_Vallence",
+"Katie Hall": "/wiki/Katie_Hall_(Australian_politician)",
+"Paul Edbrooke": "/wiki/Paul_Edbrooke",
+"Christine Couzens": "/wiki/Christine_Couzens",
+"Danny O'Brien": "/wiki/Danny_O'Brien_(politician)",
+"John Mullahy": "/wiki/John_Mullahy",
+"Iwan Walters": "/wiki/Iwan_Walters",
+"Paul Mercurio": "/wiki/Paul_Mercurio",
+"John Pesutto": "/wiki/John_Pesutto",
+"Anthony Carbines": "/wiki/Anthony_Carbines",
+"Ros Spence": "/wiki/Ros_Spence",
+"Jess Wilson": "/wiki/Jess_Wilson",
+"Luba Grigorovitch": "/wiki/Luba_Grigorovitch",
+"Ella George": "/wiki/Ella_George",
+"Sarah Connolly": "/wiki/Sarah_Connolly_(politician)",
+"Van Thanh Rudd": "/wiki/Van_Thanh_Rudd",
+"Emma Kealy": "/wiki/Emma_Kealy",
+"Ellen Sandell": "/wiki/Ellen_Sandell",
+"Jordan van den Lamb": "/wiki/Jordan_van_den_Lamb",
+"Jade Benham": "/wiki/Jade_Benham",
+"Ali Cupper": "/wiki/Ali_Cupper",
+"Daniela De Martino": "/wiki/Daniela_De_Martino",
+"Tim Richardson": "/wiki/Tim_Richardson_(politician)",
+"Chris Crewther": "/wiki/Chris_Crewther",
+"Martin Cameron": "/wiki/Martin_Cameron_(Victorian_politician)",
+"Eden Foster": "/wiki/Eden_Foster",
+"Wayne Farnham": "/wiki/Wayne_Farnham",
+"Belinda Wilson": "/wiki/Belinda_Wilson",
+"Anthony Marsh": "/wiki/Anthony_Marsh",
+"Ben Carroll": "/wiki/Ben_Carroll",
+"Kat Theophanous": "/wiki/Kat_Theophanous",
+"Jim Penman": "/wiki/Jim_Penman",
+"Steve Dimopoulos": "/wiki/Steve_Dimopoulos",
+"Tim McCurdy": "/wiki/Tim_McCurdy",
+"Warren Pickering": "/wiki/Warren_Pickering",
+"Anthony Cianflone": "/wiki/Anthony_Cianflone",
+"Mathew Hilakari": "/wiki/Mathew_Hilakari",
+"Hutch Hussein": "/wiki/Hutch_Hussein",
+"Richard Riordan": "/wiki/Richard_Riordan_(Australian_politician)",
+"Rachel Westaway": "/wiki/Rachel_Westaway",
+"Nathan Lambert": "/wiki/Nathan_Lambert",
+"Gabrielle de Vietri": "/wiki/Gabrielle_de_Vietri",
+"Nick McGowan": "/wiki/Nick_McGowan",
+"Martha Haylett": "/wiki/Martha_Haylett",
+"Brad Rowswell": "/wiki/Brad_Rowswell",
+"Roma Britnell": "/wiki/Roma_Britnell",
+"Natalie Suleyman": "/wiki/Natalie_Suleyman",
+"Josh Bull": "/wiki/Josh_Bull",
+"Dylan Wight": "/wiki/Dylan_Wight",
+"Andrew Elsbury": "/wiki/Andrew_Elsbury",
+"Bronwyn Halfpenny": "/wiki/Bronwyn_Halfpenny",
+"Nicole Werner": "/wiki/Nicole_Werner",
+"Juliana Addison": "/wiki/Juliana_Addison",
+"John Lister": "/wiki/John_Lister_(Victorian_politician)",
+"Melissa Horne": "/wiki/Melissa_Horne",
+"Tony Briffa": "/wiki/Tony_Briffa_(politician)",
+"Lauren Kathage": "/wiki/Lauren_Kathage",
+"Renee Heath": "/wiki/Renee_Heath",
+"Melina Bath": "/wiki/Melina_Bath",
+"Richard Welch": "/wiki/Richard_Welch_(Australian_politician)",
+"Aiv Puglielli": "/wiki/Aiv_Puglielli",
+"Evan Mulholland": "/wiki/Evan_Mulholland",
+"Anasina Gray-Barberio": "/wiki/Anasina_Gray-Barberio",
+"Mark Nicholson": "/wiki/Mark_Nicholson_(filmmaker)",
+"Socialist Alliance": "/wiki/Socialist_Alliance_(Australia)",
+"Gaelle Broad": "/wiki/Gaelle_Broad",
+"Amanda Millar": "/wiki/Amanda_Millar",
+"Rikkie-Lee Tyrrell": "/wiki/Rikkie-Lee_Tyrrell",
+"Georgie Purcell": "/wiki/Georgie_Purcell",
+"Ann-Marie Hermans": "/wiki/Ann-Marie_Hermans",
+"Rachel Payne": "/wiki/Rachel_Payne",
+"David Davis": "/wiki/David_Davis_(Australian_politician)",
+"Georgie Crozier": "/wiki/Georgie_Crozier",
+"Katherine Copsey": "/wiki/Katherine_Copsey",
+"Roshena Campbell": "/wiki/Roshena_Campbell",
+"Trung Luu": "/wiki/Trung_Luu",
+"Moira Deeming": "/wiki/Moira_Deeming",
+"Bev McArthur": "/wiki/Bev_McArthur",
+"Graham Watt": "/wiki/Graham_Watt",
+"Sarah Mansfield": "/wiki/Sarah_Mansfield",
+"Andy Meddick": "/wiki/Andy_Meddick",
+"Bernie Finn": "/wiki/Bernie_Finn",
+"Facebook": "/wiki/Facebook",
+"cite web": "/wiki/Template:Cite_web",
+"link": "/wiki/Category:CS1_maint:_multiple_names:_authors_list",
+"ABC News": "/wiki/ABC_News_(Australia)",
+"Terpstra, Sonja": "/wiki/Sonja_Terpstra",
+"6 News Australia": "/wiki/6_News_Australia",
+"The Age": "/wiki/The_Age",
+"McGowan, Nick": "/wiki/Nick_McGowan",
+"Smethurst, Annika": "/wiki/Annika_Smethurst",
+"Shing, Harriet": "/wiki/Harriet_Shing",
+"help page": "/wiki/Help:Cite_errors/Cite_error_references_no_text",
+"help": "/wiki/Help:CS1_errors#param_has_ext_link"
+},
+"lastmod": "This page was last edited on 31 October 2026, at 11:34\u00a0(UTC)."
+}

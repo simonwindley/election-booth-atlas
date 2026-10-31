@@ -1,0 +1,1185 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>window.__BASEMAP = 'https://tiles.openfreemap.org/styles/positron'; window.__DATA_BASE = 'data/';</script>
+<title>Victoria Booth Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,500;1,400&display=swap">
+<style>
+/* Layout: a full-height workbench. Top rail (name + views), then a three-column map bench:
+   controls | map | detail. Charts and tables live in the detail column and the other views. */
+:root {
+  --bg: #f4f3ee;          /* paper */
+  --surface: #fbfaf7;     /* panels */
+  --surface-2: #ece9e1;   /* inset fields, table stripes */
+  --line: #d6d2c6;        /* hairlines */
+  --fg: #1f2126;          /* ink */
+  --fg-2: #5a5d66;        /* secondary ink */
+  --fg-3: #8b8e97;        /* muted ink, ticks */
+  --accent: #1f5f66;      /* pencil-teal for controls and links */
+  --accent-ink: #ffffff;
+  --map-bg: #e9e7df;
+  --map-line: #a9a596;
+  --alp: #e0463f; --coal: #2a62c9; --grn: #1f7a1f; --onp: #e8740c; --vsp: #141414; --ind: #7a7f8a; --oth: #8a5bb5;
+  --neg: #6b5a4a;         /* lost ground on swing maps (dark umber, opposite to every party hue) */
+  --nodata: #b8b4a8;
+  --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --radius: 6px;
+  --shadow: 0 1px 2px rgba(20,22,30,.08), 0 6px 18px rgba(20,22,30,.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171b; --surface: #1d2025; --surface-2: #272b32; --line: #363b44;
+    --fg: #e8e6df; --fg-2: #b4b2aa; --fg-3: #7d8089; --accent: #6ac2cc; --accent-ink: #0d2426;
+    --map-bg: #1a1d22; --map-line: #4a4f5a;
+    --alp: #ea5a54; --coal: #5b8ae6; --grn: #3a9a3a; --onp: #f0892a; --vsp: #f0ede6; --ind: #9aa0ab; --oth: #a078d8;
+    --neg: #d9cbb8; --nodata: #4a4f5a;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15171b; --surface: #1d2025; --surface-2: #272b32; --line: #363b44;
+  --fg: #e8e6df; --fg-2: #b4b2aa; --fg-3: #7d8089; --accent: #6ac2cc; --accent-ink: #0d2426;
+  --map-bg: #1a1d22; --map-line: #4a4f5a;
+  --alp: #ea5a54; --coal: #5b8ae6; --grn: #3a9a3a; --onp: #f0892a; --vsp: #f0ede6; --ind: #9aa0ab; --oth: #a078d8;
+  --neg: #d9cbb8; --nodata: #4a4f5a;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 14px; line-height: 1.45; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: var(--accent); }
+.app { height: 100%; display: flex; flex-direction: column; min-height: 0; }
+
+/* top rail */
+.top { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; border-bottom: 1px solid var(--line); background: var(--surface);
+  padding-block: 8px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand h1 { font-family: var(--font-display); font-weight: 500; font-size: 19px; margin: 0; letter-spacing: .01em; }
+.brand .sub { color: var(--fg-3); font-size: 12px; }
+nav.views { display: flex; gap: 2px; }
+nav.views button { background: none; border: 0; padding: 6px 10px; border-radius: var(--radius); color: var(--fg-2); cursor: pointer; }
+nav.views button:hover { background: var(--surface-2); }
+nav.views button[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
+nav.views button:focus-visible, .btn:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.status { margin-left: auto; color: var(--fg-3); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+/* views */
+.view { flex: 1; min-height: 0; display: none; }
+.view.active { display: flex; }
+.bench { flex: 1; min-height: 0; display: grid; grid-template-columns: 250px minmax(0, 1fr) 380px; }
+@media (max-width: 1000px) { .bench { grid-template-columns: 220px minmax(0, 1fr); } .bench .detail { grid-column: 1 / -1; max-height: 42vh; border-top: 1px solid var(--line); border-left: 0; } }
+@media (max-width: 640px) { .brand .sub { display: none; } .bench { grid-template-columns: 1fr; grid-template-rows: auto minmax(260px, 1fr) auto; } .bench .controls { max-height: 34vh; border-right: 0; border-bottom: 1px solid var(--line); } }
+.controls { border-right: 1px solid var(--line); background: var(--surface); overflow: auto; padding-block: 12px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: 12px; display: flex; flex-direction: column; gap: 14px; }
+.detail { border-left: 1px solid var(--line); background: var(--surface); overflow: auto; padding-block: 12px; padding-left: 14px; padding-right: max(16px, env(safe-area-inset-right, 0px)); min-width: 0; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label, .legend h4, .detail h3, .panel h3 { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--fg-3); font-weight: 500; margin: 0; }
+select, input[type=text], input[type=search], textarea { width: 100%; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 8px; }
+.seg { display: flex; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.seg button { flex: 1; background: var(--surface-2); border: 0; padding: 6px 4px; cursor: pointer; color: var(--fg-2); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.check { display: flex; align-items: center; gap: 8px; }
+.check input { width: auto; }
+.btn { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 10px; cursor: pointer; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.hint { color: var(--fg-3); font-size: 12px; }
+
+/* map */
+.mapwrap { position: relative; min-width: 0; min-height: 0; background: var(--map-bg); }
+#map { position: absolute; inset: 0; }
+.legend { position: absolute; left: 12px; bottom: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 10px; box-shadow: var(--shadow); max-width: min(300px, calc(100% - 24px)); font-size: 12px; }
+.legend h4 { margin-bottom: 6px; }
+.ramp { height: 10px; border-radius: 3px; border: 1px solid var(--line); }
+.ramp-labels { display: flex; justify-content: space-between; color: var(--fg-2); font-variant-numeric: tabular-nums; margin-top: 3px; font-family: var(--font-mono); font-size: 11px; }
+.swatches { display: flex; flex-direction: column; gap: 4px; }
+.swatch { display: flex; align-items: center; gap: 8px; }
+.swatch i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,.15); }
+.tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 9px; font-size: 12px; box-shadow: var(--shadow); max-width: 260px; z-index: 5; }
+.tip b { font-family: var(--font-mono); font-weight: 500; }
+.tip .row { display: flex; justify-content: space-between; gap: 12px; }
+.tip .k { color: var(--fg-2); }
+.mapnote { position: absolute; right: 12px; bottom: 12px; font-size: 11px; color: var(--fg-3); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 3px 6px; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--fg-2); background: color-mix(in srgb, var(--map-bg) 70%, transparent); z-index: 4; }
+
+/* MapLibre essentials (its stylesheet cannot be loaded externally, so the needed rules are inlined) */
+.maplibregl-map { font: inherit; overflow: hidden; position: relative; }
+.maplibregl-canvas-container, .maplibregl-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.maplibregl-canvas-container.maplibregl-interactive { cursor: grab; }
+.maplibregl-canvas-container.maplibregl-interactive:active { cursor: grabbing; }
+.maplibregl-control-container { position: absolute; inset: 0; pointer-events: none; }
+.maplibregl-ctrl-top-right { position: absolute; top: 10px; right: 10px; pointer-events: auto; }
+.maplibregl-ctrl-bottom-right, .maplibregl-ctrl-bottom-left, .maplibregl-ctrl-top-left { position: absolute; pointer-events: auto; }
+.maplibregl-ctrl-bottom-right { bottom: 0; right: 0; } .maplibregl-ctrl-bottom-left { bottom: 0; left: 0; } .maplibregl-ctrl-top-left { top: 0; left: 0; }
+.maplibregl-ctrl-group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.maplibregl-ctrl-group button { display: block; width: 30px; height: 30px; background: none; border: 0; border-bottom: 1px solid var(--line); cursor: pointer; color: var(--fg); font-weight: 600; }
+.maplibregl-ctrl-group button:last-child { border-bottom: 0; }
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon { display: none; }
+.maplibregl-ctrl-zoom-in::before { content: "+"; } .maplibregl-ctrl-zoom-out::before { content: "\2212"; } .maplibregl-ctrl-compass { display: none !important; }
+.maplibregl-ctrl-attrib { display: none; }
+.maplibregl-popup { display: none; }
+
+/* detail panel */
+.detail h2 { font-family: var(--font-display); font-weight: 500; font-size: 18px; margin: 0 0 2px; text-wrap: balance; }
+.detail .meta { color: var(--fg-2); font-size: 12px; margin-bottom: 10px; }
+.detail h3 { margin: 14px 0 6px; }
+table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.data th { text-align: left; font-weight: 500; color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); padding: 4px 6px; }
+table.data td { padding: 4px 6px; border-bottom: 1px solid var(--surface-2); }
+table.data td.num, table.data th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.chip { display: inline-flex; align-items: center; gap: 6px; }
+.chip i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.bar { height: 6px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.bar b { display: block; height: 100%; border-radius: 3px; }
+.tablewrap { overflow-x: auto; }
+.empty { color: var(--fg-3); padding: 24px 0; }
+
+/* charts */
+.chart { width: 100%; height: auto; display: block; font-family: var(--font-ui); }
+.chart text { fill: var(--fg-2); font-size: 11px; }
+.chart .grid line { stroke: var(--line); stroke-dasharray: 2 3; }
+.chart .axis line, .chart .axis path { stroke: var(--line); }
+.chart .lbl { fill: var(--fg); font-size: 11px; }
+.chart .hair { stroke: var(--fg-3); stroke-width: 1; }
+.chart .mono { font-family: var(--font-mono); }
+
+/* other views */
+.page { flex: 1; min-height: 0; overflow: auto; padding-block: 18px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.page .inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+.row .field { flex: 1 1 160px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; min-width: 0; }
+.panel h3 { margin-bottom: 8px; }
+.two { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; }
+@media (max-width: 800px) { .two { grid-template-columns: 1fr; } }
+.stats { display: flex; gap: 18px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; }
+.stat .v { font-family: var(--font-mono); font-size: 20px; font-variant-numeric: tabular-nums; }
+.stat .k { font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .06em; }
+.results { max-height: 50vh; overflow: auto; }
+textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px; resize: vertical; }
+.examples { display: flex; gap: 6px; flex-wrap: wrap; }
+.examples button { font-size: 12px; }
+.venues-list { max-height: 260px; overflow: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+.venues-list button { display: block; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--surface-2); padding: 6px 10px; cursor: pointer; }
+.venues-list button:hover { background: var(--surface-2); }
+.venues-list button small { color: var(--fg-3); }
+.prose { max-width: 68ch; }
+.prose p { margin: 0 0 10px; }
+.prose h2 { font-family: var(--font-display); font-weight: 500; font-size: 20px; margin: 18px 0 8px; }
+.prose code { font-family: var(--font-mono); font-size: 12px; background: var(--surface-2); padding: 1px 4px; border-radius: 3px; }
+@media (prefers-reduced-motion: no-preference) { nav.views button, .btn { transition: background .15s; } }
+.live-box { border: 1px solid var(--line); border-radius: 6px; padding: 10px; margin-top: 4px; background: var(--surface-2); }
+.live-box .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--grn); margin-right: 6px; vertical-align: middle; }
+.live-box .pulse.off { background: var(--nodata); }
+.live-box .fresh-list { max-height: 220px; overflow: auto; margin-top: 6px; }
+.live-box .fresh-list button { display: block; width: 100%; text-align: left; background: none; border: 0; border-top: 1px solid var(--line); padding: 5px 2px; color: var(--fg); font: inherit; font-size: 12px; cursor: pointer; }
+.live-box .fresh-list button:hover { background: var(--surface); }
+.live-box .fresh-list small { color: var(--fg-3); }
+.links a { font-size: 11px; color: var(--fg-2); text-decoration: none; border: 1px solid var(--line); border-radius: 3px; padding: 0 5px; margin-right: 3px; white-space: nowrap; }
+.links a:hover { color: var(--fg); border-color: var(--fg-3); }
+.fresh-tag { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--fg); border: 2px solid var(--fg); border-radius: 3px; padding: 0 4px; margin-left: 6px; }
+</style>
+
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><h1>Victoria Booth Atlas</h1><span class="sub">state and federal results by polling place, 2010–2026</span></div>
+    <nav class="views" aria-label="Views">
+      <button data-view="map" aria-current="page">Map</button>
+      <button data-view="venue">Venue</button>
+      <button data-view="compare">Compare</button>
+      <button data-view="y2026">2026</button>
+      <button data-view="query">Query</button>
+      <button data-view="about">About</button>
+    </nav>
+    <div class="status" id="status">loading…</div>
+  </header>
+
+  <!-- MAP VIEW -->
+  <section class="view active" id="view-map">
+    <div class="bench">
+      <aside class="controls">
+        <div class="field"><label for="sel-election">Election</label><select id="sel-election"></select></div>
+        <div class="live-box" id="live-box" hidden></div>
+        <div class="field"><label>Show</label>
+          <div class="seg" id="seg-unit"><button data-v="booth" aria-pressed="true">Booths</button><button data-v="contest" aria-pressed="false">Electorates</button></div></div>
+        <div class="field"><label for="sel-metric">Colour by</label>
+          <select id="sel-metric">
+            <option value="share">Primary vote share</option>
+            <option value="tcp">Two-candidate preferred</option>
+            <option value="swing">Primary swing since last election</option>
+            <option value="gap">Gap vs another election</option>
+            <option value="primary">Leader on primary votes</option>
+            <option value="tcpwin">Winner after preferences (2PP/2CP)</option>
+          </select></div>
+        <div class="field" id="f-party"><label for="sel-party">Party</label>
+          <select id="sel-party">
+            <option value="ALP">Labor</option><option value="COAL">Coalition</option><option value="GRN">Greens</option><option value="ONP">One Nation</option><option value="VSP">Socialists</option><option value="IND">Independents</option><option value="OTH">Others</option>
+          </select></div>
+        <div class="field" id="f-gap" hidden><label for="sel-gap">Compared with</label><select id="sel-gap"></select></div>
+        <div class="field"><label>Draw booths as</label>
+          <div class="seg" id="seg-layer"><button data-v="dots" aria-pressed="true">Dots</button><button data-v="catch" aria-pressed="false">Catchments</button></div></div>
+        <div class="field"><label for="sel-bound">Boundary outlines</label>
+          <select id="sel-bound">
+            <option value="auto">This election’s</option>
+            <option value="vic_la_2022">State districts 2022</option><option value="vic_la_2013">State districts 2013</option>
+            <option value="fed_2024">Federal divisions 2024</option><option value="fed_2021">Federal divisions 2021</option><option value="fed_2018">Federal divisions 2018</option><option value="fed_2010">Federal divisions 2010</option><option value="fed_2003">Federal divisions 2003</option>
+            <option value="vic_lc_2022">Upper house regions 2022</option><option value="none">None</option>
+          </select></div>
+        <div class="field"><label for="inp-search">Find a booth or district</label><input type="search" id="inp-search" placeholder="e.g. Northcote, Bridport"><div id="search-hits"></div></div>
+        <p class="hint" id="unit-hint">Election-day booths only. Early, postal and absent votes are counted at district level and are shown in the booth panel for context.</p>
+      </aside>
+      <div class="mapwrap">
+        <div id="map" role="application" aria-label="Map of polling places"></div>
+        <div class="legend" id="legend"></div>
+        <div class="tip" id="tip" hidden></div>
+        <div class="loading" id="map-loading">Loading booths…</div>
+      </div>
+      <aside class="detail" id="detail"><div class="empty">Click a booth to see its results and how the same venue has voted across elections, or switch to Electorates and click a seat for the full result.</div></aside>
+    </div>
+  </section>
+
+  <!-- VENUE VIEW -->
+  <section class="view" id="view-venue">
+    <div class="page"><div class="inner">
+      <div class="two">
+        <div class="panel">
+          <h3>Find a venue</h3>
+          <input type="search" id="venue-search" placeholder="School, hall, suburb or booth name">
+          <div class="venues-list" id="venue-list"></div>
+          <p class="hint">A venue is one physical polling place. State booths are matched to federal premises by name; some rural booths carry only an approximate location.</p>
+        </div>
+        <div class="panel" id="venue-detail"><div class="empty">Pick a venue to see every election held there.</div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- COMPARE VIEW -->
+  <section class="view" id="view-compare">
+    <div class="page"><div class="inner">
+      <div class="panel">
+        <div class="row">
+          <div class="field"><label for="cmp-a">Horizontal axis</label><select id="cmp-a"></select></div>
+          <div class="field"><label for="cmp-b">Vertical axis</label><select id="cmp-b"></select></div>
+          <div class="field"><label for="cmp-party">Party</label><select id="cmp-party">
+            <option value="ALP">Labor</option><option value="COAL">Coalition</option><option value="GRN">Greens</option><option value="ONP">One Nation</option><option value="VSP">Socialists</option><option value="IND">Independents</option><option value="OTH">Others</option></select></div>
+        </div>
+      </div>
+      <div class="two">
+        <div class="panel"><h3 id="cmp-title">Venue by venue</h3><div id="cmp-chart"></div></div>
+        <div class="panel"><h3>Summary</h3><div class="stats" id="cmp-stats"></div><h3 style="margin-top:14px">Largest differences</h3><div class="tablewrap" id="cmp-table"></div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 2026 VIEW -->
+  <section class="view" id="view-y2026">
+    <div class="page"><div class="inner">
+      <div class="panel" id="y26-head"><div class="empty">Loading the 2026 register…</div></div>
+      <div class="panel"><h3>Seat by seat</h3>
+        <div class="row" style="margin-bottom:8px"><div class="field" style="flex:0 1 220px"><label for="y26-sort">Sort by</label><select id="y26-sort"><option value="margin">Margin, closest first</option><option value="name">Seat name</option><option value="held">Held by</option></select></div>
+          <div class="field" style="flex:1 1 200px"><label for="y26-filter">Filter</label><input type="search" id="y26-filter" placeholder="seat, member, candidate, party"></div></div>
+        <div class="tablewrap" id="y26-table"></div>
+        <p class="hint">Held by and candidates: Wikipedia’s candidate register (declared, pre-nomination; nominations close 9 November). Margins: the final two-candidate count at the last contest in that seat — the 2022 general election, or the by-election where there has been one since. Click a seat to open it on the map.</p></div>
+      <div class="two">
+        <div class="panel"><h3>Upper house tickets, by region</h3><div id="y26-lc"></div></div>
+        <div><div class="panel" style="margin-bottom:16px"><h3>Not recontesting</h3><div class="tablewrap" id="y26-retiring"></div></div>
+          <div class="panel"><h3>Withdrawals and disendorsements</h3><div class="tablewrap" id="y26-withdrawals"></div></div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- QUERY VIEW -->
+  <section class="view" id="view-query">
+    <div class="page"><div class="inner">
+      <div class="panel">
+        <h3>SQL over the loaded tables</h3>
+        <textarea class="sql" id="sql" spellcheck="false">SELECT c.contest_name, p.party, SUM(p.votes) AS votes
+FROM shares p JOIN booths b ON b.booth_id = p.booth_id AND b.election_id = p.election_id
+JOIN contests c ON c.contest_id = b.contest_id AND c.election_id = b.election_id
+WHERE p.election_id = 'vic2022' AND b.booth_type = 'ordinary' AND c.contest_name = 'Richmond'
+GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
+        <div class="row" style="margin-top:8px">
+          <button class="btn primary" id="run-sql">Run</button>
+          <div class="examples" id="sql-examples"></div>
+        </div>
+        <p class="hint" id="sql-tables"></p>
+      </div>
+      <div class="panel"><h3 id="sql-result-title">Result</h3><div class="results tablewrap" id="sql-result"><div class="empty">Run a query to see rows here.</div></div></div>
+    </div></div>
+  </section>
+
+  <!-- ABOUT VIEW -->
+  <section class="view" id="view-about">
+    <div class="page"><div class="inner prose">
+      <h2>What this is</h2>
+      <p>Every polling place in Victoria, with its results from the 2014, 2018 and 2022 state elections and the federal elections from 2010 to 2025, pinned to a map coordinate so the vote can be followed by place rather than by electorate. Boundaries change; a school hall does not.</p>
+      <h2>How to read it</h2>
+      <p>Dots are election-day booths, sized by votes cast there. Catchments are a model: each booth is given the area closer to it than to any other booth in the same district, so the map fills in. Early, postal and absent votes are not tied to a booth by the electoral commissions and are shown at district level in the booth panel only. In 2022 about half of all state votes were cast before election day, so a booth map shows election-day voters, not everyone.</p>
+      <p>Switch from Booths to Electorates to see whole-seat results, which include every vote type and are what decide who is elected. Coalition means Liberal plus National; One Nation and the Victorian Socialists have their own colours; Independents are everyone running without a registered party. Shares are of the formal vote.</p>
+      <h2>Where the numbers come from</h2>
+      <p>Victorian Electoral Commission results pages and spreadsheets (the 2018 pages via the Internet Archive, as the VEC no longer serves them); Australian Electoral Commission Tally Room downloads; Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every district’s booth totals reconcile to the published district totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount).</p>
+      <p>Pipeline, raw data and reconciliation checks: the <code>election-analyser</code> project folder.</p>
+    </div></div>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alasql/4.3.3/alasql.min.js"></script>
+<script>
+(() => {
+'use strict';
+const DATA = (window.__DATA_BASE || 'data/');
+const BASEMAP = window.__BASEMAP || null;   // a MapLibre style URL when tiles are reachable, else a plain background
+const PARTIES = ['ALP', 'COAL', 'GRN', 'ONP', 'VSP', 'IND', 'OTH'];
+const PARTY_NAME = { ALP: 'Labor', COAL: 'Coalition', LIB: 'Liberal', NAT: 'National', GRN: 'Greens', ONP: 'One Nation', VSP: 'Socialists', IND: 'Independent', OTH: 'Other' };
+const PARTY_SHORT = { ALP: 'ALP', COAL: 'Coal.', GRN: 'GRN', ONP: 'ONP', VSP: 'VSP', IND: 'IND', OTH: 'OTH' };
+const PREV = { vic2018: 'vic2014', vic2022: 'vic2018', vic2026: 'vic2022', fed2013: 'fed2010', fed2016: 'fed2013', fed2019: 'fed2016', fed2022: 'fed2019', fed2025: 'fed2022', vic2023n: 'vic2022', 'vicby-warrandyte-2023': 'vic2022', 'vicby-mulgrave-2023': 'vic2022', 'vicby-prahran-2025': 'vic2022', 'vicby-werribee-2025': 'vic2022', 'vicby-nepean-2026': 'vic2022' };
+const BOUND_FOR = new Proxy({ vic2014: 'vic_la_2013', vic2018: 'vic_la_2013', vic2022: 'vic_la_2022', vic2023n: 'vic_la_2022', fed2010: 'fed_2003', fed2013: 'fed_2010', fed2016: 'fed_2010', fed2019: 'fed_2018', fed2022: 'fed_2021', fed2025: 'fed_2024' }, { get: (o, k) => o[k] || (String(k).startsWith('vicby') ? 'vic_la_2022' : 'vic_la_2022') });
+const CATCH_FOR = { vic2026: 'vic2022' };   // 2026 is fought on the 2022 boundaries with (so far) the 2022 booth list
+const LIVE = { election: 'vic2026', latest: null, fetchedAt: null, seenAt: null, timer: null, available: false, error: null, meta: null, register: null };
+const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+const partyColor = (p) => css('--' + ({ ALP: 'alp', COAL: 'coal', LIB: 'coal', NAT: 'coal', GRN: 'grn', ONP: 'onp', VSP: 'vsp', IND: 'ind' }[p] || 'oth'));
+const fmt = (n) => n == null ? '–' : Number(n).toLocaleString('en-AU');
+const pct = (x, d = 1) => x == null || isNaN(x) ? '–' : (100 * x).toFixed(d) + '%';
+const pts = (x, d = 1) => x == null || isNaN(x) ? '–' : (x > 0 ? '+' : '') + (100 * x).toFixed(d);
+const el = (id) => document.getElementById(id);
+const h = (tag, attrs = {}, ...kids) => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === 'class') n.className = v; else if (k === 'style') n.style.cssText = v; else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v); } for (const c of kids.flat()) n.append(c instanceof Node ? c : document.createTextNode(String(c))); return n; };
+const status = (t) => { el('status').textContent = t; };
+
+/* ---------- data ---------- */
+const cache = {};
+let DATA_GZ = true;   // manifest.json says whether files are shipped gzipped (.json.gz) or plain (.json)
+async function loadGz(name, ext = 'json') {
+  if (cache[name]) return cache[name];
+  const res = await fetch(`${DATA}${name}.${ext}${DATA_GZ ? '.gz' : ''}`);
+  if (!res.ok) throw new Error(`${name}: HTTP ${res.status}`);
+  const buf = await res.arrayBuffer(); const u8 = new Uint8Array(buf);
+  let text;
+  if (u8[0] === 0x1f && u8[1] === 0x8b) {   // still gzipped: inflate in the browser
+    const ds = new DecompressionStream('gzip');
+    text = await new Response(new Blob([buf]).stream().pipeThrough(ds)).text();
+  } else { text = new TextDecoder().decode(buf); }   // the host already decoded it
+  const j = JSON.parse(text);
+  cache[name] = j;
+  return j;
+}
+async function table(name) {
+  const j = await loadGz(name);
+  if (j.cols) { const cols = j.cols; const rows = j.rows.map(r => { const o = {}; cols.forEach((c, i) => o[c] = r[i]); return o; }); cache[name] = rows; return rows; }
+  return j;
+}
+const D = {};   // loaded tables
+const idx = {}; // indexes
+
+function buildIndexes() {
+  idx.boothsByKey = new Map(D.booths.map(b => [b.election_id + '|' + b.booth_id, b]));
+  idx.sharesByBooth = new Map();
+  for (const s of D.shares) { const k = s.election_id + '|' + s.booth_id; (idx.sharesByBooth.get(k) || idx.sharesByBooth.set(k, []).get(k)).push(s); }
+  idx.candById = new Map(D.candidates.map(c => [c.election_id + '|' + c.candidate_id, c]));
+  idx.contestById = new Map(D.contests.map(c => [c.election_id + '|' + c.contest_id, c]));
+  idx.venueById = new Map(D.venues.map(v => [v.venue_id, v]));
+  idx.boothsByVenue = new Map();
+  for (const b of D.booths) if (b.venue_id) (idx.boothsByVenue.get(b.venue_id) || idx.boothsByVenue.set(b.venue_id, []).get(b.venue_id)).push(b);
+  idx.electionById = new Map(D.elections.map(e => [e.election_id, e]));
+  const group = (rows, key) => { const m = new Map(); for (const r of rows) { const k = key(r); (m.get(k) || m.set(k, []).get(k)).push(r); } return m; };
+  idx.contestParty = group(D.contest_party, r => r.election_id + '|' + r.contest_id);
+  idx.contestCand = group(D.contest_cand, r => r.election_id + '|' + r.contest_id);
+  idx.contestTcp = group(D.contest_tcp, r => r.election_id + '|' + r.contest_id);
+  idx.contestsByName = group(D.contests, r => r.contest_name.toLowerCase());
+  idx.elected = new Map(D.candidates.filter(c => c.elected).map(c => [c.election_id + '|' + c.contest_id, c]));
+}
+// electorate-wide shares (every vote type), same shape as partyShares
+function contestShares(eid, cid) {
+  const rows = idx.contestParty.get(eid + '|' + cid) || [];
+  const out = { formal: 0, informal: 0 };
+  for (const r of rows) { if (r.party === 'INFORMAL') { out.informal += r.votes; continue; } const p = (r.party === 'LIB' || r.party === 'NAT') ? 'COAL' : (PARTIES.includes(r.party) ? r.party : 'OTH'); out[p] = out[p] || { votes: 0 }; out[p].votes += r.votes; out.formal += r.votes; }
+  for (const p of PARTIES) if (out[p]) out[p].share = out[p].votes / out.formal;
+  return out;
+}
+function contestTcp(eid, cid) {
+  const rows = idx.contestTcp.get(eid + '|' + cid) || [];
+  if (!rows.length) return null;
+  const tot = rows.reduce((a, r) => a + r.votes, 0);
+  return { source: rows[0].source, pair: rows.map(r => { const c = idx.candById.get(eid + '|' + r.candidate_id); return { cand: c, party: c ? c.party : '?', votes: r.votes, share: r.votes / tot }; }).sort((a, b) => b.votes - a.votes) };
+}
+// same contest name in another election (boundaries may differ: flagged in the legend)
+function contestIn(other, cid, eid) { const c = idx.contestById.get(eid + '|' + cid); if (!c) return null; return (idx.contestsByName.get(c.contest_name.toLowerCase()) || []).find(x => x.election_id === other) || null; }
+// party share table for a booth: {ALP:{votes,share}, COAL:..., formal}
+function partyShares(eid, bid) {
+  const rows = idx.sharesByBooth.get(eid + '|' + bid) || [];
+  const out = { formal: 0 };
+  for (const r of rows) { const p = (r.party === 'LIB' || r.party === 'NAT') ? 'COAL' : (PARTIES.includes(r.party) ? r.party : 'OTH'); out[p] = out[p] || { votes: 0 }; out[p].votes += r.votes; out.formal += r.votes; }
+  for (const p of PARTIES) if (out[p]) out[p].share = out[p].votes / out.formal;
+  return out;
+}
+function tcpShares(eid, bid) {
+  const rows = D.tcp.filter(t => t.election_id === eid && t.booth_id === bid);
+  if (!rows.length) return null;
+  const tot = rows.reduce((a, r) => a + r.votes, 0);
+  return rows.map(r => { const c = idx.candById.get(eid + '|' + r.candidate_id); return { cand: c, party: c ? c.party : '?', votes: r.votes, share: r.votes / tot }; });
+}
+// per-venue series: for each election with an ordinary booth at this venue -> party shares (summed over booths at the venue)
+function venueSeries(venueId) {
+  const booths = (idx.boothsByVenue.get(venueId) || []).filter(b => b.booth_type === 'ordinary');
+  const byE = new Map();
+  for (const b of booths) { const ps = partyShares(b.election_id, b.booth_id); if (!ps.formal) continue; const acc = byE.get(b.election_id) || byE.set(b.election_id, { formal: 0, booths: [] }).get(b.election_id); acc.formal += ps.formal; acc.booths.push(b); for (const p of PARTIES) if (ps[p]) acc[p] = (acc[p] || 0) + ps[p].votes; }
+  return D.elections.filter(e => byE.has(e.election_id)).map(e => { const a = byE.get(e.election_id); const o = { election: e, formal: a.formal, booths: a.booths }; for (const p of PARTIES) o[p] = a[p] ? a[p] / a.formal : 0; return o; });
+}
+
+/* ---------- colour ---------- */
+function hexToRgb(hx) { const n = parseInt(hx.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
+function mix(a, b, t) { const A = hexToRgb(a), B = hexToRgb(b); return `rgb(${A.map((x, i) => Math.round(x + (B[i] - x) * t)).join(',')})`; }
+const NEG = () => css('--neg');
+function seqColor(party, v, max) { const t = Math.pow(Math.max(0, Math.min(1, v / max)), 0.75); return mix(css('--map-bg'), partyColor(party), 0.1 + 0.9 * t); }
+function divColor(party, v, lim) { const t = Math.max(-1, Math.min(1, v / lim)); const mid = css('--surface-2'); return t >= 0 ? mix(mid, partyColor(party), t) : mix(mid, NEG(), -t); }
+
+/* ---------- map ---------- */
+let map, mapReady = false, hovered = null, selected = null;
+const state = { election: 'vic2022', metric: 'share', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth' };
+
+function makeMap() {
+  const style = BASEMAP || { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': css('--map-bg') } }] };
+  map = new maplibregl.Map({ container: 'map', style, center: [145.0, -37.82], zoom: 9.2, minZoom: 5.5, maxZoom: 16, attributionControl: false });
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+  map.on('load', () => {
+    map.addSource('bounds', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+    map.addLayer({ id: 'bounds-line', type: 'line', source: 'bounds', paint: { 'line-color': css('--map-line'), 'line-width': 1.2 } });
+    map.addSource('catch', { type: 'geojson', data: { type: 'FeatureCollection', features: [] }, promoteId: 'booth_id' });
+    map.addLayer({ id: 'catch-fill', type: 'fill', source: 'catch', paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], 'rgba(0,0,0,0)'], 'fill-opacity': 0.78 }, layout: { visibility: 'none' } }, 'bounds-line');
+    map.addLayer({ id: 'catch-line', type: 'line', source: 'catch', paint: { 'line-color': css('--map-bg'), 'line-width': 0.5 }, layout: { visibility: 'none' } }, 'bounds-line');
+    map.addSource('contests', { type: 'geojson', data: { type: 'FeatureCollection', features: [] }, promoteId: 'contest_id' });
+    map.addLayer({ id: 'contest-fill', type: 'fill', source: 'contests', paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], 'rgba(0,0,0,0)'], 'fill-opacity': 0.8 }, layout: { visibility: 'none' } }, 'bounds-line');
+    map.addLayer({ id: 'contest-line', type: 'line', source: 'contests', paint: { 'line-color': css('--map-bg'), 'line-width': 1 }, layout: { visibility: 'none' } }, 'bounds-line');
+    // bold outline on electorates / catchments whose figures changed since the viewer last looked (live mode)
+    map.addLayer({ id: 'contest-fresh', type: 'line', source: 'contests', paint: { 'line-color': css('--fg'), 'line-width': ['case', ['boolean', ['feature-state', 'fresh'], false], 3.5, 0] } });
+    map.addLayer({ id: 'catch-fresh', type: 'line', source: 'catch', paint: { 'line-color': css('--fg'), 'line-width': ['case', ['boolean', ['feature-state', 'fresh'], false], 3, 0] }, layout: { visibility: 'none' } });
+    map.addLayer({ id: 'contest-sel', type: 'line', source: 'contests', filter: ['==', 'contest_id', ''], paint: { 'line-color': css('--fg'), 'line-width': 2.5 } });
+    map.addSource('booths', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+    map.addLayer({ id: 'booth-dots', type: 'circle', source: 'booths', paint: {
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, ['*', 0.45, ['get', 'r']], 11, ['get', 'r'], 14, ['*', 2, ['get', 'r']]],
+      'circle-color': ['get', 'color'], 'circle-stroke-color': ['get', 'stroke'], 'circle-stroke-width': ['get', 'sw'],
+      'circle-opacity': ['case', ['boolean', ['feature-state', 'dim'], false], 0.25, 0.92] } });
+    map.addLayer({ id: 'booth-sel', type: 'circle', source: 'booths', filter: ['==', 'booth_id', ''], paint: { 'circle-radius': ['+', 4, ['get', 'r']], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': css('--fg'), 'circle-stroke-width': 2 } });
+    mapReady = true;
+    renderMap();
+  });
+  const tip = el('tip');
+  const showTip = (e, html) => { tip.innerHTML = ''; tip.append(html); tip.hidden = false; const w = el('map').clientWidth; tip.style.left = Math.min(e.point.x + 14, w - 270) + 'px'; tip.style.top = (e.point.y + 14) + 'px'; };
+  for (const layer of ['booth-dots', 'catch-fill']) {
+    map.on('mousemove', layer, (e) => { map.getCanvas().style.cursor = 'pointer'; const f = e.features[0]; showTip(e, tipFor(f.properties.booth_id)); });
+    map.on('mouseleave', layer, () => { map.getCanvas().style.cursor = ''; tip.hidden = true; });
+    map.on('click', layer, (e) => { select(state.election, e.features[0].properties.booth_id); });
+  }
+  map.on('mousemove', 'contest-fill', (e) => { map.getCanvas().style.cursor = 'pointer'; showTip(e, tipForContest(e.features[0].properties.contest_id)); });
+  map.on('mouseleave', 'contest-fill', () => { map.getCanvas().style.cursor = ''; tip.hidden = true; });
+  map.on('click', 'contest-fill', (e) => { selectContest(state.election, e.features[0].properties.contest_id); });
+}
+function tipFor(bid) {
+  const b = idx.boothsByKey.get(state.election + '|' + bid); const ps = partyShares(state.election, bid); const c = idx.contestById.get(state.election + '|' + b.contest_id);
+  const box = h('div'); box.append(h('div', {}, h('strong', {}, b.booth_name)), h('div', { class: 'k' }, `${c ? c.contest_name : b.contest_id} · ${fmt(ps.formal)} formal`));
+  const mv = metricValue(bid);
+  if (mv.label) box.append(h('div', { class: 'row' }, h('span', { class: 'k' }, mv.label), h('b', {}, mv.text)));
+  for (const p of PARTIES) if (ps[p]) box.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p]), h('b', {}, pct(ps[p].share))));
+  return box;
+}
+function tipForContest(cid) {
+  const eid = state.election, c = idx.contestById.get(eid + '|' + cid), ps = contestShares(eid, cid), w = idx.elected.get(eid + '|' + cid);
+  const box = h('div'); box.append(h('div', {}, h('strong', {}, c ? c.contest_name : cid)), h('div', { class: 'k' }, `${fmt(ps.formal)} formal · ${w ? w.surname + ' (' + PARTY_NAME[w.party] + ') elected' : ''}`));
+  const mv = metricValueContest(cid);
+  if (mv.label) box.append(h('div', { class: 'row' }, h('span', { class: 'k' }, mv.label), h('b', {}, mv.text)));
+  for (const p of PARTIES) if (ps[p]) box.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p]), h('b', {}, pct(ps[p].share))));
+  return box;
+}
+function metricValueContest(cid) {
+  const eid = state.election, p = state.party, ps = contestShares(eid, cid);
+  if (eid === LIVE.election && (state.metric === 'tcpwin' || state.metric === 'tcp')) { const lv = liveContestMetric(cid, p); if (lv) return lv; }
+  if (state.metric === 'share') return { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
+  if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
+  if (state.metric === 'tcpwin') { const w = idx.elected.get(eid + '|' + cid); const t = contestTcp(eid, cid); const cat = w ? ((w.party === 'LIB' || w.party === 'NAT') ? 'COAL' : (PARTIES.includes(w.party) ? w.party : 'OTH')) : null; const win = t ? t.pair[0] : null; return { cat, strength: win ? win.share : 0.5, label: 'Elected', text: w ? `${w.surname}, ${PARTY_NAME[w.party] || w.party}${win ? ' · ' + pct(win.share) + ' 2CP' : ''}` : '–' }; }
+  if (state.metric === 'tcp') { const t = contestTcp(eid, cid); if (!t) return { v: null, label: '2CP', text: 'no final pair' }; const mine = t.pair.find(x => (x.party === 'LIB' || x.party === 'NAT' ? 'COAL' : x.party) === p); return mine ? { v: mine.share, label: `${PARTY_NAME[p]} 2CP`, text: pct(mine.share) } : { v: null, label: '2CP', text: `${PARTY_NAME[p]} not in final two` }; }
+  const other = state.metric === 'swing' ? PREV[eid] : state.gap;
+  const oc = other ? contestIn(other, cid, eid) : null;
+  if (!oc) return { v: null, label: state.metric === 'swing' ? 'Swing' : 'Gap', text: 'no electorate of this name' };
+  const q = contestShares(other, oc.contest_id); const prev = q[p] ? q[p].share : 0, cur = ps[p] ? ps[p].share : 0;
+  return { v: cur - prev, label: `${PARTY_NAME[p]} ${state.metric === 'swing' ? 'swing' : 'gap'} vs ${idx.electionById.get(other).name.replace('Victorian ', '')}`, text: pts(cur - prev) + ' pts' };
+}
+// the value the map colours by, for one booth of the current election
+function metricValue(bid) {
+  const eid = state.election, p = state.party, ps = partyShares(eid, bid);
+  if (state.metric === 'share') return { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
+  if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
+  if (state.metric === 'tcpwin') { const t = tcpShares(eid, bid); if (!t) return { cat: null, label: 'After preferences', text: 'no 2CP count at this booth' }; const top = [...t].sort((a, b) => b.share - a.share)[0]; const cat = (top.party === 'LIB' || top.party === 'NAT') ? 'COAL' : (PARTIES.includes(top.party) ? top.party : 'OTH'); return { cat, strength: top.share, label: 'Ahead after preferences', text: `${top.cand ? top.cand.surname : cat} ${pct(top.share)}` }; }
+  if (state.metric === 'tcp') { const t = tcpShares(eid, bid); if (!t) return { v: null, label: '2CP', text: 'not counted' }; const mine = t.find(x => (x.party === 'LIB' || x.party === 'NAT' ? 'COAL' : x.party) === p); return mine ? { v: mine.share, label: `${PARTY_NAME[p]} 2CP`, text: pct(mine.share) } : { v: null, label: '2CP', text: `${PARTY_NAME[p]} not in final two` }; }
+  const b = idx.boothsByKey.get(eid + '|' + bid);
+  const other = state.metric === 'swing' ? PREV[eid] : state.gap;
+  if (!other || !b.venue_id) return { v: null, label: state.metric === 'swing' ? 'Swing' : 'Gap', text: 'no comparison' };
+  const prevBooths = (idx.boothsByVenue.get(b.venue_id) || []).filter(x => x.election_id === other && x.booth_type === 'ordinary');
+  if (!prevBooths.length) return { v: null, label: state.metric === 'swing' ? 'Swing' : 'Gap', text: 'no booth there in ' + other };
+  let votes = 0, formal = 0; for (const x of prevBooths) { const q = partyShares(other, x.booth_id); formal += q.formal; votes += q[p] ? q[p].votes : 0; }
+  const prev = formal ? votes / formal : 0, cur = ps[p] ? ps[p].share : 0;
+  return { v: cur - prev, label: `${PARTY_NAME[p]} ${state.metric === 'swing' ? 'swing' : 'gap'} vs ${idx.electionById.get(other).name.replace('Victorian ', '')}`, text: pts(cur - prev) + ' pts' };
+}
+async function renderMap() {
+  if (!mapReady) return;
+  el('map-loading').hidden = false;
+  const eid = state.election, byContest = state.unit === 'contest';
+  const booths = D.booths.filter(b => b.election_id === eid && b.booth_type === 'ordinary' && b.lat != null);
+  const vals = byContest
+    ? D.contests.filter(c => c.election_id === eid && c.house !== 'LC').map(c => ({ c, m: metricValueContest(c.contest_id), ps: contestShares(eid, c.contest_id) }))
+    : booths.map(b => ({ b, m: metricValue(b.booth_id), ps: partyShares(eid, b.booth_id) }));
+  const unitWord = byContest ? 'electorate' : 'booth';
+  // scale
+  let colorOf, legend;
+  if (state.metric === 'primary' || state.metric === 'tcpwin') {
+    const lo = state.metric === 'primary' ? 0.25 : 0.5, hi = state.metric === 'primary' ? 0.55 : 0.75;   // share range mapped to colour depth
+    colorOf = (x) => { if (!x.m.cat) return null; const t = Math.max(0, Math.min(1, ((x.m.strength || 0) - lo) / (hi - lo))); return mix(css('--map-bg'), partyColor(x.m.cat), 0.45 + 0.55 * t); };
+    legend = legendCategorical(byContest, state.metric, lo, hi);
+  } else if (state.metric === 'share' || state.metric === 'tcp') {
+    const vs = vals.map(x => x.m.v).filter(v => v != null); const max = quantile(vs, 0.98) || 0.5;
+    colorOf = (x) => x.m.v == null ? null : seqColor(state.party, x.m.v, max);
+    legend = legendRamp(`${PARTY_NAME[state.party]} ${state.metric === 'tcp' ? 'two-candidate preferred' : 'primary vote'}`, [mix(css('--map-bg'), partyColor(state.party), 0.12), partyColor(state.party)], ['0%', pct(max, 0) + '+'], state.metric === 'tcp' ? `Hollow: not in the final two in that ${unitWord}` : '', byContest);
+  } else {
+    const vs = vals.map(x => x.m.v).filter(v => v != null); const lim = Math.max(0.05, quantile(vs.map(Math.abs), 0.95) || 0.1);
+    colorOf = (x) => x.m.v == null ? null : divColor(state.party, x.m.v, lim);
+    const other = state.metric === 'swing' ? PREV[eid] : state.gap;
+    legend = legendRamp(`${PARTY_NAME[state.party]} primary, change since ${other ? idx.electionById.get(other).name : '–'}`, [NEG(), css('--surface-2'), partyColor(state.party)], [pts(-lim, 0), '0', pts(lim, 0)], byContest ? 'Points of the formal vote, electorates matched by name. Boundaries can differ between elections, so read this as indicative.' : 'Points of the formal vote at the same venue. Hollow: no matching booth.', byContest);
+  }
+  if (eid === LIVE.election) legend.append(liveLegendNote(byContest));
+  el('legend').innerHTML = ''; el('legend').append(legend);
+  if (byContest) {
+    const fc = await loadGz('boundary_' + BOUND_FOR[eid], 'geojson');
+    map.getSource('contests').setData(fc);
+    map.setPaintProperty('contest-line', 'line-color', eid === LIVE.election ? css('--map-line') : css('--map-bg'));
+    for (const x of vals) map.setFeatureState({ source: 'contests', id: x.c.contest_id }, { color: colorOf(x) || 'rgba(0,0,0,0)', fresh: isFresh(eid, null, x.c.contest_id) });
+    map.setLayoutProperty('contest-fill', 'visibility', 'visible'); map.setLayoutProperty('contest-line', 'visibility', 'visible');
+    map.setLayoutProperty('booth-dots', 'visibility', 'none'); map.setLayoutProperty('catch-fill', 'visibility', 'none'); map.setLayoutProperty('catch-line', 'visibility', 'none');
+    map.getSource('booths').setData({ type: 'FeatureCollection', features: [] });
+    const bset = state.bound === 'auto' ? 'none' : state.bound;
+    map.getSource('bounds').setData(bset === 'none' ? { type: 'FeatureCollection', features: [] } : await loadGz('boundary_' + bset, 'geojson'));
+    map.setFilter('contest-sel', ['==', 'contest_id', selected && selected.contest && selected.election === eid ? selected.contest : '']);
+    map.setFilter('booth-sel', ['==', 'booth_id', '']);
+    el('map-loading').hidden = true;
+    return;
+  }
+  map.setLayoutProperty('contest-fill', 'visibility', 'none'); map.setLayoutProperty('contest-line', 'visibility', 'none'); map.setFilter('contest-sel', ['==', 'contest_id', '']);
+  const feats = vals.map(x => { const fresh = isFresh(eid, x.b.booth_id); const col = colorOf(x); return { type: 'Feature', geometry: { type: 'Point', coordinates: [x.b.lon, x.b.lat] }, properties: { booth_id: x.b.booth_id, color: col || 'rgba(0,0,0,0)', stroke: fresh ? css('--fg') : (col ? css('--map-bg') : css('--nodata')), sw: fresh ? 3 : 1, r: 2.5 + 7 * Math.sqrt((x.ps.formal || (eid === LIVE.election ? 800 : 0)) / 3000) } }; });
+  // changed-since-last-look booths drawn last so their outline sits on top
+  feats.sort((a, b) => a.properties.sw - b.properties.sw);
+  map.getSource('booths').setData({ type: 'FeatureCollection', features: feats });
+  // catchments
+  if (state.layer === 'catch') {
+    const fc = await loadGz('catchment_' + (CATCH_FOR[eid] || eid), 'geojson');
+    map.getSource('catch').setData(fc);
+    for (const x of vals) map.setFeatureState({ source: 'catch', id: x.b.booth_id }, { color: colorOf(x) || 'rgba(0,0,0,0)', fresh: isFresh(eid, x.b.booth_id) });
+    map.setLayoutProperty('catch-fill', 'visibility', 'visible'); map.setLayoutProperty('catch-line', 'visibility', 'visible'); map.setLayoutProperty('catch-fresh', 'visibility', 'visible');
+    map.setLayoutProperty('booth-dots', 'visibility', 'none');
+  } else {
+    map.setLayoutProperty('catch-fill', 'visibility', 'none'); map.setLayoutProperty('catch-line', 'visibility', 'none'); map.setLayoutProperty('catch-fresh', 'visibility', 'none');
+    map.setLayoutProperty('booth-dots', 'visibility', 'visible');
+  }
+  // boundaries
+  const bset = state.bound === 'auto' ? BOUND_FOR[eid] : state.bound;
+  map.getSource('bounds').setData(bset === 'none' ? { type: 'FeatureCollection', features: [] } : await loadGz('boundary_' + bset, 'geojson'));
+  map.setFilter('booth-sel', ['==', 'booth_id', selected && selected.booth && selected.election === eid ? selected.booth : '']);
+  el('map-loading').hidden = true;
+  el('mapnote') && (el('mapnote').textContent = '');
+}
+function quantile(arr, q) { if (!arr.length) return null; const s = [...arr].sort((a, b) => a - b); return s[Math.min(s.length - 1, Math.floor(q * s.length))]; }
+function legendRamp(title, stops, labels, note, byContest) {
+  const box = h('div'); box.append(h('h4', {}, title));
+  const ramp = h('div', { class: 'ramp', style: `background: linear-gradient(90deg, ${stops.join(',')})` }); box.append(ramp);
+  box.append(h('div', { class: 'ramp-labels' }, ...labels.map(l => h('span', {}, l))));
+  if (note) box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, note));
+  box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, byContest ? 'All votes, including early and postal' : 'Dot size: votes cast at the booth'));
+  return box;
+}
+function legendCategorical(byContest, metric, lo, hi) {
+  const box = h('div');
+  box.append(h('h4', {}, metric === 'tcpwin' ? (byContest ? 'Party of the elected member' : 'Party ahead after preferences') : (byContest ? 'Party leading on first preferences' : 'Party with the most first preferences')));
+  box.append(h('div', { class: 'swatches' }, ...PARTIES.map(p => h('div', { class: 'swatch' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p]))));
+  box.append(h('div', { class: 'hint', style: 'margin-top:6px' }, `Deeper colour, larger share: pale at ${Math.round(lo * 100)}% ${metric === 'tcpwin' ? '2CP' : 'primary'}, full at ${Math.round(hi * 100)}%+.${metric === 'tcpwin' && !byContest ? ' Hollow: no two-candidate count at that booth.' : ''}`));
+  return box;
+}
+
+/* ---------- selection & detail panel ---------- */
+function select(eid, bid, fly) {
+  selected = { election: eid, booth: bid };
+  const b = idx.boothsByKey.get(eid + '|' + bid);
+  if (mapReady) { map.setFilter('booth-sel', ['==', 'booth_id', eid === state.election ? bid : '']); if (fly && b && b.lat != null) map.flyTo({ center: [b.lon, b.lat], zoom: Math.max(map.getZoom(), 12) }); }
+  renderDetail(eid, bid);
+}
+function selectContest(eid, cid, fly) {
+  selected = { election: eid, contest: cid };
+  if (mapReady) { map.setFilter('contest-sel', ['==', 'contest_id', eid === state.election && state.unit === 'contest' ? cid : '']); map.setFilter('booth-sel', ['==', 'booth_id', '']);
+    if (fly) { const f = (map.getSource('contests')._data.features || []).find(x => x.properties.contest_id === cid); if (f) { const b = bboxOf(f.geometry); map.fitBounds(b, { padding: 40, maxZoom: 12 }); } } }
+  renderContestDetail(eid, cid);
+}
+function bboxOf(g) { let w = 180, s = 90, e = -180, n = -90; const walk = (c) => { if (typeof c[0] === 'number') { w = Math.min(w, c[0]); e = Math.max(e, c[0]); s = Math.min(s, c[1]); n = Math.max(n, c[1]); } else c.forEach(walk); }; walk(g.coordinates); return [[w, s], [e, n]]; }
+function renderContestDetail(eid, cid) {
+  if (eid === LIVE.election && LIVE.register) return renderContestDetail2026(cid);
+  const c = idx.contestById.get(eid + '|' + cid), e = idx.electionById.get(eid), ps = contestShares(eid, cid), w = idx.elected.get(eid + '|' + cid);
+  const root = el('detail'); root.innerHTML = '';
+  root.append(h('h2', {}, c ? c.contest_name : cid), h('div', { class: 'meta' }, `${e.name} · ${c && c.house === 'HoR' ? 'federal division' : 'state district'}`));
+  if (w) root.append(h('div', { style: 'margin:4px 0 10px' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(w.party)}` }), h('strong', {}, `${w.surname}, ${w.given_name}`), ' elected'), h('div', { class: 'hint' }, w.party_name || PARTY_NAME[w.party] || '')));
+  const enrol = c && c.enrolment ? `${fmt(c.enrolment)} enrolled · turnout ${pct((ps.formal + ps.informal) / c.enrolment)} · ` : '';
+  root.append(h('div', { class: 'hint' }, `${enrol}${fmt(ps.formal)} formal · ${fmt(ps.informal)} informal (${pct(ps.informal / (ps.formal + ps.informal))})`));
+  root.append(h('h3', {}, 'First preferences, all votes'));
+  const rows = (idx.contestCand.get(eid + '|' + cid) || []).map(r => ({ r, c: idx.candById.get(eid + '|' + r.candidate_id) })).sort((a, b) => b.r.votes - a.r.votes);
+  root.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Candidate'), h('th', { class: 'num' }, 'Votes'), h('th', { class: 'num' }, '%'))),
+    h('tbody', {}, ...rows.map(x => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.c ? x.c.party : 'OTH')}` }), x.c ? `${x.c.surname}, ${x.c.given_name}` : x.r.candidate_id), h('div', { class: 'hint' }, x.c ? (x.c.party_name || PARTY_NAME[x.c.party] || '') : '')), h('td', { class: 'num' }, fmt(x.r.votes)), h('td', { class: 'num' }, pct(x.r.votes / ps.formal))))))));
+  const t = contestTcp(eid, cid);
+  if (t) { root.append(h('h3', {}, 'Final two')); for (const x of t.pair) root.append(h('div', { style: 'margin:4px 0' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), x.cand ? x.cand.surname : x.party), h('span', { class: 'mono' }, `${fmt(x.votes)} · ${pct(x.share)}`)), h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)}` }))));
+    const margin = t.pair.length === 2 ? Math.abs(t.pair[0].share - 0.5) : null;
+    root.append(h('div', { class: 'hint' }, `${margin != null ? 'Margin ' + (100 * margin).toFixed(1) + ' pts · ' : ''}from the ${t.source}`)); }
+  // vote types
+  const types = D.booths.filter(b => b.election_id === eid && b.contest_id === cid).reduce((acc, b) => { const q = partyShares(eid, b.booth_id); if (q.formal) acc[b.booth_type] = (acc[b.booth_type] || 0) + q.formal; return acc; }, {});
+  const tot = Object.values(types).reduce((a, v) => a + v, 0);
+  if (tot) root.append(h('h3', {}, 'How the vote was cast'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('tbody', {}, ...Object.entries(types).sort((a, b) => b[1] - a[1]).map(([k, v]) => h('tr', {}, h('td', {}, k === 'ordinary' ? 'election day' : k === 'early' ? 'pre-poll' : k.replaceAll('_', ' ')), h('td', { class: 'num' }, fmt(v)), h('td', { class: 'num' }, pct(v / tot))))))));
+  // previous election of this name
+  const prev = PREV[eid] ? contestIn(PREV[eid], cid, eid) : null;
+  if (prev) { const q = contestShares(prev.election_id, prev.contest_id); root.append(h('h3', {}, `Change since ${idx.electionById.get(prev.election_id).name.replace('Victorian ', '')}`), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('tbody', {}, ...PARTIES.filter(p => ps[p] || q[p]).map(p => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p])), h('td', { class: 'num' }, pct(q[p] ? q[p].share : 0)), h('td', { class: 'num' }, pct(ps[p] ? ps[p].share : 0)), h('td', { class: 'num' }, pts((ps[p] ? ps[p].share : 0) - (q[p] ? q[p].share : 0)))))))), h('div', { class: 'hint' }, 'Same electorate name; boundaries may have changed between the two elections.')); }
+  // booths
+  const bl = D.booths.filter(b => b.election_id === eid && b.contest_id === cid && b.booth_type === 'ordinary').sort((a, b) => a.booth_name.localeCompare(b.booth_name));
+  root.append(h('h3', {}, `${bl.length} election-day booths`), h('div', { class: 'hint', style: 'display:flex;flex-wrap:wrap;gap:4px 10px' }, ...bl.map(b => h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); if (state.unit !== 'booth') setUnit('booth'); select(eid, b.booth_id, true); } }, b.booth_name))));
+}
+function renderDetail(eid, bid) {
+  const b = idx.boothsByKey.get(eid + '|' + bid); const c = idx.contestById.get(eid + '|' + b.contest_id); const e = idx.electionById.get(eid);
+  const root = el('detail'); root.innerHTML = '';
+  root.append(h('h2', {}, b.booth_name, isFresh(eid, bid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(b.updated_at)) : ''), h('div', { class: 'meta' }, `${c ? c.contest_name : b.contest_id} · ${e.name} · ${b.geo_source === 'geocoded_approx' ? 'approximate location' : b.geo_source === 'aec' || b.geo_source === 'aec_name_match' ? 'located' : 'not located'}`));
+  if (eid === LIVE.election && !b.reported) {
+    root.append(h('div', { class: 'hint', style: 'margin:6px 0' }, LIVE.available ? 'No figures from this booth yet.' : 'A 2022 booth, carried forward for 2026. Figures appear here on election night.'), h('div', { style: 'margin:4px 0 8px' }, h('button', { class: 'btn', onclick: () => { setUnit('contest'); selectContest(eid, b.contest_id, true); } }, `Open ${c ? c.contest_name : 'the district'}: candidates and history`)));
+  } else if (eid === LIVE.election && b.reported) root.append(h('div', { class: 'hint', style: 'margin:4px 0' }, `Figures first seen ${fmtTime(b.first_seen)}, last changed ${fmtTime(b.updated_at)}.`));
+  // candidate table
+  const fp = D.fp.filter(f => f.election_id === eid && f.booth_id === bid);
+  const formal = fp.filter(f => f.candidate_id !== 'INFORMAL').reduce((a, f) => a + f.votes, 0);
+  const inf = (fp.find(f => f.candidate_id === 'INFORMAL') || {}).votes;
+  if (fp.length) {
+  root.append(h('h3', {}, 'First preferences at this booth'));
+  const rows = fp.filter(f => f.candidate_id !== 'INFORMAL').map(f => ({ f, c: idx.candById.get(eid + '|' + f.candidate_id) })).sort((a, b2) => b2.f.votes - a.f.votes);
+  const tbl = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Candidate'), h('th', { class: 'num' }, 'Votes'), h('th', { class: 'num' }, '%'))),
+    h('tbody', {}, ...rows.map(r => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.c ? r.c.party : 'OTH')}` }), `${r.c ? r.c.surname + ', ' + r.c.given_name : r.f.candidate_id}`), h('div', { class: 'hint' }, r.c ? (r.c.party_name || PARTY_NAME[r.c.party] || '') : '')), h('td', { class: 'num' }, fmt(r.f.votes)), h('td', { class: 'num' }, pct(formal ? r.f.votes / formal : null))))));
+  root.append(h('div', { class: 'tablewrap' }, tbl));
+  root.append(h('div', { class: 'hint', style: 'margin-top:4px' }, `${fmt(formal)} formal, ${fmt(inf)} informal`));
+  }
+  const t = tcpShares(eid, bid);
+  if (t) { root.append(h('h3', {}, 'Two-candidate preferred')); for (const x of t) root.append(h('div', { style: 'margin:4px 0' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), x.cand ? x.cand.surname : x.party), h('span', { class: 'mono' }, `${fmt(x.votes)} · ${pct(x.share)}`)), h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)}` })))); }
+  // district context: declaration votes
+  const decl = D.booths.filter(x => x.election_id === eid && x.contest_id === b.contest_id && x.booth_type !== 'ordinary' && x.booth_type !== 'early' && x.booth_type !== 'hospital');
+  if (decl.length) {
+    const parts = decl.map(x => { const ps = partyShares(eid, x.booth_id); return ps.formal ? `${x.booth_type.replaceAll('_', ' ')} ${fmt(ps.formal)}` : null; }).filter(Boolean);
+    if (parts.length) root.append(h('h3', {}, 'Votes counted at district level'), h('div', { class: 'hint' }, parts.join(' · ')));
+  }
+  // venue series
+  if (b.venue_id) {
+    const v = idx.venueById.get(b.venue_id); const series = venueSeries(b.venue_id);
+    root.append(h('h3', {}, 'This venue over time'));
+    if (v) root.append(h('div', { class: 'hint', style: 'margin-bottom:6px' }, `${v.premises || ''}${v.suburb ? ', ' + v.suburb : ''}`));
+    root.append(seriesChart(series, 340, 200));
+    root.append(seriesTable(series));
+    root.append(h('div', { style: 'margin-top:8px' }, h('button', { class: 'btn', onclick: () => { openVenue(b.venue_id); showView('venue'); } }, 'Open in Venue view')));
+  } else {
+    root.append(h('h3', {}, 'This venue over time'), h('div', { class: 'hint' }, 'This booth has no coordinates yet, so it cannot be linked to other elections.'));
+  }
+}
+function seriesTable(series) {
+  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), ...PARTIES.map(p => h('th', { class: 'num' }, PARTY_SHORT[p])), h('th', { class: 'num' }, 'Formal'))),
+    h('tbody', {}, ...series.map(s => h('tr', {}, h('td', {}, s.election.name.replace('Victorian state election', 'State').replace('Federal election', 'Federal').replace('Narracan supplementary election', 'Narracan')), ...PARTIES.map(p => h('td', { class: 'num' }, s[p] ? pct(s[p]) : '–')), h('td', { class: 'num' }, fmt(s.formal))))));
+  return h('div', { class: 'tablewrap', style: 'margin-top:6px' }, t);
+}
+// line chart: one line per party, x = election (ordered), labelled at the right end, crosshair tooltip listing every series
+function seriesChart(series, W, H) {
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const S = (tag, attrs = {}, ...kids) => { const n = document.createElementNS(svgNS, tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); for (const c of kids) n.append(c instanceof Node ? c : document.createTextNode(String(c))); return n; };
+  const m = { l: 36, r: 64, t: 10, b: 32 };
+  const svg = S('svg', { class: 'chart', viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Party shares at this venue across elections' });
+  if (!series.length) { svg.append(S('text', { x: 10, y: 20 }, 'No results at this venue.')); return svg; }
+  const n = series.length, x = (i) => m.l + (n === 1 ? (W - m.l - m.r) / 2 : i * (W - m.l - m.r) / (n - 1));
+  const ymax = Math.min(1, Math.ceil(Math.max(0.3, ...series.flatMap(s => PARTIES.map(p => s[p] || 0))) * 10) / 10);
+  const y = (v) => m.t + (H - m.t - m.b) * (1 - v / ymax);
+  const grid = S('g', { class: 'grid' }); for (let v = 0; v <= ymax + 1e-9; v += ymax <= 0.4 ? 0.1 : 0.2) { grid.append(S('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v) })); grid.append(S('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end', class: 'mono' }, Math.round(v * 100) + '%')); }
+  svg.append(grid);
+  const ax = S('g', { class: 'axis' }); series.forEach((s, i) => { const nm = shortName(s.election), yr = (nm.match(/\d{4}/) || [''])[0], lvl = nm.replace(yr, '').replace(/[()]/g, '').trim(); const t = S('text', { x: x(i), y: H - 14, 'text-anchor': i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle' }); t.append(S('tspan', {}, yr), S('tspan', { x: x(i), dy: 11, style: 'font-size:9px;opacity:.75' }, lvl)); ax.append(t); }); svg.append(ax);
+  const present = PARTIES.filter(p => series.some(s => s[p] > 0.005));
+  const labels = [];
+  for (const p of present) {
+    const pts2 = series.map((s, i) => [x(i), y(s[p] || 0)]);
+    svg.append(S('path', { d: pts2.map((q, i) => (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' '), fill: 'none', stroke: partyColor(p), 'stroke-width': 2, 'stroke-linejoin': 'round' }));
+    for (const q of pts2) svg.append(S('circle', { cx: q[0], cy: q[1], r: 3.5, fill: partyColor(p), stroke: css('--surface'), 'stroke-width': 1.5 }));
+    labels.push({ p, y: pts2[n - 1][1] });
+  }
+  labels.sort((a, b) => a.y - b.y); for (let i = 1; i < labels.length; i++) if (labels[i].y - labels[i - 1].y < 12) labels[i].y = labels[i - 1].y + 12;
+  for (const L of labels) svg.append(S('text', { x: W - m.r + 8, y: L.y + 4, class: 'lbl' }, PARTY_NAME[L.p]));
+  // hover layer
+  const hair = S('line', { class: 'hair', y1: m.t, y2: H - m.b, visibility: 'hidden' }); svg.append(hair);
+  const tipDiv = h('div', { class: 'tip', hidden: '' }); const wrap = h('div', { style: 'position:relative' }, svg, tipDiv);
+  svg.addEventListener('mousemove', (ev) => { const r = svg.getBoundingClientRect(); const px = (ev.clientX - r.left) * W / r.width; let best = 0; for (let i = 1; i < n; i++) if (Math.abs(x(i) - px) < Math.abs(x(best) - px)) best = i; hair.setAttribute('x1', x(best)); hair.setAttribute('x2', x(best)); hair.setAttribute('visibility', 'visible'); const s = series[best]; tipDiv.innerHTML = ''; tipDiv.append(h('div', {}, h('strong', {}, s.election.name)), ...present.map(p => h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)};height:2px;border-radius:0` }), PARTY_NAME[p]), h('b', {}, pct(s[p])))), h('div', { class: 'k' }, `${fmt(s.formal)} formal · ${s.booths.length} booth${s.booths.length > 1 ? 's' : ''}`)); tipDiv.hidden = false; tipDiv.style.left = Math.min(ev.clientX - r.left + 12, r.width - 200) + 'px'; tipDiv.style.top = (ev.clientY - r.top + 12) + 'px'; });
+  svg.addEventListener('mouseleave', () => { hair.setAttribute('visibility', 'hidden'); tipDiv.hidden = true; });
+  return wrap;
+}
+function shortName(e) { if (e.election_id === 'vic2026') return 'State 2026'; if (e.election_id.startsWith('vicby-')) { const p = e.election_id.split('-'); return `By-election ${p[2]} (${p[1][0].toUpperCase() + p[1].slice(1)})`; } return e.election_id.replace('vic', 'State ').replace('fed', 'Federal ').replace('2023n', '2023 (Narracan)'); }
+
+/* ---------- venue view ---------- */
+let venueRows = null;
+function buildVenueSearch() {
+  if (venueRows) return;
+  venueRows = [];
+  for (const [vid, booths] of idx.boothsByVenue) {
+    const v = idx.venueById.get(vid); const names = [...new Set(booths.map(b => b.booth_name))];
+    venueRows.push({ vid, label: v ? (v.premises || names[0]) : names[0], sub: (v ? [v.suburb, names.slice(0, 3).join(' / ')] : [names.slice(0, 3).join(' / ')]).filter(Boolean).join(' · '), key: ((v ? (v.premises + ' ' + v.suburb) : '') + ' ' + names.join(' ')).toLowerCase(), n: new Set(booths.map(b => b.election_id)).size });
+  }
+  venueRows.sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
+  const list = el('venue-list'), inp = el('venue-search');
+  const render = () => { const q = inp.value.trim().toLowerCase(); list.innerHTML = ''; const hits = (q ? venueRows.filter(r => r.key.includes(q)) : venueRows).slice(0, 60); for (const r of hits) list.append(h('button', { onclick: () => openVenue(r.vid) }, r.label, ' ', h('small', {}, `${r.sub} · ${r.n} election${r.n > 1 ? 's' : ''}`))); if (!hits.length) list.append(h('div', { class: 'empty', style: 'padding:12px' }, 'No venue matches.')); };
+  inp.addEventListener('input', render); render();
+}
+function openVenue(vid) {
+  const v = idx.venueById.get(vid); const booths = idx.boothsByVenue.get(vid) || []; const series = venueSeries(vid);
+  const root = el('venue-detail'); root.innerHTML = '';
+  const names = [...new Set(booths.map(b => b.booth_name))];
+  root.append(h('h2', { style: 'font-family:var(--font-display);font-weight:500;font-size:18px;margin:0 0 2px' }, v ? (v.premises || names[0]) : names[0]), h('div', { class: 'meta', style: 'color:var(--fg-2);font-size:12px;margin-bottom:10px' }, v ? [v.address, v.suburb, v.postcode].filter(Boolean).join(', ') : 'approximate location', ' · booth names: ', names.join(', ')));
+  root.append(seriesChart(series, 520, 260), seriesTable(series));
+  root.append(h('h3', { style: 'margin-top:14px' }, 'Booths at this venue'));
+  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'Booth'), h('th', {}, 'Electorate'), h('th', { class: 'num' }, 'Formal'))), h('tbody', {}, ...booths.filter(b => b.booth_type === 'ordinary' || b.booth_type === 'early').sort((a, b) => idx.electionById.get(a.election_id).date.localeCompare(idx.electionById.get(b.election_id).date)).map(b => { const c = idx.contestById.get(b.election_id + '|' + b.contest_id); const ps = partyShares(b.election_id, b.booth_id); return h('tr', {}, h('td', {}, shortName(idx.electionById.get(b.election_id))), h('td', {}, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setElection(b.election_id); select(b.election_id, b.booth_id, true); showView('map'); } }, b.booth_name), b.booth_type === 'early' ? h('span', { class: 'hint' }, ' (pre-poll)') : ''), h('td', {}, c ? c.contest_name : b.contest_id), h('td', { class: 'num' }, fmt(ps.formal))); })));
+  root.append(h('div', { class: 'tablewrap' }, t));
+}
+
+/* ---------- compare view ---------- */
+function compareData(a, b, p) {
+  const out = [];
+  for (const [vid, booths] of idx.boothsByVenue) {
+    const acc = { a: { v: 0, f: 0 }, b: { v: 0, f: 0 } };
+    for (const bo of booths) { if (bo.booth_type !== 'ordinary') continue; const k = bo.election_id === a ? 'a' : bo.election_id === b ? 'b' : null; if (!k) continue; const ps = partyShares(bo.election_id, bo.booth_id); acc[k].f += ps.formal; acc[k].v += ps[p] ? ps[p].votes : 0; }
+    if (acc.a.f > 50 && acc.b.f > 50) { const v = idx.venueById.get(vid); const nm = v ? v.premises : (booths[0] || {}).booth_name; out.push({ vid, name: nm, suburb: v ? v.suburb : '', xa: acc.a.v / acc.a.f, yb: acc.b.v / acc.b.f, fa: acc.a.f, fb: acc.b.f }); }
+  }
+  return out;
+}
+function renderCompare() {
+  const a = el('cmp-a').value, b = el('cmp-b').value, p = el('cmp-party').value;
+  const rows = compareData(a, b, p); const ea = idx.electionById.get(a), eb = idx.electionById.get(b);
+  el('cmp-title').textContent = `${PARTY_NAME[p]} primary vote, ${shortName(ea)} (across) against ${shortName(eb)} (up), one dot per venue`;
+  const W = 560, H = 480, m = { l: 44, r: 16, t: 12, b: 40 }; const svgNS = 'http://www.w3.org/2000/svg';
+  const S = (tag, attrs = {}, ...kids) => { const n = document.createElementNS(svgNS, tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); for (const c of kids) n.append(c instanceof Node ? c : document.createTextNode(String(c))); return n; };
+  const max = Math.min(1, Math.ceil(Math.max(0.3, ...rows.flatMap(r => [r.xa, r.yb])) * 10) / 10);
+  const x = (v) => m.l + (W - m.l - m.r) * v / max, y = (v) => m.t + (H - m.t - m.b) * (1 - v / max);
+  const svg = S('svg', { class: 'chart', viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Scatter of venue vote shares in two elections' });
+  const grid = S('g', { class: 'grid' }); for (let v = 0; v <= max + 1e-9; v += 0.1) { grid.append(S('line', { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b })); grid.append(S('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v) })); grid.append(S('text', { x: x(v), y: H - m.b + 14, 'text-anchor': 'middle', class: 'mono' }, Math.round(v * 100) + '%')); grid.append(S('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end', class: 'mono' }, Math.round(v * 100) + '%')); }
+  svg.append(grid);
+  svg.append(S('line', { x1: x(0), y1: y(0), x2: x(max), y2: y(max), stroke: css('--fg-3'), 'stroke-dasharray': '4 4' }));
+  svg.append(S('text', { x: W - m.r, y: H - m.b + 30, 'text-anchor': 'end', class: 'lbl' }, shortName(ea)), S('text', { x: m.l + 4, y: m.t + 12, class: 'lbl' }, shortName(eb) + ' ↑'));
+  const col = partyColor(p);
+  const tipDiv = h('div', { class: 'tip', hidden: '' }); const wrap = h('div', { style: 'position:relative' }, svg, tipDiv);
+  for (const r of rows) {
+    const c = S('circle', { cx: x(r.xa).toFixed(1), cy: y(r.yb).toFixed(1), r: Math.max(2.2, Math.min(7, Math.sqrt((r.fa + r.fb) / 2 / 2000) * 4)), fill: col, 'fill-opacity': 0.55, stroke: css('--surface'), 'stroke-width': 0.6, tabindex: 0 });
+    const show = (ev) => { const rect = svg.getBoundingClientRect(); tipDiv.innerHTML = ''; tipDiv.append(h('div', {}, h('strong', {}, r.name || '')), h('div', { class: 'k' }, r.suburb), h('div', { class: 'row' }, h('span', { class: 'k' }, shortName(ea)), h('b', {}, pct(r.xa))), h('div', { class: 'row' }, h('span', { class: 'k' }, shortName(eb)), h('b', {}, pct(r.yb))), h('div', { class: 'row' }, h('span', { class: 'k' }, 'difference'), h('b', {}, pts(r.yb - r.xa) + ' pts'))); tipDiv.hidden = false; const px = ev.clientX ? ev.clientX - rect.left : x(r.xa) * rect.width / W; const py = ev.clientY ? ev.clientY - rect.top : y(r.yb) * rect.height / H; tipDiv.style.left = Math.min(px + 12, rect.width - 220) + 'px'; tipDiv.style.top = (py + 12) + 'px'; c.setAttribute('fill-opacity', 1); };
+    c.addEventListener('mousemove', show); c.addEventListener('focus', show); c.addEventListener('mouseleave', () => { tipDiv.hidden = true; c.setAttribute('fill-opacity', 0.55); }); c.addEventListener('blur', () => { tipDiv.hidden = true; }); c.addEventListener('click', () => { openVenue(r.vid); showView('venue'); });
+    svg.append(c);
+  }
+  el('cmp-chart').innerHTML = ''; el('cmp-chart').append(wrap);
+  const diffs = rows.map(r => r.yb - r.xa).sort((u, v) => u - v);
+  const mean = diffs.reduce((u, v) => u + v, 0) / (diffs.length || 1); const med = diffs.length ? diffs[Math.floor(diffs.length / 2)] : null;
+  const corr = (() => { const n = rows.length; if (n < 3) return null; const mx = rows.reduce((u, r) => u + r.xa, 0) / n, my = rows.reduce((u, r) => u + r.yb, 0) / n; let sxy = 0, sxx = 0, syy = 0; for (const r of rows) { sxy += (r.xa - mx) * (r.yb - my); sxx += (r.xa - mx) ** 2; syy += (r.yb - my) ** 2; } return sxy / Math.sqrt(sxx * syy); })();
+  el('cmp-stats').innerHTML = ''; el('cmp-stats').append(stat(fmt(rows.length), 'venues in both'), stat(pts(mean) + ' pts', 'mean difference (up − across)'), stat(pts(med) + ' pts', 'median difference'), stat(corr == null ? '–' : corr.toFixed(2), 'correlation'));
+  const top = [...rows].sort((u, v) => Math.abs(v.yb - v.xa) - Math.abs(u.yb - u.xa)).slice(0, 12);
+  el('cmp-table').innerHTML = ''; el('cmp-table').append(h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Venue'), h('th', { class: 'num' }, 'across'), h('th', { class: 'num' }, 'up'), h('th', { class: 'num' }, 'diff'))), h('tbody', {}, ...top.map(r => h('tr', {}, h('td', {}, h('a', { href: '#venue', onclick: (ev) => { ev.preventDefault(); openVenue(r.vid); showView('venue'); } }, r.name || '?'), h('div', { class: 'hint' }, r.suburb)), h('td', { class: 'num' }, pct(r.xa)), h('td', { class: 'num' }, pct(r.yb)), h('td', { class: 'num' }, pts(r.yb - r.xa)))))));
+}
+const stat = (v, k) => h('div', { class: 'stat' }, h('span', { class: 'v' }, v), h('span', { class: 'k' }, k));
+
+/* ---------- 2026 view ---------- */
+let y26 = null;
+async function render2026() {
+  if (!y26) {
+    status('loading 2026 register…');
+    const [contests, candidates, retiring, withdrawals] = await Promise.all(['c2026_contests', 'c2026_candidates', 'c2026_retiring', 'c2026_withdrawals'].map(table));
+    let meta = {}; try { meta = await (await fetch(DATA + 'c2026_meta.json')).json(); } catch (e) {}
+    y26 = { contests, candidates, retiring, withdrawals, meta };
+    status(`${fmt(D.booths.filter(b => b.booth_type === 'ordinary').length)} booths · ${D.elections.length} elections`);
+    el('y26-sort').addEventListener('change', render2026Table); el('y26-filter').addEventListener('input', render2026Table);
+  }
+  const { contests, candidates, retiring, withdrawals, meta } = y26;
+  // header: dates + headline counts
+  const head = el('y26-head'); head.innerHTML = '';
+  const today = new Date(); const days = (iso) => Math.ceil((new Date(iso + 'T00:00:00') - today) / 86400000);
+  const kd = meta.key_dates || {};
+  head.append(h('h2', { style: 'font-family:var(--font-display);font-weight:500;font-size:20px;margin:0 0 4px' }, 'Victorian state election, 28 November 2026'),
+    h('div', { class: 'hint', style: 'margin-bottom:10px' }, `${meta.source || ''}${meta.page_last_edited ? ' · ' + meta.page_last_edited.replace('This page was last edited on ', 'page updated ') : ''}${meta.retrieved ? ' · captured ' + meta.retrieved : ''}`));
+  const la = contests.filter(c => c.house === 'LA'); const laC = candidates.filter(c => c.contest_id.startsWith('vic-'));
+  const held = {}; for (const c of la) held[c.held_by] = (held[c.held_by] || 0) + 1;
+  const byParty = {}; for (const c of laC) { const p = ['LIB', 'NAT', 'COAL'].includes(c.party) ? 'COAL' : (PARTIES.includes(c.party) ? c.party : 'OTH'); byParty[p] = (byParty[p] || 0) + 1; }
+  const seatsWith = (p) => new Set(laC.filter(c => (['LIB', 'NAT', 'COAL'].includes(c.party) ? 'COAL' : c.party) === p).map(c => c.contest_id)).size;
+  head.append(h('div', { class: 'stats' },
+    ...Object.entries(kd).filter(([k]) => ['writs', 'nominations_close', 'early_voting_open', 'election_day'].includes(k)).map(([k, v]) => stat(days(v) >= 0 ? `${days(v)} d` : 'done', k.replaceAll('_', ' ') + ' · ' + v.slice(5).replace('-', '/'))),
+    stat(fmt(laC.length), 'declared lower-house candidates'), stat(`${seatsWith('ONP')} / 88`, 'seats with a One Nation candidate'), stat(`${seatsWith('VSP')} / 88`, 'seats with a Socialist candidate'), stat(fmt(retiring.length), 'members not recontesting')));
+  head.append(h('div', { class: 'hint', style: 'margin-top:10px' }, 'Seats going in: ' + Object.entries(held).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(' · ') + ' (as held now, after by-elections and party changes).'));
+  const vt = meta.voting || {};
+  if (vt.postal || vt.early) head.append(h('div', { class: 'hint', style: 'margin-top:8px' },
+    vt.postal ? h('div', {}, h('strong', {}, 'Postal votes: '), `applications open ${fmtDay(vt.postal.applications_open)}, close ${fmtDay(vt.postal.applications_close)}; packs posted from ${fmtDay(vt.postal.packs_posted_from)}. `, h('a', { href: vt.postal.url, target: '_blank', rel: 'noopener' }, 'Apply on the VEC site')) : '',
+    vt.early ? h('div', {}, h('strong', {}, 'Early voting: '), `${fmtDay(vt.early.open)} to ${fmtDay(vt.early.close)}, ${vt.early.hours}. ${vt.early.note || ''} `, h('a', { href: vt.early.url, target: '_blank', rel: 'noopener' }, 'Voting options')) : '',
+    h('div', {}, h('strong', {}, 'On the map: '), 'pick "Victorian state election 2026" in the election list for the seat-by-seat view with candidates, profile links and each seat\'s history; it fills with live figures on election night.')));
+  render2026Table();
+  // upper house
+  const lc = el('y26-lc'); lc.innerHTML = '';
+  for (const r of contests.filter(c => c.house === 'LC')) {
+    const cs = candidates.filter(c => c.contest_id === r.contest_id);
+    const groups = new Map(); for (const c of cs) (groups.get(c.party_label) || groups.set(c.party_label, []).get(c.party_label)).push(c);
+    lc.append(h('div', { style: 'margin-bottom:10px' }, h('strong', {}, r.contest_name), h('div', { class: 'hint' }, [...groups.entries()].map(([p, arr]) => `${p}: ${arr.sort((a, b) => (a.ticket_position || 0) - (b.ticket_position || 0)).map(c => c.name + (c.incumbent ? '*' : '')).join(', ')}`).join(' · '))));
+  }
+  lc.append(h('div', { class: 'hint' }, '* sitting member'));
+  // retiring / withdrawals
+  const rt = el('y26-retiring'); rt.innerHTML = '';
+  rt.append(h('table', { class: 'data' }, h('tbody', {}, ...retiring.map(r => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.party)}` }), r.name)), h('td', {}, r.seat), h('td', { class: 'hint' }, `${r.announced || ''}${r.note ? ' · ' + r.note : ''}`))))));
+  const wd = el('y26-withdrawals'); wd.innerHTML = '';
+  wd.append(h('table', { class: 'data' }, h('tbody', {}, ...withdrawals.map(r => h('tr', {}, h('td', {}, r.date), h('td', {}, `${r.candidate} (${r.party})`), h('td', {}, r.seat), h('td', { class: 'hint' }, r.details))))));
+}
+function lastContest(cid) {   // the most recent contest in this seat: a by-election if there was one, else 2022
+  const by = D.elections.filter(e => e.election_id.startsWith('vicby-') && D.contests.some(c => c.election_id === e.election_id && c.contest_id === cid)).sort((a, b) => b.date.localeCompare(a.date));
+  return by.length ? by[0].election_id : (cid === 'vic-narracan' ? 'vic2023n' : 'vic2022');
+}
+function render2026Table() {
+  const { contests, candidates, retiring } = y26;
+  const q = el('y26-filter').value.trim().toLowerCase(); const sort = el('y26-sort').value;
+  const rows = contests.filter(c => c.house === 'LA').map(c => {
+    const eid = lastContest(c.contest_id); const t = contestTcp(eid, c.contest_id); const w = idx.elected.get(eid + '|' + c.contest_id);
+    const margin = t && t.pair.length === 2 ? t.pair[0].share - 0.5 : null;
+    const cs = candidates.filter(x => x.contest_id === c.contest_id);
+    const ret = retiring.filter(r => r.house === 'LA' && r.seat.toLowerCase() === c.contest_name.toLowerCase());
+    return { c, eid, t, w, margin, cs, ret, key: (c.contest_name + ' ' + c.held_by + ' ' + cs.map(x => x.name + ' ' + x.party_label).join(' ') + ' ' + ret.map(r => r.name).join(' ')).toLowerCase() };
+  }).filter(r => !q || r.key.includes(q));
+  rows.sort((a, b) => sort === 'name' ? a.c.contest_name.localeCompare(b.c.contest_name) : sort === 'held' ? (a.c.held_by.localeCompare(b.c.held_by) || (a.margin ?? 1) - (b.margin ?? 1)) : (a.margin ?? 1) - (b.margin ?? 1));
+  const colsP = ['ALP', 'COAL', 'GRN', 'ONP', 'VSP'];
+  const nameOf = (x) => { const u = x.wikipedia_url || x.parliament_url; return u ? h('a', { href: u, target: '_blank', rel: 'noopener' }, x.name) : x.name; };
+  const cell = (r, p) => { const names = r.cs.filter(x => (['LIB', 'NAT', 'COAL'].includes(x.party) ? 'COAL' : x.party) === p); return h('td', {}, ...names.map(x => h('div', {}, nameOf(x), x.incumbent ? h('span', { class: 'hint' }, ' *') : '', p === 'COAL' && x.party !== 'COAL' ? h('span', { class: 'hint' }, ` (${x.party === 'NAT' ? 'Nat' : 'Lib'})`) : ''))); };
+  const others = (r) => { const td = h('td', { class: 'hint' }); r.cs.filter(x => !['ALP', 'LIB', 'NAT', 'COAL', 'GRN', 'ONP', 'VSP'].includes(x.party)).forEach((x, i) => td.append(i ? ', ' : '', nameOf(x), ` (${x.party_label})`)); return td; };
+  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', {}, 'Held by'), h('th', { class: 'num' }, 'Margin'), h('th', {}, 'Last result'), ...colsP.map(p => h('th', {}, PARTY_NAME[p])), h('th', {}, 'Others'))),
+    h('tbody', {}, ...rows.map(r => h('tr', {},
+      h('td', {}, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setUnit('contest'); setElection(LIVE.register ? LIVE.election : r.eid); selectContest(LIVE.register ? LIVE.election : r.eid, r.c.contest_id, true); showView('map'); } }, r.c.contest_name), r.ret.length ? h('div', { class: 'hint' }, `${r.ret.map(x => x.name).join(', ')} retiring`) : ''),
+      h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(({ Labor: 'ALP', Liberal: 'LIB', National: 'NAT', Greens: 'GRN', Independent: 'IND' })[r.c.held_by] || 'OTH')}` }), r.c.held_by)),
+      h('td', { class: 'num' }, r.margin == null ? '–' : (100 * r.margin).toFixed(1)),
+      h('td', { class: 'hint' }, r.t ? `${r.t.pair[0].cand ? r.t.pair[0].cand.surname : ''} (${PARTY_NAME[r.t.pair[0].party] || r.t.pair[0].party}) v ${r.t.pair[1] && r.t.pair[1].cand ? r.t.pair[1].cand.surname : ''}${r.eid.startsWith('vicby') ? ' · by-election ' + r.eid.slice(-4) : ''}` : ''),
+      ...colsP.map(p => cell(r, p)), others(r)))));
+  el('y26-table').innerHTML = ''; el('y26-table').append(t);
+}
+
+/* ---------- query view ---------- */
+const EXAMPLES = [
+  ['Labor by district 2022', `SELECT c.contest_name, ROUND(100.0*SUM(CASE WHEN p.party='ALP' THEN p.votes END)/SUM(p.votes),1) AS alp_pct, SUM(p.votes) AS formal\nFROM shares p JOIN booths b ON b.booth_id=p.booth_id AND b.election_id=p.election_id JOIN contests c ON c.contest_id=b.contest_id AND c.election_id=b.election_id\nWHERE p.election_id='vic2022' GROUP BY c.contest_name ORDER BY alp_pct DESC`],
+  ['Greens booths over 40%', `SELECT b.election_id, b.booth_name, c.contest_name, ROUND(100*p.share,1) AS grn_pct, p.votes\nFROM shares p JOIN booths b ON b.booth_id=p.booth_id AND b.election_id=p.election_id JOIN contests c ON c.contest_id=b.contest_id AND c.election_id=b.election_id\nWHERE p.party='GRN' AND b.booth_type='ordinary' AND p.share>0.4 ORDER BY p.share DESC`],
+  ['Exclusion order, Richmond 2022', `SELECT d.count_no, ca.surname, ca.party, d.transfer, d.progressive_total, d.excluded\nFROM dop d JOIN candidates ca ON ca.candidate_id=d.candidate_id AND ca.election_id=d.election_id\nWHERE d.election_id='vic2022' AND d.contest_id='vic-richmond' ORDER BY d.count_no, d.progressive_total DESC`],
+  ['Vote by type, state 2022', `SELECT b.booth_type, SUM(p.votes) AS votes FROM shares p JOIN booths b ON b.booth_id=p.booth_id AND b.election_id=p.election_id\nWHERE p.election_id='vic2022' GROUP BY b.booth_type ORDER BY votes DESC`],
+];
+function setupQuery() {
+  const ex = el('sql-examples'); for (const [name, sql] of EXAMPLES) ex.append(h('button', { class: 'btn', onclick: () => { el('sql').value = sql; runSql(); } }, name));
+  el('run-sql').addEventListener('click', runSql);
+  el('sql').addEventListener('keydown', (e) => { if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') runSql(); });
+  el('sql-tables').textContent = 'Tables: elections, contests, candidates, booths, shares (party totals per booth), fp (candidate first preferences), tcp, venues, dop (distribution of preferences, count by count), contest_party / contest_cand / contest_tcp (electorate-wide totals and final pairs), lc_contests, lc_candidates, lc_votes (upper house). Ctrl/⌘-Enter runs.';
+}
+async function runSql() {
+  const out = el('sql-result'); out.innerHTML = '';
+  if (typeof alasql === 'undefined') { out.append(h('div', { class: 'empty' }, 'The SQL engine did not load (it comes from a CDN). The other views still work.')); return; }
+  const sql = el('sql').value;
+  try {
+    for (const t of ['lc_contests', 'lc_candidates', 'lc_votes']) if (new RegExp('\\b' + t + '\\b').test(sql) && !D[t]) { status('loading ' + t + '…'); D[t] = t === 'lc_votes' ? (await Promise.all(D.elections.filter(e => e.election_id.startsWith('vic') && e.election_id !== 'vic2023n').map(e => table('lc_votes_' + e.election_id)))).flat() : await table(t); alasql.tables[t] = new alasql.Table({ data: D[t] }); status('ready'); }
+    const t0 = performance.now(); const rows = alasql(sql); const ms = Math.round(performance.now() - t0);
+    if (!Array.isArray(rows)) { out.append(h('div', { class: 'empty' }, String(rows))); return; }
+    el('sql-result-title').textContent = `Result · ${fmt(rows.length)} row${rows.length === 1 ? '' : 's'} in ${ms} ms${rows.length > 500 ? ' (first 500 shown)' : ''}`;
+    if (!rows.length) { out.append(h('div', { class: 'empty' }, 'No rows.')); return; }
+    const cols = Object.keys(rows[0]);
+    out.append(h('table', { class: 'data' }, h('thead', {}, h('tr', {}, ...cols.map(c => h('th', { class: typeof rows[0][c] === 'number' ? 'num' : '' }, c)))), h('tbody', {}, ...rows.slice(0, 500).map(r => h('tr', {}, ...cols.map(c => h('td', { class: typeof r[c] === 'number' ? 'num' : '' }, r[c] == null ? '' : (typeof r[c] === 'number' && !Number.isInteger(r[c]) ? r[c].toFixed(3) : String(r[c])))))))));
+  } catch (e) { el('sql-result-title').textContent = 'Result'; out.append(h('div', { class: 'empty' }, 'Query error: ' + e.message)); }
+}
+
+/* ---------- 2026 live layer ----------
+   The 2026 election sits in the election list from the start: the 2022 districts and election-day booths, drawn
+   hollow, with the declared candidates from the register. live/vec_live.py (run on a Mac through the night) writes
+   site/data/live/latest.json; the page polls it, rebuilds the vic2026 rows of every table from it and outlines
+   whatever changed since the viewer last pressed "mark all seen". Electorate winners are projected from
+   booth-by-booth two-candidate swings against 2022 while the count is partial. */
+const grpParty = (p) => (p === 'LIB' || p === 'NAT') ? 'COAL' : (PARTIES.includes(p) ? p : 'OTH');
+const normName = (s) => String(s || '').toLowerCase().normalize('NFKD').replace(/[^a-z ]/g, '').replace(/\s+/g, ' ').trim();
+const fmtTime = (iso) => { if (!iso) return '–'; const d = new Date(iso); return isNaN(d) ? iso : d.toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit' }); };
+const candLinks = (r) => ({ wikipedia: r.wikipedia_url || '', parliament: r.parliament_url || '', party: r.party_url || '' });
+function liveSetup(register) {
+  LIVE.register = register; LIVE.meta = register.meta || {};
+  if (!D.elections.some(e => e.election_id === LIVE.election)) D.elections.push({ election_id: LIVE.election, level: 'state', date: '2026-11-28', name: 'Victorian state election 2026' });
+  try { LIVE.seenAt = localStorage.getItem('atlas.liveSeenAt') || null; } catch (e) {}
+  if (!LIVE.seenAt) LIVE.seenAt = new Date(Date.now() - 15 * 60000).toISOString();
+  rebuildLiveTables(null);
+}
+function rebuildLiveTables(latest) {
+  const eid = LIVE.election, reg = LIVE.register; if (!reg) return;
+  for (const t of ['contests', 'candidates', 'booths', 'shares', 'fp', 'tcp', 'dop', 'contest_party', 'contest_cand', 'contest_tcp']) D[t] = D[t].filter(r => r.election_id !== eid);
+  const live = latest ? latest.contests : {};
+  const b22 = D.booths.filter(b => b.election_id === 'vic2022'); const b22ById = new Map(b22.map(b => [b.booth_id, b]));
+  for (const rc of reg.contests.filter(c => c.house === 'LA')) {
+    const cid = rc.contest_id, lc = live[cid];
+    D.contests.push({ election_id: eid, contest_id: cid, contest_name: rc.contest_name, house: 'LA', enrolment: lc ? lc.enrolment : null, formal: lc ? lc.formal : null, informal: lc ? lc.informal : null, total_votes: lc ? lc.total_votes : null, held_by: rc.held_by, live: !!lc, updated_at: lc ? lc.updated_at : null, stage: lc ? lc.stage : null });
+    const regC = reg.candidates.filter(c => c.contest_id === cid);
+    if (lc && lc.candidates.length) {
+      for (const c of lc.candidates) {
+        const full = normName(c.given_name + ' ' + c.surname);
+        const m = regC.find(r => normName(r.name) === full) || regC.find(r => normName(r.name).split(' ').pop() === normName(c.surname).split(' ').pop() && grpParty(r.party) === grpParty(c.party)) || null;
+        D.candidates.push({ election_id: eid, contest_id: cid, candidate_id: c.candidate_id, surname: c.surname, given_name: c.given_name, party: c.party, party_name: c.party_name, ballot_position: c.ballot_position, elected: c.elected || 0, incumbent: m ? m.incumbent : 0, links: m ? candLinks(m) : {}, fp_total: c.fp_votes, nominated: true });
+        if (c.fp_votes != null) D.contest_cand.push({ election_id: eid, contest_id: cid, candidate_id: c.candidate_id, votes: c.fp_votes });
+      }
+    } else {
+      for (const r of regC) { const parts = String(r.name).split(' '); D.candidates.push({ election_id: eid, contest_id: cid, candidate_id: r.candidate_id, surname: parts.slice(-1)[0], given_name: parts.slice(0, -1).join(' '), party: r.party, party_name: r.party_label, ballot_position: null, elected: 0, incumbent: r.incumbent, links: candLinks(r), declared: true }); }
+    }
+    const seen = new Set();
+    if (lc) for (const [bid, b] of Object.entries(lc.booths)) {
+      seen.add(bid); const o = b22ById.get(bid);
+      D.booths.push({ election_id: eid, contest_id: cid, booth_id: bid, booth_name: b.name, booth_type: b.type, venue_id: o ? o.venue_id : null, lat: o ? o.lat : null, lon: o ? o.lon : null, geo_source: o ? o.geo_source : null, reported: !!b.reported, updated_at: b.updated_at, first_seen: b.first_seen });
+      if (b.reported) {
+        const pv = {}; let formal = 0;
+        for (const [cand, v] of Object.entries(b.fp || {})) { D.fp.push({ election_id: eid, booth_id: bid, candidate_id: cand, votes: v }); const c = lc.candidates.find(x => x.candidate_id === cand); const p = c ? c.party : 'OTH'; pv[p] = (pv[p] || 0) + v; formal += v; }
+        if (b.informal != null) D.fp.push({ election_id: eid, booth_id: bid, candidate_id: 'INFORMAL', votes: b.informal });
+        for (const [p, v] of Object.entries(pv)) D.shares.push({ election_id: eid, booth_id: bid, party: p, votes: v, share: formal ? v / formal : 0 });
+        for (const [cand, v] of Object.entries(b.tcp || {})) D.tcp.push({ election_id: eid, booth_id: bid, candidate_id: cand, votes: v });
+      }
+    }
+    for (const o of b22) if (o.contest_id === cid && o.booth_type === 'ordinary' && !seen.has(o.booth_id)) D.booths.push({ ...o, election_id: eid, reported: false, updated_at: null });
+    if (lc) {
+      const pv = {}; for (const c of lc.candidates) if (c.fp_votes != null) pv[c.party] = (pv[c.party] || 0) + c.fp_votes;
+      for (const [p, v] of Object.entries(pv)) D.contest_party.push({ election_id: eid, contest_id: cid, party: p, votes: v });
+      if (lc.informal != null) D.contest_party.push({ election_id: eid, contest_id: cid, party: 'INFORMAL', votes: lc.informal });
+      if ((lc.final_pair || []).length === 2) { for (const f of lc.final_pair) D.contest_tcp.push({ election_id: eid, contest_id: cid, candidate_id: f.candidate_id, votes: f.votes, source: 'official result' }); }
+      else { const sums = {}; for (const b of Object.values(lc.booths)) for (const [cand, v] of Object.entries(b.tcp || {})) sums[cand] = (sums[cand] || 0) + v; if (!Object.keys(sums).length) for (const t of (lc.tcp_total || [])) sums[t.candidate_id] = t.votes; for (const [cand, v] of Object.entries(sums)) D.contest_tcp.push({ election_id: eid, contest_id: cid, candidate_id: cand, votes: v, source: 'live two-candidate count' }); }
+      for (const r of (lc.dop || [])) if (r.candidate_id) D.dop.push({ election_id: eid, contest_id: cid, count_no: r.count_no, candidate_id: r.candidate_id, transfer: r.transfer, progressive_total: r.progressive_total, excluded: r.excluded });
+    }
+  }
+}
+function isFresh(eid, bid, cid) {
+  if (eid !== LIVE.election || !LIVE.latest || !LIVE.seenAt) return false;
+  if (bid) { const b = idx.boothsByKey.get(eid + '|' + bid); return !!(b && b.reported && b.updated_at && b.updated_at > LIVE.seenAt); }
+  const c = LIVE.latest.contests[cid]; return !!(c && c.updated_at && c.updated_at > LIVE.seenAt && (c.counted && (c.counted.booths_reported || Object.keys(c.counted.by_type || {}).length)));
+}
+function liveProjection(cid) {
+  const lc = LIVE.latest && LIVE.latest.contests[cid]; if (!lc) return null;
+  const cands = new Map(lc.candidates.map(c => [c.candidate_id, c]));
+  if ((lc.final_pair || []).length === 2) { const tot = lc.final_pair.reduce((a, f) => a + f.votes, 0); return { method: 'official', counted: lc.counted, pair: lc.final_pair.map(f => ({ cand: cands.get(f.candidate_id), party: (cands.get(f.candidate_id) || {}).party, votes: f.votes, share: tot ? f.votes / tot : 0 })).sort((a, b) => b.votes - a.votes) }; }
+  const pair = lc.tcp_pair || []; if (pair.length !== 2 || !cands.get(pair[0]) || !cands.get(pair[1])) return null;
+  const sums = {}; for (const b of Object.values(lc.booths)) for (const [cand, v] of Object.entries(b.tcp || {})) sums[cand] = (sums[cand] || 0) + v;
+  if (!Object.keys(sums).length) for (const t of (lc.tcp_total || [])) sums[t.candidate_id] = t.votes;
+  const tot = (sums[pair[0]] || 0) + (sums[pair[1]] || 0); if (!tot) return null;
+  const counted = pair.map(k => ({ cand: cands.get(k), party: cands.get(k).party, votes: sums[k] || 0, share: (sums[k] || 0) / tot })).sort((a, b) => b.votes - a.votes);
+  const prev = contestTcp('vic2022', cid);
+  const a = pair[0], pa = grpParty(cands.get(a).party), pb = grpParty(cands.get(pair[1]).party);
+  if (prev && prev.pair.length === 2 && pa !== pb && new Set(prev.pair.map(x => grpParty(x.party))).size === 2 && prev.pair.every(x => [pa, pb].includes(grpParty(x.party)))) {
+    const prevA = prev.pair.find(x => grpParty(x.party) === pa);
+    let w = 0, sw = 0, nb = 0;
+    for (const [bid, b] of Object.entries(lc.booths)) {
+      if (b.type !== 'ordinary') continue; const t = ((b.tcp || {})[a] || 0) + ((b.tcp || {})[pair[1]] || 0); if (!t) continue;
+      const old = tcpShares('vic2022', bid); if (!old) continue; const oldA = old.find(x => grpParty(x.party) === pa); if (!oldA) continue;
+      sw += t * ((b.tcp[a] || 0) / t - oldA.share); w += t; nb++;
+    }
+    if (w > 0) { const sA = Math.max(0.01, Math.min(0.99, prevA.share + sw / w)); return { method: 'projected', swing: sw / w, booths: nb, counted: lc.counted, base: prevA.share, baseParty: pa, pair: [{ cand: cands.get(a), party: cands.get(a).party, share: sA, votes: null }, { cand: cands.get(pair[1]), party: cands.get(pair[1]).party, share: 1 - sA, votes: null }].sort((x, y) => y.share - x.share), countedPair: counted }; }
+  }
+  return { method: 'counted', counted: lc.counted, pair: counted };
+}
+function liveContestMetric(cid, p) {
+  const pr = liveProjection(cid);
+  if (!pr) return state.metric === 'tcpwin' ? { cat: null, strength: 0, label: 'Projected winner', text: 'no count yet' } : { v: null, label: '2CP', text: 'no count yet' };
+  const top = pr.pair[0], cat = grpParty(top.party);
+  const how = pr.method === 'official' ? 'final count' : pr.method === 'projected' ? `projected from ${pr.booths} booth${pr.booths === 1 ? '' : 's'} (swing ${pts(pr.swing)})` : 'counted so far';
+  if (state.metric === 'tcpwin') return { cat, strength: top.share, label: pr.method === 'official' ? 'Elected' : 'Ahead after preferences', text: `${top.cand ? top.cand.surname : cat} ${pct(top.share)} · ${how}` };
+  const mine = pr.pair.find(x => grpParty(x.party) === p);
+  return mine ? { v: mine.share, label: `${PARTY_NAME[p]} 2CP`, text: `${pct(mine.share)} · ${how}` } : { v: null, label: '2CP', text: `${PARTY_NAME[p]} not in the final two` };
+}
+function liveTotals() {
+  const booths = D.booths.filter(b => b.election_id === LIVE.election && b.booth_type === 'ordinary');
+  const rep = booths.filter(b => b.reported).length;
+  const districts = LIVE.latest ? Object.values(LIVE.latest.contests).filter(c => c.counted && (c.counted.booths_reported || Object.values(c.counted.by_type || {}).some(v => v))).length : 0;
+  const freshB = booths.filter(b => isFresh(LIVE.election, b.booth_id)).length;
+  const freshC = LIVE.latest ? Object.keys(LIVE.latest.contests).filter(cid => isFresh(LIVE.election, null, cid)).length : 0;
+  return { booths: booths.length, reported: rep, districts, freshB, freshC };
+}
+function liveLegendNote(byContest) {
+  const t = liveTotals();
+  if (!LIVE.available) return h('div', { class: 'hint', style: 'margin-top:6px' }, `2026: no live feed yet. ${byContest ? 'Electorates' : 'Booths'} are the 2022 ones, hollow until counting starts on election night (28 November).`);
+  return h('div', { class: 'hint', style: 'margin-top:6px' }, `Live, as of ${fmtTime(LIVE.fetchedAt)}: ${fmt(t.reported)} of ${fmt(t.booths)} booths reported, ${t.districts} districts counting. Bold outline: changed since ${fmtTime(LIVE.seenAt)}.${byContest && (state.metric === 'tcpwin' || state.metric === 'tcp') ? ' Electorate figures are projected from booth-by-booth swings against 2022 where the final two match; otherwise the count so far.' : ''}`);
+}
+function renderLiveBox() {
+  const box = el('live-box'); if (!box) return;
+  if (state.election !== LIVE.election) { box.hidden = true; return; }
+  box.hidden = false; box.innerHTML = '';
+  const t = liveTotals();
+  if (!LIVE.available) {
+    box.append(h('div', {}, h('span', { class: 'pulse off' }), h('strong', {}, 'Pre-election preview')), h('div', { class: 'hint', style: 'margin-top:4px' }, LIVE.error && LIVE.error !== 'no feed yet' ? `Live feed error: ${LIVE.error}` : 'Declared candidates and the 2022 booths. Counting starts 6 pm Saturday 28 November; run live/vec_live.py on the night and this box fills in.'), h('div', { style: 'margin-top:6px' }, h('button', { class: 'btn', onclick: () => pollLive(true) }, 'Check for a feed')));
+    return;
+  }
+  box.append(h('div', {}, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${fmt(t.reported)}/${fmt(t.booths)} booths · ${t.districts} districts counting`)));
+  box.append(h('div', { style: 'margin-top:6px' }, h('strong', {}, `${t.freshB} booth${t.freshB === 1 ? '' : 's'}, ${t.freshC} district${t.freshC === 1 ? '' : 's'}`), h('span', { class: 'hint' }, ` changed since ${fmtTime(LIVE.seenAt)}`)));
+  box.append(h('div', { class: 'row', style: 'margin-top:6px;gap:6px' }, h('button', { class: 'btn', onclick: () => { LIVE.seenAt = LIVE.fetchedAt || new Date().toISOString(); try { localStorage.setItem('atlas.liveSeenAt', LIVE.seenAt); } catch (e) {} renderMap(); renderLiveBox(); } }, 'Mark all seen'), h('button', { class: 'btn', onclick: () => pollLive(true) }, 'Refresh now')));
+  // what changed, newest first
+  const items = [];
+  for (const [cid, c] of Object.entries(LIVE.latest.contests)) {
+    for (const [bid, b] of Object.entries(c.booths)) if (b.reported && b.updated_at && b.updated_at > LIVE.seenAt) items.push({ at: b.updated_at, cid, bid, label: `${c.name} · ${b.type === 'ordinary' ? b.name : b.type.replace('_', ' ') + ' votes'}`, type: b.type });
+    if (isFresh(LIVE.election, null, cid) && !Object.values(c.booths).some(b => b.reported && b.updated_at > LIVE.seenAt)) items.push({ at: c.updated_at, cid, bid: null, label: `${c.name} · district totals`, type: 'district' });
+  }
+  items.sort((a, b) => b.at.localeCompare(a.at));
+  if (items.length) {
+    const list = h('div', { class: 'fresh-list' });
+    for (const it of items.slice(0, 40)) list.append(h('button', { onclick: () => { if (it.bid && it.type === 'ordinary') { if (state.unit !== 'booth') setUnit('booth'); select(LIVE.election, it.bid, true); } else { if (state.unit !== 'contest') setUnit('contest'); selectContest(LIVE.election, it.cid, true); } } }, it.label, ' ', h('small', {}, fmtTime(it.at))));
+    if (items.length > 40) list.append(h('div', { class: 'hint', style: 'padding:4px 2px' }, `and ${items.length - 40} more`));
+    box.append(list);
+  }
+}
+function refreshSql() { if (typeof alasql === 'undefined') return; for (const n of ['elections', 'contests', 'candidates', 'booths', 'shares', 'fp', 'tcp', 'dop', 'contest_party', 'contest_cand', 'contest_tcp']) if (D[n]) alasql.tables[n] = new alasql.Table({ data: D[n] }); }
+async function pollLive(manual) {
+  if (!LIVE.register) return;
+  try {
+    const res = await fetch(`${DATA}live/latest.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (!res.ok) { LIVE.available = false; LIVE.error = res.status === 404 ? 'no feed yet' : 'HTTP ' + res.status; renderLiveBox(); return; }
+    const j = await res.json();
+    if (!j || !j.contests) throw new Error('unexpected feed format');
+    const changed = j.fetched_at !== LIVE.fetchedAt;
+    LIVE.latest = j; LIVE.fetchedAt = j.fetched_at; LIVE.available = true; LIVE.error = null;
+    if (changed) {
+      rebuildLiveTables(j); buildIndexes(); refreshSql(); venueRows = null;
+      if (state.election === LIVE.election && mapReady) renderMap();
+      if (selected && selected.election === LIVE.election) { if (selected.booth) renderDetail(LIVE.election, selected.booth); else if (selected.contest) renderContestDetail(LIVE.election, selected.contest); }
+      status(`live feed updated ${fmtTime(j.fetched_at)}`);
+    }
+    renderLiveBox();
+  } catch (e) { LIVE.error = e.message; renderLiveBox(); }
+}
+function startLivePolling() { pollLive(); if (LIVE.timer) clearInterval(LIVE.timer); LIVE.timer = setInterval(() => { if (document.visibilityState === 'visible') pollLive(); }, 60000); }
+function linksRow(links) {
+  const row = h('span', { class: 'links' });
+  if (!links) return row;
+  if (links.wikipedia) row.append(h('a', { href: links.wikipedia, target: '_blank', rel: 'noopener' }, 'Wikipedia'));
+  if (links.parliament) row.append(h('a', { href: links.parliament, target: '_blank', rel: 'noopener' }, 'Parliament'));
+  if (links.party) row.append(h('a', { href: links.party, target: '_blank', rel: 'noopener' }, 'Party'));
+  if (links.vec) row.append(h('a', { href: links.vec, target: '_blank', rel: 'noopener' }, 'VEC'));
+  return row;
+}
+function renderContestDetail2026(cid) {
+  const eid = LIVE.election, c = idx.contestById.get(eid + '|' + cid), reg = LIVE.register, meta = LIVE.meta || {}, v = meta.voting || {};
+  const root = el('detail'); root.innerHTML = '';
+  const lc = LIVE.latest && LIVE.latest.contests[cid];
+  root.append(h('h2', {}, c.contest_name, isFresh(eid, null, cid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(lc.updated_at)) : ''), h('div', { class: 'meta' }, `Victorian state election 2026 · state district · held by ${c.held_by || '–'}`));
+  const cands = D.candidates.filter(x => x.election_id === eid && x.contest_id === cid);
+  const sitting = cands.find(x => x.incumbent);
+  if (sitting) root.append(h('div', { class: 'hint' }, `Sitting member: ${sitting.given_name} ${sitting.surname} (${sitting.party_name || PARTY_NAME[sitting.party] || sitting.party}), recontesting`));
+  const ret = (reg.retiring || []).filter(r => r.house === 'LA' && String(r.seat).toLowerCase() === c.contest_name.toLowerCase());
+  if (ret.length) root.append(h('div', { class: 'hint' }, `Not recontesting: ${ret.map(r => `${r.name} (${PARTY_NAME[r.party] || r.party})`).join(', ')}`));
+  // live headline
+  if (lc && lc.counted) {
+    const by = lc.counted.by_type || {}; const parts = Object.entries(by).filter(([, n]) => n).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k === 'ordinary' ? 'election day' : k === 'early' ? 'pre-poll' : k.replaceAll('_', ' ')} ${fmt(n)}`);
+    root.append(h('div', { style: 'margin:8px 0 2px' }, h('strong', {}, `${lc.counted.booths_reported} of ${lc.counted.booths_listed} booths reported`), lc.counted.pct_enrolment != null ? h('span', { class: 'hint' }, ` · ${lc.counted.pct_enrolment}% of enrolment counted`) : ''), h('div', { class: 'hint' }, parts.join(' · ') || 'nothing counted yet', lc.stage ? ` · ${lc.stage}` : ''));
+    const pr = liveProjection(cid);
+    if (pr) {
+      root.append(h('h3', {}, pr.method === 'official' ? 'Final two' : pr.method === 'projected' ? 'Projected two-candidate result' : 'Two-candidate count so far'));
+      for (const x of pr.pair) root.append(h('div', { style: 'margin:4px 0' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), x.cand ? x.cand.surname : x.party), h('span', { class: 'mono' }, `${x.votes != null ? fmt(x.votes) + ' · ' : ''}${pct(x.share)}`)), h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)}` }))));
+      root.append(h('div', { class: 'hint' }, pr.method === 'projected' ? `${PARTY_NAME[pr.baseParty]} had ${pct(pr.base)} after preferences in 2022; the ${pts(pr.swing)} pt swing is measured at ${pr.booths} matched booth${pr.booths === 1 ? '' : 's'}. Counted so far: ${pr.countedPair.map(x => `${x.cand ? x.cand.surname : x.party} ${pct(x.share)}`).join(' v ')}.` : pr.method === 'official' ? 'From the VEC distribution of preferences.' : 'No projection: the two candidates in the VEC count are not the same pairing as 2022, so this is the raw count.'));
+    }
+  }
+  // candidates
+  root.append(h('h3', {}, lc && lc.candidates.length ? 'Candidates (ballot order)' : 'Declared candidates'));
+  const fpTot = cands.reduce((a, x) => a + (x.fp_total || 0), 0);
+  const rows = [...cands].sort((a, b) => (fpTot ? (b.fp_total || 0) - (a.fp_total || 0) : (a.ballot_position || 99) - (b.ballot_position || 99) || a.surname.localeCompare(b.surname)));
+  root.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Candidate'), h('th', { class: 'num' }, fpTot ? 'Votes' : ''), h('th', { class: 'num' }, fpTot ? '%' : ''))),
+    h('tbody', {}, ...rows.map(x => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), `${x.given_name} ${x.surname}`, x.incumbent ? h('span', { class: 'hint' }, ' · sitting') : '', x.elected ? h('strong', {}, ' · elected') : ''), h('div', { class: 'hint' }, x.party_name || PARTY_NAME[x.party] || x.party, ' ', linksRow(x.links))), h('td', { class: 'num' }, fpTot ? fmt(x.fp_total) : ''), h('td', { class: 'num' }, fpTot ? pct((x.fp_total || 0) / fpTot) : '')))))));
+  root.append(h('div', { class: 'hint' }, lc && lc.candidates.length ? 'Names and parties as the VEC publishes them.' : `${reg.meta && reg.meta.source ? reg.meta.source : 'Wikipedia register'}, captured ${reg.meta && reg.meta.retrieved ? reg.meta.retrieved : ''}; nominations close 9 November.`));
+  // history
+  root.append(h('h3', {}, 'How this seat has voted'));
+  const hist = [];
+  for (const e of D.elections.filter(e => e.election_id !== eid && (e.level === 'state' || e.level === 'state-by')).sort((a, b) => b.date.localeCompare(a.date))) {
+    const oc = contestIn(e.election_id, cid, eid); if (!oc) continue;
+    const t = contestTcp(e.election_id, oc.contest_id), w = idx.elected.get(e.election_id + '|' + oc.contest_id), ps = contestShares(e.election_id, oc.contest_id);
+    hist.push({ e, oc, t, w, ps });
+  }
+  if (hist.length) root.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'Won by'), h('th', { class: 'num' }, '2CP'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('th', { class: 'num' }, PARTY_SHORT[p])))),
+    h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setUnit('contest'); setElection(x.e.election_id); selectContest(x.e.election_id, x.oc.contest_id, true); } }, shortName(x.e))), h('td', {}, x.w ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.w.party)}` }), x.w.surname) : '–'), h('td', { class: 'num' }, x.t && x.t.pair.length === 2 ? `${pct(x.t.pair[0].share)} ${PARTY_SHORT[grpParty(x.t.pair[0].party)]} v ${PARTY_SHORT[grpParty(x.t.pair[1].party)]}` : '–'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('td', { class: 'num' }, x.ps[p] ? pct(x.ps[p].share) : '–'))))))), h('div', { class: 'hint' }, 'Same district name; 2014 and 2018 were on the 2013 boundaries. Click an election to open that result.'));
+  // voting information
+  root.append(h('h3', {}, 'Voting in this district'));
+  const kd = meta.key_dates || {};
+  const info = h('div', { class: 'hint', style: 'display:grid;grid-template-columns:auto 1fr;gap:3px 10px' });
+  const add = (k, val) => info.append(h('span', { style: 'color:var(--fg-2)' }, k), h('span', {}, val));
+  if (v.postal) add('Postal votes', [`applications ${v.postal.applications_open ? fmtDay(v.postal.applications_open) : ''} to ${fmtDay(v.postal.applications_close)}; packs posted from ${fmtDay(v.postal.packs_posted_from)}. `, h('a', { href: v.postal.url, target: '_blank', rel: 'noopener' }, 'Apply (VEC)')]);
+  if (v.early) add('Early voting', [`${fmtDay(v.early.open)} to ${fmtDay(v.early.close)}, ${v.early.hours}. ${v.early.note || ''} `, h('a', { href: v.early.url, target: '_blank', rel: 'noopener' }, 'Voting options (VEC)')]);
+  if (v.low_sensory) add('Low sensory', `${fmtDay(v.low_sensory.date)}, ${v.low_sensory.note}`);
+  if (kd.election_day) add('Election day', `${fmtDay(kd.election_day)}, ${v.election_day ? v.election_day.hours : '8 am to 6 pm'}, ${v.election_day ? v.election_day.note : ''}`);
+  if (v.district_page) add('VEC', h('a', { href: v.district_page.replace('{slug}', cid.replace('vic-', '')), target: '_blank', rel: 'noopener' }, 'District profile, map and past results'));
+  root.append(info);
+  // booths
+  const bl = D.booths.filter(b => b.election_id === eid && b.contest_id === cid && b.booth_type === 'ordinary').sort((a, b) => a.booth_name.localeCompare(b.booth_name));
+  root.append(h('h3', {}, `${bl.length} election-day booths${lc ? '' : ' (2022 list)'}`), h('div', { class: 'hint', style: 'display:flex;flex-wrap:wrap;gap:4px 10px' }, ...bl.map(b => h('a', { href: '#map', style: b.reported ? 'font-weight:600' : '', onclick: (ev) => { ev.preventDefault(); if (state.unit !== 'booth') setUnit('booth'); select(eid, b.booth_id, true); } }, b.booth_name, isFresh(eid, b.booth_id) ? ' ●' : ''))));
+  if (lc) root.append(h('div', { class: 'hint', style: 'margin-top:4px' }, 'Bold: reported · ● changed since you last looked'));
+}
+function fmtDay(iso) { if (!iso) return ''; const d = new Date(iso.length > 10 ? iso : iso + 'T00:00:00'); return isNaN(d) ? iso : d.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' }) + (iso.length > 10 ? ' ' + d.toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit' }) : ''); }
+
+/* ---------- wiring ---------- */
+function showView(name) {
+  for (const s of document.querySelectorAll('.view')) s.classList.toggle('active', s.id === 'view-' + name);
+  for (const b of document.querySelectorAll('nav.views button')) { if (b.dataset.view === name) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); }
+  if (name === 'map' && map) setTimeout(() => map.resize(), 30);
+  if (name === 'venue') buildVenueSearch();
+  if (name === 'compare') renderCompare();
+  if (name === 'y2026') render2026();
+  try { localStorage.setItem('atlas.view', name); } catch (e) {}
+}
+function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : 'Election-day booths only. Early, postal and absent votes are counted at district level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u === 'contest'; renderMap(); }
+function setElection(eid) { state.election = eid; el('sel-election').value = eid; renderLiveBox(); renderMap(); }
+function fillElectionSelect(sel, ids) { sel.innerHTML = ''; for (const id of ids) sel.append(h('option', { value: id }, idx.electionById.get(id).name)); }
+function searchBooths(q) {
+  const box = el('search-hits'); box.innerHTML = ''; q = q.trim().toLowerCase(); if (q.length < 2) return;
+  if (state.unit === 'contest') { const cs = D.contests.filter(c => c.election_id === state.election && c.house !== 'LC' && c.contest_name.toLowerCase().includes(q)).slice(0, 8); for (const c of cs) box.append(h('button', { class: 'btn', style: 'display:block;width:100%;text-align:left;margin-top:4px', onclick: () => selectContest(state.election, c.contest_id, true) }, c.contest_name)); return; }
+  const hits = D.booths.filter(b => b.election_id === state.election && b.booth_type === 'ordinary' && b.lat != null && (b.booth_name.toLowerCase().includes(q) || (idx.contestById.get(b.election_id + '|' + b.contest_id) || {}).contest_name?.toLowerCase().includes(q))).slice(0, 8);
+  for (const b of hits) box.append(h('button', { class: 'btn', style: 'display:block;width:100%;text-align:left;margin-top:4px', onclick: () => { select(state.election, b.booth_id, true); } }, b.booth_name, h('span', { class: 'hint' }, ' · ' + (idx.contestById.get(b.election_id + '|' + b.contest_id) || {}).contest_name)));
+}
+
+async function boot() {
+  try {
+    status('loading tables…');
+    try { const man = await (await fetch(DATA + 'manifest.json')).json(); if (man.ext === '.json') DATA_GZ = false; } catch (e) {}
+    const names = ['elections', 'contests', 'candidates', 'booths', 'shares', 'fp', 'tcp', 'venues', 'dop', 'contest_party', 'contest_cand', 'contest_tcp'];
+    const loaded = await Promise.all(names.map(table)); names.forEach((n, i) => D[n] = loaded[i]);
+    // the 2026 register (declared candidates, key dates) makes 2026 an election in its own right, live-fed on the night
+    try {
+      const [c26, k26, r26] = await Promise.all(['c2026_contests', 'c2026_candidates', 'c2026_retiring'].map(table));
+      let meta = {}; try { meta = await (await fetch(DATA + 'c2026_meta.json')).json(); } catch (e) {}
+      liveSetup({ contests: c26, candidates: k26, retiring: r26, meta });
+    } catch (e) { console.warn('2026 register not loaded', e); }
+    buildIndexes();
+    const ids = D.elections.filter(e => !e.election_id.startsWith('vicby') && e.election_id !== 'vic2023n').map(e => e.election_id).concat(D.elections.filter(e => e.election_id.startsWith('vicby')).map(e => e.election_id));
+    fillElectionSelect(el('sel-election'), ids); el('sel-election').value = state.election;
+    fillElectionSelect(el('sel-gap'), ids); el('sel-gap').value = state.gap;
+    fillElectionSelect(el('cmp-a'), ids); fillElectionSelect(el('cmp-b'), ids); el('cmp-a').value = 'fed2022'; el('cmp-b').value = 'vic2022';
+    el('sel-election').addEventListener('change', (e) => { state.election = e.target.value; renderLiveBox(); renderMap(); });
+    el('sel-metric').addEventListener('change', (e) => { state.metric = e.target.value; el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin'; el('f-gap').hidden = state.metric !== 'gap'; renderMap(); });
+    el('sel-party').addEventListener('change', (e) => { state.party = e.target.value; renderMap(); });
+    el('sel-gap').addEventListener('change', (e) => { state.gap = e.target.value; renderMap(); });
+    el('sel-bound').addEventListener('change', (e) => { state.bound = e.target.value; renderMap(); });
+    for (const b of el('seg-unit').querySelectorAll('button')) b.addEventListener('click', () => setUnit(b.dataset.v));
+    for (const b of el('seg-layer').querySelectorAll('button')) b.addEventListener('click', () => { state.layer = b.dataset.v; for (const o of el('seg-layer').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); renderMap(); });
+    el('inp-search').addEventListener('input', (e) => searchBooths(e.target.value));
+    for (const b of document.querySelectorAll('nav.views button')) b.addEventListener('click', () => showView(b.dataset.view));
+    for (const [k, v] of [['cmp-a', renderCompare], ['cmp-b', renderCompare], ['cmp-party', renderCompare]]) el(k).addEventListener('change', v);
+    setupQuery();
+    if (typeof alasql !== 'undefined') for (const n of names) alasql.tables[n] = new alasql.Table({ data: D[n] });
+    status(`${fmt(D.booths.filter(b => b.booth_type === 'ordinary').length)} booths · ${D.elections.length} elections`);
+    if (typeof maplibregl === 'undefined') { el('map-loading').textContent = 'The map library did not load.'; } else makeMap();
+    renderLiveBox(); if (LIVE.register) startLivePolling();
+    let v = 'map'; try { v = location.hash.replace('#', '') || localStorage.getItem('atlas.view') || 'map'; } catch (e) {}
+    if (!['map', 'venue', 'compare', 'y2026', 'query', 'about'].includes(v)) v = 'map';
+    showView(v);
+    // re-colour when the theme flips
+    const mq = window.matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener('change', () => { if (mapReady) { map.setPaintProperty('bounds-line', 'line-color', css('--map-line')); map.setPaintProperty('contest-fresh', 'line-color', css('--fg')); map.setPaintProperty('catch-fresh', 'line-color', css('--fg')); if (!BASEMAP) map.setPaintProperty('bg', 'background-color', css('--map-bg')); renderMap(); } });
+    new MutationObserver(() => { if (mapReady) { if (!BASEMAP) map.setPaintProperty('bg', 'background-color', css('--map-bg')); map.setPaintProperty('bounds-line', 'line-color', css('--map-line')); renderMap(); } }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  } catch (e) { status('failed to load: ' + e.message); console.error(e); }
+}
+boot();
+})();
+</script>
+
+</body>
+</html>

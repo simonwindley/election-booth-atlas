@@ -1,0 +1,13 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+vicby-werribee-2025,vic-werribee,vic-werribee-1,Rifai,A. Raheem,Australian Greens,,GRN,1,0
+vicby-werribee-2025,vic-werribee,vic-werribee-2,Murphy,Steve,Liberal,,LIB,2,0
+vicby-werribee-2025,vic-werribee,vic-werribee-3,Emerson,Matthew,Family First Victoria,,FFP,3,0
+vicby-werribee-2025,vic-werribee,vic-werribee-4,Menta,Xavier,Legalise Cannabis Victoria,,LCP,4,0
+vicby-werribee-2025,vic-werribee,vic-werribee-5,Joshi,Munish,,,IND,5,0
+vicby-werribee-2025,vic-werribee,vic-werribee-6,Munro,Sue,Victorian Socialists,,VSP,6,0
+vicby-werribee-2025,vic-werribee,vic-werribee-7,Mansouri Jajaee,Shohre,Animal Justice Party,,AJP,7,0
+vicby-werribee-2025,vic-werribee,vic-werribee-8,Mulcahy,Kodei,,,IND,8,0
+vicby-werribee-2025,vic-werribee,vic-werribee-9,Mclindon,Aidan,,,IND,9,0
+vicby-werribee-2025,vic-werribee,vic-werribee-10,Hopper,Paul,,,IND,10,0
+vicby-werribee-2025,vic-werribee,vic-werribee-11,Lister,John,Australian Labor Party,,ALP,11,1
+vicby-werribee-2025,vic-werribee,vic-werribee-12,Moinuddin,Aijaz,,,IND,12,0

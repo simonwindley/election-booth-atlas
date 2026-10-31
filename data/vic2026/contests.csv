@@ -1,0 +1,97 @@
+election_id,contest_id,contest_name,house,held_by
+vic2026,vic-albert-park,Albert Park,LA,Labor
+vic2026,vic-ashwood,Ashwood,LA,Labor
+vic2026,vic-bass,Bass,LA,Labor
+vic2026,vic-bayswater,Bayswater,LA,Labor
+vic2026,vic-bellarine,Bellarine,LA,Labor
+vic2026,vic-benambra,Benambra,LA,Liberal
+vic2026,vic-bendigo-east,Bendigo East,LA,Labor
+vic2026,vic-bendigo-west,Bendigo West,LA,Labor
+vic2026,vic-bentleigh,Bentleigh,LA,Labor
+vic2026,vic-berwick,Berwick,LA,Liberal
+vic2026,vic-box-hill,Box Hill,LA,Labor
+vic2026,vic-brighton,Brighton,LA,Liberal
+vic2026,vic-broadmeadows,Broadmeadows,LA,Labor
+vic2026,vic-brunswick,Brunswick,LA,Greens
+vic2026,vic-bulleen,Bulleen,LA,Liberal
+vic2026,vic-bundoora,Bundoora,LA,Labor
+vic2026,vic-carrum,Carrum,LA,Labor
+vic2026,vic-caulfield,Caulfield,LA,Liberal
+vic2026,vic-clarinda,Clarinda,LA,Labor
+vic2026,vic-cranbourne,Cranbourne,LA,Labor
+vic2026,vic-croydon,Croydon,LA,Liberal
+vic2026,vic-dandenong,Dandenong,LA,Labor
+vic2026,vic-eildon,Eildon,LA,Liberal
+vic2026,vic-eltham,Eltham,LA,Labor
+vic2026,vic-essendon,Essendon,LA,Labor
+vic2026,vic-eureka,Eureka,LA,Labor
+vic2026,vic-euroa,Euroa,LA,National
+vic2026,vic-evelyn,Evelyn,LA,Liberal
+vic2026,vic-footscray,Footscray,LA,Labor
+vic2026,vic-frankston,Frankston,LA,Labor
+vic2026,vic-geelong,Geelong,LA,Labor
+vic2026,vic-gippsland-east,Gippsland East,LA,National
+vic2026,vic-gippsland-south,Gippsland South,LA,National
+vic2026,vic-glen-waverley,Glen Waverley,LA,Labor
+vic2026,vic-greenvale,Greenvale,LA,Labor
+vic2026,vic-hastings,Hastings,LA,Labor
+vic2026,vic-hawthorn,Hawthorn,LA,Liberal
+vic2026,vic-ivanhoe,Ivanhoe,LA,Labor
+vic2026,vic-kalkallo,Kalkallo,LA,Labor
+vic2026,vic-kew,Kew,LA,Liberal
+vic2026,vic-kororoit,Kororoit,LA,Labor
+vic2026,vic-lara,Lara,LA,Labor
+vic2026,vic-laverton,Laverton,LA,Labor
+vic2026,vic-lowan,Lowan,LA,National
+vic2026,vic-macedon,Macedon,LA,Labor
+vic2026,vic-malvern,Malvern,LA,Liberal
+vic2026,vic-melbourne,Melbourne,LA,Greens
+vic2026,vic-melton,Melton,LA,Labor
+vic2026,vic-mildura,Mildura,LA,National
+vic2026,vic-mill-park,Mill Park,LA,Labor
+vic2026,vic-monbulk,Monbulk,LA,Labor
+vic2026,vic-mordialloc,Mordialloc,LA,Labor
+vic2026,vic-mornington,Mornington,LA,Liberal
+vic2026,vic-morwell,Morwell,LA,National
+vic2026,vic-mulgrave,Mulgrave,LA,Labor
+vic2026,vic-murray-plains,Murray Plains,LA,National
+vic2026,vic-narracan,Narracan,LA,Liberal
+vic2026,vic-narre-warren-north,Narre Warren North,LA,Labor
+vic2026,vic-narre-warren-south,Narre Warren South,LA,Labor
+vic2026,vic-nepean,Nepean,LA,Liberal
+vic2026,vic-niddrie,Niddrie,LA,Labor
+vic2026,vic-northcote,Northcote,LA,Labor
+vic2026,vic-oakleigh,Oakleigh,LA,Labor
+vic2026,vic-ovens-valley,Ovens Valley,LA,National
+vic2026,vic-pakenham,Pakenham,LA,Labor
+vic2026,vic-pascoe-vale,Pascoe Vale,LA,Labor
+vic2026,vic-point-cook,Point Cook,LA,Labor
+vic2026,vic-polwarth,Polwarth,LA,Liberal
+vic2026,vic-prahran,Prahran,LA,Liberal
+vic2026,vic-preston,Preston,LA,Labor
+vic2026,vic-richmond,Richmond,LA,Greens
+vic2026,vic-ringwood,Ringwood,LA,Independent
+vic2026,vic-ripon,Ripon,LA,Labor
+vic2026,vic-rowville,Rowville,LA,Liberal
+vic2026,vic-sandringham,Sandringham,LA,Liberal
+vic2026,vic-shepparton,Shepparton,LA,National
+vic2026,vic-south-barwon,South Barwon,LA,Independent
+vic2026,vic-south-west-coast,South-West Coast,LA,Liberal
+vic2026,vic-st-albans,St Albans,LA,Labor
+vic2026,vic-sunbury,Sunbury,LA,Labor
+vic2026,vic-sydenham,Sydenham,LA,Labor
+vic2026,vic-tarneit,Tarneit,LA,Labor
+vic2026,vic-thomastown,Thomastown,LA,Labor
+vic2026,vic-warrandyte,Warrandyte,LA,Liberal
+vic2026,vic-wendouree,Wendouree,LA,Labor
+vic2026,vic-werribee,Werribee,LA,Labor
+vic2026,vic-williamstown,Williamstown,LA,Labor
+vic2026,vic-yan-yean,Yan Yean,LA,Labor
+vic2026,vicr-eastern-victoria,Eastern Victoria,LC,
+vic2026,vicr-north-eastern-metropolitan,North-Eastern Metropolitan,LC,
+vic2026,vicr-northern-metropolitan,Northern Metropolitan,LC,
+vic2026,vicr-northern-victoria,Northern Victoria,LC,
+vic2026,vicr-south-eastern-metropolitan,South-Eastern Metropolitan,LC,
+vic2026,vicr-southern-metropolitan,Southern Metropolitan,LC,
+vic2026,vicr-western-metropolitan,Western Metropolitan,LC,
+vic2026,vicr-western-victoria,Western Victoria,LC,

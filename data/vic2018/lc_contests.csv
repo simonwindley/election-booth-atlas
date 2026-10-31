@@ -1,0 +1,9 @@
+election_id,contest_id,contest_name,house,vacancies,formal,informal,quota
+vic2018,vicr-eastern-metropolitan,Eastern Metropolitan,LC,5,418532,13484,69756
+vic2018,vicr-eastern-victoria,Eastern Victoria,LC,5,467611,18419,77936
+vic2018,vicr-northern-metropolitan,Northern Metropolitan,LC,5,450239,22717,75040
+vic2018,vicr-northern-victoria,Northern Victoria,LC,5,456706,18905,76118
+vic2018,vicr-south-eastern-metropolitan,South-Eastern Metropolitan,LC,5,436977,18962,72830
+vic2018,vicr-southern-metropolitan,Southern Metropolitan,LC,5,429657,11801,71610
+vic2018,vicr-western-metropolitan,Western Metropolitan,LC,5,463258,23606,77210
+vic2018,vicr-western-victoria,Western Victoria,LC,5,460498,19819,76750

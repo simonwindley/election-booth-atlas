@@ -1,0 +1,732 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+vic2022,vic-albert-park,vic-albert-park-1,Dragwidge,Georgie,,,IND,1,0
+vic2022,vic-albert-park,vic-albert-park-2,Taylor,Nina,Australian Labor Party - Victorian Branch,,ALP,2,1
+vic2022,vic-albert-park,vic-albert-park-3,Samiotis,Kim,Australian Greens,,GRN,3,0
+vic2022,vic-albert-park,vic-albert-park-4,Antunovic,Elizabeth,Freedom Party of Victoria,,FRP,4,0
+vic2022,vic-albert-park,vic-albert-park-5,Bradea,Viorel,Family First Victoria,,FFP,5,0
+vic2022,vic-albert-park,vic-albert-park-6,Sherson,Lauren,Liberal,,LIB,6,0
+vic2022,vic-albert-park,vic-albert-park-7,Smart,Lance,Liberal Democrats,,LDP,7,0
+vic2022,vic-albert-park,vic-albert-park-8,Westwood,Cassandra,Animal Justice Party,,AJP,8,0
+vic2022,vic-bass,vic-bass-1,Tessari,Brett,The Nationals,,NAT,1,0
+vic2022,vic-bass,vic-bass-2,O'Neill,Mark,Labour DLP,,DLP,2,0
+vic2022,vic-bass,vic-bass-3,Munday,Marcus,Freedom Party of Victoria,,FRP,3,0
+vic2022,vic-bass,vic-bass-4,Verhagen,Martin,Family First Victoria,,FFP,4,0
+vic2022,vic-bass,vic-bass-5,Crugnale,Jordan,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-bass,vic-bass-6,Mousellis,Elly,Animal Justice Party,,AJP,6,0
+vic2022,vic-bass,vic-bass-7,Brown,Aaron,Liberal,,LIB,7,0
+vic2022,vic-bass,vic-bass-8,Edwards,Meg,,,IND,8,0
+vic2022,vic-bass,vic-bass-9,Bugbird,Callum,Australian Greens,,GRN,9,0
+vic2022,vic-bass,vic-bass-10,Jobe,Jeni,,,IND,10,0
+vic2022,vic-bellarine,vic-bellarine-1,Semmens,Rachel,Australian Greens,,GRN,1,0
+vic2022,vic-bellarine,vic-bellarine-2,Grigau,Donnie,Liberal,,LIB,2,0
+vic2022,vic-bellarine,vic-bellarine-3,Manuell,Guy,Family First Victoria,,FFP,3,0
+vic2022,vic-bellarine,vic-bellarine-4,Ritchie,Brett Anthony,Derryn Hinch's Justice Party,,DHJ,4,0
+vic2022,vic-bellarine,vic-bellarine-5,Muse,Kylee,Freedom Party of Victoria,,FRP,5,0
+vic2022,vic-bellarine,vic-bellarine-6,Taylor,Brendan,Angry Victorians Party,,AVP,6,0
+vic2022,vic-bellarine,vic-bellarine-7,Marchant,Alison,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-bellarine,vic-bellarine-8,Cardilini,Adam,Animal Justice Party,,AJP,8,0
+vic2022,vic-bellarine,vic-bellarine-9,Fenton,Sarah,,,IND,9,0
+vic2022,vic-ashwood,vic-ashwood-1,Judah,Asher,Liberal,,LIB,1,0
+vic2022,vic-ashwood,vic-ashwood-2,Saloumi,Lynnette,,,IND,2,0
+vic2022,vic-ashwood,vic-ashwood-3,Fregon,Matt,Australian Labor Party - Victorian Branch,,ALP,3,1
+vic2022,vic-ashwood,vic-ashwood-4,Morgan,Peter,Australian Greens,,GRN,4,0
+vic2022,vic-ashwood,vic-ashwood-5,Baker,Norman F.,Freedom Party of Victoria,,FRP,5,0
+vic2022,vic-ashwood,vic-ashwood-6,Griffiths,Milton,Animal Justice Party,,AJP,6,0
+vic2022,vic-ashwood,vic-ashwood-7,Geyer,Keith,Family First Victoria,,FFP,7,0
+vic2022,vic-ashwood,vic-ashwood-8,Doyle,Michael,,,IND,8,0
+vic2022,vic-benambra,vic-benambra-1,Fuery,Mike,Animal Justice Party,,AJP,1,0
+vic2022,vic-benambra,vic-benambra-2,Rossiter,Dean,Liberal Democrats,,LDP,2,0
+vic2022,vic-benambra,vic-benambra-3,Brady,Luke,Australian Greens,,GRN,3,0
+vic2022,vic-benambra,vic-benambra-4,Hawkins,Jacqui,,,IND,4,0
+vic2022,vic-benambra,vic-benambra-5,Stratton,Janelle,Family First Victoria,,FFP,5,0
+vic2022,vic-benambra,vic-benambra-6,Tilley,Bill,Liberal,,LIB,6,1
+vic2022,vic-benambra,vic-benambra-7,Tait,Mark,Australian Labor Party - Victorian Branch,,ALP,7,0
+vic2022,vic-benambra,vic-benambra-8,O'Brien,Adrian James,Freedom Party of Victoria,,FRP,8,0
+vic2022,vic-bayswater,vic-bayswater-1,Coombes,Gary,Family First Victoria,,FFP,1,0
+vic2022,vic-bayswater,vic-bayswater-2,Field,Chris,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-bayswater,vic-bayswater-3,Wormald,Alyssa,Animal Justice Party,,AJP,3,0
+vic2022,vic-bayswater,vic-bayswater-4,Mackallah,Chloe,,,IND,4,0
+vic2022,vic-bayswater,vic-bayswater-5,Wakeling,Nick,Liberal,,LIB,5,0
+vic2022,vic-bayswater,vic-bayswater-6,Dolan,Thomas,Labour DLP,,DLP,6,0
+vic2022,vic-bayswater,vic-bayswater-7,Taylor,Jackson,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-bayswater,vic-bayswater-8,Heap,Ashley,Legalise Cannabis Victoria,,LCP,8,0
+vic2022,vic-bayswater,vic-bayswater-9,Sirninger Rankin,Nadia,Australian Greens,,GRN,9,0
+vic2022,vic-bendigo-east,vic-bendigo-east-1,Mclelland-Howe,Vyonne,Animal Justice Party,,AJP,1,0
+vic2022,vic-bendigo-east,vic-bendigo-east-2,Schade,Darin,Liberal,,LIB,2,0
+vic2022,vic-bendigo-east,vic-bendigo-east-3,Mihail,Ben,Pauline Hanson's One Nation,,ONP,3,0
+vic2022,vic-bendigo-east,vic-bendigo-east-4,Keetelaar,Evelyn,Family First Victoria,,FFP,4,0
+vic2022,vic-bendigo-east,vic-bendigo-east-5,Tolhurst,Michael James,Australian Greens,,GRN,5,0
+vic2022,vic-bendigo-east,vic-bendigo-east-6,Laurie,James,,,IND,6,0
+vic2022,vic-bendigo-east,vic-bendigo-east-7,Allan,Jacinta,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-bendigo-west,vic-bendigo-west-1,Serpell,Steve,Family First Victoria,,FFP,1,0
+vic2022,vic-bendigo-west,vic-bendigo-west-2,Price,Ken,Liberal,,LIB,2,0
+vic2022,vic-bendigo-west,vic-bendigo-west-3,Maxwell,Victoria,Animal Justice Party,,AJP,3,0
+vic2022,vic-bendigo-west,vic-bendigo-west-4,Nuske,Marilyn,,,IND,4,0
+vic2022,vic-bendigo-west,vic-bendigo-west-5,Woolley,Richard James,Freedom Party of Victoria,,FRP,5,0
+vic2022,vic-bendigo-west,vic-bendigo-west-6,Bansemer,Matt,,,IND,6,0
+vic2022,vic-bendigo-west,vic-bendigo-west-7,Edwards,Maree,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-bendigo-west,vic-bendigo-west-8,Searle,James,Australian Greens,,GRN,8,0
+vic2022,vic-bendigo-west,vic-bendigo-west-9,Taylor,Wayne,Legalise Cannabis Victoria,,LCP,9,0
+vic2022,vic-berwick,vic-berwick-1,Perry,Hayley,Australian Greens,,GRN,1,0
+vic2022,vic-berwick,vic-berwick-2,Haupt,Kerry,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-berwick,vic-berwick-3,Dolheguy,Katherine,Animal Justice Party,,AJP,3,0
+vic2022,vic-berwick,vic-berwick-4,Battin,Brad,Liberal,,LIB,4,1
+vic2022,vic-berwick,vic-berwick-5,Van Der Horst,Joel,Family First Victoria,,FFP,5,0
+vic2022,vic-berwick,vic-berwick-6,Zaveer,Malik,Australian Labor Party - Victorian Branch,,ALP,6,0
+vic2022,vic-box-hill,vic-box-hill-1,Tseng,Wayne,,,IND,1,0
+vic2022,vic-box-hill,vic-box-hill-2,Folloni,Sebastian,Animal Justice Party,,AJP,2,0
+vic2022,vic-box-hill,vic-box-hill-3,Liston,Cameron,,,IND,3,0
+vic2022,vic-box-hill,vic-box-hill-4,Riera,Alicia,Freedom Party of Victoria,,FRP,4,0
+vic2022,vic-box-hill,vic-box-hill-5,Werner,Nicole Ta-Ei,Liberal,,LIB,5,0
+vic2022,vic-box-hill,vic-box-hill-6,Shan,Joanne,Australian Greens,,GRN,6,0
+vic2022,vic-box-hill,vic-box-hill-7,Dean,Paul,Labour DLP,,DLP,7,0
+vic2022,vic-box-hill,vic-box-hill-8,Ong,Gary,Family First Victoria,,FFP,8,0
+vic2022,vic-box-hill,vic-box-hill-9,Hamer,Paul,Australian Labor Party - Victorian Branch,,ALP,9,1
+vic2022,vic-brighton,vic-brighton-1,Timms,Allan L.,,,IND,1,0
+vic2022,vic-brighton,vic-brighton-2,Sciola,Nick,Family First Victoria,,FFP,2,0
+vic2022,vic-brighton,vic-brighton-3,Dekiere,Sarah,Australian Greens,,GRN,3,0
+vic2022,vic-brighton,vic-brighton-4,Gibson,Sally,,,IND,4,0
+vic2022,vic-brighton,vic-brighton-5,Frederico,Felicity,,,IND,5,0
+vic2022,vic-brighton,vic-brighton-6,Walker,Alicia,Animal Justice Party,,AJP,6,0
+vic2022,vic-brighton,vic-brighton-7,Newbury,James,Liberal,,LIB,7,1
+vic2022,vic-brighton,vic-brighton-8,Crawford,Louise,Australian Labor Party - Victorian Branch,,ALP,8,0
+vic2022,vic-brighton,vic-brighton-9,Casley,John Tiger,,,IND,9,0
+vic2022,vic-bentleigh,vic-bentleigh-1,Gnieslaw,Simon,,,IND,1,0
+vic2022,vic-bentleigh,vic-bentleigh-2,Staikos,Nick,Australian Labor Party - Victorian Branch,,ALP,2,1
+vic2022,vic-bentleigh,vic-bentleigh-3,Galli-Mcrostie,Alana,Australian Greens,,GRN,3,0
+vic2022,vic-bentleigh,vic-bentleigh-4,Harris,David,Animal Justice Party,,AJP,4,0
+vic2022,vic-bentleigh,vic-bentleigh-5,Ryan,Paul,Family First Victoria,,FFP,5,0
+vic2022,vic-bentleigh,vic-bentleigh-6,Taylor-Haynes,Debbie,Liberal,,LIB,6,0
+vic2022,vic-broadmeadows,vic-broadmeadows-1,Duzova,Baris,Liberal,,LIB,1,0
+vic2022,vic-broadmeadows,vic-broadmeadows-2,Hassan,Omar,Victorian Socialists,,VSP,2,0
+vic2022,vic-broadmeadows,vic-broadmeadows-3,Huybregts,Arie,,,IND,3,0
+vic2022,vic-broadmeadows,vic-broadmeadows-4,Matthews-Ward,Kathleen,Australian Labor Party - Victorian Branch,,ALP,4,1
+vic2022,vic-broadmeadows,vic-broadmeadows-5,Sutter,Ben,Fiona Patten's Reason Party,,RUA,5,0
+vic2022,vic-broadmeadows,vic-broadmeadows-6,Elmustapha,Mohamad,,,IND,6,0
+vic2022,vic-broadmeadows,vic-broadmeadows-7,Tam,Bienne,Family First Victoria,,FFP,7,0
+vic2022,vic-broadmeadows,vic-broadmeadows-8,Aguilus,Joe,Australian Greens,,GRN,8,0
+vic2022,vic-broadmeadows,vic-broadmeadows-9,Feild,Candace,Animal Justice Party,,AJP,9,0
+vic2022,vic-brunswick,vic-brunswick-1,Helou,Anthony,,,IND,1,0
+vic2022,vic-brunswick,vic-brunswick-2,Williams,Mike,Australian Labor Party - Victorian Branch,,ALP,2,0
+vic2022,vic-brunswick,vic-brunswick-3,Jimenez,Nahui,Victorian Socialists,,VSP,3,0
+vic2022,vic-brunswick,vic-brunswick-4,Evans,Shea,Fiona Patten's Reason Party,,RUA,4,0
+vic2022,vic-brunswick,vic-brunswick-5,Shaker,Lilian Sabry,Family First Victoria,,FFP,5,0
+vic2022,vic-brunswick,vic-brunswick-6,Nguyen,Minh Quan,Liberal,,LIB,6,0
+vic2022,vic-brunswick,vic-brunswick-7,Lamarche-Beauchesne,Rachel,Animal Justice Party,,AJP,7,0
+vic2022,vic-brunswick,vic-brunswick-8,Taylor,Kenneth Charles,,,IND,8,0
+vic2022,vic-brunswick,vic-brunswick-9,Read,Tim,Australian Greens,,GRN,9,1
+vic2022,vic-caulfield,vic-caulfield-1,Kaltmann,Nomi,,,IND,1,0
+vic2022,vic-caulfield,vic-caulfield-2,Edwell,Lynne,Family First Victoria,,FFP,2,0
+vic2022,vic-caulfield,vic-caulfield-3,Iampolski,Rachel,Australian Greens,,GRN,3,0
+vic2022,vic-caulfield,vic-caulfield-4,Myerson,Asher,Animal Justice Party,,AJP,4,0
+vic2022,vic-caulfield,vic-caulfield-5,Southwick,David,Liberal,,LIB,5,1
+vic2022,vic-caulfield,vic-caulfield-6,Harel,Lior,Australian Labor Party - Victorian Branch,,ALP,6,0
+vic2022,vic-caulfield,vic-caulfield-7,Abelman,Michael,Liberal Democrats,,LDP,7,0
+vic2022,vic-carrum,vic-carrum-1,Willis,Damian,,,IND,1,0
+vic2022,vic-carrum,vic-carrum-2,Erevnidis,Georgia,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-carrum,vic-carrum-3,Cameron,Jeremy,Family First Victoria,,FFP,3,0
+vic2022,vic-carrum,vic-carrum-4,Macgregor Owen,Taylor,Animal Justice Party,,AJP,4,0
+vic2022,vic-carrum,vic-carrum-5,Lillico,Jayde,Australian Greens,,GRN,5,0
+vic2022,vic-carrum,vic-carrum-6,Buchanan,Bec,Liberal,,LIB,6,0
+vic2022,vic-carrum,vic-carrum-7,Kilkenny,Sonya,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-bundoora,vic-bundoora-1,O'Brien,Julie,Australian Greens,,GRN,1,0
+vic2022,vic-bundoora,vic-bundoora-2,Tomar,Sahil,Liberal,,LIB,2,0
+vic2022,vic-bundoora,vic-bundoora-3,Koelmeyer,Eric,,,IND,3,0
+vic2022,vic-bundoora,vic-bundoora-4,Brooks,Colin,Australian Labor Party - Victorian Branch,,ALP,4,1
+vic2022,vic-bundoora,vic-bundoora-5,Jones,Ethan,Family First Victoria,,FFP,5,0
+vic2022,vic-bundoora,vic-bundoora-6,Lu,Andrew,Freedom Party of Victoria,,FRP,6,0
+vic2022,vic-bundoora,vic-bundoora-7,Holgate,Bella,Animal Justice Party,,AJP,7,0
+vic2022,vic-clarinda,vic-clarinda-1,White,Caroline,,,IND,1,0
+vic2022,vic-clarinda,vic-clarinda-2,Hastings,Karen,Family First Victoria,,FFP,2,0
+vic2022,vic-clarinda,vic-clarinda-3,Wolfe,Steve,Freedom Party of Victoria,,FRP,3,0
+vic2022,vic-clarinda,vic-clarinda-4,Vo,Hung,,,IND,4,0
+vic2022,vic-clarinda,vic-clarinda-5,Tak,Meng Heang,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-clarinda,vic-clarinda-6,Richardson,Anthony,Liberal,,LIB,6,0
+vic2022,vic-clarinda,vic-clarinda-7,Moffett,Jessamine,Australian Greens,,GRN,7,0
+vic2022,vic-clarinda,vic-clarinda-8,Litchfield,Sue,Animal Justice Party,,AJP,8,0
+vic2022,vic-bulleen,vic-bulleen-1,Stafford,Kellie,Australian Greens,,GRN,1,0
+vic2022,vic-bulleen,vic-bulleen-2,Sabhlok,Sanjeev,,,IND,2,0
+vic2022,vic-bulleen,vic-bulleen-3,Stokes,Jason,Family First Victoria,,FFP,3,0
+vic2022,vic-bulleen,vic-bulleen-4,Vincent,David,,,IND,4,0
+vic2022,vic-bulleen,vic-bulleen-5,Guy,Matthew,Liberal,,LIB,5,1
+vic2022,vic-bulleen,vic-bulleen-6,Patrikios,Voula,Freedom Party of Victoria,,FRP,6,0
+vic2022,vic-bulleen,vic-bulleen-7,Rogers,Ian,Australian Labor Party - Victorian Branch,,ALP,7,0
+vic2022,vic-bulleen,vic-bulleen-8,Jafari,Elnaz,Animal Justice Party,,AJP,8,0
+vic2022,vic-dandenong,vic-dandenong-1,Harmse,Audrey,Family First Victoria,,FFP,1,0
+vic2022,vic-dandenong,vic-dandenong-2,Levchenko,Anthony,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-dandenong,vic-dandenong-3,Williams,Gabrielle,Australian Labor Party - Victorian Branch,,ALP,3,1
+vic2022,vic-dandenong,vic-dandenong-4,Kirwan,Matthew,Australian Greens,,GRN,4,0
+vic2022,vic-dandenong,vic-dandenong-5,Broadley,Karen,Liberal,,LIB,5,0
+vic2022,vic-dandenong,vic-dandenong-6,Klop,Andrew,Animal Justice Party,,AJP,6,0
+vic2022,vic-dandenong,vic-dandenong-7,Turner,Tham,Liberal Democrats,,LDP,7,0
+vic2022,vic-eildon,vic-eildon-1,Judd,Jane,Australian Labor Party - Victorian Branch,,ALP,1,0
+vic2022,vic-eildon,vic-eildon-2,Bond,Chloe,Animal Justice Party,,AJP,2,0
+vic2022,vic-eildon,vic-eildon-3,Mcleish,Cindy,Liberal,,LIB,3,1
+vic2022,vic-eildon,vic-eildon-4,Thornton,Robert,,,IND,4,0
+vic2022,vic-eildon,vic-eildon-5,Mikelsons,Wil,Australian Greens,,GRN,5,0
+vic2022,vic-eildon,vic-eildon-6,Rusic,Joshua,Freedom Party of Victoria,,FRP,6,0
+vic2022,vic-eildon,vic-eildon-7,Cordner Hunt,Kammy,,,IND,7,0
+vic2022,vic-eildon,vic-eildon-8,Lacey,Tim,Family First Victoria,,FFP,8,0
+vic2022,vic-eltham,vic-eltham-1,Ward,Vicki,Australian Labor Party - Victorian Branch,,ALP,1,1
+vic2022,vic-eltham,vic-eltham-2,Karimi,Leila,Labour DLP,,DLP,2,0
+vic2022,vic-eltham,vic-eltham-3,Mcclintock,Jason,Liberal,,LIB,3,0
+vic2022,vic-eltham,vic-eltham-4,Marshall,Catriona,Animal Justice Party,,AJP,4,0
+vic2022,vic-eltham,vic-eltham-5,Grimes,Alex,Australian Greens,,GRN,5,0
+vic2022,vic-eltham,vic-eltham-6,Stubley,Hugh,Family First Victoria,,FFP,6,0
+vic2022,vic-croydon,vic-croydon-1,De Wit,Sophia,Labour DLP,,DLP,1,0
+vic2022,vic-croydon,vic-croydon-2,Mcdonald-Eckersall,Harley,Animal Justice Party,,AJP,2,0
+vic2022,vic-croydon,vic-croydon-3,Grasso,Sorina,Australian Labor Party - Victorian Branch,,ALP,3,0
+vic2022,vic-croydon,vic-croydon-4,Hodgett,David,Liberal,,LIB,4,1
+vic2022,vic-croydon,vic-croydon-5,Powell,Brendan,Australian Greens,,GRN,5,0
+vic2022,vic-croydon,vic-croydon-6,Nebauer,Dan,Family First Victoria,,FFP,6,0
+vic2022,vic-gippsland-east,vic-gippsland-east-1,Bull,Tim,The Nationals,,NAT,1,1
+vic2022,vic-gippsland-east,vic-gippsland-east-2,Fechner,Carl John,Family First Victoria,,FFP,2,0
+vic2022,vic-gippsland-east,vic-gippsland-east-3,Richardson,Stephen,Australian Labor Party - Victorian Branch,,ALP,3,0
+vic2022,vic-gippsland-east,vic-gippsland-east-4,Muir,Ricky,"Shooters, Fishers & Farmers Vic",,SFF,4,0
+vic2022,vic-gippsland-east,vic-gippsland-east-5,Ling,Nissa,Australian Greens,,GRN,5,0
+vic2022,vic-gippsland-east,vic-gippsland-east-6,Court,Sally,Animal Justice Party,,AJP,6,0
+vic2022,vic-gippsland-east,vic-gippsland-east-7,Barnes,Ed,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-cranbourne,vic-cranbourne-1,Harvey,Bradley,Family First Victoria,,FFP,1,0
+vic2022,vic-cranbourne,vic-cranbourne-2,Norton,Chris,Labour DLP,,DLP,2,0
+vic2022,vic-cranbourne,vic-cranbourne-3,Philpott,Peter Bernard,Derryn Hinch's Justice Party,,DHJ,3,0
+vic2022,vic-cranbourne,vic-cranbourne-4,Singh,Jagdeep,Liberal,,LIB,4,0
+vic2022,vic-cranbourne,vic-cranbourne-5,Richards,Pauline,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-cranbourne,vic-cranbourne-6,Brennan,Gwynne,Animal Justice Party,,AJP,6,0
+vic2022,vic-cranbourne,vic-cranbourne-7,Ragupathy,Ravi,,,IND,7,0
+vic2022,vic-cranbourne,vic-cranbourne-8,Hansen,Gerardine Frances,Freedom Party of Victoria,,FRP,8,0
+vic2022,vic-cranbourne,vic-cranbourne-9,Vempati,Kiran,Australian Greens,,GRN,9,0
+vic2022,vic-frankston,vic-frankston-1,Suric,Dragan,Freedom Party of Victoria,,FRP,1,0
+vic2022,vic-frankston,vic-frankston-2,Green,Emily,Australian Greens,,GRN,2,0
+vic2022,vic-frankston,vic-frankston-3,Johnston,Elizabeth,Animal Justice Party,,AJP,3,0
+vic2022,vic-frankston,vic-frankston-4,Bergwerf,Darren Paul,,,IND,4,0
+vic2022,vic-frankston,vic-frankston-5,Kelsall,Henry,,,IND,5,0
+vic2022,vic-frankston,vic-frankston-6,Brown,Richard,Family First Victoria,,FFP,6,0
+vic2022,vic-frankston,vic-frankston-7,Edbrooke,Paul,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-frankston,vic-frankston-8,O'Reilly,Michael,Liberal,,LIB,8,0
+vic2022,vic-frankston,vic-frankston-9,Abraham,Chrysten,Liberal Democrats,,LDP,9,0
+vic2022,vic-kalkallo,vic-kalkallo-1,Spence,Ros,Australian Labor Party - Victorian Branch,,ALP,1,1
+vic2022,vic-kalkallo,vic-kalkallo-2,Singh,Bikram,Liberal,,LIB,2,0
+vic2022,vic-kalkallo,vic-kalkallo-3,Lowe,Frances,Animal Justice Party,,AJP,3,0
+vic2022,vic-kalkallo,vic-kalkallo-4,Parel,Jimmy George,,,IND,4,0
+vic2022,vic-kalkallo,vic-kalkallo-5,Ul Murtaza,Muhammad Nisar,Australian Greens,,GRN,5,0
+vic2022,vic-kalkallo,vic-kalkallo-6,French,Callum John,,,IND,6,0
+vic2022,vic-kalkallo,vic-kalkallo-7,Sandhu,Smiley,New Democrats,,NDP,7,0
+vic2022,vic-kalkallo,vic-kalkallo-8,Sayer,Das,Family First Victoria,,FFP,8,0
+vic2022,vic-kalkallo,vic-kalkallo-9,Monsalve Tobon,Sergio,Victorian Socialists,,VSP,9,0
+vic2022,vic-gippsland-south,vic-gippsland-south-1,Esler,Clay,,,IND,1,0
+vic2022,vic-gippsland-south,vic-gippsland-south-2,Tiziani-Simpson,Jay,Australian Greens,,GRN,2,0
+vic2022,vic-gippsland-south,vic-gippsland-south-3,Furlong,Paul,Family First Victoria,,FFP,3,0
+vic2022,vic-gippsland-south,vic-gippsland-south-4,Ryan,Denise,Australian Labor Party - Victorian Branch,,ALP,4,0
+vic2022,vic-gippsland-south,vic-gippsland-south-5,O'Brien,Danny,The Nationals,,NAT,5,1
+vic2022,vic-gippsland-south,vic-gippsland-south-6,Jeges,Helen,Animal Justice Party,,AJP,6,0
+vic2022,vic-gippsland-south,vic-gippsland-south-7,Newnham,Angela,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-euroa,vic-euroa-1,Tough,Angela,Australian Labor Party - Victorian Branch,,ALP,1,0
+vic2022,vic-euroa,vic-euroa-2,Haddock,Elaine,Animal Justice Party,,AJP,2,0
+vic2022,vic-euroa,vic-euroa-3,Cleeland,Annabelle,The Nationals,,NAT,3,1
+vic2022,vic-euroa,vic-euroa-4,Hearn,Brad,Liberal,,LIB,4,0
+vic2022,vic-euroa,vic-euroa-5,Bennett,James,Australian Greens,,GRN,5,0
+vic2022,vic-euroa,vic-euroa-6,Bachelor,Paul,Family First Victoria,,FFP,6,0
+vic2022,vic-euroa,vic-euroa-7,Rowbotham,Raymond Mark,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-hastings,vic-hastings-1,Jack,Tyson,Animal Justice Party,,AJP,1,0
+vic2022,vic-hastings,vic-hastings-2,Saunders,Paul,Australian Greens,,GRN,2,0
+vic2022,vic-hastings,vic-hastings-3,Mercurio,Paul,Australian Labor Party - Victorian Branch,,ALP,3,1
+vic2022,vic-hastings,vic-hastings-4,De Wit,Camille,Labour DLP,,DLP,4,0
+vic2022,vic-hastings,vic-hastings-5,Sabo,Tom,Family First Victoria,,FFP,5,0
+vic2022,vic-hastings,vic-hastings-6,Benson,Janet Felicity,Freedom Party of Victoria,,FRP,6,0
+vic2022,vic-hastings,vic-hastings-7,Hutton,Briony,Liberal,,LIB,7,0
+vic2022,vic-hastings,vic-hastings-8,Whitehill,Robert,,,IND,8,0
+vic2022,vic-malvern,vic-malvern-1,Natoli,Amelia,Animal Justice Party,,AJP,1,0
+vic2022,vic-malvern,vic-malvern-2,Natale,Darren,Australian Labor Party - Victorian Branch,,ALP,2,0
+vic2022,vic-malvern,vic-malvern-3,O'Brien,Michael,Liberal,,LIB,3,1
+vic2022,vic-malvern,vic-malvern-4,Stefanopoulos,Steve,,,IND,4,0
+vic2022,vic-malvern,vic-malvern-5,Schmidt,Judy,Family First Victoria,,FFP,5,0
+vic2022,vic-malvern,vic-malvern-6,Fuller,Mitchell,Australian Greens,,GRN,6,0
+vic2022,vic-kew,vic-kew-1,Torney,Sophie,,,IND,1,0
+vic2022,vic-kew,vic-kew-2,Sullivan,Kym,,,IND,2,0
+vic2022,vic-kew,vic-kew-3,Davis,Finlay,,,IND,3,0
+vic2022,vic-kew,vic-kew-4,Skelton,Lucy,Australian Labor Party - Victorian Branch,,ALP,4,0
+vic2022,vic-kew,vic-kew-5,Seeley,Ann,Family First Victoria,,FFP,5,0
+vic2022,vic-kew,vic-kew-6,Wilson,Jess,Liberal,,LIB,6,1
+vic2022,vic-kew,vic-kew-7,Carter,Jackie,Australian Greens,,GRN,7,0
+vic2022,vic-kew,vic-kew-8,Schofield,Ruby,Animal Justice Party,,AJP,8,0
+vic2022,vic-kororoit,vic-kororoit-1,Gibson,Belle,Victorian Socialists,,VSP,1,0
+vic2022,vic-kororoit,vic-kororoit-2,Chandok,Jaz,New Democrats,,NDP,2,0
+vic2022,vic-kororoit,vic-kororoit-3,Brown,Zuzanna,Labour DLP,,DLP,3,0
+vic2022,vic-kororoit,vic-kororoit-4,Divita,Katherine,Animal Justice Party,,AJP,4,0
+vic2022,vic-kororoit,vic-kororoit-5,Bauch,Joh,,,IND,5,0
+vic2022,vic-kororoit,vic-kororoit-6,Milutinovic,Melanie,Family First Victoria,,FFP,6,0
+vic2022,vic-kororoit,vic-kororoit-7,Grigorovitch,Luba,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-kororoit,vic-kororoit-8,Chester,Ben,Australian Greens,,GRN,8,0
+vic2022,vic-kororoit,vic-kororoit-9,Fletcher,John,Liberal,,LIB,9,0
+vic2022,vic-murray-plains,vic-murray-plains-1,Macpherson,Cameron,Family First Victoria,,FFP,1,0
+vic2022,vic-murray-plains,vic-murray-plains-2,Bish,Katia,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-murray-plains,vic-murray-plains-3,Hurrell,Damien,Australian Labor Party - Victorian Branch,,ALP,3,0
+vic2022,vic-murray-plains,vic-murray-plains-4,Leung,Glenys,Animal Justice Party,,AJP,4,0
+vic2022,vic-murray-plains,vic-murray-plains-5,Walsh,Peter,The Nationals,,NAT,5,1
+vic2022,vic-murray-plains,vic-murray-plains-6,Otto,Andrea,,,IND,6,0
+vic2022,vic-murray-plains,vic-murray-plains-7,Brownstein,John,Australian Greens,,GRN,7,0
+vic2022,vic-narre-warren-south,vic-narre-warren-south-1,Harvey,Jacqueline,Family First Victoria,,FFP,1,0
+vic2022,vic-narre-warren-south,vic-narre-warren-south-2,Skrobo,Christine,Liberal Democrats,,LDP,2,0
+vic2022,vic-narre-warren-south,vic-narre-warren-south-3,Baker-Pearce,Tylere,,,IND,3,0
+vic2022,vic-narre-warren-south,vic-narre-warren-south-4,Samuel,Annette,Liberal,,LIB,4,0
+vic2022,vic-narre-warren-south,vic-narre-warren-south-5,Maas,Gary,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-narre-warren-south,vic-narre-warren-south-6,Gallagher,Michael,Animal Justice Party,,AJP,6,0
+vic2022,vic-narre-warren-south,vic-narre-warren-south-7,Moore,Susanna,Australian Greens,,GRN,7,0
+vic2022,vic-narre-warren-south,vic-narre-warren-south-8,Hansen,Geoff,Freedom Party of Victoria,,FRP,8,0
+vic2022,vic-melton,vic-melton-1,Blackborrow,Paul,"Shooters, Fishers & Farmers Vic",,SFF,1,0
+vic2022,vic-melton,vic-melton-2,Birchall,Ian,,,IND,2,0
+vic2022,vic-melton,vic-melton-3,Dobran,Tony,Freedom Party of Victoria,,FRP,3,0
+vic2022,vic-melton,vic-melton-4,Watt,Graham,Liberal,,LIB,4,0
+vic2022,vic-melton,vic-melton-5,Brunt,Richard,Family First Victoria,,FFP,5,0
+vic2022,vic-melton,vic-melton-6,Perera,Jason Spencer,,,IND,6,0
+vic2022,vic-melton,vic-melton-7,Alp,Ashley,Labour DLP,,DLP,7,0
+vic2022,vic-melton,vic-melton-8,Morris,Praise,Australian Greens,,GRN,8,0
+vic2022,vic-melton,vic-melton-9,Bingham,Jarrod James,,,IND,9,0
+vic2022,vic-melton,vic-melton-10,Mcghie,Steve,Australian Labor Party - Victorian Branch,,ALP,10,1
+vic2022,vic-melton,vic-melton-11,Ciappara,Lucienne,Health Australia Party,,HAP,11,0
+vic2022,vic-melton,vic-melton-12,Adin-James,Fiona,Animal Justice Party,,AJP,12,0
+vic2022,vic-melton,vic-melton-13,Kaur,Jasleen,New Democrats,,NDP,13,0
+vic2022,vic-melton,vic-melton-14,Donald,Samantha Jane,Derryn Hinch's Justice Party,,DHJ,14,0
+vic2022,vic-pascoe-vale,vic-pascoe-vale-1,Hah,Madaleine,Victorian Socialists,,VSP,1,0
+vic2022,vic-pascoe-vale,vic-pascoe-vale-2,Wright,Tom,Liberal,,LIB,2,0
+vic2022,vic-pascoe-vale,vic-pascoe-vale-3,Cimbaro,Richard,Family First Victoria,,FFP,3,0
+vic2022,vic-pascoe-vale,vic-pascoe-vale-4,Adams,Elizabeth,Animal Justice Party,,AJP,4,0
+vic2022,vic-pascoe-vale,vic-pascoe-vale-5,Glover,Margee,Fiona Patten's Reason Party,,RUA,5,0
+vic2022,vic-pascoe-vale,vic-pascoe-vale-6,Bolton,Sue,,,IND,6,0
+vic2022,vic-pascoe-vale,vic-pascoe-vale-7,Cianflone,Anthony,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-pascoe-vale,vic-pascoe-vale-8,Panopoulos,Angelica,Australian Greens,,GRN,8,0
+vic2022,vic-narre-warren-north,vic-narre-warren-north-1,Wilson,Belinda,Australian Labor Party - Victorian Branch,,ALP,1,1
+vic2022,vic-narre-warren-north,vic-narre-warren-north-2,Zmegac,Andrew,Labour DLP,,DLP,2,0
+vic2022,vic-narre-warren-north,vic-narre-warren-north-3,Ruyter,Monique,"Shooters, Fishers & Farmers Vic",,SFF,3,0
+vic2022,vic-narre-warren-north,vic-narre-warren-north-4,Capon,Stephen,,,IND,4,0
+vic2022,vic-narre-warren-north,vic-narre-warren-north-5,Gardner,Sheree,Animal Justice Party,,AJP,5,0
+vic2022,vic-narre-warren-north,vic-narre-warren-north-6,Elkins,Christine,Family First Victoria,,FFP,6,0
+vic2022,vic-narre-warren-north,vic-narre-warren-north-7,Parker,Craig,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-narre-warren-north,vic-narre-warren-north-8,Matulec,Stephen,Liberal Democrats,,LDP,8,0
+vic2022,vic-narre-warren-north,vic-narre-warren-north-9,Dragan,Timothy,Liberal,,LIB,9,0
+vic2022,vic-narre-warren-north,vic-narre-warren-north-10,Mclean,Laura,Australian Greens,,GRN,10,0
+vic2022,vic-sandringham,vic-sandringham-1,Regan,Alysia,Australian Greens,,GRN,1,0
+vic2022,vic-sandringham,vic-sandringham-2,Zmegac,Karla,Labour DLP,,DLP,2,0
+vic2022,vic-sandringham,vic-sandringham-3,Prescott,Bettina,Australian Labor Party - Victorian Branch,,ALP,3,0
+vic2022,vic-sandringham,vic-sandringham-4,Eppingstall,Barbara,Animal Justice Party,,AJP,4,0
+vic2022,vic-sandringham,vic-sandringham-5,Rowswell,Brad,Liberal,,LIB,5,1
+vic2022,vic-sandringham,vic-sandringham-6,Chalmers,Jill,Family First Victoria,,FFP,6,0
+vic2022,vic-sandringham,vic-sandringham-7,Campbell,Rodney,,,IND,7,0
+vic2022,vic-sandringham,vic-sandringham-8,Martin,Clarke,,,IND,8,0
+vic2022,vic-rowville,vic-rowville-1,Wells,Kim,Liberal,,LIB,1,1
+vic2022,vic-rowville,vic-rowville-2,Seymour,Nicole,,,IND,2,0
+vic2022,vic-rowville,vic-rowville-3,Di Camillo,Angelica,Australian Greens,,GRN,3,0
+vic2022,vic-rowville,vic-rowville-4,Verma,Mannie Kaur,Australian Labor Party - Victorian Branch,,ALP,4,0
+vic2022,vic-rowville,vic-rowville-5,Smulders,Peterine Elizabeth,Freedom Party of Victoria,,FRP,5,0
+vic2022,vic-rowville,vic-rowville-6,Burgess,Stephen,Family First Victoria,,FFP,6,0
+vic2022,vic-rowville,vic-rowville-7,Glenane,Diane,Animal Justice Party,,AJP,7,0
+vic2022,vic-monbulk,vic-monbulk-1,Cole,Craig,,,IND,1,0
+vic2022,vic-monbulk,vic-monbulk-2,Folloni,Leah,Animal Justice Party,,AJP,2,0
+vic2022,vic-monbulk,vic-monbulk-3,Barnes,Veronica,Freedom Party of Victoria,,FRP,3,0
+vic2022,vic-monbulk,vic-monbulk-4,Ormsby,Michael,Australian Greens,,GRN,4,0
+vic2022,vic-monbulk,vic-monbulk-5,Ward,Gareth,Liberal,,LIB,5,0
+vic2022,vic-monbulk,vic-monbulk-6,Skelton,Johanna,,,IND,6,0
+vic2022,vic-monbulk,vic-monbulk-7,Higgins,David,Family First Victoria,,FFP,7,0
+vic2022,vic-monbulk,vic-monbulk-8,De Martino,Daniela,Australian Labor Party - Victorian Branch,,ALP,8,1
+vic2022,vic-wendouree,vic-wendouree-1,Harkness,Ian,Family First Victoria,,FFP,1,0
+vic2022,vic-wendouree,vic-wendouree-2,Hills,Bryn,Animal Justice Party,,AJP,2,0
+vic2022,vic-wendouree,vic-wendouree-3,Mcintosh,Samantha,Liberal,,LIB,3,0
+vic2022,vic-wendouree,vic-wendouree-4,Addison,Juliana,Australian Labor Party - Victorian Branch,,ALP,4,1
+vic2022,vic-wendouree,vic-wendouree-5,Eckel,Bren,,,IND,5,0
+vic2022,vic-wendouree,vic-wendouree-6,Colbert,Dianne,Labour DLP,,DLP,6,0
+vic2022,vic-wendouree,vic-wendouree-7,Burns,Ellen,Australian Greens,,GRN,7,0
+vic2022,vic-prahran,vic-prahran-1,Le Huray,Alice,Animal Justice Party,,AJP,1,0
+vic2022,vic-prahran,vic-prahran-2,Lucas,Matthew,Liberal,,LIB,2,0
+vic2022,vic-prahran,vic-prahran-3,Chau,Wesa,Australian Labor Party - Victorian Branch,,ALP,3,0
+vic2022,vic-prahran,vic-prahran-4,Menadue,Alan,,,IND,4,0
+vic2022,vic-prahran,vic-prahran-5,Hibbins,Sam,Australian Greens,,GRN,5,1
+vic2022,vic-prahran,vic-prahran-6,Emilsen,Ronald,Family First Victoria,,FFP,6,0
+vic2022,vic-essendon,vic-essendon-1,Williams,Gayle,Animal Justice Party,,AJP,1,0
+vic2022,vic-essendon,vic-essendon-2,Wright,David,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-essendon,vic-essendon-3,Prentis,Jared,Australian Greens,,GRN,3,0
+vic2022,vic-essendon,vic-essendon-4,Dadich,Daniel Nair,Victorian Socialists,,VSP,4,0
+vic2022,vic-essendon,vic-essendon-5,Hope,Nicholas,Fiona Patten's Reason Party,,RUA,5,0
+vic2022,vic-essendon,vic-essendon-6,Baronessa,Angelo,Liberal,,LIB,6,0
+vic2022,vic-essendon,vic-essendon-7,Pearson,Danny,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-essendon,vic-essendon-8,Muir,Margaret,Family First Victoria,,FFP,8,0
+vic2022,vic-eureka,vic-eureka-1,Tatchell,Paul,Liberal,,LIB,1,0
+vic2022,vic-eureka,vic-eureka-2,Giampaolo,Anthony Joseph,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-eureka,vic-eureka-3,Mccoll,Sam,Australian Greens,,GRN,3,0
+vic2022,vic-eureka,vic-eureka-4,Garcia,Adrian,Family First Victoria,,FFP,4,0
+vic2022,vic-eureka,vic-eureka-5,Rickard,Tabitha,Labour DLP,,DLP,5,0
+vic2022,vic-eureka,vic-eureka-6,Morrison,Wendy,Animal Justice Party,,AJP,6,0
+vic2022,vic-eureka,vic-eureka-7,Ray,Michael,,,IND,7,0
+vic2022,vic-eureka,vic-eureka-8,Reid,Nicola,,,IND,8,0
+vic2022,vic-eureka,vic-eureka-9,Banwell,Mark William,,,IND,9,0
+vic2022,vic-eureka,vic-eureka-10,Settle,Michaela,Australian Labor Party - Victorian Branch,,ALP,10,1
+vic2022,vic-evelyn,vic-evelyn-1,Heald,Jan,Animal Justice Party,,AJP,1,0
+vic2022,vic-evelyn,vic-evelyn-2,De Francesco,Nat,,,IND,2,0
+vic2022,vic-evelyn,vic-evelyn-3,Dent,Lorna,Australian Labor Party - Victorian Branch,,ALP,3,0
+vic2022,vic-evelyn,vic-evelyn-4,De Francesco,Rosalie,,,IND,4,0
+vic2022,vic-evelyn,vic-evelyn-5,Vallence,Bridget,Liberal,,LIB,5,1
+vic2022,vic-evelyn,vic-evelyn-6,Dobson,Jeanette,Family First Victoria,,FFP,6,0
+vic2022,vic-evelyn,vic-evelyn-7,Henley,Andrew,Australian Greens,,GRN,7,0
+vic2022,vic-footscray,vic-footscray-1,Pereyra,Elena,Australian Greens,,GRN,1,0
+vic2022,vic-footscray,vic-footscray-2,Mansouri Jajaee,Shohre,Animal Justice Party,,AJP,2,0
+vic2022,vic-footscray,vic-footscray-3,Hall,Katie,Australian Labor Party - Victorian Branch,,ALP,3,1
+vic2022,vic-footscray,vic-footscray-4,Muir,Russell,Family First Victoria,,FFP,4,0
+vic2022,vic-footscray,vic-footscray-5,Williams,Alan,Labour DLP,,DLP,5,0
+vic2022,vic-footscray,vic-footscray-6,Jorquera,Jorge,Victorian Socialists,,VSP,6,0
+vic2022,vic-footscray,vic-footscray-7,Joesika,Emete,Liberal,,LIB,7,0
+vic2022,vic-geelong,vic-geelong-1,Parker-Hill,Madeleine,Family First Victoria,,FFP,1,0
+vic2022,vic-geelong,vic-geelong-2,Carr,Angela,,,IND,2,0
+vic2022,vic-geelong,vic-geelong-3,Juhasz,Stephen,,,IND,3,0
+vic2022,vic-geelong,vic-geelong-4,Bennett-Hullin,James,Liberal,,LIB,4,0
+vic2022,vic-geelong,vic-geelong-5,Couzens,Christine,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-geelong,vic-geelong-6,Motta,Bob,Animal Justice Party,,AJP,6,0
+vic2022,vic-geelong,vic-geelong-7,Smith,Aleisha,Australian Greens,,GRN,7,0
+vic2022,vic-glen-waverley,vic-glen-waverley-1,Marsh,Scott,Labour DLP,,DLP,1,0
+vic2022,vic-glen-waverley,vic-glen-waverley-2,Harris,Joyce Maree,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-glen-waverley,vic-glen-waverley-3,Partridge,Steph,Australian Greens,,GRN,3,0
+vic2022,vic-glen-waverley,vic-glen-waverley-4,Hance,Maddy,Animal Justice Party,,AJP,4,0
+vic2022,vic-glen-waverley,vic-glen-waverley-5,Mullahy,John,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-glen-waverley,vic-glen-waverley-6,Huisman,Kristeen,Family First Victoria,,FFP,6,0
+vic2022,vic-glen-waverley,vic-glen-waverley-7,Angus,Neil,Liberal,,LIB,7,0
+vic2022,vic-greenvale,vic-greenvale-1,Yolbulan,Mutullah Can,Victorian Socialists,,VSP,1,0
+vic2022,vic-greenvale,vic-greenvale-2,Erciyas,Fatma,,,IND,2,0
+vic2022,vic-greenvale,vic-greenvale-3,Ghani,Usman,Liberal,,LIB,3,0
+vic2022,vic-greenvale,vic-greenvale-4,Bengtsson,Maria,Family First Victoria,,FFP,4,0
+vic2022,vic-greenvale,vic-greenvale-5,Santa-Isabel,Cristina,Australian Greens,,GRN,5,0
+vic2022,vic-greenvale,vic-greenvale-6,Styles,Lauren,Freedom Party of Victoria,,FRP,6,0
+vic2022,vic-greenvale,vic-greenvale-7,Walters,Iwan,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-greenvale,vic-greenvale-8,Furina,Rosanna,Animal Justice Party,,AJP,8,0
+vic2022,vic-hawthorn,vic-hawthorn-1,Fuhrer,Faith,Animal Justice Party,,AJP,1,0
+vic2022,vic-hawthorn,vic-hawthorn-2,Kennedy,John,Australian Labor Party - Victorian Branch,,ALP,2,0
+vic2022,vic-hawthorn,vic-hawthorn-3,Triantafillis,Ken,Family First Victoria,,FFP,3,0
+vic2022,vic-hawthorn,vic-hawthorn-4,Peppard,Richard,Liberal Democrats,,LDP,4,0
+vic2022,vic-hawthorn,vic-hawthorn-5,Lowe,Melissa,,,IND,5,0
+vic2022,vic-hawthorn,vic-hawthorn-6,Savage,Nick,Australian Greens,,GRN,6,0
+vic2022,vic-hawthorn,vic-hawthorn-7,Pesutto,John,Liberal,,LIB,7,1
+vic2022,vic-hawthorn,vic-hawthorn-8,Bell,Stratton,Labour DLP,,DLP,8,0
+vic2022,vic-ivanhoe,vic-ivanhoe-1,Carbines,Anthony,Australian Labor Party - Victorian Branch,,ALP,1,1
+vic2022,vic-ivanhoe,vic-ivanhoe-2,Hayward,Sarah,Family First Victoria,,FFP,2,0
+vic2022,vic-ivanhoe,vic-ivanhoe-3,Khoury,Bernadette,Liberal,,LIB,3,0
+vic2022,vic-ivanhoe,vic-ivanhoe-4,Ristevski,Sonja,Animal Justice Party,,AJP,4,0
+vic2022,vic-ivanhoe,vic-ivanhoe-5,Langdon,Craig,,,IND,5,0
+vic2022,vic-ivanhoe,vic-ivanhoe-6,Bieber,Emily,Australian Greens,,GRN,6,0
+vic2022,vic-lara,vic-lara-1,Gardner,Courtney,Australian Greens,,GRN,1,0
+vic2022,vic-lara,vic-lara-2,Hathway,Sarah,,,IND,2,0
+vic2022,vic-lara,vic-lara-3,Krein,Ralph,Liberal,,LIB,3,0
+vic2022,vic-lara,vic-lara-4,Rankine,Steve,Family First Victoria,,FFP,4,0
+vic2022,vic-lara,vic-lara-5,George,Ella,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-lara,vic-lara-6,Kelly,Peter,Animal Justice Party,,AJP,6,0
+vic2022,vic-lara,vic-lara-7,Taylor,Ash,Angry Victorians Party,,AVP,7,0
+vic2022,vic-lara,vic-lara-8,Payne,Max,Liberal Democrats,,LDP,8,0
+vic2022,vic-laverton,vic-laverton-1,Soni,Gurneet,New Democrats,,NDP,1,0
+vic2022,vic-laverton,vic-laverton-2,Durzada,Braishna,Australian Greens,,GRN,2,0
+vic2022,vic-laverton,vic-laverton-3,Fry,David,Family First Victoria,,FFP,3,0
+vic2022,vic-laverton,vic-laverton-4,Paredes,Rufo,,,IND,4,0
+vic2022,vic-laverton,vic-laverton-5,Wirth,Michael,Labour DLP,,DLP,5,0
+vic2022,vic-laverton,vic-laverton-6,Robertson,Catherine,Victorian Socialists,,VSP,6,0
+vic2022,vic-laverton,vic-laverton-7,Raymond,Trent,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-laverton,vic-laverton-8,Bagheri,Pouya,Animal Justice Party,,AJP,8,0
+vic2022,vic-laverton,vic-laverton-9,Connolly,Sarah,Australian Labor Party - Victorian Branch,,ALP,9,1
+vic2022,vic-laverton,vic-laverton-10,Reddy,Raja,Liberal,,LIB,10,0
+vic2022,vic-lowan,vic-lowan-1,Etherton,Richard,Angry Victorians Party,,AVP,1,0
+vic2022,vic-lowan,vic-lowan-2,Kealy,Emma,The Nationals,,NAT,2,1
+vic2022,vic-lowan,vic-lowan-3,Ramsay,Tamasin,Animal Justice Party,,AJP,3,0
+vic2022,vic-lowan,vic-lowan-4,Coleman,Robert,Family First Victoria,,FFP,4,0
+vic2022,vic-lowan,vic-lowan-5,Mead,Amanda,,,IND,5,0
+vic2022,vic-lowan,vic-lowan-6,Monaghan,Mick,Australian Labor Party - Victorian Branch,,ALP,6,0
+vic2022,vic-lowan,vic-lowan-7,Lane,Richard,Australian Greens,,GRN,7,0
+vic2022,vic-macedon,vic-macedon-1,Bonanno,Dominic,Liberal,,LIB,1,0
+vic2022,vic-macedon,vic-macedon-2,Mcrae Mcleod,Marley,Australian Greens,,GRN,2,0
+vic2022,vic-macedon,vic-macedon-3,Thomas,Mary-Anne,Australian Labor Party - Victorian Branch,,ALP,3,1
+vic2022,vic-macedon,vic-macedon-4,Barton,Huntly,,,IND,4,0
+vic2022,vic-macedon,vic-macedon-5,Sedgman,Kerryn P.,Freedom Party of Victoria,,FRP,5,0
+vic2022,vic-macedon,vic-macedon-6,Mccormack,Chris,Family First Victoria,,FFP,6,0
+vic2022,vic-macedon,vic-macedon-7,Evezard,Amanda,Pauline Hanson's One Nation,,ONP,7,0
+vic2022,vic-macedon,vic-macedon-8,Bergmann,Iris,Animal Justice Party,,AJP,8,0
+vic2022,vic-melbourne,vic-melbourne-1,Palackalody,George,Liberal,,LIB,1,0
+vic2022,vic-melbourne,vic-melbourne-2,Sandell,Ellen,Australian Greens,,GRN,2,1
+vic2022,vic-melbourne,vic-melbourne-3,Janson,Michael,Family First Victoria,,FFP,3,0
+vic2022,vic-melbourne,vic-melbourne-4,Al-Saimary,Laylah,,,IND,4,0
+vic2022,vic-melbourne,vic-melbourne-5,Bolger,Colleen,Victorian Socialists,,VSP,5,0
+vic2022,vic-melbourne,vic-melbourne-6,Bangaar,Rabin,Animal Justice Party,,AJP,6,0
+vic2022,vic-melbourne,vic-melbourne-7,Smith,Steven J.,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-melbourne,vic-melbourne-8,Thistleton,Rebecca,Australian Labor Party - Victorian Branch,,ALP,8,0
+vic2022,vic-melbourne,vic-melbourne-9,Foxworthy,Nicola,Fiona Patten's Reason Party,,RUA,9,0
+vic2022,vic-mildura,vic-mildura-1,Cupper,Ali,,,IND,1,0
+vic2022,vic-mildura,vic-mildura-2,Brymer,Sonia,,,IND,2,0
+vic2022,vic-mildura,vic-mildura-3,Brougham,Philippe John,Freedom Party of Victoria,,FRP,3,0
+vic2022,vic-mildura,vic-mildura-4,Sharpe,Felicity,Labour DLP,,DLP,4,0
+vic2022,vic-mildura,vic-mildura-5,Matheson,Paul,Liberal,,LIB,5,0
+vic2022,vic-mildura,vic-mildura-6,Zigouras,Stella,Australian Labor Party - Victorian Branch,,ALP,6,0
+vic2022,vic-mildura,vic-mildura-7,Benham,Jade,The Nationals,,NAT,7,1
+vic2022,vic-mildura,vic-mildura-8,Zayn,Angylina,Animal Justice Party,,AJP,8,0
+vic2022,vic-mildura,vic-mildura-9,Stratton,Brad,Family First Victoria,,FFP,9,0
+vic2022,vic-mildura,vic-mildura-10,Milne,Glenn,,,IND,10,0
+vic2022,vic-mildura,vic-mildura-11,Clements,Katie,Australian Greens,,GRN,11,0
+vic2022,vic-mill-park,vic-mill-park-1,Simons,Marcia,Animal Justice Party,,AJP,1,0
+vic2022,vic-mill-park,vic-mill-park-2,Yap,Paige,Liberal,,LIB,2,0
+vic2022,vic-mill-park,vic-mill-park-3,Anderson,Craig,Family First Victoria,,FFP,3,0
+vic2022,vic-mill-park,vic-mill-park-4,Filippopoulos,Andrew,Freedom Party of Victoria,,FRP,4,0
+vic2022,vic-mill-park,vic-mill-park-5,D'Ambrosio,Lily,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-mill-park,vic-mill-park-6,Kearney,Chris,Australian Greens,,GRN,6,0
+vic2022,vic-mordialloc,vic-mordialloc-1,O'Donnell,Sarah,,,IND,1,0
+vic2022,vic-mordialloc,vic-mordialloc-2,Reid,Phil,,,IND,2,0
+vic2022,vic-mordialloc,vic-mordialloc-3,Vo,Chi,Animal Justice Party,,AJP,3,0
+vic2022,vic-mordialloc,vic-mordialloc-4,Richardson,Tim,Australian Labor Party - Victorian Branch,,ALP,4,1
+vic2022,vic-mordialloc,vic-mordialloc-5,Lum,Patrick,Family First Victoria,,FFP,5,0
+vic2022,vic-mordialloc,vic-mordialloc-6,Lessa,Daniel,Australian Greens,,GRN,6,0
+vic2022,vic-mordialloc,vic-mordialloc-7,Albrecht,Deborah,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-mordialloc,vic-mordialloc-8,Pease,Phillip,Liberal,,LIB,8,0
+vic2022,vic-mornington,vic-mornington-1,Lardner,Kate,,,IND,1,0
+vic2022,vic-mornington,vic-mornington-2,Schween,Leonie,Animal Justice Party,,AJP,2,0
+vic2022,vic-mornington,vic-mornington-3,Crewther,Chris,Liberal,,LIB,3,1
+vic2022,vic-mornington,vic-mornington-4,Hayward,Ross,Family First Victoria,,FFP,4,0
+vic2022,vic-mornington,vic-mornington-5,Pettitt,Paul,Freedom Party of Victoria,,FRP,5,0
+vic2022,vic-mornington,vic-mornington-6,Agirtan,Jane,,,IND,6,0
+vic2022,vic-mornington,vic-mornington-7,Sinclair,Harry,Australian Greens,,GRN,7,0
+vic2022,vic-mornington,vic-mornington-8,Fowler,Georgia,Australian Labor Party - Victorian Branch,,ALP,8,0
+vic2022,vic-morwell,vic-morwell-1,Harriman,Dale,Liberal,,LIB,1,0
+vic2022,vic-morwell,vic-morwell-2,Cameron,Martin,The Nationals,,NAT,2,1
+vic2022,vic-morwell,vic-morwell-3,Maidana,Alex,Freedom Party of Victoria,,FRP,3,0
+vic2022,vic-morwell,vic-morwell-4,Hine,Rochelle,Australian Greens,,GRN,4,0
+vic2022,vic-morwell,vic-morwell-5,Proctor,Lisa,,,IND,5,0
+vic2022,vic-morwell,vic-morwell-6,Clarke,Brendan,Family First Victoria,,FFP,6,0
+vic2022,vic-morwell,vic-morwell-7,Mcauliffe,Jessica,Animal Justice Party,,AJP,7,0
+vic2022,vic-morwell,vic-morwell-8,Maxfield,Kate,Australian Labor Party - Victorian Branch,,ALP,8,0
+vic2022,vic-morwell,vic-morwell-9,Gibson,Sharon,,,IND,9,0
+vic2022,vic-morwell,vic-morwell-10,Lund,Tracie,,,IND,10,0
+vic2022,vic-morwell,vic-morwell-11,Hicken,Allan,Pauline Hanson's One Nation,,ONP,11,0
+vic2022,vic-morwell,vic-morwell-12,Snelling,David,"Shooters, Fishers & Farmers Vic",,SFF,12,0
+vic2022,vic-mulgrave,vic-mulgrave-1,Andrews,Daniel,Australian Labor Party - Victorian Branch,,ALP,1,1
+vic2022,vic-mulgrave,vic-mulgrave-2,King,Andrew,,,IND,2,0
+vic2022,vic-mulgrave,vic-mulgrave-3,Isma,Ezra J. D.,,,IND,3,0
+vic2022,vic-mulgrave,vic-mulgrave-4,Moody,Anne,,,IND,4,0
+vic2022,vic-mulgrave,vic-mulgrave-5,Cook,Ian,,,IND,5,0
+vic2022,vic-mulgrave,vic-mulgrave-6,Toscano,Joseph,,,IND,6,0
+vic2022,vic-mulgrave,vic-mulgrave-7,Mould,David,Animal Justice Party,,AJP,7,0
+vic2022,vic-mulgrave,vic-mulgrave-8,Foreman,Jane,Family First Victoria,,FFP,8,0
+vic2022,vic-mulgrave,vic-mulgrave-9,Lim,Robert,Australian Greens,,GRN,9,0
+vic2022,vic-mulgrave,vic-mulgrave-10,Wood,Maree,Labour DLP,,DLP,10,0
+vic2022,vic-mulgrave,vic-mulgrave-11,Piastrino,Michael,Liberal,,LIB,11,0
+vic2022,vic-mulgrave,vic-mulgrave-12,Theodossopoulou,Fotini,,,IND,12,0
+vic2022,vic-mulgrave,vic-mulgrave-13,Lee,Howard,,,IND,13,0
+vic2022,vic-mulgrave,vic-mulgrave-14,Mclindon,Aidan,Freedom Party of Victoria,,FRP,14,0
+vic2022,vic-nepean,vic-nepean-1,Miller,Jay,Companions and Pets Party,,CPP,1,0
+vic2022,vic-nepean,vic-nepean-2,Dijkman,Janny,Family First Victoria,,FFP,2,0
+vic2022,vic-nepean,vic-nepean-3,Engelander,Pamela,Animal Justice Party,,AJP,3,0
+vic2022,vic-nepean,vic-nepean-4,Ainslie,Charelle,,,IND,4,0
+vic2022,vic-nepean,vic-nepean-5,Groth,Sam,Liberal,,LIB,5,1
+vic2022,vic-nepean,vic-nepean-6,Gleixner,Esther,Australian Greens,,GRN,6,0
+vic2022,vic-nepean,vic-nepean-7,Anger,Steve,,,IND,7,0
+vic2022,vic-nepean,vic-nepean-8,Leine,Hank,Freedom Party of Victoria,,FRP,8,0
+vic2022,vic-nepean,vic-nepean-9,Woolcock,Elizabeth,,,IND,9,0
+vic2022,vic-nepean,vic-nepean-10,Brayne,Chris,Australian Labor Party - Victorian Branch,,ALP,10,0
+vic2022,vic-nepean,vic-nepean-11,Skruzny,Cynthia,Labour DLP,,DLP,11,0
+vic2022,vic-niddrie,vic-niddrie-1,Maugeri,Frank,Freedom Party of Victoria,,FRP,1,0
+vic2022,vic-niddrie,vic-niddrie-2,Kruse,Holly,Labour DLP,,DLP,2,0
+vic2022,vic-niddrie,vic-niddrie-3,Carroll,Ben,Australian Labor Party - Victorian Branch,,ALP,3,1
+vic2022,vic-niddrie,vic-niddrie-4,Reich,Brad,Victorian Socialists,,VSP,4,0
+vic2022,vic-niddrie,vic-niddrie-5,Meilak,Shannon,Animal Justice Party,,AJP,5,0
+vic2022,vic-niddrie,vic-niddrie-6,Garcia,Joanne,Family First Victoria,,FFP,6,0
+vic2022,vic-niddrie,vic-niddrie-7,Grammenos,Georgia,New Democrats,,NDP,7,0
+vic2022,vic-niddrie,vic-niddrie-8,Youhana,Alan,Liberal,,LIB,8,0
+vic2022,vic-niddrie,vic-niddrie-9,Mcginness,Declan,Australian Greens,,GRN,9,0
+vic2022,vic-northcote,vic-northcote-1,Whitehead,Adrian,,,IND,1,0
+vic2022,vic-northcote,vic-northcote-2,Ntouni,Anastacia,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-northcote,vic-northcote-3,Gome,Campbell,Australian Greens,,GRN,3,0
+vic2022,vic-northcote,vic-northcote-4,Oseckas,Tim,Animal Justice Party,,AJP,4,0
+vic2022,vic-northcote,vic-northcote-5,Larkin,Kath,Victorian Socialists,,VSP,5,0
+vic2022,vic-northcote,vic-northcote-6,Cave,Anthony,Liberal Democrats,,LDP,6,0
+vic2022,vic-northcote,vic-northcote-7,Theophanous,Kat,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-northcote,vic-northcote-8,Ashton,Kathrine,Family First Victoria,,FFP,8,0
+vic2022,vic-northcote,vic-northcote-9,Clarke,April,Fiona Patten's Reason Party,,RUA,9,0
+vic2022,vic-northcote,vic-northcote-10,Todhunter,Stewart,Liberal,,LIB,10,0
+vic2022,vic-northcote,vic-northcote-11,Verma,Ashish,,,IND,11,0
+vic2022,vic-oakleigh,vic-oakleigh-1,Murphy,Dominique,,,IND,1,0
+vic2022,vic-oakleigh,vic-oakleigh-2,Dimopoulos,Steve,Australian Labor Party - Victorian Branch,,ALP,2,1
+vic2022,vic-oakleigh,vic-oakleigh-3,Sok,Edward,Family First Victoria,,FFP,3,0
+vic2022,vic-oakleigh,vic-oakleigh-4,Grivokostopoulos,Jim,Liberal,,LIB,4,0
+vic2022,vic-oakleigh,vic-oakleigh-5,Kioupelis,Parashos,,,IND,5,0
+vic2022,vic-oakleigh,vic-oakleigh-6,Hsieh,Hsiang-Han,Australian Greens,,GRN,6,0
+vic2022,vic-oakleigh,vic-oakleigh-7,Fabb,Loraine,Animal Justice Party,,AJP,7,0
+vic2022,vic-oakleigh,vic-oakleigh-8,Jacobs,Anthony Charles,Freedom Party of Victoria,,FRP,8,0
+vic2022,vic-ovens-valley,vic-ovens-valley-1,Mccurdy,Tim,The Nationals,,NAT,1,1
+vic2022,vic-ovens-valley,vic-ovens-valley-2,Bugge,Mark,Freedom Party of Victoria,,FRP,2,0
+vic2022,vic-ovens-valley,vic-ovens-valley-3,Wise,Anna,Family First Victoria,,FFP,3,0
+vic2022,vic-ovens-valley,vic-ovens-valley-4,Leschen,Zuvele,Australian Labor Party - Victorian Branch,,ALP,4,0
+vic2022,vic-ovens-valley,vic-ovens-valley-5,Slater,Aisha,Animal Justice Party,,AJP,5,0
+vic2022,vic-ovens-valley,vic-ovens-valley-6,Kromar,Zoe,Australian Greens,,GRN,6,0
+vic2022,vic-ovens-valley,vic-ovens-valley-7,Fidge,Julian,Liberal Democrats,,LDP,7,0
+vic2022,vic-pakenham,vic-pakenham-1,Farrelly,David,Liberal,,LIB,1,0
+vic2022,vic-pakenham,vic-pakenham-2,Pledger-Firth,Hannah,Animal Justice Party,,AJP,2,0
+vic2022,vic-pakenham,vic-pakenham-3,Maibaum,Michelle,Australian Greens,,GRN,3,0
+vic2022,vic-pakenham,vic-pakenham-4,Gore,Christopher,Family First Victoria,,FFP,4,0
+vic2022,vic-pakenham,vic-pakenham-5,Clarke,Sammi,Freedom Party of Victoria,,FRP,5,0
+vic2022,vic-pakenham,vic-pakenham-6,Owen,Brett,,,IND,6,0
+vic2022,vic-pakenham,vic-pakenham-7,Vulin,Emma,Australian Labor Party - Victorian Branch,,ALP,7,1
+vic2022,vic-pakenham,vic-pakenham-8,Sagoo,Rajvir Singh,,,IND,8,0
+vic2022,vic-pakenham,vic-pakenham-9,Sarkeshik,Sarasadat,Labour DLP,,DLP,9,0
+vic2022,vic-pakenham,vic-pakenham-10,Siladji,Angela,Pauline Hanson's One Nation,,ONP,10,0
+vic2022,vic-pakenham,vic-pakenham-11,Smith,Elissa,Legalise Cannabis Victoria,,LCP,11,0
+vic2022,vic-point-cook,vic-point-cook-1,Cronkwright,Carolyn,Family First Victoria,,FFP,1,0
+vic2022,vic-point-cook,vic-point-cook-2,Beech,Terri,Animal Justice Party,,AJP,2,0
+vic2022,vic-point-cook,vic-point-cook-3,Khan,Shamsher,Australian Greens,,GRN,3,0
+vic2022,vic-point-cook,vic-point-cook-4,Zhao,Larry,,,IND,4,0
+vic2022,vic-point-cook,vic-point-cook-5,Newhouse,Angela,Liberal,,LIB,5,0
+vic2022,vic-point-cook,vic-point-cook-6,Mcaulay,Alex,Victorian Socialists,,VSP,6,0
+vic2022,vic-point-cook,vic-point-cook-7,Gatti,Lisa Jane,Transport Matters,,TMP,7,0
+vic2022,vic-point-cook,vic-point-cook-8,Law,Emma,Health Australia Party,,HAP,8,0
+vic2022,vic-point-cook,vic-point-cook-9,Chaudhary,Rakhi P.,New Democrats,,NDP,9,0
+vic2022,vic-point-cook,vic-point-cook-10,Hilakari,Mathew,Australian Labor Party - Victorian Branch,,ALP,10,1
+vic2022,vic-point-cook,vic-point-cook-11,Abdulovski,Adrian,Freedom Party of Victoria,,FRP,11,0
+vic2022,vic-point-cook,vic-point-cook-12,Sawant,Shwetali,,,IND,12,0
+vic2022,vic-point-cook,vic-point-cook-13,Grimley,Scott,Derryn Hinch's Justice Party,,DHJ,13,0
+vic2022,vic-point-cook,vic-point-cook-14,Hamman,Daniel,Labour DLP,,DLP,14,0
+vic2022,vic-point-cook,vic-point-cook-15,Garra,Joe,,,IND,15,0
+vic2022,vic-polwarth,vic-polwarth-1,Mcallister,Hilary,Australian Greens,,GRN,1,0
+vic2022,vic-polwarth,vic-polwarth-2,Borsos,Denes C.,,,IND,2,0
+vic2022,vic-polwarth,vic-polwarth-3,Hunter,Hollie,Family First Victoria,,FFP,3,0
+vic2022,vic-polwarth,vic-polwarth-4,Hussein,Hutch,Australian Labor Party - Victorian Branch,,ALP,4,0
+vic2022,vic-polwarth,vic-polwarth-5,Atchison,Elisha,Animal Justice Party,,AJP,5,0
+vic2022,vic-polwarth,vic-polwarth-6,Remenyi,Joseph Vincent,Derryn Hinch's Justice Party,,DHJ,6,0
+vic2022,vic-polwarth,vic-polwarth-7,Riordan,Richard,Liberal,,LIB,7,1
+vic2022,vic-preston,vic-preston-1,Greco,Gaetano,,,IND,1,0
+vic2022,vic-preston,vic-preston-2,Sanaghan,Brian,,,IND,2,0
+vic2022,vic-preston,vic-preston-3,Soliman,Raouf,Family First Victoria,,FFP,3,0
+vic2022,vic-preston,vic-preston-4,Paterson,Patchouli,Australian Greens,,GRN,4,0
+vic2022,vic-preston,vic-preston-5,Lahiff-Jenkins,Carmen,Fiona Patten's Reason Party,,RUA,5,0
+vic2022,vic-preston,vic-preston-6,Unicomb,Rachel,Animal Justice Party,,AJP,6,0
+vic2022,vic-preston,vic-preston-7,Matias,Angelique,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-preston,vic-preston-8,Paliouras,Amanda,Liberal,,LIB,8,0
+vic2022,vic-preston,vic-preston-9,Lambert,Nathan,Australian Labor Party - Victorian Branch,,ALP,9,1
+vic2022,vic-preston,vic-preston-10,Price,Steph,Victorian Socialists,,VSP,10,0
+vic2022,vic-richmond,vic-richmond-1,Viggers,Lis,Animal Justice Party,,AJP,1,0
+vic2022,vic-richmond,vic-richmond-2,Ward,Roz,Victorian Socialists,,VSP,2,0
+vic2022,vic-richmond,vic-richmond-3,Ho,Meca,,,IND,3,0
+vic2022,vic-richmond,vic-richmond-4,Cowen,Jeremy,Fiona Patten's Reason Party,,RUA,4,0
+vic2022,vic-richmond,vic-richmond-5,De Vietri,Gabrielle,Australian Greens,,GRN,5,1
+vic2022,vic-richmond,vic-richmond-6,Moon,Lucas,Liberal,,LIB,6,0
+vic2022,vic-richmond,vic-richmond-7,Freiverts,Markus,Family First Victoria,,FFP,7,0
+vic2022,vic-richmond,vic-richmond-8,O'Dwyer,Lauren,Australian Labor Party - Victorian Branch,,ALP,8,0
+vic2022,vic-ringwood,vic-ringwood-1,Ryan,Gary,Labour DLP,,DLP,1,0
+vic2022,vic-ringwood,vic-ringwood-2,Fowles,Will,Australian Labor Party - Victorian Branch,,ALP,2,1
+vic2022,vic-ringwood,vic-ringwood-3,Siemer,Robyn M.,Freedom Party of Victoria,,FRP,3,0
+vic2022,vic-ringwood,vic-ringwood-4,Watson,Cynthia,Liberal,,LIB,4,0
+vic2022,vic-ringwood,vic-ringwood-5,Steen,Reuben,Australian Greens,,GRN,5,0
+vic2022,vic-ringwood,vic-ringwood-6,Griffith-Jones,Richard,Family First Victoria,,FFP,6,0
+vic2022,vic-ringwood,vic-ringwood-7,Rowe,Nick,Animal Justice Party,,AJP,7,0
+vic2022,vic-ripon,vic-ripon-1,Smith,Luke,"Shooters, Fishers & Farmers Vic",,SFF,1,0
+vic2022,vic-ripon,vic-ripon-2,Rigg,Wayne,,,IND,2,0
+vic2022,vic-ripon,vic-ripon-3,James,Earl,Australian Greens,,GRN,3,0
+vic2022,vic-ripon,vic-ripon-4,Haylett,Martha,Australian Labor Party - Victorian Branch,,ALP,4,1
+vic2022,vic-ripon,vic-ripon-5,Wilson,Wren Louise,Derryn Hinch's Justice Party,,DHJ,5,0
+vic2022,vic-ripon,vic-ripon-6,Staley,Louise,Liberal,,LIB,6,0
+vic2022,vic-ripon,vic-ripon-7,Sitters,Holly,Animal Justice Party,,AJP,7,0
+vic2022,vic-ripon,vic-ripon-8,George,Craig,Family First Victoria,,FFP,8,0
+vic2022,vic-ripon,vic-ripon-9,Quince,Bernard,,,IND,9,0
+vic2022,vic-shepparton,vic-shepparton-1,O'Keeffe,Kim,The Nationals,,NAT,1,1
+vic2022,vic-shepparton,vic-shepparton-2,Christoe,Ian,Australian Greens,,GRN,2,0
+vic2022,vic-shepparton,vic-shepparton-3,Taylor,Katherine,Animal Justice Party,,AJP,3,0
+vic2022,vic-shepparton,vic-shepparton-4,Mcgrath,Sueie,Labour DLP,,DLP,4,0
+vic2022,vic-shepparton,vic-shepparton-5,Teasdale,Diane M.,Freedom Party of Victoria,,FRP,5,0
+vic2022,vic-shepparton,vic-shepparton-6,Cowan,Liam,Australian Labor Party - Victorian Branch,,ALP,6,0
+vic2022,vic-shepparton,vic-shepparton-7,Hammer,Cheryl,Liberal,,LIB,7,0
+vic2022,vic-shepparton,vic-shepparton-8,Sheed,Suzanna,,,IND,8,0
+vic2022,vic-shepparton,vic-shepparton-9,White,Alison,Family First Victoria,,FFP,9,0
+vic2022,vic-south-barwon,vic-south-barwon-1,Katos,Andrew,Liberal,,LIB,1,0
+vic2022,vic-south-barwon,vic-south-barwon-2,Dean,Jeynelle Marie,Derryn Hinch's Justice Party,,DHJ,2,0
+vic2022,vic-south-barwon,vic-south-barwon-3,Dawson-Scott,Genevieve Frances,Australian Greens,,GRN,3,0
+vic2022,vic-south-barwon,vic-south-barwon-4,Bates,Leone,Labour DLP,,DLP,4,0
+vic2022,vic-south-barwon,vic-south-barwon-5,Barron,Alan,Family First Victoria,,FFP,5,0
+vic2022,vic-south-barwon,vic-south-barwon-6,Adams,Naomi,Animal Justice Party,,AJP,6,0
+vic2022,vic-south-barwon,vic-south-barwon-7,Tomlinson,Simone,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-south-barwon,vic-south-barwon-8,Cheeseman,Darren,Australian Labor Party - Victorian Branch,,ALP,8,1
+vic2022,vic-south-west-coast,vic-south-west-coast-1,Purcell,James,,,IND,1,0
+vic2022,vic-south-west-coast,vic-south-west-coast-2,Doukas,Jim,,,IND,2,0
+vic2022,vic-south-west-coast,vic-south-west-coast-3,Mccluskey,Michael,,,IND,3,0
+vic2022,vic-south-west-coast,vic-south-west-coast-4,Grimley,James Brash,Derryn Hinch's Justice Party,,DHJ,4,0
+vic2022,vic-south-west-coast,vic-south-west-coast-5,Altmann,Carol,,,IND,5,0
+vic2022,vic-south-west-coast,vic-south-west-coast-6,Brunt,Chris,Family First Victoria,,FFP,6,0
+vic2022,vic-south-west-coast,vic-south-west-coast-7,Anderson,Jacinta,Animal Justice Party,,AJP,7,0
+vic2022,vic-south-west-coast,vic-south-west-coast-8,Gaston,Kylie,Australian Labor Party - Victorian Branch,,ALP,8,0
+vic2022,vic-south-west-coast,vic-south-west-coast-9,Campbell,Thomas,Australian Greens,,GRN,9,0
+vic2022,vic-south-west-coast,vic-south-west-coast-10,Britnell,Roma,Liberal,,LIB,10,1
+vic2022,vic-st-albans,vic-st-albans-1,Kerr,Maria,Liberal,,LIB,1,0
+vic2022,vic-st-albans,vic-st-albans-2,Hobart,Mark,Labour DLP,,DLP,2,0
+vic2022,vic-st-albans,vic-st-albans-3,Rudd,Van Thanh,Victorian Socialists,,VSP,3,0
+vic2022,vic-st-albans,vic-st-albans-4,Walton,Russell,Family First Victoria,,FFP,4,0
+vic2022,vic-st-albans,vic-st-albans-5,Suleyman,Natalie,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-st-albans,vic-st-albans-6,Mannan,Zaffer,New Democrats,,NDP,6,0
+vic2022,vic-st-albans,vic-st-albans-7,Bentley,Joel,Australian Greens,,GRN,7,0
+vic2022,vic-st-albans,vic-st-albans-8,Tachos,Virginia,,,IND,8,0
+vic2022,vic-st-albans,vic-st-albans-9,Cullen,Kim J.,Freedom Party of Victoria,,FRP,9,0
+vic2022,vic-st-albans,vic-st-albans-10,Caracassis,Jason,Animal Justice Party,,AJP,10,0
+vic2022,vic-sunbury,vic-sunbury-1,Mohr,Rohanna,Animal Justice Party,,AJP,1,0
+vic2022,vic-sunbury,vic-sunbury-2,Pace,Charles,Family First Victoria,,FFP,2,0
+vic2022,vic-sunbury,vic-sunbury-3,Cottom,Simmone,Liberal,,LIB,3,0
+vic2022,vic-sunbury,vic-sunbury-4,Bayliss,Peter,Labour DLP,,DLP,4,0
+vic2022,vic-sunbury,vic-sunbury-5,Bull,Josh,Australian Labor Party - Victorian Branch,,ALP,5,1
+vic2022,vic-sunbury,vic-sunbury-6,Gallagher,James,Victorian Socialists,,VSP,6,0
+vic2022,vic-sunbury,vic-sunbury-7,Burke,Richard,Australian Greens,,GRN,7,0
+vic2022,vic-sunbury,vic-sunbury-8,Patel,Rushi Vijaykumar,New Democrats,,NDP,8,0
+vic2022,vic-sunbury,vic-sunbury-9,Pincini,Laurence,,,IND,9,0
+vic2022,vic-sydenham,vic-sydenham-1,Tawadros,Marvet,Family First Victoria,,FFP,1,0
+vic2022,vic-sydenham,vic-sydenham-2,Chlihi,Hajar,Victorian Socialists,,VSP,2,0
+vic2022,vic-sydenham,vic-sydenham-3,Hutchins,Natalie,Australian Labor Party - Victorian Branch,,ALP,3,1
+vic2022,vic-sydenham,vic-sydenham-4,Cullia,Joseph,Liberal,,LIB,4,0
+vic2022,vic-sydenham,vic-sydenham-5,Leung,Karina,Animal Justice Party,,AJP,5,0
+vic2022,vic-sydenham,vic-sydenham-6,Ralph,Maggie,Australian Greens,,GRN,6,0
+vic2022,vic-sydenham,vic-sydenham-7,Ramos,Alejandro,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-sydenham,vic-sydenham-8,Radovani,Jakueline,Labour DLP,,DLP,8,0
+vic2022,vic-tarneit,vic-tarneit-1,Patel,Jaydeep,New Democrats,,NDP,1,0
+vic2022,vic-tarneit,vic-tarneit-2,Moinuddin,Aijaz,,,IND,2,0
+vic2022,vic-tarneit,vic-tarneit-3,Uribe,Claudio,Victorian Socialists,,VSP,3,0
+vic2022,vic-tarneit,vic-tarneit-4,Wight,Dylan,Australian Labor Party - Victorian Branch,,ALP,4,1
+vic2022,vic-tarneit,vic-tarneit-5,Miller,Clare,Australian Greens,,GRN,5,0
+vic2022,vic-tarneit,vic-tarneit-6,Jeffrey,Thomas,Family First Victoria,,FFP,6,0
+vic2022,vic-tarneit,vic-tarneit-7,Maqsood,Erum,Freedom Party of Victoria,,FRP,7,0
+vic2022,vic-tarneit,vic-tarneit-8,Singh,Preet,Liberal,,LIB,8,0
+vic2022,vic-tarneit,vic-tarneit-9,Rahn,Maurita,Animal Justice Party,,AJP,9,0
+vic2022,vic-thomastown,vic-thomastown-1,Singh,Gurdawar,Liberal,,LIB,1,0
+vic2022,vic-thomastown,vic-thomastown-2,Mcnamara,Colleen,Family First Victoria,,FFP,2,0
+vic2022,vic-thomastown,vic-thomastown-3,Levens,Evie,Animal Justice Party,,AJP,3,0
+vic2022,vic-thomastown,vic-thomastown-4,Halfpenny,Bronwyn,Australian Labor Party - Victorian Branch,,ALP,4,1
+vic2022,vic-thomastown,vic-thomastown-5,Sinapi,Matt,Australian Greens,,GRN,5,0
+vic2022,vic-thomastown,vic-thomastown-6,Cvetkova,Kelly,Victorian Socialists,,VSP,6,0
+vic2022,vic-warrandyte,vic-warrandyte-1,Oakley,Naomi,Australian Labor Party - Victorian Branch,,ALP,1,0
+vic2022,vic-warrandyte,vic-warrandyte-2,Rae,Nicola,Animal Justice Party,,AJP,2,0
+vic2022,vic-warrandyte,vic-warrandyte-3,Joshi,Deepak,Australian Greens,,GRN,3,0
+vic2022,vic-warrandyte,vic-warrandyte-4,Vernay,Richard,Family First Victoria,,FFP,4,0
+vic2022,vic-warrandyte,vic-warrandyte-5,Pilli,Cynthia,,,IND,5,0
+vic2022,vic-warrandyte,vic-warrandyte-6,Smith,Ryan,Liberal,,LIB,6,1
+vic2022,vic-werribee,vic-werribee-1,Pallas,Tim,Australian Labor Party - Victorian Branch,,ALP,1,1
+vic2022,vic-werribee,vic-werribee-2,Wicks,Patricia Anne,Derryn Hinch's Justice Party,,DHJ,2,0
+vic2022,vic-werribee,vic-werribee-3,Barcatta,Patrizia,,,IND,3,0
+vic2022,vic-werribee,vic-werribee-4,Breakwell,Kathryn,Labour DLP,,DLP,4,0
+vic2022,vic-werribee,vic-werribee-5,Kwan,Heni Cazlynn,,,IND,5,0
+vic2022,vic-werribee,vic-werribee-6,Boddeke,Jack,Australian Greens,,GRN,6,0
+vic2022,vic-werribee,vic-werribee-7,Shaw,Mia,Liberal,,LIB,7,0
+vic2022,vic-werribee,vic-werribee-8,Munro,Sue,Victorian Socialists,,VSP,8,0
+vic2022,vic-werribee,vic-werribee-9,Tandon,Prashant,New Democrats,,NDP,9,0
+vic2022,vic-werribee,vic-werribee-10,Segrave,Josh,Animal Justice Party,,AJP,10,0
+vic2022,vic-werribee,vic-werribee-11,Hopper,Paul,,,IND,11,0
+vic2022,vic-werribee,vic-werribee-12,Emerson,Matthew,Family First Victoria,,FFP,12,0
+vic2022,vic-werribee,vic-werribee-13,Hogan,Karen,Health Australia Party,,HAP,13,0
+vic2022,vic-werribee,vic-werribee-14,Strother,Mark,Freedom Party of Victoria,,FRP,14,0
+vic2022,vic-werribee,vic-werribee-15,Collins,Trevor Russell,Transport Matters,,TMP,15,0
+vic2022,vic-williamstown,vic-williamstown-1,Fisher,Rochelle,Labour DLP,,DLP,1,0
+vic2022,vic-williamstown,vic-williamstown-2,Kellander,Daria,Liberal,,LIB,2,0
+vic2022,vic-williamstown,vic-williamstown-3,Mosely,Joshua,Family First Victoria,,FFP,3,0
+vic2022,vic-williamstown,vic-williamstown-4,Ansalone,Alexander,Freedom Party of Victoria,,FRP,4,0
+vic2022,vic-williamstown,vic-williamstown-5,Macandili,Julien Q.,Victorian Socialists,,VSP,5,0
+vic2022,vic-williamstown,vic-williamstown-6,Horne,Melissa,Australian Labor Party - Victorian Branch,,ALP,6,1
+vic2022,vic-williamstown,vic-williamstown-7,Rodoreda,Suzette,Australian Greens,,GRN,7,0
+vic2022,vic-williamstown,vic-williamstown-8,Mackevicius,Patricia,Animal Justice Party,,AJP,8,0
+vic2022,vic-yan-yean,vic-yan-yean-1,Wooldridge,Jack,Labour DLP,,DLP,1,0
+vic2022,vic-yan-yean,vic-yan-yean-2,Hall,James,Family First Victoria,,FFP,2,0
+vic2022,vic-yan-yean,vic-yan-yean-3,Mason,Samantha,Australian Greens,,GRN,3,0
+vic2022,vic-yan-yean,vic-yan-yean-4,Grimley,Mandy Anne,Derryn Hinch's Justice Party,,DHJ,4,0
+vic2022,vic-yan-yean,vic-yan-yean-5,Welch,Richard,Liberal,,LIB,5,0
+vic2022,vic-yan-yean,vic-yan-yean-6,Kathage,Lauren,Australian Labor Party - Victorian Branch,,ALP,6,1
+vic2022,vic-yan-yean,vic-yan-yean-7,Krstic,Alexandar,"Shooters, Fishers & Farmers Vic",,SFF,7,0
+vic2022,vic-yan-yean,vic-yan-yean-8,Bouroutzis,Con,Freedom Party of Victoria,,FRP,8,0
+vic2022,vic-yan-yean,vic-yan-yean-9,Parramore,Ruth,Animal Justice Party,,AJP,9,0

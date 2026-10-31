@@ -1,0 +1,331 @@
+2022 Federal Election House of Representatives Candidates [Event:27966 Phase:FinalResults Generated:2022-07-19T10:29:58 Cycle:06578790-03c6-4cf4-b786-103cfb915abd Created:2022-07-19T10:24:10 Environment:PROD Site:CANBERRA Server:TALLYROOM Version:10.9.9.0]
+StateAb,DivisionID,DivisionNm,PartyAb,PartyNm,CandidateID,Surname,GivenNm,Elected,HistoricElected
+VIC,214,Goldstein,ALP,Australian Labor Party,36416,ABBOTT,Martyn,N,N
+VIC,203,Calwell,GVIC,The Greens,36530,ABBOUD,Natalie,N,N
+VIC,223,La Trobe,LDP,Liberal Democrats,36965,ABELMAN,Michael,N,N
+VIC,223,La Trobe,ALP,Australian Labor Party,36458,ABHIMANYU KUMAR,,N,N
+VIC,328,Corangamite,UAPP,United Australia Party,35997,ABOU-ZEID,Daniel William,N,N
+VIC,211,Flinders,LDP,Liberal Democrats,36924,ABRAHAM,Chrysten,N,N
+VIC,208,Corio,AJP,Animal Justice Party,36681,ADAMS,Naomi,N,N
+VIC,232,Scullin,UAPP,United Australia Party,36027,ALBARRI,Yassin,N,N
+VIC,218,Indi,AJP,Animal Justice Party,36698,ALEKSOV,Angel,N,N
+VIC,215,Higgins,LP,Liberal,36732,ALLEN,Katie,N,Y
+VIC,216,Holt,ON,Pauline Hanson's One Nation,37635,AMBARD,Sandy,N,N
+VIC,215,Higgins,ALP,Australian Labor Party,36433,ANANDA-RAJAH,Michelle,Y,N
+VIC,221,Kooyong,IND,Independent,37800,ANDERSON,Will,N,N
+VIC,322,Macnamara,ON,Pauline Hanson's One Nation,37779,ANNE,Debera,N,N
+VIC,225,Maribyrnong,CYA,Australian Federation Party,37582,ANSALONE,Alexander Anthony,N,N
+VIC,205,Chisholm,CYA,Australian Federation Party,37796,ANTONIE,Anthea,N,N
+VIC,328,Corangamite,LP,Liberal,36708,ASHER,Stephanie,N,N
+VIC,320,Cooper,LP,Liberal,36730,ATKINSON,Jadon,N,N
+VIC,224,Mallee,ON,Pauline Hanson's One Nation,37674,ATKINSON,Vanessa,N,N
+VIC,201,Bruce,UAPP,United Australia Party,35987,BABET,Matt,N,N
+VIC,224,Mallee,IND,Independent,37570,BALDWIN,Sophie,N,N
+VIC,228,Melbourne,GVIC,The Greens,36551,BANDT,Adam,Y,Y
+VIC,320,Cooper,AJP,Animal Justice Party,36690,BANGAAR,Rabin,N,N
+VIC,200,Bendigo,LDP,Liberal Democrats,36895,BANSEMER,Matt,N,N
+VIC,222,Lalor,LDP,Liberal Democrats,36943,BARCATTA,Patrizia,N,N
+VIC,226,McEwen,GVIC,The Greens,36547,BARKER,Neil,N,N
+VIC,328,Corangamite,LDP,Liberal Democrats,36944,BARKER,Paul,N,N
+VIC,198,Ballarat,GVIC,The Greens,36491,BARNES,John,N,N
+VIC,209,Deakin,CYA,Australian Federation Party,37444,BASTIN,Samantha,N,N
+VIC,219,Isaacs,LP,Liberal,36725,BEATON,Robbie,N,N
+VIC,204,Casey,UAPP,United Australia Party,36003,BELLVE,Anthony Sebastian,N,N
+VIC,203,Calwell,CYA,Australian Federation Party,37441,BENGTSSON,Maria,N,N
+VIC,210,Dunkley,IND,Independent,37460,BERGWERF,Darren,N,N
+VIC,225,Maribyrnong,UAPP,United Australia Party,36024,BESANKO,Darren,N,N
+VIC,217,Hotham,LP,Liberal,36720,BEVINAKOPPA,Savitri,N,N
+VIC,326,Hawke,IND,Independent,37859,BINGHAM,Jarrod James,N,N
+VIC,324,Nicholls,NP,The Nationals,36061,BIRRELL,Sam,Y,N
+VIC,234,Wills,VNS,Victorian Socialists,36664,BLACK,Emma,N,N
+VIC,222,Lalor,GVIC,The Greens,36533,BODDEKE,Jack,N,N
+VIC,228,Melbourne,VNS,Victorian Socialists,36661,BOLGER,Colleen,N,N
+VIC,234,Wills,SAL,Socialist Alliance,36958,BOLTON,Sue,N,N
+VIC,220,Jagajaga,ON,Pauline Hanson's One Nation,37663,BOOKER,John,N,N
+VIC,228,Melbourne,UAPP,United Australia Party,36034,BORG,Justin,N,N
+VIC,226,McEwen,ON,Pauline Hanson's One Nation,37660,BRADBURY,Chris,N,N
+VIC,212,Gellibrand,ON,Pauline Hanson's One Nation,37819,BRADDOCK,Rob,N,N
+VIC,219,Isaacs,GVIC,The Greens,36532,BRESKIN,Alex,N,N
+VIC,204,Casey,ALP,Australian Labor Party,36379,BRINDLE,Bill,N,N
+VIC,323,Monash,LP,Liberal,36737,BROADBENT,Russell,Y,Y
+VIC,324,Nicholls,LP,Liberal,36739,BROOKS,Steve,N,N
+VIC,197,Aston,TNL,TNL,36181,BRUCE,Ryan,N,N
+VIC,208,Corio,SAL,Socialist Alliance,36961,BULL,Sue,N,N
+VIC,322,Macnamara,ALP,Australian Labor Party,36436,BURNS,Josh,Y,Y
+VIC,209,Deakin,LDP,Liberal Democrats,36876,CARR,Harrison,N,N
+VIC,212,Gellibrand,VNS,Victorian Socialists,36731,CHARLES,Andrew,N,N
+VIC,220,Jagajaga,GVIC,The Greens,36539,CHASE,Liz,N,N
+VIC,229,Menzies,LDP,Liberal Democrats,36929,CHEESMAN,Greg,N,N
+VIC,213,Gippsland,NP,The Nationals,36048,CHESTER,Darren,Y,Y
+VIC,200,Bendigo,ALP,Australian Labor Party,36424,CHESTERS,Lisa,Y,Y
+VIC,324,Nicholls,GVIC,The Greens,36565,CHRISTOE,Ian,N,N
+VIC,212,Gellibrand,LP,Liberal,36718,CLARK,Monica,N,N
+VIC,328,Corangamite,ALP,Australian Labor Party,36391,COKER,Libby,Y,Y
+VIC,204,Casey,IND,Independent,37729,COLE,Craig,N,N
+VIC,221,Kooyong,AUVA,Australian Values Party,37245,CONNOLLY,David,N,N
+VIC,309,Gorton,ON,Pauline Hanson's One Nation,37668,CONNOR,Daniel,N,N
+VIC,197,Aston,GVIC,The Greens,36489,COOKSON,Asher,N,N
+VIC,210,Dunkley,LP,Liberal,36713,COOMBES,Sharn,N,N
+VIC,209,Deakin,ON,Pauline Hanson's One Nation,37743,COUGHLAN,Natasha,N,N
+VIC,221,Kooyong,ON,Pauline Hanson's One Nation,37640,COYNE,Josh,N,N
+VIC,321,Fraser,LDP,Liberal Democrats,36882,CURSIO,Anthony,N,N
+VIC,326,Hawke,UAPP,United Australia Party,36015,CUTHBERTSON,Andrew Glenn,N,N
+VIC,328,Corangamite,DHJP,Derryn Hinch's Justice Party,37293,D'ARGENT,Jean-Marie,N,N
+VIC,225,Maribyrnong,LP,Liberal,36728,D'SILVA,Mira,N,N
+VIC,225,Maribyrnong,VNS,Victorian Socialists,36660,DADICH,Daniel Nair,N,N
+VIC,221,Kooyong,DHJP,Derryn Hinch's Justice Party,37284,DALE,Michele,N,N
+VIC,228,Melbourne,LP,Liberal,36727,DAMCHES,James,N,N
+VIC,214,Goldstein,IND,Independent,36074,DANIEL,Zoe,Y,N
+VIC,205,Chisholm,CEC,Citizens Party,35969,DARE,Ryan,N,N
+VIC,218,Indi,ALP,Australian Labor Party,36431,DAVID,Nadia,N,N
+VIC,324,Nicholls,CEC,Citizens Party,35967,DAVY,Jeff,N,N
+VIC,321,Fraser,ON,Pauline Hanson's One Nation,37630,de PYLE,Sabine,N,N
+VIC,201,Bruce,ON,Pauline Hanson's One Nation,37641,DEANS,Hayley,N,N
+VIC,309,Gorton,GAP,The Great Australian Party,37187,DOBRAN,Tony,N,N
+VIC,209,Deakin,AJP,Animal Justice Party,36707,DOLHEGUY,Katherine,N,N
+VIC,197,Aston,ALP,Australian Labor Party,36377,DOYLE,Mary,N,N
+VIC,219,Isaacs,ALP,Australian Labor Party,36434,DREYFUS,Mark,Y,Y
+VIC,233,Wannon,IND,Independent,33601,DYSON,Alex,N,N
+VIC,211,Flinders,CYA,Australian Federation Party,37798,EARL,Jefferson,N,N
+VIC,323,Monash,LDP,Liberal Democrats,36914,EDWARDS,Meg,N,N
+VIC,211,Flinders,AJP,Animal Justice Party,36697,ENGELANDER,Pamela,N,N
+VIC,223,La Trobe,ON,Pauline Hanson's One Nation,37655,ERVIN,Hadden,N,N
+VIC,216,Holt,ALP,Australian Labor Party,36438,FERNANDO,Cassandra,Y,N
+VIC,204,Casey,IND,Independent,36746,FERRES MILES,Claire,N,N
+VIC,218,Indi,LDP,Liberal Democrats,36898,FIDGE,Julian,N,N
+VIC,204,Casey,CYA,Australian Federation Party,37849,FIELD,Chris,N,N
+VIC,218,Indi,NP,The Nationals,36055,FISHER,Liz,N,N
+VIC,309,Gorton,LP,Liberal,36719,FLETCHER,John,N,N
+VIC,215,Higgins,LDP,Liberal Democrats,36940,FORD,Matthew,N,N
+VIC,213,Gippsland,UAPP,United Australia Party,36004,FORSTER,Gregory Emil,N,N
+VIC,221,Kooyong,LP,Liberal,36729,FRYDENBERG,Josh,N,Y
+VIC,222,Lalor,LP,Liberal,36740,GADDIPATI,Ravi,N,N
+VIC,214,Goldstein,GVIC,The Greens,36687,GALLI-McROSTIE,Alana,N,N
+VIC,204,Casey,GVIC,The Greens,36514,GAME,Jenny,N,N
+VIC,205,Chisholm,ALP,Australian Labor Party,36382,GARLAND,Carina,Y,N
+VIC,233,Wannon,IND,Independent,37812,GARNER,Graham,N,N
+VIC,309,Gorton,VNS,Victorian Socialists,36678,GIBSON,Belle,N,N
+VIC,209,Deakin,UAPP,United Australia Party,35992,GIDLEY,Bianca Joy,N,N
+VIC,218,Indi,GVIC,The Greens,36531,GILBERT,Benjamin,N,N
+VIC,232,Scullin,ALP,Australian Labor Party,36447,GILES,Andrew,Y,Y
+VIC,212,Gellibrand,LDP,Liberal Democrats,36874,GLASSON,Chloe,N,N
+VIC,198,Ballarat,IND,Independent,33575,GRAHAM,Alex,N,N
+VIC,233,Wannon,ON,Pauline Hanson's One Nation,37820,GRAHAM,Ronnie,N,N
+VIC,198,Ballarat,LP,Liberal,36703,GREEN,Ben,N,N
+VIC,209,Deakin,ALP,Australian Labor Party,36387,GREGG,Matt,N,N
+VIC,224,Mallee,IND,Independent,37690,HAENEL,Claudia,N,N
+VIC,218,Indi,IND,Independent,32086,HAINES,Helen,Y,Y
+VIC,216,Holt,UAPP,United Australia Party,36021,HANSEN,Gerardine,N,N
+VIC,213,Gippsland,ON,Pauline Hanson's One Nation,37653,HANSFORD,Greg,N,N
+VIC,326,Hawke,LP,Liberal,36715,HAQUE,Enamul,N,N
+VIC,221,Kooyong,UAPP,United Australia Party,36035,HARDIMAN,Scott Andrew,N,N
+VIC,322,Macnamara,LP,Liberal,36736,HARKIN,Colleen,N,N
+VIC,224,Mallee,ALP,Australian Labor Party,36439,HART,Carole,N,N
+VIC,229,Menzies,ON,Pauline Hanson's One Nation,37631,HAYES,John,N,N
+VIC,226,McEwen,LDP,Liberal Democrats,36957,HERRON,John,N,N
+VIC,323,Monash,ON,Pauline Hanson's One Nation,37629,HICKEN,Allan,N,N
+VIC,322,Macnamara,UAPP,United Australia Party,36020,HICKEY,Jane Elizabeth,N,N
+VIC,201,Bruce,ALP,Australian Labor Party,36413,HILL,Julian,Y,Y
+VIC,225,Maribyrnong,GAP,The Great Australian Party,37196,HOBART,Mark Michael,N,N
+VIC,322,Macnamara,GVIC,The Greens,36538,HODGINS-MAY,Steph,N,N
+VIC,234,Wills,AJP,Animal Justice Party,36686,HORSFALL,Leah,N,N
+VIC,214,Goldstein,SPP,Sustainable Australia Party - Stop Overdevelopment / Corruption,37572,HOULT,Brandon,N,N
+VIC,209,Deakin,GVIC,The Greens,36500,HUMPHREYS,Rob,N,N
+VIC,326,Hawke,VNS,Victorian Socialists,36684,HYNES,Jack,N,N
+VIC,197,Aston,ON,Pauline Hanson's One Nation,37636,IBBOTSON,Craig,N,N
+VIC,222,Lalor,ON,Pauline Hanson's One Nation,37625,INGARFILL,James,N,N
+VIC,210,Dunkley,UAPP,United Australia Party,35996,IRVINE,Adrian Kain,N,N
+VIC,212,Gellibrand,UAPP,United Australia Party,36009,ISAC,Abraham,N,N
+VIC,234,Wills,GVIC,The Greens,36554,JEFFORD,Sarah,N,N
+VIC,223,La Trobe,AJP,Animal Justice Party,36689,JEGES,Helen,N,N
+VIC,215,Higgins,REAS,Reason Australia,37573,JOHNSON,Andrew,N,N
+VIC,210,Dunkley,AJP,Animal Justice Party,36742,JOHNSTON,Elizabeth,N,N
+VIC,208,Corio,ON,Pauline Hanson's One Nation,37669,JONES,Robert,N,N
+VIC,328,Corangamite,CYA,Australian Federation Party,37799,JUHASZ,Stephen,N,N
+VIC,320,Cooper,ALP,Australian Labor Party,36384,KEARNEY,Ged,Y,Y
+VIC,205,Chisholm,UAPP,United Australia Party,35988,KEMPSON,Melanie Merle,N,N
+VIC,233,Wannon,UAPP,United Australia Party,36030,KENSEN,Craige,N,N
+VIC,234,Wills,ALP,Australian Labor Party,36452,KHALIL,Peter,Y,Y
+VIC,198,Ballarat,ALP,Australian Labor Party,36409,KING,Catherine,Y,Y
+VIC,205,Chisholm,LDP,Liberal Democrats,36884,KING,Ethelyn,N,N
+VIC,224,Mallee,UAPP,United Australia Party,36022,KING,Stuart William,N,N
+VIC,201,Bruce,GVIC,The Greens,36505,KIRWAN,Matthew,N,N
+VIC,204,Casey,AJP,Animal Justice Party,36699,KLOP,Andrew,N,N
+VIC,232,Scullin,LDP,Liberal Democrats,37214,KOELMEYER,Eric,N,N
+VIC,320,Cooper,UAPP,United Australia Party,35995,LA ROSA,Adam,N,N
+VIC,326,Hawke,GAP,The Great Australian Party,37194,LACEY,Michael Edward,N,N
+VIC,224,Mallee,CEC,Citizens Party,35970,LAHY,Chris,N,N
+VIC,324,Nicholls,LDP,Liberal Democrats,36951,LAIRD,Tim,N,N
+VIC,211,Flinders,GVIC,The Greens,36506,LANE,Colin,N,N
+VIC,213,Gippsland,ALP,Australian Labor Party,36392,LANGLEY,Jannette,N,N
+VIC,320,Cooper,VNS,Victorian Socialists,36659,LARKIN,Kath,N,N
+VIC,309,Gorton,CYA,Australian Federation Party,37681,LASSIG,Paul,N,N
+VIC,200,Bendigo,IND,Independent,37782,LAURIE,James,N,N
+VIC,323,Monash,IND,Independent,36065,LEONARD,Deb,N,N
+VIC,320,Cooper,GVIC,The Greens,36527,LIDDLE,Celeste,N,N
+VIC,205,Chisholm,LP,Liberal,36709,LIU,Gladys,N,Y
+VIC,209,Deakin,IND,Independent,37833,LIU,Qian,N,N
+VIC,219,Isaacs,AJP,Animal Justice Party,36677,LIVINGSTONE,Alix,N,N
+VIC,324,Nicholls,ALP,Australian Labor Party,36451,LODWICK,Bill,N,N
+VIC,309,Gorton,IND,Independent,37784,LONCAR,Steven J,N,N
+VIC,218,Indi,LP,Liberal,36721,LYMAN,Ross,N,N
+VIC,221,Kooyong,ALP,Australian Labor Party,36442,LYNCH,Peter,N,N
+VIC,222,Lalor,CYA,Australian Federation Party,37440,MALLIAROS,Peter,N,N
+VIC,208,Corio,ALP,Australian Labor Party,36381,MARLES,Richard,Y,Y
+VIC,211,Flinders,ON,Pauline Hanson's One Nation,37736,MARR,Cyndi,N,N
+VIC,328,Corangamite,GVIC,The Greens,36493,MARSHALL,Alex,N,N
+VIC,326,Hawke,TNL,TNL,37228,MARTUCCI,Max,N,N
+VIC,216,Holt,GVIC,The Greens,36525,MATHEW,Sujit,N,N
+VIC,233,Wannon,GVIC,The Greens,36670,McALLISTER,Hilary,N,N
+VIC,219,Isaacs,UAPP,United Australia Party,36029,McCAMISH,Scott Anson,N,N
+VIC,322,Macnamara,LDP,Liberal Democrats,37007,McCATHIE,Rob,N,N
+VIC,224,Mallee,GVIC,The Greens,36596,McCOLL,Sam,N,N
+VIC,213,Gippsland,LDP,Liberal Democrats,36880,McDONALD,Jim,N,N
+VIC,198,Ballarat,LDP,Liberal Democrats,36993,McGRATH,Julia,N,N
+VIC,211,Flinders,LP,Liberal,36714,McKENZIE,Zoe,Y,N
+VIC,226,McEwen,UAPP,United Australia Party,36054,McRAE,Paul Joseph,N,N
+VIC,323,Monash,UAPP,United Australia Party,36039,McSHANE,Christine Ann,N,N
+VIC,233,Wannon,LDP,Liberal Democrats,36931,MEAD,Amanda,N,N
+VIC,215,Higgins,CYA,Australian Federation Party,37802,MENOUDAKIS,Suzie,N,N
+VIC,210,Dunkley,ON,Pauline Hanson's One Nation,37772,MIDDLEBROOK,Scott,N,N
+VIC,200,Bendigo,ON,Pauline Hanson's One Nation,37758,MIHAIL,Ben,N,N
+VIC,226,McEwen,ALP,Australian Labor Party,36445,MITCHELL,Rob,Y,Y
+VIC,321,Fraser,GVIC,The Greens,36510,MITCHELL-SEARS,Bella,N,N
+VIC,221,Kooyong,GVIC,The Greens,36544,MITCHEM,Piers,N,N
+VIC,222,Lalor,IND,Independent,32267,MOINUDDIN,Aijaz,N,N
+VIC,201,Bruce,LP,Liberal,36769,MOODY,James,N,N
+VIC,212,Gellibrand,CYA,Australian Federation Party,37443,MOORS,Sharynn,N,N
+VIC,323,Monash,GVIC,The Greens,36561,MORGAN,Mat,N,N
+VIC,309,Gorton,GVIC,The Greens,36757,MORRIS,Praise,N,N
+VIC,223,La Trobe,UAPP,United Australia Party,36037,MOTT,Merryn,N,N
+VIC,321,Fraser,ALP,Australian Labor Party,36385,MULINO,Daniel,Y,Y
+VIC,208,Corio,UAPP,United Australia Party,35989,MURDOCK,Shane,N,N
+VIC,205,Chisholm,IND,Independent,37675,MURPHY,Dominique,N,N
+VIC,204,Casey,ON,Pauline Hanson's One Nation,37634,MURPHY,Paul,N,N
+VIC,210,Dunkley,ALP,Australian Labor Party,36389,MURPHY,Peta,Y,Y
+VIC,220,Jagajaga,IND,Independent,36896,MUSTAF,Zahra,N,N
+VIC,322,Macnamara,IND,Independent,37774,MYERS,John B,N,N
+VIC,203,Calwell,UAPP,United Australia Party,35994,NAIM,Joshua,N,N
+VIC,221,Kooyong,AJP,Animal Justice Party,36695,NEHMER,Rachael,N,N
+VIC,226,McEwen,CYA,Australian Federation Party,37619,NEIL,Christopher,N,N
+VIC,205,Chisholm,GVIC,The Greens,36524,NEWMAN,Sarah,N,N
+VIC,208,Corio,GVIC,The Greens,36495,NORTHEAST,Simon,N,N
+VIC,216,Holt,LDP,Liberal Democrats,36936,NUNEZ-SILVA,Matthew,N,N
+VIC,210,Dunkley,GVIC,The Greens,36503,O'BRIEN,Liam,N,N
+VIC,218,Indi,DHJP,Derryn Hinch's Justice Party,37281,O'CONNELL,Lachlan,N,N
+VIC,309,Gorton,ALP,Australian Labor Party,36421,O'CONNOR,Brendan,Y,Y
+VIC,211,Flinders,IND,Independent,37210,O'CONNOR,Despi,N,N
+VIC,323,Monash,ALP,Australian Labor Party,36455,O'DONNELL,Jessica,N,N
+VIC,219,Isaacs,LDP,Liberal Democrats,36952,O'DONNELL,Sarah,N,N
+VIC,217,Hotham,ALP,Australian Labor Party,36428,O'NEIL,Clare,Y,Y
+VIC,229,Menzies,ALP,Australian Labor Party,36453,OAKLEY,Naomi,N,N
+VIC,324,Nicholls,SOPA,"FUSION: Science, Pirate, Secular, Climate Emergency",36051,OTTO,Andrea,N,N
+VIC,220,Jagajaga,CYA,Australian Federation Party,37438,PALMARINI,Brendan,N,N
+VIC,208,Corio,LP,Liberal,36710,PATEL,Manish,N,N
+VIC,222,Lalor,UAPP,United Australia Party,36018,PATERSON,Juanita Coral,N,N
+VIC,228,Melbourne,ALP,Australian Labor Party,36448,PATERSON,Keir,N,N
+VIC,232,Scullin,GVIC,The Greens,36567,PATERSON,Patchouli,N,N
+VIC,208,Corio,LDP,Liberal Democrats,36899,PAYNE,Max,N,N
+VIC,228,Melbourne,LDP,Liberal Democrats,36948,PEPPARD,Richard,N,N
+VIC,216,Holt,LP,Liberal,36722,PERERA,Ranj,N,N
+VIC,232,Scullin,LP,Liberal,36741,PERERA,Virosh,N,N
+VIC,324,Nicholls,UAPP,United Australia Party,36026,PETERSON,Robert,N,N
+VIC,229,Menzies,GVIC,The Greens,36557,PHEASANT,Bill,N,N
+VIC,228,Melbourne,AJP,Animal Justice Party,36680,POON,Bruce,N,N
+VIC,203,Calwell,ON,Pauline Hanson's One Nation,37626,PRESTON,Mark,N,N
+VIC,324,Nicholls,IND,Independent,37571,PRIESTLY,Rob,N,N
+VIC,225,Maribyrnong,GVIC,The Greens,36543,PRYOR,Rhonda,N,N
+VIC,198,Ballarat,UAPP,United Australia Party,35985,PRYSE-SMITH,Terri Elizabeth,N,N
+VIC,326,Hawke,ALP,Australian Labor Party,36426,RAE,Sam,Y,N
+VIC,216,Holt,IND,Independent,37827,RAGUPATHY,Ravi,N,N
+VIC,321,Fraser,UAPP,United Australia Party,36005,RAYMOND,Keith James Aaron,N,N
+VIC,214,Goldstein,UAPP,United Australia Party,36007,REYNOLDS,Catherine Frances,N,N
+VIC,217,Hotham,UAPP,United Australia Party,36023,RIDGWAY,Bruce Scott,N,N
+VIC,321,Fraser,VNS,Victorian Socialists,36654,ROBERTSON,Catherine,N,N
+VIC,228,Melbourne,IND,Independent,37817,ROBSON,Scott,N,N
+VIC,197,Aston,LDP,Liberal Democrats,36938,ROCHE,Liam,N,N
+VIC,212,Gellibrand,GVIC,The Greens,36513,RODOREDA,Suzette,N,N
+VIC,232,Scullin,VNS,Victorian Socialists,36658,ROWE,Cameron,N,N
+VIC,211,Flinders,IND,Independent,37583,RUSSELL,Sarah,N,N
+VIC,222,Lalor,ALP,Australian Labor Party,36443,RYAN,Joanne,Y,Y
+VIC,221,Kooyong,IND,Independent,36081,RYAN,Monique,Y,N
+VIC,229,Menzies,CYA,Australian Federation Party,37646,SABHLOK,Sanjeev,N,N
+VIC,216,Holt,CYA,Australian Federation Party,37768,SALDANHA,Gregory,N,N
+VIC,229,Menzies,UAPP,United Australia Party,36041,SCAGLIONE,Nathan,N,N
+VIC,200,Bendigo,LP,Liberal,36706,SCHADE,Darin,N,N
+VIC,223,La Trobe,GVIC,The Greens,36549,SCHILLING,Michael,N,N
+VIC,322,Macnamara,AJP,Animal Justice Party,36693,SCHULTZ,Ben,N,N
+VIC,198,Ballarat,CYA,Australian Federation Party,37442,SEDGMAN,Kerryn,N,N
+VIC,214,Goldstein,LDP,Liberal Democrats,36932,SEGAL,David,N,N
+VIC,215,Higgins,GVIC,The Greens,36521,SEMMENS,Sonya,N,N
+VIC,234,Wills,CYA,Australian Federation Party,37770,SERGI,Sam,N,N
+VIC,225,Maribyrnong,ALP,Australian Labor Party,36441,SHORTEN,Bill,Y,Y
+VIC,200,Bendigo,GVIC,The Greens,36499,SINCLAIR,Cate,N,N
+VIC,223,La Trobe,CYA,Australian Federation Party,37829,SKINNER,Rebecca,N,N
+VIC,201,Bruce,LDP,Liberal Democrats,36886,SKROBO,Christine,N,N
+VIC,203,Calwell,VNS,Victorian Socialists,36640,SMALL,Jerome,N,N
+VIC,225,Maribyrnong,LDP,Liberal Democrats,36954,SMITH,Cameron,N,N
+VIC,204,Casey,LDP,Liberal Democrats,36879,SMITH,Trevor Walter,N,N
+VIC,211,Flinders,ALP,Australian Labor Party,36393,SNOWBALL,Surbhi,N,N
+VIC,217,Hotham,LDP,Liberal Democrats,36962,SOK,Edward,N,N
+VIC,219,Isaacs,ON,Pauline Hanson's One Nation,37728,SOKIRANSKY,Boris,N,N
+VIC,328,Corangamite,ON,Pauline Hanson's One Nation,37647,SORENSEN,Luke,N,N
+VIC,197,Aston,UAPP,United Australia Party,35983,SPELMAN,Rebekah Jane,N,N
+VIC,215,Higgins,UAPP,United Australia Party,36017,SPENCER,Ingram Magnus,N,N
+VIC,203,Calwell,LP,Liberal,36705,STAKER-GUNN,Tim,N,N
+VIC,205,Chisholm,DHJP,Derryn Hinch's Justice Party,37319,STANFIELD,Thomas,N,N
+VIC,214,Goldstein,ON,Pauline Hanson's One Nation,37667,STARK,Lisa,N,N
+VIC,218,Indi,ON,Pauline Hanson's One Nation,37678,STEVENS,Beth,N,N
+VIC,228,Melbourne,ON,Pauline Hanson's One Nation,37775,STRAGAN,Walter,N,N
+VIC,200,Bendigo,UAPP,United Australia Party,35980,SUARES,Elijah,N,N
+VIC,326,Hawke,ON,Pauline Hanson's One Nation,37623,SUDUK,Nick,N,N
+VIC,209,Deakin,LP,Liberal,36712,SUKKAR,Michael,Y,Y
+VIC,214,Goldstein,DHJP,Derryn Hinch's Justice Party,37279,SULLIVAN,Ellie Jean,N,N
+VIC,204,Casey,DHJP,Derryn Hinch's Justice Party,37288,SULLIVAN,Peter,N,N
+VIC,324,Nicholls,CYA,Australian Federation Party,37764,TABONE,Eleonor,N,N
+VIC,198,Ballarat,ON,Pauline Hanson's One Nation,37733,TAXIS,Rosalie,N,N
+VIC,208,Corio,CYA,Australian Federation Party,37762,TAYLOR,Jessica,N,N
+VIC,233,Wannon,LP,Liberal,36735,TEHAN,Dan,Y,Y
+VIC,220,Jagajaga,LDP,Liberal Democrats,36939,TESA,Maya,N,N
+VIC,221,Kooyong,LDP,Liberal Democrats,36949,THOM,Alexandra,N,N
+VIC,209,Deakin,DHJP,Derryn Hinch's Justice Party,37277,THOMPSON,Judith,N,N
+VIC,213,Gippsland,GVIC,The Greens,36534,THORPE,Marjorie,N,N
+VIC,220,Jagajaga,ALP,Australian Labor Party,36435,THWAITES,Kate,Y,Y
+VIC,234,Wills,ON,Pauline Hanson's One Nation,37747,TINDAL,Jill,N,N
+VIC,225,Maribyrnong,ON,Pauline Hanson's One Nation,37751,TINDAL,Jodie,N,N
+VIC,220,Jagajaga,LP,Liberal,36726,TOMAR,Sahil,N,N
+VIC,205,Chisholm,IND,Independent,37839,TSENG,Wayne,N,N
+VIC,197,Aston,LP,Liberal,36704,TUDGE,Alan,Y,Y
+VIC,217,Hotham,ON,Pauline Hanson's One Nation,37657,TULL,Roger,N,N
+VIC,320,Cooper,ON,Pauline Hanson's One Nation,37778,TURNER,William Tristan,N,N
+VIC,205,Chisholm,ON,Pauline Hanson's One Nation,37680,TYRRELL,Aaron,N,N
+VIC,324,Nicholls,ON,Pauline Hanson's One Nation,37691,TYRRELL,Rikkie-Lee,N,N
+VIC,222,Lalor,VNS,Victorian Socialists,36672,URIBE,Claudio,N,N
+VIC,203,Calwell,ALP,Australian Labor Party,36419,VAMVAKINOU,Maria,Y,Y
+VIC,232,Scullin,ON,Pauline Hanson's One Nation,37649,van BREE,Ursula,N,N
+VIC,211,Flinders,UAPP,United Australia Party,36001,VAN DER END,Alex,N,N
+VIC,326,Hawke,CEC,Citizens Party,35961,VESSEY,Glenn,N,N
+VIC,204,Casey,LP,Liberal,36711,VIOLI,Aaron,Y,N
+VIC,309,Gorton,UAPP,United Australia Party,36012,VIRAG,Michael,N,N
+VIC,215,Higgins,AJP,Animal Justice Party,36748,WALKER,Alicia,N,N
+VIC,328,Corangamite,AJP,Animal Justice Party,36673,WATKINS,Meg,N,N
+VIC,212,Gellibrand,ALP,Australian Labor Party,36388,WATTS,Tim,Y,Y
+VIC,224,Mallee,NP,The Nationals,36060,WEBSTER,Anne,Y,Y
+VIC,226,McEwen,LP,Liberal,36724,WELCH,Richard,N,N
+VIC,323,Monash,CYA,Australian Federation Party,37637,WELSH,David Matthew,N,N
+VIC,326,Hawke,GVIC,The Greens,36518,WHEELOCK,Lynda,N,N
+VIC,320,Cooper,SOPA,"FUSION: Science, Pirate, Secular, Climate Emergency",36049,WHITEHEAD,Adrian,N,N
+VIC,205,Chisholm,AJP,Animal Justice Party,36701,WHITFIELD,Rod,N,N
+VIC,326,Hawke,CYA,Australian Federation Party,37769,WILLIAMS,Michael,N,N
+VIC,218,Indi,UAPP,United Australia Party,36025,WILLIAMS,Stephen,N,N
+VIC,210,Dunkley,LDP,Liberal Democrats,36925,WILLIS,Damian,N,N
+VIC,217,Hotham,GVIC,The Greens,36529,WILLOUGHBY,Louisa,N,N
+VIC,233,Wannon,ALP,Australian Labor Party,36450,WILSON,Gilbert,N,N
+VIC,214,Goldstein,LP,Liberal,36717,WILSON,Tim,N,Y
+VIC,229,Menzies,LP,Liberal,36733,WOLAHAN,Keith,Y,N
+VIC,321,Fraser,LP,Liberal,36716,WOOD,David,N,N
+VIC,223,La Trobe,LP,Liberal,36734,WOOD,Jason,Y,Y
+VIC,210,Dunkley,CYA,Australian Federation Party,37445,WOODS,Kathryn,N,N
+VIC,234,Wills,LP,Liberal,36738,WRIGHT,Tom,N,N
+VIC,220,Jagajaga,UAPP,United Australia Party,36032,ZELINKA,Allison,N,N
+VIC,234,Wills,UAPP,United Australia Party,36031,ZIVKOVIC,Irene,N,N

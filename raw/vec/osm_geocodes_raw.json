@@ -1,0 +1,3230 @@
+{
+"vic-albert-park-ferrars": {
+"name": "Ferrars",
+"via": "name",
+"lat": -37.8332519,
+"lon": 144.9551506,
+"type": "primary",
+"disp": "Ferrars Street, South Melbourne, Melbourne, Victoria, 3205, Australia"
+},
+"vic-albert-park-kerferd-south": {
+"name": "Kerferd South",
+"via": "stem",
+"lat": -37.7383468,
+"lon": 144.902541,
+"type": "residential",
+"disp": "Kerferd Street, Essendon North, Melbourne, Victoria, 3041, Australia"
+},
+"vic-albert-park-port-melbourne-east": {
+"name": "Port Melbourne East",
+"via": "name",
+"lat": -37.8388331,
+"lon": 144.9449407,
+"type": "sports_centre",
+"disp": "Port Melbourne Community Centre and Trugo Club, Esplanade East, Port Melbourne, Melbourne,"
+},
+"vic-albert-park-south-melbourne-park": {
+"name": "South Melbourne Park",
+"via": "name",
+"lat": -37.8472962,
+"lon": 144.9461648,
+"type": "beach",
+"disp": "South Melbourne Beach, Albert Park, Melbourne, Victoria, Australia"
+},
+"vic-ashwood-alamein": {
+"name": "Alamein",
+"via": "name",
+"lat": -37.8683603,
+"lon": 145.0797334,
+"type": "station",
+"disp": "Alamein, Ashburn Grove, Ashburton, Melbourne, Victoria, 3147, Australia"
+},
+"vic-ashwood-camberwell-south": {
+"name": "Camberwell South",
+"via": "name",
+"lat": -37.8478566,
+"lon": 145.0621525,
+"type": "school",
+"disp": "Camberwell South Primary School, 4, Peate Avenue, Glen Iris, Melbourne, Victoria, 3146, Au"
+},
+"vic-ashwood-jordanville-south": {
+"name": "Jordanville South",
+"via": "stem",
+"lat": -37.8736635,
+"lon": 145.1122691,
+"type": "station",
+"disp": "Jordanville, Windsor Avenue, Mount Waverley, Melbourne, Victoria, 3149, Australia"
+},
+"vic-ashwood-starling": {
+"name": "Starling",
+"via": "name",
+"lat": -38.0553315,
+"lon": 145.4147707,
+"type": "construction",
+"disp": "Starling, Officer, Melbourne, Victoria, 3809, Australia"
+},
+"vic-bass-catani": {
+"name": "Catani",
+"via": "name",
+"lat": -38.1948042,
+"lon": 145.6413285,
+"type": "administrative",
+"disp": "Catani, Melbourne, Victoria, Australia"
+},
+"vic-bass-clyde": {
+"name": "Clyde",
+"via": "name",
+"lat": -38.1326419,
+"lon": 145.3380884,
+"type": "administrative",
+"disp": "Clyde, Melbourne, Victoria, 3978, Australia"
+},
+"vic-bayswater-knox": {
+"name": "Knox",
+"via": "name",
+"lat": -37.7174184,
+"lon": 145.145174,
+"type": "park",
+"disp": "Alistair Knox Park, Eltham, Melbourne, Victoria, 3095, Australia"
+},
+"vic-bayswater-knoxfield-north": {
+"name": "Knoxfield North",
+"via": "stem",
+"lat": -37.8897731,
+"lon": 145.2496342,
+"type": "administrative",
+"disp": "Knoxfield, Melbourne, Victoria, 3180, Australia"
+},
+"vic-bayswater-wantirna-north": {
+"name": "Wantirna North",
+"via": "stem",
+"lat": -37.8523357,
+"lon": 145.2259721,
+"type": "administrative",
+"disp": "Wantirna, Melbourne, Victoria, Australia"
+},
+"vic-bellarine-collendina": {
+"name": "Collendina",
+"via": "name",
+"lat": -38.2657155,
+"lon": 144.5452718,
+"type": "neighbourhood",
+"disp": "Collendina, Ocean Grove, Victoria, 3226, Australia"
+},
+"vic-bellarine-indented-head": {
+"name": "Indented Head",
+"via": "name",
+"lat": -38.1397178,
+"lon": 144.7094652,
+"type": "administrative",
+"disp": "Indented Head, Victoria, Australia"
+},
+"vic-bellarine-surfside": {
+"name": "Surfside",
+"via": "name",
+"lat": -38.2613509,
+"lon": 144.54258,
+"type": "school",
+"disp": "Surfside Primary School, 31, John Dory Drive, Collendina, Ocean Grove, Victoria, 3226, Aus"
+},
+"vic-benambra-kergunyah": {
+"name": "Kergunyah",
+"via": "name",
+"lat": -36.3274125,
+"lon": 147.0293812,
+"type": "hamlet",
+"disp": "Kergunyah, Victoria, 3691, Australia"
+},
+"vic-benambra-tallangatta-valley": {
+"name": "Tallangatta Valley",
+"via": "name",
+"lat": -36.2469373,
+"lon": 147.360854,
+"type": "tertiary",
+"disp": "Tallangatta Creek Road, Tallangatta Valley, Victoria, 3701, Australia"
+},
+"vic-benambra-victory": {
+"name": "Victory",
+"via": "name",
+"lat": -36.1154533,
+"lon": 146.8465278,
+"type": "school",
+"disp": "Victory Lutheran College, 28, Drage Road, West Wodonga, Victoria, 3690, Australia"
+},
+"vic-benambra-wodonga-birallee": {
+"name": "Wodonga Birallee",
+"via": "none"
+},
+"vic-bendigo-east-sedgwick": {
+"name": "Sedgwick",
+"via": "name",
+"lat": -36.8689118,
+"lon": 144.3190293,
+"type": "administrative",
+"disp": "Sedgwick, Victoria, Australia"
+},
+"vic-bendigo-west-eaglehawk-west": {
+"name": "Eaglehawk West",
+"via": "stem",
+"lat": -36.7077015,
+"lon": 144.2632351,
+"type": "administrative",
+"disp": "Eaglehawk, Bendigo, Victoria, Australia"
+},
+"vic-bendigo-west-ironbark": {
+"name": "Ironbark",
+"via": "name",
+"lat": -36.7559063,
+"lon": 144.2668733,
+"type": "administrative",
+"disp": "Ironbark, Bendigo, Victoria, Australia"
+},
+"vic-bendigo-west-kangaroo-flat-south-west": {
+"name": "Kangaroo Flat South West",
+"via": "none"
+},
+"vic-bendigo-west-sandhurst": {
+"name": "Sandhurst",
+"via": "name",
+"lat": -36.8461806,
+"lon": 144.2440884,
+"type": "reservoir",
+"disp": "Sandhurst Reservoir, Big Hill, Bendigo, Victoria, 3555, Australia"
+},
+"vic-bendigo-west-sparrowhawk": {
+"name": "Sparrowhawk",
+"via": "name",
+"lat": -36.7634694,
+"lon": 144.2400047,
+"type": "drain",
+"disp": "Sparrowhawk Gully, Maiden Gully, Bendigo, Victoria, 3551, Australia"
+},
+"vic-bendigo-west-specimen-hill": {
+"name": "Specimen Hill",
+"via": "name",
+"lat": -36.7142716,
+"lon": 144.2471805,
+"type": "peak",
+"disp": "Specimen Hill, Bendigo, Victoria, 3556, Australia"
+},
+"vic-bentleigh-bentleigh-central": {
+"name": "Bentleigh Central",
+"via": "stem",
+"lat": -37.9175354,
+"lon": 145.0369346,
+"type": "station",
+"disp": "Bentleigh, Caulfield-Frankston Rail Trail, Bentleigh, Melbourne, Victoria, 3204, Australia"
+},
+"vic-bentleigh-mckinnon-east": {
+"name": "McKinnon East",
+"via": "name",
+"lat": -37.9118354,
+"lon": 145.0648816,
+"type": "school",
+"disp": "McKinnon Secondary College East Campus, 20, Market Boulevard, Virginia Park, Bentleigh Eas"
+},
+"vic-berwick-avebury": {
+"name": "Avebury",
+"via": "name",
+"lat": -37.7942826,
+"lon": 144.9743171,
+"type": "house",
+"disp": "Avebury, 129, Station Street, Carlton, Melbourne, Victoria, 3053, Australia"
+},
+"vic-berwick-centre-road": {
+"name": "Centre Road",
+"via": "name",
+"lat": -38.0488964,
+"lon": 145.3242713,
+"type": "secondary",
+"disp": "Centre Road, Alira, Berwick, Melbourne, Victoria, 3806, Australia"
+},
+"vic-berwick-ramlegh-park": {
+"name": "Ramlegh Park",
+"via": "name",
+"lat": -38.1143324,
+"lon": 145.343525,
+"type": "park",
+"disp": "Ramlegh Reserve, Clyde North, Melbourne, Victoria, 3978, Australia"
+},
+"vic-berwick-tulliallan": {
+"name": "Tulliallan",
+"via": "name",
+"lat": -38.0776317,
+"lon": 145.3267537,
+"type": "residential",
+"disp": "Tulliallan, Cranbourne North, Melbourne, Victoria, Australia"
+},
+"vic-box-hill-koonung-heights": {
+"name": "Koonung Heights",
+"via": "name",
+"lat": -37.8020318,
+"lon": 145.1037089,
+"type": "place_of_worship",
+"disp": "Koonung Heights Uniting Church, Belmore Road, Balwyn East, Balwyn, Melbourne, Victoria, 31"
+},
+"vic-box-hill-middlefield": {
+"name": "Middlefield",
+"via": "name",
+"lat": -37.8019792,
+"lon": 145.1508138,
+"type": "park",
+"disp": "Middlefield Drive Reserve, Blackburn North, Melbourne, Victoria, 3130, Australia"
+},
+"vic-box-hill-starling": {
+"name": "Starling",
+"via": "name",
+"lat": -38.0553315,
+"lon": 145.4147707,
+"type": "construction",
+"disp": "Starling, Officer, Melbourne, Victoria, 3809, Australia"
+},
+"vic-box-hill-warrawong": {
+"name": "Warrawong",
+"via": "name",
+"lat": -37.5819283,
+"lon": 145.1347854,
+"type": "residential",
+"disp": "Warrawong Circuit, Laurimar Park Estate, Doreen, Melbourne, Victoria, 3754, Australia"
+},
+"vic-brighton-berendale": {
+"name": "Berendale",
+"via": "none"
+},
+"vic-broadmeadows-hume-central": {
+"name": "Hume Central",
+"via": "name",
+"lat": -37.6804576,
+"lon": 144.9123982,
+"type": "school",
+"disp": "Hume Central Secondary College Dimboola Road Campus, 39, Dimboola Road, Broadmeadows, Melb"
+},
+"vic-brunswick-blyth": {
+"name": "Blyth",
+"via": "name",
+"lat": -37.8679003,
+"lon": 144.8226206,
+"type": "tertiary",
+"disp": "Blyth Street, Altona, Melbourne, Victoria, 3018, Australia"
+},
+"vic-brunswick-carlton-north": {
+"name": "Carlton North",
+"via": "name",
+"lat": -37.7845585,
+"lon": 144.9728553,
+"type": "administrative",
+"disp": "Carlton North, Melbourne, Victoria, 3054, Australia"
+},
+"vic-brunswick-edward": {
+"name": "Edward",
+"via": "name",
+"lat": -37.9618345,
+"lon": 145.0105885,
+"type": "beach",
+"disp": "Edward Street Beach, Black Rock, Melbourne, Victoria, 3193, Australia"
+},
+"vic-brunswick-glen-nichol": {
+"name": "Glen Nichol",
+"via": "none"
+},
+"vic-brunswick-mitchell-street": {
+"name": "Mitchell Street",
+"via": "name",
+"lat": -37.7814631,
+"lon": 144.8674299,
+"type": "primary",
+"disp": "Mitchell Street, Maidstone, Melbourne, Victoria, 3012, Australia"
+},
+"vic-bulleen-bulleen-west": {
+"name": "Bulleen West",
+"via": "stem",
+"lat": -37.7688992,
+"lon": 145.0871992,
+"type": "administrative",
+"disp": "Bulleen, Melbourne, Victoria, 3105, Australia"
+},
+"vic-bulleen-st-gregory-s": {
+"name": "St Gregory's",
+"via": "name",
+"lat": -37.7222012,
+"lon": 144.9157766,
+"type": "residential",
+"disp": "Gregory Street, Oak Park, Melbourne, Victoria, 3046, Australia"
+},
+"vic-bundoora-bundoora": {
+"name": "Bundoora",
+"via": "name",
+"lat": -37.6982468,
+"lon": 145.0596757,
+"type": "administrative",
+"disp": "Bundoora, Melbourne, Victoria, 3083, Australia"
+},
+"vic-bundoora-norris-bank": {
+"name": "Norris Bank",
+"via": "name",
+"lat": -37.6951174,
+"lon": 145.0473594,
+"type": "park",
+"disp": "Norris Bank Parklands, 135, Bundoora, Melbourne, Victoria, 3083, Australia"
+},
+"vic-bundoora-streeton": {
+"name": "Streeton",
+"via": "name",
+"lat": -37.726491,
+"lon": 145.0983829,
+"type": "residential",
+"disp": "Streeton Views, Yallambie, Melbourne, Victoria, Australia"
+},
+"vic-bundoora-watsonia-heights": {
+"name": "Watsonia Heights",
+"via": "name",
+"lat": -37.7157102,
+"lon": 145.0999569,
+"type": "school",
+"disp": "Watsonia Heights Primary School, 61, Henry Street, Greensborough, Melbourne, Victoria, 308"
+},
+"vic-bundoora-watsonia-south": {
+"name": "Watsonia South",
+"via": "stem",
+"lat": -37.7109468,
+"lon": 145.0837808,
+"type": "station",
+"disp": "Watsonia, Greensborough Highway, Watsonia, Melbourne, Victoria, 3087, Australia"
+},
+"vic-bundoora-yulong-park": {
+"name": "Yulong Park",
+"via": "name",
+"lat": -37.6970276,
+"lon": 145.0614953,
+"type": "park",
+"disp": "Yulong Reserve, Bundoora, Melbourne, Victoria, 3083, Australia"
+},
+"vic-carrum-banyan-fields": {
+"name": "Banyan Fields",
+"via": "name",
+"lat": -38.0948822,
+"lon": 145.1867312,
+"type": "school",
+"disp": "Banyan Fields Primary School, 90, Cadles Road, Carrum Downs, Melbourne, Victoria, 3201, Au"
+},
+"vic-caulfield-alma": {
+"name": "Alma",
+"via": "name",
+"lat": -38.1239844,
+"lon": 145.3800928,
+"type": "construction",
+"disp": "Alma, Clyde North, Melbourne, Victoria, 3978, Australia"
+},
+"vic-caulfield-bundeera": {
+"name": "Bundeera",
+"via": "name",
+"lat": -37.8949507,
+"lon": 145.0296668,
+"type": "residential",
+"disp": "Bundeera Road, Caulfield South, Melbourne, Victoria, 3162, Australia"
+},
+"vic-caulfield-caulfield-west": {
+"name": "Caulfield West",
+"via": "stem",
+"lat": -37.8773433,
+"lon": 145.0422715,
+"type": "station",
+"disp": "Caulfield, Normanby Road, Caulfield East, Melbourne, Victoria, 3145, Australia"
+},
+"vic-caulfield-clarence": {
+"name": "Clarence",
+"via": "name",
+"lat": -38.2021211,
+"lon": 144.7217894,
+"type": "wreck",
+"disp": "Clarence, Beach Road, St Leonards, Victoria, 3223, Australia"
+},
+"vic-caulfield-elsternwick": {
+"name": "Elsternwick",
+"via": "name",
+"lat": -37.8849937,
+"lon": 145.0010231,
+"type": "station",
+"disp": "Elsternwick, Horne Street, Elsternwick, Melbourne, Victoria, 3185, Australia"
+},
+"vic-caulfield-elsternwick-north": {
+"name": "Elsternwick North",
+"via": "stem",
+"lat": -37.8849937,
+"lon": 145.0010231,
+"type": "station",
+"disp": "Elsternwick, Horne Street, Elsternwick, Melbourne, Victoria, 3185, Australia"
+},
+"vic-caulfield-glen-eira": {
+"name": "Glen Eira",
+"via": "name",
+"lat": -37.8766499,
+"lon": 144.9969074,
+"type": "convenience",
+"disp": "Victoria Fruit Place, 55, Glen Eira Road, Ripponlea, Melbourne, Victoria, 3185, Australia"
+},
+"vic-caulfield-glenhuntly-east": {
+"name": "Glenhuntly East",
+"via": "stem",
+"lat": -37.8923791,
+"lon": 145.0413689,
+"type": "administrative",
+"disp": "Glen Huntly, Melbourne, Victoria, Australia"
+},
+"vic-caulfield-ormond": {
+"name": "Ormond",
+"via": "name",
+"lat": -37.9042587,
+"lon": 145.0394811,
+"type": "station",
+"disp": "Ormond, Caulfield-Frankston Rail Trail, Ormond, Melbourne, Victoria, 3204, Australia"
+},
+"vic-clarinda-coomoora": {
+"name": "Coomoora",
+"via": "name",
+"lat": -37.9851348,
+"lon": 145.1512731,
+"type": "nature_reserve",
+"disp": "Coomoora Woodland Flora and Fauna Reserve, Keysborough, Melbourne, Victoria, Australia"
+},
+"vic-clarinda-loxwood": {
+"name": "Loxwood",
+"via": "name",
+"lat": -37.987,
+"lon": 145.1566567,
+"type": "park",
+"disp": "Loxwood Avenue Reserve, Keysborough, Melbourne, Victoria, 3173, Australia"
+},
+"vic-cranbourne-amstel": {
+"name": "Amstel",
+"via": "name",
+"lat": -38.1112053,
+"lon": 145.2580535,
+"type": "yes",
+"disp": "Amstel, 1000, Cranbourne-Frankston Road, Cranbourne West, Melbourne, Victoria, 3977, Austr"
+},
+"vic-cranbourne-clyde": {
+"name": "Clyde",
+"via": "name",
+"lat": -38.1326419,
+"lon": 145.3380884,
+"type": "administrative",
+"disp": "Clyde, Melbourne, Victoria, 3978, Australia"
+},
+"vic-cranbourne-clyde-north": {
+"name": "Clyde North",
+"via": "name",
+"lat": -38.0949384,
+"lon": 145.3628251,
+"type": "administrative",
+"disp": "Clyde North, Melbourne, Victoria, Australia"
+},
+"vic-cranbourne-courtenay-gardens": {
+"name": "Courtenay Gardens",
+"via": "name",
+"lat": -38.0795137,
+"lon": 145.2828867,
+"type": "school",
+"disp": "Courtenay Gardens Primary School, 62-76, Courtenay Avenue, Cranbourne North, Melbourne, Vi"
+},
+"vic-cranbourne-ramlegh-park": {
+"name": "Ramlegh Park",
+"via": "name",
+"lat": -38.1143324,
+"lon": 145.343525,
+"type": "park",
+"disp": "Ramlegh Reserve, Clyde North, Melbourne, Victoria, 3978, Australia"
+},
+"vic-croydon-civic-square": {
+"name": "Civic Square",
+"via": "name",
+"lat": -37.8016415,
+"lon": 145.282038,
+"type": "residential",
+"disp": "Civic Square, Croydon, Melbourne, Victoria, 3136, Australia"
+},
+"vic-croydon-dorset": {
+"name": "Dorset",
+"via": "name",
+"lat": -37.8153029,
+"lon": 145.0667083,
+"type": "school",
+"disp": "Dorset, Walsh Street, Deepdene, Melbourne, Victoria, 3103, Australia"
+},
+"vic-croydon-kalinda": {
+"name": "Kalinda",
+"via": "name",
+"lat": -37.789895,
+"lon": 145.2510773,
+"type": "wood",
+"disp": "Kalinda Modified Urban Forest, Ringwood, Melbourne, Victoria, 3134, Australia"
+},
+"vic-croydon-lincoln": {
+"name": "Lincoln",
+"via": "name",
+"lat": -37.7323146,
+"lon": 144.9593664,
+"type": "retail",
+"disp": "Lincoln Mills Homemaker Centre, 64-96, Coburg North, Melbourne, Victoria, Australia"
+},
+"vic-essendon-moonee-ponds": {
+"name": "Moonee Ponds",
+"via": "name",
+"lat": -37.765935,
+"lon": 144.9192614,
+"type": "station",
+"disp": "Moonee Ponds, Norwood Crescent, Moonee Ponds, Melbourne, Victoria, 3039, Australia"
+},
+"vic-eureka-bacchus-marsh-central": {
+"name": "Bacchus Marsh Central",
+"via": "stem",
+"lat": -37.6997208,
+"lon": 144.4029972,
+"type": "park",
+"disp": "Bacchus Marsh Racecourse and Recreation Reserve, Maddingley, Victoria, 3340, Australia"
+},
+"vic-eureka-caledonian": {
+"name": "Caledonian",
+"via": "name",
+"lat": -37.6737726,
+"lon": 143.7200614,
+"type": "stream",
+"disp": "Caledonian Creek, Smythesdale, Ballarat, Victoria, 3351, Australia"
+},
+"vic-eureka-clarkes-hill": {
+"name": "Clarkes Hill",
+"via": "name",
+"lat": -37.498943,
+"lon": 143.978809,
+"type": "administrative",
+"disp": "Clarkes Hill, Ballarat, Victoria, Australia"
+},
+"vic-eureka-mount-wallace": {
+"name": "Mount Wallace",
+"via": "name",
+"lat": -37.734301,
+"lon": 144.2176022,
+"type": "administrative",
+"disp": "Mount Wallace, Victoria, Australia"
+},
+"vic-euroa-baddaginnie": {
+"name": "Baddaginnie",
+"via": "none"
+},
+"vic-euroa-benalla-west": {
+"name": "Benalla West",
+"via": "stem",
+"lat": -36.4007798,
+"lon": 145.4772907,
+"type": "service",
+"disp": "Midland Highway, Shepparton East, Victoria, 3631, Australia"
+},
+"vic-euroa-cooma": {
+"name": "Cooma",
+"via": "name",
+"lat": -36.409381,
+"lon": 145.0728646,
+"type": "administrative",
+"disp": "Cooma, Victoria, Australia"
+},
+"vic-euroa-devenish": {
+"name": "Devenish",
+"via": "none"
+},
+"vic-euroa-lurg": {
+"name": "Lurg",
+"via": "none"
+},
+"vic-euroa-seymour-east": {
+"name": "Seymour East",
+"via": "stem",
+"lat": -37.0241543,
+"lon": 145.1362432,
+"type": "administrative",
+"disp": "Seymour, Victoria, Australia"
+},
+"vic-euroa-thoona": {
+"name": "Thoona",
+"via": "none"
+},
+"vic-evelyn-bimbadeen": {
+"name": "Bimbadeen",
+"via": "name",
+"lat": -37.7575685,
+"lon": 145.1100944,
+"type": "park",
+"disp": "Bimbadeen Reserve, Templestowe Lower, Melbourne, Victoria, 3107, Australia"
+},
+"vic-evelyn-lilydale-heights": {
+"name": "Lilydale Heights",
+"via": "name",
+"lat": -37.7453525,
+"lon": 145.3411801,
+"type": "school",
+"disp": "Lilydale Heights College, 17-19, Nelson Road, Lilydale, Melbourne, Victoria, 3140, Austral"
+},
+"vic-evelyn-mt-evelyn-south": {
+"name": "Mt Evelyn South",
+"via": "stem",
+"lat": -37.7873186,
+"lon": 145.3883037,
+"type": "administrative",
+"disp": "Mount Evelyn, Melbourne, Victoria, 3796, Australia"
+},
+"vic-footscray-footscray-east": {
+"name": "Footscray East",
+"via": "stem",
+"lat": -37.7981339,
+"lon": 144.897345,
+"type": "administrative",
+"disp": "Footscray, Melbourne, Victoria, 3011, Australia"
+},
+"vic-footscray-footscray-park": {
+"name": "Footscray Park",
+"via": "name",
+"lat": -37.7933306,
+"lon": 144.9039329,
+"type": "park",
+"disp": "Footscray Park, Footscray, Melbourne, Victoria, Australia"
+},
+"vic-footscray-hyde": {
+"name": "Hyde",
+"via": "name",
+"lat": -37.7923257,
+"lon": 145.0403169,
+"type": "park",
+"disp": "Hyde Park, Kew East, Melbourne, Victoria, Australia"
+},
+"vic-footscray-kingsville-south": {
+"name": "Kingsville South",
+"via": "name",
+"lat": -37.8306664,
+"lon": 144.8713429,
+"type": "administrative",
+"disp": "South Kingsville, Melbourne, Victoria, Australia"
+},
+"vic-footscray-kingsville-west": {
+"name": "Kingsville West",
+"via": "name",
+"lat": -37.8115027,
+"lon": 144.8707647,
+"type": "post_office",
+"disp": "Australia Post - Kingsville West LPO, 339, Somerville Road, Yarraville, Melbourne, Victori"
+},
+"vic-footscray-maidstone-west": {
+"name": "Maidstone West",
+"via": "name",
+"lat": -37.791001,
+"lon": 144.8829542,
+"type": "clinic",
+"disp": "Lung and Sleep Victoria Footscray, 35, Summerhill Road, Footscray, Melbourne, Victoria, 30"
+},
+"vic-footscray-maribyrnong-river": {
+"name": "Maribyrnong River",
+"via": "name",
+"lat": -37.7479275,
+"lon": 144.8467782,
+"type": "river",
+"disp": "Maribyrnong River, Melbourne, Victoria, Australia"
+},
+"vic-frankston-frankston-beach": {
+"name": "Frankston Beach",
+"via": "name",
+"lat": -38.1490697,
+"lon": 145.1144359,
+"type": "beach",
+"disp": "Frankston Beach, Frankston, Melbourne, Victoria, Australia"
+},
+"vic-frankston-frankston-forest": {
+"name": "Frankston Forest",
+"via": "name",
+"lat": -38.1223545,
+"lon": 145.1441213,
+"type": "bus_stop",
+"disp": "Frankston-Dandenong Road/Forest Drive, Forest Drive, Frankston North, Melbourne, Victoria,"
+},
+"vic-frankston-john-paul-college": {
+"name": "John Paul College",
+"via": "name",
+"lat": -38.1361013,
+"lon": 145.1384414,
+"type": "school",
+"disp": "John Paul College, 161, McMahons Road, Frankston, Melbourne, Victoria, 3199, Australia"
+},
+"vic-geelong-aberdeen": {
+"name": "Aberdeen",
+"via": "name",
+"lat": -37.841545,
+"lon": 144.704709,
+"type": "residential",
+"disp": "Aberdeen Way, Rose Grange, Tarneit, Melbourne, Victoria, 3029, Australia"
+},
+"vic-geelong-bannockburn-west": {
+"name": "Bannockburn West",
+"via": "stem",
+"lat": -38.0443362,
+"lon": 144.1738367,
+"type": "administrative",
+"disp": "Bannockburn, Victoria, Australia"
+},
+"vic-geelong-barwon": {
+"name": "Barwon",
+"via": "name",
+"lat": -38.2090551,
+"lon": 143.9943963,
+"type": "river",
+"disp": "Barwon River, Victoria, Australia"
+},
+"vic-geelong-belmont-west": {
+"name": "Belmont West",
+"via": "stem",
+"lat": -38.1785947,
+"lon": 144.3421337,
+"type": "administrative",
+"disp": "Belmont, Geelong, Victoria, Australia"
+},
+"vic-geelong-fyans-park": {
+"name": "Fyans Park",
+"via": "name",
+"lat": -38.153991,
+"lon": 144.3257879,
+"type": "school",
+"disp": "Fyans Park Primary School, 37, Cook Street, Newtown, Geelong, Victoria, 3220, Australia"
+},
+"vic-geelong-geelong-east": {
+"name": "Geelong East",
+"via": "name",
+"lat": -38.1555531,
+"lon": 144.3801967,
+"type": "administrative",
+"disp": "East Geelong, Geelong, Victoria, Australia"
+},
+"vic-geelong-kardinia-park": {
+"name": "Kardinia Park",
+"via": "name",
+"lat": -38.1581856,
+"lon": 144.3544373,
+"type": "stadium",
+"disp": "GMHBA Stadium, 370, Moorabool Street, South Geelong, Geelong, Victoria, 3220, Australia"
+},
+"vic-geelong-kidman": {
+"name": "Kidman",
+"via": "name",
+"lat": -38.186513,
+"lon": 144.3347107,
+"type": "park",
+"disp": "Kidman Reserve, Belmont, Geelong, Victoria, Australia"
+},
+"vic-geelong-manifold-heights-west": {
+"name": "Manifold Heights West",
+"via": "name",
+"lat": -38.1388955,
+"lon": 144.3361831,
+"type": "place_of_worship",
+"disp": "Mano Baps, 163, Shannon Avenue, Manifold Heights, Geelong, Victoria, 3218, Australia"
+},
+"vic-geelong-shannon": {
+"name": "Shannon",
+"via": "name",
+"lat": -37.8812578,
+"lon": 144.6619335,
+"type": "residential",
+"disp": "Shannon Close, Westgrove, Werribee, Melbourne, Victoria, 3030, Australia"
+},
+"vic-geelong-st-helens": {
+"name": "St Helens",
+"via": "name",
+"lat": -38.1212743,
+"lon": 144.3582023,
+"type": "residential",
+"disp": "Saint Helens, Helen Street, Rippleside, Geelong, Victoria, 3215, Australia"
+},
+"vic-geelong-whittington": {
+"name": "Whittington",
+"via": "name",
+"lat": -38.1771013,
+"lon": 144.3920658,
+"type": "administrative",
+"disp": "Whittington, Geelong, Victoria, 3219, Australia"
+},
+"vic-geelong-whittington-south": {
+"name": "Whittington South",
+"via": "stem",
+"lat": -38.1771013,
+"lon": 144.3920658,
+"type": "administrative",
+"disp": "Whittington, Geelong, Victoria, 3219, Australia"
+},
+"vic-gippsland-south-sandy-point": {
+"name": "Sandy Point",
+"via": "name",
+"lat": -38.813338,
+"lon": 146.1020326,
+"type": "yes",
+"disp": "Sandy Point telephone exchange, Waratah Road, Sandy Point, Fish Creek, Victoria, 3959, Aus"
+},
+"vic-gippsland-south-staceys-bridge": {
+"name": "Staceys Bridge",
+"via": "name",
+"lat": -38.556638,
+"lon": 146.5151285,
+"type": "administrative",
+"disp": "Staceys Bridge, Victoria, Australia"
+},
+"vic-gippsland-south-wurruk": {
+"name": "Wurruk",
+"via": "none"
+},
+"vic-glen-waverley-glen-waverley-central": {
+"name": "Glen Waverley Central",
+"via": "stem",
+"lat": -37.8796677,
+"lon": 145.1629162,
+"type": "station",
+"disp": "Glen Waverley, Kingsway, Glen Waverley, Melbourne, Victoria, 3150, Australia"
+},
+"vic-glen-waverley-mitcham-south": {
+"name": "Mitcham South",
+"via": "stem",
+"lat": -37.8180929,
+"lon": 145.1928003,
+"type": "station",
+"disp": "Mitcham, Mitcham Road, Mitcham, Melbourne, Victoria, 3132, Australia"
+},
+"vic-greenvale-greenvale-park": {
+"name": "Greenvale Park",
+"via": "name",
+"lat": -37.6227625,
+"lon": 144.8927846,
+"type": "park",
+"disp": "Greenvale Reservoir Park, Greenvale, Melbourne, Victoria, 3059, Australia"
+},
+"vic-hastings-baxter": {
+"name": "Baxter",
+"via": "name",
+"lat": -38.1940808,
+"lon": 145.160517,
+"type": "station",
+"disp": "Baxter, Somerville to Baxter Trail, Baxter, Melbourne, Victoria, 3911, Australia"
+},
+"vic-hastings-westpark": {
+"name": "Westpark",
+"via": "name",
+"lat": -38.2966342,
+"lon": 145.1742471,
+"type": "neighbourhood",
+"disp": "Westpark, Melbourne, Victoria, 3915, Australia"
+},
+"vic-hastings-woodlands": {
+"name": "Woodlands",
+"via": "name",
+"lat": -38.005104,
+"lon": 145.1179301,
+"type": "nature_reserve",
+"disp": "Woodlands Industrial Estate Environmental Wetland, Braeside, Melbourne, Victoria, Australi"
+},
+"vic-hawthorn-camberwell-south": {
+"name": "Camberwell South",
+"via": "name",
+"lat": -37.8478566,
+"lon": 145.0621525,
+"type": "school",
+"disp": "Camberwell South Primary School, 4, Peate Avenue, Glen Iris, Melbourne, Victoria, 3146, Au"
+},
+"vic-hawthorn-chatham-south": {
+"name": "Chatham South",
+"via": "stem",
+"lat": -37.8242309,
+"lon": 145.0886628,
+"type": "station",
+"disp": "Chatham, Stanley Terrace, Surrey Hills, Melbourne, Victoria, 3127, Australia"
+},
+"vic-hawthorn-highfield": {
+"name": "Highfield",
+"via": "name",
+"lat": -37.8363266,
+"lon": 145.0856679,
+"type": "park",
+"disp": "Highfield Park, Camberwell, Melbourne, Victoria, 3124, Australia"
+},
+"vic-hawthorn-kooyong": {
+"name": "Kooyong",
+"via": "name",
+"lat": -37.841394,
+"lon": 145.0358402,
+"type": "administrative",
+"disp": "Kooyong, Melbourne, Victoria, Australia"
+},
+"vic-hawthorn-willison": {
+"name": "Willison",
+"via": "name",
+"lat": -37.8353952,
+"lon": 145.0701111,
+"type": "station",
+"disp": "Willison, Stodart Street, Camberwell, Melbourne, Victoria, 3124, Australia"
+},
+"vic-ivanhoe-golf-links": {
+"name": "Golf Links",
+"via": "name",
+"lat": -37.7836255,
+"lon": 145.2964258,
+"type": "neighbourhood",
+"disp": "Golf Links Estate, Croydon, Melbourne, Victoria, Australia"
+},
+"vic-ivanhoe-ivanhoe-west": {
+"name": "Ivanhoe West",
+"via": "name",
+"lat": -37.7340644,
+"lon": 145.0486176,
+"type": "industrial",
+"disp": "Ventura (Ivanhoe), 595-599, Heidelberg West, Melbourne, Victoria, 3081, Australia"
+},
+"vic-ivanhoe-streeton": {
+"name": "Streeton",
+"via": "name",
+"lat": -37.726491,
+"lon": 145.0983829,
+"type": "residential",
+"disp": "Streeton Views, Yallambie, Melbourne, Victoria, Australia"
+},
+"vic-kororoit-deer-park-north": {
+"name": "Deer Park North",
+"via": "name",
+"lat": -37.7556852,
+"lon": 144.7741406,
+"type": "school",
+"disp": "Deer Park North Primary School, 18-36, Mawson Avenue, Deer Park, Melbourne, Victoria, 3023"
+},
+"vic-kororoit-mount-derrimut": {
+"name": "Mount Derrimut",
+"via": "name",
+"lat": -37.7854246,
+"lon": 144.766153,
+"type": "grassland",
+"disp": "Mount Derrimut Nature Conservation Reserve, Derrimut, Melbourne, Victoria, 3026, Australia"
+},
+"vic-kororoit-rockbank": {
+"name": "Rockbank",
+"via": "name",
+"lat": -37.7312767,
+"lon": 144.6607316,
+"type": "administrative",
+"disp": "Rockbank, Melbourne, Victoria, Australia"
+},
+"vic-kororoit-rockbank-north": {
+"name": "Rockbank North",
+"via": "stem",
+"lat": -37.7312767,
+"lon": 144.6607316,
+"type": "administrative",
+"disp": "Rockbank, Melbourne, Victoria, Australia"
+},
+"vic-kororoit-stevensville": {
+"name": "Stevensville",
+"via": "name",
+"lat": -37.7366304,
+"lon": 144.7812723,
+"type": "school",
+"disp": "Stevensville Primary School, 52, Kings Road, St Albans, Melbourne, Victoria, 3021, Austral"
+},
+"vic-lara-bisinella": {
+"name": "Bisinella",
+"via": "name",
+"lat": -38.1824949,
+"lon": 144.4626969,
+"type": "residential",
+"disp": "Bisinella Court, Leopold, Victoria, 3224, Australia"
+},
+"vic-lara-fyansford": {
+"name": "Fyansford",
+"via": "name",
+"lat": -38.1416752,
+"lon": 144.3096802,
+"type": "administrative",
+"disp": "Fyansford, Geelong, Victoria, Australia"
+},
+"vic-lara-norlane-west": {
+"name": "Norlane West",
+"via": "name",
+"lat": -38.0890495,
+"lon": 144.3434343,
+"type": "neighbourhood",
+"disp": "Norlane West, Norlane, Geelong, Victoria, 3214, Australia"
+},
+"vic-lara-st-helens": {
+"name": "St Helens",
+"via": "name",
+"lat": -38.1212743,
+"lon": 144.3582023,
+"type": "residential",
+"disp": "Saint Helens, Helen Street, Rippleside, Geelong, Victoria, 3215, Australia"
+},
+"vic-laverton-ardeer": {
+"name": "Ardeer",
+"via": "name",
+"lat": -37.7758681,
+"lon": 144.8014637,
+"type": "administrative",
+"disp": "Ardeer, Melbourne, Victoria, 3022, Australia"
+},
+"vic-laverton-laverton": {
+"name": "Laverton",
+"via": "name",
+"lat": -37.8637978,
+"lon": 144.7723486,
+"type": "station",
+"disp": "Laverton, Railway Avenue, Laverton, Melbourne, Victoria, 3028, Australia"
+},
+"vic-laverton-tottenham-north": {
+"name": "Tottenham North",
+"via": "stem",
+"lat": -37.799268,
+"lon": 144.863206,
+"type": "station",
+"disp": "Tottenham, Sunshine Road, West Footscray, Melbourne, Victoria, 3012, Australia"
+},
+"vic-lowan-antwerp": {
+"name": "Antwerp",
+"via": "none"
+},
+"vic-lowan-hamilton-central": {
+"name": "Hamilton Central",
+"via": "stem",
+"lat": -36.7362887,
+"lon": 142.2055055,
+"type": "trunk",
+"disp": "Hamilton Road, Horsham, Victoria, 3400, Australia"
+},
+"vic-lowan-horsham-south": {
+"name": "Horsham South",
+"via": "name",
+"lat": -36.7520309,
+"lon": 142.3218938,
+"type": "secondary",
+"disp": "Horsham-Lubeck Road, Drung, Victoria, 3401, Australia"
+},
+"vic-lowan-netherby": {
+"name": "Netherby",
+"via": "name",
+"lat": -37.1734534,
+"lon": 142.554362,
+"type": "ridge",
+"disp": "Netherby Towers, Bellfield, Victoria, 3381, Australia"
+},
+"vic-macedon-toolern": {
+"name": "Toolern",
+"via": "name",
+"lat": -37.6074215,
+"lon": 144.5941995,
+"type": "administrative",
+"disp": "Toolern Vale, Melbourne, Victoria, 3337, Australia"
+},
+"vic-melbourne-melbourne": {
+"name": "Melbourne",
+"via": "name",
+"lat": -37.8142454,
+"lon": 144.9631732,
+"type": "city",
+"disp": "Melbourne, Victoria, Australia"
+},
+"vic-melbourne-north-melbourne-east": {
+"name": "North Melbourne East",
+"via": "name",
+"lat": -37.7939646,
+"lon": 145.0639697,
+"type": "company",
+"disp": "Embracia Victoria, 1138, Burke Road, Balwyn North, Melbourne, Victoria, 3104, Australia"
+},
+"vic-melbourne-queen-victoria": {
+"name": "Queen Victoria",
+"via": "name",
+"lat": -37.8219725,
+"lon": 144.9717214,
+"type": "park",
+"disp": "Queen Victoria Gardens, Melbourne, Victoria, Australia"
+},
+"vic-melbourne-south-kensington": {
+"name": "South Kensington",
+"via": "name",
+"lat": -37.7995027,
+"lon": 144.9248067,
+"type": "station",
+"disp": "South Kensington, Childers Street, Kensington, Melbourne, Victoria, 3031, Australia"
+},
+"vic-mildura-cullulleraine": {
+"name": "Cullulleraine",
+"via": "none"
+},
+"vic-mildura-mildura-ranfurly": {
+"name": "Mildura Ranfurly",
+"via": "none"
+},
+"vic-mildura-nandaly": {
+"name": "Nandaly",
+"via": "name",
+"lat": -35.3117042,
+"lon": 142.6782631,
+"type": "administrative",
+"disp": "Nandaly, Victoria, Australia"
+},
+"vic-mill-park-greenbrook": {
+"name": "Greenbrook",
+"via": "name",
+"lat": -37.6472967,
+"lon": 145.0359019,
+"type": "tertiary",
+"disp": "Greenbrook Drive, Epping, Melbourne, Victoria, 3076, Australia"
+},
+"vic-mill-park-lalor-north-east": {
+"name": "Lalor North East",
+"via": "stem",
+"lat": -37.6596146,
+"lon": 145.0340882,
+"type": "school",
+"disp": "Lalor North Secondary College, 114, Childs Road, Lalor, Melbourne, Victoria, 3075, Austral"
+},
+"vic-mill-park-marymeade": {
+"name": "Marymeade",
+"via": "none"
+},
+"vic-mill-park-meadow-glen": {
+"name": "Meadow Glen",
+"via": "name",
+"lat": -37.6456677,
+"lon": 145.0563582,
+"type": "park",
+"disp": "Meadow Glen Reserve, Epping, Melbourne, Victoria, 3076, Australia"
+},
+"vic-mill-park-morang-south": {
+"name": "Morang South",
+"via": "name",
+"lat": -37.6202084,
+"lon": 145.0924906,
+"type": "farmyard",
+"disp": "Egg Farmers Victoria, South Morang, Melbourne, Victoria, Australia"
+},
+"vic-mill-park-the-lakes": {
+"name": "The Lakes",
+"via": "name",
+"lat": -37.9137657,
+"lon": 145.2414036,
+"type": "residential",
+"disp": "The Lakes, Rowville, Melbourne, Victoria, Australia"
+},
+"vic-monbulk-canterbury-gardens": {
+"name": "Canterbury Gardens",
+"via": "name",
+"lat": -37.8307321,
+"lon": 145.2944319,
+"type": "park",
+"disp": "Canterbury Gardens, 42-78, Bayswater North, Melbourne, Victoria, 3153, Australia"
+},
+"vic-monbulk-monbulk-central": {
+"name": "Monbulk Central",
+"via": "stem",
+"lat": -37.9076776,
+"lon": 145.3565729,
+"type": "station",
+"disp": "Belgrave (Narrow-gauge), 1, Old Monbulk Road, Belgrave, Melbourne, Victoria, 3160, Austral"
+},
+"vic-monbulk-wandin-east": {
+"name": "Wandin East",
+"via": "name",
+"lat": -37.81237,
+"lon": 145.462204,
+"type": "administrative",
+"disp": "Wandin East, Melbourne, Victoria, Australia"
+},
+"vic-mordialloc-chapel": {
+"name": "Chapel",
+"via": "name",
+"lat": -37.643005,
+"lon": 145.0917443,
+"type": "yes",
+"disp": "Chapel, Williamsons Road, South Morang, Melbourne, Victoria, 3752, Australia"
+},
+"vic-mordialloc-keysborough-gardens": {
+"name": "Keysborough Gardens",
+"via": "name",
+"lat": -38.00976,
+"lon": 145.1610494,
+"type": "school",
+"disp": "Keysborough Gardens Primary School, 10, Homeleigh Road, Somerfield Estate, Keysborough, Me"
+},
+"vic-mordialloc-keysborough-park": {
+"name": "Keysborough Park",
+"via": "name",
+"lat": -37.989631,
+"lon": 145.1590044,
+"type": "park",
+"disp": "Keysborough Community Park, Keysborough, Melbourne, Victoria, Australia"
+},
+"vic-mornington-osborne": {
+"name": "Osborne",
+"via": "name",
+"lat": -38.2628246,
+"lon": 145.0202159,
+"type": "wood",
+"disp": "Osborne Park, Mount Martha, Melbourne, Victoria, 3934, Australia"
+},
+"vic-morwell-morwell-central": {
+"name": "Morwell Central",
+"via": "name",
+"lat": -38.2317359,
+"lon": 146.4065784,
+"type": "school",
+"disp": "Morwell Central Primary School, 47-87, McDonald Street, Morwell, Victoria, 3840, Australia"
+},
+"vic-morwell-morwell-east": {
+"name": "Morwell East",
+"via": "name",
+"lat": -38.4427015,
+"lon": 146.3441974,
+"type": "river",
+"disp": "Morwell River East Branch, Budgeree, Victoria, 3870, Australia"
+},
+"vic-morwell-traralgon-north-east": {
+"name": "Traralgon North East",
+"via": "stem",
+"lat": -38.1811334,
+"lon": 146.5630002,
+"type": "tower",
+"disp": "Optus Traralgon North 65-67 Eastern Road, Gippsland Plains Rail Trail, Traralgon East, Vic"
+},
+"vic-mulgrave-noble-park-north": {
+"name": "Noble Park North",
+"via": "name",
+"lat": -37.9512702,
+"lon": 145.1908377,
+"type": "administrative",
+"disp": "Noble Park North, Melbourne, Victoria, Australia"
+},
+"vic-mulgrave-northvale": {
+"name": "Northvale",
+"via": "name",
+"lat": -37.9311499,
+"lon": 145.155558,
+"type": "newsagent",
+"disp": "Northvale Authorised Newsagency, 901, Springvale Road, Mulgrave, Melbourne, Victoria, 3170"
+},
+"vic-mulgrave-springvale-heights": {
+"name": "Springvale Heights",
+"via": "name",
+"lat": -38.0254792,
+"lon": 145.1335605,
+"type": "trunk",
+"disp": "Springvale Road, Chelsea Heights, Melbourne, Victoria, 3196, Australia"
+},
+"vic-mulgrave-springvale-north": {
+"name": "Springvale North",
+"via": "name",
+"lat": -37.9345015,
+"lon": 145.1567149,
+"type": "retail",
+"disp": "Springvale North Shopping Centre, Springvale, Melbourne, Victoria, Australia"
+},
+"vic-narre-warren-north-avebury": {
+"name": "Avebury",
+"via": "name",
+"lat": -37.7942826,
+"lon": 144.9743171,
+"type": "house",
+"disp": "Avebury, 129, Station Street, Carlton, Melbourne, Victoria, 3053, Australia"
+},
+"vic-narre-warren-north-glen-eagles": {
+"name": "Glen Eagles",
+"via": "none"
+},
+"vic-narre-warren-north-hallam-valley": {
+"name": "Hallam Valley",
+"via": "name",
+"lat": -38.0425325,
+"lon": 145.3156989,
+"type": "recreation_ground",
+"disp": "Hallam Valley Reserve, Narre Warren, Melbourne, Victoria, 3805, Australia"
+},
+"vic-nepean-mccrae": {
+"name": "McCrae",
+"via": "name",
+"lat": -38.3599791,
+"lon": 144.9338501,
+"type": "administrative",
+"disp": "McCrae, Melbourne, Victoria, 3938, Australia"
+},
+"vic-nepean-rosebud": {
+"name": "Rosebud",
+"via": "name",
+"lat": -38.3710325,
+"lon": 144.9095115,
+"type": "administrative",
+"disp": "Rosebud, Melbourne, Victoria, Australia"
+},
+"vic-nepean-waterfall-gully": {
+"name": "Waterfall Gully",
+"via": "name",
+"lat": -38.3777517,
+"lon": 144.9194801,
+"type": "residential",
+"disp": "Waterfall Gully, Rosebud, Melbourne, Victoria, 3939, Australia"
+},
+"vic-niddrie-avondale-heights-north": {
+"name": "Avondale Heights North",
+"via": "stem",
+"lat": -37.7614537,
+"lon": 144.862141,
+"type": "administrative",
+"disp": "Avondale Heights, Melbourne, Victoria, 3034, Australia"
+},
+"vic-niddrie-calder-rise": {
+"name": "Calder Rise",
+"via": "name",
+"lat": -37.7164002,
+"lon": 144.8230432,
+"type": "park",
+"disp": "Calder Rise Park, Keilor, Melbourne, Victoria, 3036, Australia"
+},
+"vic-niddrie-niddrie": {
+"name": "Niddrie",
+"via": "name",
+"lat": -37.7397699,
+"lon": 144.8847881,
+"type": "administrative",
+"disp": "Niddrie, Melbourne, Victoria, Australia"
+},
+"vic-northcote-darebin-parklands": {
+"name": "Darebin Parklands",
+"via": "name",
+"lat": -37.7734417,
+"lon": 145.0333747,
+"type": "park",
+"disp": "Darebin Parklands, Alphington, Melbourne, Victoria, Australia"
+},
+"vic-oakleigh-carnegie-west": {
+"name": "Carnegie West",
+"via": "stem",
+"lat": -37.8862294,
+"lon": 145.0585695,
+"type": "station",
+"disp": "Carnegie, Shepparson Avenue, Carnegie, Melbourne, Victoria, 3163, Australia"
+},
+"vic-oakleigh-clayton-east": {
+"name": "Clayton East",
+"via": "name",
+"lat": -37.9038127,
+"lon": 145.1234926,
+"type": "neighbourhood",
+"disp": "Clayton North, Oakleigh East, Melbourne, Victoria, 3166, Australia"
+},
+"vic-oakleigh-davies-reserve": {
+"name": "Davies Reserve",
+"via": "name",
+"lat": -37.9201674,
+"lon": 145.1030943,
+"type": "park",
+"disp": "Davies Reserve, Oakleigh South, Melbourne, Victoria, 3167, Australia"
+},
+"vic-oakleigh-glenhuntly-east": {
+"name": "Glenhuntly East",
+"via": "stem",
+"lat": -37.8923791,
+"lon": 145.0413689,
+"type": "administrative",
+"disp": "Glen Huntly, Melbourne, Victoria, Australia"
+},
+"vic-oakleigh-huntingdale": {
+"name": "Huntingdale",
+"via": "name",
+"lat": -37.9107647,
+"lon": 145.1020573,
+"type": "station",
+"disp": "Huntingdale, North Road, Oakleigh South, Melbourne, Victoria, 3167, Australia"
+},
+"vic-oakleigh-monash-east": {
+"name": "Monash East",
+"via": "name",
+"lat": -37.8770095,
+"lon": 145.0734237,
+"type": "motorway",
+"disp": "Monash Freeway, Malvern East, Melbourne, Victoria, 3145, Australia"
+},
+"vic-oakleigh-oakleigh-north": {
+"name": "Oakleigh North",
+"via": "name",
+"lat": -37.9131454,
+"lon": 145.1069811,
+"type": "barracks",
+"disp": "Oakleigh Barracks, 1318, North Road, Oakleigh South, Melbourne, Victoria, 3167, Australia"
+},
+"vic-ovens-valley-bundalong": {
+"name": "Bundalong",
+"via": "name",
+"lat": -36.0329624,
+"lon": 146.1658428,
+"type": "village",
+"disp": "Bundalong, Victoria, Australia"
+},
+"vic-ovens-valley-everton": {
+"name": "Everton",
+"via": "name",
+"lat": -36.442907,
+"lon": 146.5618738,
+"type": "administrative",
+"disp": "Everton, Victoria, Australia"
+},
+"vic-ovens-valley-oxley": {
+"name": "Oxley",
+"via": "name",
+"lat": -36.4487715,
+"lon": 146.3731118,
+"type": "administrative",
+"disp": "Oxley, Victoria, Australia"
+},
+"vic-ovens-valley-running-creek": {
+"name": "Running Creek",
+"via": "name",
+"lat": -36.7698058,
+"lon": 146.7734182,
+"type": "stream",
+"disp": "Running Jump Creek, Mount Buffalo, Victoria, 3740, Australia"
+},
+"vic-ovens-valley-tawonga": {
+"name": "Tawonga",
+"via": "none"
+},
+"vic-ovens-valley-wangaratta-west": {
+"name": "Wangaratta West",
+"via": "name",
+"lat": -36.3540885,
+"lon": 146.3042221,
+"type": "school",
+"disp": "Wangaratta West Primary School, 47-49, Phillipson Street, Wangaratta, Victoria, 3677, Aust"
+},
+"vic-ovens-valley-yarrawonga-central": {
+"name": "Yarrawonga Central",
+"via": "stem",
+"lat": -36.034288,
+"lon": 146.0268423,
+"type": "aerodrome",
+"disp": "Yarrawonga Airport, John Duigan Drive, Yarrawonga, Victoria, 3730, Australia"
+},
+"vic-pakenham-caversham": {
+"name": "Caversham",
+"via": "name",
+"lat": -38.0139709,
+"lon": 145.4530082,
+"type": "peak",
+"disp": "Caversham Hill, Melbourne, Victoria, 3808, Australia"
+},
+"vic-pakenham-lakeside-east": {
+"name": "Lakeside East",
+"via": "name",
+"lat": -37.8560972,
+"lon": 145.1646253,
+"type": "unclassified",
+"disp": "Lakeside Drive, Tally Ho Business Park, Burwood East, Melbourne, Victoria, 3151, Australia"
+},
+"vic-pakenham-officer-east": {
+"name": "Officer East",
+"via": "stem",
+"lat": -38.0662897,
+"lon": 145.4116963,
+"type": "station",
+"disp": "Officer, Civic Drive, Officer, Melbourne, Victoria, 3809, Australia"
+},
+"vic-pakenham-officer-south-east": {
+"name": "Officer South East",
+"via": "stem",
+"lat": -38.0978456,
+"lon": 145.4218003,
+"type": "administrative",
+"disp": "Officer South, Melbourne, Victoria, Australia"
+},
+"vic-pakenham-pakenham-hills": {
+"name": "Pakenham Hills",
+"via": "name",
+"lat": -38.055072,
+"lon": 145.4971704,
+"type": "residential",
+"disp": "Pakenham Hills Estate, Pakenham, Melbourne, Victoria, Australia"
+},
+"vic-point-cook-altona-meadows-cc": {
+"name": "Altona Meadows CC",
+"via": "name",
+"lat": -37.8814419,
+"lon": 144.7845482,
+"type": "administrative",
+"disp": "Altona Meadows, Melbourne, Victoria, 3028, Australia"
+},
+"vic-point-cook-homestead": {
+"name": "Homestead",
+"via": "name",
+"lat": -37.9326571,
+"lon": 144.6677514,
+"type": "yes",
+"disp": "Homestead, Werribee Park Trail, Werribee South, Melbourne, Victoria, 3030, Australia"
+},
+"vic-point-cook-jamieson-way": {
+"name": "Jamieson Way",
+"via": "name",
+"lat": -37.8950706,
+"lon": 144.7460549,
+"type": "tertiary",
+"disp": "Jamieson Way, Point Cook Gardens, Point Cook, Melbourne, Victoria, 3030, Australia"
+},
+"vic-point-cook-seabrook-central": {
+"name": "Seabrook Central",
+"via": "stem",
+"lat": -37.8806797,
+"lon": 144.7578334,
+"type": "administrative",
+"disp": "Seabrook, Melbourne, Victoria, Australia"
+},
+"vic-polwarth-ecklin": {
+"name": "Ecklin",
+"via": "none"
+},
+"vic-polwarth-irrewillipe-east": {
+"name": "Irrewillipe East",
+"via": "name",
+"lat": -38.433696,
+"lon": 143.483871,
+"type": "administrative",
+"disp": "Irrewillipe East, Victoria, Australia"
+},
+"vic-prahran-fawkner-park": {
+"name": "Fawkner Park",
+"via": "name",
+"lat": -37.8414609,
+"lon": 144.9818683,
+"type": "park",
+"disp": "Fawkner Park, South Yarra, Melbourne, Victoria, Australia"
+},
+"vic-prahran-redan-central": {
+"name": "Redan Central",
+"via": "stem",
+"lat": -37.859959,
+"lon": 144.9901531,
+"type": "residential",
+"disp": "Redan Street, St Kilda, Melbourne, Victoria, 3182, Australia"
+},
+"vic-prahran-st-kilda-east": {
+"name": "St Kilda East",
+"via": "name",
+"lat": -37.8668218,
+"lon": 145.0021657,
+"type": "administrative",
+"disp": "St Kilda East, Melbourne, Victoria, 3183, Australia"
+},
+"vic-preston-keon-park": {
+"name": "Keon Park",
+"via": "name",
+"lat": -37.6960332,
+"lon": 145.0116642,
+"type": "station",
+"disp": "Keon Park, Platform 2, Keon Park, Reservoir, Melbourne, Victoria, 3073, Australia"
+},
+"vic-richmond-atherton-gardens": {
+"name": "Atherton Gardens",
+"via": "name",
+"lat": -37.8046796,
+"lon": 144.9785318,
+"type": "residential",
+"disp": "Atherton Gardens Housing Estate, Fitzroy, Melbourne, Victoria, Australia"
+},
+"vic-richmond-hosie": {
+"name": "Hosie",
+"via": "name",
+"lat": -37.8908855,
+"lon": 144.7867756,
+"type": "residential",
+"disp": "Hosie Street, Altona Green, Altona Meadows, Melbourne, Victoria, 3028, Australia"
+},
+"vic-richmond-richmond-north-106": {
+"name": "Richmond North 106",
+"via": "name",
+"lat": -37.8097347,
+"lon": 144.9925823,
+"type": "tram_stop",
+"disp": "Stop 19: North Richmond Station, Victoria Street, Abbotsford, Melbourne, Victoria, 3067, A"
+},
+"vic-richmond-richmond-north-110": {
+"name": "Richmond North 110",
+"via": "name",
+"lat": -37.8097347,
+"lon": 144.9925823,
+"type": "tram_stop",
+"disp": "Stop 19: North Richmond Station, Victoria Street, Abbotsford, Melbourne, Victoria, 3067, A"
+},
+"vic-ringwood-mitcham-south": {
+"name": "Mitcham South",
+"via": "stem",
+"lat": -37.8180929,
+"lon": 145.1928003,
+"type": "station",
+"disp": "Mitcham, Mitcham Road, Mitcham, Melbourne, Victoria, 3132, Australia"
+},
+"vic-ringwood-nunawading": {
+"name": "Nunawading",
+"via": "name",
+"lat": -37.820503,
+"lon": 145.1751332,
+"type": "station",
+"disp": "Nunawading, Springvale Road, Nunawading, Melbourne, Victoria, 3131, Australia"
+},
+"vic-ringwood-nunawading-east": {
+"name": "Nunawading East",
+"via": "name",
+"lat": -37.8550995,
+"lon": 145.1630847,
+"type": "sports_centre",
+"disp": "Nunawading Basketball Stadium, Burwood Highway, Burwood East, Melbourne, Victoria, 3151, A"
+},
+"vic-ringwood-southwood": {
+"name": "Southwood",
+"via": "name",
+"lat": -37.8591268,
+"lon": 145.21615,
+"type": "residential",
+"disp": "Southwood Close, Wantirna, Melbourne, Victoria, 3152, Australia"
+},
+"vic-ringwood-wakefield": {
+"name": "Wakefield",
+"via": "name",
+"lat": -37.7052579,
+"lon": 145.1360982,
+"type": "park",
+"disp": "Wakefield Close Reserve, Eltham North, Melbourne, Victoria, 3095, Australia"
+},
+"vic-ripon-scarsdale": {
+"name": "Scarsdale",
+"via": "none"
+},
+"vic-ripon-smeaton": {
+"name": "Smeaton",
+"via": "name",
+"lat": -37.313193,
+"lon": 143.964309,
+"type": "administrative",
+"disp": "Smeaton, Victoria, 3364, Australia"
+},
+"vic-rowville-carrington": {
+"name": "Carrington",
+"via": "name",
+"lat": -37.9168018,
+"lon": 145.2876881,
+"type": "residential",
+"disp": "Carrington, Lysterfield, Melbourne, Victoria, Australia"
+},
+"vic-rowville-flamingo": {
+"name": "Flamingo",
+"via": "name",
+"lat": -37.868625,
+"lon": 145.2223906,
+"type": "park",
+"disp": "Flamingo Reserve, Wantirna South, Melbourne, Victoria, 3152, Australia"
+},
+"vic-rowville-knox-park": {
+"name": "Knox Park",
+"via": "name",
+"lat": -37.8955824,
+"lon": 145.2580224,
+"type": "park",
+"disp": "Knox Park, Knoxfield, Melbourne, Victoria, 3180, Australia"
+},
+"vic-shepparton-st-georges-road": {
+"name": "St Georges Road",
+"via": "name",
+"lat": -36.3859249,
+"lon": 145.4073695,
+"type": "tertiary",
+"disp": "St Georges Road, Shepparton, Victoria, 3630, Australia"
+},
+"vic-shepparton-storey": {
+"name": "Storey",
+"via": "none"
+},
+"vic-shepparton-tallygaroopna": {
+"name": "Tallygaroopna",
+"via": "name",
+"lat": -36.2394885,
+"lon": 145.4407566,
+"type": "administrative",
+"disp": "Tallygaroopna, Victoria, 3634, Australia"
+},
+"vic-south-barwon-armstrong-creek": {
+"name": "Armstrong Creek",
+"via": "name",
+"lat": -38.2341184,
+"lon": 144.3709512,
+"type": "administrative",
+"disp": "Armstrong Creek, Geelong, Victoria, Australia"
+},
+"vic-south-barwon-belmont-west": {
+"name": "Belmont West",
+"via": "stem",
+"lat": -38.1785947,
+"lon": 144.3421337,
+"type": "administrative",
+"disp": "Belmont, Geelong, Victoria, Australia"
+},
+"vic-south-barwon-highton-central": {
+"name": "Highton Central",
+"via": "stem",
+"lat": -38.1709191,
+"lon": 144.3190212,
+"type": "administrative",
+"disp": "Highton, Geelong, Victoria, Australia"
+},
+"vic-south-barwon-mount-duneed-central": {
+"name": "Mount Duneed Central",
+"via": "stem",
+"lat": -38.2316529,
+"lon": 144.3170763,
+"type": "administrative",
+"disp": "Mount Duneed, Geelong, Victoria, 3217, Australia"
+},
+"vic-south-barwon-waurn-ponds": {
+"name": "Waurn Ponds",
+"via": "name",
+"lat": -38.2158244,
+"lon": 144.3061193,
+"type": "station",
+"disp": "Waurn Ponds, Muir Road, Mount Duneed, Geelong, Victoria, 3217, Australia"
+},
+"vic-south-west-coast-grassmere": {
+"name": "Grassmere",
+"via": "name",
+"lat": -38.2853758,
+"lon": 142.5237312,
+"type": "administrative",
+"disp": "Grassmere, Victoria, Australia"
+},
+"vic-south-west-coast-portland": {
+"name": "Portland",
+"via": "name",
+"lat": -38.1927003,
+"lon": 141.9067865,
+"type": "tertiary",
+"disp": "Portland Road, Bessiebelle, Victoria, 3304, Australia"
+},
+"vic-south-west-coast-portland-south-west": {
+"name": "Portland South West",
+"via": "none"
+},
+"vic-south-west-coast-wangoom": {
+"name": "Wangoom",
+"via": "name",
+"lat": -38.329565,
+"lon": 142.5787675,
+"type": "administrative",
+"disp": "Wangoom, Victoria, Australia"
+},
+"vic-south-west-coast-warrnambool-tower-square": {
+"name": "Warrnambool - Tower Square",
+"via": "none"
+},
+"vic-south-west-coast-warrnambool-education-centre": {
+"name": "Warrnambool Education Centre",
+"via": "none"
+},
+"vic-south-west-coast-warrnambool-north": {
+"name": "Warrnambool North",
+"via": "stem",
+"lat": -38.3826242,
+"lon": 142.4814199,
+"type": "administrative",
+"disp": "Warrnambool, Victoria, 3280, Australia"
+},
+"vic-south-west-coast-warrnambool-south-west": {
+"name": "Warrnambool South West",
+"via": "stem",
+"lat": -38.3953833,
+"lon": 142.4710656,
+"type": "kindergarten",
+"disp": "South Warrnambool Kindergarten, 24, Stanley Street, Warrnambool, Victoria, 3280, Australia"
+},
+"vic-st-albans-albion-north": {
+"name": "Albion North",
+"via": "name",
+"lat": -37.7626657,
+"lon": 144.8232077,
+"type": "school",
+"disp": "Albion North Primary School, 67-73, Furlong Road, Sunshine North, Melbourne, Victoria, 302"
+},
+"vic-st-albans-st-albans": {
+"name": "St Albans",
+"via": "name",
+"lat": -37.744556,
+"lon": 144.7996864,
+"type": "station",
+"disp": "St Albans, McKechnie Street, St Albans, Melbourne, Victoria, 3021, Australia"
+},
+"vic-st-albans-stevensville": {
+"name": "Stevensville",
+"via": "name",
+"lat": -37.7366304,
+"lon": 144.7812723,
+"type": "school",
+"disp": "Stevensville Primary School, 52, Kings Road, St Albans, Melbourne, Victoria, 3021, Austral"
+},
+"vic-sunbury-bulla": {
+"name": "Bulla",
+"via": "name",
+"lat": -37.6347957,
+"lon": 144.8027227,
+"type": "administrative",
+"disp": "Bulla, Melbourne, Victoria, 3428, Australia"
+},
+"vic-sunbury-goonawarra": {
+"name": "Goonawarra",
+"via": "name",
+"lat": -37.5726347,
+"lon": 144.7537233,
+"type": "neighbourhood",
+"disp": "Goonawarra, Sunbury, Melbourne, Victoria, 3429, Australia"
+},
+"vic-sunbury-sunbury-central": {
+"name": "Sunbury Central",
+"via": "stem",
+"lat": -37.5796938,
+"lon": 144.7295281,
+"type": "administrative",
+"disp": "Sunbury, Melbourne, Victoria, 3429, Australia"
+},
+"vic-sunbury-sunbury-north-west": {
+"name": "Sunbury North West",
+"via": "none"
+},
+"vic-sydenham-plumpton": {
+"name": "Plumpton",
+"via": "name",
+"lat": -37.6727808,
+"lon": 144.6993618,
+"type": "administrative",
+"disp": "Plumpton, Melbourne, Victoria, Australia"
+},
+"vic-sydenham-sydenham": {
+"name": "Sydenham",
+"via": "name",
+"lat": -37.6997223,
+"lon": 144.7653295,
+"type": "administrative",
+"disp": "Sydenham, Melbourne, Victoria, 3037, Australia"
+},
+"vic-tarneit-bellbridge-east": {
+"name": "Bellbridge East",
+"via": "stem",
+"lat": -37.8734,
+"lon": 144.7072662,
+"type": "residential",
+"disp": "Bellbridge, Hoppers Crossing, Melbourne, Victoria, Australia"
+},
+"vic-tarneit-tarneit-east": {
+"name": "Tarneit East",
+"via": "name",
+"lat": -37.8322459,
+"lon": 144.6985695,
+"type": "parking",
+"disp": "Tarneit Station Car Park North East, Beasley Loop, Tarneit, Melbourne, Victoria, 3029, Aus"
+},
+"vic-tarneit-tarneit-rise": {
+"name": "Tarneit Rise",
+"via": "name",
+"lat": -37.8371258,
+"lon": 144.6649374,
+"type": "school",
+"disp": "Tarneit Rise Primary School, 51-71, Hummingbird Boulevard, The Rise, Tarneit, Melbourne, V"
+},
+"vic-thomastown-epping-north-west": {
+"name": "Epping North West",
+"via": "stem",
+"lat": -37.6232871,
+"lon": 145.0083619,
+"type": "park",
+"disp": "Proposed Epping North Rail Line Easement, Epping, Melbourne, Victoria, 3076, Australia"
+},
+"vic-thomastown-lalor-north-east": {
+"name": "Lalor North East",
+"via": "stem",
+"lat": -37.6596146,
+"lon": 145.0340882,
+"type": "school",
+"disp": "Lalor North Secondary College, 114, Childs Road, Epping, Melbourne, Victoria, 3076, Austra"
+},
+"vic-thomastown-wollert-south-west": {
+"name": "Wollert South West",
+"via": "none"
+},
+"vic-warrandyte-kalinda": {
+"name": "Kalinda",
+"via": "name",
+"lat": -37.789895,
+"lon": 145.2510773,
+"type": "wood",
+"disp": "Kalinda Modified Urban Forest, Ringwood, Melbourne, Victoria, 3134, Australia"
+},
+"vic-warrandyte-warrandyte-south": {
+"name": "Warrandyte South",
+"via": "name",
+"lat": -37.7648724,
+"lon": 145.2373106,
+"type": "administrative",
+"disp": "Warrandyte South, Melbourne, Victoria, Australia"
+},
+"vic-werribee-riverbend": {
+"name": "Riverbend",
+"via": "name",
+"lat": -37.884461,
+"lon": 144.6444478,
+"type": "residential",
+"disp": "Riverbend, Werribee, Melbourne, Victoria, Australia"
+},
+"vic-werribee-riverwalk": {
+"name": "Riverwalk",
+"via": "name",
+"lat": -37.9168565,
+"lon": 144.6472807,
+"type": "residential",
+"disp": "Riverwalk, Werribee, Melbourne, Victoria, Australia"
+},
+"vic-williamstown-brooklyn": {
+"name": "Brooklyn",
+"via": "name",
+"lat": -37.8160898,
+"lon": 144.8414748,
+"type": "administrative",
+"disp": "Brooklyn, Melbourne, Victoria, Australia"
+},
+"vic-williamstown-hyde": {
+"name": "Hyde",
+"via": "name",
+"lat": -37.7923257,
+"lon": 145.0403169,
+"type": "park",
+"disp": "Hyde Park, Kew East, Melbourne, Victoria, Australia"
+},
+"vic-williamstown-kingsville-south": {
+"name": "Kingsville South",
+"via": "name",
+"lat": -37.8306664,
+"lon": 144.8713429,
+"type": "administrative",
+"disp": "South Kingsville, Melbourne, Victoria, Australia"
+},
+"vic-williamstown-spotswood-west": {
+"name": "Spotswood West",
+"via": "stem",
+"lat": -37.8307331,
+"lon": 144.8858865,
+"type": "station",
+"disp": "Spotswood, Hall Street, Spotswood, Melbourne, Victoria, 3015, Australia"
+},
+"vic-yan-yean-ashley-park": {
+"name": "Ashley Park",
+"via": "name",
+"lat": -37.6182446,
+"lon": 145.1198515,
+"type": "stream",
+"disp": "Ashley Park Creek, Doreen, Melbourne, Victoria, 3754, Australia"
+},
+"vic-yan-yean-mernda-central": {
+"name": "Mernda Central",
+"via": "name",
+"lat": -37.6004859,
+"lon": 145.1028367,
+"type": "construction",
+"disp": "Mernda Central, Mernda, Melbourne, Victoria, 3754, Australia"
+},
+"vic-yan-yean-morang-south": {
+"name": "Morang South",
+"via": "name",
+"lat": -37.6202084,
+"lon": 145.0924906,
+"type": "farmyard",
+"disp": "Egg Farmers Victoria, South Morang, Melbourne, Victoria, Australia"
+},
+"vic-dandenong-doveton-north": {
+"name": "Doveton North",
+"via": "stem",
+"lat": -37.9887542,
+"lon": 145.2385975,
+"type": "administrative",
+"disp": "Doveton, Melbourne, Victoria, 3177, Australia"
+},
+"vic-dandenong-loxwood": {
+"name": "Loxwood",
+"via": "name",
+"lat": -37.987,
+"lon": 145.1566567,
+"type": "park",
+"disp": "Loxwood Avenue Reserve, Keysborough, Melbourne, Victoria, 3173, Australia"
+},
+"vic-dandenong-maralinga": {
+"name": "Maralinga",
+"via": "name",
+"lat": -37.9862377,
+"lon": 145.1867488,
+"type": "brownfield",
+"disp": "Former: Chandler Park Primary School (Maralinga Campus), Keysborough, Melbourne, Victoria,"
+},
+"vic-dandenong-yarraman-oaks": {
+"name": "Yarraman Oaks",
+"via": "name",
+"lat": -37.9707973,
+"lon": 145.1925216,
+"type": "school",
+"disp": "Yarraman Oaks Primary School, 27, Liege Avenue, Noble Park, Melbourne, Victoria, 3174, Aus"
+},
+"vic-eildon-buxton": {
+"name": "Buxton",
+"via": "name",
+"lat": -37.4352955,
+"lon": 145.7170196,
+"type": "administrative",
+"disp": "Buxton, Victoria, 3711, Australia"
+},
+"vic-eildon-kangaroo-ground": {
+"name": "Kangaroo Ground",
+"via": "name",
+"lat": -37.6918649,
+"lon": 145.2158904,
+"type": "administrative",
+"disp": "Kangaroo Ground, Melbourne, Victoria, 3097, Australia"
+},
+"vic-eildon-merrijig": {
+"name": "Merrijig",
+"via": "none"
+},
+"vic-eildon-merton": {
+"name": "Merton",
+"via": "name",
+"lat": -37.734704,
+"lon": 145.3862316,
+"type": "park",
+"disp": "Merton Court Reserve, Coldstream, Melbourne, Victoria, Australia"
+},
+"vic-eltham-glen-katherine": {
+"name": "Glen Katherine",
+"via": "name",
+"lat": -37.6929464,
+"lon": 145.1313561,
+"type": "park",
+"disp": "Glen Katherine Drive Reserve, St Helena, Melbourne, Victoria, 3088, Australia"
+},
+"vic-eltham-holy-trinity-eltham-north": {
+"name": "Holy Trinity - Eltham North",
+"via": "name",
+"lat": -37.6984015,
+"lon": 145.1353724,
+"type": "school",
+"disp": "Holy Trinity Primary School, 92-96, Weidlich Road, Eltham North, Melbourne, Victoria, 3095"
+},
+"vic-eltham-sherbourne": {
+"name": "Sherbourne",
+"via": "name",
+"lat": -37.7137067,
+"lon": 145.1336635,
+"type": "park",
+"disp": "Sherbourne Road Reserve, Montmorency, Melbourne, Victoria, 3094, Australia"
+},
+"vic-gippsland-east-dargo": {
+"name": "Dargo",
+"via": "name",
+"lat": -37.8434543,
+"lon": 147.5883564,
+"type": "secondary",
+"disp": "Bairnsdale - Dargo Road, Bairnsdale, Victoria, 3875, Australia"
+},
+"vic-gippsland-east-lucknow-west": {
+"name": "Lucknow West",
+"via": "stem",
+"lat": -37.804602,
+"lon": 147.6702097,
+"type": "administrative",
+"disp": "Lucknow, Victoria, Australia"
+},
+"vic-gippsland-east-newry": {
+"name": "Newry",
+"via": "none"
+},
+"vic-gippsland-east-tinamba": {
+"name": "Tinamba",
+"via": "none"
+},
+"vic-gippsland-east-valencia-creek": {
+"name": "Valencia Creek",
+"via": "none"
+},
+"vic-kalkallo-craigieburn-north-west": {
+"name": "Craigieburn North West",
+"via": "stem",
+"lat": -37.5748787,
+"lon": 144.920198,
+"type": "post_office",
+"disp": "Craigieburn North Post Office, 300-332, Grand Boulevard, Highlands, Craigieburn, Melbourne"
+},
+"vic-kalkallo-elevation": {
+"name": "Elevation",
+"via": "name",
+"lat": -37.6012131,
+"lon": 144.8990217,
+"type": "tertiary",
+"disp": "Elevation Boulevard, Aston, Craigieburn, Melbourne, Victoria, 3064, Australia"
+},
+"vic-kalkallo-mickleham-north": {
+"name": "Mickleham North",
+"via": "name",
+"lat": -37.5281435,
+"lon": 144.9078864,
+"type": "community_centre",
+"disp": "Mickleham North Community Centre, Blackmore Road, Merrifield, Mickleham, Melbourne, Victor"
+},
+"vic-kalkallo-wallan": {
+"name": "Wallan",
+"via": "name",
+"lat": -37.4138855,
+"lon": 144.9774549,
+"type": "administrative",
+"disp": "Wallan, Victoria, 3756, Australia"
+},
+"vic-kew-balwyn-north-west": {
+"name": "Balwyn North West",
+"via": "stem",
+"lat": -37.7919518,
+"lon": 145.0842372,
+"type": "administrative",
+"disp": "Balwyn North, Melbourne, Victoria, 3104, Australia"
+},
+"vic-kew-balwyn-west": {
+"name": "Balwyn West",
+"via": "stem",
+"lat": -37.8091737,
+"lon": 145.0833678,
+"type": "administrative",
+"disp": "Balwyn, Melbourne, Victoria, 3103, Australia"
+},
+"vic-malvern-armadale-east": {
+"name": "Armadale East",
+"via": "stem",
+"lat": -37.8563442,
+"lon": 145.0193207,
+"type": "station",
+"disp": "Armadale, Morey Street, Armadale, Melbourne, Victoria, 3143, Australia"
+},
+"vic-malvern-kooyong": {
+"name": "Kooyong",
+"via": "name",
+"lat": -37.841394,
+"lon": 145.0358402,
+"type": "administrative",
+"disp": "Kooyong, Melbourne, Victoria, Australia"
+},
+"vic-melton-bulmans": {
+"name": "Bulmans",
+"via": "name",
+"lat": -37.6402873,
+"lon": 144.55456,
+"type": "unclassified",
+"disp": "Bulmans Road, Harkness, Melbourne, Victoria, 3337, Australia"
+},
+"vic-melton-melton-west": {
+"name": "Melton West",
+"via": "name",
+"lat": -37.6798651,
+"lon": 144.5528895,
+"type": "administrative",
+"disp": "Melton West, Melbourne, Victoria, Australia"
+},
+"vic-melton-toolern": {
+"name": "Toolern",
+"via": "name",
+"lat": -37.6074215,
+"lon": 144.5941995,
+"type": "administrative",
+"disp": "Toolern Vale, Melbourne, Victoria, 3337, Australia"
+},
+"vic-murray-plains-bamawm-extension": {
+"name": "Bamawm Extension",
+"via": "name",
+"lat": -36.184519,
+"lon": 144.6003292,
+"type": "administrative",
+"disp": "Bamawm Extension, Victoria, Australia"
+},
+"vic-murray-plains-dingwall": {
+"name": "Dingwall",
+"via": "name",
+"lat": -35.808604,
+"lon": 143.8481751,
+"type": "administrative",
+"disp": "Dingwall, Victoria, Australia"
+},
+"vic-murray-plains-koyuga": {
+"name": "Koyuga",
+"via": "none"
+},
+"vic-murray-plains-swan-hill-north": {
+"name": "Swan Hill North",
+"via": "stem",
+"lat": -35.7360772,
+"lon": 143.9205623,
+"type": "car",
+"disp": "Swan Hill & Kerang Toyota, 1, Victoria Street, Kerang, Victoria, 3579, Australia"
+},
+"vic-murray-plains-swan-hill-south": {
+"name": "Swan Hill South",
+"via": "stem",
+"lat": -35.7360772,
+"lon": 143.9205623,
+"type": "car",
+"disp": "Swan Hill & Kerang Toyota, 1, Victoria Street, Kerang, Victoria, 3579, Australia"
+},
+"vic-narre-warren-south-casey-central": {
+"name": "Casey Central",
+"via": "name",
+"lat": -38.0676649,
+"lon": 145.3000822,
+"type": "mall",
+"disp": "Casey Central, 400, Cranbourne Road, Narre Warren South, Melbourne, Victoria, 3977, Austra"
+},
+"vic-narre-warren-south-courtenay-gardens": {
+"name": "Courtenay Gardens",
+"via": "name",
+"lat": -38.0795137,
+"lon": 145.2828867,
+"type": "school",
+"disp": "Courtenay Gardens Primary School, 62-76, Courtenay Avenue, Cranbourne North, Melbourne, Vi"
+},
+"vic-narre-warren-south-hillsmeade": {
+"name": "Hillsmeade",
+"via": "name",
+"lat": -38.0617329,
+"lon": 145.305354,
+"type": "park",
+"disp": "Hillsmeade Drive Reserve, Narre Warren South, Melbourne, Victoria, 3805, Australia"
+},
+"vic-narre-warren-south-tulliallan": {
+"name": "Tulliallan",
+"via": "name",
+"lat": -38.0776317,
+"lon": 145.3267537,
+"type": "residential",
+"disp": "Tulliallan, Cranbourne North, Melbourne, Victoria, Australia"
+},
+"vic-sandringham-berendale": {
+"name": "Berendale",
+"via": "none"
+},
+"vic-sandringham-cheltenham": {
+"name": "Cheltenham",
+"via": "name",
+"lat": -37.9670081,
+"lon": 145.0546951,
+"type": "station",
+"disp": "Cheltenham, Caulfield-Frankston Rail Trail, Pennydale, Cheltenham, Melbourne, Victoria, 31"
+},
+"vic-sandringham-cheltenham-west": {
+"name": "Cheltenham West",
+"via": "stem",
+"lat": -37.9670081,
+"lon": 145.0546951,
+"type": "station",
+"disp": "Cheltenham, Caulfield-Frankston Rail Trail, Pennydale, Cheltenham, Melbourne, Victoria, 31"
+},
+"vic-sandringham-highett-south": {
+"name": "Highett South",
+"via": "stem",
+"lat": -37.9484438,
+"lon": 145.04188,
+"type": "station",
+"disp": "Highett, Railway Parade, Highett, Melbourne, Victoria, 3190, Australia"
+},
+"vic-sandringham-holloway": {
+"name": "Holloway",
+"via": "name",
+"lat": -37.8509453,
+"lon": 145.2820393,
+"type": "park",
+"disp": "Holloway Drive Reserve, Bayswater, Melbourne, Victoria, 3153, Australia"
+},
+"vic-sandringham-mentone-west": {
+"name": "Mentone West",
+"via": "name",
+"lat": -37.988324,
+"lon": 145.0697779,
+"type": "sports_centre",
+"disp": "Mentone Sports and Aquatic Centre, Como Parade West, Mentone, Melbourne, Victoria, 3194, A"
+},
+"vic-wendouree-ballarat-central": {
+"name": "Ballarat Central",
+"via": "name",
+"lat": -37.5627279,
+"lon": 143.8501516,
+"type": "administrative",
+"disp": "Ballarat Central, Ballarat, Victoria, Australia"
+},
+"vic-wendouree-caledonian": {
+"name": "Caledonian",
+"via": "name",
+"lat": -37.6737726,
+"lon": 143.7200614,
+"type": "stream",
+"disp": "Caledonian Creek, Smythesdale, Ballarat, Victoria, 3351, Australia"
+},
+"vic-wendouree-skipton-street": {
+"name": "Skipton Street",
+"via": "name",
+"lat": -37.5688412,
+"lon": 143.8526809,
+"type": "trunk",
+"disp": "Skipton Street, Ballarat Central, Ballarat, Victoria, 3350, Australia"
+},
+"vic-altona-altona-meadows-cc": {
+"name": "Altona Meadows CC",
+"via": "name_reused",
+"lat": -37.8814419,
+"lon": 144.7845482,
+"type": "administrative",
+"disp": "Altona Meadows, Melbourne, Victoria, 3028, Australia"
+},
+"vic-altona-jamieson-way": {
+"name": "Jamieson Way",
+"via": "name_reused",
+"lat": -37.8950706,
+"lon": 144.7460549,
+"type": "tertiary",
+"disp": "Jamieson Way, Point Cook Gardens, Point Cook, Melbourne, Victoria, 3030, Australia"
+},
+"vic-altona-laverton": {
+"name": "Laverton",
+"via": "name_reused",
+"lat": -37.8637978,
+"lon": 144.7723486,
+"type": "station",
+"disp": "Laverton, Railway Avenue, Laverton, Melbourne, Victoria, 3028, Australia"
+},
+"vic-altona-seabrook-central": {
+"name": "Seabrook Central",
+"via": "stem_reused",
+"lat": -37.8806797,
+"lon": 144.7578334,
+"type": "administrative",
+"disp": "Seabrook, Melbourne, Victoria, Australia"
+},
+"vic-bayswater-canterbury-gardens": {
+"name": "Canterbury Gardens",
+"via": "name_reused",
+"lat": -37.8307321,
+"lon": 145.2944319,
+"type": "park",
+"disp": "Canterbury Gardens, 42-78, Bayswater North, Melbourne, Victoria, 3153, Australia"
+},
+"vic-bayswater-southwood": {
+"name": "Southwood",
+"via": "name_reused",
+"lat": -37.8591268,
+"lon": 145.21615,
+"type": "residential",
+"disp": "Southwood Close, Wantirna, Melbourne, Victoria, 3152, Australia"
+},
+"vic-buninyong-caledonian": {
+"name": "Caledonian",
+"via": "name_reused",
+"lat": -37.6737726,
+"lon": 143.7200614,
+"type": "stream",
+"disp": "Caledonian Creek, Smythesdale, Ballarat, Victoria, 3351, Australia"
+},
+"vic-buninyong-clarkes-hill": {
+"name": "Clarkes Hill",
+"via": "name_reused",
+"lat": -37.498943,
+"lon": 143.978809,
+"type": "administrative",
+"disp": "Clarkes Hill, Ballarat, Victoria, Australia"
+},
+"vic-burwood-alamein": {
+"name": "Alamein",
+"via": "name_reused",
+"lat": -37.8683603,
+"lon": 145.0797334,
+"type": "station",
+"disp": "Alamein, Ashburn Grove, Ashburton, Melbourne, Victoria, 3147, Australia"
+},
+"vic-burwood-chatham-south": {
+"name": "Chatham South",
+"via": "stem_reused",
+"lat": -37.8242309,
+"lon": 145.0886628,
+"type": "station",
+"disp": "Chatham, Stanley Terrace, Surrey Hills, Melbourne, Victoria, 3127, Australia"
+},
+"vic-burwood-highfield": {
+"name": "Highfield",
+"via": "name_reused",
+"lat": -37.8363266,
+"lon": 145.0856679,
+"type": "park",
+"disp": "Highfield Park, Camberwell, Melbourne, Victoria, 3124, Australia"
+},
+"vic-burwood-jordanville-south": {
+"name": "Jordanville South",
+"via": "stem_reused",
+"lat": -37.8736635,
+"lon": 145.1122691,
+"type": "station",
+"disp": "Jordanville, Windsor Avenue, Mount Waverley, Melbourne, Victoria, 3149, Australia"
+},
+"vic-clarinda-clayton-east": {
+"name": "Clayton East",
+"via": "name_reused",
+"lat": -37.9038127,
+"lon": 145.1234926,
+"type": "neighbourhood",
+"disp": "Clayton North, Oakleigh East, Melbourne, Victoria, 3166, Australia"
+},
+"vic-clarinda-davies-reserve": {
+"name": "Davies Reserve",
+"via": "name_reused",
+"lat": -37.9201674,
+"lon": 145.1030943,
+"type": "park",
+"disp": "Davies Reserve, Oakleigh South, Melbourne, Victoria, 3167, Australia"
+},
+"vic-clarinda-springvale-north": {
+"name": "Springvale North",
+"via": "name_reused",
+"lat": -37.9345015,
+"lon": 145.1567149,
+"type": "retail",
+"disp": "Springvale North Shopping Centre, Springvale, Melbourne, Victoria, Australia"
+},
+"vic-cranbourne-casey-central": {
+"name": "Casey Central",
+"via": "name_reused",
+"lat": -38.0676649,
+"lon": 145.3000822,
+"type": "mall",
+"disp": "Casey Central, 400, Cranbourne Road, Narre Warren South, Melbourne, Victoria, 3977, Austra"
+},
+"vic-ferntree-gully-flamingo": {
+"name": "Flamingo",
+"via": "name_reused",
+"lat": -37.868625,
+"lon": 145.2223906,
+"type": "park",
+"disp": "Flamingo Reserve, Wantirna South, Melbourne, Victoria, 3152, Australia"
+},
+"vic-ferntree-gully-knox-park": {
+"name": "Knox Park",
+"via": "name_reused",
+"lat": -37.8955824,
+"lon": 145.2580224,
+"type": "park",
+"disp": "Knox Park, Knoxfield, Melbourne, Victoria, 3180, Australia"
+},
+"vic-ferntree-gully-knoxfield-north": {
+"name": "Knoxfield North",
+"via": "stem_reused",
+"lat": -37.8897731,
+"lon": 145.2496342,
+"type": "administrative",
+"disp": "Knoxfield, Melbourne, Victoria, 3180, Australia"
+},
+"vic-ferntree-gully-wantirna-north": {
+"name": "Wantirna North",
+"via": "stem_reused",
+"lat": -37.8523357,
+"lon": 145.2259721,
+"type": "administrative",
+"disp": "Wantirna, Melbourne, Victoria, Australia"
+},
+"vic-footscray-ardeer": {
+"name": "Ardeer",
+"via": "name_reused",
+"lat": -37.7758681,
+"lon": 144.8014637,
+"type": "administrative",
+"disp": "Ardeer, Melbourne, Victoria, 3022, Australia"
+},
+"vic-footscray-tottenham-north": {
+"name": "Tottenham North",
+"via": "stem_reused",
+"lat": -37.799268,
+"lon": 144.863206,
+"type": "station",
+"disp": "Tottenham, Sunshine Road, West Footscray, Melbourne, Victoria, 3012, Australia"
+},
+"vic-forest-hill-mitcham-south": {
+"name": "Mitcham South",
+"via": "stem_reused",
+"lat": -37.8180929,
+"lon": 145.1928003,
+"type": "station",
+"disp": "Mitcham, Mitcham Road, Mitcham, Melbourne, Victoria, 3132, Australia"
+},
+"vic-gembrook-officer-east": {
+"name": "Officer East",
+"via": "stem_reused",
+"lat": -38.0662897,
+"lon": 145.4116963,
+"type": "station",
+"disp": "Officer, Civic Drive, Officer, Melbourne, Victoria, 3809, Australia"
+},
+"vic-gembrook-pakenham-hills": {
+"name": "Pakenham Hills",
+"via": "name_reused",
+"lat": -38.055072,
+"lon": 145.4971704,
+"type": "residential",
+"disp": "Pakenham Hills Estate, Pakenham, Melbourne, Victoria, Australia"
+},
+"vic-keysborough-coomoora": {
+"name": "Coomoora",
+"via": "name_reused",
+"lat": -37.9851348,
+"lon": 145.1512731,
+"type": "nature_reserve",
+"disp": "Coomoora Woodland Flora and Fauna Reserve, Keysborough, Melbourne, Victoria, Australia"
+},
+"vic-keysborough-keysborough-park": {
+"name": "Keysborough Park",
+"via": "name_reused",
+"lat": -37.989631,
+"lon": 145.1590044,
+"type": "park",
+"disp": "Keysborough Community Park, Keysborough, Melbourne, Victoria, Australia"
+},
+"vic-keysborough-loxwood": {
+"name": "Loxwood",
+"via": "name_reused",
+"lat": -37.987,
+"lon": 145.1566567,
+"type": "park",
+"disp": "Loxwood Avenue Reserve, Keysborough, Melbourne, Victoria, 3173, Australia"
+},
+"vic-keysborough-maralinga": {
+"name": "Maralinga",
+"via": "name_reused",
+"lat": -37.9862377,
+"lon": 145.1867488,
+"type": "brownfield",
+"disp": "Former: Chandler Park Primary School (Maralinga Campus), Keysborough, Melbourne, Victoria,"
+},
+"vic-melbourne-carlton-north": {
+"name": "Carlton North",
+"via": "name_reused",
+"lat": -37.7845585,
+"lon": 144.9728553,
+"type": "administrative",
+"disp": "Carlton North, Melbourne, Victoria, 3054, Australia"
+},
+"vic-melton-bacchus-marsh-central": {
+"name": "Bacchus Marsh Central",
+"via": "stem_reused",
+"lat": -37.6997208,
+"lon": 144.4029972,
+"type": "park",
+"disp": "Bacchus Marsh Racecourse and Recreation Reserve, Maddingley, Victoria, 3340, Australia"
+},
+"vic-mount-waverley-glen-waverley-central": {
+"name": "Glen Waverley Central",
+"via": "stem_reused",
+"lat": -37.8796677,
+"lon": 145.1629162,
+"type": "station",
+"disp": "Glen Waverley, Kingsway, Glen Waverley, Melbourne, Victoria, 3150, Australia"
+},
+"vic-narre-warren-south-centre-road": {
+"name": "Centre Road",
+"via": "name_reused",
+"lat": -38.0488964,
+"lon": 145.3242713,
+"type": "secondary",
+"disp": "Centre Road, Alira, Berwick, Melbourne, Victoria, 3806, Australia"
+},
+"vic-st-albans-ardeer": {
+"name": "Ardeer",
+"via": "name_reused",
+"lat": -37.7758681,
+"lon": 144.8014637,
+"type": "administrative",
+"disp": "Ardeer, Melbourne, Victoria, 3022, Australia"
+},
+"vic-thomastown-norris-bank": {
+"name": "Norris Bank",
+"via": "name_reused",
+"lat": -37.6951174,
+"lon": 145.0473594,
+"type": "park",
+"disp": "Norris Bank Parklands, 135, Bundoora, Melbourne, Victoria, 3083, Australia"
+},
+"vic-yuroke-craigieburn-north-west": {
+"name": "Craigieburn North West",
+"via": "stem_reused",
+"lat": -37.5748787,
+"lon": 144.920198,
+"type": "post_office",
+"disp": "Craigieburn North Post Office, 300-332, Grand Boulevard, Highlands, Craigieburn, Melbourne"
+},
+"vic-yuroke-greenvale-park": {
+"name": "Greenvale Park",
+"via": "name_reused",
+"lat": -37.6227625,
+"lon": 144.8927846,
+"type": "park",
+"disp": "Greenvale Reservoir Park, Greenvale, Melbourne, Victoria, 3059, Australia"
+},
+"vic-bass-lakeside-east": {
+"name": "Lakeside East",
+"via": "stem",
+"lat": -38.0646586,
+"lon": 145.4561176,
+"type": "school",
+"disp": "Lakeside College, 2, Portobello Road, Pakenham, Melbourne, Victoria, 3810, Australia"
+},
+"vic-benambra-bullioh": {
+"name": "Bullioh",
+"via": "name",
+"lat": -36.1936505,
+"lon": 147.3347792,
+"type": "hamlet",
+"disp": "Bullioh, Victoria, 3700, Australia"
+},
+"vic-benambra-running-creek": {
+"name": "Running Creek",
+"via": "name",
+"lat": -36.55082,
+"lon": 147.053362,
+"type": "administrative",
+"disp": "Running Creek, Victoria, Australia"
+},
+"vic-benambra-sandy-creek": {
+"name": "Sandy Creek",
+"via": "name",
+"lat": -36.3606545,
+"lon": 147.1249582,
+"type": "administrative",
+"disp": "Sandy Creek, Victoria, 3695, Australia"
+},
+"vic-benambra-tawonga": {
+"name": "Tawonga",
+"via": "name",
+"lat": -36.6737935,
+"lon": 147.171192,
+"type": "administrative",
+"disp": "Tawonga, Victoria, 3697, Australia"
+},
+"vic-bentleigh-berendale": {
+"name": "Berendale",
+"via": "none"
+},
+"vic-buninyong-mount-wallace": {
+"name": "Mount Wallace",
+"via": "name",
+"lat": -37.734301,
+"lon": 144.2176022,
+"type": "administrative",
+"disp": "Mount Wallace, Victoria, Australia"
+},
+"vic-buninyong-scarsdale": {
+"name": "Scarsdale",
+"via": "name",
+"lat": -37.6783735,
+"lon": 143.6624015,
+"type": "administrative",
+"disp": "Scarsdale, Victoria, Australia"
+},
+"vic-buninyong-springbank": {
+"name": "Springbank",
+"via": "name",
+"lat": -37.5190795,
+"lon": 144.0600727,
+"type": "administrative",
+"disp": "Springbank, Victoria, Australia"
+},
+"vic-burwood-starling": {
+"name": "Starling",
+"via": "name",
+"lat": -38.0553315,
+"lon": 145.4147707,
+"type": "construction",
+"disp": "Starling, Officer, Melbourne, Victoria, 3809, Australia"
+},
+"vic-dandenong-glen-eagles": {
+"name": "Glen Eagles",
+"via": "none"
+},
+"vic-eltham-eltham-woods": {
+"name": "Eltham Woods",
+"via": "name",
+"lat": -37.7079708,
+"lon": 145.1678061,
+"type": "park",
+"disp": "Eltham Woods, Eltham, Melbourne, Victoria, 3095, Australia"
+},
+"vic-euroa-arcadia": {
+"name": "Arcadia",
+"via": "name",
+"lat": -36.5556005,
+"lon": 145.3855546,
+"type": "administrative",
+"disp": "Arcadia, Victoria, Australia"
+},
+"vic-euroa-caniambo": {
+"name": "Caniambo",
+"via": "name",
+"lat": -36.4663285,
+"lon": 145.5997061,
+"type": "administrative",
+"disp": "Caniambo, Victoria, 3630, Australia"
+},
+"vic-forest-hill-warrawong": {
+"name": "Warrawong",
+"via": "name",
+"lat": -37.5819283,
+"lon": 145.1347854,
+"type": "residential",
+"disp": "Warrawong Circuit, Laurimar Park Estate, Doreen, Melbourne, Victoria, 3754, Australia"
+},
+"vic-gembrook-avebury": {
+"name": "Avebury",
+"via": "name",
+"lat": -38.0243404,
+"lon": 145.325887,
+"type": "park",
+"disp": "Avebury Drive Reserve Playground, Berwick, Melbourne, Victoria, 3806, Australia"
+},
+"vic-gippsland-east-bairnsdale-east": {
+"name": "Bairnsdale East",
+"via": "name",
+"lat": -37.856353,
+"lon": 147.6503814,
+"type": "administrative",
+"disp": "East Bairnsdale, Victoria, Australia"
+},
+"vic-gippsland-east-benambra": {
+"name": "Benambra",
+"via": "name",
+"lat": -36.9548589,
+"lon": 147.7020482,
+"type": "village",
+"disp": "Benambra, Victoria, Australia"
+},
+"vic-gippsland-east-bendoc": {
+"name": "Bendoc",
+"via": "none"
+},
+"vic-gippsland-east-coongulla": {
+"name": "Coongulla",
+"via": "none"
+},
+"vic-gippsland-east-ensay": {
+"name": "Ensay",
+"via": "name",
+"lat": -37.386553,
+"lon": 147.8120316,
+"type": "administrative",
+"disp": "Ensay, Victoria, 3895, Australia"
+},
+"vic-gippsland-east-genoa": {
+"name": "Genoa",
+"via": "none"
+},
+"vic-gippsland-east-meerlieu": {
+"name": "Meerlieu",
+"via": "name",
+"lat": -38.0149145,
+"lon": 147.4048078,
+"type": "administrative",
+"disp": "Meerlieu, Victoria, Australia"
+},
+"vic-gippsland-south-berrys-creek": {
+"name": "Berrys Creek",
+"via": "name",
+"lat": -38.4128395,
+"lon": 146.0679343,
+"type": "administrative",
+"disp": "Berrys Creek, Victoria, Australia"
+},
+"vic-gippsland-south-kilmany": {
+"name": "Kilmany",
+"via": "name",
+"lat": -38.124251,
+"lon": 146.9121061,
+"type": "administrative",
+"disp": "Kilmany, Victoria, Australia"
+},
+"vic-gippsland-south-mardan": {
+"name": "Mardan",
+"via": "name",
+"lat": -38.4703235,
+"lon": 146.1337975,
+"type": "administrative",
+"disp": "Mardan, Victoria, Australia"
+},
+"vic-gippsland-south-stradbroke": {
+"name": "Stradbroke",
+"via": "name",
+"lat": -38.2778205,
+"lon": 147.0385158,
+"type": "administrative",
+"disp": "Stradbroke, Victoria, Australia"
+},
+"vic-hastings-woodlands-primary": {
+"name": "Woodlands Primary",
+"via": "name",
+"lat": -38.135274,
+"lon": 145.2038946,
+"type": "school",
+"disp": "Woodlands Primary School, 10, Gum Nut Drive, Langwarrin, Melbourne, Victoria, 3910, Austra"
+},
+"vic-keysborough-chapel": {
+"name": "Chapel",
+"via": "name",
+"lat": -37.643005,
+"lon": 145.0917443,
+"type": "yes",
+"disp": "Chapel, Williamsons Road, South Morang, Melbourne, Victoria, 3752, Australia"
+},
+"vic-lowan-dadswells-bridge": {
+"name": "Dadswells Bridge",
+"via": "name",
+"lat": -36.9041935,
+"lon": 142.4954709,
+"type": "administrative",
+"disp": "Dadswells Bridge, Victoria, Australia"
+},
+"vic-lowan-dergholm": {
+"name": "Dergholm",
+"via": "name",
+"lat": -37.3463741,
+"lon": 141.3222686,
+"type": "unclassified",
+"disp": "Dergholm - Chetwynd Road, Chetwynd, Victoria, 3312, Australia"
+},
+"vic-lowan-dooen": {
+"name": "Dooen",
+"via": "name",
+"lat": -36.6420495,
+"lon": 142.2363532,
+"type": "administrative",
+"disp": "Dooen, Victoria, Australia"
+},
+"vic-lowan-jung": {
+"name": "Jung",
+"via": "name",
+"lat": -36.579271,
+"lon": 142.3493227,
+"type": "administrative",
+"disp": "Jung, Victoria, Australia"
+},
+"vic-lowan-minimay": {
+"name": "Minimay",
+"via": "none"
+},
+"vic-lowan-murra-warra": {
+"name": "Murra Warra",
+"via": "name",
+"lat": -36.4364125,
+"lon": 142.24662,
+"type": "administrative",
+"disp": "Murra Warra, Victoria, Australia"
+},
+"vic-lowan-noradjuha": {
+"name": "Noradjuha",
+"via": "name",
+"lat": -36.844173,
+"lon": 141.9113522,
+"type": "administrative",
+"disp": "Noradjuha, Victoria, Australia"
+},
+"vic-lowan-pimpinio": {
+"name": "Pimpinio",
+"via": "name",
+"lat": -36.610489,
+"lon": 142.0775293,
+"type": "administrative",
+"disp": "Pimpinio, Victoria, Australia"
+},
+"vic-lowan-quantong": {
+"name": "Quantong",
+"via": "name",
+"lat": -36.7516265,
+"lon": 142.0460238,
+"type": "administrative",
+"disp": "Quantong, Victoria, Australia"
+},
+"vic-lowan-riverside": {
+"name": "Riverside",
+"via": "name",
+"lat": -36.715822,
+"lon": 142.2453447,
+"type": "administrative",
+"disp": "Riverside, Victoria, Australia"
+},
+"vic-lowan-serviceton": {
+"name": "Serviceton",
+"via": "none"
+},
+"vic-lowan-wonwondah-north": {
+"name": "Wonwondah North",
+"via": "name",
+"lat": -36.8779204,
+"lon": 142.1639758,
+"type": "tertiary",
+"disp": "North East Wonwondah Road, Wonwondah, Victoria, 3401, Australia"
+},
+"vic-lowan-yanac": {
+"name": "Yanac",
+"via": "name",
+"lat": -36.2874835,
+"lon": 141.4568887,
+"type": "unclassified",
+"disp": "Diapur-Yanac Road, Nhill, Victoria, 3418, Australia"
+},
+"vic-macedon-clarkefield": {
+"name": "Clarkefield",
+"via": "name",
+"lat": -37.4835828,
+"lon": 144.7452422,
+"type": "station",
+"disp": "Clarkefield, Station Street, Clarkefield, Victoria, 3430, Australia"
+},
+"vic-mildura-culgoa": {
+"name": "Culgoa",
+"via": "name",
+"lat": -35.707047,
+"lon": 143.1146408,
+"type": "administrative",
+"disp": "Culgoa, Victoria, 3530, Australia"
+},
+"vic-mildura-yaapeet": {
+"name": "Yaapeet",
+"via": "name",
+"lat": -35.6928455,
+"lon": 142.0644271,
+"type": "administrative",
+"disp": "Yaapeet, Victoria, Australia"
+},
+"vic-murray-plains-ballendella": {
+"name": "Ballendella",
+"via": "name",
+"lat": -36.2932625,
+"lon": 144.6746348,
+"type": "administrative",
+"disp": "Ballendella, Victoria, Australia"
+},
+"vic-murray-plains-macorna": {
+"name": "Macorna",
+"via": "name",
+"lat": -35.9165735,
+"lon": 143.9933424,
+"type": "administrative",
+"disp": "Macorna, Victoria, Australia"
+},
+"vic-murray-plains-yarrawalla-south": {
+"name": "Yarrawalla South",
+"via": "name",
+"lat": -36.1545723,
+"lon": 144.0321232,
+"type": "unclassified",
+"disp": "Yarrawalla South Road, Yarrawalla, Victoria, 3575, Australia"
+},
+"vic-narracan-cora-lynn": {
+"name": "Cora Lynn",
+"via": "name",
+"lat": -38.1436888,
+"lon": 145.6042711,
+"type": "administrative",
+"disp": "Cora Lynn, Melbourne, Victoria, Australia"
+},
+"vic-narracan-drouin-college": {
+"name": "Drouin College",
+"via": "name",
+"lat": -38.146687,
+"lon": 145.8509178,
+"type": "school",
+"disp": "Drouin Secondary College, 52, Main South Road, Drouin, Victoria, 3818, Australia"
+},
+"vic-narracan-hill-end": {
+"name": "Hill End",
+"via": "name",
+"lat": -38.0031841,
+"lon": 146.1446509,
+"type": "administrative",
+"disp": "Hill End, Victoria, Australia"
+},
+"vic-narracan-lillico": {
+"name": "Lillico",
+"via": "name",
+"lat": -38.1227125,
+"lon": 145.9642586,
+"type": "administrative",
+"disp": "Lillico, Victoria, Australia"
+},
+"vic-narracan-neerim-junction": {
+"name": "Neerim Junction",
+"via": "name",
+"lat": -37.9199415,
+"lon": 145.9684284,
+"type": "administrative",
+"disp": "Neerim Junction, Victoria, 3832, Australia"
+},
+"vic-narracan-rokeby": {
+"name": "Rokeby",
+"via": "name",
+"lat": -38.067227,
+"lon": 145.9277796,
+"type": "administrative",
+"disp": "Rokeby, Victoria, Australia"
+},
+"vic-narracan-tanjil-south": {
+"name": "Tanjil South",
+"via": "name",
+"lat": -38.09989,
+"lon": 146.2654378,
+"type": "administrative",
+"disp": "Tanjil South, Victoria, Australia"
+},
+"vic-narracan-tetoora-road": {
+"name": "Tetoora Road",
+"via": "name",
+"lat": -38.28031,
+"lon": 145.8863768,
+"type": "administrative",
+"disp": "Tetoora Road, Victoria, Australia"
+},
+"vic-narracan-willow-grove": {
+"name": "Willow Grove",
+"via": "name",
+"lat": -38.072303,
+"lon": 146.1784909,
+"type": "administrative",
+"disp": "Willow Grove, Victoria, Australia"
+},
+"vic-ovens-valley-boorhaman": {
+"name": "Boorhaman",
+"via": "name",
+"lat": -36.2144293,
+"lon": 146.2878067,
+"type": "hamlet",
+"disp": "Boorhaman, Victoria, 3678, Australia"
+},
+"vic-ovens-valley-cheshunt": {
+"name": "Cheshunt",
+"via": "name",
+"lat": -36.8290825,
+"lon": 146.4430019,
+"type": "administrative",
+"disp": "Cheshunt, Victoria, Australia"
+},
+"vic-ovens-valley-greta-west": {
+"name": "Greta West",
+"via": "name",
+"lat": -36.5314236,
+"lon": 146.2307806,
+"type": "hamlet",
+"disp": "Greta West, Victoria, 3675, Australia"
+},
+"vic-ovens-valley-londrigan": {
+"name": "Londrigan",
+"via": "name",
+"lat": -36.3438825,
+"lon": 146.4371521,
+"type": "administrative",
+"disp": "Londrigan, Victoria, Australia"
+},
+"vic-ovens-valley-myrrhee": {
+"name": "Myrrhee",
+"via": "name",
+"lat": -36.744227,
+"lon": 146.3048256,
+"type": "administrative",
+"disp": "Myrrhee, Victoria, 3732, Australia"
+},
+"vic-polwarth-fyansford": {
+"name": "Fyansford",
+"via": "name",
+"lat": -38.1416752,
+"lon": 144.3096802,
+"type": "administrative",
+"disp": "Fyansford, Geelong, Victoria, Australia"
+},
+"vic-prahran-alma": {
+"name": "Alma",
+"via": "name",
+"lat": -38.1239844,
+"lon": 145.3800928,
+"type": "construction",
+"disp": "Alma, Clyde North, Melbourne, Victoria, 3978, Australia"
+},
+"vic-ripon-ascot": {
+"name": "Ascot",
+"via": "name",
+"lat": -36.707622,
+"lon": 144.33634,
+"type": "administrative",
+"disp": "Ascot, Bendigo, Victoria, Australia"
+},
+"vic-ripon-litchfield": {
+"name": "Litchfield",
+"via": "name",
+"lat": -36.2941443,
+"lon": 142.8376236,
+"type": "administrative",
+"disp": "Litchfield, Victoria, Australia"
+},
+"vic-ripon-stuart-mill": {
+"name": "Stuart Mill",
+"via": "name",
+"lat": -36.794598,
+"lon": 143.2827333,
+"type": "administrative",
+"disp": "Stuart Mill, Victoria, 3478, Australia"
+},
+"vic-shepparton-naring": {
+"name": "Naring",
+"via": "name",
+"lat": -36.055268,
+"lon": 145.5816782,
+"type": "administrative",
+"disp": "Naring, Victoria, Australia"
+},
+"vic-shepparton-yalca-north": {
+"name": "Yalca North",
+"via": "name",
+"lat": -35.9279728,
+"lon": 145.2355743,
+"type": "community_centre",
+"disp": "Yalca North Public Hall, Murray Valley Highway, Yielima, Victoria, 3638, Australia"
+},
+"vic-south-west-coast-gorae-west": {
+"name": "Gorae West",
+"via": "name",
+"lat": -38.2428074,
+"lon": 141.482697,
+"type": "hamlet",
+"disp": "Gorae West, Victoria, 3305, Australia"
+},
+"vic-south-west-coast-portland-south-west-tafe": {
+"name": "Portland South West TAFE",
+"via": "none"
+},
+"vic-sunbury-melbourne-airport": {
+"name": "Melbourne Airport",
+"via": "name",
+"lat": -37.6764488,
+"lon": 144.8365383,
+"type": "administrative",
+"disp": "Melbourne Airport, Melbourne, Victoria, 3045, Australia"
+},
+"vic-yan-yean-wallan": {
+"name": "Wallan",
+"via": "name",
+"lat": -37.4138855,
+"lon": 144.9774549,
+"type": "administrative",
+"disp": "Wallan, Victoria, 3756, Australia"
+}
+}

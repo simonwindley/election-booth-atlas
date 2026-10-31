@@ -1,0 +1,527 @@
+election_id,contest_id,candidate_id,group,party_name,party,name,is_atl
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-A-atl,A,LIBERAL DEMOCRATS,LDP,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-A-ford-brenton,A,LIBERAL DEMOCRATS,LDP,"FORD, Brenton",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-A-fernandes-marcos,A,LIBERAL DEMOCRATS,LDP,"FERNANDES, Marcos",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-B-atl,B,AUSTRALIAN LIBERTY ALLIANCE,OTH,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-B-bivieca-aquino-indhira,B,AUSTRALIAN LIBERTY ALLIANCE,OTH,"BIVIECA AQUINO, Indhira",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-B-wilding-royston,B,AUSTRALIAN LIBERTY ALLIANCE,OTH,"WILDING, Royston",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-C-atl,C,AUSTRALIAN COUNTRY PARTY,OTH,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-C-erikozu-mel,C,AUSTRALIAN COUNTRY PARTY,OTH,"ERIKOZU, Mel",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-C-proud-russel,C,AUSTRALIAN COUNTRY PARTY,OTH,"PROUD, Russel",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-D-atl,D,VICTORIAN SOCIALISTS,VSP,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-D-rundle-norrian,D,VICTORIAN SOCIALISTS,VSP,"RUNDLE, Norrian",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-D-ward-liam,D,VICTORIAN SOCIALISTS,VSP,"WARD, Liam",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-E-atl,E,TRANSPORT MATTERS,TMP,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-E-barton-rodney-brian,E,TRANSPORT MATTERS,TMP,"BARTON, Rodney Brian",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-E-peters-toni-frances,E,TRANSPORT MATTERS,TMP,"PETERS, Toni Frances",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-F-atl,F,LIBERAL,LIB,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-F-wooldridge-mary,F,LIBERAL,LIB,"WOOLDRIDGE, Mary",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-F-atkinson-bruce,F,LIBERAL,LIB,"ATKINSON, Bruce",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-F-cicchiello-emanuele,F,LIBERAL,LIB,"CICCHIELLO, Emanuele",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-F-roy-grace,F,LIBERAL,LIB,"ROY, Grace",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-F-hegde-shilpa,F,LIBERAL,LIB,"HEGDE, Shilpa",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-G-atl,G,AUSTRALIAN LABOR PARTY,ALP,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-G-leane-shaun,G,AUSTRALIAN LABOR PARTY,ALP,"LEANE, Shaun",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-G-terpstra-sonja,G,AUSTRALIAN LABOR PARTY,ALP,"TERPSTRA, Sonja",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-G-gadani-nildhara,G,AUSTRALIAN LABOR PARTY,ALP,"GADANI, Nildhara",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-G-abhimanyu-kumar,G,AUSTRALIAN LABOR PARTY,ALP,ABHIMANYU KUMAR,0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-G-terzic-barry,G,AUSTRALIAN LABOR PARTY,ALP,"TERZIC, Barry",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-H-atl,H,LABOUR DLP,DLP,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-H-orchard-jeremy,H,LABOUR DLP,DLP,"ORCHARD, Jeremy",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-H-cronshaw-benjamin,H,LABOUR DLP,DLP,"CRONSHAW, Benjamin",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-I-atl,I,ANIMAL JUSTICE PARTY,AJP,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-I-lavin-rosemary,I,ANIMAL JUSTICE PARTY,AJP,"LAVIN, Rosemary",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-I-weymouth-theresa,I,ANIMAL JUSTICE PARTY,AJP,"WEYMOUTH, Theresa",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-J-atl,J,DERRYN HINCH'S JUSTICE PARTY,DHJ,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-J-de-rango-linda,J,DERRYN HINCH'S JUSTICE PARTY,DHJ,"DE RANGO, Linda",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-J-lavell-kathryn,J,DERRYN HINCH'S JUSTICE PARTY,DHJ,"LAVELL, Kathryn",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-K-atl,K,"SHOOTERS, FISHERS & FARMERS VIC",SFF,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-K-ruyter-monique,K,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"RUYTER, Monique",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-K-poulton-grant,K,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"POULTON, Grant",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-L-atl,L,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-L-ryan-dermot-e,L,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"RYAN, Dermot E.",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-L-nipe-tara-a,L,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"NIPE, Tara A.",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-M-atl,M,SUSTAINABLE AUSTRALIA,SAP,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-M-saloumi-lynnette,M,SUSTAINABLE AUSTRALIA,SAP,"SALOUMI, Lynnette",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-M-wilkins-perrin,M,SUSTAINABLE AUSTRALIA,SAP,"WILKINS, Perrin",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-N-atl,N,AUSSIE BATTLER PARTY,OTH,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-N-larson-bryce,N,AUSSIE BATTLER PARTY,OTH,"LARSON, Bryce",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-N-sterry-clyde,N,AUSSIE BATTLER PARTY,OTH,"STERRY, Clyde",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-O-atl,O,HUDSON 4 NV,OTH,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-O-van-luenen-shelley,O,HUDSON 4 NV,OTH,"Van LUENEN, Shelley",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-O-bailey-deidre,O,HUDSON 4 NV,OTH,"BAILEY, Deidre",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-P-atl,P,FIONA PATTEN'S REASON PARTY,RUA,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-P-leitch-douglas,P,FIONA PATTEN'S REASON PARTY,RUA,"LEITCH, Douglas",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-P-lynch-glenn,P,FIONA PATTEN'S REASON PARTY,RUA,"LYNCH, Glenn",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-Q-atl,Q,AUSTRALIAN GREENS,GRN,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-Q-dunn-samantha,Q,AUSTRALIAN GREENS,GRN,"DUNN, Samantha",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-Q-harris-helen,Q,AUSTRALIAN GREENS,GRN,"HARRIS, Helen",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-Q-shnookal-liezl,Q,AUSTRALIAN GREENS,GRN,"SHNOOKAL, Liezl",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-Q-edwards-monique,Q,AUSTRALIAN GREENS,GRN,"EDWARDS, Monique",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-Q-tymms-daniela,Q,AUSTRALIAN GREENS,GRN,"TYMMS, Daniela",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-R-atl,R,HEALTH AUSTRALIA PARTY,HAP,ATL,1
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-R-hicks-andrew,R,HEALTH AUSTRALIA PARTY,HAP,"HICKS, Andrew",0
+vic2018,vicr-eastern-metropolitan,vicr-eastern-metropolitan-R-brodie-gabrielle,R,HEALTH AUSTRALIA PARTY,HAP,"BRODIE, Gabrielle",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-A-atl,A,ANIMAL JUSTICE PARTY,AJP,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-A-folloni-leah,A,ANIMAL JUSTICE PARTY,AJP,"FOLLONI, Leah",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-A-mcadam-jennifer,A,ANIMAL JUSTICE PARTY,AJP,"McADAM, Jennifer",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-B-atl,B,TRANSPORT MATTERS,TMP,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-B-salmon-trevor-leslie,B,TRANSPORT MATTERS,TMP,"SALMON, Trevor Leslie",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-B-roperto-joshua,B,TRANSPORT MATTERS,TMP,"ROPERTO, Joshua",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-C-atl,C,LIBERAL DEMOCRATS,LDP,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-C-buckley-ben,C,LIBERAL DEMOCRATS,LDP,"BUCKLEY, Ben",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-C-mccathie-rob,C,LIBERAL DEMOCRATS,LDP,"McCATHIE, Rob",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-D-atl,D,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-D-hain-michelle-annette,D,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"HAIN, Michelle Annette",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-D-barnes-martin,D,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"BARNES, Martin",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-E-atl,E,HEALTH AUSTRALIA PARTY,HAP,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-E-pain-geoff,E,HEALTH AUSTRALIA PARTY,HAP,"PAIN, Geoff",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-E-holmes-katherine,E,HEALTH AUSTRALIA PARTY,HAP,"HOLMES, Katherine",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-F-atl,F,AUSTRALIAN LIBERTY ALLIANCE,OTH,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-F-brown-mark,F,AUSTRALIAN LIBERTY ALLIANCE,OTH,"BROWN, Mark",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-F-jones-daniel,F,AUSTRALIAN LIBERTY ALLIANCE,OTH,"JONES, Daniel",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-G-atl,G,AUSTRALIAN GREENS,GRN,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-G-cummings-tom,G,AUSTRALIAN GREENS,GRN,"CUMMINGS, Tom",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-G-mackenzie-lachlan,G,AUSTRALIAN GREENS,GRN,"MACKENZIE, Lachlan",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-G-adams-neale,G,AUSTRALIAN GREENS,GRN,"ADAMS, Neale",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-G-gentle-david,G,AUSTRALIAN GREENS,GRN,"GENTLE, David",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-G-stokes-donald,G,AUSTRALIAN GREENS,GRN,"STOKES, Donald",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-H-atl,H,"SHOOTERS, FISHERS & FARMERS VIC",SFF,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-H-bourman-jeff,H,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"BOURMAN, Jeff",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-H-muir-kerrie-anne,H,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"MUIR, Kerrie-Anne",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-I-atl,I,DERRYN HINCH'S JUSTICE PARTY,DHJ,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-I-crooks-rhonda-elizabeth,I,DERRYN HINCH'S JUSTICE PARTY,DHJ,"CROOKS, Rhonda Elizabeth",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-I-seabrook-philip-richard,I,DERRYN HINCH'S JUSTICE PARTY,DHJ,"SEABROOK, Philip Richard",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-J-atl,J,AUSTRALIAN LABOR PARTY,ALP,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-J-garrett-jane-furneaux,J,AUSTRALIAN LABOR PARTY,ALP,"GARRETT, Jane Furneaux",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-J-shing-harriet,J,AUSTRALIAN LABOR PARTY,ALP,"SHING, Harriet",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-J-kelly-patrick,J,AUSTRALIAN LABOR PARTY,ALP,"KELLY, Patrick",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-J-clarke-linda-jane,J,AUSTRALIAN LABOR PARTY,ALP,"CLARKE, Linda Jane",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-J-van-den-eynde-onno,J,AUSTRALIAN LABOR PARTY,ALP,"VAN DEN EYNDE, Onno",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-K-atl,K,HUDSON 4 NV,OTH,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-K-whittaker-megan,K,HUDSON 4 NV,OTH,"WHITTAKER, Megan",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-K-hudson-kristy,K,HUDSON 4 NV,OTH,"HUDSON, Kristy",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-L-atl,L,SUSTAINABLE AUSTRALIA,SAP,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-L-smith-reade,L,SUSTAINABLE AUSTRALIA,SAP,"SMITH, Reade",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-L-hannaford-donna,L,SUSTAINABLE AUSTRALIA,SAP,"HANNAFORD, Donna",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-M-atl,M,AUSTRALIAN COUNTRY PARTY,OTH,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-M-danieli-rob,M,AUSTRALIAN COUNTRY PARTY,OTH,"DANIELI, Rob",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-M-geitenbeek-tony,M,AUSTRALIAN COUNTRY PARTY,OTH,"GEITENBEEK, Tony",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-N-atl,N,VICTORIAN SOCIALISTS,VSP,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-N-cruse-lainie,N,VICTORIAN SOCIALISTS,VSP,"CRUSE, Lainie",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-N-forden-russell,N,VICTORIAN SOCIALISTS,VSP,"FORDEN, Russell",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-O-atl,O,AUSSIE BATTLER PARTY,OTH,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-O-hughes-vern,O,AUSSIE BATTLER PARTY,OTH,"HUGHES, Vern",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-O-mattson-paula,O,AUSSIE BATTLER PARTY,OTH,"MATTSON, Paula",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-P-atl,P,LIBERAL/THE NATIONALS,LIB,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-P-o-donohue-edward,P,LIBERAL/THE NATIONALS,LIB,"O'DONOHUE, Edward",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-P-bath-melina,P,LIBERAL/THE NATIONALS,LIB,"BATH, Melina",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-P-edwards-meg,P,LIBERAL/THE NATIONALS,LIB,"EDWARDS, Meg",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-P-chipperfield-karen,P,LIBERAL/THE NATIONALS,LIB,"CHIPPERFIELD, Karen",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-P-howe-darren,P,LIBERAL/THE NATIONALS,LIB,"HOWE, Darren",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-Q-atl,Q,LABOUR DLP,DLP,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-Q-o-hea-padraig,Q,LABOUR DLP,DLP,"O'HEA, Padraig",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-Q-norman-larry,Q,LABOUR DLP,DLP,"NORMAN, Larry",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-R-atl,R,FIONA PATTEN'S REASON PARTY,RUA,ATL,1
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-R-close-carmel,R,FIONA PATTEN'S REASON PARTY,RUA,"CLOSE, Carmel",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-R-bell-gregory,R,FIONA PATTEN'S REASON PARTY,RUA,"BELL, Gregory",0
+vic2018,vicr-eastern-victoria,vicr-eastern-victoria-UG-fozard-michael-stewart,UG,,IND,"FOZARD, Michael Stewart",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-A-atl,A,VOTE 1 LOCAL JOBS,OTH,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-A-purcell-nathan,A,VOTE 1 LOCAL JOBS,OTH,"PURCELL, Nathan",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-A-purcell-aaron,A,VOTE 1 LOCAL JOBS,OTH,"PURCELL, Aaron",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-B-atl,B,AUSSIE BATTLER PARTY,OTH,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-B-mikac-walter,B,AUSSIE BATTLER PARTY,OTH,"MIKAC, Walter",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-B-graham-david,B,AUSSIE BATTLER PARTY,OTH,"GRAHAM, David",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-C-atl,C,SUSTAINABLE AUSTRALIA,SAP,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-C-mcdonald-mark,C,SUSTAINABLE AUSTRALIA,SAP,"McDONALD, Mark",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-C-clow-william,C,SUSTAINABLE AUSTRALIA,SAP,"CLOW, William",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-D-atl,D,AUSTRALIAN COUNTRY PARTY,OTH,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-D-stoddart-cameron,D,AUSTRALIAN COUNTRY PARTY,OTH,"STODDART, Cameron",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-D-greco-domenic,D,AUSTRALIAN COUNTRY PARTY,OTH,"GRECO, Domenic",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-E-atl,E,FIONA PATTEN'S REASON PARTY,RUA,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-E-patten-fiona,E,FIONA PATTEN'S REASON PARTY,RUA,"PATTEN, Fiona",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-E-melton-helena,E,FIONA PATTEN'S REASON PARTY,RUA,"MELTON, Helena",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-E-hopkins-ange,E,FIONA PATTEN'S REASON PARTY,RUA,"HOPKINS, Ange",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-E-payne-rachel,E,FIONA PATTEN'S REASON PARTY,RUA,"PAYNE, Rachel",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-E-musico-dominique,E,FIONA PATTEN'S REASON PARTY,RUA,"MUSICO, Dominique",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-F-atl,F,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-F-mccarthy-sandra-m,F,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"McCARTHY, Sandra M.",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-F-nott-stefan,F,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"NOTT, Stefan",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-G-atl,G,LIBERAL DEMOCRATS,LDP,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-G-hitchcock-louise,G,LIBERAL DEMOCRATS,LDP,"HITCHCOCK, Louise",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-G-wright-richard,G,LIBERAL DEMOCRATS,LDP,"WRIGHT, Richard",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-H-atl,H,HEALTH AUSTRALIA PARTY,HAP,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-H-campbell-pippa,H,HEALTH AUSTRALIA PARTY,HAP,"CAMPBELL, Pippa",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-H-oldmeadow-emily,H,HEALTH AUSTRALIA PARTY,HAP,"OLDMEADOW, Emily",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-I-atl,I,LIBERAL,LIB,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-I-ondarchie-craig,I,LIBERAL,LIB,"ONDARCHIE, Craig",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-I-mulholland-evan,I,LIBERAL,LIB,"MULHOLLAND, Evan",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-I-rai-neelam,I,LIBERAL,LIB,"RAI, Neelam",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-I-drake-kate,I,LIBERAL,LIB,"DRAKE, Kate",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-I-polistena-mark,I,LIBERAL,LIB,"POLISTENA, Mark",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-J-atl,J,AUSTRALIAN GREENS,GRN,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-J-ratnam-samantha,J,AUSTRALIAN GREENS,GRN,"RATNAM, Samantha",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-J-zigouras-christina,J,AUSTRALIAN GREENS,GRN,"ZIGOURAS, Christina",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-J-crossland-edward,J,AUSTRALIAN GREENS,GRN,"CROSSLAND, Edward",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-J-rafalowicz-josef,J,AUSTRALIAN GREENS,GRN,"RAFALOWICZ, Josef",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-J-gome-campbell,J,AUSTRALIAN GREENS,GRN,"GOME, Campbell",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-K-atl,K,TRANSPORT MATTERS,TMP,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-K-visa-moti-ram,K,TRANSPORT MATTERS,TMP,"VISA, Moti Ram",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-K-mian-afshan,K,TRANSPORT MATTERS,TMP,"MIAN, Afshan",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-L-atl,L,VICTORIAN SOCIALISTS,VSP,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-L-jolly-stephen,L,VICTORIAN SOCIALISTS,VSP,"JOLLY, Stephen",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-L-bolton-sue,L,VICTORIAN SOCIALISTS,VSP,"BOLTON, Sue",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-L-bolger-colleen,L,VICTORIAN SOCIALISTS,VSP,"BOLGER, Colleen",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-M-atl,M,LABOUR DLP,DLP,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-M-mcbride-john,M,LABOUR DLP,DLP,"McBRIDE, John",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-M-gwynne-jackie,M,LABOUR DLP,DLP,"GWYNNE, Jackie",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-N-atl,N,AUSTRALIAN LIBERTY ALLIANCE,OTH,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-N-gomez-russell,N,AUSTRALIAN LIBERTY ALLIANCE,OTH,"GOMEZ, Russell",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-N-reisner-john,N,AUSTRALIAN LIBERTY ALLIANCE,OTH,"REISNER, John",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-O-atl,O,AUSTRALIAN LABOR PARTY,ALP,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-O-mikakos-jenny,O,AUSTRALIAN LABOR PARTY,ALP,"MIKAKOS, Jenny",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-O-elasmar-nazih,O,AUSTRALIAN LABOR PARTY,ALP,"ELASMAR, Nazih",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-O-yigit-burhan,O,AUSTRALIAN LABOR PARTY,ALP,"YIGIT, Burhan",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-O-verma-ash,O,AUSTRALIAN LABOR PARTY,ALP,"VERMA, Ash",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-O-douglas-karen,O,AUSTRALIAN LABOR PARTY,ALP,"DOUGLAS, Karen",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-P-atl,P,DERRYN HINCH'S JUSTICE PARTY,DHJ,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-P-dagiandis-carmela,P,DERRYN HINCH'S JUSTICE PARTY,DHJ,"DAGIANDIS, Carmela",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-P-mercieca-prudence,P,DERRYN HINCH'S JUSTICE PARTY,DHJ,"MERCIECA, Prudence",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-Q-atl,Q,ANIMAL JUSTICE PARTY,AJP,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-Q-poon-bruce,Q,ANIMAL JUSTICE PARTY,AJP,"POON, Bruce",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-Q-smith-miranda,Q,ANIMAL JUSTICE PARTY,AJP,"SMITH, Miranda",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-Q-delforce-chris,Q,ANIMAL JUSTICE PARTY,AJP,"DELFORCE, Chris",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-R-atl,R,"SHOOTERS, FISHERS & FARMERS VIC",SFF,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-R-constantinou-ethan,R,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"CONSTANTINOU, Ethan",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-R-tzelepis-chris,R,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"TZELEPIS, Chris",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-S-atl,S,HUDSON 4 NV,OTH,ATL,1
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-S-wright-madison,S,HUDSON 4 NV,OTH,"WRIGHT, Madison",0
+vic2018,vicr-northern-metropolitan,vicr-northern-metropolitan-S-meneghini-marylynn,S,HUDSON 4 NV,OTH,"MENEGHINI, Marylynn",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-A-atl,A,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-A-jones-miranda,A,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"JONES, Miranda",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-A-hill-craig,A,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"HILL, Craig",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-B-atl,B,DERRYN HINCH'S JUSTICE PARTY,DHJ,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-B-maxwell-tania-maree,B,DERRYN HINCH'S JUSTICE PARTY,DHJ,"MAXWELL, Tania Maree",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-B-ayres-jodi-carolyn,B,DERRYN HINCH'S JUSTICE PARTY,DHJ,"AYRES, Jodi Carolyn",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-C-atl,C,AUSTRALIAN LIBERTY ALLIANCE,OTH,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-C-mcdonald-ewan,C,AUSTRALIAN LIBERTY ALLIANCE,OTH,"MCDONALD, Ewan",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-C-wylie-james,C,AUSTRALIAN LIBERTY ALLIANCE,OTH,"WYLIE, James",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-D-atl,D,HEALTH AUSTRALIA PARTY,HAP,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-D-golden-isaac,D,HEALTH AUSTRALIA PARTY,HAP,"GOLDEN, Isaac",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-D-sash-anne,D,HEALTH AUSTRALIA PARTY,HAP,"SASH, Anne",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-E-atl,E,SUSTAINABLE AUSTRALIA,SAP,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-E-wearne-madeleine,E,SUSTAINABLE AUSTRALIA,SAP,"WEARNE, Madeleine",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-E-chivers-ian,E,SUSTAINABLE AUSTRALIA,SAP,"CHIVERS, Ian",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-F-atl,F,ANIMAL JUSTICE PARTY,AJP,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-F-jarrett-glynn,F,ANIMAL JUSTICE PARTY,AJP,"JARRETT, Glynn",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-F-masih-robin,F,ANIMAL JUSTICE PARTY,AJP,"MASIH, Robin",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-G-atl,G,AUSTRALIAN GREENS,GRN,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-G-rowan-nicole,G,AUSTRALIAN GREENS,GRN,"ROWAN, Nicole",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-G-stevens-todd-damien,G,AUSTRALIAN GREENS,GRN,"STEVENS-TODD, Damien",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-G-matchett-elizabeth,G,AUSTRALIAN GREENS,GRN,"MATCHETT, Elizabeth",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-G-rivendell-julie,G,AUSTRALIAN GREENS,GRN,"RIVENDELL, Julie",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-G-thomas-matthew,G,AUSTRALIAN GREENS,GRN,"THOMAS, Matthew",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-H-atl,H,"SHOOTERS, FISHERS & FARMERS VIC",SFF,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-H-young-daniel,H,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"YOUNG, Daniel",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-H-podger-ben,H,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"PODGER, Ben",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-I-atl,I,AUSTRALIAN LABOR PARTY,ALP,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-I-gepp-mark,I,AUSTRALIAN LABOR PARTY,ALP,"GEPP, Mark",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-I-symes-jaclyn,I,AUSTRALIAN LABOR PARTY,ALP,"SYMES, Jaclyn",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-I-singh-sukhraj,I,AUSTRALIAN LABOR PARTY,ALP,"SINGH, Sukhraj",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-I-morgiewicz-jan-edward,I,AUSTRALIAN LABOR PARTY,ALP,"MORGIEWICZ, Jan Edward",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-I-matthews-glenn-david,I,AUSTRALIAN LABOR PARTY,ALP,"MATTHEWS, Glenn David",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-J-atl,J,LIBERAL DEMOCRATS,LDP,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-J-quilty-tim,J,LIBERAL DEMOCRATS,LDP,"QUILTY, Tim",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-J-king-iain,J,LIBERAL DEMOCRATS,LDP,"KING, Iain",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-K-atl,K,AUSTRALIAN COUNTRY PARTY,OTH,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-K-larkin-phil,K,AUSTRALIAN COUNTRY PARTY,OTH,"LARKIN, Phil",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-K-couston-david,K,AUSTRALIAN COUNTRY PARTY,OTH,"COUSTON, David",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-L-atl,L,HUDSON 4 NV,OTH,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-L-hudson-josh,L,HUDSON 4 NV,OTH,"HUDSON, Josh",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-L-o-sullivan-shane,L,HUDSON 4 NV,OTH,"O'SULLIVAN, Shane",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-M-atl,M,VICTORIAN SOCIALISTS,VSP,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-M-macdonald-moira,M,VICTORIAN SOCIALISTS,VSP,"MACDONALD, Moira",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-M-mckenna-michael,M,VICTORIAN SOCIALISTS,VSP,"McKENNA, Michael",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-N-atl,N,FIONA PATTEN'S REASON PARTY,RUA,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-N-leahy-martin,N,FIONA PATTEN'S REASON PARTY,RUA,"LEAHY, Martin",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-N-chapman-callum,N,FIONA PATTEN'S REASON PARTY,RUA,"CHAPMAN, Callum",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-O-atl,O,LIBERAL/THE NATIONALS,LIB,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-O-lovell-wendy,O,LIBERAL/THE NATIONALS,LIB,"LOVELL, Wendy",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-O-o-sullivan-luke,O,LIBERAL/THE NATIONALS,LIB,"O'SULLIVAN, Luke",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-O-hearn-brad,O,LIBERAL/THE NATIONALS,LIB,"HEARN, Brad",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-O-williamson-emma,O,LIBERAL/THE NATIONALS,LIB,"WILLIAMSON, Emma",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-O-head-robyne,O,LIBERAL/THE NATIONALS,LIB,"HEAD, Robyne",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-P-atl,P,AUSSIE BATTLER PARTY,OTH,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-P-lacey-dennis,P,AUSSIE BATTLER PARTY,OTH,"LACEY, Dennis",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-P-bruhn-erin,P,AUSSIE BATTLER PARTY,OTH,"BRUHN, Erin",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-Q-atl,Q,TRANSPORT MATTERS,TMP,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-Q-cowie-scott-james,Q,TRANSPORT MATTERS,TMP,"COWIE, Scott James",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-Q-fitz-eleanore-leonie,Q,TRANSPORT MATTERS,TMP,"FITZ, Eleanore Leonie",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-R-atl,R,LABOUR DLP,DLP,ATL,1
+vic2018,vicr-northern-victoria,vicr-northern-victoria-R-mccormack-chris,R,LABOUR DLP,DLP,"McCORMACK, Chris",0
+vic2018,vicr-northern-victoria,vicr-northern-victoria-R-vehlen-jarred,R,LABOUR DLP,DLP,"VEHLEN, Jarred",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-A-atl,A,AUSTRALIAN LABOR PARTY,ALP,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-A-jennings-gavin-wayne,A,AUSTRALIAN LABOR PARTY,ALP,"JENNINGS, Gavin Wayne",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-A-somyurek-adem,A,AUSTRALIAN LABOR PARTY,ALP,"SOMYUREK, Adem",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-A-kieu-tien-dung,A,AUSTRALIAN LABOR PARTY,ALP,"KIEU, Tien Dung",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-A-sayar-nessie,A,AUSTRALIAN LABOR PARTY,ALP,"SAYAR, Nessie",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-A-spencer-ian,A,AUSTRALIAN LABOR PARTY,ALP,"SPENCER, Ian",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-B-atl,B,TRANSPORT MATTERS,TMP,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-B-khan-ali,B,TRANSPORT MATTERS,TMP,"KHAN, Ali",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-B-sharma-chetan,B,TRANSPORT MATTERS,TMP,"SHARMA, Chetan",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-B-fazal-roona,B,TRANSPORT MATTERS,TMP,"FAZAL, Roona",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-B-singh-inderpal,B,TRANSPORT MATTERS,TMP,"SINGH, Inderpal",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-B-kaur-deepakbir,B,TRANSPORT MATTERS,TMP,"KAUR, Deepakbir",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-C-atl,C,HEALTH AUSTRALIA PARTY,HAP,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-C-king-tamsin,C,HEALTH AUSTRALIA PARTY,HAP,"KING, Tamsin",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-C-meaden-carly,C,HEALTH AUSTRALIA PARTY,HAP,"MEADEN, Carly",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-D-atl,D,,IND,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-D-chawla-tarang,D,,IND,"CHAWLA, Tarang",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-D-lee-nicole,D,,IND,"LEE, Nicole",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-E-atl,E,LIBERAL,LIB,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-E-rich-phillips-gordon,E,LIBERAL,LIB,"RICH-PHILLIPS, Gordon",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-E-peulich-inga,E,LIBERAL,LIB,"PEULICH, Inga",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-E-hua-george,E,LIBERAL,LIB,"HUA, George",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-E-kaur-kuldeep,E,LIBERAL,LIB,"KAUR, Kuldeep",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-E-hicks-robert,E,LIBERAL,LIB,"HICKS, Robert",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-F-atl,F,LIBERAL DEMOCRATS,LDP,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-F-limbrick-david,F,LIBERAL DEMOCRATS,LDP,"LIMBRICK, David",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-F-ford-matt,F,LIBERAL DEMOCRATS,LDP,"FORD, Matt",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-G-atl,G,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-G-hall-kassandra-j,G,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"HALL, Kassandra J.",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-G-hill-mardi,G,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"HILL, Mardi",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-H-atl,H,FIONA PATTEN'S REASON PARTY,RUA,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-H-chipp-laura,H,FIONA PATTEN'S REASON PARTY,RUA,"CHIPP, Laura",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-H-kagan-brett-j,H,FIONA PATTEN'S REASON PARTY,RUA,"KAGAN, Brett J.",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-I-atl,I,AUSTRALIAN GREENS,GRN,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-I-springle-nina,I,AUSTRALIAN GREENS,GRN,"SPRINGLE, Nina",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-I-kirwan-matthew,I,AUSTRALIAN GREENS,GRN,"KIRWAN, Matthew",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-I-mitchell-jacqueline,I,AUSTRALIAN GREENS,GRN,"MITCHELL, Jacqueline",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-I-vos-jake,I,AUSTRALIAN GREENS,GRN,"VOS, Jake",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-I-minifie-tasma,I,AUSTRALIAN GREENS,GRN,"MINIFIE, Tasma",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-J-atl,J,HUDSON 4 NV,OTH,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-J-sinclair-janette,J,HUDSON 4 NV,OTH,"SINCLAIR, Janette",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-J-madill-holly,J,HUDSON 4 NV,OTH,"MADILL, Holly",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-K-atl,K,AUSTRALIAN COUNTRY PARTY,OTH,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-K-hepner-andrew,K,AUSTRALIAN COUNTRY PARTY,OTH,"HEPNER, Andrew",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-K-danieli-marilyn,K,AUSTRALIAN COUNTRY PARTY,OTH,"DANIELI, Marilyn",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-L-atl,L,VICTORIAN SOCIALISTS,VSP,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-L-mylvaganam-aran,L,VICTORIAN SOCIALISTS,VSP,"MYLVAGANAM, Aran",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-L-reid-ben,L,VICTORIAN SOCIALISTS,VSP,"REID, Ben",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-M-atl,M,"SHOOTERS, FISHERS & FARMERS VIC",SFF,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-M-banhidy-chris,M,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"BANHIDY, Chris",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-M-leone-vincent,M,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"LEONE, Vincent",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-N-atl,N,AUSSIE BATTLER PARTY,OTH,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-N-armstrong-david,N,AUSSIE BATTLER PARTY,OTH,"ARMSTRONG, David",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-N-chamberlain-michael,N,AUSSIE BATTLER PARTY,OTH,"CHAMBERLAIN, Michael",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-O-atl,O,LABOUR DLP,DLP,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-O-stevens-peter,O,LABOUR DLP,DLP,"STEVENS, Peter",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-O-palma-michael-joseph,O,LABOUR DLP,DLP,"PALMA, Michael Joseph",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-P-atl,P,ANIMAL JUSTICE PARTY,AJP,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-P-johnston-elizabeth,P,ANIMAL JUSTICE PARTY,AJP,"JOHNSTON, Elizabeth",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-P-craig-derrin,P,ANIMAL JUSTICE PARTY,AJP,"CRAIG, Derrin",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-Q-atl,Q,AUSTRALIAN LIBERTY ALLIANCE,OTH,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-Q-maddison-david-sydney,Q,AUSTRALIAN LIBERTY ALLIANCE,OTH,"MADDISON, David Sydney",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-Q-schumann-ralf,Q,AUSTRALIAN LIBERTY ALLIANCE,OTH,"SCHUMANN, Ralf",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-R-atl,R,DERRYN HINCH'S JUSTICE PARTY,DHJ,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-R-davy-peter,R,DERRYN HINCH'S JUSTICE PARTY,DHJ,"DAVY, Peter",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-R-guy-kerri,R,DERRYN HINCH'S JUSTICE PARTY,DHJ,"GUY, Kerri",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-S-atl,S,SUSTAINABLE AUSTRALIA,SAP,ATL,1
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-S-cresswell-anthony,S,SUSTAINABLE AUSTRALIA,SAP,"CRESSWELL, Anthony",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-S-budgeon-daryl,S,SUSTAINABLE AUSTRALIA,SAP,"BUDGEON, Daryl",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-UG-hine-stewart,UG,,IND,"HINE, Stewart",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-UG-mack-peter,UG,,IND,"MACK, Peter",0
+vic2018,vicr-south-eastern-metropolitan,vicr-south-eastern-metropolitan-UG-singh-bobby,UG,,IND,"SINGH, Bobby",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-A-atl,A,LIBERAL,LIB,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-A-davis-david,A,LIBERAL,LIB,"DAVIS, David",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-A-crozier-georgie,A,LIBERAL,LIB,"CROZIER, Georgie",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-A-fitzherbert-margaret,A,LIBERAL,LIB,"FITZHERBERT, Margaret",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-A-macrides-gavan,A,LIBERAL,LIB,"MacRIDES, Gavan",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-A-yang-miaosheng,A,LIBERAL,LIB,"YANG, Miaosheng",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-B-atl,B,VICTORIAN SOCIALISTS,VSP,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-B-lewis-catheryn,B,VICTORIAN SOCIALISTS,VSP,"LEWIS, Catheryn",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-B-mitchell-ivan,B,VICTORIAN SOCIALISTS,VSP,"MITCHELL, Ivan",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-C-atl,C,AUSTRALIAN LIBERTY ALLIANCE,OTH,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-C-yemini-avi,C,AUSTRALIAN LIBERTY ALLIANCE,OTH,"YEMINI, Avi",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-C-jones-kaylah,C,AUSTRALIAN LIBERTY ALLIANCE,OTH,"JONES, Kaylah",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-D-atl,D,HEALTH AUSTRALIA PARTY,HAP,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-D-moore-ben,D,HEALTH AUSTRALIA PARTY,HAP,"MOORE, Ben",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-D-cerecer-cindy,D,HEALTH AUSTRALIA PARTY,HAP,"CERECER, Cindy",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-E-atl,E,AUSSIE BATTLER PARTY,OTH,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-E-hillard-mark,E,AUSSIE BATTLER PARTY,OTH,"HILLARD, Mark",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-E-wain-stacey,E,AUSSIE BATTLER PARTY,OTH,"WAIN, Stacey",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-F-atl,F,AUSTRALIAN GREENS,GRN,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-F-pennicuik-sue,F,AUSTRALIAN GREENS,GRN,"PENNICUIK, Sue",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-F-james-earl,F,AUSTRALIAN GREENS,GRN,"JAMES, Earl",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-F-read-rose,F,AUSTRALIAN GREENS,GRN,"READ, Rose",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-F-forster-duncan,F,AUSTRALIAN GREENS,GRN,"FORSTER, Duncan",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-F-bennett-james,F,AUSTRALIAN GREENS,GRN,"BENNETT, James",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-G-atl,G,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-G-morris-jane-e,G,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"MORRIS, Jane E.",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-G-ryan-imelda-t,G,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"RYAN, Imelda T.",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-H-atl,H,"SHOOTERS, FISHERS & FARMERS VIC",SFF,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-H-bourman-nicole,H,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"BOURMAN, Nicole",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-H-lindfors-beswick-ryan,H,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"LINDFORS-BESWICK, Ryan",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-I-atl,I,HUDSON 4 NV,OTH,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-I-perriam-matthew,I,HUDSON 4 NV,OTH,"PERRIAM, Matthew",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-I-perriam-grace,I,HUDSON 4 NV,OTH,"PERRIAM, Grace",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-J-atl,J,AUSTRALIAN LABOR PARTY,ALP,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-J-dalidakis-philip,J,AUSTRALIAN LABOR PARTY,ALP,"DALIDAKIS, Philip",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-J-taylor-nina,J,AUSTRALIAN LABOR PARTY,ALP,"TAYLOR, Nina",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-J-armstrong-judith,J,AUSTRALIAN LABOR PARTY,ALP,"ARMSTRONG, Judith",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-J-kendall-graeme,J,AUSTRALIAN LABOR PARTY,ALP,"KENDALL, Graeme",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-J-bellote-danny,J,AUSTRALIAN LABOR PARTY,ALP,"BELLOTE, Danny",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-K-atl,K,LABOUR DLP,DLP,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-K-van-der-horst-joel,K,LABOUR DLP,DLP,"VAN DER HORST, Joel",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-K-de-summa-lucia,K,LABOUR DLP,DLP,"De SUMMA, Lucia",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-L-atl,L,SUSTAINABLE AUSTRALIA,SAP,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-L-hayes-clifford,L,SUSTAINABLE AUSTRALIA,SAP,"HAYES, Clifford",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-L-houghton-cathryn,L,SUSTAINABLE AUSTRALIA,SAP,"HOUGHTON, Cathryn",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-M-atl,M,FIONA PATTEN'S REASON PARTY,RUA,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-M-mellon-robertson-jill,M,FIONA PATTEN'S REASON PARTY,RUA,"MELLON-ROBERTSON, Jill",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-M-munday-edmund,M,FIONA PATTEN'S REASON PARTY,RUA,"MUNDAY, Edmund",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-N-atl,N,DERRYN HINCH'S JUSTICE PARTY,DHJ,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-N-nicholls-nikki,N,DERRYN HINCH'S JUSTICE PARTY,DHJ,"NICHOLLS, Nikki",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-N-doidge-julie,N,DERRYN HINCH'S JUSTICE PARTY,DHJ,"DOIDGE, Julie",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-O-atl,O,ANIMAL JUSTICE PARTY,AJP,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-O-schultz-ben,O,ANIMAL JUSTICE PARTY,AJP,"SCHULTZ, Ben",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-O-mcrostie-fiona,O,ANIMAL JUSTICE PARTY,AJP,"McROSTIE, Fiona",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-P-atl,P,LIBERAL DEMOCRATS,LDP,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-P-kennedy-robert,P,LIBERAL DEMOCRATS,LDP,"KENNEDY, Robert",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-P-o-sullivan-kirsty,P,LIBERAL DEMOCRATS,LDP,"O'SULLIVAN, Kirsty",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-Q-atl,Q,TRANSPORT MATTERS,TMP,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-Q-guest-kim,Q,TRANSPORT MATTERS,TMP,"GUEST, Kim",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-Q-muhammad-saeed,Q,TRANSPORT MATTERS,TMP,"MUHAMMAD, Saeed",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-R-atl,R,AUSTRALIAN COUNTRY PARTY,OTH,ATL,1
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-R-clow-nicola,R,AUSTRALIAN COUNTRY PARTY,OTH,"CLOW, Nicola",0
+vic2018,vicr-southern-metropolitan,vicr-southern-metropolitan-R-armstrong-michele-mary,R,AUSTRALIAN COUNTRY PARTY,OTH,"ARMSTRONG, Michele Mary",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-A-atl,A,DERRYN HINCH'S JUSTICE PARTY,DHJ,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-A-cumming-catherine-rebecca,A,DERRYN HINCH'S JUSTICE PARTY,DHJ,"CUMMING, Catherine Rebecca",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-A-cumming-daniel-henry,A,DERRYN HINCH'S JUSTICE PARTY,DHJ,"CUMMING, Daniel Henry",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-B-atl,B,ANIMAL JUSTICE PARTY,AJP,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-B-beech-terri,B,ANIMAL JUSTICE PARTY,AJP,"BEECH, Terri",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-B-leung-karina,B,ANIMAL JUSTICE PARTY,AJP,"LEUNG, Karina",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-C-atl,C,HUDSON 4 NV,OTH,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-C-webb-hayley,C,HUDSON 4 NV,OTH,"WEBB, Hayley",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-C-eckel-casey,C,HUDSON 4 NV,OTH,"ECKEL, Casey",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-D-atl,D,AUSTRALIAN LIBERTY ALLIANCE,OTH,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-D-cohen-francine,D,AUSTRALIAN LIBERTY ALLIANCE,OTH,"COHEN, Francine",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-D-franklin-terri,D,AUSTRALIAN LIBERTY ALLIANCE,OTH,"FRANKLIN, Terri",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-E-atl,E,VICTORIAN SOCIALISTS,VSP,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-E-jorquera-jorge,E,VICTORIAN SOCIALISTS,VSP,"JORQUERA, Jorge",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-E-charles-andrew,E,VICTORIAN SOCIALISTS,VSP,"CHARLES, Andrew",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-F-atl,F,AUSSIE BATTLER PARTY,OTH,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-F-o-neill-stuart,F,AUSSIE BATTLER PARTY,OTH,"O'NEILL, Stuart",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-F-kearns-ian-james,F,AUSSIE BATTLER PARTY,OTH,"KEARNS, Ian James",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-G-atl,G,LIBERAL,LIB,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-G-finn-bernie,G,LIBERAL,LIB,"FINN, Bernie",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-G-gourisetty-dinesh,G,LIBERAL,LIB,"GOURISETTY, Dinesh",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-G-deeming-moira,G,LIBERAL,LIB,"DEEMING, Moira",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-G-wood-david,G,LIBERAL,LIB,"WOOD, David",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-G-di-noia-nathan,G,LIBERAL,LIB,"Di NOIA, Nathan",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-H-atl,H,AUSTRALIAN COUNTRY PARTY,OTH,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-H-caruso-benito,H,AUSTRALIAN COUNTRY PARTY,OTH,"CARUSO, Benito",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-H-leen-tony,H,AUSTRALIAN COUNTRY PARTY,OTH,"LEEN, Tony",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-I-atl,I,LIBERAL DEMOCRATS,LDP,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-I-karlovsky-adam,I,LIBERAL DEMOCRATS,LDP,"KARLOVSKY, Adam",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-I-thompson-mark,I,LIBERAL DEMOCRATS,LDP,"THOMPSON, Mark",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-I-reeves-christopher,I,LIBERAL DEMOCRATS,LDP,"REEVES, Christopher",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-J-atl,J,FIONA PATTEN'S REASON PARTY,RUA,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-J-botha-chris,J,FIONA PATTEN'S REASON PARTY,RUA,"BOTHA, Chris",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-J-twidale-jamie,J,FIONA PATTEN'S REASON PARTY,RUA,"TWIDALE, Jamie",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-K-atl,K,SUSTAINABLE AUSTRALIA,SAP,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-K-doensen-allan,K,SUSTAINABLE AUSTRALIA,SAP,"DOENSEN, Allan",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-K-belcher-richard,K,SUSTAINABLE AUSTRALIA,SAP,"BELCHER, Richard",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-L-atl,L,"SHOOTERS, FISHERS & FARMERS VIC",SFF,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-L-rigg-wayne,L,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"RIGG, Wayne",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-L-ashby-geoff,L,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"ASHBY, Geoff",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-M-atl,M,HEALTH AUSTRALIA PARTY,HAP,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-M-jenkinson-briony,M,HEALTH AUSTRALIA PARTY,HAP,"JENKINSON, Briony",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-M-glenn-deanne,M,HEALTH AUSTRALIA PARTY,HAP,"GLENN, Deanne",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-N-atl,N,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-N-beckwith-joan-b,N,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"BECKWITH, Joan B.",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-N-sims-nia-r,N,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"SIMS, Nia R.",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-O-atl,O,TRANSPORT MATTERS,TMP,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-O-lowinger-daniel,O,TRANSPORT MATTERS,TMP,"LOWINGER, Daniel",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-O-abdelnour-ramy,O,TRANSPORT MATTERS,TMP,"ABDELNOUR, Ramy",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-P-atl,P,LABOUR DLP,DLP,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-P-villagonzalo-walter,P,LABOUR DLP,DLP,"VILLAGONZALO, Walter",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-P-royal-mark-thomas,P,LABOUR DLP,DLP,"ROYAL, Mark Thomas",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-Q-atl,Q,AUSTRALIAN GREENS,GRN,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-Q-truong-huong,Q,AUSTRALIAN GREENS,GRN,"TRUONG, Huong",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-Q-cash-emely,Q,AUSTRALIAN GREENS,GRN,"CASH, Emely",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-Q-thomas-bernadette,Q,AUSTRALIAN GREENS,GRN,"THOMAS, Bernadette",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-Q-pereyra-elena,Q,AUSTRALIAN GREENS,GRN,"PEREYRA, Elena",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-Q-chessells-beeby-annie,Q,AUSTRALIAN GREENS,GRN,"CHESSELLS-BEEBY, Annie",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-R-atl,R,AUSTRALIAN LABOR PARTY,ALP,ATL,1
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-R-melhem-cesar,R,AUSTRALIAN LABOR PARTY,ALP,"MELHEM, Cesar",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-R-stitt-ingrid,R,AUSTRALIAN LABOR PARTY,ALP,"STITT, Ingrid",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-R-vaghela-kaushaliya-virjibhai,R,AUSTRALIAN LABOR PARTY,ALP,"VAGHELA, Kaushaliya Virjibhai",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-R-psaila-kirsten,R,AUSTRALIAN LABOR PARTY,ALP,"PSAILA, Kirsten",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-R-persse-louise,R,AUSTRALIAN LABOR PARTY,ALP,"PERSSE, Louise",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-UG-grima-diana,UG,,IND,"GRIMA, Diana",0
+vic2018,vicr-western-metropolitan,vicr-western-metropolitan-UG-majdlik-kathy,UG,,IND,"MAJDLIK, Kathy",0
+vic2018,vicr-western-victoria,vicr-western-victoria-A-atl,A,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-A-nugent-katrina,A,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"NUGENT, Katrina",0
+vic2018,vicr-western-victoria,vicr-western-victoria-A-berenyi-john,A,VOLUNTARY EUTHANASIA PARTY (VICTORIA),OTH,"BERENYI, John",0
+vic2018,vicr-western-victoria,vicr-western-victoria-B-atl,B,LIBERAL/THE NATIONALS,LIB,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-B-mcarthur-beverley,B,LIBERAL/THE NATIONALS,LIB,"McARTHUR, Beverley",0
+vic2018,vicr-western-victoria,vicr-western-victoria-B-morris-joshua,B,LIBERAL/THE NATIONALS,LIB,"MORRIS, Joshua",0
+vic2018,vicr-western-victoria,vicr-western-victoria-B-armstrong-jo,B,LIBERAL/THE NATIONALS,LIB,"ARMSTRONG, Jo",0
+vic2018,vicr-western-victoria,vicr-western-victoria-B-lowe-jennifer,B,LIBERAL/THE NATIONALS,LIB,"LOWE, Jennifer",0
+vic2018,vicr-western-victoria,vicr-western-victoria-B-black-andrew,B,LIBERAL/THE NATIONALS,LIB,"BLACK, Andrew",0
+vic2018,vicr-western-victoria,vicr-western-victoria-C-atl,C,FIONA PATTEN'S REASON PARTY,RUA,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-C-bell-michael,C,FIONA PATTEN'S REASON PARTY,RUA,"BELL, Michael",0
+vic2018,vicr-western-victoria,vicr-western-victoria-C-hastie-liam-james,C,FIONA PATTEN'S REASON PARTY,RUA,"HASTIE, Liam James",0
+vic2018,vicr-western-victoria,vicr-western-victoria-D-atl,D,"SHOOTERS, FISHERS & FARMERS VIC",SFF,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-D-collins-geoff,D,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"COLLINS, Geoff",0
+vic2018,vicr-western-victoria,vicr-western-victoria-D-standen-graeme,D,"SHOOTERS, FISHERS & FARMERS VIC",SFF,"STANDEN, Graeme",0
+vic2018,vicr-western-victoria,vicr-western-victoria-E-atl,E,TRANSPORT MATTERS,TMP,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-E-croker-nicholas-ian,E,TRANSPORT MATTERS,TMP,"CROKER, Nicholas Ian",0
+vic2018,vicr-western-victoria,vicr-western-victoria-E-raco-francesco-antonio,E,TRANSPORT MATTERS,TMP,"RACO, Francesco Antonio",0
+vic2018,vicr-western-victoria,vicr-western-victoria-F-atl,F,DERRYN HINCH'S JUSTICE PARTY,DHJ,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-F-grimley-stuart-james,F,DERRYN HINCH'S JUSTICE PARTY,DHJ,"GRIMLEY, Stuart James",0
+vic2018,vicr-western-victoria,vicr-western-victoria-F-tedesco-michelle,F,DERRYN HINCH'S JUSTICE PARTY,DHJ,"TEDESCO, Michelle",0
+vic2018,vicr-western-victoria,vicr-western-victoria-G-atl,G,ANIMAL JUSTICE PARTY,AJP,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-G-meddick-andy,G,ANIMAL JUSTICE PARTY,AJP,"MEDDICK, Andy",0
+vic2018,vicr-western-victoria,vicr-western-victoria-G-gamble-jen,G,ANIMAL JUSTICE PARTY,AJP,"GAMBLE, Jen",0
+vic2018,vicr-western-victoria,vicr-western-victoria-H-atl,H,LIBERAL DEMOCRATS,LDP,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-H-christie-lachlan,H,LIBERAL DEMOCRATS,LDP,"CHRISTIE, Lachlan",0
+vic2018,vicr-western-victoria,vicr-western-victoria-H-robson-paul,H,LIBERAL DEMOCRATS,LDP,"ROBSON, Paul",0
+vic2018,vicr-western-victoria,vicr-western-victoria-I-atl,I,VICTORIAN SOCIALISTS,VSP,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-I-gooden-tim,I,VICTORIAN SOCIALISTS,VSP,"GOODEN, Tim",0
+vic2018,vicr-western-victoria,vicr-western-victoria-I-iskra-nada,I,VICTORIAN SOCIALISTS,VSP,"ISKRA, Nada",0
+vic2018,vicr-western-victoria,vicr-western-victoria-J-atl,J,AUSTRALIAN GREENS,GRN,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-J-davies-lloyd,J,AUSTRALIAN GREENS,GRN,"DAVIES, Lloyd",0
+vic2018,vicr-western-victoria,vicr-western-victoria-J-cameron-judy,J,AUSTRALIAN GREENS,GRN,"CAMERON, Judy",0
+vic2018,vicr-western-victoria,vicr-western-victoria-J-mewett-peter,J,AUSTRALIAN GREENS,GRN,"MEWETT, Peter",0
+vic2018,vicr-western-victoria,vicr-western-victoria-J-jefferson-david,J,AUSTRALIAN GREENS,GRN,"JEFFERSON, David",0
+vic2018,vicr-western-victoria,vicr-western-victoria-J-baldacchino-judith,J,AUSTRALIAN GREENS,GRN,"BALDACCHINO, Judith",0
+vic2018,vicr-western-victoria,vicr-western-victoria-K-atl,K,HEALTH AUSTRALIA PARTY,HAP,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-K-ljavroska-sonja,K,HEALTH AUSTRALIA PARTY,HAP,"LJAVROSKA, Sonja",0
+vic2018,vicr-western-victoria,vicr-western-victoria-K-thoren-kayleen,K,HEALTH AUSTRALIA PARTY,HAP,"THOREN, Kayleen",0
+vic2018,vicr-western-victoria,vicr-western-victoria-L-atl,L,AUSTRALIAN LABOR PARTY,ALP,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-L-pulford-jaala,L,AUSTRALIAN LABOR PARTY,ALP,"PULFORD, Jaala",0
+vic2018,vicr-western-victoria,vicr-western-victoria-L-tierney-gayle,L,AUSTRALIAN LABOR PARTY,ALP,"TIERNEY, Gayle",0
+vic2018,vicr-western-victoria,vicr-western-victoria-L-wight-dylan-james,L,AUSTRALIAN LABOR PARTY,ALP,"WIGHT, Dylan James",0
+vic2018,vicr-western-victoria,vicr-western-victoria-L-o-dal-lorraine,L,AUSTRALIAN LABOR PARTY,ALP,"O'DAL, Lorraine",0
+vic2018,vicr-western-victoria,vicr-western-victoria-L-gartland-bernard,L,AUSTRALIAN LABOR PARTY,ALP,"GARTLAND, Bernard",0
+vic2018,vicr-western-victoria,vicr-western-victoria-M-atl,M,AUSSIE BATTLER PARTY,OTH,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-M-prelorenzo-anthony,M,AUSSIE BATTLER PARTY,OTH,"PRELORENZO, Anthony",0
+vic2018,vicr-western-victoria,vicr-western-victoria-M-mitchell-mark,M,AUSSIE BATTLER PARTY,OTH,"MITCHELL, Mark",0
+vic2018,vicr-western-victoria,vicr-western-victoria-N-atl,N,LABOUR DLP,DLP,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-N-beaumont-frances,N,LABOUR DLP,DLP,"BEAUMONT, Frances",0
+vic2018,vicr-western-victoria,vicr-western-victoria-N-schultink-christian,N,LABOUR DLP,DLP,"SCHULTINK, Christian",0
+vic2018,vicr-western-victoria,vicr-western-victoria-O-atl,O,AUSTRALIAN LIBERTY ALLIANCE,OTH,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-O-nicholls-kenneth,O,AUSTRALIAN LIBERTY ALLIANCE,OTH,"NICHOLLS, Kenneth",0
+vic2018,vicr-western-victoria,vicr-western-victoria-O-macdonald-daniel,O,AUSTRALIAN LIBERTY ALLIANCE,OTH,"MACDONALD, Daniel",0
+vic2018,vicr-western-victoria,vicr-western-victoria-P-atl,P,SUSTAINABLE AUSTRALIA,SAP,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-P-pascoe-robert,P,SUSTAINABLE AUSTRALIA,SAP,"PASCOE, Robert",0
+vic2018,vicr-western-victoria,vicr-western-victoria-P-lynch-christopher,P,SUSTAINABLE AUSTRALIA,SAP,"LYNCH, Christopher",0
+vic2018,vicr-western-victoria,vicr-western-victoria-Q-atl,Q,HUDSON 4 NV,OTH,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-Q-hudson-sally,Q,HUDSON 4 NV,OTH,"HUDSON, Sally",0
+vic2018,vicr-western-victoria,vicr-western-victoria-Q-wright-mark,Q,HUDSON 4 NV,OTH,"WRIGHT, Mark",0
+vic2018,vicr-western-victoria,vicr-western-victoria-R-atl,R,AUSTRALIAN COUNTRY PARTY,OTH,ATL,1
+vic2018,vicr-western-victoria,vicr-western-victoria-R-di-biase-costa,R,AUSTRALIAN COUNTRY PARTY,OTH,"DI BIASE, Costa",0
+vic2018,vicr-western-victoria,vicr-western-victoria-R-buchholz-john,R,AUSTRALIAN COUNTRY PARTY,OTH,"BUCHHOLZ, John",0
+vic2018,vicr-western-victoria,vicr-western-victoria-UG-pongracic-karl-jozef,UG,,IND,"PONGRACIC, Karl Jozef",0

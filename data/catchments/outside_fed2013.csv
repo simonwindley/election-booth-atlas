@@ -1,0 +1,43 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+fed-197,fed-31993,Melbourne (Aston),aec,25.8
+fed-198,fed-31986,Melbourne (Ballarat),aec,51.0
+fed-199,fed-32039,Melbourne (Batman),aec,3.1
+fed-200,fed-31987,Melbourne (Bendigo),aec,57.4
+fed-201,fed-31995,Melbourne (Bruce),aec,21.0
+fed-203,fed-32027,Melbourne (Calwell),aec,13.7
+fed-204,fed-63369,Croydon (Casey),aec,1.1
+fed-204,fed-31998,Melbourne (Casey),aec,35.6
+fed-205,fed-32045,Melbourne (Chisholm),aec,14.7
+fed-207,fed-32040,Melbourne (Corangamite),aec,55.9
+fed-208,fed-31981,Melbourne (Corio),aec,45.4
+fed-209,fed-32043,Melbourne (Deakin),aec,18.9
+fed-210,fed-32006,Melbourne (Dunkley),aec,34.4
+fed-210,fed-34007,Mt Martha North (Dunkley),aec,1.3
+fed-211,fed-31996,Melbourne (Flinders),aec,44.9
+fed-212,fed-31984,Melbourne (Gellibrand),aec,5.9
+fed-213,fed-32019,Melbourne (Gippsland),aec,151.0
+fed-214,fed-31977,Melbourne (Goldstein),aec,8.1
+fed-215,fed-32004,Melbourne (Higgins),aec,2.9
+fed-216,fed-31999,Melbourne (Holt),aec,32.8
+fed-216,fed-63833,Narre Warren (Holt),aec,1.4
+fed-217,fed-32007,Melbourne (Hotham),aec,13.8
+fed-218,fed-32008,Melbourne (Indi),aec,46.4
+fed-219,fed-33982,Melbourne (Isaacs),aec,20.1
+fed-220,fed-31988,Melbourne (Jagajaga),aec,8.5
+fed-221,fed-32021,Melbourne (Kooyong),aec,3.8
+fed-222,fed-32018,Melbourne (Lalor),aec,16.7
+fed-223,fed-32003,Melbourne (La Trobe),aec,35.8
+fed-223,fed-64095,Narre Warren South (La Trobe),aec,1.7
+fed-224,fed-32001,Melbourne (Mallee),aec,192.4
+fed-225,fed-32041,Melbourne (Maribyrnong),aec,5.7
+fed-226,fed-64156,Kangaroo Ground (McEwen),aec,2.8
+fed-226,fed-31997,Melbourne (McEwen),aec,22.1
+fed-226,fed-47752,South Morang (McEwen),aec,2.0
+fed-226,fed-64158,Yarrambat (McEwen),aec,2.3
+fed-227,fed-32032,Melbourne (McMillan),aec,56.6
+fed-229,fed-32044,Melbourne (Menzies),aec,11.8
+fed-231,fed-32010,Melbourne (Murray),aec,96.2
+fed-232,fed-32000,Melbourne (Scullin),aec,13.8
+fed-233,fed-31992,Melbourne (Wannon),aec,131.9
+fed-234,fed-32909,Melbourne (Wills),aec,3.9
+fed-309,fed-32035,Melbourne (Gorton),aec,17.6

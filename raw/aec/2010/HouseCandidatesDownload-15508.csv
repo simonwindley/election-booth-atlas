@@ -1,0 +1,196 @@
+2010 Federal Election House of Representatives Candidates [Event:15508 Phase:FinalResults Generated:2013-01-22T15:02:21 Cycle:109e02bb-5f15-4808-984f-b47255b191fb Created:2013-01-22T14:55:43 Environment:PROD Site:PARKES Server:NTR01 Version:6.0.10.10009]
+StateAb,DivisionID,DivisionNm,PartyAb,PartyNm,CandidateID,Surname,GivenNm,Elected,HistoricElected
+VIC,208,Corio,FFP,Family First,21066,AMBERLEY,Scott,N,N
+VIC,229,Menzies,LP,Liberal,21103,ANDREWS,Kevin,Y,Y
+VIC,222,Lalor,IND,Independent,21945,AUSSIE-STONE,Marc,N,N
+VIC,216,Holt,LP,Liberal,21185,BALANCY,Ricardo,N,N
+VIC,228,Melbourne,GRN,Australian Greens,21657,BANDT,Adam,Y,N
+VIC,229,Menzies,ALP,Australian Labor Party,21119,BANERJI,Joy,N,N
+VIC,198,Ballarat,LP,Liberal,21098,BANWELL,Mark,N,N
+VIC,212,Gellibrand,SEP,Socialist Equality Party,21221,BAPTIST,Tania,N,N
+VIC,209,Deakin,LP,Liberal,21030,BARRESI,Phil,N,N
+VIC,223,La Trobe,FFP,Family First,21213,BARROW,David,N,N
+VIC,220,Jagajaga,LP,Liberal,21217,BAUCH,Joh,N,N
+VIC,223,La Trobe,LDP,Liberal Democrats (LDP),21238,BENNETT,Shem,N,N
+VIC,221,Kooyong,GRN,Australian Greens,21166,BENSON,Des,N,N
+VIC,199,Batman,GRN,Australian Greens,21225,BHATHAL,Alexandra Kaur,N,N
+VIC,210,Dunkley,LP,Liberal,21027,BILLSON,Bruce,Y,Y
+VIC,226,McEwen,LDP,Liberal Democrats (LDP),21721,BINI,Mark,N,N
+VIC,213,Gippsland,GRN,Australian Greens,21351,BOND,Michael,N,N
+VIC,228,Melbourne,ALP,Australian Labor Party,21650,BOWTELL,Cath,N,N
+VIC,227,McMillan,LP,Liberal,21320,BROADBENT,Russell,Y,Y
+VIC,208,Corio,GRN,Australian Greens,21161,BROWN,Gavin,N,N
+VIC,211,Flinders,GRN,Australian Greens,21224,BROWN,Robert,N,N
+VIC,207,Corangamite,IND,Independent,21516,BROWN,Sally-Anne,N,N
+VIC,213,Gippsland,LDP,Liberal Democrats (LDP),21304,BUCKLEY,Ben,N,N
+VIC,208,Corio,SAL,Socialist Alliance,21164,BULL,Sue,N,N
+VIC,205,Chisholm,ALP,Australian Labor Party,21069,BURKE,Anna Elizabeth,Y,Y
+VIC,216,Holt,ALP,Australian Labor Party,21193,BYRNE,Anthony,Y,Y
+VIC,203,Calwell,SEP,Socialist Equality Party,21156,BYRNE,Peter,N,N
+VIC,217,Hotham,LP,Liberal,21141,CADER,Fazal,N,N
+VIC,226,McEwen,LP,Liberal,21042,CAINE,Cameron,N,N
+VIC,218,Indi,DEM,Australian Democrats,21200,CAREY,Mark,N,N
+VIC,219,Isaacs,GRN,Australian Greens,21424,CARMAN,Chris,N,N
+VIC,224,Mallee,FFP,Family First,21106,CARTER,Carl,N,N
+VIC,218,Indi,FFP,Family First,21215,CAVEDON,Robert,N,N
+VIC,207,Corangamite,ALP,Australian Labor Party,21312,CHEESEMAN,Darren,Y,Y
+VIC,213,Gippsland,NP,The Nationals,21093,CHESTER,Darren,Y,Y
+VIC,231,Murray,GRN,Australian Greens,21175,CHRISTOE,Ian,N,N
+VIC,215,Higgins,ALP,Australian Labor Party,21639,CLARK,Tony,N,N
+VIC,222,Lalor,IND,Independent,20731,CLARKE,Joanne,N,N
+VIC,231,Murray,SPA,Secular Party of Australia,21082,CLARKE-HANNAFORD,William,N,N
+VIC,226,McEwen,FFP,Family First,21110,CLARKSON,Belinda,N,N
+VIC,198,Ballarat,GRN,Australian Greens,21671,COATES,Belinda,N,N
+VIC,228,Melbourne,DEM,Australian Democrats,21631,COLLYER,David,N,N
+VIC,233,Wannon,FFP,Family First,21080,CONCEPCION,Jahzeel,N,N
+VIC,199,Batman,FFP,Family First,21038,CONLON,Andrew,N,N
+VIC,210,Dunkley,ALP,Australian Labor Party,21032,CONSTAS,Helen,N,N
+VIC,212,Gellibrand,SAL,Socialist Alliance,21292,COURTICE,Ben,N,N
+VIC,197,Aston,GRN,Australian Greens,21165,CRAIG,Salore,N,N
+VIC,217,Hotham,ALP,Australian Labor Party,21126,CREAN,Simon,Y,Y
+VIC,230,Melbourne Ports,ALP,Australian Labor Party,21599,DANBY,Michael David,Y,Y
+VIC,231,Murray,CEC,Citizens Electoral Council,20760,DAVY,Jeff,N,N
+VIC,210,Dunkley,FFP,Family First,21075,DE ZILWA,Yasmin,N,N
+VIC,216,Holt,GRN,Australian Greens,21322,DI MASCOLO,Frank,N,N
+VIC,200,Bendigo,GRN,Australian Greens,21176,DIMOZANTOS,Kymberlie,N,N
+VIC,219,Isaacs,ALP,Australian Labor Party,21257,DREYFUS,Mark,Y,Y
+VIC,225,Maribyrnong,LP,Liberal,21058,D'SOUZA,Conrad,N,N
+VIC,214,Goldstein,ALP,Australian Labor Party,21566,EDEN,Nick,N,N
+VIC,230,Melbourne Ports,LP,Liberal,21579,EKENDAHL,Kevin,N,N
+VIC,230,Melbourne Ports,FFP,Family First,21615,EMMERSON,Daniel,N,N
+VIC,205,Chisholm,SPA,Secular Party of Australia,21056,EVANS,Nimrod,N,N
+VIC,197,Aston,ALP,Australian Labor Party,21092,EVANS,Rupert,N,N
+VIC,215,Higgins,IND,Independent,21962,FAWCETT,David Michael,N,N
+VIC,205,Chisholm,GRN,Australian Greens,21172,FERGEUS,Josh,N,N
+VIC,199,Batman,ALP,Australian Labor Party,21035,FERGUSON,Martin John,Y,Y
+VIC,219,Isaacs,IND,Independent,15530,FORD,Gordon W,N,N
+VIC,224,Mallee,NP,The Nationals,21078,FORREST,John,Y,Y
+VIC,214,Goldstein,FFP,Family First,21556,FORSTER,Anthony,N,N
+VIC,221,Kooyong,LP,Liberal,21057,FRYDENBERG,Josh,Y,N
+VIC,211,Flinders,ALP,Australian Labor Party,21118,GAGLIANO-VENTURA,Francis,N,N
+VIC,227,McMillan,IND,Independent,20716,GATT,Leigh Samuel,N,N
+VIC,216,Holt,FFP,Family First,21195,GEORGE,Ian,N,N
+VIC,200,Bendigo,ALP,Australian Labor Party,21029,GIBBONS,Steve,Y,Y
+VIC,208,Corio,LP,Liberal,21048,GIBSON,Don,N,N
+VIC,222,Lalor,ALP,Australian Labor Party,21055,GILLARD,Julia,Y,Y
+VIC,205,Chisholm,FFP,Family First,21076,GOODMAN,Phil,N,N
+VIC,226,McEwen,SPA,Secular Party of Australia,21054,GORDON,Robert,N,N
+VIC,228,Melbourne,SPA,Secular Party of Australia,21636,GREEN,Penelope,N,N
+VIC,201,Bruce,ALP,Australian Labor Party,21331,GRIFFIN,Alan,Y,Y
+VIC,197,Aston,FFP,Family First,21100,HANNA,Rachel,N,N
+VIC,220,Jagajaga,SPA,Secular Party of Australia,21227,HARRIS,Peter,N,N
+VIC,204,Casey,FFP,Family First,21212,HARRISON,Daniel,N,N
+VIC,234,Wills,SAL,Socialist Alliance,21220,HAWKINS,Trent,N,N
+VIC,224,Mallee,GRN,Australian Greens,21162,HEALY,Helen,N,N
+VIC,201,Bruce,FFP,Family First,21298,HEMMERSBACH,Felicity,N,N
+VIC,207,Corangamite,LP,Liberal,21234,HENDERSON,Sarah,N,N
+VIC,215,Higgins,GRN,Australian Greens,21645,HIBBINS,Samuel,N,N
+VIC,204,Casey,ALP,Australian Labor Party,21204,HISHEH,Sami,N,N
+VIC,216,Holt,SPA,Secular Party of Australia,21192,HITCHINS,Mark,N,N
+VIC,200,Bendigo,FFP,Family First,21053,HOWARD,Alan,N,N
+VIC,209,Deakin,GRN,Australian Greens,21155,HOWELL,David,N,N
+VIC,211,Flinders,LP,Liberal,21107,HUNT,Greg,Y,Y
+VIC,200,Bendigo,LP,Liberal,21026,HUNTER,Craig,N,N
+VIC,221,Kooyong,ALP,Australian Labor Party,21071,HURD,Steve,N,N
+VIC,222,Lalor,LP,Liberal,21033,INGRAM,Sheridan,N,N
+VIC,234,Wills,CEC,Citizens Electoral Council,20762,ISHERWOOD,Craig,N,N
+VIC,213,Gippsland,FFP,Family First,21136,JEFFERIS,Heath,N,N
+VIC,232,Scullin,ALP,Australian Labor Party,21077,JENKINS,Harry,Y,Y
+VIC,201,Bruce,LP,Liberal,21346,KABOS,Mike,N,N
+VIC,220,Jagajaga,GRN,Australian Greens,21299,KEARNEY,Chris,N,N
+VIC,198,Ballarat,ALP,Australian Labor Party,21104,KING,Catherine,Y,Y
+VIC,221,Kooyong,FFP,Family First,21086,LAIDLER,John,N,N
+VIC,209,Deakin,FFP,Family First,21040,LAKE,Peter,N,N
+VIC,218,Indi,IND,Independent,20732,LAPPIN,Alan,N,N
+VIC,207,Corangamite,GRN,Australian Greens,21276,LAWRENCE,Mike,N,N
+VIC,223,La Trobe,ASXP,Australian Sex Party,20914,LEAHY,Martin,N,N
+VIC,218,Indi,ALP,Australian Labor Party,21207,LESCHEN,Zuvele Elena,N,N
+VIC,233,Wannon,IND,Independent,21669,LEUTTON,Ralph,N,N
+VIC,225,Maribyrnong,DEM,Australian Democrats,21439,LIVESAY,Robert,N,N
+VIC,225,Maribyrnong,GRN,Australian Greens,21441,LONG,Tim,N,N
+VIC,220,Jagajaga,ALP,Australian Labor Party,21244,MACKLIN,Jenny,Y,Y
+VIC,309,Gorton,FFP,Family First,21235,MAJOR,Sean Robert,N,N
+VIC,208,Corio,ALP,Australian Labor Party,21061,MARLES,Richard Donald,Y,Y
+VIC,233,Wannon,IND,Independent,21960,MARSH,Allan,N,N
+VIC,227,McMillan,ALP,Australian Labor Party,21324,MAXFIELD,Christine,N,N
+VIC,219,Isaacs,LP,Liberal,21120,McCLELLAND,Dale,N,N
+VIC,212,Gellibrand,LP,Liberal,21198,McCONNELL,David,N,N
+VIC,213,Gippsland,ALP,Australian Labor Party,21109,McCUBBIN,Darren,N,N
+VIC,231,Murray,CDP,Christian Democratic Party,21930,McDONALD,Ewan,N,N
+VIC,227,McMillan,GRN,Australian Greens,21345,McKELVIE,Malcolm,N,N
+VIC,222,Lalor,FFP,Family First,21081,McLEAN,Lori,N,N
+VIC,233,Wannon,ALP,Australian Labor Party,21070,McNAMARA,Judith,N,N
+VIC,226,McEwen,GRN,Australian Greens,21157,MEACHER,Steve,N,N
+VIC,218,Indi,LP,Liberal,21203,MIRABELLA,Sophie,Y,Y
+VIC,226,McEwen,ALP,Australian Labor Party,21088,MITCHELL,Rob,Y,N
+VIC,231,Murray,FFP,Family First,21099,MOORE,Serena,N,N
+VIC,231,Murray,ALP,Australian Labor Party,21091,MORTENSEN,Hugh,N,N
+VIC,225,Maribyrnong,FFP,Family First,21400,MOYLE,Colin,N,N
+VIC,234,Wills,FFP,Family First,21142,MUMBY,Daniel,N,N
+VIC,212,Gellibrand,FFP,Family First,21287,MUMBY,Liz,N,N
+VIC,228,Melbourne,ASXP,Australian Sex Party,20847,MURRAY,Joel,N,N
+VIC,205,Chisholm,LP,Liberal,21050,NGUYEN,John,N,N
+VIC,209,Deakin,AFN,Australia First Party,21432,NORWICK,Alex,N,N
+VIC,233,Wannon,IND,Independent,21376,O'BRIEN,Robert,N,N
+VIC,309,Gorton,ALP,Australian Labor Party,21226,O'CONNOR,Brendan,Y,Y
+VIC,218,Indi,GRN,Australian Greens,21218,O'CONNOR,Jenny,N,N
+VIC,215,Higgins,LP,Liberal,21583,O'DWYER,Kelly,Y,Y
+VIC,228,Melbourne,LP,Liberal,21633,OLSEN,Simon,N,N
+VIC,217,Hotham,FFP,Family First,21133,ONG,Gary,N,N
+VIC,233,Wannon,GRN,Australian Greens,21436,OWEN,Lisa,N,N
+VIC,229,Menzies,GRN,Australian Greens,21173,PADGHAM,Chris,N,N
+VIC,217,Hotham,GRN,Australian Greens,21208,PAYNE,Geoff,N,N
+VIC,228,Melbourne,FFP,Family First,21654,PEARSON,Georgia,N,N
+VIC,214,Goldstein,GRN,Australian Greens,21539,PILLING,Neil,N,N
+VIC,230,Melbourne Ports,GRN,Australian Greens,21573,PLOWRIGHT,Sue,N,N
+VIC,204,Casey,GRN,Australian Greens,21216,POWELL,Brendan,N,N
+VIC,233,Wannon,IND,Independent,21810,PURCELL,James,N,N
+VIC,198,Ballarat,FFP,Family First,21122,RAINEY,Jim,N,N
+VIC,233,Wannon,IND,Independent,20940,RAINSFORD,Katrina,N,N
+VIC,217,Hotham,SPA,Secular Party of Australia,21150,REARDON,Trent,N,N
+VIC,223,La Trobe,GRN,Australian Greens,21266,REIHER,Jim,N,N
+VIC,234,Wills,GRN,Australian Greens,21184,RILEY,Mark,N,N
+VIC,214,Goldstein,LP,Liberal,21571,ROBB,Andrew,Y,Y
+VIC,234,Wills,DEM,Australian Democrats,21144,ROBERTON,Paul Richard,N,N
+VIC,212,Gellibrand,ALP,Australian Labor Party,21236,ROXON,Nicola,Y,Y
+VIC,222,Lalor,,,21404,RUDD,Van,N,N
+VIC,309,Gorton,LP,Liberal,21202,RYDER,Damon,N,N
+VIC,199,Batman,DEM,Australian Democrats,21121,SARAZEN,Con,N,N
+VIC,224,Mallee,ALP,Australian Labor Party,21097,SCATES,Bob,N,N
+VIC,232,Scullin,GRN,Australian Greens,21183,SEKHON,Gurm,N,N
+VIC,209,Deakin,IND,Independent,20896,SEVILOGLOU,Abraham,N,N
+VIC,220,Jagajaga,FFP,Family First,21248,SGARLATA,Joe,N,N
+VIC,222,Lalor,IND,Independent,21938,SHAW,Brian William,N,N
+VIC,222,Lalor,SPA,Secular Party of Australia,21043,SHEEHAN,Paul,N,N
+VIC,225,Maribyrnong,ALP,Australian Labor Party,21369,SHORTEN,Bill,Y,Y
+VIC,211,Flinders,FFP,Family First,21124,SMITH,Reade,N,N
+VIC,204,Casey,LP,Liberal,21201,SMITH,Tony,Y,Y
+VIC,229,Menzies,FFP,Family First,21123,SMITHIES,Ken,N,N
+VIC,223,La Trobe,ALP,Australian Labor Party,21205,SMYTH,Laura,Y,N
+VIC,212,Gellibrand,GRN,Australian Greens,21300,SOLIN,Rodney,N,N
+VIC,199,Batman,LP,Liberal,21028,SOURIS,George,N,N
+VIC,227,McMillan,FFP,Family First,21332,STOKES,Linden,N,N
+VIC,231,Murray,LP,Liberal,21059,STONE,Sharman,Y,Y
+VIC,230,Melbourne Ports,SPA,Secular Party of Australia,21585,STORER,Gregory,N,N
+VIC,232,Scullin,FFP,Family First,21096,STRATOV,Ivan,N,N
+VIC,209,Deakin,ALP,Australian Labor Party,21036,SYMON,Mike,Y,Y
+VIC,222,Lalor,GRN,Australian Greens,21188,TAYLOR,Peter,N,N
+VIC,233,Wannon,LP,Liberal,21063,TEHAN,Dan,Y,N
+VIC,203,Calwell,GRN,Australian Greens,21171,THOMPSON,Lenka,N,N
+VIC,234,Wills,ALP,Australian Labor Party,21073,THOMSON,Kelvin,Y,Y
+VIC,210,Dunkley,GRN,Australian Greens,21148,TILLER,Simon,N,N
+VIC,207,Corangamite,LDP,Liberal Democrats (LDP),21302,TIMMINS,Nathan,N,N
+VIC,234,Wills,LP,Liberal,21060,TOMISICH,Claude,N,N
+VIC,203,Calwell,FFP,Family First,21168,TRUSCOTT,Jeff,N,N
+VIC,215,Higgins,FFP,Family First,21651,TRUTER,Ashley,N,N
+VIC,203,Calwell,LP,Liberal,21153,TSENG,Wayne,N,N
+VIC,197,Aston,LP,Liberal,21084,TUDGE,Alan,Y,N
+VIC,203,Calwell,ALP,Australian Labor Party,21159,VAMVAKINOU,Maria,Y,Y
+VIC,230,Melbourne Ports,ASXP,Australian Sex Party,20849,VEGA,Christian,N,N
+VIC,209,Deakin,LDP,Liberal Democrats (LDP),21303,WALSH,Benjamin,N,N
+VIC,219,Isaacs,FFP,Family First,21295,WHEATLEY,Heather,N,N
+VIC,232,Scullin,LP,Liberal,21062,WILLIAMS,Max,N,N
+VIC,309,Gorton,GRN,Australian Greens,21232,WILSON,Steve,N,N
+VIC,207,Corangamite,FFP,Family First,21316,WOJCZUK,Ann,N,N
+VIC,223,La Trobe,LP,Liberal,21197,WOOD,Jason,N,Y
+VIC,201,Bruce,GRN,Australian Greens,21353,ZIBELL,Stefan,N,N

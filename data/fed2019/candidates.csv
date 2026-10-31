@@ -1,0 +1,259 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+fed2019,fed-197,33330,TUDGE,Alan,Liberal,LP,LIB,1,1
+fed2019,fed-197,32408,COOKSON,Asher,The Greens (VIC),GRN,GRN,2,0
+fed2019,fed-197,32313,PETHIYAGODA,Kadira,Australian Labor Party,ALP,ALP,3,0
+fed2019,fed-197,32269,SIRIANNI-DUFFY,Matthew,United Australia Party,UAPP,UAP,4,0
+fed2019,fed-197,32321,KENNEDY,Anna,Labour DLP,DLP,DLP,5,0
+fed2019,fed-198,33209,HILLS,Bryn,Animal Justice Party,AJP,AJP,1,0
+fed2019,fed-198,32278,COZYN,Peter,United Australia Party,UAPP,UAP,2,0
+fed2019,fed-198,33575,GRAHAM,Alex,Independent,IND,IND,3,0
+fed2019,fed-198,33429,SHADY,Nick,Independent,IND,IND,4,0
+fed2019,fed-198,32396,McALOON,Karen,The Greens (VIC),GRN,GRN,5,0
+fed2019,fed-198,33268,VO,Tim,Liberal,LP,LIB,6,0
+fed2019,fed-198,32326,KING,Catherine,Australian Labor Party,ALP,ALP,7,1
+fed2019,fed-200,33371,BUDDE,Sharon,Rise Up Australia Party,RUA,RUA,1,0
+fed2019,fed-200,32413,HOLIAN,Robert,The Greens (VIC),GRN,GRN,2,0
+fed2019,fed-200,32333,CHESTERS,Lisa,Australian Labor Party,ALP,ALP,3,1
+fed2019,fed-200,32286,VEITCH,Adam,United Australia Party,UAPP,UAP,4,0
+fed2019,fed-200,33422,GAYED,Sam,Liberal,LP,LIB,5,0
+fed2019,fed-200,32644,WILLIAMS,Vaughan,Pauline Hanson's One Nation,ON,ONP,6,0
+fed2019,fed-200,33608,HOSKIN,Julie,FRASER ANNING'S CONSERVATIVE NATIONAL PARTY,FACN,ONP_SPLIT,7,0
+fed2019,fed-201,33596,BOYANTON,Tim,FRASER ANNING'S CONSERVATIVE NATIONAL PARTY,FACN,ONP_SPLIT,1,0
+fed2019,fed-201,32368,AHMED,Mubahil,United Australia Party,UAPP,UAP,2,0
+fed2019,fed-201,33276,MacISAAC,John,Liberal,LP,LIB,3,0
+fed2019,fed-201,32342,HILL,Julian,Australian Labor Party,ALP,ALP,4,1
+fed2019,fed-201,32409,GARAD,Rhonda,The Greens (VIC),GRN,GRN,5,0
+fed2019,fed-203,32400,KERR,Keith,Citizens Electoral Council,CEC,CYA,1,0
+fed2019,fed-203,32659,MORGAN,Polly,The Greens (VIC),GRN,GRN,2,0
+fed2019,fed-203,32391,VAMVAKINOU,Maria,Australian Labor Party,ALP,ALP,3,1
+fed2019,fed-203,33609,VAIL,Adam,FRASER ANNING'S CONSERVATIVE NATIONAL PARTY,FACN,ONP_SPLIT,4,0
+fed2019,fed-203,32410,SMALL,Jerome,Victorian Socialists,VNS,VSP,5,0
+fed2019,fed-203,32389,CHHABRA,Prakul,United Australia Party,UAPP,UAP,6,0
+fed2019,fed-203,32283,BYRNE,Peter,Socialist Equality Party,SEP,OTH,7,0
+fed2019,fed-203,33191,HAMILTON,Genevieve,Liberal,LP,LIB,8,0
+fed2019,fed-204,28237,CHARLETON,Peter,Independent,IND,IND,1,0
+fed2019,fed-204,33270,CALABRO,Antony,Rise Up Australia Party,RUA,RUA,2,0
+fed2019,fed-204,32346,McPHEE,Ross,Labour DLP,DLP,DLP,3,0
+fed2019,fed-204,32674,BARKER,Travis,Animal Justice Party,AJP,AJP,4,0
+fed2019,fed-204,32292,STARKEY,Wendy,United Australia Party,UAPP,UAP,5,0
+fed2019,fed-204,33235,CLARK,Ryan Leslie,Derryn Hinch's Justice Party,DHJP,DHJ,6,0
+fed2019,fed-204,33316,SMITH,Tony,Liberal,LP,LIB,7,1
+fed2019,fed-204,32318,BRINDLE,Bill,Australian Labor Party,ALP,ALP,8,0
+fed2019,fed-204,32404,GAME-LOPATA,Jenny,The Greens (VIC),GRN,GRN,9,0
+fed2019,fed-204,33551,O'CONNOR,Jayden,The Great Australian Party,GAP,OTH,10,0
+fed2019,fed-205,33549,DOBBY,Ian,Independent,IND,IND,1,0
+fed2019,fed-205,33333,DORIAN,Angela Mary,Rise Up Australia Party,RUA,RUA,2,0
+fed2019,fed-205,32403,ARTHUR,Luke,The Greens (VIC),GRN,GRN,3,0
+fed2019,fed-205,33350,LIU,Gladys,Liberal,LP,LIB,4,1
+fed2019,fed-205,32689,LAVIN,Rosemary,Animal Justice Party,AJP,AJP,5,0
+fed2019,fed-205,33296,WICKS,Anne,Derryn Hinch's Justice Party,DHJP,DHJ,6,0
+fed2019,fed-205,32347,ZORAYA,George,United Australia Party,UAPP,UAP,7,0
+fed2019,fed-205,32301,YANG,Jennifer,Australian Labor Party,ALP,ALP,8,0
+fed2019,fed-205,33205,JENKINS,Philip,Labour DLP,DLP,DLP,9,0
+fed2019,fed-320,32095,VAN LIESHOUT,Teresa,Independent,IND,IND,1,0
+fed2019,fed-320,33257,RUSSELL,Sarah,Reason Australia,REAS,RUA,2,0
+fed2019,fed-320,32300,NANGLE,Brett,United Australia Party,UAPP,UAP,3,0
+fed2019,fed-320,32728,RICHINGS,Nadine,Animal Justice Party,AJP,AJP,4,0
+fed2019,fed-320,32693,RISSTROM,David,The Greens (VIC),GRN,GRN,5,0
+fed2019,fed-320,32382,LARKIN,Kath,Victorian Socialists,VNS,VSP,6,0
+fed2019,fed-320,32339,KEARNEY,Ged,Australian Labor Party,ALP,ALP,7,1
+fed2019,fed-320,33349,BELL,Andrew,Liberal,LP,LIB,8,0
+fed2019,fed-207,33304,ERSKINE,Ian,Rise Up Australia Party,RUA,RUA,1,0
+fed2019,fed-207,32298,COKER,Libby,Australian Labor Party,ALP,ALP,2,1
+fed2019,fed-207,32609,NORTHEAST,Simon,The Greens (VIC),GRN,GRN,3,0
+fed2019,fed-207,32718,ADAMS,Naomi,Animal Justice Party,AJP,AJP,4,0
+fed2019,fed-207,33555,COLE,Damien,Independent,IND,IND,5,0
+fed2019,fed-207,33318,HENDERSON,Sarah,Liberal,LP,LIB,6,0
+fed2019,fed-207,32328,HARVEY,Neil,United Australia Party,UAPP,UAP,7,0
+fed2019,fed-207,33275,GRIMLEY,Mandy,Derryn Hinch's Justice Party,DHJP,DHJ,8,0
+fed2019,fed-208,32395,MARLES,Richard,Australian Labor Party,ALP,ALP,1,1
+fed2019,fed-208,33163,THOMSON,Alastair,Liberal,LP,LIB,2,0
+fed2019,fed-208,32741,FORBES,Amber,The Greens (VIC),GRN,GRN,3,0
+fed2019,fed-208,32720,SANBORN,Desmond,United Australia Party,UAPP,UAP,4,0
+fed2019,fed-209,33266,SULLIVAN,Ellie Jean,Derryn Hinch's Justice Party,DHJP,DHJ,1,0
+fed2019,fed-209,33558,JANSON,Vickie,Independent,IND,IND,2,0
+fed2019,fed-209,32412,SUN,Sophia,The Greens (VIC),GRN,GRN,3,0
+fed2019,fed-209,33317,SUKKAR,Michael,Liberal,LP,LIB,4,1
+fed2019,fed-209,32296,WILDE,Milton,United Australia Party,UAPP,UAP,5,0
+fed2019,fed-209,32694,COSTANTINO,Vinita,Animal Justice Party,AJP,AJP,6,0
+fed2019,fed-209,32353,MORRIS,Shireen,Australian Labor Party,ALP,ALP,7,0
+fed2019,fed-209,32380,van der HORST,Joel,Labour DLP,DLP,DLP,8,0
+fed2019,fed-210,33311,O'CONNELL,Lachlan Andrew,Derryn Hinch's Justice Party,DHJP,DHJ,1,0
+fed2019,fed-210,32842,JOHNSTON,Elizabeth,Animal Justice Party,AJP,AJP,2,0
+fed2019,fed-210,32393,JEAN,Ron,United Australia Party,UAPP,UAP,3,0
+fed2019,fed-210,32352,MURPHY,Peta,Australian Labor Party,ALP,ALP,4,1
+fed2019,fed-210,32789,GREEN,Emily,The Greens (VIC),GRN,GRN,5,0
+fed2019,fed-210,33404,CREWTHER,Chris,Liberal,LP,LIB,6,0
+fed2019,fed-210,33612,JAMES,Christopher Ronald,FRASER ANNING'S CONSERVATIVE NATIONAL PARTY,FACN,ONP_SPLIT,7,0
+fed2019,fed-210,33339,GENTLE,Yvonne,Rise Up Australia Party,RUA,RUA,8,0
+fed2019,fed-211,32140,DREGER,Harry,Independent,IND,IND,1,0
+fed2019,fed-211,32676,PERSSON,James,Animal Justice Party,AJP,AJP,2,0
+fed2019,fed-211,33195,HUNT,Greg,Liberal,LP,LIB,3,1
+fed2019,fed-211,32982,SMITH,Reade,Sustainable Australia,SPP,SAP,4,0
+fed2019,fed-211,32294,SINCLAIR,Josh,Australian Labor Party,ALP,ALP,5,0
+fed2019,fed-211,32608,LESSLIE,Nathan,The Greens (VIC),GRN,GRN,6,0
+fed2019,fed-211,32319,McSHANE,Christine,United Australia Party,UAPP,UAP,7,0
+fed2019,fed-211,32272,BANKS,Julia,Independent,IND,IND,8,0
+fed2019,fed-211,32757,BEVERIDGE,Susie,Independent,IND,IND,9,0
+fed2019,fed-321,32282,CHAU,Vinh Van,United Australia Party,UAPP,UAP,1,0
+fed2019,fed-321,33274,BAIN,Peter,Liberal,LP,LIB,2,0
+fed2019,fed-321,32324,MULINO,Daniel,Australian Labor Party,ALP,ALP,3,1
+fed2019,fed-321,33461,DOBRAN,Tony,The Great Australian Party,GAP,OTH,4,0
+fed2019,fed-321,32583,SCORGIE,Rebecca,The Greens (VIC),GRN,GRN,5,0
+fed2019,fed-321,32841,TRAN,Van,Independent,IND,IND,6,0
+fed2019,fed-212,32325,WATTS,Tim,Australian Labor Party,ALP,ALP,1,1
+fed2019,fed-212,32623,THOMAS,Bernadette,The Greens (VIC),GRN,GRN,2,0
+fed2019,fed-212,33151,MITCHELL,Anthony,Liberal,LP,LIB,3,0
+fed2019,fed-212,32274,BENTLEY,Lisa Maree,United Australia Party,UAPP,UAP,4,0
+fed2019,fed-213,33164,SNELLING,David,"Shooters, Fishers and Farmers",ASP,SFF,1,0
+fed2019,fed-213,33595,TICKNER,Neville Phillip,FRASER ANNING'S CONSERVATIVE NATIONAL PARTY,FACN,ONP_SPLIT,2,0
+fed2019,fed-213,32343,BREWER,Kerri Jane,United Australia Party,UAPP,UAP,3,0
+fed2019,fed-213,32289,HOLM,Antoinette,Australian Labor Party,ALP,ALP,4,0
+fed2019,fed-213,33567,BUCKLEY,Sonia,Independent,IND,IND,5,0
+fed2019,fed-213,32371,CHESTER,Darren,The Nationals,NP,NAT,6,1
+fed2019,fed-213,32571,FOSKEY,Deb,The Greens (VIC),GRN,GRN,7,0
+fed2019,fed-214,32334,CONNOLLY,Wayne,United Australia Party,UAPP,UAP,1,0
+fed2019,fed-214,32983,HOULT,Brandon James,Sustainable Australia,SPP,SAP,2,0
+fed2019,fed-214,32291,POLLOCK,Daniel,Australian Labor Party,ALP,ALP,3,0
+fed2019,fed-214,32566,PENNICUIK,Sue,The Greens (VIC),GRN,GRN,4,0
+fed2019,fed-214,33265,WILSON,Tim,Liberal,LP,LIB,5,1
+fed2019,fed-214,32133,CASLEY,John Tiger,Independent,IND,IND,6,0
+fed2019,fed-309,32287,TURTON,Richard,United Australia Party,UAPP,UAP,1,0
+fed2019,fed-309,32084,BINGHAM,Jarrod,Independent,IND,IND,2,0
+fed2019,fed-309,32597,SINGH,Harkirat,The Greens (VIC),GRN,GRN,3,0
+fed2019,fed-309,32308,O'CONNOR,Brendan,Australian Labor Party,ALP,ALP,4,1
+fed2019,fed-309,33308,DI NOIA,Nathan,Liberal,LP,LIB,5,0
+fed2019,fed-215,32579,BALL,Jason,The Greens (VIC),GRN,GRN,1,0
+fed2019,fed-215,32986,MORAN,Michaela,Sustainable Australia,SPP,SAP,2,0
+fed2019,fed-215,32701,WALKER,Alicia,Animal Justice Party,AJP,AJP,3,0
+fed2019,fed-215,33232,ALLEN,Katie,Liberal,LP,LIB,4,1
+fed2019,fed-215,32336,McLEOD,Fiona,Australian Labor Party,ALP,ALP,5,0
+fed2019,fed-215,32375,RYAN,Tim,United Australia Party,UAPP,UAP,6,0
+fed2019,fed-216,32370,BYRNE,Anthony,Australian Labor Party,ALP,ALP,1,1
+fed2019,fed-216,32592,WHEELOCK,Jess,The Greens (VIC),GRN,GRN,2,0
+fed2019,fed-216,32316,SINGH,Jatinder,United Australia Party,UAPP,UAP,3,0
+fed2019,fed-216,33199,VAN DEN BROEK,Jennifer,Liberal,LP,LIB,4,0
+fed2019,fed-217,32341,LUAN,Jin,United Australia Party,UAPP,UAP,1,0
+fed2019,fed-217,32304,O'NEIL,Clare,Australian Labor Party,ALP,ALP,2,1
+fed2019,fed-217,33281,HUA,George,Liberal,LP,LIB,3,0
+fed2019,fed-217,32414,GONSALVEZ,Jess,The Greens (VIC),GRN,GRN,4,0
+fed2019,fed-217,33255,DORIAN,Peter,Rise Up Australia Party,RUA,RUA,5,0
+fed2019,fed-217,32989,BILIC,Dennis,Sustainable Australia,SPP,SAP,6,0
+fed2019,fed-218,32630,ROBINSON,Helen,The Greens (VIC),GRN,GRN,1,0
+fed2019,fed-218,33238,WHALLEY,Jason Peter,Derryn Hinch's Justice Party,DHJP,DHJ,2,0
+fed2019,fed-218,32086,HAINES,Helen,Independent,IND,IND,3,1
+fed2019,fed-218,33174,MARTIN,Steve,Liberal,LP,LIB,4,0
+fed2019,fed-218,32589,BYATT,Mark,The Nationals,NP,NAT,5,0
+fed2019,fed-218,33221,WHEATLAND,Shane,United Australia Party,UAPP,UAP,6,0
+fed2019,fed-218,32364,KERR,Eric,Australian Labor Party,ALP,ALP,7,0
+fed2019,fed-219,32570,SAMIOTIS,Kim,The Greens (VIC),GRN,GRN,1,0
+fed2019,fed-219,33297,HEARN,Jeremy,Liberal,LP,LIB,2,0
+fed2019,fed-219,33247,PUVIMANASINGHE,Ash,Rise Up Australia Party,RUA,RUA,3,0
+fed2019,fed-219,32668,CURRIE,Bronwyn,Animal Justice Party,AJP,AJP,4,0
+fed2019,fed-219,32312,DREYFUS,Mark,Australian Labor Party,ALP,ALP,5,1
+fed2019,fed-219,32337,SEALS,Tony,United Australia Party,UAPP,UAP,6,0
+fed2019,fed-220,32320,RIGONI,Maria Marcia,United Australia Party,UAPP,UAP,1,0
+fed2019,fed-220,32293,THWAITES,Kate,Australian Labor Party,ALP,ALP,2,1
+fed2019,fed-220,33183,TRUSCOTT,Jeff,Rise Up Australia Party,RUA,RUA,3,0
+fed2019,fed-220,33259,WELCH,Richard,Liberal,LP,LIB,4,0
+fed2019,fed-220,32600,KENNEDY,Paul,The Greens (VIC),GRN,GRN,5,0
+fed2019,fed-221,32355,D'ELIA,Steven,United Australia Party,UAPP,UAP,1,0
+fed2019,fed-221,32077,YATES,Oliver,Independent,IND,IND,2,0
+fed2019,fed-221,24869,ZUBAC,Angelina,Independent,IND,IND,3,0
+fed2019,fed-221,33123,FRYDENBERG,Josh,Liberal,LP,LIB,4,1
+fed2019,fed-221,32332,STEWART,Jana,Australian Labor Party,ALP,ALP,5,0
+fed2019,fed-221,32671,HINKLEY,Davina,Animal Justice Party,AJP,AJP,6,0
+fed2019,fed-221,32575,BURNSIDE,Julian,The Greens (VIC),GRN,GRN,7,0
+fed2019,fed-221,32157,CHANDLER,Bill,Independent,IND,IND,8,0
+fed2019,fed-223,32655,GREGOROVICH,Amy,The Greens (VIC),GRN,GRN,1,0
+fed2019,fed-223,33261,BAKER,Norman,Rise Up Australia Party,RUA,RUA,2,0
+fed2019,fed-223,33307,WOOD,Jason,Liberal,LP,LIB,3,1
+fed2019,fed-223,32811,BAKER,Esther,Pauline Hanson's One Nation,ON,ONP,4,0
+fed2019,fed-223,32311,DEAN,Duncan,United Australia Party,UAPP,UAP,5,0
+fed2019,fed-223,32290,CURTIS,Simon,Australian Labor Party,ALP,ALP,6,0
+fed2019,fed-223,33186,CALWELL-BROWNE,Asher Joseph,Derryn Hinch's Justice Party,DHJP,DHJ,7,0
+fed2019,fed-222,32250,JAKOBI,Susan,Australia First Party,AFN,OTH,1,0
+fed2019,fed-222,33190,MURPHY,Gayle,Liberal,LP,LIB,2,0
+fed2019,fed-222,32354,RYAN,Joanne,Australian Labor Party,ALP,ALP,3,1
+fed2019,fed-222,32297,ROBINSON,Jeffrey Edward,United Australia Party,UAPP,UAP,4,0
+fed2019,fed-222,32828,DESSI,Jay,The Greens (VIC),GRN,GRN,5,0
+fed2019,fed-222,32267,MOINUDDIN,Aijaz,,NAFD,IND,6,0
+fed2019,fed-322,32247,O'ROURKE,Ruby,Independent,IND,IND,1,0
+fed2019,fed-322,32447,HODGINS-MAY,Steph,The Greens (VIC),GRN,GRN,2,0
+fed2019,fed-322,32991,ARMSTRONG,Steven,Sustainable Australia,SPP,SAP,3,0
+fed2019,fed-322,33295,ASHMOR,Kate,Liberal,LP,LIB,4,0
+fed2019,fed-322,32306,WALLIS,Chris,Independent,IND,IND,5,0
+fed2019,fed-322,32684,McPHERSON,Craig,Animal Justice Party,AJP,AJP,6,0
+fed2019,fed-322,33336,KAY,Christine,Rise Up Australia Party,RUA,RUA,7,0
+fed2019,fed-322,32387,PATON,Helen Lucy,United Australia Party,UAPP,UAP,8,0
+fed2019,fed-322,32360,BURNS,Josh,Australian Labor Party,ALP,ALP,9,1
+fed2019,fed-224,33287,PETROVICH,Serge,Liberal,LP,LIB,1,0
+fed2019,fed-224,33629,MOAR,Cecilia,Independent,IND,IND,2,0
+fed2019,fed-224,33621,MODICA,Jason Mark,Independent,IND,IND,3,0
+fed2019,fed-224,32224,GROSVENOR,Rick,FRASER ANNING'S CONSERVATIVE NATIONAL PARTY,FACN,ONP_SPLIT,4,0
+fed2019,fed-224,32425,WEBSTER,Anne,The Nationals,NP,NAT,5,1
+fed2019,fed-224,32273,LAHY,Chris,Citizens Electoral Council,CEC,CYA,6,0
+fed2019,fed-224,33351,MOLLISON,Philip,Rise Up Australia Party,RUA,RUA,7,0
+fed2019,fed-224,32277,HART,Carole,Australian Labor Party,ALP,ALP,8,0
+fed2019,fed-224,33654,FIRMAN,Leigh,Science Party,FUT,OTH,9,0
+fed2019,fed-224,32744,KINGSTON,Ray,Independent,IND,IND,10,0
+fed2019,fed-224,33280,STRAUB,Dan,"Shooters, Fishers and Farmers",ASP,SFF,11,0
+fed2019,fed-224,32416,MILLAR,Rick,United Australia Party,UAPP,UAP,12,0
+fed2019,fed-224,32422,ROWAN,Nicole,The Greens (VIC),GRN,GRN,13,0
+fed2019,fed-225,32310,HASAN,MD Sarwar,United Australia Party,UAPP,UAP,1,0
+fed2019,fed-225,32574,WILLIAMS,James,The Greens (VIC),GRN,GRN,2,0
+fed2019,fed-225,32388,SHORTEN,Bill,Australian Labor Party,ALP,ALP,3,1
+fed2019,fed-225,33182,STOW,Christine,Liberal,LP,LIB,4,0
+fed2019,fed-226,32426,BARKER,Neil,The Greens (VIC),GRN,GRN,1,0
+fed2019,fed-226,33225,PARRAMORE,Ruth,Animal Justice Party,AJP,AJP,2,0
+fed2019,fed-226,32338,MITCHELL,Rob,Australian Labor Party,ALP,ALP,3,1
+fed2019,fed-226,33559,FUSCO,Phillip,Liberal,LP,LIB,4,0
+fed2019,fed-226,33545,BUTLER,Deb,Derryn Hinch's Justice Party,DHJP,DHJ,5,0
+fed2019,fed-226,33293,HYNDMAN,Robert James,Independent,IND,IND,6,0
+fed2019,fed-226,33374,GRAHAM,Ronnie,Pauline Hanson's One Nation,ON,ONP,7,0
+fed2019,fed-226,32411,HAYMAN,Chris,United Australia Party,UAPP,UAP,8,0
+fed2019,fed-228,32833,RYAN,Judy,Reason Australia,REAS,RUA,1,0
+fed2019,fed-228,32423,BANDT,Adam,The Greens (VIC),GRN,GRN,2,1
+fed2019,fed-228,33341,BLAKE,Dave,Independent,IND,IND,3,0
+fed2019,fed-228,32721,POPE,Lawrence,Animal Justice Party,AJP,AJP,4,0
+fed2019,fed-228,33322,SHERSON,Lauren,Liberal,LP,LIB,5,0
+fed2019,fed-228,32303,CREASEY,Luke,Australian Labor Party,ALP,ALP,6,0
+fed2019,fed-228,32335,PECORA,Tony,United Australia Party,UAPP,UAP,7,0
+fed2019,fed-229,32345,KELLEHER,Teresa Mary,Labour DLP,DLP,DLP,1,0
+fed2019,fed-229,33179,ANDREWS,Kevin,Liberal,LP,LIB,2,1
+fed2019,fed-229,32302,YEE,Stella,Australian Labor Party,ALP,ALP,3,0
+fed2019,fed-229,32825,PAYNE,Rachel,Reason Australia,REAS,RUA,4,0
+fed2019,fed-229,32385,FULLER,Brett Stephen,United Australia Party,UAPP,UAP,5,0
+fed2019,fed-229,32638,HUMPHREYS,Robert,The Greens (VIC),GRN,GRN,6,0
+fed2019,fed-323,32690,VERHOEVEN,John,Independent,IND,IND,1,0
+fed2019,fed-323,32137,FOZARD,Michael Stewart,Independent,IND,IND,2,0
+fed2019,fed-323,32802,WADDELL,Jeff,Pauline Hanson's One Nation,ON,ONP,3,0
+fed2019,fed-323,32299,O'DONNELL,Jessica,Australian Labor Party,ALP,ALP,4,0
+fed2019,fed-323,32729,HORNSTRA,William,The Greens (VIC),GRN,GRN,5,0
+fed2019,fed-323,33175,BROADBENT,Russell,Liberal,LP,LIB,6,1
+fed2019,fed-323,32281,SHERRY,Matthew,United Australia Party,UAPP,UAP,7,0
+fed2019,fed-324,32417,DRUM,Damian,The Nationals,NP,NAT,1,1
+fed2019,fed-324,33605,PARKER,Jeremy,Independent,IND,IND,2,0
+fed2019,fed-324,33132,BOCK,Andrew,Independent,IND,IND,3,0
+fed2019,fed-324,32351,HINE,Stewart John,United Australia Party,UAPP,UAP,4,0
+fed2019,fed-324,32309,LODWICK,Bill,Australian Labor Party,ALP,ALP,5,0
+fed2019,fed-324,32536,FREEMAN,Nickee,The Greens (VIC),GRN,GRN,6,0
+fed2019,fed-324,32604,TYRRELL,Rikkie-Lee,Pauline Hanson's One Nation,ON,ONP,7,0
+fed2019,fed-324,33403,HICKS,Nigel,Independent,IND,IND,8,0
+fed2019,fed-232,32323,GILES,Andrew,Australian Labor Party,ALP,ALP,1,1
+fed2019,fed-232,32356,HASAN,Firas,United Australia Party,UAPP,UAP,2,0
+fed2019,fed-232,32653,SMITH,Cynthia,The Greens (VIC),GRN,GRN,3,0
+fed2019,fed-232,32695,WHITFIELD,Rod,Animal Justice Party,AJP,AJP,4,0
+fed2019,fed-232,33245,SINGH,Gurpal,Liberal,LP,LIB,5,0
+fed2019,fed-232,33616,ALBARRI,Yassin Akram,Independent,IND,IND,6,0
+fed2019,fed-233,32679,TAYLOR,Zephlyn,The Greens (VIC),GRN,GRN,1,0
+fed2019,fed-233,32372,WALLACE,Joshua,United Australia Party,UAPP,UAP,2,0
+fed2019,fed-233,32358,BILLI,Maurice,Australian Labor Party,ALP,ALP,3,0
+fed2019,fed-233,33601,DYSON,Alex,Independent,IND,IND,4,0
+fed2019,fed-233,33180,TEHAN,Dan,Liberal,LP,LIB,5,1
+fed2019,fed-234,32688,MILES,Chris,Animal Justice Party,AJP,AJP,1,0
+fed2019,fed-234,32398,BOLTON,Sue,Victorian Socialists,VNS,VSP,2,0
+fed2019,fed-234,33251,KILLIN,Peter,Liberal,LP,LIB,3,0
+fed2019,fed-234,32657,PULFORD,Adam,The Greens (VIC),GRN,GRN,4,0
+fed2019,fed-234,32329,VENKAT,Manju,United Australia Party,UAPP,UAP,5,0
+fed2019,fed-234,32350,KHALIL,Peter,Australian Labor Party,ALP,ALP,6,1

@@ -1,0 +1,260 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+fed2016,fed-197,28116,RAYMOND,Steve,The Greens,GRN,GRN,1,0
+fed2016,fed-197,28872,MARTIN,Daniel Edward,Family First Party,FFP,FFP,2,0
+fed2016,fed-197,28212,HUPPERT,Daniel,Independent,IND,IND,3,0
+fed2016,fed-197,28748,MOORE,Joel,Liberal Democrats,LDP,LDP,4,0
+fed2016,fed-197,28205,LAVIN,Rosemary,Animal Justice Party,AJP,AJP,5,0
+fed2016,fed-197,28875,TUDGE,Alan,Liberal,LP,LIB,6,1
+fed2016,fed-197,28293,KLISARIS,Paul,Australian Labor Party,ALP,ALP,7,0
+fed2016,fed-198,28784,COLBERT,Dianne,Australian Christians,AUC,AUC,1,0
+fed2016,fed-198,28390,TATCHELL,Paul,The Nationals,NP,NAT,2,0
+fed2016,fed-198,28317,KING,Catherine,Australian Labor Party,ALP,ALP,3,1
+fed2016,fed-198,29522,ECKEL,Bren,Independent,IND,IND,4,0
+fed2016,fed-198,28101,BARNES,Alice,The Greens,GRN,GRN,5,0
+fed2016,fed-198,29009,HOWARD,Graham,Family First Party,FFP,FFP,6,0
+fed2016,fed-198,28629,TRAN,Tran,Rise Up Australia Party,RUA,RUA,7,0
+fed2016,fed-198,29007,WADE,Sarah,Liberal,LP,LIB,8,0
+fed2016,fed-199,24747,SUTTON,Philip,Independent,IND,IND,1,0
+fed2016,fed-199,28339,OLDIS,Maurice,Renewable Energy Party,REP,OTH,2,0
+fed2016,fed-199,29004,MURRAY,Joel,Australian Sex Party,ASXP,FRP,3,0
+fed2016,fed-199,28124,BHATHAL,Alex,The Greens,GRN,GRN,4,0
+fed2016,fed-199,29206,HAYWARD,Russell,Australian Progressives,AUP,OTH,5,0
+fed2016,fed-199,29517,CICUTO,Geoffrey,Australian Cyclists Party,CYC,OTH,6,0
+fed2016,fed-199,28896,SOURIS,George,Liberal,LP,LIB,7,0
+fed2016,fed-199,28241,FEENEY,David,Australian Labor Party,ALP,ALP,8,1
+fed2016,fed-199,28180,EVANS,Caitlin,Animal Justice Party,AJP,AJP,9,0
+fed2016,fed-199,23652,GUARDIANI,Franco,Independent,IND,IND,10,0
+fed2016,fed-199,28900,SYBER,Elizabeth,Marriage Equality,AEQ,OTH,11,0
+fed2016,fed-200,28405,MADDISON,Andy,The Nationals,NP,NAT,1,0
+fed2016,fed-200,28103,GLAISHER,Rosemary,The Greens,GRN,GRN,2,0
+fed2016,fed-200,28605,CADDY,Sandy,Rise Up Australia Party,RUA,RUA,3,0
+fed2016,fed-200,28244,CHESTERS,Lisa,Australian Labor Party,ALP,ALP,4,1
+fed2016,fed-200,28903,PURCELL,Megan,Liberal,LP,LIB,5,0
+fed2016,fed-200,28171,PARRAMORE,Ruth,Animal Justice Party,AJP,AJP,6,0
+fed2016,fed-200,23618,DONLON,Anita Erika,Independent,IND,IND,7,0
+fed2016,fed-200,28906,HOWARD,Alan,Family First Party,FFP,FFP,8,0
+fed2016,fed-201,28193,LEITH,Douglas Ronald,Animal Justice Party,AJP,AJP,1,0
+fed2016,fed-201,28131,BAUER,Stefanie,The Greens,GRN,GRN,2,0
+fed2016,fed-201,28996,KROGER,Helen,Liberal,LP,LIB,3,0
+fed2016,fed-201,29002,FOGGIE,Nathan,Family First Party,FFP,FFP,4,0
+fed2016,fed-201,29544,JARVIS-WILLS,Jill,Renewable Energy Party,REP,OTH,5,0
+fed2016,fed-201,28275,HILL,Julian,Australian Labor Party,ALP,ALP,6,1
+fed2016,fed-201,29529,RONCAN,Alan,Drug Law Reform,DRF,OTH,7,0
+fed2016,fed-203,29082,HSU,John,Liberal,LP,LIB,1,0
+fed2016,fed-203,28311,VAMVAKINOU,Maria,Australian Labor Party,ALP,ALP,2,1
+fed2016,fed-203,28134,ABBOUD,Natalie,The Greens,GRN,GRN,3,0
+fed2016,fed-203,28197,SEARLS,Megan Deanne,Animal Justice Party,AJP,AJP,4,0
+fed2016,fed-203,28366,LAKKIS,Michael Amon,Independent,IND,IND,5,0
+fed2016,fed-204,28122,SUTHERLAND,Elissa,The Greens,GRN,GRN,1,0
+fed2016,fed-204,28210,BACON,Kristin,Animal Justice Party,AJP,AJP,2,0
+fed2016,fed-204,28292,MELKONIAN,Hovig,Australian Labor Party,ALP,ALP,3,0
+fed2016,fed-204,28237,CHARLETON,Peter,Independent,IND,IND,4,0
+fed2016,fed-204,28985,SMITH,Tony,Liberal,LP,LIB,5,1
+fed2016,fed-204,28606,DORIAN,Angela,Rise Up Australia Party,RUA,RUA,6,0
+fed2016,fed-205,28614,VASSILIOU,Melanie,Rise Up Australia Party,RUA,RUA,1,0
+fed2016,fed-205,28194,WALSHE,Nyree,Animal Justice Party,AJP,AJP,2,0
+fed2016,fed-205,29012,McCRACKEN,Craig,Family First Party,FFP,FFP,3,0
+fed2016,fed-205,28117,FERGEUS,Josh,The Greens,GRN,GRN,4,0
+fed2016,fed-205,28936,BANKS,Julia,Liberal,LP,LIB,5,1
+fed2016,fed-205,28298,PERRI,Stefanie,Australian Labor Party,ALP,ALP,6,0
+fed2016,fed-207,29546,LAWRENCE,Michael,Independent,IND,IND,1,0
+fed2016,fed-207,28929,BARRON,Alan,Family First Party,FFP,FFP,2,0
+fed2016,fed-207,28620,STEEL,Nick,Rise Up Australia Party,RUA,RUA,3,0
+fed2016,fed-207,28765,ROWE,Louis,Liberal Democrats,LDP,LDP,4,0
+fed2016,fed-207,28257,COKER,Libby,Australian Labor Party,ALP,ALP,5,0
+fed2016,fed-207,29386,NELSON,Patrice,Derryn Hinch's Justice Party,DHJP,DHJ,6,0
+fed2016,fed-207,28173,MEDDICK,Andy,Animal Justice Party,AJP,AJP,7,0
+fed2016,fed-207,29305,DALTON,Courtney,Drug Law Reform,DRF,OTH,8,0
+fed2016,fed-207,28127,PATERSON,Patchouli,The Greens,GRN,GRN,9,0
+fed2016,fed-207,28920,HENDERSON,Sarah,Liberal,LP,LIB,10,1
+fed2016,fed-208,29003,LANGE,Richard,Liberal,LP,LIB,1,0
+fed2016,fed-208,28741,BULL,Sue,Socialist Alliance,SAL,SAP,2,0
+fed2016,fed-208,28291,MARLES,Richard,Australian Labor Party,ALP,ALP,3,1
+fed2016,fed-208,28607,PUVIMANASINGHE,Ash,Rise Up Australia Party,RUA,RUA,4,0
+fed2016,fed-208,28309,MORAN,Jeff,Bullet Train For Australia,BTA,OTH,5,0
+fed2016,fed-208,28185,OVEREND,Jamie,Animal Justice Party,AJP,AJP,6,0
+fed2016,fed-208,28108,MANSFIELD,Sarah,The Greens,GRN,GRN,7,0
+fed2016,fed-209,29068,SUKKAR,Michael,Liberal,LP,LIB,1,1
+fed2016,fed-209,28787,DOBBY,Karen,Australian Christians,AUC,AUC,2,0
+fed2016,fed-209,28120,BRIERS,Joshua,The Greens,GRN,GRN,3,0
+fed2016,fed-209,28344,CLARK,Tony,Australian Labor Party,ALP,ALP,4,0
+fed2016,fed-209,28206,BROWNE,Vanessa,Animal Justice Party,AJP,AJP,5,0
+fed2016,fed-209,29075,COOMBES,Gary John,Family First Party,FFP,FFP,6,0
+fed2016,fed-210,29381,STANFIELD,Ruth,Derryn Hinch's Justice Party,DHJP,DHJ,1,0
+fed2016,fed-210,28145,SWAIN,Jeanette,The Greens,GRN,GRN,2,0
+fed2016,fed-210,28910,CREWTHER,Chris,Liberal,LP,LIB,3,1
+fed2016,fed-210,28922,RATHBONE,Michael,Family First Party,FFP,FFP,4,0
+fed2016,fed-210,28252,MURPHY,Peta,Australian Labor Party,ALP,ALP,5,0
+fed2016,fed-210,28352,BAILLIEU,Sally,The Arts Party,TAP,OTH,6,0
+fed2016,fed-210,28707,TREGENZA,Lin,Rise Up Australia Party,RUA,RUA,7,0
+fed2016,fed-210,28169,JACK,Tyson,Animal Justice Party,AJP,AJP,8,0
+fed2016,fed-210,28140,TOSCANO,Joseph,Independent,IND,IND,9,0
+fed2016,fed-210,28806,WILMS,Tim,Liberal Democrats,LDP,LDP,10,0
+fed2016,fed-210,28810,REANEY,Jeff,Australian Christians,AUC,AUC,11,0
+fed2016,fed-211,28808,GENTLE,Yvonne,Rise Up Australia Party,RUA,RUA,1,0
+fed2016,fed-211,28009,LEWIS,Shane W,Independent,IND,IND,2,0
+fed2016,fed-211,28132,HOGARTH,Willisa,The Greens,GRN,GRN,3,0
+fed2016,fed-211,28316,GLEIXNER,Carolyn,Australian Labor Party,ALP,ALP,4,0
+fed2016,fed-211,28870,HUNT,Greg,Liberal,LP,LIB,5,1
+fed2016,fed-211,28196,WILD,Ben,Animal Justice Party,AJP,AJP,6,0
+fed2016,fed-212,28102,MARSDEN,Jonathon,The Greens,GRN,GRN,1,0
+fed2016,fed-212,28240,WATTS,Tim,Australian Labor Party,ALP,ALP,2,1
+fed2016,fed-212,28891,WILLIS,Ben,Liberal,LP,LIB,3,0
+fed2016,fed-212,27990,TRAN,David,Independent,IND,IND,4,0
+fed2016,fed-213,28107,ONLEY,Ian,The Greens,GRN,GRN,1,0
+fed2016,fed-213,28690,DORIAN,Peter,Rise Up Australia Party,RUA,RUA,2,0
+fed2016,fed-213,28238,BHATTI,Shashi,Australian Labor Party,ALP,ALP,3,0
+fed2016,fed-213,28984,SINDT,Christine,Independent,IND,IND,4,0
+fed2016,fed-213,28967,HEATH,Brian,Family First Party,FFP,FFP,5,0
+fed2016,fed-213,29051,SMITH,Cherie,Independent,IND,IND,6,0
+fed2016,fed-213,28404,CHESTER,Darren,The Nationals,NP,NAT,7,1
+fed2016,fed-213,28791,BELSAR,Ashleigh,Australian Christians,AUC,AUC,8,0
+fed2016,fed-213,27995,GARDNER,Peter,Renewable Energy Party,REP,OTH,9,0
+fed2016,fed-213,28757,BUCKLEY,Ben,Liberal Democrats,LDP,LDP,10,0
+fed2016,fed-214,28129,HERCUS,Cheryl,The Greens,GRN,GRN,1,0
+fed2016,fed-214,28957,BISHOP,Trevor,Family First Party,FFP,FFP,2,0
+fed2016,fed-214,28192,CHELLAPPAH,Naren,Animal Justice Party,AJP,AJP,3,0
+fed2016,fed-214,29351,KAVANAGH,Lee,Drug Law Reform,DRF,OTH,4,0
+fed2016,fed-214,28949,WILSON,Tim,Liberal,LP,LIB,5,1
+fed2016,fed-214,28239,COOTE,Matthew Ross,Australian Labor Party,ALP,ALP,6,0
+fed2016,fed-309,28274,O'CONNOR,Brendan,Australian Labor Party,ALP,ALP,1,1
+fed2016,fed-309,28889,LANG,Daryl,Liberal,LP,LIB,2,0
+fed2016,fed-309,28121,SWIFT,Rod,The Greens,GRN,GRN,3,0
+fed2016,fed-215,28191,O'BRIEN,Rebecca,Marriage Equality,AEQ,OTH,1,0
+fed2016,fed-215,29382,TREGEAR,Jessica,Derryn Hinch's Justice Party,DHJP,DHJ,2,0
+fed2016,fed-215,28979,O'DWYER,Kelly,Liberal,LP,LIB,3,1
+fed2016,fed-215,28146,BALL,Jason,The Greens,GRN,GRN,4,0
+fed2016,fed-215,28764,KENNEDY,Robert,Liberal Democrats,LDP,LDP,5,0
+fed2016,fed-215,28290,KATTER,Carl,Australian Labor Party,ALP,ALP,6,0
+fed2016,fed-215,28677,BASSETT,Nancy,Nick Xenophon Team,XEN,OTH,7,0
+fed2016,fed-215,28195,GULLONE,Eleonora,Animal Justice Party,AJP,AJP,8,0
+fed2016,fed-216,28618,ROBERTSON,Colin,Rise Up Australia Party,RUA,RUA,1,0
+fed2016,fed-216,28259,BYRNE,Anthony,Australian Labor Party,ALP,ALP,2,1
+fed2016,fed-216,28942,BULL,Neil,Family First Party,FFP,FFP,3,0
+fed2016,fed-216,28113,TILTON,Jake,The Greens,GRN,GRN,4,0
+fed2016,fed-216,28935,MATHIAS,James,Liberal,LP,LIB,5,0
+fed2016,fed-217,28908,HUA,George,Liberal,LP,LIB,1,0
+fed2016,fed-217,28174,JEGES,Helen Ann,Animal Justice Party,AJP,AJP,2,0
+fed2016,fed-217,28263,O'NEIL,Clare,Australian Labor Party,ALP,ALP,3,1
+fed2016,fed-217,28135,BENNETT,James,The Greens,GRN,GRN,4,0
+fed2016,fed-217,28924,RATHBONE,Tatiana,Family First Party,FFP,FFP,5,0
+fed2016,fed-217,28619,VASSILIOU,Peter,Rise Up Australia Party,RUA,RUA,6,0
+fed2016,fed-218,28007,LAPPIN,Alan James,Independent,IND,IND,1,0
+fed2016,fed-218,28963,MIRABELLA,Sophie,Liberal,LP,LIB,2,0
+fed2016,fed-218,28111,O'CONNOR,Jenny,The Greens,GRN,GRN,3,0
+fed2016,fed-218,28751,QUILTY,Tim,Liberal Democrats,LDP,LDP,4,0
+fed2016,fed-218,23288,McGOWAN,Cathy,Independent,IND,IND,5,1
+fed2016,fed-218,28278,KERR,Eric,Australian Labor Party,ALP,ALP,6,0
+fed2016,fed-218,28207,DYER,Ray,Independent,IND,IND,7,0
+fed2016,fed-218,28407,CORBOY,Marty,The Nationals,NP,NAT,8,0
+fed2016,fed-218,28631,FIDGE,Julian,Australian Country Party,CYA,CYA,9,0
+fed2016,fed-218,28622,FERRANDO,Vincent,Rise Up Australia Party,RUA,RUA,10,0
+fed2016,fed-219,28128,BRESKIN,Alex,The Greens,GRN,GRN,1,0
+fed2016,fed-219,28269,DREYFUS,Mark,Australian Labor Party,ALP,ALP,2,1
+fed2016,fed-219,28932,SPENCER,Garry,Liberal,LP,LIB,3,0
+fed2016,fed-219,28177,JOHNSTON,Elizabeth,Animal Justice Party,AJP,AJP,4,0
+fed2016,fed-220,28255,MACKLIN,Jenny,Australian Labor Party,ALP,ALP,1,1
+fed2016,fed-220,28885,WARD,Jessica,Family First Party,FFP,FFP,2,0
+fed2016,fed-220,28892,MULHOLLAND,David,Liberal,LP,LIB,3,0
+fed2016,fed-220,28114,McKINNON,Hugh,The Greens,GRN,GRN,4,0
+fed2016,fed-220,28175,SCHRAM,Nathan Peter,Animal Justice Party,AJP,AJP,5,0
+fed2016,fed-221,28143,McLEOD,Helen,The Greens,GRN,GRN,1,0
+fed2016,fed-221,28953,FRYDENBERG,Josh,Liberal,LP,LIB,2,1
+fed2016,fed-221,28288,D'ARCY,Marg,Australian Labor Party,ALP,ALP,3,0
+fed2016,fed-221,24869,ZUBAC,Angelina,Independent,IND,IND,4,0
+fed2016,fed-223,28105,CUMMINGS,Tom,The Greens,GRN,GRN,1,0
+fed2016,fed-223,28170,FOLLONI,Leah,Animal Justice Party,AJP,AJP,2,0
+fed2016,fed-223,29400,DOIDGE,Julieanne Lynette,Derryn Hinch's Justice Party,DHJP,DHJ,3,0
+fed2016,fed-223,28258,CURTIS,Simon,Australian Labor Party,ALP,ALP,4,0
+fed2016,fed-223,28753,HUGHES,Leslie,Liberal Democrats,LDP,LDP,5,0
+fed2016,fed-223,28604,QUINN,Margaret,Rise Up Australia Party,RUA,RUA,6,0
+fed2016,fed-223,28893,WOOD,Jason,Liberal,LP,LIB,7,1
+fed2016,fed-223,28225,FENT,David,"Shooters, Fishers and Farmers",ASP,SFF,8,0
+fed2016,fed-223,29000,LEAHY,Martin,Australian Sex Party,ASXP,FRP,9,0
+fed2016,fed-223,28913,BARTRAM,Jeffrey,Family First Party,FFP,FFP,10,0
+fed2016,fed-222,28655,VALE,Marion,Rise Up Australia Party,RUA,RUA,1,0
+fed2016,fed-222,28268,RYAN,Joanne,Australian Labor Party,ALP,ALP,2,1
+fed2016,fed-222,29041,MURPHY,Gayle,Liberal,LP,LIB,3,0
+fed2016,fed-222,29410,JAKOBI,Susan,Australia First Party,AFN,OTH,4,0
+fed2016,fed-222,28112,SOVA,Daniel,The Greens,GRN,GRN,5,0
+fed2016,fed-224,28415,BROAD,Andrew,The Nationals,NP,NAT,1,1
+fed2016,fed-224,28416,LAHY,Chris,Citizens Electoral Council,CEC,CYA,2,0
+fed2016,fed-224,28284,SENIOR,Lydia,Australian Labor Party,ALP,ALP,3,0
+fed2016,fed-224,28769,MIDDLETON,Tim,Rise Up Australia Party,RUA,RUA,4,0
+fed2016,fed-224,28115,HEALY,Helen,The Greens,GRN,GRN,5,0
+fed2016,fed-225,29015,HATZAKORTZIAN,Ted,Liberal,LP,LIB,1,0
+fed2016,fed-225,28119,BALL,Olivia,The Greens,GRN,GRN,2,0
+fed2016,fed-225,28262,SHORTEN,Bill,Australian Labor Party,ALP,ALP,3,1
+fed2016,fed-225,28790,O'NEILL,Anthony,Australian Christians,AUC,AUC,4,0
+fed2016,fed-225,29533,CUMMING,Catherine,Independent,IND,IND,5,0
+fed2016,fed-225,28183,McROSTIE,Fiona,Animal Justice Party,AJP,AJP,6,0
+fed2016,fed-226,28289,MITCHELL,Rob,Australian Labor Party,ALP,ALP,1,1
+fed2016,fed-226,28391,ANDERSON,James,The Nationals,NP,NAT,2,0
+fed2016,fed-226,28110,BARKER,Neil,The Greens,GRN,GRN,3,0
+fed2016,fed-226,28912,JERMYN,Chris,Liberal,LP,LIB,4,0
+fed2016,fed-226,29538,LEE,Ross,Independent,IND,IND,5,0
+fed2016,fed-226,28542,ANDREW,Tracey,Australian Country Party,CYA,CYA,6,0
+fed2016,fed-226,28554,TRUSCOTT,Jeff,Rise Up Australia Party,RUA,RUA,7,0
+fed2016,fed-226,28203,VAINA,Cathy,Animal Justice Party,AJP,AJP,8,0
+fed2016,fed-226,28919,LONG,Dorothy Lorraine,Family First Party,FFP,FFP,9,0
+fed2016,fed-227,28106,LANCASTER,Donna,The Greens,GRN,GRN,1,0
+fed2016,fed-227,28786,IPSEN,Kathleen,Australian Christians,AUC,AUC,2,0
+fed2016,fed-227,28650,BAKER,Norman,Rise Up Australia Party,RUA,RUA,3,0
+fed2016,fed-227,28176,McADAM,Jennifer,Animal Justice Party,AJP,AJP,4,0
+fed2016,fed-227,28762,McDONALD,Jim,Liberal Democrats,LDP,LDP,5,0
+fed2016,fed-227,28901,HARDING,Nathan,Family First Party,FFP,FFP,6,0
+fed2016,fed-227,28261,BUCKINGHAM,Chris,Australian Labor Party,ALP,ALP,7,0
+fed2016,fed-227,28897,BROADBENT,Russell,Liberal,LP,LIB,8,1
+fed2016,fed-228,29089,FREEMAN-HARRISON,Lewis,Australian Sex Party,ASXP,FRP,1,0
+fed2016,fed-228,28260,ISMAIL,Sophie,Australian Labor Party,ALP,ALP,2,0
+fed2016,fed-228,28926,LIU,Le,Liberal,LP,LIB,3,0
+fed2016,fed-228,28181,SMITH,Miranda Joyce,Animal Justice Party,AJP,AJP,4,0
+fed2016,fed-228,28125,BANDT,Adam,The Greens,GRN,GRN,5,1
+fed2016,fed-228,28982,RILEY,Matt,Drug Law Reform,DRF,OTH,6,0
+fed2016,fed-230,29019,HOLLAND,Peter,Independent,IND,IND,1,0
+fed2016,fed-230,28930,GUEST,Owen,Liberal,LP,LIB,2,0
+fed2016,fed-230,28182,VON DOUSSA,Henry,Marriage Equality,AEQ,OTH,3,0
+fed2016,fed-230,28267,DANBY,Michael,Australian Labor Party,ALP,ALP,4,1
+fed2016,fed-230,28357,MYERS,John B,Independent,IND,IND,5,0
+fed2016,fed-230,28184,SMYTH,Robert Millen,Animal Justice Party,AJP,AJP,6,0
+fed2016,fed-230,28126,HODGINS-MAY,Steph,The Greens,GRN,GRN,7,0
+fed2016,fed-230,29570,McKENZIE-KIRKBRIGHT,Levi,Drug Law Reform,DRF,OTH,8,0
+fed2016,fed-229,28228,HULBERT,Antony John,Animal Justice Party,AJP,AJP,1,0
+fed2016,fed-229,24767,ROBINSON,Ramon,Independent,IND,IND,2,0
+fed2016,fed-229,29171,CLARK,David,Family First Party,FFP,FFP,3,0
+fed2016,fed-229,29161,ANDREWS,Kevin,Liberal,LP,LIB,4,1
+fed2016,fed-229,28123,CRANSTON,Richard,The Greens,GRN,GRN,5,0
+fed2016,fed-229,28295,RUNDELL,Adam,Australian Labor Party,ALP,ALP,6,0
+fed2016,fed-229,28231,FRANKLIN,Jay,Voluntary Euthanasia Party,VEP,OTH,7,0
+fed2016,fed-229,28793,MAYNE,Stephen,Independent,IND,IND,8,0
+fed2016,fed-231,28406,DRUM,Damian,The Nationals,NP,NAT,1,1
+fed2016,fed-231,28722,BOCK,Andrew,Independent,IND,IND,2,0
+fed2016,fed-231,28118,CHRISTOE,Ian,The Greens,GRN,GRN,3,0
+fed2016,fed-231,28894,MCGAUCHIE,Duncan,Liberal,LP,LIB,4,0
+fed2016,fed-231,29016,HICKS,Nigel,Independent,IND,IND,5,0
+fed2016,fed-231,24221,SUMMER,Fern,Independent,IND,IND,6,0
+fed2016,fed-231,28408,DAVY,Jeff,Citizens Electoral Council,CEC,CYA,7,0
+fed2016,fed-231,29384,TEASDALE,Diane,Independent,IND,IND,8,0
+fed2016,fed-231,28615,DANIELI,Robert,Australian Country Party,CYA,CYA,9,0
+fed2016,fed-231,28266,WILLIAMS,Alan John,Australian Labor Party,ALP,ALP,10,0
+fed2016,fed-231,28657,GUNASEKERA,Yasmin,Rise Up Australia Party,RUA,RUA,11,0
+fed2016,fed-232,28243,GILES,Andrew,Australian Labor Party,ALP,ALP,1,1
+fed2016,fed-232,28172,MATLEN,John,Animal Justice Party,AJP,AJP,2,0
+fed2016,fed-232,28898,STOCKMAN,Melanie,Liberal,LP,LIB,3,0
+fed2016,fed-232,28109,LJUBICIC,Rose,The Greens,GRN,GRN,4,0
+fed2016,fed-232,29022,BUCCIANTI,Adriana,Drug Law Reform,DRF,OTH,5,0
+fed2016,fed-233,28242,BARLING,Michael David,Australian Labor Party,ALP,ALP,1,0
+fed2016,fed-233,28104,CAMPBELL,Thomas,The Greens,GRN,GRN,2,0
+fed2016,fed-233,28918,TEHAN,Dan,Liberal,LP,LIB,3,1
+fed2016,fed-233,27987,ATKINSON,Bernardine,Independent,IND,IND,4,0
+fed2016,fed-233,28461,McCLUSKEY,Michael John,Independent,IND,IND,5,0
+fed2016,fed-234,28880,HONG,Kyung,Liberal,LP,LIB,1,0
+fed2016,fed-234,29493,BLACKWELL,Ash,Drug Law Reform,DRF,OTH,2,0
+fed2016,fed-234,29011,CHELLEW,Tristram,Australian Sex Party,ASXP,FRP,3,0
+fed2016,fed-234,28100,RATNAM,Samantha,The Greens,GRN,GRN,4,0
+fed2016,fed-234,29214,GILLMAN,Dougal,Renewable Energy Party,REP,OTH,5,0
+fed2016,fed-234,28294,FULGENZI,Will,Socialist Equality Party,SEP,OTH,6,0
+fed2016,fed-234,28738,ALCORN,Zane,Socialist Alliance,SAL,SAP,7,0
+fed2016,fed-234,28204,SYDOW,Camille,Animal Justice Party,AJP,AJP,8,0
+fed2016,fed-234,29040,TIMPANO,Francesco,Independent,IND,IND,9,0
+fed2016,fed-234,28253,KHALIL,Peter,Australian Labor Party,ALP,ALP,10,1

@@ -1,0 +1,27 @@
+venues with both a 2022 state and 2022 federal ordinary booth: 1006
+  ALP: state 2022 minus federal 2022 primary, mean +4.2 pts, median +3.8, IQR +0.3..+7.6
+  COAL: state 2022 minus federal 2022 primary, mean +2.6 pts, median +1.7, IQR -1.9..+6.3
+  GRN: state 2022 minus federal 2022 primary, mean -1.3 pts, median -1.6, IQR -3.9..+0.7
+venues with both a 2022 state and 2025 federal ordinary booth: 985
+
+Largest ALP state-over-federal gaps (2022 vs 2022):
+                     premises            suburb  ALP_vic2022  ALP_fed2022  alp_gap
+        Ormond Primary School            Ormond        0.483        0.144    0.339
+ Mont Albert North Scout Hall Mont Albert North        0.427        0.089    0.338
+      McKinnon Primary School            Ormond        0.482        0.164    0.318
+       Alfred Road Pre-School         Glen Iris        0.365        0.102    0.263
+Bentleigh West Primary School         Bentleigh        0.426        0.164    0.261
+       Chatham Primary School      Surrey Hills        0.291        0.051    0.240
+             Berendale School      Hampton East        0.404        0.172    0.232
+      Wandiligong Public Hall       Wandiligong        0.286        0.055    0.231
+
+Largest ALP federal-over-state gaps:
+                        premises         suburb  ALP_vic2022  ALP_fed2022  alp_gap
+Mount Eliza North Primary School    Mount Eliza        0.226        0.414   -0.187
+           Bethal Primary School Meadow Heights        0.405        0.543   -0.137
+     Mildura West Primary School        Mildura        0.044        0.174   -0.130
+          Kunyung Primary School    Mount Eliza        0.192        0.322   -0.130
+    Mildura South Primary School        Mildura        0.050        0.179   -0.129
+   Meadow Heights Primary School Meadow Heights        0.334        0.461   -0.128
+   Mount Eliza Secondary College    Mount Eliza        0.209        0.329   -0.120
+           Mt Eliza Country Club    Mount Eliza        0.163        0.281   -0.118

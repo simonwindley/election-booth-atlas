@@ -1,0 +1,195 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+fed2010,fed-197,21100,HANNA,Rachel,Family First,FFP,FFP,1,0
+fed2010,fed-197,21092,EVANS,Rupert,Australian Labor Party,ALP,ALP,2,0
+fed2010,fed-197,21084,TUDGE,Alan,Liberal,LP,LIB,3,1
+fed2010,fed-197,21165,CRAIG,Salore,Australian Greens,GRN,GRN,4,0
+fed2010,fed-198,21671,COATES,Belinda,Australian Greens,GRN,GRN,1,0
+fed2010,fed-198,21098,BANWELL,Mark,Liberal,LP,LIB,2,0
+fed2010,fed-198,21122,RAINEY,Jim,Family First,FFP,FFP,3,0
+fed2010,fed-198,21104,KING,Catherine,Australian Labor Party,ALP,ALP,4,1
+fed2010,fed-199,21038,CONLON,Andrew,Family First,FFP,FFP,1,0
+fed2010,fed-199,21028,SOURIS,George,Liberal,LP,LIB,2,0
+fed2010,fed-199,21225,BHATHAL,Alexandra Kaur,Australian Greens,GRN,GRN,3,0
+fed2010,fed-199,21121,SARAZEN,Con,Australian Democrats,DEM,DEM,4,0
+fed2010,fed-199,21035,FERGUSON,Martin John,Australian Labor Party,ALP,ALP,5,1
+fed2010,fed-200,21029,GIBBONS,Steve,Australian Labor Party,ALP,ALP,1,1
+fed2010,fed-200,21176,DIMOZANTOS,Kymberlie,Australian Greens,GRN,GRN,2,0
+fed2010,fed-200,21026,HUNTER,Craig,Liberal,LP,LIB,3,0
+fed2010,fed-200,21053,HOWARD,Alan,Family First,FFP,FFP,4,0
+fed2010,fed-201,21346,KABOS,Mike,Liberal,LP,LIB,1,0
+fed2010,fed-201,21353,ZIBELL,Stefan,Australian Greens,GRN,GRN,2,0
+fed2010,fed-201,21298,HEMMERSBACH,Felicity,Family First,FFP,FFP,3,0
+fed2010,fed-201,21331,GRIFFIN,Alan,Australian Labor Party,ALP,ALP,4,1
+fed2010,fed-203,21171,THOMPSON,Lenka,Australian Greens,GRN,GRN,1,0
+fed2010,fed-203,21156,BYRNE,Peter,Socialist Equality Party,SEP,OTH,2,0
+fed2010,fed-203,21168,TRUSCOTT,Jeff,Family First,FFP,FFP,3,0
+fed2010,fed-203,21159,VAMVAKINOU,Maria,Australian Labor Party,ALP,ALP,4,1
+fed2010,fed-203,21153,TSENG,Wayne,Liberal,LP,LIB,5,0
+fed2010,fed-204,21201,SMITH,Tony,Liberal,LP,LIB,1,1
+fed2010,fed-204,21204,HISHEH,Sami,Australian Labor Party,ALP,ALP,2,0
+fed2010,fed-204,21212,HARRISON,Daniel,Family First,FFP,FFP,3,0
+fed2010,fed-204,21216,POWELL,Brendan,Australian Greens,GRN,GRN,4,0
+fed2010,fed-205,21076,GOODMAN,Phil,Family First,FFP,FFP,1,0
+fed2010,fed-205,21069,BURKE,Anna Elizabeth,Australian Labor Party,ALP,ALP,2,1
+fed2010,fed-205,21056,EVANS,Nimrod,Secular Party of Australia,SPA,OTH,3,0
+fed2010,fed-205,21172,FERGEUS,Josh,Australian Greens,GRN,GRN,4,0
+fed2010,fed-205,21050,NGUYEN,John,Liberal,LP,LIB,5,0
+fed2010,fed-207,21276,LAWRENCE,Mike,Australian Greens,GRN,GRN,1,0
+fed2010,fed-207,21234,HENDERSON,Sarah,Liberal,LP,LIB,2,0
+fed2010,fed-207,21312,CHEESEMAN,Darren,Australian Labor Party,ALP,ALP,3,1
+fed2010,fed-207,21516,BROWN,Sally-Anne,Independent,IND,IND,4,0
+fed2010,fed-207,21316,WOJCZUK,Ann,Family First,FFP,FFP,5,0
+fed2010,fed-207,21302,TIMMINS,Nathan,Liberal Democrats (LDP),LDP,LDP,6,0
+fed2010,fed-208,21161,BROWN,Gavin,Australian Greens,GRN,GRN,1,0
+fed2010,fed-208,21164,BULL,Sue,Socialist Alliance,SAL,SAP,2,0
+fed2010,fed-208,21061,MARLES,Richard Donald,Australian Labor Party,ALP,ALP,3,1
+fed2010,fed-208,21066,AMBERLEY,Scott,Family First,FFP,FFP,4,0
+fed2010,fed-208,21048,GIBSON,Don,Liberal,LP,LIB,5,0
+fed2010,fed-209,21040,LAKE,Peter,Family First,FFP,FFP,1,0
+fed2010,fed-209,21155,HOWELL,David,Australian Greens,GRN,GRN,2,0
+fed2010,fed-209,21303,WALSH,Benjamin,Liberal Democrats (LDP),LDP,LDP,3,0
+fed2010,fed-209,21030,BARRESI,Phil,Liberal,LP,LIB,4,0
+fed2010,fed-209,21036,SYMON,Mike,Australian Labor Party,ALP,ALP,5,1
+fed2010,fed-209,21432,NORWICK,Alex,Australia First Party,AFN,OTH,6,0
+fed2010,fed-209,20896,SEVILOGLOU,Abraham,Independent,IND,IND,7,0
+fed2010,fed-210,21075,DE ZILWA,Yasmin,Family First,FFP,FFP,1,0
+fed2010,fed-210,21032,CONSTAS,Helen,Australian Labor Party,ALP,ALP,2,0
+fed2010,fed-210,21148,TILLER,Simon,Australian Greens,GRN,GRN,3,0
+fed2010,fed-210,21027,BILLSON,Bruce,Liberal,LP,LIB,4,1
+fed2010,fed-211,21118,GAGLIANO-VENTURA,Francis,Australian Labor Party,ALP,ALP,1,0
+fed2010,fed-211,21124,SMITH,Reade,Family First,FFP,FFP,2,0
+fed2010,fed-211,21107,HUNT,Greg,Liberal,LP,LIB,3,1
+fed2010,fed-211,21224,BROWN,Robert,Australian Greens,GRN,GRN,4,0
+fed2010,fed-212,21236,ROXON,Nicola,Australian Labor Party,ALP,ALP,1,1
+fed2010,fed-212,21300,SOLIN,Rodney,Australian Greens,GRN,GRN,2,0
+fed2010,fed-212,21221,BAPTIST,Tania,Socialist Equality Party,SEP,OTH,3,0
+fed2010,fed-212,21292,COURTICE,Ben,Socialist Alliance,SAL,SAP,4,0
+fed2010,fed-212,21287,MUMBY,Liz,Family First,FFP,FFP,5,0
+fed2010,fed-212,21198,McCONNELL,David,Liberal,LP,LIB,6,0
+fed2010,fed-213,21136,JEFFERIS,Heath,Family First,FFP,FFP,1,0
+fed2010,fed-213,21304,BUCKLEY,Ben,Liberal Democrats (LDP),LDP,LDP,2,0
+fed2010,fed-213,21109,McCUBBIN,Darren,Australian Labor Party,ALP,ALP,3,0
+fed2010,fed-213,21351,BOND,Michael,Australian Greens,GRN,GRN,4,0
+fed2010,fed-213,21093,CHESTER,Darren,The Nationals,NP,NAT,5,1
+fed2010,fed-214,21566,EDEN,Nick,Australian Labor Party,ALP,ALP,1,0
+fed2010,fed-214,21556,FORSTER,Anthony,Family First,FFP,FFP,2,0
+fed2010,fed-214,21571,ROBB,Andrew,Liberal,LP,LIB,3,1
+fed2010,fed-214,21539,PILLING,Neil,Australian Greens,GRN,GRN,4,0
+fed2010,fed-309,21235,MAJOR,Sean Robert,Family First,FFP,FFP,1,0
+fed2010,fed-309,21226,O'CONNOR,Brendan,Australian Labor Party,ALP,ALP,2,1
+fed2010,fed-309,21232,WILSON,Steve,Australian Greens,GRN,GRN,3,0
+fed2010,fed-309,21202,RYDER,Damon,Liberal,LP,LIB,4,0
+fed2010,fed-215,21639,CLARK,Tony,Australian Labor Party,ALP,ALP,1,0
+fed2010,fed-215,21962,FAWCETT,David Michael,Independent,IND,IND,2,0
+fed2010,fed-215,21645,HIBBINS,Samuel,Australian Greens,GRN,GRN,3,0
+fed2010,fed-215,21651,TRUTER,Ashley,Family First,FFP,FFP,4,0
+fed2010,fed-215,21583,O'DWYER,Kelly,Liberal,LP,LIB,5,1
+fed2010,fed-216,21322,DI MASCOLO,Frank,Australian Greens,GRN,GRN,1,0
+fed2010,fed-216,21185,BALANCY,Ricardo,Liberal,LP,LIB,2,0
+fed2010,fed-216,21192,HITCHINS,Mark,Secular Party of Australia,SPA,OTH,3,0
+fed2010,fed-216,21195,GEORGE,Ian,Family First,FFP,FFP,4,0
+fed2010,fed-216,21193,BYRNE,Anthony,Australian Labor Party,ALP,ALP,5,1
+fed2010,fed-217,21141,CADER,Fazal,Liberal,LP,LIB,1,0
+fed2010,fed-217,21208,PAYNE,Geoff,Australian Greens,GRN,GRN,2,0
+fed2010,fed-217,21150,REARDON,Trent,Secular Party of Australia,SPA,OTH,3,0
+fed2010,fed-217,21133,ONG,Gary,Family First,FFP,FFP,4,0
+fed2010,fed-217,21126,CREAN,Simon,Australian Labor Party,ALP,ALP,5,1
+fed2010,fed-218,20732,LAPPIN,Alan,Independent,IND,IND,1,0
+fed2010,fed-218,21218,O'CONNOR,Jenny,Australian Greens,GRN,GRN,2,0
+fed2010,fed-218,21207,LESCHEN,Zuvele Elena,Australian Labor Party,ALP,ALP,3,0
+fed2010,fed-218,21200,CAREY,Mark,Australian Democrats,DEM,DEM,4,0
+fed2010,fed-218,21203,MIRABELLA,Sophie,Liberal,LP,LIB,5,1
+fed2010,fed-218,21215,CAVEDON,Robert,Family First,FFP,FFP,6,0
+fed2010,fed-219,21295,WHEATLEY,Heather,Family First,FFP,FFP,1,0
+fed2010,fed-219,21257,DREYFUS,Mark,Australian Labor Party,ALP,ALP,2,1
+fed2010,fed-219,21120,McCLELLAND,Dale,Liberal,LP,LIB,3,0
+fed2010,fed-219,15530,FORD,Gordon W,Independent,IND,IND,4,0
+fed2010,fed-219,21424,CARMAN,Chris,Australian Greens,GRN,GRN,5,0
+fed2010,fed-220,21248,SGARLATA,Joe,Family First,FFP,FFP,1,0
+fed2010,fed-220,21244,MACKLIN,Jenny,Australian Labor Party,ALP,ALP,2,1
+fed2010,fed-220,21217,BAUCH,Joh,Liberal,LP,LIB,3,0
+fed2010,fed-220,21299,KEARNEY,Chris,Australian Greens,GRN,GRN,4,0
+fed2010,fed-220,21227,HARRIS,Peter,Secular Party of Australia,SPA,OTH,5,0
+fed2010,fed-221,21071,HURD,Steve,Australian Labor Party,ALP,ALP,1,0
+fed2010,fed-221,21166,BENSON,Des,Australian Greens,GRN,GRN,2,0
+fed2010,fed-221,21057,FRYDENBERG,Josh,Liberal,LP,LIB,3,1
+fed2010,fed-221,21086,LAIDLER,John,Family First,FFP,FFP,4,0
+fed2010,fed-223,20914,LEAHY,Martin,Australian Sex Party,ASXP,FRP,1,0
+fed2010,fed-223,21197,WOOD,Jason,Liberal,LP,LIB,2,0
+fed2010,fed-223,21213,BARROW,David,Family First,FFP,FFP,3,0
+fed2010,fed-223,21205,SMYTH,Laura,Australian Labor Party,ALP,ALP,4,1
+fed2010,fed-223,21266,REIHER,Jim,Australian Greens,GRN,GRN,5,0
+fed2010,fed-223,21238,BENNETT,Shem,Liberal Democrats (LDP),LDP,LDP,6,0
+fed2010,fed-222,21043,SHEEHAN,Paul,Secular Party of Australia,SPA,OTH,1,0
+fed2010,fed-222,21938,SHAW,Brian William,Independent,IND,IND,2,0
+fed2010,fed-222,21033,INGRAM,Sheridan,Liberal,LP,LIB,3,0
+fed2010,fed-222,21081,McLEAN,Lori,Family First,FFP,FFP,4,0
+fed2010,fed-222,21055,GILLARD,Julia,Australian Labor Party,ALP,ALP,5,1
+fed2010,fed-222,21404,RUDD,Van,,NAFD,IND,6,0
+fed2010,fed-222,21945,AUSSIE-STONE,Marc,Independent,IND,IND,7,0
+fed2010,fed-222,21188,TAYLOR,Peter,Australian Greens,GRN,GRN,8,0
+fed2010,fed-222,20731,CLARKE,Joanne,Independent,IND,IND,9,0
+fed2010,fed-224,21162,HEALY,Helen,Australian Greens,GRN,GRN,1,0
+fed2010,fed-224,21078,FORREST,John,The Nationals,NP,NAT,2,1
+fed2010,fed-224,21106,CARTER,Carl,Family First,FFP,FFP,3,0
+fed2010,fed-224,21097,SCATES,Bob,Australian Labor Party,ALP,ALP,4,0
+fed2010,fed-225,21369,SHORTEN,Bill,Australian Labor Party,ALP,ALP,1,1
+fed2010,fed-225,21400,MOYLE,Colin,Family First,FFP,FFP,2,0
+fed2010,fed-225,21441,LONG,Tim,Australian Greens,GRN,GRN,3,0
+fed2010,fed-225,21439,LIVESAY,Robert,Australian Democrats,DEM,DEM,4,0
+fed2010,fed-225,21058,D'SOUZA,Conrad,Liberal,LP,LIB,5,0
+fed2010,fed-226,21088,MITCHELL,Rob,Australian Labor Party,ALP,ALP,1,1
+fed2010,fed-226,21721,BINI,Mark,Liberal Democrats (LDP),LDP,LDP,2,0
+fed2010,fed-226,21157,MEACHER,Steve,Australian Greens,GRN,GRN,3,0
+fed2010,fed-226,21042,CAINE,Cameron,Liberal,LP,LIB,4,0
+fed2010,fed-226,21054,GORDON,Robert,Secular Party of Australia,SPA,OTH,5,0
+fed2010,fed-226,21110,CLARKSON,Belinda,Family First,FFP,FFP,6,0
+fed2010,fed-227,21324,MAXFIELD,Christine,Australian Labor Party,ALP,ALP,1,0
+fed2010,fed-227,20716,GATT,Leigh Samuel,Independent,IND,IND,2,0
+fed2010,fed-227,21332,STOKES,Linden,Family First,FFP,FFP,3,0
+fed2010,fed-227,21320,BROADBENT,Russell,Liberal,LP,LIB,4,1
+fed2010,fed-227,21345,McKELVIE,Malcolm,Australian Greens,GRN,GRN,5,0
+fed2010,fed-228,21654,PEARSON,Georgia,Family First,FFP,FFP,1,0
+fed2010,fed-228,21657,BANDT,Adam,Australian Greens,GRN,GRN,2,1
+fed2010,fed-228,20847,MURRAY,Joel,Australian Sex Party,ASXP,FRP,3,0
+fed2010,fed-228,21631,COLLYER,David,Australian Democrats,DEM,DEM,4,0
+fed2010,fed-228,21636,GREEN,Penelope,Secular Party of Australia,SPA,OTH,5,0
+fed2010,fed-228,21650,BOWTELL,Cath,Australian Labor Party,ALP,ALP,6,0
+fed2010,fed-228,21633,OLSEN,Simon,Liberal,LP,LIB,7,0
+fed2010,fed-230,21579,EKENDAHL,Kevin,Liberal,LP,LIB,1,0
+fed2010,fed-230,21573,PLOWRIGHT,Sue,Australian Greens,GRN,GRN,2,0
+fed2010,fed-230,21599,DANBY,Michael David,Australian Labor Party,ALP,ALP,3,1
+fed2010,fed-230,20849,VEGA,Christian,Australian Sex Party,ASXP,FRP,4,0
+fed2010,fed-230,21585,STORER,Gregory,Secular Party of Australia,SPA,OTH,5,0
+fed2010,fed-230,21615,EMMERSON,Daniel,Family First,FFP,FFP,6,0
+fed2010,fed-229,21123,SMITHIES,Ken,Family First,FFP,FFP,1,0
+fed2010,fed-229,21173,PADGHAM,Chris,Australian Greens,GRN,GRN,2,0
+fed2010,fed-229,21103,ANDREWS,Kevin,Liberal,LP,LIB,3,1
+fed2010,fed-229,21119,BANERJI,Joy,Australian Labor Party,ALP,ALP,4,0
+fed2010,fed-231,21059,STONE,Sharman,Liberal,LP,LIB,1,1
+fed2010,fed-231,21082,CLARKE-HANNAFORD,William,Secular Party of Australia,SPA,OTH,2,0
+fed2010,fed-231,20760,DAVY,Jeff,Citizens Electoral Council,CEC,CYA,3,0
+fed2010,fed-231,21091,MORTENSEN,Hugh,Australian Labor Party,ALP,ALP,4,0
+fed2010,fed-231,21099,MOORE,Serena,Family First,FFP,FFP,5,0
+fed2010,fed-231,21930,McDONALD,Ewan,Christian Democratic Party,CDP,OTH,6,0
+fed2010,fed-231,21175,CHRISTOE,Ian,Australian Greens,GRN,GRN,7,0
+fed2010,fed-232,21096,STRATOV,Ivan,Family First,FFP,FFP,1,0
+fed2010,fed-232,21077,JENKINS,Harry,Australian Labor Party,ALP,ALP,2,1
+fed2010,fed-232,21183,SEKHON,Gurm,Australian Greens,GRN,GRN,3,0
+fed2010,fed-232,21062,WILLIAMS,Max,Liberal,LP,LIB,4,0
+fed2010,fed-233,21810,PURCELL,James,Independent,IND,IND,1,0
+fed2010,fed-233,21669,LEUTTON,Ralph,Independent,IND,IND,2,0
+fed2010,fed-233,21063,TEHAN,Dan,Liberal,LP,LIB,3,1
+fed2010,fed-233,21960,MARSH,Allan,Independent,IND,IND,4,0
+fed2010,fed-233,21070,McNAMARA,Judith,Australian Labor Party,ALP,ALP,5,0
+fed2010,fed-233,21080,CONCEPCION,Jahzeel,Family First,FFP,FFP,6,0
+fed2010,fed-233,21436,OWEN,Lisa,Australian Greens,GRN,GRN,7,0
+fed2010,fed-233,21376,O'BRIEN,Robert,Independent,IND,IND,8,0
+fed2010,fed-233,20940,RAINSFORD,Katrina,Independent,IND,IND,9,0
+fed2010,fed-234,21060,TOMISICH,Claude,Liberal,LP,LIB,1,0
+fed2010,fed-234,21073,THOMSON,Kelvin,Australian Labor Party,ALP,ALP,2,1
+fed2010,fed-234,21142,MUMBY,Daniel,Family First,FFP,FFP,3,0
+fed2010,fed-234,20762,ISHERWOOD,Craig,Citizens Electoral Council,CEC,CYA,4,0
+fed2010,fed-234,21220,HAWKINS,Trent,Socialist Alliance,SAL,SAP,5,0
+fed2010,fed-234,21144,ROBERTON,Paul Richard,Australian Democrats,DEM,DEM,6,0
+fed2010,fed-234,21184,RILEY,Mark,Australian Greens,GRN,GRN,7,0

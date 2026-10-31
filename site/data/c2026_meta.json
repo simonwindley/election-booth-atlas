@@ -1,0 +1,43 @@
+{
+ "source": "Wikipedia, Candidates of the 2026 Victorian state election",
+ "page_last_edited": "This page was last edited on 31 October 2026, at 11:34\u00a0(UTC).",
+ "retrieved": "2026-10-31",
+ "key_dates": {
+  "writs": "2026-11-03",
+  "roll_close": "2026-11-03",
+  "nominations_open": "2026-11-04",
+  "nominations_close": "2026-11-09",
+  "early_voting_open": "2026-11-18",
+  "early_voting_close": "2026-11-27",
+  "election_day": "2026-11-28"
+ },
+ "key_dates_source": "https://www.vec.vic.gov.au/voting/2026-state-election",
+ "voting": {
+  "postal": {
+   "applications_open": "2026-11-04T09:00",
+   "applications_close": "2026-11-25T18:00",
+   "packs_posted_from": "2026-11-11",
+   "url": "https://www.vec.vic.gov.au/voting/2026-state-election/postal-voting",
+   "note": "Anyone can apply; the online form appears on the VEC page from 9 am Wednesday 4 November. General postal voters need not apply."
+  },
+  "early": {
+   "open": "2026-11-18",
+   "close": "2026-11-27",
+   "hours": "9 am to 6 pm daily except Sunday 22 November; closes 6 pm Friday 27 November",
+   "url": "https://www.vec.vic.gov.au/voting/2026-state-election/voting-options",
+   "note": "Every early voting centre is also an election-day voting centre this year. The VEC publishes locations closer to the voting period."
+  },
+  "low_sensory": {
+   "date": "2026-11-17",
+   "note": "one low-sensory mobile voting session per district, 10 am to 4 pm"
+  },
+  "election_day": {
+   "date": "2026-11-28",
+   "hours": "8 am to 6 pm",
+   "note": "vote at any voting centre in Victoria"
+  },
+  "district_page": "https://www.vec.vic.gov.au/electoral-boundaries/state-districts/{slug}-district",
+  "results_page": "https://www.vec.vic.gov.au/results/state-election-results/2026-state-election-results",
+  "nominations_note": "Nominations close 12 noon Monday 9 November; the VEC candidate list replaces the Wikipedia register then."
+ }
+}

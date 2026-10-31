@@ -1,0 +1,31 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+fed-197,fed-82811,Melbourne (Aston),aec,25.8
+fed-199,fed-32039,Melbourne (Batman),aec,3.1
+fed-201,fed-82802,Melbourne (Bruce),aec,21.0
+fed-203,fed-82809,Melbourne (Calwell),aec,13.7
+fed-204,fed-63369,Croydon (Casey),aec,1.1
+fed-204,fed-82812,Melbourne (Casey),aec,35.6
+fed-205,fed-32045,Melbourne (Chisholm),aec,14.7
+fed-209,fed-82806,Melbourne (Deakin),aec,18.9
+fed-210,fed-34007,Mt Martha North (Dunkley),aec,1.3
+fed-212,fed-31984,Melbourne (Gellibrand),aec,5.9
+fed-214,fed-82810,Melbourne (Goldstein),aec,8.1
+fed-215,fed-32004,Melbourne (Higgins),aec,2.9
+fed-216,fed-63833,Narre Warren (Holt),aec,1.4
+fed-217,fed-82813,Melbourne (Hotham),aec,13.8
+fed-219,fed-82807,Melbourne (Isaacs),aec,20.1
+fed-220,fed-82808,Melbourne (Jagajaga),aec,8.5
+fed-221,fed-32021,Melbourne (Kooyong),aec,3.8
+fed-222,fed-32018,Melbourne (Lalor),aec,16.7
+fed-223,fed-82814,Melbourne (La Trobe),aec,35.8
+fed-223,fed-64095,Narre Warren South (La Trobe),aec,1.7
+fed-224,fed-4773,Lalbert,aec,197.8
+fed-225,fed-32041,Melbourne (Maribyrnong),aec,5.7
+fed-226,fed-64156,Kangaroo Ground (McEwen),aec,2.8
+fed-226,fed-82815,Melbourne (McEwen),aec,22.1
+fed-226,fed-47752,South Morang (McEwen),aec,2.0
+fed-226,fed-64158,Yarrambat (McEwen),aec,2.3
+fed-229,fed-82805,Melbourne (Menzies),aec,11.8
+fed-232,fed-82803,Melbourne (Scullin),aec,13.8
+fed-234,fed-32909,Melbourne (Wills),aec,3.9
+fed-309,fed-82801,Melbourne (Gorton),aec,17.6

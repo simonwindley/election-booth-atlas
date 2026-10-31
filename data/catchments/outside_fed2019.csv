@@ -1,0 +1,30 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+fed-204,fed-91308,Croydon East (Casey),aec,1.3
+fed-205,fed-32045,Melbourne (Chisholm),aec,14.3
+fed-209,fed-91674,Kilsyth East (Deakin),aec,1.4
+fed-212,fed-31984,Melbourne (Gellibrand),aec,6.3
+fed-214,fed-82810,Melbourne (Goldstein),aec,8.5
+fed-215,fed-32004,Melbourne (Higgins),aec,2.8
+fed-216,fed-92172,Berwick Fields (Holt),aec,1.5
+fed-220,fed-92404,Eltham (Jagajaga),aec,1.3
+fed-220,fed-92406,Eltham North (Jagajaga),aec,1.1
+fed-221,fed-32021,Melbourne (Kooyong),aec,3.1
+fed-222,fed-92483,Boardwalk (Lalor),aec,1.5
+fed-222,fed-92485,Boardwalk Central (Lalor),aec,1.2
+fed-223,fed-3959,Clyde (La Trobe),aec,1.5
+fed-223,fed-46565,Hillsmeade (La Trobe),aec,1.7
+fed-223,fed-92516,Macclesfield (La Trobe),aec,1.2
+fed-225,fed-32041,Melbourne (Maribyrnong),aec,4.3
+fed-226,fed-92672,Aitken Creek (McEwen),aec,5.3
+fed-226,fed-92656,Broadford (McEwen),aec,3.8
+fed-226,fed-64156,Kangaroo Ground (McEwen),aec,2.8
+fed-226,fed-92671,Mount Ridley North (McEwen),aec,3.1
+fed-228,fed-93180,Ascot Vale (Melbourne),aec,1.1
+fed-232,fed-4865,Thomastown West,aec,1.9
+fed-233,fed-93444,Concongella (Wannon),aec,1.6
+fed-234,fed-32909,Melbourne (Wills),aec,3.3
+fed-309,fed-92053,Cairnlea (Gorton),aec,1.2
+fed-309,fed-63745,Sydenham Central (Gorton),aec,1.2
+fed-320,fed-32039,Melbourne (Cooper),aec,2.9
+fed-321,fed-91790,Melbourne (Fraser),aec,12.2
+fed-324,fed-93134,Euroa (Nicholls),aec,5.9

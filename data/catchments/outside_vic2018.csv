@@ -1,0 +1,20 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+vic-altona,vic-altona-laverton,Laverton,aec_name_match,3.5
+vic-bayswater,vic-bayswater-southwood,Southwood,geocoded_approx,1.4
+vic-bayswater,vic-bayswater-wantirna-west,Wantirna West,aec_name_match,1.9
+vic-bendigo-west,vic-bendigo-west-eaglehawk-west,Eaglehawk West,geocoded_approx,1.9
+vic-buninyong,vic-buninyong-bacchus-marsh,Bacchus Marsh,aec_name_match,2.1
+vic-cranbourne,vic-cranbourne-clyde,Clyde,geocoded_approx,1.5
+vic-cranbourne,vic-cranbourne-clyde-north,Clyde North,geocoded_approx,3.4
+vic-forest-hill,vic-forest-hill-glen-waverley,Glen Waverley,aec_name_match,1.4
+vic-forest-hill,vic-forest-hill-mitcham-south,Mitcham South,geocoded_approx,1.4
+vic-melton,vic-melton-bacchus-marsh-central,Bacchus Marsh Central,geocoded_approx,1.9
+vic-mornington,vic-mornington-derinya,Derinya,aec_name_match,1.1
+vic-narre-warren-north,vic-narre-warren-north-mitchell,Mitchell,aec_name_match,39.6
+vic-ringwood,vic-ringwood-nunawading-east,Nunawading East,geocoded_approx,3.0
+vic-ringwood,vic-ringwood-southwood,Southwood,geocoded_approx,3.0
+vic-ripon,vic-ripon-alfredton-west,Alfredton West,aec_name_match,1.3
+vic-shepparton,vic-shepparton-naring,Naring,geocoded_approx,5.6
+vic-south-barwon,vic-south-barwon-belmont-west,Belmont West,geocoded_approx,1.3
+vic-st-albans,vic-st-albans-kings-park,Kings Park,aec_name_match,1.5
+vic-tarneit,vic-tarneit-derrimut,Derrimut,aec_name_match,2.4

@@ -1,0 +1,12 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+fed-201,fed-4271,Berwick (Bruce),aec,1.7
+fed-205,fed-104251,Forest Hill (Chisholm),aec,1.7
+fed-205,fed-3444,Mount Waverley Upper,aec,3.5
+fed-212,fed-91999,Truganina South (Gellibrand),aec,1.3
+fed-223,fed-104969,Berwick Lodge (La Trobe),aec,1.8
+fed-225,fed-32041,Melbourne (Maribyrnong),aec,3.1
+fed-226,fed-64156,Kangaroo Ground (McEwen),aec,2.0
+fed-234,fed-32909,Melbourne (Wills),aec,5.3
+fed-309,fed-92053,Cairnlea (Gorton),aec,1.2
+fed-328,fed-91526,Highton South (Corangamite),aec,1.6
+fed-328,fed-105434,Winchelsea (Corangamite),aec,5.9

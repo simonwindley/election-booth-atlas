@@ -1,0 +1,546 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+vic2014,vic-albert-park,vic-albert-park-1,Hurley,James,SEX PARTY,,OTH,1,0
+vic2014,vic-albert-park,vic-albert-park-2,Foley,Martin,AUSTRALIAN LABOR PARTY,,ALP,2,1
+vic2014,vic-albert-park,vic-albert-park-3,Armstrong,Steven,,,IND,3,0
+vic2014,vic-albert-park,vic-albert-park-4,Perkins,Tex,,,IND,4,0
+vic2014,vic-albert-park,vic-albert-park-5,Eeles,Shannon,LIBERAL,,LIB,5,0
+vic2014,vic-albert-park,vic-albert-park-6,Collis,David,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-albert-park,vic-albert-park-7,Geyer,Deborah,FAMILY FIRST,,FFP,7,0
+vic2014,vic-bass,vic-bass-1,Fairhurst,Ross,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-bass,vic-bass-2,Le Serve,Clare,,,IND,2,0
+vic2014,vic-bass,vic-bass-3,Reid,Paul,AUSTRALIAN CHRISTIANS,,AUC,3,0
+vic2014,vic-bass,vic-bass-4,Paynter,Brian,LIBERAL,,LIB,4,1
+vic2014,vic-bass,vic-bass-5,Dorian,Angela,RISE UP AUSTRALIA PARTY,,OTH,5,0
+vic2014,vic-bass,vic-bass-6,Nathan,Sanjay,AUSTRALIAN LABOR PARTY,,ALP,6,0
+vic2014,vic-bass,vic-bass-7,Amor,David,AUSTRALIAN COUNTRY ALLIANCE,,OTH,7,0
+vic2014,vic-altona,vic-altona-1,Nain,Brijender,,,IND,1,0
+vic2014,vic-altona,vic-altona-2,Hiabu,Jemal,VOICE FOR THE WEST,,OTH,2,0
+vic2014,vic-altona,vic-altona-3,De Bono,Chris,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-altona,vic-altona-4,O'Neill,Anthony,AUSTRALIAN CHRISTIANS,,AUC,4,0
+vic2014,vic-altona,vic-altona-5,Samara,Nihal,LIBERAL,,LIB,5,0
+vic2014,vic-altona,vic-altona-6,Hennessy,Jill,AUSTRALIAN LABOR PARTY,,ALP,6,1
+vic2014,vic-bayswater,vic-bayswater-1,Cass,Jeremy,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-bayswater,vic-bayswater-2,Smyth,Robert,ANIMAL JUSTICE PARTY,,AJP,2,0
+vic2014,vic-bayswater,vic-bayswater-3,Conway,Tristan,AUSTRALIAN CHRISTIANS,,AUC,3,0
+vic2014,vic-bayswater,vic-bayswater-4,Dib,Tony,AUSTRALIAN LABOR PARTY,,ALP,4,0
+vic2014,vic-bayswater,vic-bayswater-5,Tennant,James,AUSTRALIAN GREENS,,GRN,5,0
+vic2014,vic-bayswater,vic-bayswater-6,Victoria,Heidi,LIBERAL,,LIB,6,1
+vic2014,vic-bayswater,vic-bayswater-7,Carbonari,John,,,IND,7,0
+vic2014,vic-benambra,vic-benambra-1,Podesta,Jennifer,AUSTRALIAN LABOR PARTY,,ALP,1,0
+vic2014,vic-benambra,vic-benambra-2,Tilley,Bill,LIBERAL,,LIB,2,1
+vic2014,vic-benambra,vic-benambra-3,Rourke,Philip,AUSTRALIAN COUNTRY ALLIANCE,,OTH,3,0
+vic2014,vic-benambra,vic-benambra-4,Wellard,Richard,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-bellarine,vic-bellarine-1,Neville,Lisa,AUSTRALIAN LABOR PARTY,,ALP,1,1
+vic2014,vic-bellarine,vic-bellarine-2,Hunter,Rhiannon,SEX PARTY,,OTH,2,0
+vic2014,vic-bellarine,vic-bellarine-3,Peake,Brenton,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-bellarine,vic-bellarine-4,Nelson,Ron,LIBERAL,,LIB,4,0
+vic2014,vic-bellarine,vic-bellarine-5,Keenan,Robert,FAMILY FIRST,,FFP,5,0
+vic2014,vic-bellarine,vic-bellarine-6,Dawson,Christopher,RISE UP AUSTRALIA PARTY,,OTH,6,0
+vic2014,vic-bellarine,vic-bellarine-7,Williams,Joshua,SHOOTERS AND FISHERS PARTY VICTORIA,,SFF,7,0
+vic2014,vic-bellarine,vic-bellarine-8,Irvine,John,AUSTRALIAN COUNTRY ALLIANCE,,OTH,8,0
+vic2014,vic-bellarine,vic-bellarine-9,Kacinskas,Gus,,,IND,9,0
+vic2014,vic-bendigo-east,vic-bendigo-east-1,Bickley,Greg,LIBERAL,,LIB,1,0
+vic2014,vic-bendigo-east,vic-bendigo-east-2,Dowling,Cameron,AUSTRALIAN COUNTRY ALLIANCE,,OTH,2,0
+vic2014,vic-bendigo-east,vic-bendigo-east-3,Bell,Lynette Kay,RISE UP AUSTRALIA PARTY,,OTH,3,0
+vic2014,vic-bendigo-east,vic-bendigo-east-4,Allan,Jacinta,AUSTRALIAN LABOR PARTY,,ALP,4,1
+vic2014,vic-bendigo-east,vic-bendigo-east-5,Alden,Jennifer,AUSTRALIAN GREENS,,GRN,5,0
+vic2014,vic-bendigo-east,vic-bendigo-east-6,Bradshaw,Glenis,FAMILY FIRST,,FFP,6,0
+vic2014,vic-bendigo-west,vic-bendigo-west-1,Moskalewicz,Amanda,FAMILY FIRST,,FFP,1,0
+vic2014,vic-bendigo-west,vic-bendigo-west-2,Langdon,Michael,LIBERAL,,LIB,2,0
+vic2014,vic-bendigo-west,vic-bendigo-west-3,Edwards,Maree,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-bendigo-west,vic-bendigo-west-4,Brownstein,John,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-bendigo-west,vic-bendigo-west-5,Caddy,Sandra,RISE UP AUSTRALIA PARTY,,OTH,5,0
+vic2014,vic-bendigo-west,vic-bendigo-west-6,Chapman,Elise,AUSTRALIAN COUNTRY ALLIANCE,,OTH,6,0
+vic2014,vic-bentleigh,vic-bentleigh-1,Mulcahy,Sean,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-bentleigh,vic-bentleigh-2,Telemzouguer,Sofia,PEOPLE POWER VICTORIA/NO SMART METERS,,OTH,2,0
+vic2014,vic-bentleigh,vic-bentleigh-3,Clark,David,FAMILY FIRST,,FFP,3,0
+vic2014,vic-bentleigh,vic-bentleigh-4,Mccawley,Ross James,SEX PARTY,,OTH,4,0
+vic2014,vic-bentleigh,vic-bentleigh-5,Staikos,Nick,AUSTRALIAN LABOR PARTY,,ALP,5,1
+vic2014,vic-bentleigh,vic-bentleigh-6,Ojha,Chandra,,,IND,6,0
+vic2014,vic-bentleigh,vic-bentleigh-7,Moldovan,Kelley,RISE UP AUSTRALIA PARTY,,OTH,7,0
+vic2014,vic-bentleigh,vic-bentleigh-8,Miller,Elizabeth,LIBERAL,,LIB,8,0
+vic2014,vic-box-hill,vic-box-hill-1,Reale,Frank,AUSTRALIAN CHRISTIANS,,AUC,1,0
+vic2014,vic-box-hill,vic-box-hill-2,Perri,Stefanie,AUSTRALIAN LABOR PARTY,,ALP,2,0
+vic2014,vic-box-hill,vic-box-hill-3,Pemberton,Bill,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-box-hill,vic-box-hill-4,Stokie,Geoffrey,,,IND,4,0
+vic2014,vic-box-hill,vic-box-hill-5,Clark,Robert,LIBERAL,,LIB,5,1
+vic2014,vic-brighton,vic-brighton-1,Asher,Louise,LIBERAL,,LIB,1,1
+vic2014,vic-brighton,vic-brighton-2,Touzeau,Jane,,,IND,2,0
+vic2014,vic-brighton,vic-brighton-3,Beavis,Margaret,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-brighton,vic-brighton-4,Crawford,Louise,AUSTRALIAN LABOR PARTY,,ALP,4,0
+vic2014,vic-broadmeadows,vic-broadmeadows-1,Knight,Wayne,FAMILY FIRST,,FFP,1,0
+vic2014,vic-broadmeadows,vic-broadmeadows-2,Mcguire,Frank,AUSTRALIAN LABOR PARTY,,ALP,2,1
+vic2014,vic-broadmeadows,vic-broadmeadows-3,De Loma-Osorio Ricon,Jaime,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-broadmeadows,vic-broadmeadows-4,Hassan,Mohamed,VOICE FOR THE WEST,,OTH,4,0
+vic2014,vic-broadmeadows,vic-broadmeadows-5,Onder,Evren,LIBERAL,,LIB,5,0
+vic2014,vic-broadmeadows,vic-broadmeadows-6,Rinaldi,John,,,IND,6,0
+vic2014,vic-brunswick,vic-brunswick-1,Read,Tim,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-brunswick,vic-brunswick-2,Young,Ward,ANIMAL JUSTICE PARTY,,AJP,2,0
+vic2014,vic-brunswick,vic-brunswick-3,Giurleo,Frank,FAMILY FIRST,,FFP,3,0
+vic2014,vic-brunswick,vic-brunswick-4,Garrett,Jane,AUSTRALIAN LABOR PARTY,,ALP,4,1
+vic2014,vic-brunswick,vic-brunswick-5,O'Callaghan,Dean,,,IND,5,0
+vic2014,vic-brunswick,vic-brunswick-6,Vellotti,Giuseppe,LIBERAL,,LIB,6,0
+vic2014,vic-brunswick,vic-brunswick-7,Kariofyllidis,Stella,PEOPLE POWER VICTORIA/NO SMART METERS,,OTH,7,0
+vic2014,vic-brunswick,vic-brunswick-8,Peters,Babar,AUSTRALIAN CHRISTIANS,,AUC,8,0
+vic2014,vic-bulleen,vic-bulleen-1,Cronly,Ben,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-bulleen,vic-bulleen-2,Rundell,Adam,AUSTRALIAN LABOR PARTY,,ALP,2,0
+vic2014,vic-bulleen,vic-bulleen-3,Arapoglou,Eleni,AUSTRALIAN CHRISTIANS,,AUC,3,0
+vic2014,vic-bulleen,vic-bulleen-4,Guy,Matthew,LIBERAL,,LIB,4,1
+vic2014,vic-bundoora,vic-bundoora-1,Stanyon,Clement,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-bundoora,vic-bundoora-2,Gill,Amita,LIBERAL,,LIB,2,0
+vic2014,vic-bundoora,vic-bundoora-3,Widdowson,James,FAMILY FIRST,,FFP,3,0
+vic2014,vic-bundoora,vic-bundoora-4,Brooks,Colin,AUSTRALIAN LABOR PARTY,,ALP,4,1
+vic2014,vic-burwood,vic-burwood-1,Ryan,Gavin,AUSTRALIAN LABOR PARTY,,ALP,1,0
+vic2014,vic-burwood,vic-burwood-2,Stuart,Beck,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-burwood,vic-burwood-3,Watt,Graham,LIBERAL,,LIB,3,1
+vic2014,vic-burwood,vic-burwood-4,Campbell,Peter,,,IND,4,0
+vic2014,vic-buninyong,vic-buninyong-1,Smith,Sonia,THE NATIONALS,,NAT,1,0
+vic2014,vic-buninyong,vic-buninyong-2,Taylor,Ben,LIBERAL,,LIB,2,0
+vic2014,vic-buninyong,vic-buninyong-3,Geyer,Keith,FAMILY FIRST,,FFP,3,0
+vic2014,vic-buninyong,vic-buninyong-4,Keays,James Donovan,AUSTRALIAN COUNTRY ALLIANCE,,OTH,4,0
+vic2014,vic-buninyong,vic-buninyong-5,Goodfellow,Tony,AUSTRALIAN GREENS,,GRN,5,0
+vic2014,vic-buninyong,vic-buninyong-6,Howard,Geoff,AUSTRALIAN LABOR PARTY,,ALP,6,1
+vic2014,vic-caulfield,vic-caulfield-1,Myers,John Barry,,,IND,1,0
+vic2014,vic-caulfield,vic-caulfield-2,Baxter,Tim,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-caulfield,vic-caulfield-3,Horvath,Teresa,RISE UP AUSTRALIA PARTY,,OTH,3,0
+vic2014,vic-caulfield,vic-caulfield-4,Burns,Josh,AUSTRALIAN LABOR PARTY,,ALP,4,0
+vic2014,vic-caulfield,vic-caulfield-5,Southwick,David,LIBERAL,,LIB,5,1
+vic2014,vic-clarinda,vic-clarinda-1,Talbot-Kamoen,James,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-clarinda,vic-clarinda-2,Lim,Hong,AUSTRALIAN LABOR PARTY,,ALP,2,1
+vic2014,vic-clarinda,vic-clarinda-3,Marinis,James,,,IND,3,0
+vic2014,vic-clarinda,vic-clarinda-4,Bevinakoppa,Gandhi,LIBERAL,,LIB,4,0
+vic2014,vic-clarinda,vic-clarinda-5,Vassiliou,Melanie,RISE UP AUSTRALIA PARTY,,OTH,5,0
+vic2014,vic-carrum,vic-carrum-1,Vernay,Richard,FAMILY FIRST,,FFP,1,0
+vic2014,vic-carrum,vic-carrum-2,Bauer,Donna,LIBERAL,,LIB,2,0
+vic2014,vic-carrum,vic-carrum-3,Kilkenny,Sonya,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-carrum,vic-carrum-4,Kelsall,Henry,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-carrum,vic-carrum-5,Quinn,Margaret,RISE UP AUSTRALIA PARTY,,OTH,5,0
+vic2014,vic-croydon,vic-croydon-1,Barclay,Sarah,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-croydon,vic-croydon-2,Brown,Mike,AUSTRALIAN CHRISTIANS,,AUC,2,0
+vic2014,vic-croydon,vic-croydon-3,Fielding,Lesley,AUSTRALIAN LABOR PARTY,,ALP,3,0
+vic2014,vic-croydon,vic-croydon-4,Martin,Joel,,,IND,4,0
+vic2014,vic-croydon,vic-croydon-5,Hodgett,David,LIBERAL,,LIB,5,1
+vic2014,vic-croydon,vic-croydon-6,Wild,Jill,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-cranbourne,vic-cranbourne-1,Eli,Jonathan Willie,RISE UP AUSTRALIA PARTY,,OTH,1,0
+vic2014,vic-cranbourne,vic-cranbourne-2,Perera,Jude,AUSTRALIAN LABOR PARTY,,ALP,2,1
+vic2014,vic-cranbourne,vic-cranbourne-3,Ablett,Geoff,LIBERAL,,LIB,3,0
+vic2014,vic-cranbourne,vic-cranbourne-4,Blake,Rosemary,,,IND,4,0
+vic2014,vic-cranbourne,vic-cranbourne-5,Nayak,Nagaraj,AUSTRALIAN GREENS,,GRN,5,0
+vic2014,vic-cranbourne,vic-cranbourne-6,Keenan,Pamela,FAMILY FIRST,,FFP,6,0
+vic2014,vic-cranbourne,vic-cranbourne-7,Graham,Laith,SEX PARTY,,OTH,7,0
+vic2014,vic-cranbourne,vic-cranbourne-8,Michael,Rania,AUSTRALIAN CHRISTIANS,,AUC,8,0
+vic2014,vic-dandenong,vic-dandenong-1,Walker,Noelle,FAMILY FIRST,,FFP,1,0
+vic2014,vic-dandenong,vic-dandenong-2,King,Carlton John,RISE UP AUSTRALIA PARTY,,OTH,2,0
+vic2014,vic-dandenong,vic-dandenong-3,Gulzari,John,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-dandenong,vic-dandenong-4,Palatsides,Joanna,LIBERAL,,LIB,4,0
+vic2014,vic-dandenong,vic-dandenong-5,Williams,Gabrielle,AUSTRALIAN LABOR PARTY,,ALP,5,1
+vic2014,vic-dandenong,vic-dandenong-6,Key,Dale Anthony,,,IND,6,0
+vic2014,vic-eildon,vic-eildon-1,Leake,Jeff,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-eildon,vic-eildon-2,Prentice,David,FAMILY FIRST,,FFP,2,0
+vic2014,vic-eildon,vic-eildon-3,Argyle,Bruce,,,IND,3,0
+vic2014,vic-eildon,vic-eildon-4,Sellstrom,Marie,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-eildon,vic-eildon-5,Brennan,Sally,AUSTRALIAN LABOR PARTY,,ALP,5,0
+vic2014,vic-eildon,vic-eildon-6,Child,Jim,THE NATIONALS,,NAT,6,0
+vic2014,vic-eildon,vic-eildon-7,Judd,Jane M.,,,IND,7,0
+vic2014,vic-eildon,vic-eildon-8,Mcleish,Cindy,LIBERAL,,LIB,8,1
+vic2014,vic-essendon,vic-essendon-1,Lawrence,Richard,,,IND,1,0
+vic2014,vic-essendon,vic-essendon-2,Waite,Ashley,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-essendon,vic-essendon-3,Mendez,Mario Antonio,VOICE FOR THE WEST,,OTH,3,0
+vic2014,vic-essendon,vic-essendon-4,Ackerman,Fred,LIBERAL,,LIB,4,0
+vic2014,vic-essendon,vic-essendon-5,Pearson,Danny,AUSTRALIAN LABOR PARTY,,ALP,5,1
+vic2014,vic-evelyn,vic-evelyn-1,Williams,Glenn,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-evelyn,vic-evelyn-2,Fyffe,Christine,LIBERAL,,LIB,2,1
+vic2014,vic-evelyn,vic-evelyn-3,Mcaleer,Anthony,,,IND,3,0
+vic2014,vic-evelyn,vic-evelyn-4,Betts,Sandra,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-evelyn,vic-evelyn-5,Harris,Peter,AUSTRALIAN LABOR PARTY,,ALP,5,0
+vic2014,vic-evelyn,vic-evelyn-6,De Pyle,Damien,AUSTRALIAN CHRISTIANS,,AUC,6,0
+vic2014,vic-evelyn,vic-evelyn-7,Mobsby,Lawrence Irwin,,,IND,7,0
+vic2014,vic-euroa,vic-euroa-1,Winzer,Julie-Anne,FAMILY FIRST,,FFP,1,0
+vic2014,vic-euroa,vic-euroa-2,Ryan,Steph,THE NATIONALS,,NAT,2,1
+vic2014,vic-euroa,vic-euroa-3,Schneider,Tony,LIBERAL,,LIB,3,0
+vic2014,vic-euroa,vic-euroa-4,Adams,Lisa,AUSTRALIAN COUNTRY ALLIANCE,,OTH,4,0
+vic2014,vic-euroa,vic-euroa-5,Malcolm,Clare Louise,AUSTRALIAN LABOR PARTY,,ALP,5,0
+vic2014,vic-euroa,vic-euroa-6,Roberts,Simon,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-ferntree-gully,vic-ferntree-gully-1,Raymond,Steve,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-ferntree-gully,vic-ferntree-gully-2,Roytel,Robert,AUSTRALIAN CHRISTIANS,,AUC,2,0
+vic2014,vic-ferntree-gully,vic-ferntree-gully-3,Posetti,Matt,AUSTRALIAN LABOR PARTY,,ALP,3,0
+vic2014,vic-ferntree-gully,vic-ferntree-gully-4,Wulf,Russell,AUSTRALIAN COUNTRY ALLIANCE,,OTH,4,0
+vic2014,vic-ferntree-gully,vic-ferntree-gully-5,Wakeling,Nick,LIBERAL,,LIB,5,1
+vic2014,vic-eltham,vic-eltham-1,Byrne,Chris,,,IND,1,0
+vic2014,vic-eltham,vic-eltham-2,Briffa,Steven,LIBERAL,,LIB,2,0
+vic2014,vic-eltham,vic-eltham-3,Fenn,Janna,FAMILY FIRST,,FFP,3,0
+vic2014,vic-eltham,vic-eltham-4,Janson,Michael,AUSTRALIAN CHRISTIANS,,AUC,4,0
+vic2014,vic-eltham,vic-eltham-5,Ward,Vicki,AUSTRALIAN LABOR PARTY,,ALP,5,1
+vic2014,vic-eltham,vic-eltham-6,Shnookal,Liezl,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-eltham,vic-eltham-7,Ebert,Ryan,,,IND,7,0
+vic2014,vic-forest-hill,vic-forest-hill-1,Rogers,Kane,ANIMAL JUSTICE PARTY,,AJP,1,0
+vic2014,vic-forest-hill,vic-forest-hill-2,Trotter,Melissa,AUSTRALIAN COUNTRY ALLIANCE,,OTH,2,0
+vic2014,vic-forest-hill,vic-forest-hill-3,Angus,Neil,LIBERAL,,LIB,3,1
+vic2014,vic-forest-hill,vic-forest-hill-4,Richards,Pauline,AUSTRALIAN LABOR PARTY,,ALP,4,0
+vic2014,vic-forest-hill,vic-forest-hill-5,Atkinson,Brewis,AUSTRALIAN GREENS,,GRN,5,0
+vic2014,vic-forest-hill,vic-forest-hill-6,Maddison,Lynne,AUSTRALIAN CHRISTIANS,,AUC,6,0
+vic2014,vic-forest-hill,vic-forest-hill-7,Ross,Wendy,FAMILY FIRST,,FFP,7,0
+vic2014,vic-frankston,vic-frankston-1,Armistead,Sean,LIBERAL,,LIB,1,0
+vic2014,vic-frankston,vic-frankston-2,Wallace,Anthony,AUSTRALIAN CHRISTIANS,,AUC,2,0
+vic2014,vic-frankston,vic-frankston-3,Toscano,Joseph,,,IND,3,0
+vic2014,vic-frankston,vic-frankston-4,Swain,Jeanette,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-frankston,vic-frankston-5,Nicholls,Alan,PEOPLE POWER VICTORIA/NO SMART METERS,,OTH,5,0
+vic2014,vic-frankston,vic-frankston-6,Miller,Jamie,SEX PARTY,,OTH,6,0
+vic2014,vic-frankston,vic-frankston-7,Tootell,Marianne,,,IND,7,0
+vic2014,vic-frankston,vic-frankston-8,Edbrooke,Paul,AUSTRALIAN LABOR PARTY,,ALP,8,1
+vic2014,vic-frankston,vic-frankston-9,Smith,Reade,,,IND,9,0
+vic2014,vic-frankston,vic-frankston-10,Breen,Jerome,,,IND,10,0
+vic2014,vic-frankston,vic-frankston-11,Mason,Paul,FAMILY FIRST,,FFP,11,0
+vic2014,vic-frankston,vic-frankston-12,Shaw,Geoff,,,IND,12,0
+vic2014,vic-frankston,vic-frankston-13,Vogt,Mervyn K.,,,IND,13,0
+vic2014,vic-frankston,vic-frankston-14,Tregenza,Lin,RISE UP AUSTRALIA PARTY,,OTH,14,0
+vic2014,vic-footscray,vic-footscray-1,Swift,Rod,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-footscray,vic-footscray-2,Cumming,Catherine,,,IND,2,0
+vic2014,vic-footscray,vic-footscray-3,Vu,Kim,LIBERAL,,LIB,3,0
+vic2014,vic-footscray,vic-footscray-4,Thomson,Marsha,AUSTRALIAN LABOR PARTY,,ALP,4,1
+vic2014,vic-footscray,vic-footscray-5,Betts,Ken,VOICE FOR THE WEST,,OTH,5,0
+vic2014,vic-gembrook,vic-gembrook-1,Heffernan,Damian,,,IND,1,0
+vic2014,vic-gembrook,vic-gembrook-2,Ross,Collin,AUSTRALIAN LABOR PARTY,,ALP,2,0
+vic2014,vic-gembrook,vic-gembrook-3,Beard,Simon,AUSTRALIAN CHRISTIANS,,AUC,3,0
+vic2014,vic-gembrook,vic-gembrook-4,Dean,Frank,,,IND,4,0
+vic2014,vic-gembrook,vic-gembrook-5,Schilling,Michael,AUSTRALIAN GREENS,,GRN,5,0
+vic2014,vic-gembrook,vic-gembrook-6,Stoops,Alan,AUSTRALIAN COUNTRY ALLIANCE,,OTH,6,0
+vic2014,vic-gembrook,vic-gembrook-7,Verdan,Ferdie,RISE UP AUSTRALIA PARTY,,OTH,7,0
+vic2014,vic-gembrook,vic-gembrook-8,Battin,Brad,LIBERAL,,LIB,8,1
+vic2014,vic-geelong,vic-geelong-1,Pegan,Pedro,SHOOTERS AND FISHERS PARTY VICTORIA,,SFF,1,0
+vic2014,vic-geelong,vic-geelong-2,Leen,Tony,AUSTRALIAN COUNTRY ALLIANCE,,OTH,2,0
+vic2014,vic-geelong,vic-geelong-3,Hathway,Sarah,SOCIALIST ALLIANCE,,OTH,3,0
+vic2014,vic-geelong,vic-geelong-4,Mann,Douglas James,,,IND,4,0
+vic2014,vic-geelong,vic-geelong-5,Kontelj,Paula,LIBERAL,,LIB,5,0
+vic2014,vic-geelong,vic-geelong-6,Lindsay,Bruce,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-geelong,vic-geelong-7,Clark,Ruth,FAMILY FIRST,,FFP,7,0
+vic2014,vic-geelong,vic-geelong-8,Couzens,Christine,AUSTRALIAN LABOR PARTY,,ALP,8,1
+vic2014,vic-gippsland-east,vic-gippsland-east-1,Hutchison,David,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-gippsland-east,vic-gippsland-east-2,Campbell-Smith,Scott,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-gippsland-east,vic-gippsland-east-3,Jack,Jenny,RISE UP AUSTRALIA PARTY,,OTH,3,0
+vic2014,vic-gippsland-east,vic-gippsland-east-4,Maxfield,Kate,AUSTRALIAN LABOR PARTY,,ALP,4,0
+vic2014,vic-gippsland-east,vic-gippsland-east-5,Gardner,Peter,,,IND,5,0
+vic2014,vic-gippsland-east,vic-gippsland-east-6,Bull,Tim,THE NATIONALS,,NAT,6,1
+vic2014,vic-gippsland-east,vic-gippsland-east-7,Mcdonald,Leigh,,,IND,7,0
+vic2014,vic-gippsland-east,vic-gippsland-east-8,Mckenzie,Peter Warren,,,IND,8,0
+vic2014,vic-hastings,vic-hastings-1,Leslie,Scot,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-hastings,vic-hastings-2,Madigan,Paul,,,IND,2,0
+vic2014,vic-hastings,vic-hastings-3,Fagan,Derek,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-hastings,vic-hastings-4,Burgess,Neale,LIBERAL,,LIB,4,1
+vic2014,vic-hastings,vic-hastings-5,Hosking,Steven,AUSTRALIAN LABOR PARTY,,ALP,5,0
+vic2014,vic-hastings,vic-hastings-6,Robertson,Colin,RISE UP AUSTRALIA PARTY,,OTH,6,0
+vic2014,vic-hastings,vic-hastings-7,Andersson,Robert,,,IND,7,0
+vic2014,vic-gippsland-south,vic-gippsland-south-1,Winterton,Patrick,RISE UP AUSTRALIA PARTY,,OTH,1,0
+vic2014,vic-gippsland-south,vic-gippsland-south-2,Psaila,Lynn,AUSTRALIAN LABOR PARTY,,ALP,2,0
+vic2014,vic-gippsland-south,vic-gippsland-south-3,Piper,Phil,,,IND,3,0
+vic2014,vic-gippsland-south,vic-gippsland-south-4,Meester,Deb,AUSTRALIAN COUNTRY ALLIANCE,,OTH,4,0
+vic2014,vic-gippsland-south,vic-gippsland-south-5,Ryan,Peter,THE NATIONALS,,NAT,5,1
+vic2014,vic-gippsland-south,vic-gippsland-south-6,Onley,Ian,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-kew,vic-kew-1,Frankes,Lynn,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-kew,vic-kew-2,Smith,Tim,LIBERAL,,LIB,2,1
+vic2014,vic-kew,vic-kew-3,Gaffey,James Matthew,AUSTRALIAN LABOR PARTY,,ALP,3,0
+vic2014,vic-hawthorn,vic-hawthorn-1,Hartnett,Tim,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-hawthorn,vic-hawthorn-2,Pesutto,John,LIBERAL,,LIB,2,1
+vic2014,vic-hawthorn,vic-hawthorn-3,Mcnally,John,AUSTRALIAN LABOR PARTY,,ALP,3,0
+vic2014,vic-ivanhoe,vic-ivanhoe-1,Grewal,Gurmender,AUSTRALIAN CHRISTIANS,,AUC,1,0
+vic2014,vic-ivanhoe,vic-ivanhoe-2,Kennedy,Paul,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-ivanhoe,vic-ivanhoe-3,Boer,Jesse,FAMILY FIRST,,FFP,3,0
+vic2014,vic-ivanhoe,vic-ivanhoe-4,Ziebell,Carl,LIBERAL,,LIB,4,0
+vic2014,vic-ivanhoe,vic-ivanhoe-5,Langdon,Craig,,,IND,5,0
+vic2014,vic-ivanhoe,vic-ivanhoe-6,Mohamed,Abdirizak H.,,,IND,6,0
+vic2014,vic-ivanhoe,vic-ivanhoe-7,Carbines,Anthony,AUSTRALIAN LABOR PARTY,,ALP,7,1
+vic2014,vic-keysborough,vic-keysborough-1,Pakula,Martin,AUSTRALIAN LABOR PARTY,,ALP,1,1
+vic2014,vic-keysborough,vic-keysborough-2,Cunningham,Andrew,RISE UP AUSTRALIA PARTY,,OTH,2,0
+vic2014,vic-keysborough,vic-keysborough-3,Fleming,Adrianne,LIBERAL,,LIB,3,0
+vic2014,vic-keysborough,vic-keysborough-4,Fyfield,Susan,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-keysborough,vic-keysborough-5,Vo,Hung,,,IND,5,0
+vic2014,vic-keysborough,vic-keysborough-6,Carty,Michael,,,IND,6,0
+vic2014,vic-kororoit,vic-kororoit-1,Giudice,Margaret,,,IND,1,0
+vic2014,vic-kororoit,vic-kororoit-2,Hill,Philip,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-kororoit,vic-kororoit-3,Kesic,Goran,LIBERAL,,LIB,3,0
+vic2014,vic-kororoit,vic-kororoit-4,Turner,Shashi,VOICE FOR THE WEST,,OTH,4,0
+vic2014,vic-kororoit,vic-kororoit-5,Kairouz,Marlene,AUSTRALIAN LABOR PARTY,,ALP,5,1
+vic2014,vic-lowan,vic-lowan-1,Beltz,Nkandu,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-lowan,vic-lowan-2,Price,Steve,AUSTRALIAN COUNTRY ALLIANCE,,OTH,2,0
+vic2014,vic-lowan,vic-lowan-3,Rainsford,Katrina,,,IND,3,0
+vic2014,vic-lowan,vic-lowan-4,Kealy,Emma,THE NATIONALS,,NAT,4,1
+vic2014,vic-lowan,vic-lowan-5,Scates,Bob,AUSTRALIAN LABOR PARTY,,ALP,5,0
+vic2014,vic-lara,vic-lara-1,Lacey,Gregory,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-lara,vic-lara-2,Reed,George,AUSTRALIAN COUNTRY ALLIANCE,,OTH,2,0
+vic2014,vic-lara,vic-lara-3,Eren,John,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-lara,vic-lara-4,Mcmanus,Tony,LIBERAL,,LIB,4,0
+vic2014,vic-lara,vic-lara-5,Fosberry,Rami,FAMILY FIRST,,FFP,5,0
+vic2014,vic-macedon,vic-macedon-1,Barker,Neil,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-macedon,vic-macedon-2,Thomas,Mary-Anne,AUSTRALIAN LABOR PARTY,,ALP,2,1
+vic2014,vic-macedon,vic-macedon-3,Harland,Peter,FAMILY FIRST,,FFP,3,0
+vic2014,vic-macedon,vic-macedon-4,Petrovich,Donna,LIBERAL,,LIB,4,0
+vic2014,vic-melbourne,vic-melbourne-1,Chisholm,Neville,AUSTRALIAN CHRISTIANS,,AUC,1,0
+vic2014,vic-melbourne,vic-melbourne-2,Sutherland,Kerry,FAMILY FIRST,,FFP,2,0
+vic2014,vic-melbourne,vic-melbourne-3,Sandell,Ellen,AUSTRALIAN GREENS,,GRN,3,1
+vic2014,vic-melbourne,vic-melbourne-4,Kanis,Jennifer,AUSTRALIAN LABOR PARTY,,ALP,4,0
+vic2014,vic-melbourne,vic-melbourne-5,Elliott,Kate,ANIMAL JUSTICE PARTY,,AJP,5,0
+vic2014,vic-melbourne,vic-melbourne-6,Huntingford,Ed,LIBERAL,,LIB,6,0
+vic2014,vic-melbourne,vic-melbourne-7,Umer,Tehiya,VOICE FOR THE WEST,,OTH,7,0
+vic2014,vic-mildura,vic-mildura-1,Carter,Carl J.,RISE UP AUSTRALIA PARTY,,OTH,1,0
+vic2014,vic-mildura,vic-mildura-2,Lee,Danny,AUSTRALIAN COUNTRY ALLIANCE,,OTH,2,0
+vic2014,vic-mildura,vic-mildura-3,Clutterbuck,Jo,,,IND,3,0
+vic2014,vic-mildura,vic-mildura-4,Cory,Mark,,,IND,4,0
+vic2014,vic-mildura,vic-mildura-5,Fenn,Judith,FAMILY FIRST,,FFP,5,0
+vic2014,vic-mildura,vic-mildura-6,Cupper,Ali,,,IND,6,0
+vic2014,vic-mildura,vic-mildura-7,Russell,Morgana,AUSTRALIAN GREENS,,GRN,7,0
+vic2014,vic-mildura,vic-mildura-8,Crisp,Peter,THE NATIONALS,,NAT,8,1
+vic2014,vic-mildura,vic-mildura-9,Roberts,Shane,AUSTRALIAN LABOR PARTY,,ALP,9,0
+vic2014,vic-melton,vic-melton-1,Deleon,Matt,,,IND,1,0
+vic2014,vic-melton,vic-melton-2,Lang,Daryl,LIBERAL,,LIB,2,0
+vic2014,vic-melton,vic-melton-3,Mangion,Sav,AUSTRALIAN COUNTRY ALLIANCE,,OTH,3,0
+vic2014,vic-melton,vic-melton-4,Bennett,Victor,,,IND,4,0
+vic2014,vic-melton,vic-melton-5,Nardella,Don,AUSTRALIAN LABOR PARTY,,ALP,5,1
+vic2014,vic-melton,vic-melton-6,Chadhuol,Mabor,AUSTRALIAN CHRISTIANS,,AUC,6,0
+vic2014,vic-melton,vic-melton-7,Cooper,Marie-Anne,AUSTRALIAN GREENS,,GRN,7,0
+vic2014,vic-melton,vic-melton-8,Aljofan,Mohamad,,,IND,8,0
+vic2014,vic-melton,vic-melton-9,Thomas,Monika,VOICE FOR THE WEST,,OTH,9,0
+vic2014,vic-malvern,vic-malvern-1,O'Brien,Michael,LIBERAL,,LIB,1,1
+vic2014,vic-malvern,vic-malvern-2,Bennett,James,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-malvern,vic-malvern-3,Tarczon,Les,AUSTRALIAN LABOR PARTY,,ALP,3,0
+vic2014,vic-monbulk,vic-monbulk-1,Rojas,Ana,RISE UP AUSTRALIA PARTY,,OTH,1,0
+vic2014,vic-monbulk,vic-monbulk-2,Crook,Jordan,,,IND,2,0
+vic2014,vic-monbulk,vic-monbulk-3,Merlino,James,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-monbulk,vic-monbulk-4,Verschuur,Mark,LIBERAL,,LIB,4,0
+vic2014,vic-monbulk,vic-monbulk-5,Mason,Amelia,FAMILY FIRST,,FFP,5,0
+vic2014,vic-monbulk,vic-monbulk-6,Clarke,Michael,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-monbulk,vic-monbulk-7,Mcadam,Jennifer,ANIMAL JUSTICE PARTY,,AJP,7,0
+vic2014,vic-monbulk,vic-monbulk-8,Jenkin,Craig,AUSTRALIAN COUNTRY ALLIANCE,,OTH,8,0
+vic2014,vic-monbulk,vic-monbulk-9,Prendergast,Ron,DEMOCRATIC LABOUR PARTY (DLP),,DLP,9,0
+vic2014,vic-mill-park,vic-mill-park-1,Graham,Jeremy,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-mill-park,vic-mill-park-2,Simmons,Peter,FAMILY FIRST,,FFP,2,0
+vic2014,vic-mill-park,vic-mill-park-3,D'Ambrosio,Lily,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-mill-park,vic-mill-park-4,Varughese,George,LIBERAL,,LIB,4,0
+vic2014,vic-mordialloc,vic-mordialloc-1,Brick,Damien,DEMOCRATIC LABOUR PARTY (DLP),,DLP,1,0
+vic2014,vic-mordialloc,vic-mordialloc-2,Richardson,Tim,AUSTRALIAN LABOR PARTY,,ALP,2,1
+vic2014,vic-mordialloc,vic-mordialloc-3,Oxley,Georgina,,,IND,3,0
+vic2014,vic-mordialloc,vic-mordialloc-4,Figueroa,Rod,RISE UP AUSTRALIA PARTY,,OTH,4,0
+vic2014,vic-mordialloc,vic-mordialloc-5,Govender,Jeevaloshni,FAMILY FIRST,,FFP,5,0
+vic2014,vic-mordialloc,vic-mordialloc-6,Chellew,Tristram,SEX PARTY,,OTH,6,0
+vic2014,vic-mordialloc,vic-mordialloc-7,Wreford,Lorraine,LIBERAL,,LIB,7,0
+vic2014,vic-mordialloc,vic-mordialloc-8,Breskin,Alexander,AUSTRALIAN GREENS,,GRN,8,0
+vic2014,vic-mordialloc,vic-mordialloc-9,Pompei,Leon,,,IND,9,0
+vic2014,vic-mordialloc,vic-mordialloc-10,Oxley,Victoria,,,IND,10,0
+vic2014,vic-mordialloc,vic-mordialloc-11,West,Rosemary,,,IND,11,0
+vic2014,vic-morwell,vic-morwell-1,Lund,Tracie,,,IND,1,0
+vic2014,vic-morwell,vic-morwell-2,Mintern,Jadon,AUSTRALIAN LABOR PARTY,,ALP,2,0
+vic2014,vic-morwell,vic-morwell-3,Birkett,Stewart,AUSTRALIAN COUNTRY ALLIANCE,,OTH,3,0
+vic2014,vic-morwell,vic-morwell-4,Dorian,Peter,RISE UP AUSTRALIA PARTY,,OTH,4,0
+vic2014,vic-morwell,vic-morwell-5,Caffrey,Dan,AUSTRALIAN GREENS,,GRN,5,0
+vic2014,vic-morwell,vic-morwell-6,Northe,Russell,THE NATIONALS,,NAT,6,1
+vic2014,vic-morwell,vic-morwell-7,Rose,Jacqueline,,,IND,7,0
+vic2014,vic-mount-waverley,vic-mount-waverley-1,Khangure,Perky Raj,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-mount-waverley,vic-mount-waverley-2,Zheng,Stephen Chong,AUSTRALIAN CHRISTIANS,,AUC,2,0
+vic2014,vic-mount-waverley,vic-mount-waverley-3,Gidley,Michael,LIBERAL,,LIB,3,1
+vic2014,vic-mount-waverley,vic-mount-waverley-4,Yang,Jennifer,AUSTRALIAN LABOR PARTY,,ALP,4,0
+vic2014,vic-mornington,vic-mornington-1,Morris,David,LIBERAL,,LIB,1,1
+vic2014,vic-mornington,vic-mornington-2,Barnes,Marion,AUSTRALIAN COUNTRY ALLIANCE,,OTH,2,0
+vic2014,vic-mornington,vic-mornington-3,Moldovan,Peter,RISE UP AUSTRALIA PARTY,,OTH,3,0
+vic2014,vic-mornington,vic-mornington-4,Mclaren,Matthew,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-mornington,vic-mornington-5,Wright,Rebecca,AUSTRALIAN LABOR PARTY,,ALP,5,0
+vic2014,vic-murray-plains,vic-murray-plains-1,Winn,Bryon,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-murray-plains,vic-murray-plains-2,Williams,Peter,AUSTRALIAN LABOR PARTY,,ALP,2,0
+vic2014,vic-murray-plains,vic-murray-plains-3,Christoe,Ian,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-murray-plains,vic-murray-plains-4,Wintle,Laurie J.,RISE UP AUSTRALIA PARTY,,OTH,4,0
+vic2014,vic-murray-plains,vic-murray-plains-5,Hicks,Nigel Anthony,,,IND,5,0
+vic2014,vic-murray-plains,vic-murray-plains-6,Walsh,Peter,THE NATIONALS,,NAT,6,1
+vic2014,vic-mulgrave,vic-mulgrave-1,Fergeus,Josh,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-mulgrave,vic-mulgrave-2,Davies,Robert,LIBERAL,,LIB,2,0
+vic2014,vic-mulgrave,vic-mulgrave-3,Fenn,Norman,FAMILY FIRST,,FFP,3,0
+vic2014,vic-mulgrave,vic-mulgrave-4,Wood,Maree,RISE UP AUSTRALIA PARTY,,OTH,4,0
+vic2014,vic-mulgrave,vic-mulgrave-5,Andrews,Daniel,AUSTRALIAN LABOR PARTY,,ALP,5,1
+vic2014,vic-narre-warren-north,vic-narre-warren-north-1,Stapledon,Amanda,LIBERAL,,LIB,1,0
+vic2014,vic-narre-warren-north,vic-narre-warren-north-2,Mekhail,Mery,AUSTRALIAN CHRISTIANS,,AUC,2,0
+vic2014,vic-narre-warren-north,vic-narre-warren-north-3,Jones,Karen,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-narre-warren-north,vic-narre-warren-north-4,White,Robert George,RISE UP AUSTRALIA PARTY,,OTH,4,0
+vic2014,vic-narre-warren-north,vic-narre-warren-north-5,Donnellan,Luke,AUSTRALIAN LABOR PARTY,,ALP,5,1
+vic2014,vic-narre-warren-north,vic-narre-warren-north-6,Blackburn,Chris,DEMOCRATIC LABOUR PARTY (DLP),,DLP,6,0
+vic2014,vic-narre-warren-north,vic-narre-warren-north-7,Qureshi,Wasim,,,IND,7,0
+vic2014,vic-narracan,vic-narracan-1,Marten,Kate,AUSTRALIAN LABOR PARTY,,ALP,1,0
+vic2014,vic-narracan,vic-narracan-2,Blackwood,Gary,LIBERAL,,LIB,2,1
+vic2014,vic-narracan,vic-narracan-3,Mckelvie,Malcolm,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-narracan,vic-narracan-4,Snelling,Dave,AUSTRALIAN COUNTRY ALLIANCE,,OTH,4,0
+vic2014,vic-narracan,vic-narracan-5,Baker,Norman,RISE UP AUSTRALIA PARTY,,OTH,5,0
+vic2014,vic-narre-warren-south,vic-narre-warren-south-1,Serey,Susan,LIBERAL,,LIB,1,0
+vic2014,vic-narre-warren-south,vic-narre-warren-south-2,Andrawis,Narmien,AUSTRALIAN CHRISTIANS,,AUC,2,0
+vic2014,vic-narre-warren-south,vic-narre-warren-south-3,Graley,Judith,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-narre-warren-south,vic-narre-warren-south-4,Sofe,Anthony,RISE UP AUSTRALIA PARTY,,OTH,4,0
+vic2014,vic-narre-warren-south,vic-narre-warren-south-5,Keleher,Lynette,AUSTRALIAN GREENS,,GRN,5,0
+vic2014,vic-nepean,vic-nepean-1,Schmidt,Matthew,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-nepean,vic-nepean-2,Dixon,Martin,LIBERAL,,LIB,2,1
+vic2014,vic-nepean,vic-nepean-3,Gleixner,Carolyn,AUSTRALIAN LABOR PARTY,,ALP,3,0
+vic2014,vic-nepean,vic-nepean-4,Yue,Laura,RISE UP AUSTRALIA PARTY,,OTH,4,0
+vic2014,vic-nepean,vic-nepean-5,Stanton,David J.,,,IND,5,0
+vic2014,vic-nepean,vic-nepean-6,Thomson,Craig,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-niddrie,vic-niddrie-1,Roberts,Sarah,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-niddrie,vic-niddrie-2,Surace,Andrea,,,IND,2,0
+vic2014,vic-niddrie,vic-niddrie-3,Dewan,Paddy,VOICE FOR THE WEST,,OTH,3,0
+vic2014,vic-niddrie,vic-niddrie-4,Carroll,Ben,AUSTRALIAN LABOR PARTY,,ALP,4,1
+vic2014,vic-niddrie,vic-niddrie-5,Warner,John,AUSTRALIAN CHRISTIANS,,AUC,5,0
+vic2014,vic-niddrie,vic-niddrie-6,Gauci Maurici,Rebecca,LIBERAL,,LIB,6,0
+vic2014,vic-niddrie,vic-niddrie-7,Yianni,Appollo,,,IND,7,0
+vic2014,vic-niddrie,vic-niddrie-8,Gunter,Andrew,,,IND,8,0
+vic2014,vic-oakleigh,vic-oakleigh-1,Dimopoulos,Steve,AUSTRALIAN LABOR PARTY,,ALP,1,1
+vic2014,vic-oakleigh,vic-oakleigh-2,Zographos,Theo,LIBERAL,,LIB,2,0
+vic2014,vic-oakleigh,vic-oakleigh-3,Kioupelis,Parashos,,,IND,3,0
+vic2014,vic-oakleigh,vic-oakleigh-4,Merriel,Steven,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-oakleigh,vic-oakleigh-5,Scotto,Anna,,,IND,5,0
+vic2014,vic-pascoe-vale,vic-pascoe-vale-1,Brocklehurst,Sean,SOCIALIST ALLIANCE,,OTH,1,0
+vic2014,vic-pascoe-vale,vic-pascoe-vale-2,Farrelly,Liam,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-pascoe-vale,vic-pascoe-vale-3,Ha,Thomas,FAMILY FIRST,,FFP,3,0
+vic2014,vic-pascoe-vale,vic-pascoe-vale-4,Khoo,Jacqueline,LIBERAL,,LIB,4,0
+vic2014,vic-pascoe-vale,vic-pascoe-vale-5,Blandthorn,Lizzie,AUSTRALIAN LABOR PARTY,,ALP,5,1
+vic2014,vic-pascoe-vale,vic-pascoe-vale-6,Timpano,Francesco,,,IND,6,0
+vic2014,vic-ovens-valley,vic-ovens-valley-1,Mccaffrey,Jamie,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-ovens-valley,vic-ovens-valley-2,Fidge,Julian,AUSTRALIAN COUNTRY ALLIANCE,,OTH,2,0
+vic2014,vic-ovens-valley,vic-ovens-valley-3,Cholosznecki,Gail,AUSTRALIAN LABOR PARTY,,ALP,3,0
+vic2014,vic-ovens-valley,vic-ovens-valley-4,Mccurdy,Tim,THE NATIONALS,,NAT,4,1
+vic2014,vic-ovens-valley,vic-ovens-valley-5,Dyer,Ray,,,IND,5,0
+vic2014,vic-polwarth,vic-polwarth-1,Mulder,Terry,LIBERAL,,LIB,1,1
+vic2014,vic-polwarth,vic-polwarth-2,Northeast,Simon,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-polwarth,vic-polwarth-3,Edge,Philip,AUSTRALIAN COUNTRY ALLIANCE,,OTH,3,0
+vic2014,vic-polwarth,vic-polwarth-4,Coker,Libby,AUSTRALIAN LABOR PARTY,,ALP,4,0
+vic2014,vic-prahran,vic-prahran-1,Hibbins,Sam,AUSTRALIAN GREENS,,GRN,1,1
+vic2014,vic-prahran,vic-prahran-2,Walker,Alan,FAMILY FIRST,,FFP,2,0
+vic2014,vic-prahran,vic-prahran-3,Pharaoh,Neil,AUSTRALIAN LABOR PARTY,,ALP,3,0
+vic2014,vic-prahran,vic-prahran-4,Goldsmith,Jason Simon,,,IND,4,0
+vic2014,vic-prahran,vic-prahran-5,Stefanopoulos,Steve,,,IND,5,0
+vic2014,vic-prahran,vic-prahran-6,Newton-Brown,Clem,LIBERAL,,LIB,6,0
+vic2014,vic-prahran,vic-prahran-7,Gullone,Eleonora,ANIMAL JUSTICE PARTY,,AJP,7,0
+vic2014,vic-prahran,vic-prahran-8,Menadue,Alan Maxwell,,,IND,8,0
+vic2014,vic-preston,vic-preston-1,Greco,Gaetano,,,IND,1,0
+vic2014,vic-preston,vic-preston-2,Ward,Rachel,FAMILY FIRST,,FFP,2,0
+vic2014,vic-preston,vic-preston-3,Ljubicic,Rose,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-preston,vic-preston-4,Scott,Robin,AUSTRALIAN LABOR PARTY,,ALP,4,1
+vic2014,vic-preston,vic-preston-5,Forster,John,LIBERAL,,LIB,5,0
+vic2014,vic-northcote,vic-northcote-1,Mccarney,Jamie,THE BASICS ROCK 'N' ROLL PARTY,,OTH,1,0
+vic2014,vic-northcote,vic-northcote-2,Richardson,Fiona,AUSTRALIAN LABOR PARTY,,ALP,2,1
+vic2014,vic-northcote,vic-northcote-3,Fenn,Helen,FAMILY FIRST,,FFP,3,0
+vic2014,vic-northcote,vic-northcote-4,Purcell,Georgina,ANIMAL JUSTICE PARTY,,AJP,4,0
+vic2014,vic-northcote,vic-northcote-5,D'Angelo,Anthony,LIBERAL,,LIB,5,0
+vic2014,vic-northcote,vic-northcote-6,Edwards,Bryony,,,IND,6,0
+vic2014,vic-northcote,vic-northcote-7,Mccarthy,Trent,AUSTRALIAN GREENS,,GRN,7,0
+vic2014,vic-ringwood,vic-ringwood-1,Challinger,Michael,,,IND,1,0
+vic2014,vic-ringwood,vic-ringwood-2,Ryall,Dee,LIBERAL,,LIB,2,1
+vic2014,vic-ringwood,vic-ringwood-3,Dobby,Karen,AUSTRALIAN CHRISTIANS,,AUC,3,0
+vic2014,vic-ringwood,vic-ringwood-4,Powell,Brendan,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-ringwood,vic-ringwood-5,Raskovy,Steve,PEOPLE POWER VICTORIA/NO SMART METERS,,OTH,5,0
+vic2014,vic-ringwood,vic-ringwood-6,Dungey,Brian,AUSTRALIAN COUNTRY ALLIANCE,,OTH,6,0
+vic2014,vic-ringwood,vic-ringwood-7,Clark,Tony,AUSTRALIAN LABOR PARTY,,ALP,7,0
+vic2014,vic-richmond,vic-richmond-1,Spirovska,Nevena,SEX PARTY,,OTH,1,0
+vic2014,vic-richmond,vic-richmond-2,Jolly,Stephen,,,IND,2,0
+vic2014,vic-richmond,vic-richmond-3,Smith,Miranda,ANIMAL JUSTICE PARTY,,AJP,3,0
+vic2014,vic-richmond,vic-richmond-4,Keel,Tom,,,IND,4,0
+vic2014,vic-richmond,vic-richmond-5,Lu,Weiran,LIBERAL,,LIB,5,0
+vic2014,vic-richmond,vic-richmond-6,Maltzahn,Kathleen,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-richmond,vic-richmond-7,Wynne,Richard,AUSTRALIAN LABOR PARTY,,ALP,7,1
+vic2014,vic-richmond,vic-richmond-8,Knight,Sarah,FAMILY FIRST,,FFP,8,0
+vic2014,vic-rowville,vic-rowville-1,Wise,Tim,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-rowville,vic-rowville-2,Price,Leanne,RISE UP AUSTRALIA PARTY,,OTH,2,0
+vic2014,vic-rowville,vic-rowville-3,Wells,Kim,LIBERAL,,LIB,3,1
+vic2014,vic-rowville,vic-rowville-4,Hicks,Tamika,AUSTRALIAN LABOR PARTY,,ALP,4,0
+vic2014,vic-sandringham,vic-sandringham-1,Mcbeth,Adam,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-sandringham,vic-sandringham-2,Zigouras,Christina,AUSTRALIAN LABOR PARTY,,ALP,2,0
+vic2014,vic-sandringham,vic-sandringham-3,Thompson,Murray,LIBERAL,,LIB,3,1
+vic2014,vic-sandringham,vic-sandringham-4,Martin,Clarke,,,IND,4,0
+vic2014,vic-south-west-coast,vic-south-west-coast-1,Campbell,Thomas,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-south-west-coast,vic-south-west-coast-2,Mccluskey,Michael,,,IND,2,0
+vic2014,vic-south-west-coast,vic-south-west-coast-3,Moore,Steven,AUSTRALIAN COUNTRY ALLIANCE,,OTH,3,0
+vic2014,vic-south-west-coast,vic-south-west-coast-4,Smith,Linda K.,,,IND,4,0
+vic2014,vic-south-west-coast,vic-south-west-coast-5,Reekie,Roy,AUSTRALIAN LABOR PARTY,,ALP,5,0
+vic2014,vic-south-west-coast,vic-south-west-coast-6,Napthine,Denis,LIBERAL,,LIB,6,1
+vic2014,vic-shepparton,vic-shepparton-1,Bourke,Michael,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-shepparton,vic-shepparton-2,Barr,Greg,THE NATIONALS,,NAT,2,0
+vic2014,vic-shepparton,vic-shepparton-3,Teasdale,Diane,,,IND,3,0
+vic2014,vic-shepparton,vic-shepparton-4,Stevens,Damien,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-shepparton,vic-shepparton-5,Sheed,Suzanna,,,IND,5,1
+vic2014,vic-shepparton,vic-shepparton-6,Higgins,Rodney,AUSTRALIAN LABOR PARTY,,ALP,6,0
+vic2014,vic-ripon,vic-ripon-1,Turner,Scott,THE NATIONALS,,NAT,1,0
+vic2014,vic-ripon,vic-ripon-2,Mulcahy,Peter,RISE UP AUSTRALIA PARTY,,OTH,2,0
+vic2014,vic-ripon,vic-ripon-3,Mcglone,Daniel,AUSTRALIAN LABOR PARTY,,ALP,3,0
+vic2014,vic-ripon,vic-ripon-4,Lee,Mitchell,DEMOCRATIC LABOUR PARTY (DLP),,DLP,4,0
+vic2014,vic-ripon,vic-ripon-5,Staley,Louise,LIBERAL,,LIB,5,1
+vic2014,vic-ripon,vic-ripon-6,Loiterton,Kevin,AUSTRALIAN CHRISTIANS,,AUC,6,0
+vic2014,vic-ripon,vic-ripon-7,May,Rod,AUSTRALIAN GREENS,,GRN,7,0
+vic2014,vic-ripon,vic-ripon-8,Domaschenz,Trevor,AUSTRALIAN COUNTRY ALLIANCE,,OTH,8,0
+vic2014,vic-ripon,vic-ripon-9,Fowler,Danielle,FAMILY FIRST,,FFP,9,0
+vic2014,vic-st-albans,vic-st-albans-1,Deeming,Moira,LIBERAL,,LIB,1,0
+vic2014,vic-st-albans,vic-st-albans-2,Boulos,Marvet,AUSTRALIAN CHRISTIANS,,AUC,2,0
+vic2014,vic-st-albans,vic-st-albans-3,Asbury,Lisa,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-st-albans,vic-st-albans-4,Suleyman,Natalie,AUSTRALIAN LABOR PARTY,,ALP,4,1
+vic2014,vic-st-albans,vic-st-albans-5,Klajn,Irena Teresa,,,IND,5,0
+vic2014,vic-st-albans,vic-st-albans-6,Aumua,Pat,VOICE FOR THE WEST,,OTH,6,0
+vic2014,vic-south-barwon,vic-south-barwon-1,Ashdowne,Lisa,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-south-barwon,vic-south-barwon-2,Overend,Jamie,ANIMAL JUSTICE PARTY,,AJP,2,0
+vic2014,vic-south-barwon,vic-south-barwon-3,Thompson,Steven,FAMILY FIRST,,FFP,3,0
+vic2014,vic-south-barwon,vic-south-barwon-4,Wallis,Nick,SEX PARTY,,OTH,4,0
+vic2014,vic-south-barwon,vic-south-barwon-5,Chara,Stephen,AUSTRALIAN COUNTRY ALLIANCE,,OTH,5,0
+vic2014,vic-south-barwon,vic-south-barwon-6,Katos,Andrew,LIBERAL,,LIB,6,1
+vic2014,vic-south-barwon,vic-south-barwon-7,Butler,Kevin,DEMOCRATIC LABOUR PARTY (DLP),,DLP,7,0
+vic2014,vic-south-barwon,vic-south-barwon-8,Richards,Andy,AUSTRALIAN LABOR PARTY,,ALP,8,0
+vic2014,vic-sunbury,vic-sunbury-1,Webb,Ella,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-sunbury,vic-sunbury-2,Williams,Charles,AUSTRALIAN CHRISTIANS,,AUC,2,0
+vic2014,vic-sunbury,vic-sunbury-3,Lopez,Billy,,,IND,3,0
+vic2014,vic-sunbury,vic-sunbury-4,Hagan,Jo,LIBERAL,,LIB,4,0
+vic2014,vic-sunbury,vic-sunbury-5,Hughes,Vern,VOICE FOR THE WEST,,OTH,5,0
+vic2014,vic-sunbury,vic-sunbury-6,Medcraft,Steve Jack,,,IND,6,0
+vic2014,vic-sunbury,vic-sunbury-7,Bull,Josh,AUSTRALIAN LABOR PARTY,,ALP,7,1
+vic2014,vic-sydenham,vic-sydenham-1,Schlotzer,Alex,AUSTRALIAN GREENS,,GRN,1,0
+vic2014,vic-sydenham,vic-sydenham-2,Varano,John,LIBERAL,,LIB,2,0
+vic2014,vic-sydenham,vic-sydenham-3,Hutchins,Natalie,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-sydenham,vic-sydenham-4,Christofidis,Nadia,AUSTRALIAN CHRISTIANS,,AUC,4,0
+vic2014,vic-sydenham,vic-sydenham-5,Mckerral,Shaun,VOICE FOR THE WEST,,OTH,5,0
+vic2014,vic-tarneit,vic-tarneit-1,Baguot,Lem,AUSTRALIAN CHRISTIANS,,AUC,1,0
+vic2014,vic-tarneit,vic-tarneit-2,Waring,Rohan,AUSTRALIAN GREENS,,GRN,2,0
+vic2014,vic-tarneit,vic-tarneit-3,Languiller,Telmo,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-tarneit,vic-tarneit-4,Loi,Chin,,,IND,4,0
+vic2014,vic-tarneit,vic-tarneit-5,Gourisetty,Dinesh,LIBERAL,,LIB,5,0
+vic2014,vic-tarneit,vic-tarneit-6,Govender,Seelan,FAMILY FIRST,,FFP,6,0
+vic2014,vic-tarneit,vic-tarneit-7,Francis,Clement,RISE UP AUSTRALIA PARTY,,OTH,7,0
+vic2014,vic-tarneit,vic-tarneit-8,Syed,Abdul Mujeeb,VOICE FOR THE WEST,,OTH,8,0
+vic2014,vic-tarneit,vic-tarneit-9,Ali,Safwat,,,IND,9,0
+vic2014,vic-tarneit,vic-tarneit-10,Bauch,Joh,,,IND,10,0
+vic2014,vic-thomastown,vic-thomastown-1,Di Palma,Thomas,,,IND,1,0
+vic2014,vic-thomastown,vic-thomastown-2,Halfpenny,Bronwyn,AUSTRALIAN LABOR PARTY,,ALP,2,1
+vic2014,vic-thomastown,vic-thomastown-3,Schneider-Johnson,Trent,FAMILY FIRST,,FFP,3,0
+vic2014,vic-thomastown,vic-thomastown-4,Williamson,Ian,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-thomastown,vic-thomastown-5,Gursahani,Nitin,LIBERAL,,LIB,5,0
+vic2014,vic-werribee,vic-werribee-1,Pallas,Tim,AUSTRALIAN LABOR PARTY,,ALP,1,1
+vic2014,vic-werribee,vic-werribee-2,Singh,Tarun,LIBERAL,,LIB,2,0
+vic2014,vic-werribee,vic-werribee-3,Sheffield-Brotherton,Bro,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-werribee,vic-werribee-4,Tran,Nhan Hoang,VOICE FOR THE WEST,,OTH,4,0
+vic2014,vic-werribee,vic-werribee-5,Okumu,Anne,AUSTRALIAN CHRISTIANS,,AUC,5,0
+vic2014,vic-warrandyte,vic-warrandyte-1,Kent,Steven,AUSTRALIAN LABOR PARTY,,ALP,1,0
+vic2014,vic-warrandyte,vic-warrandyte-2,Lyon,Keith,AUSTRALIAN COUNTRY ALLIANCE,,OTH,2,0
+vic2014,vic-warrandyte,vic-warrandyte-3,Smith,Ryan,LIBERAL,,LIB,3,1
+vic2014,vic-warrandyte,vic-warrandyte-4,Cranston,Richard,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-warrandyte,vic-warrandyte-5,Leach,David,AUSTRALIAN CHRISTIANS,,AUC,5,0
+vic2014,vic-wendouree,vic-wendouree-1,Hastie,Liam,SEX PARTY,,OTH,1,0
+vic2014,vic-wendouree,vic-wendouree-2,Knight,Sharon,AUSTRALIAN LABOR PARTY,,ALP,2,1
+vic2014,vic-wendouree,vic-wendouree-3,O'Shea,Sheila,RISE UP AUSTRALIA PARTY,,OTH,3,0
+vic2014,vic-wendouree,vic-wendouree-4,Fenn,Cielo,FAMILY FIRST,,FFP,4,0
+vic2014,vic-wendouree,vic-wendouree-5,Coltman,Craig,LIBERAL,,LIB,5,0
+vic2014,vic-wendouree,vic-wendouree-6,Barnes,Alice,AUSTRALIAN GREENS,,GRN,6,0
+vic2014,vic-wendouree,vic-wendouree-7,Buchholz,John,AUSTRALIAN COUNTRY ALLIANCE,,OTH,7,0
+vic2014,vic-williamstown,vic-williamstown-1,Krepp,Libby,VOICE FOR THE WEST,,OTH,1,0
+vic2014,vic-williamstown,vic-williamstown-2,Shea,Alan,LIBERAL,,LIB,2,0
+vic2014,vic-williamstown,vic-williamstown-3,Noonan,Wade,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-williamstown,vic-williamstown-4,Crawford,Simon,AUSTRALIAN GREENS,,GRN,4,0
+vic2014,vic-williamstown,vic-williamstown-5,Wehbe,Khalil,,,IND,5,0
+vic2014,vic-yan-yean,vic-yan-yean-1,Stevens,Bruce,AUSTRALIAN COUNTRY ALLIANCE,,OTH,1,0
+vic2014,vic-yan-yean,vic-yan-yean-2,Clark,Rob,SHOOTERS AND FISHERS PARTY VICTORIA,,SFF,2,0
+vic2014,vic-yan-yean,vic-yan-yean-3,Sacchero,Daniel,AUSTRALIAN GREENS,,GRN,3,0
+vic2014,vic-yan-yean,vic-yan-yean-4,Green,Danielle,AUSTRALIAN LABOR PARTY,,ALP,4,1
+vic2014,vic-yan-yean,vic-yan-yean-5,Ozturk,Sam,LIBERAL,,LIB,5,0
+vic2014,vic-yan-yean,vic-yan-yean-6,Roelink,Geraldine,RISE UP AUSTRALIA PARTY,,OTH,6,0
+vic2014,vic-yan-yean,vic-yan-yean-7,Baker,Rodney,FAMILY FIRST,,FFP,7,0
+vic2014,vic-yuroke,vic-yuroke-1,Le Nepveu,Rodney,FAMILY FIRST,,FFP,1,0
+vic2014,vic-yuroke,vic-yuroke-2,Hirmiz,Imad,AUSTRALIAN CHRISTIANS,,AUC,2,0
+vic2014,vic-yuroke,vic-yuroke-3,Spence,Ros,AUSTRALIAN LABOR PARTY,,ALP,3,1
+vic2014,vic-yuroke,vic-yuroke-4,Wilkins,Mick,,,IND,4,0
+vic2014,vic-yuroke,vic-yuroke-5,Abboud,Natalie,AUSTRALIAN GREENS,,GRN,5,0
+vic2014,vic-yuroke,vic-yuroke-6,Grewal,Phulvinderjit,LIBERAL,,LIB,6,0

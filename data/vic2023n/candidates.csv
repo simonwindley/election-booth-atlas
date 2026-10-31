@@ -1,0 +1,12 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+vic2023n,vic-narracan,vic-narracan-1,Abelman,Michael,Liberal Democrats,,LDP,1,0
+vic2023n,vic-narracan,vic-narracan-2,Wolfe,Tony,,,IND,2,0
+vic2023n,vic-narracan,vic-narracan-3,Weaver,Alyssa,Australian Greens,,GRN,3,0
+vic2023n,vic-narracan,vic-narracan-4,Cram,Austin,Animal Justice Party,,AJP,4,0
+vic2023n,vic-narracan,vic-narracan-5,De Wit,Sophia Camille,Labour DLP,,DLP,5,0
+vic2023n,vic-narracan,vic-narracan-6,Murphy,Casey,Pauline Hanson's One Nation,,ONP,6,0
+vic2023n,vic-narracan,vic-narracan-7,Honey,Ian,,,IND,7,0
+vic2023n,vic-narracan,vic-narracan-8,Clarke,Brendan,Family First Victoria,,FFP,8,0
+vic2023n,vic-narracan,vic-narracan-9,Blackwell,Leonie,Freedom Party of Victoria,,FRP,9,0
+vic2023n,vic-narracan,vic-narracan-10,Farnham,Wayne,Liberal,,LIB,10,1
+vic2023n,vic-narracan,vic-narracan-11,Mccabe,Annemarie,,,IND,11,0
