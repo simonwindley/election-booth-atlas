@@ -61,6 +61,14 @@ automatically; new booths the VEC adds for 2026 appear without coordinates until
 
 ## What the site does with it
 
+* Dashboard (the first tab): the statewide count — primary vote by party against 2022 in the districts
+  counting so far, seats called / leaning / in doubt with the majority line, the seat spectrum (one box per
+  seat from the strongest Labor seat to the strongest Coalition seat, by primary leader or 2CP), and every seat with its
+  leader, margin, swing and how much is counted, filterable to the seats changing hands. Re-renders on
+  every feed change. A seat is "called" by the page's own rule (projected or counted 2CP lead of 8 pts
+  with 15% of booths in, 5 pts with 30%, 3 pts with 60%), "declared" when the VEC publishes the
+  distribution or names the member.
+
 * Booths: hollow until they report; coloured by whichever metric is chosen; a bold outline on any booth
   whose figures changed since you last pressed "Mark all seen" (the list in the live box is the same thing,
   newest first, click to jump).
