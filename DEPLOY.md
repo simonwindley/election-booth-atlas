@@ -37,7 +37,11 @@ From the Mac, after any change synced from Claude (or your own edits):
 
     git add -A && git commit -m "describe the change" && git push
 
-## 5. Election night: live for everyone
+## 5. Before the night
+
+    python3 live/vec_daily.py --publish      # once a day from 4 November: roll, nominations, how-to-vote cards, statistics
+
+## 6. Election night: live for everyone
 
 Run the poller with `--publish`, which commits and pushes the feed after every cycle:
 

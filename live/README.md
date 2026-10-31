@@ -34,6 +34,19 @@ http://localhost:8000/. The page re-reads the feed every minute and shows "Live 
 the election list. Opening `index.html` directly from Finder will not work — browsers block data loading
 from `file://` pages — it has to be the little web server.
 
+## Before the night: the daily capture
+
+    python3 live/vec_daily.py              # once a day from 4 November; add --publish for the GitHub Pages site
+
+captures what the VEC has published so far into `site/data/live/daily.json` (and a dated copy in
+`site/data/live/daily/`): electors per district from the roll statistics spreadsheet (the close-of-roll
+figures appear after 3 Nov), the official candidates once nominations are declared (9 Nov; they replace the
+Wikipedia register in the 2026 seat panel), every registered how-to-vote card with its PDF (10–20 Nov), and
+any early-voting / postal-vote statistics pages it can find from the election page (kept raw, and turned into
+a per-district daily series where a table has a District column). The 2026 seat panel shows all of this under
+"Before election day". Pages that do not exist yet are skipped; if the VEC puts a statistics page somewhere
+the script does not look, add its path to `live/daily_sources.json`.
+
 ## What the feed contains
 
     site/data/live/latest.json      everything now: per district the summary, candidates with first

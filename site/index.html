@@ -347,7 +347,7 @@ const PARTY_SHORT = { ALP: 'ALP', COAL: 'Coal.', GRN: 'GRN', ONP: 'ONP', VSP: 'V
 const PREV = { vic2014: 'vic2010', vic2018: 'vic2014', vic2022: 'vic2018', vic2026: 'vic2022', fed2013: 'fed2010', fed2016: 'fed2013', fed2019: 'fed2016', fed2022: 'fed2019', fed2025: 'fed2022', vic2023n: 'vic2022', 'vicby-warrandyte-2023': 'vic2022', 'vicby-mulgrave-2023': 'vic2022', 'vicby-prahran-2025': 'vic2022', 'vicby-werribee-2025': 'vic2022', 'vicby-nepean-2026': 'vic2022' };
 const BOUND_FOR = new Proxy({ vic2010: 'vic_la_2001', vic2014: 'vic_la_2013', vic2018: 'vic_la_2013', vic2022: 'vic_la_2022', vic2023n: 'vic_la_2022', fed2010: 'fed_2003', fed2013: 'fed_2010', fed2016: 'fed_2010', fed2019: 'fed_2018', fed2022: 'fed_2021', fed2025: 'fed_2024' }, { get: (o, k) => o[k] || (String(k).startsWith('vicby') ? 'vic_la_2022' : 'vic_la_2022') });
 const CATCH_FOR = { vic2026: 'vic2022' };   // 2026 is fought on the 2022 boundaries with (so far) the 2022 booth list
-const LIVE = { election: 'vic2026', latest: null, fetchedAt: null, seenAt: null, timer: null, available: false, error: null, meta: null, register: null };
+const LIVE = { election: 'vic2026', latest: null, fetchedAt: null, seenAt: null, timer: null, available: false, error: null, meta: null, register: null, daily: null, dailyAt: null };
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 const partyColor = (p) => css('--' + ({ ALP: 'alp', COAL: 'coal', LIB: 'coal', NAT: 'coal', GRN: 'grn', ONP: 'onp', VSP: 'vsp', IND: 'ind' }[p] || 'oth'));
 const fmt = (n) => n == null ? '–' : Number(n).toLocaleString('en-AU');
@@ -849,6 +849,7 @@ async function render2026() {
     ...Object.entries(kd).filter(([k]) => ['writs', 'nominations_close', 'early_voting_open', 'election_day'].includes(k)).map(([k, v]) => stat(days(v) >= 0 ? `${days(v)} d` : 'done', k.replaceAll('_', ' ') + ' · ' + v.slice(5).replace('-', '/'))),
     stat(fmt(laC.length), 'declared lower-house candidates'), stat(`${seatsWith('ONP')} / 88`, 'seats with a One Nation candidate'), stat(`${seatsWith('VSP')} / 88`, 'seats with a Socialist candidate'), stat(fmt(retiring.length), 'members not recontesting')));
   head.append(h('div', { class: 'hint', style: 'margin-top:10px' }, 'Seats going in: ' + Object.entries(held).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(' · ') + ' (as held now, after by-elections and party changes).'));
+  if (LIVE.daily) { const d = LIVE.daily; const tot = d.enrolment ? Object.values(d.enrolment.districts).reduce((a, x) => a + x.electors, 0) : 0; head.append(h('div', { class: 'hint', style: 'margin-top:8px' }, h('strong', {}, 'VEC figures, captured ' + d.date + ': '), tot ? `${fmt(tot)} electors on the roll (${d.enrolment.date_extracted})` : '', d.htv && d.htv.cards ? ` · ${fmt(d.htv.cards.length)} how-to-vote cards registered` : '', d.candidates ? ` · nominations published for ${Object.keys(d.candidates.districts).length} districts` : '')); }
   const vt = meta.voting || {};
   if (vt.postal || vt.early) head.append(h('div', { class: 'hint', style: 'margin-top:8px' },
     vt.postal ? h('div', {}, h('strong', {}, 'Postal votes: '), `applications open ${fmtDay(vt.postal.applications_open)}, close ${fmtDay(vt.postal.applications_close)}; packs posted from ${fmtDay(vt.postal.packs_posted_from)}. `, h('a', { href: vt.postal.url, target: '_blank', rel: 'noopener' }, 'Apply on the VEC site')) : '',
@@ -1187,7 +1188,16 @@ function rebuildLiveTables(latest) {
     const cid = rc.contest_id, lc = live[cid];
     D.contests.push({ election_id: eid, contest_id: cid, contest_name: rc.contest_name, house: 'LA', enrolment: lc ? lc.enrolment : null, formal: lc ? lc.formal : null, informal: lc ? lc.informal : null, total_votes: lc ? lc.total_votes : null, held_by: rc.held_by, live: !!lc, updated_at: lc ? lc.updated_at : null, stage: lc ? lc.stage : null });
     const regC = reg.candidates.filter(c => c.contest_id === cid);
-    if (lc && lc.candidates.length) {
+    const nom = !lc && LIVE.daily && LIVE.daily.candidates && LIVE.daily.candidates.districts && LIVE.daily.candidates.districts[cid];
+    if (nom && nom.candidates && nom.candidates.length) {
+      for (const c of nom.candidates) {
+        const sur = c.name.split(',')[0].trim(), given = (c.name.split(',')[1] || '').trim();
+        const full = normName(given + ' ' + sur);
+        const m = regC.find(r => normName(r.name) === full) || regC.find(r => normName(r.name).split(' ').pop() === normName(sur).split(' ').pop() && grpParty(r.party) === grpParty(c.party)) || null;
+        D.candidates.push({ election_id: eid, contest_id: cid, candidate_id: `${cid}-${c.ballot_position}`, surname: sur.split(' ').map(w => w[0] + w.slice(1).toLowerCase()).join(' '), given_name: given, party: c.party, party_name: c.party_name, ballot_position: c.ballot_position, elected: 0, incumbent: m ? m.incumbent : 0, links: m ? candLinks(m) : {}, nominated: true });
+      }
+      if (nom.enrolment) D.contests[D.contests.length - 1].enrolment = nom.enrolment;
+    } else if (lc && lc.candidates.length) {
       for (const c of lc.candidates) {
         const full = normName(c.given_name + ' ' + c.surname);
         const m = regC.find(r => normName(r.name) === full) || regC.find(r => normName(r.name).split(' ').pop() === normName(c.surname).split(' ').pop() && grpParty(r.party) === grpParty(c.party)) || null;
@@ -1297,8 +1307,19 @@ function renderLiveBox() {
   }
 }
 function refreshSql() { if (typeof alasql === 'undefined') return; for (const n of ['elections', 'contests', 'candidates', 'booths', 'shares', 'fp', 'tcp', 'dop', 'contest_party', 'contest_cand', 'contest_tcp']) if (D[n]) alasql.tables[n] = new alasql.Table({ data: D[n] }); }
+async function pollDaily() {
+  try {
+    const res = await fetch(`${DATA}live/daily.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (!res.ok) return false;
+    const j = await res.json(); if (!j || !j.captured_at) return false;
+    const changed = j.captured_at !== LIVE.dailyAt; LIVE.daily = j; LIVE.dailyAt = j.captured_at;
+    if (changed) { rebuildLiveTables(LIVE.latest); buildIndexes(); refreshSql(); if (state.election === LIVE.election && mapReady) renderMap(); if (selected && selected.election === LIVE.election && selected.contest) renderContestDetail(LIVE.election, selected.contest); }
+    return changed;
+  } catch (e) { return false; }
+}
 async function pollLive(manual) {
   if (!LIVE.register) return;
+  if (!LIVE.daily || manual) await pollDaily();
   try {
     const res = await fetch(`${DATA}live/latest.json?t=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) { LIVE.available = false; LIVE.error = res.status === 404 ? 'no feed yet' : 'HTTP ' + res.status; renderLiveBox(); return; }
@@ -1346,13 +1367,16 @@ function renderContestDetail2026(cid) {
       root.append(h('div', { class: 'hint' }, pr.method === 'projected' ? `${PARTY_NAME[pr.baseParty]} had ${pct(pr.base)} after preferences in 2022; the ${pts(pr.swing)} pt swing is measured at ${pr.booths} matched booth${pr.booths === 1 ? '' : 's'}. Counted so far: ${pr.countedPair.map(x => `${x.cand ? x.cand.surname : x.party} ${pct(x.share)}`).join(' v ')}.` : pr.method === 'official' ? 'From the VEC distribution of preferences.' : 'No projection: the two candidates in the VEC count are not the same pairing as 2022, so this is the raw count.'));
     }
   }
+  // before election day: enrolment at close of roll, how-to-vote cards, any daily figures the VEC has published
+  renderDailyBlock(root, cid, c);
   // candidates
-  root.append(h('h3', {}, lc && lc.candidates.length ? 'Candidates (ballot order)' : 'Declared candidates'));
+  const nominated = cands.some(x => x.nominated);
+  root.append(h('h3', {}, lc && lc.candidates.length ? 'Candidates (ballot order)' : nominated ? 'Nominated candidates (ballot order)' : 'Declared candidates'));
   const fpTot = cands.reduce((a, x) => a + (x.fp_total || 0), 0);
   const rows = [...cands].sort((a, b) => (fpTot ? (b.fp_total || 0) - (a.fp_total || 0) : (a.ballot_position || 99) - (b.ballot_position || 99) || a.surname.localeCompare(b.surname)));
   root.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Candidate'), h('th', { class: 'num' }, fpTot ? 'Votes' : ''), h('th', { class: 'num' }, fpTot ? '%' : ''))),
     h('tbody', {}, ...rows.map(x => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), `${x.given_name} ${x.surname}`, x.incumbent ? h('span', { class: 'hint' }, ' · sitting') : '', x.elected ? h('strong', {}, ' · elected') : ''), h('div', { class: 'hint' }, x.party_name || PARTY_NAME[x.party] || x.party, ' ', linksRow(x.links))), h('td', { class: 'num' }, fpTot ? fmt(x.fp_total) : ''), h('td', { class: 'num' }, fpTot ? pct((x.fp_total || 0) / fpTot) : '')))))));
-  root.append(h('div', { class: 'hint' }, lc && lc.candidates.length ? 'Names and parties as the VEC publishes them.' : `${reg.meta && reg.meta.source ? reg.meta.source : 'Wikipedia register'}, captured ${reg.meta && reg.meta.retrieved ? reg.meta.retrieved : ''}; nominations close 9 November.`));
+  root.append(h('div', { class: 'hint' }, lc && lc.candidates.length ? 'Names and parties as the VEC publishes them.' : nominated ? `Nominations as published by the VEC, captured ${LIVE.daily.candidates.captured}.` : `${reg.meta && reg.meta.source ? reg.meta.source : 'Wikipedia register'}, captured ${reg.meta && reg.meta.retrieved ? reg.meta.retrieved : ''}; nominations close 9 November.`));
   // history
   root.append(h('h3', {}, 'How this seat has voted'));
   { const series = contestSeries('vic2022', cid); if (series.length > 1) root.append(seriesChart(series, 340, 200), h('div', { class: 'hint', style: 'margin-bottom:6px' }, 'Primary vote by party at each state election for a seat of this name (hover for the figures).')); }
@@ -1380,6 +1404,32 @@ function renderContestDetail2026(cid) {
   root.append(h('h3', {}, `${bl.length} election-day booths${lc ? '' : ' (2022 list)'}`), h('div', { class: 'hint', style: 'display:flex;flex-wrap:wrap;gap:4px 10px' }, ...bl.map(b => h('a', { href: '#map', style: b.reported ? 'font-weight:600' : '', onclick: (ev) => { ev.preventDefault(); if (state.unit !== 'booth') setUnit('booth'); select(eid, b.booth_id, true); } }, b.booth_name, isFresh(eid, b.booth_id) ? ' ●' : ''))));
   if (lc) root.append(h('div', { class: 'hint', style: 'margin-top:4px' }, 'Bold: reported · ● changed since you last looked'));
 }
+function renderDailyBlock(root, cid, c) {
+  const d = LIVE.daily; if (!d) return;
+  const items = [];
+  const en = d.enrolment && d.enrolment.districts && d.enrolment.districts[cid];
+  const c22 = idx.contestById.get('vic2022|' + cid);
+  if (en) items.push(h('div', {}, h('strong', {}, fmt(en.electors)), ` electors on the roll at ${d.enrolment.date_extracted || 'the latest extract'}`, c22 && c22.enrolment ? h('span', { class: 'hint' }, ` · ${pts((en.electors - c22.enrolment) / c22.enrolment)}% on the 2022 roll (${fmt(c22.enrolment)})`) : ''));
+  // daily per-district figures the capture found (early votes, postal applications, ...), newest first
+  const ser = d.series && d.series[cid];
+  if (ser) {
+    const days = Object.keys(ser).sort();
+    const cols = [...new Set(days.flatMap(day => Object.keys(ser[day])))].slice(0, 4);
+    items.push(h('div', { class: 'tablewrap', style: 'margin-top:4px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Date'), ...cols.map(k => h('th', { class: 'num' }, k)))), h('tbody', {}, ...days.slice(-8).reverse().map(day => h('tr', {}, h('td', {}, day), ...cols.map(k => h('td', { class: 'num' }, ser[day][k] != null ? fmt(ser[day][k]) : '–'))))))));
+  }
+  // how-to-vote cards registered for this district (+ independents matched by name to the candidate list)
+  const cards = (d.htv && d.htv.cards) || [];
+  const cands = D.candidates.filter(x => x.election_id === LIVE.election && x.contest_id === cid);
+  const mine = cards.filter(k => k.contest_id === cid || (k.kind === 'independent' && cands.some(x => normName(x.surname) === normName(k.registrant.split(',')[0]) && normName(k.registrant).includes(normName(x.given_name.split(' ')[0] || '')))));
+  if (mine.length) {
+    const byReg = new Map(); for (const k of mine) (byReg.get(k.registrant) || byReg.set(k.registrant, []).get(k.registrant)).push(k);
+    items.push(h('div', { style: 'margin-top:6px' }, h('div', { class: 'hint', style: 'margin-bottom:3px' }, `How-to-vote cards registered (${mine.length}): the preferences each campaign is recommending.`),
+      ...[...byReg.entries()].map(([reg, ks]) => h('div', { style: 'margin:2px 0' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(canonLabel(reg))}` }), reg), ' ', h('span', { class: 'links' }, ...ks.slice(0, 4).map((k, i) => k.pdf ? h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, ks.length > 1 ? `card ${i + 1}` : 'card') : '')), h('span', { class: 'hint' }, ` ${ks[0].registered}`)))));
+  }
+  if (!items.length) return;
+  root.append(h('h3', {}, 'Before election day'), ...items, h('div', { class: 'hint', style: 'margin-top:4px' }, `VEC figures captured ${d.date}.`));
+}
+function canonLabel(name) { const n = String(name).toLowerCase(); return /labor/.test(n) ? 'ALP' : /liberal|national/.test(n) ? 'COAL' : /green/.test(n) ? 'GRN' : /one nation/.test(n) ? 'ONP' : /socialist/.test(n) ? 'VSP' : /,/.test(name) ? 'IND' : 'OTH'; }
 function fmtDay(iso) { if (!iso) return ''; const d = new Date(iso.length > 10 ? iso : iso + 'T00:00:00'); return isNaN(d) ? iso : d.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' }) + (iso.length > 10 ? ' ' + d.toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit' }) : ''); }
 
 /* ---------- wiring ---------- */

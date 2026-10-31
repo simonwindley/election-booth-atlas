@@ -1,0 +1,327 @@
+#!/usr/bin/env python3
+"""Daily capture of what the VEC publishes in the lead-up to the 2026 state election.
+
+Standard library only. Run once a day (or whenever) on the Mac:
+
+    python3 live/vec_daily.py            # writes site/data/live/daily.json (+ a dated snapshot)
+    python3 live/vec_daily.py --publish  # and git commit/push it for the GitHub Pages site
+
+What it looks for, in order of when the VEC publishes it:
+  enrolment      the "District statistics" spreadsheet on the electoral roll statistics page (monthly; the
+                 close-of-roll figures appear after 3 Nov) -> electors per district
+  htv            registered how-to-vote cards (10-20 Nov): registrant, district/region, date, PDF link
+  candidates     the results index + district pages once nominations are declared (9 Nov): names, parties,
+                 ballot order (parsed with the election-night poller's own parser)
+  stats          anything the VEC posts as early-voting / postal-vote / turnout statistics: pages are
+                 discovered from the 2026 election page by link text, every table on them is kept, and any
+                 table with a District column is turned into a per-district series keyed by capture date
+  centres        early voting centre lists (addresses), when published
+
+Everything captured is kept raw as well (daily.json -> "raw"), so a page the parsers do not understand
+yet is still saved for the next version of this script. Pages that do not exist yet are simply skipped.
+URLs are guesses from the 2022 layout until the real pages appear; add or fix them in live/daily_sources.json.
+"""
+import argparse, datetime, gzip, io, json, os, re, sys, time, zipfile, html as htmlmod
+import urllib.request, urllib.error, urllib.parse
+import xml.etree.ElementTree as ET
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from vec_live import TableParser, parse_html, num, slug, canon_from_name, parse_candidate_table, parse_summary, district_links  # noqa: E402
+
+VEC = 'https://www.vec.vic.gov.au'
+UA = 'BoothAtlas daily capture (personal research) python-urllib'
+DEFAULT_SOURCES = {
+    'election_page': ['/voting/2026-state-election'],
+    'roll_stats': ['/enrolment/electoral-roll-statistics'],
+    'htv_party': ['/voting/2026-state-election/how-to-vote-cards/party', '/voting/2026-state-election/how-to-vote-cards'],
+    'htv_region_party': ['/voting/2026-state-election/how-to-vote-cards/party-region'],
+    'htv_independent': ['/voting/2026-state-election/how-to-vote-cards/independent-candidates'],
+    'htv_by_date': ['/voting/2026-state-election/how-to-vote-cards/registered-date'],
+    'results_index': ['/results/state-election-results/2026-state-election-results'],
+    'postal': ['/voting/2026-state-election/postal-voting'],
+    'early': ['/voting/2026-state-election/voting-options', '/voting/2026-state-election/early-voting'],
+    # discovered from the election page by link text; listed here only so they can be pinned once known
+    'stats': [],
+    'centres': [],
+}
+DISCOVER = {  # link text / href patterns -> source key
+    'stats': r'statistic|early vot\w* (figure|number|data)|postal vote (figure|number|statistic|application)|turnout',
+    'centres': r'early voting centre|voting centre location|where to vote|find a voting centre',
+    'candidates': r'candidate list|nominated candidates|who are the candidates',
+}
+
+
+class OrderedParser(TableParser):
+    """TableParser that also records the nearest heading before each table (the HTV pages group by party)."""
+    def __init__(self):
+        super().__init__()
+        self.table_headings, self._last_heading = [], ''
+        self.cell_links = []
+        self._cur_links = None
+
+    def handle_starttag(self, tag, attrs):
+        super().handle_starttag(tag, attrs)
+        a = dict(attrs)
+        if tag == 'table':
+            self.table_headings.append(self._last_heading)
+            self._cur_links = []
+        if tag == 'tr' and self._cur_links is not None:
+            self._cur_links.append([])
+        if tag == 'a' and a.get('href') and self._cur_links and self._cell is not None:
+            self._cur_links[-1].append(a['href'])
+
+    def handle_endtag(self, tag):
+        if tag in ('h1', 'h2', 'h3') and self._heading is not None:
+            self._last_heading = re.sub(r'\s+', ' ', ''.join(self._heading)).strip()
+        if tag == 'table' and self._cur_links is not None:
+            self.cell_links.append(self._cur_links); self._cur_links = None
+        super().handle_endtag(tag)
+
+
+def fetch(url, binary=False, log=print, timeout=40):
+    url = url if url.startswith('http') else VEC + url
+    for attempt, wait in enumerate([0, 4, 12]):
+        if wait:
+            time.sleep(wait)
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': UA})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = r.read()
+                if r.headers.get('Content-Encoding') == 'gzip':
+                    data = gzip.decompress(data)
+                time.sleep(0.8)
+                return data if binary else data.decode('utf-8', 'replace'), r.geturl()
+        except urllib.error.HTTPError as e:
+            if e.code in (404, 410):
+                return None, None
+            log(f'  HTTP {e.code} {url}')
+        except Exception as e:  # noqa
+            log(f'  {type(e).__name__}: {e} {url}')
+    return None, None
+
+
+def first_ok(paths, log):
+    for p in paths:
+        doc, final = fetch(p, log=log)
+        if doc and 'Page not found' not in doc[:4000]:
+            return doc, final
+    return None, None
+
+
+# ------------------------------------------------------------------ xlsx without openpyxl
+def xlsx_rows(data):
+    z = zipfile.ZipFile(io.BytesIO(data))
+    ns = {'m': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+    shared = []
+    if 'xl/sharedStrings.xml' in z.namelist():
+        for si in ET.fromstring(z.read('xl/sharedStrings.xml')).findall('m:si', ns):
+            shared.append(''.join(t.text or '' for t in si.iter('{%s}t' % ns['m'])))
+    sheet = next(n for n in z.namelist() if n.startswith('xl/worksheets/sheet'))
+    rows = []
+    for row in ET.fromstring(z.read(sheet)).iter('{%s}row' % ns['m']):
+        cells = []
+        for c in row.findall('m:c', ns):
+            v = c.find('m:v', ns); t = c.get('t')
+            if v is None:
+                cells.append(None); continue
+            if t == 's':
+                cells.append(shared[int(v.text)])
+            else:
+                try:
+                    f = float(v.text); cells.append(int(f) if f == int(f) else f)
+                except ValueError:
+                    cells.append(v.text)
+        rows.append(cells)
+    return rows
+
+
+def capture_enrolment(src, log):
+    page, _ = first_ok(src['roll_stats'], log)
+    if not page:
+        return None
+    p = OrderedParser(); p.feed(page); p.close()
+    # the page text links: "District statistics - September 2026 (xlsx, ...)" -> pick the last district one
+    cands = [h for _, h in p.links if h.endswith('.xlsx')]
+    m = re.findall(r'href="([^"]+\.xlsx)"[^>]*>\s*District statistics[^<]*', page)
+    target = (m or cands or [None])[-1]
+    if not target:
+        return None
+    data, _ = fetch(target, binary=True, log=log)
+    if not data:
+        return None
+    rows = xlsx_rows(data)
+    out, extracted = {}, None
+    for r in rows:
+        vals = [c for c in r if c is not None]
+        if len(vals) >= 2 and str(vals[0]).startswith('Date Extracted'):
+            v = vals[1]
+            extracted = (datetime.date(1899, 12, 30) + datetime.timedelta(days=int(v))).isoformat() if isinstance(v, (int, float)) else str(v)
+        if len(vals) >= 3 and isinstance(vals[0], int) and isinstance(vals[2], int) and isinstance(vals[1], str):
+            out[f'vic-{slug(vals[1])}'] = {'name': vals[1], 'electors': vals[2]}
+    log(f'  enrolment: {len(out)} districts, extracted {extracted}, from {target}')
+    return {'date_extracted': extracted, 'source': target, 'districts': out}
+
+
+def capture_htv(src, log):
+    out, raw = [], {}
+    for key, kind in [('htv_party', 'party'), ('htv_region_party', 'party_region'), ('htv_independent', 'independent'), ('htv_by_date', 'by_date')]:
+        page, url = first_ok(src.get(key, []), log)
+        if not page:
+            continue
+        p = OrderedParser(); p.feed(page); p.close()
+        raw[kind] = {'url': url, 'tables': p.tables, 'headings': p.table_headings}
+        for t, heading, links in zip(p.tables, p.table_headings, p.cell_links):
+            if not t or not t[0] or 'Registration' not in t[0][0]:
+                continue
+            for i, r in enumerate(t[1:], start=1):
+                if len(r) < 3:
+                    continue
+                by = r[1]
+                pdf = next((l for l in (links[i] if i < len(links) else []) if '.pdf' in l.lower() or 'HTVC' in l), None)
+                area = by if re.search(r'(District|Region)$', by) else ''
+                out.append({'kind': kind, 'registrant': heading if kind in ('party', 'party_region') else by, 'area': area or heading,
+                            'contest_id': ('vic-' if area.endswith('District') else 'vicr-') + slug(area.replace(' District', '').replace(' Region', '')) if area else '',
+                            'registration': r[0], 'registered': r[2], 'pdf': pdf})
+        log(f'  htv {kind}: {sum(1 for x in out if x["kind"] == kind)} cards from {url}')
+    return {'cards': out, 'raw': raw}
+
+
+def capture_candidates(src, log):
+    index, url = first_ok(src['results_index'], log)
+    if not index:
+        return None
+    links = district_links(index)
+    if not links:
+        return None
+    out = {}
+    for dslug, path in links:
+        doc, _ = fetch(path, log=log)
+        if not doc:
+            continue
+        p = parse_html(doc)
+        cands = parse_candidate_table(p.tables)
+        s = parse_summary(p)
+        out[f'vic-{dslug}'] = {'enrolment': s['enrolment'], 'candidates': [{'name': c['name'], 'party_name': c['party_name'], 'party': canon_from_name(c['party_name']), 'ballot_position': i} for i, c in enumerate(cands, start=1)]}
+    log(f'  candidates: {len(out)} district pages, {sum(len(v["candidates"]) for v in out.values())} candidates')
+    return {'source': url, 'districts': out}
+
+
+def district_series(tables):
+    """Tables with a District column and numeric columns -> {district_id: {column: value}}."""
+    out = {}
+    for t in tables:
+        if not t or len(t) < 2:
+            continue
+        hdr = [h.lower() for h in t[0]]
+        di = next((i for i, h in enumerate(hdr) if 'district' in h or 'electorate' in h), None)
+        if di is None:
+            continue
+        for r in t[1:]:
+            if len(r) <= di or not r[di]:
+                continue
+            name = re.sub(r'\s*District$', '', r[di]).strip()
+            vals = {t[0][j]: num(r[j]) for j in range(len(r)) if j != di and j < len(t[0]) and num(r[j]) is not None}
+            if vals:
+                out.setdefault(f'vic-{slug(name)}', {}).update(vals)
+    return out
+
+
+def capture_pages(src, keys, log):
+    """Fetch every configured/discovered page for these keys; keep tables raw and any per-district figures."""
+    raw, series = {}, {}
+    for key in keys:
+        for path in src.get(key, []):
+            doc, url = fetch(path, log=log)
+            if not doc or 'Page not found' in doc[:4000]:
+                continue
+            p = parse_html(doc)
+            text = re.sub(r'\s+', ' ', p.text)[:3000]
+            raw[url] = {'key': key, 'headings': p.headings[:30], 'tables': p.tables, 'text': text}
+            ds = district_series(p.tables)
+            if ds:
+                series[url] = ds
+            # headline numbers in prose ("123,456 early votes")
+            nums = re.findall(r'([\d,]{4,})\s+(early vot\w*|postal vote\w*|applications?|votes)', text, re.I)
+            if nums:
+                raw[url]['figures'] = nums[:10]
+            log(f'  {key}: {url} ({len(p.tables)} tables{", district figures" if ds else ""})')
+    return raw, series
+
+
+def discover(src, log):
+    page, url = first_ok(src['election_page'], log)
+    if not page:
+        return
+    for m in re.finditer(r'<a[^>]+href="([^"#]+)"[^>]*>(.*?)</a>', page, re.S | re.I):
+        href, text = m.group(1), re.sub(r'<[^>]+>', ' ', m.group(2))
+        text = re.sub(r'\s+', ' ', htmlmod.unescape(text)).strip()
+        for key, pat in DISCOVER.items():
+            if re.search(pat, text, re.I) or re.search(pat.replace(' ', '[-_ ]'), href, re.I):
+                if href not in src.setdefault(key, []):
+                    src[key].append(href); log(f'  discovered {key}: {href} ({text[:50]})')
+
+
+def run(args, log):
+    src = json.loads(json.dumps(DEFAULT_SOURCES))
+    cfg = os.path.join(HERE, 'daily_sources.json')
+    if os.path.exists(cfg):
+        for k, v in json.load(open(cfg)).items():
+            src[k] = v + [x for x in src.get(k, []) if x not in v]
+    today = datetime.date.today().isoformat()
+    now = datetime.datetime.now().astimezone().isoformat(timespec='seconds')
+    os.makedirs(args.out, exist_ok=True)
+    path = os.path.join(args.out, 'daily.json')
+    prev = json.load(open(path)) if os.path.exists(path) else {}
+    out = {'captured_at': now, 'date': today, 'enrolment': prev.get('enrolment'), 'htv': prev.get('htv'), 'candidates': prev.get('candidates'),
+           'series': prev.get('series', {}), 'raw': {}, 'sources': {}}
+    log('discovering pages')
+    discover(src, log)
+    log('enrolment')
+    e = capture_enrolment(src, log)
+    if e:
+        out['enrolment'] = e
+    log('how-to-vote cards')
+    hv = capture_htv(src, log)
+    if hv and hv['cards']:
+        out['htv'] = {'captured': today, 'cards': hv['cards']}
+    out['raw']['htv'] = (hv or {}).get('raw', {})
+    log('candidates (results pages)')
+    c = capture_candidates(src, log)
+    if c and c['districts']:
+        out['candidates'] = {'captured': today, **c}
+    log('statistics pages')
+    raw, series = capture_pages(src, ['stats', 'postal', 'early', 'centres'], log)
+    out['raw']['pages'] = raw
+    for url, ds in series.items():
+        for cid, vals in ds.items():
+            out['series'].setdefault(cid, {}).setdefault(today, {}).update({f'{k}': v for k, v in vals.items()})
+    out['sources'] = {k: v for k, v in src.items() if v}
+    tmp = path + '.tmp'
+    json.dump(out, open(tmp, 'w'), separators=(',', ':')); os.replace(tmp, path)
+    os.makedirs(os.path.join(args.out, 'daily'), exist_ok=True)
+    json.dump(out, open(os.path.join(args.out, 'daily', today + '.json'), 'w'), separators=(',', ':'))
+    log(f'wrote {path}: enrolment {"yes" if out["enrolment"] else "no"}, htv cards {len((out["htv"] or {}).get("cards", []))}, '
+        f'candidates {len((out["candidates"] or {}).get("districts", {}))} districts, district series {len(out["series"])}')
+    if args.publish or args.publish_cmd:
+        import subprocess
+        root = os.path.abspath(os.path.join(HERE, '..'))
+        cmd = args.publish_cmd or 'git add site/data/live/daily.json site/data/live/daily && git commit -q -m "daily capture %s" && git push -q' % today
+        r = subprocess.run(cmd, shell=True, cwd=root, capture_output=True, text=True, timeout=180)
+        log('published' if r.returncode == 0 else f'publish failed ({r.returncode}): {(r.stderr or r.stdout).strip()[-300:]}')
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('--out', default=os.path.join(HERE, '..', 'site', 'data', 'live'))
+    ap.add_argument('--publish', action='store_true')
+    ap.add_argument('--publish-cmd', default='')
+    args = ap.parse_args(argv)
+    args.out = os.path.abspath(args.out)
+    def log(msg):
+        print(time.strftime('%H:%M:%S'), msg, flush=True)
+    run(args, log)
+
+
+if __name__ == '__main__':
+    main()
