@@ -433,7 +433,7 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
       <p>Dots are election-day booths, sized by votes cast there. Catchments are a model: each booth is given the area closer to it than to any other booth in the same district, so the map fills in. Early, postal and absent votes are not tied to a booth by the electoral commissions and are shown at district level in the booth panel only. In 2022 about half of all state votes were cast before election day, so a booth map shows election-day voters, not everyone.</p>
       <p>The Dashboard is the statewide view of any election: primary vote by party with the change since last time, the seat tally against the majority line, a seat spectrum (one box per seat from the strongest Labor seat to the strongest Coalition seat, by primary leader or after preferences), and every seat with who held it, who won or leads, the margin and the 2CP swing, filterable to the seats changing hands or in doubt. On election night it fills in by itself from the live feed; seats are called by this page’s own rule (a clear projected lead for the share of booths in) and marked declared only when the VEC publishes the distribution.</p>
       <p>Polls is a separate compilation of published opinion polling for the 2026 election — statewide primaries and two-party figures with a smoothed trend, three-party splits, regional breakdowns, the MRP seat projections and leadership ratings — taken from Wikipedia’s polling page. It is for reading the campaign; nothing from it feeds the Dashboard or the election-night projections.</p>
-      <p>Demographics puts the 2021 Census beside the vote: every seat as a dot, any census indicator across, any of the map’s measures up (primary share, 2CP, swings, leader), with a fitted line and the correlation, and a second chart showing how that correlation has moved from election to election. The census figures are the Parliament of Victoria Library’s electorate data cards, compiled on the 2022 boundaries; earlier elections are matched by seat name. Each state seat’s panel also carries a short “who lives here” table against the Victorian figure.</p>
+      <p>Demographics puts the 2021 Census beside the vote: every seat as a dot, any census indicator across, any of the map’s measures up (primary share, 2CP, swings, leader), with a fitted line and the correlation, and a second chart showing how that correlation has moved from election to election. The census figures come from the Parliament of Victoria Library’s electorate data cards for the 2022 boundaries and from the ABS Census tables for the districts as drawn in 2013 (the 2014 and 2018 elections) and the federal divisions of 2021 (the 2022 election), so each election is read against the boundaries it was fought on; other elections are matched by seat name. Every seat’s panel carries a short “who lives here” table against the Victorian figure. One caution on the 2021 figures: the Census was taken during Melbourne’s August 2021 lockdown, so anything about travel to work describes that week.</p>
       <p>Switch from Booths to Electorates to see whole-seat results, which include every vote type and are what decide who is elected. Coalition means Liberal plus National; One Nation and the Victorian Socialists have their own colours; Independents are everyone running without a registered party. Shares are of the formal vote.</p>
       <h2>Where the numbers come from</h2>
       <p>Victorian Electoral Commission results pages and spreadsheets (the 2018 pages via the Internet Archive, as the VEC no longer serves them); Australian Electoral Commission Tally Room downloads; Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every district’s booth totals reconcile to the published district totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount). Narracan’s 2022 contest was deferred to a supplementary election on 28 January 2023 after a candidate died during the campaign; it is shown as part of 2022 (the 88th seat of that parliament) and flagged wherever it appears, including in the <code>contests</code> and <code>booths</code> tables under Query.</p>
@@ -623,7 +623,7 @@ function tipForContest(cid) {
 function metricValueContest(cid) {
   const eid = state.election, p = state.party, ps = contestShares(eid, cid);
   if (state.metric === 'senate') { const ss = senateDivShares(eid, cid); return ss && ss.formal ? { v: ss[p] ? ss[p].share : 0, label: `${PARTY_NAME[p]} Senate primary`, text: pct(ss[p] ? ss[p].share : 0) } : { v: null, label: 'Senate', text: 'federal elections only' }; }
-  if (state.metric === 'census') { const xi = DEMOG && DEMOG.ind.get(state.census), d = demogFor(eid, cid); return xi && d && d[state.census] != null ? { v: d[state.census], label: xi.label, text: fmtInd(xi.kind, d[state.census]) } : { v: null, label: 'Census', text: eid.startsWith('vic') ? 'no figure for this seat' : 'state seats only so far' }; }
+  if (state.metric === 'census') { const set = demogSet(eid), xid = demogId(state.census, set), xi = set && xid && set.ind.get(xid), d = demogFor(eid, cid); return xi && d && d[xid] != null ? { v: d[xid], label: xi.label, text: fmtInd(xi.kind, d[xid]) } : { v: null, label: 'Census', text: set ? 'no figure for this seat' : 'no census file for these boundaries' }; }
   if (eid === LIVE.election && (state.metric === 'tcpwin' || state.metric === 'tcp')) { const lv = liveContestMetric(cid, p); if (lv) return lv; }
   if (state.metric === 'share') return { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
   if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
@@ -677,7 +677,7 @@ async function renderMap() {
   if (state.unit === 'lc') return renderLcMap();
   clearLcMarkers();
   if (state.metric === 'senate') await ensureSenate();
-  if (state.metric === 'census') { await ensureDemog(); if (!state.census) state.census = 'income_and_expense_income'; }
+  if (state.metric === 'census') { await ensureDemog(); if (!state.census) state.census = 'income_and_expense_income'; fillCensusSelect(); }
   const eid = state.election, byContest = state.unit === 'contest';
   const booths = D.booths.filter(b => b.election_id === eid && b.booth_type === 'ordinary' && b.lat != null);
   const vals = byContest
@@ -691,9 +691,9 @@ async function renderMap() {
     colorOf = (x) => { if (!x.m.cat) return null; const t = Math.max(0, Math.min(1, ((x.m.strength || 0) - lo) / (hi - lo))); return mix(css('--map-bg'), partyColor(x.m.cat), 0.45 + 0.55 * t); };
     legend = legendCategorical(byContest, state.metric, lo, hi);
   } else if (state.metric === 'census') {
-    const xi = DEMOG.ind.get(state.census) || { label: '', kind: 'share' }; const vs = vals.map(x => x.m.v).filter(v => v != null); const lo = vs.length ? Math.min(...vs) : 0, hi = vs.length ? quantile(vs, 0.98) : 1;
+    const cset = demogSet(eid), xi = (cset && cset.ind.get(demogId(state.census, cset))) || { label: '', kind: 'share' }; const vs = vals.map(x => x.m.v).filter(v => v != null); const lo = vs.length ? Math.min(...vs) : 0, hi = vs.length ? quantile(vs, 0.98) : 1;
     colorOf = (x) => x.m.v == null ? null : mix(css('--map-bg'), css('--accent'), 0.1 + 0.9 * Math.max(0, Math.min(1, (x.m.v - lo) / ((hi - lo) || 1))));
-    legend = legendRamp(`${xi.label} (${(xi.group || '').toLowerCase()}), 2021 Census`, [mix(css('--map-bg'), css('--accent'), 0.1), css('--accent')], [fmtInd(xi.kind, lo), fmtInd(xi.kind, hi) + (vs.some(v => v > hi) ? '+' : '')], byContest ? `Victoria: ${fmtInd(xi.kind, DEMOG.state[state.census])}. ${eid === 'vic2022' || eid === LIVE.election || eid.startsWith('vicby') ? '' : 'Matched to the 2022 boundaries by seat name. '}Hollow: no figure.` : 'Census figures are by seat for now: switch to Electorates. Booth catchments follow with the ABS small-area data.', null);
+    legend = legendRamp(`${xi.label} (${(xi.group || '').toLowerCase()}), 2021 Census`, [mix(css('--map-bg'), css('--accent'), 0.1), css('--accent')], [fmtInd(xi.kind, lo), fmtInd(xi.kind, hi) + (vs.some(v => v > hi) ? '+' : '')], byContest ? `Victoria: ${fmtInd(xi.kind, cset ? cset.state[demogId(state.census, cset)] : null)}. ${demogExact(eid) ? '' : 'Matched by seat name from the nearest boundary set. '}Hollow: no figure.` : 'Census figures are by seat for now: switch to Electorates. Booth catchments follow with the ABS small-area data.', null);
   } else if (state.metric === 'share' || state.metric === 'tcp' || state.metric === 'senate') {
     const vs = vals.map(x => x.m.v).filter(v => v != null); const max = quantile(vs, 0.98) || 0.5;
     colorOf = (x) => x.m.v == null ? null : seqColor(state.party, x.m.v, max);
@@ -798,7 +798,7 @@ function renderContestDetail(eid, cid) {
   const tot = Object.values(types).reduce((a, v) => a + v, 0);
   if (tot) root.append(h('h3', {}, 'How the vote was cast'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('tbody', {}, ...Object.entries(types).sort((a, b) => b[1] - a[1]).map(([k, v]) => h('tr', {}, h('td', {}, k === 'ordinary' ? 'election day' : k === 'early' ? 'pre-poll' : k.replaceAll('_', ' ')), h('td', { class: 'num' }, fmt(v)), h('td', { class: 'num' }, pct(v / tot))))))));
   // how this seat has voted: every election held under this name
-  if (eid.startsWith('vic')) { if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(cb); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail(eid, cid); }); }
+  if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(cb); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail(eid, cid); });
   const series = contestSeries(eid, cid);
   if (series.length > 1) { root.append(h('h3', {}, 'How this seat has voted'), seriesChart(series, 340, 200), h('div', { class: 'hint' }, 'Primary vote by party, every election with a seat of this name. Boundaries move between redistributions.')); }
   renderFlows(root, eid, cid);
@@ -1382,25 +1382,50 @@ function renderPollsTable() {
 }
 
 /* ---------- demographics view ---------- */
-let DEMOG = null; const dm = { election: 'vic2022', metric: 'share', party: 'ALP', gap: 'fed2022', x: 'income_and_expense_income' };
+const DEMOGS = {}; let DEMOG = null;   // census datasets by boundary set; DEMOG stays truthy once any has loaded
+const DEMOG_SETS = ['vic_la_2022', 'vic_la_2013', 'fed_2021'];
+// which boundary set's census file describes an election: its own where one exists, else the nearest by seat name
+const DEMOG_FALLBACK = { vic_la_2001: 'vic_la_2013', fed_2024: 'fed_2021', fed_2018: 'fed_2021', fed_2010: 'fed_2021', fed_2003: 'fed_2021' };
+// the same quantity under different ids in the Parliament workbook (2022 boundaries) and the ABS tables
+const DEMOG_ALIAS = { income_household_median: 'income_and_expense_income', income_and_expense_income: 'income_household_median', age_median: 'age_median', born_australia: 'country_of_birth_born_in_australia', country_of_birth_born_in_australia: 'born_australia',
+  speaks_english_only: 'language_speaks_only_english', language_speaks_only_english: 'speaks_english_only', rented: 'household_ownership_rented', household_ownership_rented: 'rented', owned_mortgage: 'household_ownership_mortgage', household_ownership_mortgage: 'owned_mortgage',
+  owned_outright: 'household_ownership_owned', household_ownership_owned: 'owned_outright', no_motor_vehicle: 'motor_vehicle_ownership_no_motor_vehicles', motor_vehicle_ownership_no_motor_vehicles: 'no_motor_vehicle', need_assistance: 'health_need_assistance', health_need_assistance: 'need_assistance',
+  volunteer: 'volunteering_for_organisation_or_group', volunteering_for_organisation_or_group: 'volunteer', population: 'population_total_persons', population_total_persons: 'population', rent_median: 'income_and_expense_rent', income_and_expense_rent: 'rent_median',
+  religion_catholic: 'religion_most_common_cat_catholic', religion_most_common_cat_catholic: 'religion_catholic', religion_anglican: 'religion_most_common_cat_anglican', religion_most_common_cat_anglican: 'religion_anglican', religion_no_religion_so_described: 'religion_most_common_cat_secular_no_religion', religion_most_common_cat_secular_no_religion: 'religion_no_religion_so_described',
+  born_india: 'country_of_birth_country_of_birth_other_than_australia_cat_india', country_of_birth_country_of_birth_other_than_australia_cat_india: 'born_india', born_england: 'country_of_birth_country_of_birth_other_than_australia_cat_england', country_of_birth_country_of_birth_other_than_australia_cat_england: 'born_england',
+  born_china_excludes_sars_and_taiwan: 'country_of_birth_country_of_birth_other_than_australia_cat_china', country_of_birth_country_of_birth_other_than_australia_cat_china: 'born_china_excludes_sars_and_taiwan', born_new_zealand: 'country_of_birth_country_of_birth_other_than_australia_cat_new_zealand', country_of_birth_country_of_birth_other_than_australia_cat_new_zealand: 'born_new_zealand',
+  separate_house: 'dwelling_type_and_household_details_most_common_dwelling_cat_separate_house', dwelling_type_and_household_details_most_common_dwelling_cat_separate_house: 'separate_house', flat_apartment: 'dwelling_type_and_household_details_most_common_dwelling_cat_flat_or_apartment', dwelling_type_and_household_details_most_common_dwelling_cat_flat_or_apartment: 'flat_apartment' };
+const dm = { election: 'vic2022', metric: 'share', party: 'ALP', gap: 'fed2022', x: 'income_and_expense_income' };
 const KEY_IND = ['age_median', 'income_and_expense_income', 'country_of_birth_born_in_australia', 'language_speaks_only_english', 'engaged_in_education_tertiary', 'household_ownership_rented', 'household_ownership_mortgage', 'religion_most_common_1_share', 'dwelling_type_and_household_details_most_common_dwelling_1_share', 'motor_vehicle_ownership_no_motor_vehicles', 'population_total_persons', 'electorate_size_kilometres_squared'];
 function fmtInd(kind, v) { if (v == null) return '–'; return kind === 'share' ? pct(v) : kind === 'dollars' ? '$' + fmt(Math.round(v)) : kind === 'years' ? v + ' yrs' : kind === 'ratio' ? Number(v).toFixed(1) : kind === 'area' ? fmt(Math.round(v)) + ' km²' : kind === 'count' ? fmt(v) : String(v); }
-async function ensureDemog() { if (DEMOG) return DEMOG; try { DEMOG = await (await fetch(DATA + 'demog_vic2022.json')).json(); } catch (e) { DEMOG = { indicators: [], districts: {}, state: {} }; } DEMOG.byName = new Map(Object.entries(DEMOG.districts).map(([cid, d]) => [d.name.toLowerCase(), { cid, ...d }])); DEMOG.ind = new Map(DEMOG.indicators.map(x => [x.id, x])); return DEMOG; }
+async function ensureDemog() {
+  if (DEMOG) return DEMOG;
+  await Promise.all(DEMOG_SETS.map(async (set) => { try { const j = await loadGz('demog_' + set); j.set = set; j.byName = new Map(Object.entries(j.districts).map(([cid, d]) => [d.name.toLowerCase(), { cid, ...d }])); j.ind = new Map(j.indicators.map(x => [x.id, x])); DEMOGS[set] = j; } catch (e) { console.warn('no census file for', set, e.message); } }));
+  DEMOG = DEMOGS.vic_la_2022 || Object.values(DEMOGS)[0] || { indicators: [], districts: {}, state: {}, ind: new Map(), byName: new Map(), set: 'none' };
+  return DEMOG;
+}
+// the census dataset that describes an election's seats (its own boundary set, else the nearest by name), and whether it is exact
+function demogSet(eid) { if (!DEMOG) return null; const b = BOUND_FOR[eid]; if (DEMOGS[b]) return DEMOGS[b]; const f = DEMOG_FALLBACK[b] || (String(eid).startsWith('fed') ? 'fed_2021' : 'vic_la_2022'); return DEMOGS[f] || null; }
+const demogExact = (eid) => !!(DEMOG && DEMOGS[BOUND_FOR[eid]]);
+// an indicator id translated into another dataset where the same quantity exists
+function demogId(id, set) { if (!set) return null; if (set.ind.has(id)) return id; const a = DEMOG_ALIAS[id]; return a && set.ind.has(a) ? a : null; }
 // the census record for a contest of any state election: matched by seat name onto the 2022 boundaries
-function demogFor(eid, cid) { if (!DEMOG || !eid.startsWith('vic')) return null; const c = idx.contestById.get(eid + '|' + cid); return c ? (DEMOG.districts[cid] ? { cid, ...DEMOG.districts[cid] } : DEMOG.byName.get(c.contest_name.toLowerCase()) || null) : null; }
+function demogFor(eid, cid) { const set = demogSet(eid); if (!set) return null; const c = idx.contestById.get(eid + '|' + cid); if (!c) return null; const d = set.districts[cid] ? { cid, ...set.districts[cid] } : set.byName.get(c.contest_name.toLowerCase()) || null; if (d) d.__set = set; return d; }
 // run a metric with other map settings without disturbing the map
 function withState(over, fn) { const keep = { election: state.election, metric: state.metric, party: state.party, gap: state.gap }; Object.assign(state, over); try { return fn(); } finally { Object.assign(state, keep); } }
 function censusBlock(eid, cid) {
-  const d = demogFor(eid, cid); if (!d) return null; const S = DEMOG.state;
-  const rows = [['Population', 'population_total_persons'], ['Median age', 'age_median'], ['Median weekly household income', 'income_and_expense_income'], ['Born in Australia', 'country_of_birth_born_in_australia'], ['Speaks only English at home', 'language_speaks_only_english'], ['In tertiary education', 'engaged_in_education_tertiary'], ['Renting', 'household_ownership_rented'], ['Most common religion', 'religion_most_common_1'], ['Most common birthplace abroad', 'country_of_birth_country_of_birth_other_than_australia_1'], ['Most common dwelling', 'dwelling_type_and_household_details_most_common_dwelling_1']];
+  const d = demogFor(eid, cid); if (!d) return null; const set = d.__set, S = set.state;
+  const rows = set.ind.has('population_total_persons')
+    ? [['Population', 'population_total_persons'], ['Median age', 'age_median'], ['Median weekly household income', 'income_and_expense_income'], ['Born in Australia', 'country_of_birth_born_in_australia'], ['Speaks only English at home', 'language_speaks_only_english'], ['In tertiary education', 'engaged_in_education_tertiary'], ['Renting', 'household_ownership_rented'], ['Most common religion', 'religion_most_common_1'], ['Most common birthplace abroad', 'country_of_birth_country_of_birth_other_than_australia_1'], ['Most common dwelling', 'dwelling_type_and_household_details_most_common_dwelling_1']]
+    : [['Population', 'population'], ['Median age', 'age_median'], ['Median weekly household income', 'income_household_median'], ['Born in Australia', 'born_australia'], ['Speaks only English at home', 'speaks_english_only'], ['Bachelor degree or higher', 'bachelor_or_higher'], ['Renting', 'rented'], ['No religion', 'religion_no_religion_so_described'], ['Catholic', 'religion_catholic'], ['Professionals (of workers)', 'occupation_professionals'], ['Unemployment rate', 'unemployment_rate']];
   const t = h('table', { class: 'census' }, h('tbody', {}, h('tr', {}, h('td', { class: 'k' }), h('td', { class: 'k', style: 'text-align:right' }, 'seat'), h('td', { class: 'k', style: 'text-align:right' }, 'Victoria'))));
-  for (const [lab, id] of rows) { const x = DEMOG.ind.get(id); if (!x || d[id] == null) continue; const share = x.kind === 'text' ? d[id + '_share'] : null;
+  for (const [lab, id] of rows) { const x = set.ind.get(id); if (!x || d[id] == null) continue; const share = x.kind === 'text' ? d[id + '_share'] : null;
     t.querySelector('tbody').append(h('tr', {}, h('td', {}, lab), h('td', { class: 'num' }, x.kind === 'text' ? `${d[id]}${share != null ? ' ' + pct(share, 0) : ''}` : fmtInd(x.kind, d[id])), h('td', { class: 'num', style: 'color:var(--fg-3)' }, x.kind === 'text' ? `${S[id] || ''}${S[id + '_share'] != null ? ' ' + pct(S[id + '_share'], 0) : ''}` : fmtInd(x.kind, S[id])))); }
-  const box = h('div', {}, h('h3', {}, 'Who lives here'), t, h('div', { class: 'hint', style: 'margin-top:4px' }, `2021 Census on the 2022 boundaries${DEMOG.districts[cid] ? '' : ', matched by seat name'}. `, h('a', { href: '#demog', onclick: (ev) => { ev.preventDefault(); dm.election = eid; showView('demog'); } }, 'Compare every seat')));
+  const box = h('div', {}, h('h3', {}, 'Who lives here'), t, h('div', { class: 'hint', style: 'margin-top:4px' }, `2021 Census, ${set.set === 'vic_la_2022' ? '2022 boundaries' : set.set === 'vic_la_2013' ? '2013 boundaries (used in 2014 and 2018)' : set.set === 'fed_2021' ? '2021 federal boundaries' : set.set}${set.districts[cid] ? '' : ', matched by seat name'}. `, h('a', { href: '#demog', onclick: (ev) => { ev.preventDefault(); dm.election = eid; showView('demog'); } }, 'Compare every seat')));
   return box;
 }
 function dmPoints() {
-  const eid = dm.election, xi = DEMOG.ind.get(dm.x); if (!xi) return [];
+  const eid = dm.election, set = demogSet(eid), xi = set && set.ind.get(dm.x); if (!xi) return [];
   const cats = dm.metric === 'primary' || dm.metric === 'tcpwin';
   return withState({ election: eid, metric: dm.metric, party: dm.party, gap: dm.gap }, () => laContests(eid).map(c => {
     const d = demogFor(c.election_id, c.contest_id); if (!d || d[dm.x] == null) return null;
@@ -1440,10 +1465,7 @@ async function renderDemog() {
   await ensureDemog();
   const xs = el('dm-x');
   if (!xs.options.length) {
-    const groups = new Map(); for (const x of DEMOG.indicators) if (x.kind !== 'text') (groups.get(x.group) || groups.set(x.group, []).get(x.group)).push(x);
-    for (const [g, arr] of groups) { const og = h('optgroup', { label: g }); for (const x of arr) og.append(h('option', { value: x.id }, x.label + (x.partial ? ` (${Object.values(DEMOG.districts).filter(d => d[x.id] != null).length} seats)` : ''))); xs.append(og); }
-    xs.value = dm.x;
-    const ids = D.elections.filter(e => e.election_id.startsWith('vic')).map(e => e.election_id);
+    const ids = D.elections.filter(e => demogSet(e.election_id)).map(e => e.election_id);
     fillElectionSelect(el('dm-election'), ids); el('dm-election').value = dm.election;
     fillElectionSelect(el('dm-gap'), D.elections.map(e => e.election_id)); el('dm-gap').value = dm.gap;
     el('dm-metric').value = dm.metric; el('dm-party').value = dm.party;
@@ -1451,7 +1473,14 @@ async function renderDemog() {
   }
   el('dm-election').value = dm.election;
   el('dm-f-party').hidden = dm.metric === 'primary' || dm.metric === 'tcpwin'; el('dm-f-gap').hidden = dm.metric !== 'gap';
-  const xi = DEMOG.ind.get(dm.x), e = idx.electionById.get(dm.election); if (!xi || !e) return;
+  const set = demogSet(dm.election); if (!set) return;
+  // the axis list belongs to the dataset in use: rebuild it when the election moves to another boundary set
+  if (xs.dataset.set !== set.set) {
+    xs.innerHTML = ''; const groups = new Map(); for (const x of set.indicators) if (x.kind !== 'text') (groups.get(x.group) || groups.set(x.group, []).get(x.group)).push(x);
+    for (const [g, arr] of groups) { const og = h('optgroup', { label: g }); for (const x of arr) og.append(h('option', { value: x.id }, x.label + (x.partial ? ` (${Object.values(set.districts).filter(d => d[x.id] != null).length} seats)` : ''))); xs.append(og); }
+    xs.dataset.set = set.set; dm.x = demogId(dm.x, set) || (set.ind.has('income_household_median') ? 'income_household_median' : set.indicators.find(x => x.kind !== 'text').id); xs.value = dm.x;
+  }
+  const xi = set.ind.get(dm.x), e = idx.electionById.get(dm.election); if (!xi || !e) return;
   const points = dmPoints(); const cats = dm.metric === 'primary' || dm.metric === 'tcpwin'; const isPts = ['swing', 'tcpswing', 'gap'].includes(dm.metric);
   const yName = cats ? (dm.metric === 'primary' ? 'Primary-vote leader’s share' : 'Winner’s two-candidate share') : `${PARTY_NAME[dm.party]} ${({ share: 'primary vote', tcp: 'two-candidate preferred', swing: 'primary swing', tcpswing: '2CP swing', gap: 'gap' })[dm.metric]}${dm.metric === 'gap' ? ' vs ' + (idx.electionById.get(dm.gap) || {}).name : ''}`;
   const fx = (v) => fmtInd(xi.kind, v), fy = (v) => isPts ? pts(v, 0) : pct(v, 0);
@@ -1460,7 +1489,7 @@ async function renderDemog() {
   if (cats) { const lo = dm.metric === 'primary' ? 0.25 : 0.5, hi = dm.metric === 'primary' ? 0.55 : 0.75; for (const p of points) { const t = Math.max(0, Math.min(1, (p.y - lo) / (hi - lo))); p.color = p.cat ? mix(base, partyColor(p.cat), 0.4 + 0.6 * t) : css('--fg-3'); } }
   else if (isPts) { const lim = Math.max(0.05, quantile(points.map(p => Math.abs(p.y)), 0.95) || 0.1); for (const p of points) p.color = divColor(dm.party, p.y, lim); points.lim = lim; }
   else { const max = quantile(points.map(p => p.y), 0.98) || 0.5; for (const p of points) { const t = Math.pow(Math.max(0, Math.min(1, p.y / max)), 0.75); p.color = mix(base, partyColor(dm.party), 0.12 + 0.88 * t); } points.max = max; }
-  const out = scatterChart(points, { fx, fy, xLabel: xi.label + (xi.group && !xi.label.toLowerCase().includes(xi.group.toLowerCase().split(' ')[0]) ? ' · ' + xi.group : ''), xRef: DEMOG.state[dm.x], yZero: isPts, label: 'Seats by census indicator and vote', onClick: (p) => { setUnit('contest'); setElection(p.eid); selectContest(p.eid, p.cid, true); showView('map'); } });
+  const out = scatterChart(points, { fx, fy, xLabel: xi.label + (xi.group && !xi.label.toLowerCase().includes(xi.group.toLowerCase().split(' ')[0]) ? ' · ' + xi.group : ''), xRef: set.state[dm.x], yZero: isPts, label: 'Seats by census indicator and vote', onClick: (p) => { setUnit('contest'); setElection(p.eid); selectContest(p.eid, p.cid, true); showView('map'); } });
   el('dm-chart').innerHTML = ''; el('dm-chart').append(out.el || out);
   const fit = out.fit; const rTxt = fit ? `r = ${fit.r.toFixed(2)} (${Math.abs(fit.r) < 0.2 ? 'no real relationship' : Math.abs(fit.r) < 0.4 ? 'weak' : Math.abs(fit.r) < 0.6 ? 'moderate' : 'strong'}${fit.r < -0.2 ? ', negative' : fit.r > 0.2 ? ', positive' : ''})` : '';
   const legend = el('dm-legend'); legend.innerHTML = '';
@@ -1469,22 +1498,22 @@ async function renderDemog() {
   else legend.append(legendRamp(`${PARTY_NAME[dm.party]} ${dm.metric === 'tcp' ? 'two-candidate preferred' : 'primary vote'}`, [mix(base, partyColor(dm.party), 0.12), partyColor(dm.party)], ['0%', pct(points.max, 0) + '+'], '', null));
   const total = laContests(dm.election).length;
   const filtTxt = xi.partial ? ` of ${total}: the ${xi.label} share is only known where it is among the seat's three largest ${xi.group.split(' (')[0].toLowerCase()} groups, so seats where it is smaller are missing and the fit is only across those shown` : '';
-  el('dm-note').textContent = `${points.length} seats${filtTxt}, one dot each, coloured by the vertical measure exactly as the map colours electorates; dashed line: least-squares fit, ${rTxt}. The dotted vertical line is the Victorian figure. ${dm.election === 'vic2022' || dm.election === LIVE.election || dm.election.startsWith('vicby') ? '' : 'Seats are matched to the 2022 boundaries by name, so redistributed seats carry the census profile of their current namesake. '}Click a dot to open the seat on the map.`;
+  el('dm-note').textContent = `${points.length} seats${filtTxt}, one dot each, coloured by the vertical measure exactly as the map colours electorates; dashed line: least-squares fit, ${rTxt}. The dotted vertical line is the Victorian figure. ${demogExact(dm.election) ? '' : `Seats are matched by name to the ${set.set.replace('vic_la_', 'state districts of ').replace('fed_', 'federal divisions of ')}, so redistributed seats carry a neighbour's profile. `}Click a dot to open the seat on the map.`;
   // trend: the correlation at each state election
   const elections = D.elections.filter(x => x.election_id.startsWith('vic') && !x.election_id.startsWith('vicby') && (x.election_id !== LIVE.election || LIVE.available)).sort((a, b) => a.date.localeCompare(b.date));
   const series = [];
   for (const q of ['ALP', 'COAL', 'GRN', 'ONP']) {
     const row = { party: q, pts: [] };
-    for (const x of elections) { const ps = withState({ election: x.election_id, metric: 'share', party: q, gap: dm.gap }, () => laContests(x.election_id).map(c => { const d = demogFor(c.election_id, c.contest_id); if (!d || d[dm.x] == null) return null; const m = metricValueContest(c.contest_id); return m.v == null ? null : { x: d[dm.x], y: m.v }; }).filter(Boolean)); const f = pearson(ps); if (f && ps.length >= 20 && ps.some(p => p.y > 0.02)) row.pts.push({ eid: x.election_id, name: x.name, r: f.r, n: ps.length }); }
+    for (const x of elections) { const xid = demogId(dm.x, demogSet(x.election_id)); if (!xid) continue; const ps = withState({ election: x.election_id, metric: 'share', party: q, gap: dm.gap }, () => laContests(x.election_id).map(c => { const d = demogFor(c.election_id, c.contest_id); if (!d || d[xid] == null) return null; const m = metricValueContest(c.contest_id); return m.v == null ? null : { x: d[xid], y: m.v }; }).filter(Boolean)); const f = pearson(ps); if (f && ps.length >= 20 && ps.some(p => p.y > 0.02)) row.pts.push({ eid: x.election_id, name: x.name, r: f.r, n: ps.length, exact: demogExact(x.election_id) }); }
     if (row.pts.length) series.push(row);
   }
   el('dm-trend').innerHTML = ''; el('dm-trend').append(trendChart(series, elections, xi));
-  el('dm-trend-note').textContent = `Correlation (r) between ${xi.label.toLowerCase()} and each party’s primary vote across the seats, at every state election with results here. A line moving away from zero means the indicator has become a stronger predictor of that party’s vote; crossing zero means the relationship has flipped. Earlier elections are matched by seat name onto the 2022 boundaries.`;
+  el('dm-trend-note').textContent = `Correlation (r) between ${xi.label.toLowerCase()} and each party’s primary vote across the seats, at every state election with results here and a matching census indicator (the 2022 boundaries use the Parliament of Victoria figures, the 2013 boundaries the ABS tables; both are the 2021 Census). A line moving away from zero means the indicator has become a stronger predictor of that party’s vote; crossing zero means the relationship has flipped. 2010 is matched by seat name.`;
   // ranked table
   const sorted = points.slice().sort((a, b) => b.x - a.x);
   el('dm-rank-title').textContent = `Seats ranked by ${xi.label.toLowerCase()}`;
   el('dm-table').innerHTML = ''; el('dm-table').append(h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, 'Seat'), h('th', { class: 'num' }, xi.label), h('th', { class: 'num' }, yName))), h('tbody', {}, ...sorted.map((p, i) => h('tr', { class: 'clickable', onclick: () => { setUnit('contest'); setElection(p.eid); selectContest(p.eid, p.cid, true); showView('map'); } }, h('td', { class: 'num' }, i + 1), h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${p.color || 'transparent'};border:1px solid var(--line)` }), p.name)), h('td', { class: 'num' }, fx(p.x)), h('td', { class: 'num' }, p.text))))));
-  el('dm-source').innerHTML = ''; el('dm-source').append(h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); state.metric = 'census'; state.census = dm.x; el('sel-metric').value = 'census'; el('sel-metric').dispatchEvent(new Event('change')); setElection(dm.election); showView('map'); } }, 'Show this indicator on the map'), ` · Source: ${DEMOG.source}. Shares are of the relevant census population (persons, households or dwellings as the indicator implies); medians are weekly.`);
+  el('dm-source').innerHTML = ''; el('dm-source').append(h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); state.census = dm.x; setElection(dm.election); el('sel-metric').value = 'census'; el('sel-metric').dispatchEvent(new Event('change')); showView('map'); } }, 'Show this indicator on the map'), ` · Source: ${set.source}.${set.note ? ' ' + set.note : ''} Shares are of the relevant census population (persons, households or dwellings as the indicator implies); medians are weekly.`);
 }
 function trendChart(series, elections, xi) {
   const W = 560, H = 260, m = { l: 40, r: 60, t: 14, b: 40 };
@@ -2048,6 +2077,12 @@ function showView(name) {
   try { localStorage.setItem('atlas.view', name); } catch (e) {}
   if (window.__GC && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: '/' + name, title: document.title });   // one count per tab opened; nothing else is sent
 }
+function fillCensusSelect() {
+  const cs = el('sel-census'), set = demogSet(state.election); if (!set) return;
+  if (!cs.dataset.wired) { cs.dataset.wired = '1'; cs.addEventListener('change', (ev) => { state.census = ev.target.value; renderMap(); }); }
+  if (cs.dataset.set !== set.set) { cs.innerHTML = ''; const groups = new Map(); for (const x of set.indicators) if (x.kind !== 'text') (groups.get(x.group) || groups.set(x.group, []).get(x.group)).push(x); for (const [g, arr] of groups) { const og = h('optgroup', { label: g }); for (const x of arr) og.append(h('option', { value: x.id }, x.label)); cs.append(og); } cs.dataset.set = set.set; }
+  state.census = demogId(state.census, set) || (set.ind.has('income_household_median') ? 'income_household_median' : 'income_and_expense_income'); cs.value = state.census;
+}
 function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at district level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'census'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; el('f-census').hidden = u === 'lc' || state.metric !== 'census'; renderMap(); }
 function setElection(eid) { state.election = eid; el('sel-election').value = eid; renderLiveBox(); renderMap(); if (activeView() === 'dash') renderDash(); }
 function fillElectionSelect(sel, ids) { sel.innerHTML = ''; for (const id of ids) sel.append(h('option', { value: id }, idx.electionById.get(id).name)); }
@@ -2085,7 +2120,7 @@ async function boot() {
     fillElectionSelect(el('cmp-a'), ids); fillElectionSelect(el('cmp-b'), ids); el('cmp-a').value = 'fed2022'; el('cmp-b').value = 'vic2022';
     el('sel-election').addEventListener('change', (e) => setElection(e.target.value));
     el('sel-metric').addEventListener('change', async (e) => { state.metric = e.target.value; el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'census'; el('f-gap').hidden = state.metric !== 'gap'; el('f-census').hidden = state.metric !== 'census';
-      if (state.metric === 'census') { await ensureDemog(); const cs = el('sel-census'); if (!cs.options.length) { const groups = new Map(); for (const x of DEMOG.indicators) if (x.kind !== 'text') (groups.get(x.group) || groups.set(x.group, []).get(x.group)).push(x); for (const [g, arr] of groups) { const og = h('optgroup', { label: g }); for (const x of arr) og.append(h('option', { value: x.id }, x.label)); cs.append(og); } cs.value = state.census || 'income_and_expense_income'; cs.addEventListener('change', (ev) => { state.census = ev.target.value; renderMap(); }); } state.census = cs.value; if (state.unit === 'booth') { setUnit('contest'); return; } }
+      if (state.metric === 'census') { await ensureDemog(); fillCensusSelect(); if (state.unit === 'booth') { setUnit('contest'); return; } }
       renderMap(); });
     el('sel-party').addEventListener('change', (e) => { state.party = e.target.value; renderMap(); });
     el('sel-gap').addEventListener('change', (e) => { state.gap = e.target.value; renderMap(); });

@@ -151,17 +151,33 @@ seat poll.) Dates are the last day of fieldwork. The Roy Morgan One Nation winna
 kept by hand in `raw/polls/roymorgan/` and merged in. The Polls tab in the site is entirely separate
 from the dashboard and the live projections.
 
-## Demographics (`site/data/demog_vic2022.json`)
+## Demographics (`site/data/demog_<boundaries>.json.gz`)
 
-2021 Census indicators for the 88 districts on the 2022 boundaries, from the Parliament of Victoria
-Library's "Electorate data cards" workbook (`raw/demographics/abs-electorate-data-2021v2.xlsx`, with the
-cards themselves as a PDF alongside): `python3 -m src.load_demographics`. About 50 numeric indicators
-(population, age, income, tenure, birthplace, language, education, religion, health, vehicles, family)
-plus the "most common" text fields. The Demographics tab plots any map metric for any state election
-against any indicator, seat by seat, with the correlation at each election since 2010; earlier
-elections are matched to the 2022 boundaries by seat name. The seat panels show a "Who lives here"
-block from the same file. Next step when the ABS site is back: SA1-level DataPacks (2011/2016/2021)
-aggregated to booth catchments, and the federal divisions.
+2021 Census indicators by electorate, one file per boundary set, all in the same shape
+(`indicators`, `state`, `districts` keyed by contest id):
+
+* `demog_vic_la_2022` — the 88 districts on the 2022 boundaries, from the Parliament of Victoria Library's
+  "Electorate data cards" workbook (`raw/demographics/`): `python3 -m src.load_demographics`. About 50
+  numeric indicators plus the top-three text fields, which are also turned into per-category shares.
+* `demog_vic_la_2013` — the districts as drawn in 2013 (ABS "SED 2021"), used at the 2014 and 2018
+  elections: 190-odd indicators from 20 General Community Profile tables (age bands, birthplace by
+  country, ancestry, language, religion by denomination, education, income bands, tenure, dwellings,
+  vehicles, labour force, occupation, industry, travel to work, need for assistance, volunteering).
+* `demog_fed_2021` — the 39 federal divisions as at 2021 (ABS "CED 2021"), used at the 2022 election,
+  same tables.
+
+The ABS tables come from the ABS Data API (data.api.abs.gov.au, SDMX): the browser-side capture in
+`raw/abs/c21_<geo>_vic.json` keeps, for each table, the Victorian regions' cells with persons totals for
+sex and age; `python3 -m src.load_abs_census SED|CED <out>` turns them into shares. Notes: state medians
+in the ABS files are population-weighted means of the district medians; the 2021 Census fell in
+Melbourne's lockdown, so travel-to-work figures describe that week. The ABS DataPacks (SA1-level, and
+2011/2016) were unavailable when this was built — they are the route to booth-catchment demographics and
+real change over time.
+
+The site picks the file matching each election's boundary set and falls back to the nearest by seat
+name (2010 and the 2001 boundaries use the 2013 file; 2019 and 2025 federal use the 2021 divisions);
+`DEMOG_ALIAS` in `app.html` maps the same quantity between the Parliament and ABS ids so the
+correlation-over-time chart can cross boundary sets.
 
 ## Boundaries and catchments
 

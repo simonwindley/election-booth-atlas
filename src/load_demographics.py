@@ -79,7 +79,7 @@ def read_sheet(ws):
     return [{'id': cid, 'group': g, 'label': l, 'kind': kind} for (ci, g, l, kind, cid) in cols], recs
 
 
-def main(xlsx='raw/demographics/abs-electorate-data-2021v2.xlsx', out='site/data/demog_vic2022.json'):
+def main(xlsx='raw/demographics/abs-electorate-data-2021v2.xlsx', out='site/data/demog_vic_la_2022.json.gz'):
     wb = openpyxl.load_workbook(xlsx, read_only=True, data_only=True)
     indicators, recs = [], {}
     seen = set()
@@ -142,7 +142,9 @@ def main(xlsx='raw/demographics/abs-electorate-data-2021v2.xlsx', out='site/data
     obj = {'source': "Parliament of Victoria Library, Electorate data cards (April 2026): ABS Census 2021 collated to the 2022 Victorian electorates",
            'census': 2021, 'boundaries': 'vic_la_2022', 'indicators': indicators, 'state': state, 'districts': districts}
     os.makedirs(os.path.dirname(out), exist_ok=True)
-    json.dump(obj, open(out, 'w'), separators=(',', ':'))
+    import gzip
+    with gzip.open(out, 'wt') as fh:
+        json.dump(obj, fh, separators=(',', ':'))
     print(f'{len(districts)} districts, {len(indicators)} indicators ->', out)
     return obj
 
