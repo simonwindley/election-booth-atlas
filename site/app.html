@@ -151,6 +151,11 @@ table.data tr.clickable:hover td { background: var(--surface-2); }
 .pbar { display: inline-block; width: 90px; vertical-align: middle; margin-left: 6px; }
 .dash-title { font-family: var(--font-display); font-weight: 500; font-size: 22px; margin: 0; }
 .chart-panel { position: relative; }
+.win-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 2px 18px; font-size: 13px; }
+.win-grid button { display: flex; align-items: center; gap: 8px; background: none; border: 0; padding: 2px 4px; text-align: left; cursor: pointer; color: var(--fg); border-radius: 3px; font: inherit; }
+.win-grid button:hover { background: var(--surface-2); }
+.win-grid .rk { font-family: var(--font-mono); font-size: 11px; width: 26px; text-align: center; border-radius: 3px; padding: 1px 0; color: var(--fg); }
+.win-grid .hb { width: 8px; height: 8px; border-radius: 2px; flex: 0 0 auto; }
 .chart .dot { opacity: .55; }
 .chart .trend { fill: none; stroke-width: 2.5; stroke-linejoin: round; }
 .chart .ev line { stroke: var(--fg-3); stroke-dasharray: 3 3; }
@@ -353,6 +358,7 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
         <div class="panel"><h3>Three-party preferred</h3><div class="tablewrap" id="polls-tpp3"></div><h3 style="margin-top:14px">Other two-party splits</h3><div class="tablewrap" id="polls-alt"></div></div>
       </div>
       <div class="panel"><h3>Seat projections (MRP)</h3><div id="polls-mrp"></div></div>
+      <div class="panel" id="polls-win-panel" hidden><h3>One Nation winnability by seat, Roy Morgan</h3><div class="win-grid" id="polls-win"></div><p class="hint" id="polls-win-note"></p></div>
       <div class="two">
         <div class="panel"><h3>By region, latest poll</h3><div class="tablewrap" id="polls-substate"></div></div>
         <div class="panel"><h3>Leaders</h3><div id="polls-leaders"></div></div>
@@ -1287,6 +1293,18 @@ async function renderPolls() {
       if (house === 'la') wrap.append(h('div', { class: 'maj', style: `left:calc(${100 * 45 / total}% - 1px);top:0` }));
       mrp.append(h('div', { class: 'row', style: 'align-items:center;gap:14px;margin-bottom:6px' }, h('div', { style: 'flex:0 0 230px' }, h('strong', {}, r.election ? '2022 result' : r.firm), h('div', { class: 'hint' }, `${r.label}${r.n ? ' · n=' + fmt(r.n) : ''}${r.client ? ' · ' + r.client : ''}`)), h('div', { style: 'flex:1 1 300px' }, wrap, h('div', { class: 'tally-key' }, ...order.filter(q => r.tally[q]).map(q => h('span', { class: 'chip' }, h('i', { style: `background:${q === 'UND' ? 'var(--line)' : partyColor(q)}` }), `${PARTY_NAME[q] || 'Undecided'} ${r.tally[q]}`)), r.majority ? h('span', { class: 'hint' }, r.majority.replace('(', ' (')) : ''))));
     }
+  }
+  // Roy Morgan's One Nation winnability ranking
+  const W = P.winnability; el('polls-win-panel').hidden = !W;
+  if (W) {
+    const grid = el('polls-win'); grid.innerHTML = '';
+    const heldOf = (name) => { const c = D.contests.find(x => x.election_id === LIVE.election && x.contest_name === name); return c ? (HELD_CODE[c.held_by] || 'OTH') : null; };
+    for (const r of W.ranking) {
+      const t = 1 - (r.rank - 1) / 87; const hb = heldOf(r.name); const c26 = D.contests.find(x => x.election_id === LIVE.election && x.contest_name === r.name);
+      grid.append(h('button', { onclick: () => { if (!c26) return; setUnit('contest'); setElection(LIVE.election); selectContest(LIVE.election, c26.contest_id, true); showView('map'); }, title: hb ? `held by ${PARTY_NAME[hb]} going in` : '' },
+        h('span', { class: 'rk', style: `background:${mix(css('--surface'), partyColor('ONP'), 0.1 + 0.9 * t * t)}` }, r.rank), hb ? h('i', { class: 'hb', style: `background:${partyColor(hb)}` }) : '', r.name));
+    }
+    el('polls-win-note').textContent = `${W.description} Fieldwork ${W.fieldwork}, n=${fmt(W.n)}; the small square is the party holding the seat going in. Click a seat to open it on the map. Source: ${W.source}.`;
   }
   mrp.append(h('p', { class: 'hint' }, 'Multilevel regression with post-stratification: a large statewide sample modelled down to seat level. Only the tallies are compiled here; the seat-by-seat lists are on the pollsters’ sites. The Legislative Council projection is Roy Morgan’s, with undecided shown grey.'));
   // substate

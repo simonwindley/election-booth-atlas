@@ -215,6 +215,10 @@ def main(raw='raw/polls/wikipedia_vic2026_polls.json', out='site/data/polls_vic2
             out_obj['subpop'][name], _ = parse_poll_table(g, 2026, 3)
         elif 'Individual seat polling' in top:
             out_obj['seat'][name], _ = parse_poll_table(g, 2026, 3)
+    import os
+    win = os.path.join(os.path.dirname(raw), 'roymorgan', 'onp_winnability_2026-10.json')
+    if os.path.exists(win):
+        out_obj['winnability'] = json.load(open(win))
     json.dump(out_obj, open(out, 'w'), separators=(',', ':'))
     print(f"{len(polls)} statewide polls {polls[0]['date']} .. {polls[-1]['date']}; events {len(out_obj['events'])}; 3PP {len(out_obj['tpp3'])}; LC {len(out_obj['lc'])}; "
           f"sub-state {list(out_obj['substate'])}; MRP la {len(out_obj['mrp'].get('la', []))} lc {len(out_obj['mrp'].get('lc', []))}; leaders {list(out_obj['leaders']['preferred'])} / {list(out_obj['leaders']['approval'])}; subpop {list(out_obj['subpop'])}; seat {list(out_obj['seat'])}")

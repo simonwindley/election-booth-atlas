@@ -1,0 +1,368 @@
+{
+ "source": "Roy Morgan, Finding No. 10346, \"Victorian Election is too close to call today\", 9 October 2026 (Appendix 1)",
+ "url": "https://www.roymorgan.com/findings/10346-victorian-state-voting-intention-by-seat-winnability-september-2026",
+ "fieldwork": "March 2026 \u2013 September 2026",
+ "n": 7708,
+ "date": "2026-10-09",
+ "description": "Roy Morgan's One Nation Winnability Score ranks all 88 districts (1 = most winnable) by combining current voting intention with how closely each electorate's voter profile matches One Nation's core support base. Roy Morgan projects 11 One Nation seats from the same data but has not published which; the ranking is the nearest public guide.",
+ "projection": {
+  "ALP": 40,
+  "COAL": 31,
+  "ONP": 11,
+  "GRN": 6
+ },
+ "ranking": [
+  {
+   "rank": 1,
+   "name": "Morwell"
+  },
+  {
+   "rank": 2,
+   "name": "Gippsland East"
+  },
+  {
+   "rank": 3,
+   "name": "Murray Plains"
+  },
+  {
+   "rank": 4,
+   "name": "Ripon"
+  },
+  {
+   "rank": 5,
+   "name": "Mildura"
+  },
+  {
+   "rank": 6,
+   "name": "Bass"
+  },
+  {
+   "rank": 7,
+   "name": "Eildon"
+  },
+  {
+   "rank": 8,
+   "name": "Narracan"
+  },
+  {
+   "rank": 9,
+   "name": "Euroa"
+  },
+  {
+   "rank": 10,
+   "name": "Hastings"
+  },
+  {
+   "rank": 11,
+   "name": "South-West Coast"
+  },
+  {
+   "rank": 12,
+   "name": "Ovens Valley"
+  },
+  {
+   "rank": 13,
+   "name": "Shepparton"
+  },
+  {
+   "rank": 14,
+   "name": "Eureka"
+  },
+  {
+   "rank": 15,
+   "name": "Gippsland South"
+  },
+  {
+   "rank": 16,
+   "name": "Lowan"
+  },
+  {
+   "rank": 17,
+   "name": "Polwarth"
+  },
+  {
+   "rank": 18,
+   "name": "Sunbury"
+  },
+  {
+   "rank": 19,
+   "name": "St Albans"
+  },
+  {
+   "rank": 20,
+   "name": "Melton"
+  },
+  {
+   "rank": 21,
+   "name": "Benambra"
+  },
+  {
+   "rank": 22,
+   "name": "Kororoit"
+  },
+  {
+   "rank": 23,
+   "name": "Cranbourne"
+  },
+  {
+   "rank": 24,
+   "name": "Nepean"
+  },
+  {
+   "rank": 25,
+   "name": "Bendigo West"
+  },
+  {
+   "rank": 26,
+   "name": "Bendigo East"
+  },
+  {
+   "rank": 27,
+   "name": "Kalkallo"
+  },
+  {
+   "rank": 28,
+   "name": "Macedon"
+  },
+  {
+   "rank": 29,
+   "name": "Lara"
+  },
+  {
+   "rank": 30,
+   "name": "Wendouree"
+  },
+  {
+   "rank": 31,
+   "name": "Werribee"
+  },
+  {
+   "rank": 32,
+   "name": "Monbulk"
+  },
+  {
+   "rank": 33,
+   "name": "Frankston"
+  },
+  {
+   "rank": 34,
+   "name": "Pakenham"
+  },
+  {
+   "rank": 35,
+   "name": "Carrum"
+  },
+  {
+   "rank": 36,
+   "name": "Sydenham"
+  },
+  {
+   "rank": 37,
+   "name": "Croydon"
+  },
+  {
+   "rank": 38,
+   "name": "Dandenong"
+  },
+  {
+   "rank": 39,
+   "name": "Narre Warren South"
+  },
+  {
+   "rank": 40,
+   "name": "Geelong"
+  },
+  {
+   "rank": 41,
+   "name": "Bayswater"
+  },
+  {
+   "rank": 42,
+   "name": "Clarinda"
+  },
+  {
+   "rank": 43,
+   "name": "Niddrie"
+  },
+  {
+   "rank": 44,
+   "name": "Berwick"
+  },
+  {
+   "rank": 45,
+   "name": "Bellarine"
+  },
+  {
+   "rank": 46,
+   "name": "Mornington"
+  },
+  {
+   "rank": 47,
+   "name": "Point Cook"
+  },
+  {
+   "rank": 48,
+   "name": "Evelyn"
+  },
+  {
+   "rank": 49,
+   "name": "Bulleen"
+  },
+  {
+   "rank": 50,
+   "name": "Narre Warren North"
+  },
+  {
+   "rank": 51,
+   "name": "Warrandyte"
+  },
+  {
+   "rank": 52,
+   "name": "Mulgrave"
+  },
+  {
+   "rank": 53,
+   "name": "Yan Yean"
+  },
+  {
+   "rank": 54,
+   "name": "Greenvale"
+  },
+  {
+   "rank": 55,
+   "name": "South Barwon"
+  },
+  {
+   "rank": 56,
+   "name": "Tarneit"
+  },
+  {
+   "rank": 57,
+   "name": "Brighton"
+  },
+  {
+   "rank": 58,
+   "name": "Thomastown"
+  },
+  {
+   "rank": 59,
+   "name": "Mill Park"
+  },
+  {
+   "rank": 60,
+   "name": "Broadmeadows"
+  },
+  {
+   "rank": 61,
+   "name": "Sandringham"
+  },
+  {
+   "rank": 62,
+   "name": "Laverton"
+  },
+  {
+   "rank": 63,
+   "name": "Eltham"
+  },
+  {
+   "rank": 64,
+   "name": "Bundoora"
+  },
+  {
+   "rank": 65,
+   "name": "Rowville"
+  },
+  {
+   "rank": 66,
+   "name": "Mordialloc"
+  },
+  {
+   "rank": 67,
+   "name": "Ringwood"
+  },
+  {
+   "rank": 68,
+   "name": "Williamstown"
+  },
+  {
+   "rank": 69,
+   "name": "Preston"
+  },
+  {
+   "rank": 70,
+   "name": "Ivanhoe"
+  },
+  {
+   "rank": 71,
+   "name": "Bentleigh"
+  },
+  {
+   "rank": 72,
+   "name": "Essendon"
+  },
+  {
+   "rank": 73,
+   "name": "Glen Waverley"
+  },
+  {
+   "rank": 74,
+   "name": "Pascoe Vale"
+  },
+  {
+   "rank": 75,
+   "name": "Footscray"
+  },
+  {
+   "rank": 76,
+   "name": "Kew"
+  },
+  {
+   "rank": 77,
+   "name": "Ashwood"
+  },
+  {
+   "rank": 78,
+   "name": "Malvern"
+  },
+  {
+   "rank": 79,
+   "name": "Hawthorn"
+  },
+  {
+   "rank": 80,
+   "name": "Northcote"
+  },
+  {
+   "rank": 81,
+   "name": "Box Hill"
+  },
+  {
+   "rank": 82,
+   "name": "Richmond"
+  },
+  {
+   "rank": 83,
+   "name": "Caulfield"
+  },
+  {
+   "rank": 84,
+   "name": "Oakleigh"
+  },
+  {
+   "rank": 85,
+   "name": "Albert Park"
+  },
+  {
+   "rank": 86,
+   "name": "Brunswick"
+  },
+  {
+   "rank": 87,
+   "name": "Prahran"
+  },
+  {
+   "rank": 88,
+   "name": "Melbourne"
+  }
+ ]
+}
