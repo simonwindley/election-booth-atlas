@@ -104,13 +104,15 @@ def main(xlsx='raw/demographics/abs-electorate-data-2021v2.xlsx', out='site/data
                   'income_and_expense_mortage': 'Median weekly mortgage repayment', 'income_and_expense_rent': 'Median weekly rent', 'household_ownership_owned': 'Home owned outright',
                   'household_ownership_mortgage': 'Home owned with a mortgage', 'household_ownership_rented': 'Renting', 'country_of_birth_born_in_australia': 'Born in Australia',
                   'language_speaks_only_english': 'Speaks only English at home', 'health_no_longer_term_health_concerns': 'No long-term health condition', 'health_need_assistance': 'Needs assistance with core activities',
-                  'age_median': 'Median age', 'engaged_in_education_tertiary': 'In tertiary education', 'engaged_in_education_secondary': 'In secondary school', 'engaged_in_education_primary': 'In primary school',
-                  'engaged_in_education_preschool': 'In preschool', 'engaged_in_education_other': 'In other education', 'population_australian_citizens': 'Australian citizens', 'population_first_nations': 'First Nations (share of citizens)',
+                  'age_median': 'Median age', 'engaged_in_education_tertiary': 'Students at university or TAFE (share of all students)', 'engaged_in_education_secondary': 'Students at secondary school (share of all students)', 'engaged_in_education_primary': 'Students at primary school (share of all students)',
+                  'engaged_in_education_preschool': 'Students at preschool (share of all students)', 'engaged_in_education_other': 'Students at other institutions (share of all students)', 'population_australian_citizens': 'Australian citizens', 'population_first_nations': 'First Nations (share of citizens)',
                   'armed_forces_service': 'Armed forces service (current or past)', 'volunteering_for_organisation_or_group': 'Volunteers for an organisation or group', 'motor_vehicle_ownership_no_motor_vehicles': 'Households with no motor vehicle',
                   'dwelling_type_and_household_details_persons_per_bedroom': 'Persons per bedroom', 'dwelling_type_and_household_details_people_per_household': 'People per household'}
     for x in indicators:
         if x['id'] in NICE_LABEL:
             x['label'] = NICE_LABEL[x['id']]
+        if x['id'].startswith('engaged_in_education'):
+            x['group'] = 'Students, by type of institution'   # ABS G15: people currently attending, not attainment
     districts = {}
     for name, rec in recs.items():
         cid = SLUG(name)
