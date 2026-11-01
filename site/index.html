@@ -4,6 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>window.__BASEMAP = 'https://tiles.openfreemap.org/styles/positron'; window.__DATA_BASE = 'data/';</script>
+<script>
+// visit counts (GoatCounter: no cookies, no personal data), on the public site only — never on localhost or in previews
+if (/\.github\.io$/.test(location.hostname)) {
+  window.__GC = true;
+  const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
+  s.setAttribute('data-goatcounter', 'https://electionboothatlas.goatcounter.com/count');
+  s.setAttribute('data-goatcounter-settings', '{"no_onload": true}');
+  s.onload = () => { const v = document.querySelector('.view.active'); if (window.goatcounter && v) window.goatcounter.count({ path: '/' + v.id.replace('view-', ''), title: document.title }); };
+  document.head.append(s);
+}
+</script>
 <title>The Election Booth Atlas</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,500;1,400&display=swap">
@@ -446,6 +457,8 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
       <h2>Where the numbers come from</h2>
       <p>Victorian Electoral Commission results pages and spreadsheets (the 2018 pages via the Internet Archive, as the VEC no longer serves them); Australian Electoral Commission Tally Room downloads; Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every district’s booth totals reconcile to the published district totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount). Narracan’s 2022 contest was deferred to a supplementary election on 28 January 2023 after a candidate died during the campaign; it is shown as part of 2022 (the 88th seat of that parliament) and flagged wherever it appears, including in the <code>contests</code> and <code>booths</code> tables under Query.</p>
       <p>Pipeline, raw data and reconciliation checks: the <code>election-analyser</code> project folder.</p>
+      <h2>Privacy</h2>
+      <p>The public site counts visits with <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a>: which tab was opened and roughly where the visit came from, nothing more. No cookies, no personal data, no advertising, and nothing is counted when the atlas is run from a local copy. Map tiles are served by OpenFreeMap.</p>
     </div></div>
   </section>
 </div>
@@ -2052,6 +2065,7 @@ function showView(name) {
   if (name === 'polls') renderPolls();
   if (name === 'demog') renderDemog();
   try { localStorage.setItem('atlas.view', name); } catch (e) {}
+  if (window.__GC && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: '/' + name, title: document.title });   // one count per tab opened; nothing else is sent
 }
 function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at district level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'census'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; el('f-census').hidden = u === 'lc' || state.metric !== 'census'; renderMap(); }
 function setElection(eid) { state.election = eid; el('sel-election').value = eid; renderLiveBox(); renderMap(); if (activeView() === 'dash') renderDash(); }

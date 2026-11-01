@@ -8,6 +8,17 @@ head = f"""<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>window.__BASEMAP = {basemap!r}; window.__DATA_BASE = 'data/';</script>
+<script>
+// visit counts (GoatCounter: no cookies, no personal data), on the public site only — never on localhost or in previews
+if (/\\.github\\.io$/.test(location.hostname)) {{
+  window.__GC = true;
+  const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
+  s.setAttribute('data-goatcounter', 'https://electionboothatlas.goatcounter.com/count');
+  s.setAttribute('data-goatcounter-settings', '{{"no_onload": true}}');
+  s.onload = () => {{ const v = document.querySelector('.view.active'); if (window.goatcounter && v) window.goatcounter.count({{ path: '/' + v.id.replace('view-', ''), title: document.title }}); }};
+  document.head.append(s);
+}}
+</script>
 """
 # move <title>, meta, link, style into head; everything else into body
 import re
