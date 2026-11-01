@@ -113,6 +113,11 @@ at each election).
   VEC early votes are only reported at district level.
 * VEC 2CP by voting centre exists for 70 of 87 districts; where 3+ candidates remained the VEC
   publishes the distribution instead.
+* **Narracan 2022** was deferred to a supplementary election on 28 January 2023 after the
+  Nationals candidate died during the campaign; Labor and the Nationals did not contest it and
+  the final two were Farnham (Liberal) v Wolfe (Independent). It is election `vic2023n` in the
+  database (so `vic2022` has 87 districts); the site folds it into 2022 and flags those rows
+  with `supplementary`.
 * Party codes: `LIB` and `NAT` are kept separate; combine for Coalition. Federal Greens in
   Victoria appear as `GVIC` in AEC data and map to `GRN`.
 

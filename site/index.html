@@ -372,7 +372,7 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
       <p>The Dashboard is the statewide view of any election: primary vote by party with the change since last time, the seat tally against the majority line, a seat spectrum (one box per seat from the strongest Labor seat to the strongest Coalition seat, by primary leader or after preferences), and every seat with who held it, who won or leads, the margin and the 2CP swing, filterable to the seats changing hands or in doubt. On election night it fills in by itself from the live feed; seats are called by this page’s own rule (a clear projected lead for the share of booths in) and marked declared only when the VEC publishes the distribution.</p>
       <p>Switch from Booths to Electorates to see whole-seat results, which include every vote type and are what decide who is elected. Coalition means Liberal plus National; One Nation and the Victorian Socialists have their own colours; Independents are everyone running without a registered party. Shares are of the formal vote.</p>
       <h2>Where the numbers come from</h2>
-      <p>Victorian Electoral Commission results pages and spreadsheets (the 2018 pages via the Internet Archive, as the VEC no longer serves them); Australian Electoral Commission Tally Room downloads; Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every district’s booth totals reconcile to the published district totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount).</p>
+      <p>Victorian Electoral Commission results pages and spreadsheets (the 2018 pages via the Internet Archive, as the VEC no longer serves them); Australian Electoral Commission Tally Room downloads; Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every district’s booth totals reconcile to the published district totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount). Narracan’s 2022 contest was deferred to a supplementary election on 28 January 2023 after a candidate died during the campaign; it is shown as part of 2022 (the 88th seat of that parliament) and flagged wherever it appears, including in the <code>contests</code> and <code>booths</code> tables under Query.</p>
       <p>Pipeline, raw data and reconciliation checks: the <code>election-analyser</code> project folder.</p>
     </div></div>
   </section>
@@ -426,6 +426,15 @@ async function table(name) {
 const D = {};   // loaded tables
 const idx = {}; // indexes
 
+// Narracan's 2022 contest was deferred to a supplementary election on 28 January 2023 (a candidate died during the
+// campaign); it is the 88th seat of the 2022 parliament, so the site folds it into 2022 and flags it
+function foldSupplementary() {
+  const from = 'vic2023n', to = 'vic2022';
+  if (!D.elections.some(e => e.election_id === from)) return;
+  for (const t of ['contests', 'candidates', 'booths', 'shares', 'fp', 'tcp', 'dop', 'contest_party', 'contest_cand', 'contest_tcp']) for (const r of D[t] || []) if (r.election_id === from) { r.election_id = to; if (t === 'contests' || t === 'booths') r.supplementary = from; }
+  D.elections = D.elections.filter(e => e.election_id !== from);
+}
+const suppNote = (c) => c && c.supplementary ? 'Supplementary election, 28 January 2023: the 2022 poll here was deferred after a candidate died during the campaign. Counted as part of 2022.' : '';
 function buildIndexes() {
   idx.boothsByKey = new Map(D.booths.map(b => [b.election_id + '|' + b.booth_id, b]));
   idx.sharesByBooth = new Map();
@@ -699,6 +708,7 @@ function renderContestDetail(eid, cid) {
   const c = idx.contestById.get(eid + '|' + cid), e = idx.electionById.get(eid), ps = contestShares(eid, cid), w = idx.elected.get(eid + '|' + cid);
   const root = el('detail'); root.innerHTML = '';
   root.append(h('h2', {}, c ? c.contest_name : cid), h('div', { class: 'meta' }, `${e.name} · ${c && c.house === 'HoR' ? 'federal division' : 'state district'}`));
+  if (suppNote(c)) root.append(h('div', { class: 'hint' }, suppNote(c)));
   if (w) root.append(h('div', { style: 'margin:4px 0 10px' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(w.party)}` }), h('strong', {}, `${w.surname}, ${w.given_name}`), ' elected'), h('div', { class: 'hint' }, w.party_name || PARTY_NAME[w.party] || '')));
   const enrol = c && c.enrolment ? `${fmt(c.enrolment)} enrolled · turnout ${pct((ps.formal + ps.informal) / c.enrolment)} · ` : '';
   root.append(h('div', { class: 'hint' }, `${enrol}${fmt(ps.formal)} formal · ${fmt(ps.informal)} informal (${pct(ps.informal / (ps.formal + ps.informal))})`));
@@ -729,6 +739,7 @@ function renderDetail(eid, bid) {
   const b = idx.boothsByKey.get(eid + '|' + bid); const c = idx.contestById.get(eid + '|' + b.contest_id); const e = idx.electionById.get(eid);
   const root = el('detail'); root.innerHTML = '';
   root.append(h('h2', {}, b.booth_name, isFresh(eid, bid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(b.updated_at)) : ''), h('div', { class: 'meta' }, `${c ? c.contest_name : b.contest_id} · ${e.name} · ${b.geo_source === 'geocoded_approx' ? 'approximate location' : b.geo_source === 'aec' || b.geo_source === 'aec_name_match' ? 'located' : 'not located'}`));
+  if (suppNote(c)) root.append(h('div', { class: 'hint' }, suppNote(c)));
   if (eid === LIVE.election && !b.reported) {
     root.append(h('div', { class: 'hint', style: 'margin:6px 0' }, LIVE.available ? 'No figures from this booth yet.' : 'A 2022 booth, carried forward for 2026. Figures appear here on election night.'), h('div', { style: 'margin:4px 0 8px' }, h('button', { class: 'btn', onclick: () => { setUnit('contest'); selectContest(eid, b.contest_id, true); } }, `Open ${c ? c.contest_name : 'the district'}: candidates and history`)));
   } else if (eid === LIVE.election && b.reported) root.append(h('div', { class: 'hint', style: 'margin:4px 0' }, `Figures first seen ${fmtTime(b.first_seen)}, last changed ${fmtTime(b.updated_at)}.`));
@@ -935,7 +946,7 @@ async function render2026() {
 }
 function lastContest(cid) {   // the most recent contest in this seat: a by-election if there was one, else 2022
   const by = D.elections.filter(e => e.election_id.startsWith('vicby-') && D.contests.some(c => c.election_id === e.election_id && c.contest_id === cid)).sort((a, b) => b.date.localeCompare(a.date));
-  return by.length ? by[0].election_id : (cid === 'vic-narracan' ? 'vic2023n' : 'vic2022');
+  return by.length ? by[0].election_id : 'vic2022';
 }
 function render2026Table() {
   const { contests, candidates, retiring } = y26;
@@ -972,8 +983,7 @@ const activeView = () => { const v = document.querySelector('.view.active'); ret
 // one seat's standing: who holds it going in, who has it now (or leads), how sure, and by how much
 function seatStatus(eid, cid) {
   const c = idx.contestById.get(eid + '|' + cid);
-  let prevEid = eid === 'vic2023n' ? 'vic2018' : PREV[eid], pc = prevEid ? contestIn(prevEid, cid, eid) : null;
-  if (!pc && prevEid === 'vic2022' && contestIn('vic2023n', cid, eid)) { prevEid = 'vic2023n'; pc = contestIn(prevEid, cid, eid); }
+  const prevEid = PREV[eid], pc = prevEid ? contestIn(prevEid, cid, eid) : null;
   const pw = pc ? idx.elected.get(prevEid + '|' + pc.contest_id) : null;
   const prevT = pc ? contestTcp(prevEid, pc.contest_id) : null;
   const ps = contestShares(eid, cid); let leader = null; for (const q of PARTIES) if (ps[q] && (!leader || ps[q].share > ps[leader].share)) leader = q;
@@ -1014,8 +1024,8 @@ function stateTotals(eid, cids) {
   for (const p of PARTIES) if (out[p]) out[p].share = out[p].votes / out.formal;
   return out;
 }
-const laContests = (eid) => D.contests.filter(c => (c.election_id === eid || (eid === 'vic2022' && c.election_id === 'vic2023n')) && c.house !== 'LC');
-function dashRows(eid) { return laContests(eid).map(c => { const r = seatStatus(c.election_id, c.contest_id); if (c.election_id !== eid) r.name += ' (supplementary, Jan 2023)'; return r; }); }
+const laContests = (eid) => D.contests.filter(c => c.election_id === eid && c.house !== 'LC');
+function dashRows(eid) { return laContests(eid).map(c => { const r = seatStatus(eid, c.contest_id); if (c.supplementary) r.name += ' (supplementary, Jan 2023)'; return r; }); }
 function renderDash() {
   const eid = state.election, e = idx.electionById.get(eid); if (!e || !D.contests.length) return;
   const sel = el('dash-election'); if (sel.value !== eid) sel.value = eid; sel.hidden = false;
@@ -1719,6 +1729,7 @@ async function boot() {
     try { const man = await (await fetch(DATA + 'manifest.json')).json(); if (man.ext === '.json') DATA_GZ = false; } catch (e) {}
     const names = ['elections', 'contests', 'candidates', 'booths', 'shares', 'fp', 'tcp', 'venues', 'dop', 'contest_party', 'contest_cand', 'contest_tcp'];
     const loaded = await Promise.all(names.map(table)); names.forEach((n, i) => D[n] = loaded[i]);
+    foldSupplementary();
     // the 2026 register (declared candidates, key dates) makes 2026 an election in its own right, live-fed on the night
     try {
       const [c26, k26, r26] = await Promise.all(['c2026_contests', 'c2026_candidates', 'c2026_retiring'].map(table));
