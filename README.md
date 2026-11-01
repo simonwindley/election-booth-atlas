@@ -136,6 +136,17 @@ In the site, 2026 is an election in the list from the start (2022 boundaries and
 declared candidates with their links; each seat's history and voting information) and fills in from the
 live feed on election night — see `live/README.md`.
 
+## Opinion polls (`site/data/polls_vic2026.json`)
+
+Published polling for the 2026 election, compiled from Wikipedia's "Opinion polling for the 2026
+Victorian state election" page. The page's tables are captured from the browser as expanded grids into
+`raw/polls/wikipedia_vic2026_polls.json` (see the capture note in `src/load_polls.py`), and
+`python3 -m src.load_polls` parses them: statewide voting intention (primary, 2PP, alternative 2PP
+splits, with leadership-change events), three-party preferred, Legislative Council intention,
+sub-state breakdowns, MRP seat tallies, preferred premier and approval, subpopulations and the one
+seat poll. Dates are the last day of fieldwork. The Polls tab in the site is entirely separate from
+the dashboard and the live projections.
+
 ## Boundaries and catchments
 
 `data/boundaries/*.geojson` carry a `contest_id` matching the results tables, simplified to ~30 m.
