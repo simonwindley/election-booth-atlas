@@ -1002,6 +1002,14 @@ function seatStatus(eid, cid) {
       else if ((lead >= 0.08 && f >= 0.15) || (lead >= 0.05 && f >= 0.3) || (lead >= 0.03 && f >= 0.6)) out.status = 'called';
       else if (lead >= 0.02 && f >= 0.2) out.status = 'leaning';
       else out.status = 'doubt';
+      // the VEC's election-night 2CP is indicative: counted between two candidates it nominated in advance. If a third
+      // candidate is at or near the top two on primaries, that pair may be the wrong one, so the seat stays in doubt
+      if (out.status !== 'declared') {
+        const fp = lc.candidates.filter(c => c.fp_votes != null); const ids = new Set(pr.pair.map(x => x.cand && x.cand.candidate_id));
+        const low = Math.min(...fp.filter(c => ids.has(c.candidate_id)).map(c => c.fp_votes)); const tot = fp.reduce((a, c) => a + c.fp_votes, 0);
+        const rival = fp.filter(c => !ids.has(c.candidate_id) && tot && c.fp_votes >= low - 0.03 * tot).sort((a, b) => b.fp_votes - a.fp_votes)[0];
+        if (rival && isFinite(low)) { out.pairRisk = `${rival.surname} (${PARTY_NAME[rival.party] || rival.party}) ${pct(rival.fp_votes / tot)} on primaries, ${rival.fp_votes >= low ? 'ahead of' : 'close behind'} the lower of the VEC's two-candidate pair (${pct(low / tot)}); the pair may be wrong`; if (out.status !== 'doubt') out.status = 'doubt'; }
+      }
     } else if (lc && ps.formal) { out.status = 'counting'; out.winner = leader ? { party: leader, cand: null } : null; }
     if (out.margin == null) { const le = lastContest(cid), lt = contestTcp(le, cid); if (lt && lt.pair.length >= 2) { out.lastMargin = lt.pair[0].share - 0.5; out.lastParty = grpParty(lt.pair[0].party); out.lastEid = le; } }
   } else {
@@ -1084,7 +1092,7 @@ function renderDash() {
       h('td', { class: 'num' }, now[p] ? fmt(now[p].votes) : '–')));
   }
   st.append(tbl, h('div', { class: 'hint', style: 'margin-top:6px' }, `Primary vote over every vote type${partial ? `, in the ${countedCids.size} districts counting so far; the change is against the same districts at the previous election` : prevE ? '; change in points against ' + prevE.name : ''}. ` +
-    (live ? 'Seats are called here when the projected or counted two-candidate lead is clear for the share of booths in (8 pts with 15% of booths, 5 pts with 30%, 3 pts with 60%), declared when the VEC publishes the distribution or names the member; leaning: ahead by 2 pts or more with a fifth of booths in. The call is this page\'s, not the VEC\'s. Net seats: gains less losses among the seats decided so far, against who held each seat going in.' :
+    (live ? 'Seats are called here when the projected or counted two-candidate lead is clear for the share of booths in (8 pts with 15% of booths, 5 pts with 30%, 3 pts with 60%), declared when the VEC publishes the distribution or names the member; leaning: ahead by 2 pts or more with a fifth of booths in. A seat stays in doubt while a candidate outside the VEC\'s nominated two-candidate pair is at or within 3 pts of the lower of the pair on primaries, since the night\'s 2CP is only indicative and may be counted between the wrong two. The call is this page\'s, not the VEC\'s. Net seats: gains less losses among the seats decided so far, against who held each seat going in.' :
       'Net seats: against the party\'s total at the previous election. Gains in the seat table are against the winner of the same-named seat last time; redistributions are not allowed for, so a new seat shows as a gain.')));
   // ---- seat table
   el('dash-2026').style.display = eid === 'vic2026' ? 'contents' : 'none'; if (eid === 'vic2026') render2026();
@@ -1109,7 +1117,7 @@ function renderStrip(rows, eid) {
     const box = h('div', { class: 'box' + (v.hollow ? ' hollow' : ''), tabindex: '0', style: v.hollow ? `border-color:${partyColor(v.party)}` : `background:${mix(css('--surface'), partyColor(v.party), 0.4 + 0.6 * t)}`, 'aria-label': r.name,
       onclick: () => { setUnit('contest'); setElection(r.c.election_id); selectContest(r.c.election_id, r.cid, true); showView('map'); } });
     const show = (ev) => {
-      tip.innerHTML = ''; tip.append(h('div', {}, h('strong', {}, r.name)), h('div', { class: 'k' }, `${r.heldLabel && r.held ? 'held by ' + r.heldLabel : r.heldLabel || ''}${live ? ' · ' + STATUS_LABEL[r.status] : ''}`));
+      tip.innerHTML = ''; tip.append(h('div', {}, h('strong', {}, r.name)), h('div', { class: 'k' }, `${r.heldLabel && r.held ? 'held by ' + r.heldLabel : r.heldLabel || ''}${live ? ' · ' + STATUS_LABEL[r.status] : ''}`), r.pairRisk ? h('div', { class: 'k' }, 'Pair at risk: ' + r.pairRisk) : '');
       if (dash.strip === 'tcp') {
         const pr = r.pr || (r.share != null ? contestTcp(r.c.election_id, r.cid) : null);
         if (pr && pr.pair) { for (const c of pr.pair) tip.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(c.party))}` }), `${c.cand ? c.cand.surname : ''} (${PARTY_NAME[c.party] || c.party})`), h('b', {}, pct(c.share)))); tip.append(h('div', { class: 'k' }, (pr.method === 'projected' ? 'projected · ' : pr.method === 'counted' ? 'count so far · ' : '') + (r.swing != null ? '2CP swing ' + pts(r.swing) + ' pts' : ''))); }
@@ -1160,7 +1168,7 @@ function renderDashTable(rows, eid) {
       h('td', { class: 'num' }, r.swing != null ? pts(r.swing) : '–'),
       h('td', {}, r.leader ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.leader)}` }), `${PARTY_SHORT[r.leader]} ${pct(r.ps[r.leader].share)}`) : h('span', { class: 'hint' }, '–')),
       h('td', { class: 'hint' }, live ? (r.counted ? `${r.counted.booths_reported || 0}/${r.counted.booths_listed || 0} booths${r.counted.pct_enrolment != null ? ' · ' + r.counted.pct_enrolment + '%' : ''}` : '–') : fmt(r.ps.formal)),
-      h('td', {}, h('span', { class: 'st ' + r.status }, STATUS_LABEL[r.status])),
+      h('td', {}, h('span', { class: 'st ' + r.status, title: r.pairRisk || '' }, STATUS_LABEL[r.status]), r.pairRisk ? h('div', { class: 'hint', style: 'max-width:220px' }, 'Pair at risk: ' + r.pairRisk.split(',')[0]) : ''),
       live ? h('td', { class: 'hint' }, r.updated ? fmtTime(r.updated) : '') : '');
     tb.append(tr);
   }
