@@ -269,7 +269,9 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
             <option value="primary">Leader on primary votes</option>
             <option value="tcpwin">Winner after preferences (2PP/2CP)</option>
             <option value="senate">Senate primary share (federal only)</option>
+            <option value="census">Census indicator (2021, state seats)</option>
           </select></div>
+        <div class="field" id="f-census" hidden><label for="sel-census">Indicator</label><select id="sel-census"></select></div>
         <div class="field" id="f-party"><label for="sel-party">Party</label>
           <select id="sel-party">
             <option value="ALP">Labor</option><option value="COAL">Coalition</option><option value="GRN">Greens</option><option value="ONP">One Nation</option><option value="VSP">Socialists</option><option value="IND">Independents</option><option value="OTH">Others</option>
@@ -627,6 +629,7 @@ function tipForContest(cid) {
 function metricValueContest(cid) {
   const eid = state.election, p = state.party, ps = contestShares(eid, cid);
   if (state.metric === 'senate') { const ss = senateDivShares(eid, cid); return ss && ss.formal ? { v: ss[p] ? ss[p].share : 0, label: `${PARTY_NAME[p]} Senate primary`, text: pct(ss[p] ? ss[p].share : 0) } : { v: null, label: 'Senate', text: 'federal elections only' }; }
+  if (state.metric === 'census') { const xi = DEMOG && DEMOG.ind.get(state.census), d = demogFor(eid, cid); return xi && d && d[state.census] != null ? { v: d[state.census], label: xi.label, text: fmtInd(xi.kind, d[state.census]) } : { v: null, label: 'Census', text: eid.startsWith('vic') ? 'no figure for this seat' : 'state seats only so far' }; }
   if (eid === LIVE.election && (state.metric === 'tcpwin' || state.metric === 'tcp')) { const lv = liveContestMetric(cid, p); if (lv) return lv; }
   if (state.metric === 'share') return { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
   if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
@@ -650,6 +653,7 @@ function metricValueContest(cid) {
 function metricValue(bid) {
   const eid = state.election, p = state.party, ps = partyShares(eid, bid);
   if (state.metric === 'senate') { const ss = senateShares(eid, bid); return ss && ss.formal ? { v: ss[p] ? ss[p].share : 0, label: `${PARTY_NAME[p]} Senate primary`, text: pct(ss[p] ? ss[p].share : 0) } : { v: null, label: 'Senate', text: eid.startsWith('fed') ? 'no Senate count at this booth' : 'federal elections only' }; }
+  if (state.metric === 'census') return { v: null, label: 'Census', text: 'seat level only so far: switch to Electorates' };
   if (state.metric === 'share') return { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
   if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
   if (state.metric === 'tcpwin') { const t = tcpShares(eid, bid); if (!t) return { cat: null, label: 'After preferences', text: 'no 2CP count at this booth' }; const top = [...t].sort((a, b) => b.share - a.share)[0]; const cat = (top.party === 'LIB' || top.party === 'NAT') ? 'COAL' : (PARTIES.includes(top.party) ? top.party : 'OTH'); return { cat, strength: top.share, label: 'Ahead after preferences', text: `${top.cand ? top.cand.surname : cat} ${pct(top.share)}` }; }
@@ -679,6 +683,7 @@ async function renderMap() {
   if (state.unit === 'lc') return renderLcMap();
   clearLcMarkers();
   if (state.metric === 'senate') await ensureSenate();
+  if (state.metric === 'census') { await ensureDemog(); if (!state.census) state.census = 'income_and_expense_income'; }
   const eid = state.election, byContest = state.unit === 'contest';
   const booths = D.booths.filter(b => b.election_id === eid && b.booth_type === 'ordinary' && b.lat != null);
   const vals = byContest
@@ -691,6 +696,10 @@ async function renderMap() {
     const lo = state.metric === 'primary' ? 0.25 : 0.5, hi = state.metric === 'primary' ? 0.55 : 0.75;   // share range mapped to colour depth
     colorOf = (x) => { if (!x.m.cat) return null; const t = Math.max(0, Math.min(1, ((x.m.strength || 0) - lo) / (hi - lo))); return mix(css('--map-bg'), partyColor(x.m.cat), 0.45 + 0.55 * t); };
     legend = legendCategorical(byContest, state.metric, lo, hi);
+  } else if (state.metric === 'census') {
+    const xi = DEMOG.ind.get(state.census) || { label: '', kind: 'share' }; const vs = vals.map(x => x.m.v).filter(v => v != null); const lo = vs.length ? Math.min(...vs) : 0, hi = vs.length ? quantile(vs, 0.98) : 1;
+    colorOf = (x) => x.m.v == null ? null : mix(css('--map-bg'), css('--accent'), 0.1 + 0.9 * Math.max(0, Math.min(1, (x.m.v - lo) / ((hi - lo) || 1))));
+    legend = legendRamp(`${xi.label} (${(xi.group || '').toLowerCase()}), 2021 Census`, [mix(css('--map-bg'), css('--accent'), 0.1), css('--accent')], [fmtInd(xi.kind, lo), fmtInd(xi.kind, hi) + (vs.some(v => v > hi) ? '+' : '')], byContest ? `Victoria: ${fmtInd(xi.kind, DEMOG.state[state.census])}. ${eid === 'vic2022' || eid === LIVE.election || eid.startsWith('vicby') ? '' : 'Matched to the 2022 boundaries by seat name. '}Hollow: no figure.` : 'Census figures are by seat for now: switch to Electorates. Booth catchments follow with the ABS small-area data.', null);
   } else if (state.metric === 'share' || state.metric === 'tcp' || state.metric === 'senate') {
     const vs = vals.map(x => x.m.v).filter(v => v != null); const max = quantile(vs, 0.98) || 0.5;
     colorOf = (x) => x.m.v == null ? null : seqColor(state.party, x.m.v, max);
@@ -748,7 +757,7 @@ function legendRamp(title, stops, labels, note, byContest) {
   const ramp = h('div', { class: 'ramp', style: `background: linear-gradient(90deg, ${stops.join(',')})` }); box.append(ramp);
   box.append(h('div', { class: 'ramp-labels' }, ...labels.map(l => h('span', {}, l))));
   if (note) box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, note));
-  box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, byContest ? 'All votes, including early and postal' : 'Dot size: votes cast at the booth'));
+  if (byContest !== null) box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, byContest ? 'All votes, including early and postal' : 'Dot size: votes cast at the booth'));
   return box;
 }
 function legendCategorical(byContest, metric, lo, hi) {
@@ -1462,8 +1471,8 @@ async function renderDemog() {
   const fit = out.fit; const rTxt = fit ? `r = ${fit.r.toFixed(2)} (${Math.abs(fit.r) < 0.2 ? 'no real relationship' : Math.abs(fit.r) < 0.4 ? 'weak' : Math.abs(fit.r) < 0.6 ? 'moderate' : 'strong'}${fit.r < -0.2 ? ', negative' : fit.r > 0.2 ? ', positive' : ''})` : '';
   const legend = el('dm-legend'); legend.innerHTML = '';
   if (cats) legend.append(legendCategorical(true, dm.metric, dm.metric === 'primary' ? 0.25 : 0.5, dm.metric === 'primary' ? 0.55 : 0.75));
-  else if (isPts) legend.append(legendRamp(`${PARTY_NAME[dm.party]} ${dm.metric === 'tcpswing' ? 'two-candidate preferred' : 'primary'}, change in points`, [NEG(), css('--surface-2'), partyColor(dm.party)], [pts(-points.lim, 0), '0', pts(points.lim, 0)], '', true));
-  else legend.append(legendRamp(`${PARTY_NAME[dm.party]} ${dm.metric === 'tcp' ? 'two-candidate preferred' : 'primary vote'}`, [mix(base, partyColor(dm.party), 0.12), partyColor(dm.party)], ['0%', pct(points.max, 0) + '+'], '', true));
+  else if (isPts) legend.append(legendRamp(`${PARTY_NAME[dm.party]} ${dm.metric === 'tcpswing' ? 'two-candidate preferred' : 'primary'}, change in points`, [NEG(), css('--surface-2'), partyColor(dm.party)], [pts(-points.lim, 0), '0', pts(points.lim, 0)], '', null));
+  else legend.append(legendRamp(`${PARTY_NAME[dm.party]} ${dm.metric === 'tcp' ? 'two-candidate preferred' : 'primary vote'}`, [mix(base, partyColor(dm.party), 0.12), partyColor(dm.party)], ['0%', pct(points.max, 0) + '+'], '', null));
   const total = laContests(dm.election).length;
   const filtTxt = xi.partial ? ` of ${total}: the ${xi.label} share is only known where it is among the seat's three largest ${xi.group.split(' (')[0].toLowerCase()} groups, so seats where it is smaller are missing and the fit is only across those shown` : '';
   el('dm-note').textContent = `${points.length} seats${filtTxt}, one dot each, coloured by the vertical measure exactly as the map colours electorates; dashed line: least-squares fit, ${rTxt}. The dotted vertical line is the Victorian figure. ${dm.election === 'vic2022' || dm.election === LIVE.election || dm.election.startsWith('vicby') ? '' : 'Seats are matched to the 2022 boundaries by name, so redistributed seats carry the census profile of their current namesake. '}Click a dot to open the seat on the map.`;
@@ -1481,7 +1490,7 @@ async function renderDemog() {
   const sorted = points.slice().sort((a, b) => b.x - a.x);
   el('dm-rank-title').textContent = `Seats ranked by ${xi.label.toLowerCase()}`;
   el('dm-table').innerHTML = ''; el('dm-table').append(h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, 'Seat'), h('th', { class: 'num' }, xi.label), h('th', { class: 'num' }, yName))), h('tbody', {}, ...sorted.map((p, i) => h('tr', { class: 'clickable', onclick: () => { setUnit('contest'); setElection(p.eid); selectContest(p.eid, p.cid, true); showView('map'); } }, h('td', { class: 'num' }, i + 1), h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${p.color || 'transparent'};border:1px solid var(--line)` }), p.name)), h('td', { class: 'num' }, fx(p.x)), h('td', { class: 'num' }, p.text))))));
-  el('dm-source').textContent = `Source: ${DEMOG.source}. Shares are of the relevant census population (persons, households or dwellings as the indicator implies); medians are weekly.`;
+  el('dm-source').innerHTML = ''; el('dm-source').append(h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); state.metric = 'census'; state.census = dm.x; el('sel-metric').value = 'census'; el('sel-metric').dispatchEvent(new Event('change')); setElection(dm.election); showView('map'); } }, 'Show this indicator on the map'), ` · Source: ${DEMOG.source}. Shares are of the relevant census population (persons, households or dwellings as the indicator implies); medians are weekly.`);
 }
 function trendChart(series, elections, xi) {
   const W = 560, H = 260, m = { l: 40, r: 60, t: 14, b: 40 };
@@ -2044,7 +2053,7 @@ function showView(name) {
   if (name === 'demog') renderDemog();
   try { localStorage.setItem('atlas.view', name); } catch (e) {}
 }
-function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at district level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; renderMap(); }
+function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at district level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'census'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; el('f-census').hidden = u === 'lc' || state.metric !== 'census'; renderMap(); }
 function setElection(eid) { state.election = eid; el('sel-election').value = eid; renderLiveBox(); renderMap(); if (activeView() === 'dash') renderDash(); }
 function fillElectionSelect(sel, ids) { sel.innerHTML = ''; for (const id of ids) sel.append(h('option', { value: id }, idx.electionById.get(id).name)); }
 function searchBooths(q) {
@@ -2080,7 +2089,9 @@ async function boot() {
     for (const b of el('strip-mode').querySelectorAll('button')) { b.setAttribute('aria-pressed', b.dataset.v === dash.strip); b.addEventListener('click', () => { dash.strip = b.dataset.v; for (const o of el('strip-mode').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); try { localStorage.setItem('atlas.strip', dash.strip); } catch (e) {} renderStrip(dashRows(state.election), state.election); }); }
     fillElectionSelect(el('cmp-a'), ids); fillElectionSelect(el('cmp-b'), ids); el('cmp-a').value = 'fed2022'; el('cmp-b').value = 'vic2022';
     el('sel-election').addEventListener('change', (e) => setElection(e.target.value));
-    el('sel-metric').addEventListener('change', (e) => { state.metric = e.target.value; el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin'; el('f-gap').hidden = state.metric !== 'gap'; renderMap(); });
+    el('sel-metric').addEventListener('change', async (e) => { state.metric = e.target.value; el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'census'; el('f-gap').hidden = state.metric !== 'gap'; el('f-census').hidden = state.metric !== 'census';
+      if (state.metric === 'census') { await ensureDemog(); const cs = el('sel-census'); if (!cs.options.length) { const groups = new Map(); for (const x of DEMOG.indicators) if (x.kind !== 'text') (groups.get(x.group) || groups.set(x.group, []).get(x.group)).push(x); for (const [g, arr] of groups) { const og = h('optgroup', { label: g }); for (const x of arr) og.append(h('option', { value: x.id }, x.label)); cs.append(og); } cs.value = state.census || 'income_and_expense_income'; cs.addEventListener('change', (ev) => { state.census = ev.target.value; renderMap(); }); } state.census = cs.value; if (state.unit === 'booth') { setUnit('contest'); return; } }
+      renderMap(); });
     el('sel-party').addEventListener('change', (e) => { state.party = e.target.value; renderMap(); });
     el('sel-gap').addEventListener('change', (e) => { state.gap = e.target.value; renderMap(); });
     el('sel-bound').addEventListener('change', (e) => { state.bound = e.target.value; renderMap(); });
