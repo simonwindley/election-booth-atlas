@@ -471,11 +471,25 @@ def run_cycle(args, log=print):
               'interval': args.loop}
     json.dump(status, open(os.path.join(args.out, 'status.json'), 'w'), indent=1)
     log(f'cycle done in {status["seconds"]}s: {f.n_fetch} fetches, {len(f.errors)} errors, {new["n_changed_booths"]} booths changed in {new["n_changed_contests"]} districts')
-    if args.publish or args.publish_cmd:
+    if args.publish and not (new['n_changed_booths'] or new['n_changed_contests'] or not prev):
+        # nothing new this cycle; still push in case an earlier push failed and a commit is waiting
+        import subprocess
+        root = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+        try:
+            r = subprocess.run('git rev-list --count @{u}..HEAD', shell=True, cwd=root, capture_output=True, text=True, timeout=30)
+            pending = int((r.stdout or '0').strip() or 0) if r.returncode == 0 else 0
+            if pending:
+                r = subprocess.run('git push -q', shell=True, cwd=root, capture_output=True, text=True, timeout=180)
+                log(f'nothing new; pushed {pending} waiting commit(s)' if r.returncode == 0 else f'nothing new; push of waiting commit failed: {(r.stderr or r.stdout).strip()[-300:]}')
+            else:
+                log('nothing new to publish')
+        except Exception as e:  # noqa
+            log(f'nothing new to publish ({e})')
+    elif args.publish or args.publish_cmd:
         import subprocess
         root = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
         cmd = args.publish_cmd or ('git add site/data/live/latest.json site/data/live/status.json site/data/live/changes.json && '
-                                   f'git commit -q -m "live feed {now}" && git push -q')
+                                   f'(git diff --cached --quiet || (git commit -q -m "live feed {now}" && git push -q))')
         try:
             r = subprocess.run(cmd, shell=True, cwd=root, capture_output=True, text=True, timeout=180)
             log('published' if r.returncode == 0 else f'publish failed ({r.returncode}): {(r.stderr or r.stdout).strip()[-300:]}')

@@ -1,4 +1,4 @@
-# Election Analyser — Victorian state and federal results by polling place
+# The Election Booth Atlas — Victorian state and federal results by polling place
 
 A pipeline that pulls Victorian state (VEC) and federal (AEC) election results down to
 polling-place level, puts them in one schema, pins each polling place to map coordinates,
@@ -30,7 +30,7 @@ data/
   boundaries/             # simplified GeoJSON: vic_la_2013/2022, vic_lc_2013/2022, fed_2021/2024
   catchments/             # Voronoi booth catchments per election (+ H3 res-7 hex shares, review lists)
   bundle/                 # Parquet tables + GeoJSON + manifest.json (for DuckDB-style tooling)
-site/                     # the Booth Atlas static site: app.html, index.html, build.py, data/ (see site/README.md)
+site/                     # the Election Booth Atlas static site: app.html, index.html, build.py, data/ (see site/README.md)
   analysis/               # outputs of src/compare.py
   elections.sqlite        # everything in one database, with analysis views
 live/                     # election-night poller (vec_live.py, stdlib only) and how to run it (live/README.md)
@@ -139,13 +139,29 @@ live feed on election night — see `live/README.md`.
 ## Opinion polls (`site/data/polls_vic2026.json`)
 
 Published polling for the 2026 election, compiled from Wikipedia's "Opinion polling for the 2026
-Victorian state election" page. The page's tables are captured from the browser as expanded grids into
-`raw/polls/wikipedia_vic2026_polls.json` (see the capture note in `src/load_polls.py`), and
-`python3 -m src.load_polls` parses them: statewide voting intention (primary, 2PP, alternative 2PP
+Victorian state election" page. To refresh it:
+
+    python3 live/polls_update.py --publish     # fetches the page, rebuilds the JSON, commits and pushes
+
+(`live/polls_update.py` is standard-library only; it expands the page's tables into grids in
+`raw/polls/wikipedia_vic2026_polls.json` and then runs `src.load_polls`, which parses them: statewide voting intention (primary, 2PP, alternative 2PP
 splits, with leadership-change events), three-party preferred, Legislative Council intention,
 sub-state breakdowns, MRP seat tallies, preferred premier and approval, subpopulations and the one
-seat poll. Dates are the last day of fieldwork. The Polls tab in the site is entirely separate from
-the dashboard and the live projections.
+seat poll.) Dates are the last day of fieldwork. The Roy Morgan One Nation winnability ranking is
+kept by hand in `raw/polls/roymorgan/` and merged in. The Polls tab in the site is entirely separate
+from the dashboard and the live projections.
+
+## Demographics (`site/data/demog_vic2022.json`)
+
+2021 Census indicators for the 88 districts on the 2022 boundaries, from the Parliament of Victoria
+Library's "Electorate data cards" workbook (`raw/demographics/abs-electorate-data-2021v2.xlsx`, with the
+cards themselves as a PDF alongside): `python3 -m src.load_demographics`. About 50 numeric indicators
+(population, age, income, tenure, birthplace, language, education, religion, health, vehicles, family)
+plus the "most common" text fields. The Demographics tab plots any map metric for any state election
+against any indicator, seat by seat, with the correlation at each election since 2010; earlier
+elections are matched to the 2022 boundaries by seat name. The seat panels show a "Who lives here"
+block from the same file. Next step when the ABS site is back: SA1-level DataPacks (2011/2016/2021)
+aggregated to booth catchments, and the federal divisions.
 
 ## Boundaries and catchments
 

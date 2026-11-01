@@ -1,5 +1,5 @@
 # Publishes the site/ folder to GitHub Pages on every push to main (including the election-night feed commits).
-name: Publish the Booth Atlas
+name: Publish the Election Booth Atlas
 on:
   push:
     branches: [main]

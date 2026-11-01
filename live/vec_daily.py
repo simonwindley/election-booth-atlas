@@ -306,7 +306,7 @@ def run(args, log):
     if args.publish or args.publish_cmd:
         import subprocess
         root = os.path.abspath(os.path.join(HERE, '..'))
-        cmd = args.publish_cmd or 'git add site/data/live/daily.json site/data/live/daily && git commit -q -m "daily capture %s" && git push -q' % today
+        cmd = args.publish_cmd or 'git add site/data/live/daily.json site/data/live/daily && (git diff --cached --quiet || (git commit -q -m "daily capture %s" && git push -q))' % today
         r = subprocess.run(cmd, shell=True, cwd=root, capture_output=True, text=True, timeout=180)
         log('published' if r.returncode == 0 else f'publish failed ({r.returncode}): {(r.stderr or r.stdout).strip()[-300:]}')
 

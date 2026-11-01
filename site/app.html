@@ -1,4 +1,4 @@
-<title>Victoria Booth Atlas</title>
+<title>The Election Booth Atlas</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,500;1,400&display=swap">
 <style>
@@ -151,6 +151,16 @@ table.data tr.clickable:hover td { background: var(--surface-2); }
 .pbar { display: inline-block; width: 90px; vertical-align: middle; margin-left: 6px; }
 .dash-title { font-family: var(--font-display); font-weight: 500; font-size: 22px; margin: 0; }
 .chart-panel { position: relative; }
+.chart .pt { cursor: pointer; }
+.legend-inline { max-width: 320px; margin-top: 4px; }
+.legend-inline h4 { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--fg-3); font-weight: 500; margin: 0 0 4px; }
+.chart .pt:hover { stroke: var(--fg); stroke-width: 2; }
+.chart .fit { fill: none; stroke: var(--fg-3); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.chart .avg { stroke: var(--fg-3); stroke-dasharray: 2 3; }
+.census { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 4px; }
+.census td { padding: 2px 4px; border-bottom: 1px solid var(--surface-2); }
+.census td.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.census td.k { color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
 .win-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 2px 18px; font-size: 13px; }
 .win-grid button { display: flex; align-items: center; gap: 8px; background: none; border: 0; padding: 2px 4px; text-align: left; cursor: pointer; color: var(--fg); border-radius: 3px; font: inherit; }
 .win-grid button:hover { background: var(--surface-2); }
@@ -219,13 +229,14 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
 
 <div class="app">
   <header class="top">
-    <div class="brand"><h1>Victoria Booth Atlas</h1><span class="sub">state and federal results by polling place, 2010–2026</span></div>
+    <div class="brand"><h1>The Election Booth Atlas</h1><span class="sub">every polling place, election after election · Victoria, 2010–2026</span></div>
     <nav class="views" aria-label="Views">
       <button data-view="dash">Dashboard</button>
       <button data-view="map" aria-current="page">Map</button>
       <button data-view="venue">Venue</button>
       <button data-view="compare">Compare</button>
       <button data-view="polls">Polls</button>
+      <button data-view="demog">Demographics</button>
       <button data-view="query">Query</button>
       <button data-view="about">About</button>
     </nav>
@@ -365,6 +376,29 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
       </div>
       <div class="panel"><div class="row" style="margin-bottom:8px;justify-content:space-between;align-items:end"><h3 style="margin:0">Every poll</h3><div class="field" style="flex:0 1 220px"><label for="polls-firm">Pollster</label><select id="polls-firm"><option value="all">All</option></select></div></div>
         <div class="tablewrap" id="polls-table"></div></div>
+      <div class="panel" id="polls-internal-panel" hidden><h3>Party-commissioned polling</h3><div class="tablewrap" id="polls-internal"></div><p class="hint">Internal polls released by a party or campaign; kept out of the charts and averages above. Treat with the usual caution: parties release the numbers that suit them.</p></div>
+    </div></div>
+  </section>
+
+  <!-- DEMOGRAPHICS VIEW -->
+  <section class="view" id="view-demog">
+    <div class="page"><div class="inner">
+      <div class="panel">
+        <div class="row">
+          <div class="field" style="flex:1 1 200px"><label for="dm-election">Election</label><select id="dm-election"></select></div>
+          <div class="field" style="flex:1 1 200px"><label for="dm-metric">Vertical axis</label><select id="dm-metric">
+            <option value="share">Primary vote share</option><option value="tcp">Two-candidate preferred</option><option value="swing">Primary swing since last election</option><option value="tcpswing">2CP swing since last election</option><option value="gap">Gap vs another election</option><option value="primary">Leader on primary votes (leader’s share)</option><option value="tcpwin">Winner after preferences (winner’s 2CP)</option></select></div>
+          <div class="field" id="dm-f-party" style="flex:0 1 150px"><label for="dm-party">Party</label><select id="dm-party"><option value="ALP">Labor</option><option value="COAL">Coalition</option><option value="GRN">Greens</option><option value="ONP">One Nation</option><option value="VSP">Socialists</option><option value="IND">Independents</option><option value="OTH">Others</option></select></div>
+          <div class="field" id="dm-f-gap" style="flex:1 1 200px" hidden><label for="dm-gap">Compared with</label><select id="dm-gap"></select></div>
+          <div class="field" style="flex:2 1 260px"><label for="dm-x">Horizontal axis (2021 Census)</label><select id="dm-x"></select></div>
+        </div>
+      </div>
+      <div class="panel chart-panel"><h3 id="dm-title">Seat by seat</h3><div id="dm-chart"></div><div id="dm-legend" class="legend-inline"></div><p class="hint" id="dm-note"></p></div>
+      <div class="two">
+        <div class="panel chart-panel"><h3>Has the relationship changed over time?</h3><div id="dm-trend"></div><p class="hint" id="dm-trend-note"></p></div>
+        <div class="panel"><h3 id="dm-rank-title">Seats ranked</h3><div class="tablewrap" id="dm-table"></div></div>
+      </div>
+      <p class="hint" id="dm-source"></p>
     </div></div>
   </section>
 
@@ -392,11 +426,12 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
   <section class="view" id="view-about">
     <div class="page"><div class="inner prose">
       <h2>What this is</h2>
-      <p>Every polling place in Victoria, with its results from the state elections since 2010 and the federal elections since 2010 (House and Senate), pinned to a map coordinate so the vote can be followed by place rather than by electorate. Boundaries change; a school hall does not.</p>
+      <p>Every polling place, election after election: results pinned to the place the votes were cast, so the vote can be followed by school hall and church porch rather than by electorate. Boundaries change; a school hall does not. It starts with Victoria — the state elections since 2010 and the federal elections since 2010 (House and Senate) — and is built to take on other states and the federal map in the same way.</p>
       <h2>How to read it</h2>
       <p>Dots are election-day booths, sized by votes cast there. Catchments are a model: each booth is given the area closer to it than to any other booth in the same district, so the map fills in. Early, postal and absent votes are not tied to a booth by the electoral commissions and are shown at district level in the booth panel only. In 2022 about half of all state votes were cast before election day, so a booth map shows election-day voters, not everyone.</p>
       <p>The Dashboard is the statewide view of any election: primary vote by party with the change since last time, the seat tally against the majority line, a seat spectrum (one box per seat from the strongest Labor seat to the strongest Coalition seat, by primary leader or after preferences), and every seat with who held it, who won or leads, the margin and the 2CP swing, filterable to the seats changing hands or in doubt. On election night it fills in by itself from the live feed; seats are called by this page’s own rule (a clear projected lead for the share of booths in) and marked declared only when the VEC publishes the distribution.</p>
       <p>Polls is a separate compilation of published opinion polling for the 2026 election — statewide primaries and two-party figures with a smoothed trend, three-party splits, regional breakdowns, the MRP seat projections and leadership ratings — taken from Wikipedia’s polling page. It is for reading the campaign; nothing from it feeds the Dashboard or the election-night projections.</p>
+      <p>Demographics puts the 2021 Census beside the vote: every seat as a dot, any census indicator across, any of the map’s measures up (primary share, 2CP, swings, leader), with a fitted line and the correlation, and a second chart showing how that correlation has moved from election to election. The census figures are the Parliament of Victoria Library’s electorate data cards, compiled on the 2022 boundaries; earlier elections are matched by seat name. Each state seat’s panel also carries a short “who lives here” table against the Victorian figure.</p>
       <p>Switch from Booths to Electorates to see whole-seat results, which include every vote type and are what decide who is elected. Coalition means Liberal plus National; One Nation and the Victorian Socialists have their own colours; Independents are everyone running without a registered party. Shares are of the formal vote.</p>
       <h2>Where the numbers come from</h2>
       <p>Victorian Electoral Commission results pages and spreadsheets (the 2018 pages via the Internet Archive, as the VEC no longer serves them); Australian Electoral Commission Tally Room downloads; Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every district’s booth totals reconcile to the published district totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount). Narracan’s 2022 contest was deferred to a supplementary election on 28 January 2023 after a candidate died during the campaign; it is shown as part of 2022 (the 88th seat of that parliament) and flagged wherever it appears, including in the <code>contests</code> and <code>booths</code> tables under Query.</p>
@@ -752,6 +787,7 @@ function renderContestDetail(eid, cid) {
   const tot = Object.values(types).reduce((a, v) => a + v, 0);
   if (tot) root.append(h('h3', {}, 'How the vote was cast'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('tbody', {}, ...Object.entries(types).sort((a, b) => b[1] - a[1]).map(([k, v]) => h('tr', {}, h('td', {}, k === 'ordinary' ? 'election day' : k === 'early' ? 'pre-poll' : k.replaceAll('_', ' ')), h('td', { class: 'num' }, fmt(v)), h('td', { class: 'num' }, pct(v / tot))))))));
   // how this seat has voted: every election held under this name
+  if (eid.startsWith('vic')) { if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(cb); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail(eid, cid); }); }
   const series = contestSeries(eid, cid);
   if (series.length > 1) { root.append(h('h3', {}, 'How this seat has voted'), seriesChart(series, 340, 200), h('div', { class: 'hint' }, 'Primary vote by party, every election with a seat of this name. Boundaries move between redistributions.')); }
   renderFlows(root, eid, cid);
@@ -1291,7 +1327,7 @@ async function renderPolls() {
       const bar = h('div', { class: 'tally', style: 'margin:4px 0' }); const wrap = h('div', { class: 'tally-wrap', style: 'padding-top:0' }, bar);
       for (const q of order) if (r.tally[q]) bar.append(h('b', { style: `width:${100 * r.tally[q] / total}%;background:${q === 'UND' ? 'var(--line)' : partyColor(q)}`, title: `${PARTY_NAME[q] || 'Undecided'} ${r.tally[q]}` }));
       if (house === 'la') wrap.append(h('div', { class: 'maj', style: `left:calc(${100 * 45 / total}% - 1px);top:0` }));
-      mrp.append(h('div', { class: 'row', style: 'align-items:center;gap:14px;margin-bottom:6px' }, h('div', { style: 'flex:0 0 230px' }, h('strong', {}, r.election ? '2022 result' : r.firm), h('div', { class: 'hint' }, `${r.label}${r.n ? ' · n=' + fmt(r.n) : ''}${r.client ? ' · ' + r.client : ''}`)), h('div', { style: 'flex:1 1 300px' }, wrap, h('div', { class: 'tally-key' }, ...order.filter(q => r.tally[q]).map(q => h('span', { class: 'chip' }, h('i', { style: `background:${q === 'UND' ? 'var(--line)' : partyColor(q)}` }), `${PARTY_NAME[q] || 'Undecided'} ${r.tally[q]}`)), r.majority ? h('span', { class: 'hint' }, r.majority.replace('(', ' (')) : ''))));
+      mrp.append(h('div', { class: 'row', style: 'align-items:center;gap:14px;margin-bottom:6px' }, h('div', { style: 'flex:0 0 230px' }, h('strong', {}, r.election ? '2022 result' : r.firm), h('div', { class: 'hint' }, `${r.label}${r.n ? ' · n=' + fmt(r.n) : ''}${r.client ? ' · ' + r.client : ''}`)), h('div', { style: 'flex:1 1 300px' }, wrap, h('div', { class: 'tally-key' }, ...order.filter(q => r.tally[q]).map(q => h('span', { class: 'chip' }, h('i', { style: `background:${q === 'UND' ? 'var(--line)' : partyColor(q)}` }), `${PARTY_NAME[q] || 'Undecided'} ${r.tally[q]}`)), r.majority ? h('span', { class: 'hint' }, r.majority.replace(/\s*\(/, ' (')) : ''))));
     }
   }
   // Roy Morgan's One Nation winnability ranking
@@ -1318,6 +1354,10 @@ async function renderPolls() {
   const pref = Object.entries(P.leaders.preferred)[0]; const appr = Object.entries(P.leaders.approval)[0];
   if (pref) { ld.append(h('div', { class: 'hint', style: 'margin-bottom:4px' }, 'Preferred premier, ' + pref[0].replace(/ vs /g, ' v ')), h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Poll'), ...Object.keys(pref[1][0].leaders).map(k => h('th', { class: 'num' }, k)))), h('tbody', {}, ...pref[1].slice(0, 6).map(p => h('tr', {}, h('td', {}, p.firm, h('div', { class: 'hint' }, p.label)), ...Object.keys(pref[1][0].leaders).map(k => h('td', { class: 'num' }, p.leaders[k] != null ? p.leaders[k] + '%' : '–'))))))); }
   if (appr) { const L = Object.keys(appr[1][0].leaders).filter(k => appr[1][0].leaders[k].Net != null); ld.append(h('div', { class: 'hint', style: 'margin:10px 0 4px' }, 'Net approval (satisfied less dissatisfied)'), h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Poll'), ...L.map(k => h('th', { class: 'num' }, k)))), h('tbody', {}, ...appr[1].slice(0, 5).map(p => h('tr', {}, h('td', {}, p.firm, h('div', { class: 'hint' }, p.label)), ...L.map(k => h('td', { class: 'num' }, p.leaders[k] && p.leaders[k].Net != null ? (p.leaders[k].Net > 0 ? '+' : '') + p.leaders[k].Net : '–'))))))); }
+  // party-commissioned polls, shown apart
+  const ip = P.internal || []; el('polls-internal-panel').hidden = !ip.length;
+  if (ip.length) { const cols = ['ALP', 'COAL', 'GRN', 'ONP']; el('polls-internal').innerHTML = ''; el('polls-internal').append(h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Date'), h('th', {}, 'Pollster · for'), h('th', { class: 'num' }, 'n'), ...cols.map(q => h('th', { class: 'num' }, PARTY_SHORT[q])), h('th', { class: 'num' }, '2PP ALP'), h('th', {}, 'Notes'))),
+    h('tbody', {}, ...ip.slice().sort((a, b) => b.date.localeCompare(a.date)).map(p => h('tr', {}, h('td', {}, p.label), h('td', {}, p.firm, h('div', { class: 'hint' }, p.client)), h('td', { class: 'num' }, p.n ? fmt(p.n) : '–'), ...cols.map(q => h('td', { class: 'num' }, p.primary[q] != null ? p.primary[q] : '–')), h('td', { class: 'num' }, p.tpp && p.tpp.ALP != null ? p.tpp.ALP : '–'), h('td', { class: 'hint', style: 'max-width:380px' }, p.notes || '', p.url ? [' ', h('a', { href: p.url, target: '_blank', rel: 'noopener' }, 'source')] : '')))))); }
   renderPollsTable();
 }
 function renderPollsTable() {
@@ -1328,6 +1368,125 @@ function renderPollsTable() {
       ...cols.map(q => h('td', { class: 'num' }, p.primary[q] != null ? p.primary[q] + (q === 'OTH' && p.ind_in_others ? '*' : '') : '–')), h('td', { class: 'num' }, p.tpp && p.tpp.ALP != null ? p.tpp.ALP : '–'), h('td', { class: 'num' }, p.tpp && p.tpp.COAL != null ? p.tpp.COAL : '–'),
       h('td', { class: 'hint' }, (p.alt_tpp || []).map(a => { const ks = Object.keys(a); return `${PARTY_SHORT[ks[0]]} ${a[ks[0]]} v ${PARTY_SHORT[ks[1]]} ${a[ks[1]]}`; }).join(' · '))))));
   el('polls-table').innerHTML = ''; el('polls-table').append(t, h('p', { class: 'hint' }, '* independents included in Others. Primary figures as published by each pollster; the Coalition column is Liberal plus National.'));
+}
+
+/* ---------- demographics view ---------- */
+let DEMOG = null; const dm = { election: 'vic2022', metric: 'share', party: 'ALP', gap: 'fed2022', x: 'income_and_expense_income' };
+const KEY_IND = ['age_median', 'income_and_expense_income', 'country_of_birth_born_in_australia', 'language_speaks_only_english', 'engaged_in_education_tertiary', 'household_ownership_rented', 'household_ownership_mortgage', 'religion_most_common_1_share', 'dwelling_type_and_household_details_most_common_dwelling_1_share', 'motor_vehicle_ownership_no_motor_vehicles', 'population_total_persons', 'electorate_size_kilometres_squared'];
+function fmtInd(kind, v) { if (v == null) return '–'; return kind === 'share' ? pct(v) : kind === 'dollars' ? '$' + fmt(Math.round(v)) : kind === 'years' ? v + ' yrs' : kind === 'ratio' ? Number(v).toFixed(1) : kind === 'area' ? fmt(Math.round(v)) + ' km²' : kind === 'count' ? fmt(v) : String(v); }
+async function ensureDemog() { if (DEMOG) return DEMOG; try { DEMOG = await (await fetch(DATA + 'demog_vic2022.json')).json(); } catch (e) { DEMOG = { indicators: [], districts: {}, state: {} }; } DEMOG.byName = new Map(Object.entries(DEMOG.districts).map(([cid, d]) => [d.name.toLowerCase(), { cid, ...d }])); DEMOG.ind = new Map(DEMOG.indicators.map(x => [x.id, x])); return DEMOG; }
+// the census record for a contest of any state election: matched by seat name onto the 2022 boundaries
+function demogFor(eid, cid) { if (!DEMOG || !eid.startsWith('vic')) return null; const c = idx.contestById.get(eid + '|' + cid); return c ? (DEMOG.districts[cid] ? { cid, ...DEMOG.districts[cid] } : DEMOG.byName.get(c.contest_name.toLowerCase()) || null) : null; }
+// run a metric with other map settings without disturbing the map
+function withState(over, fn) { const keep = { election: state.election, metric: state.metric, party: state.party, gap: state.gap }; Object.assign(state, over); try { return fn(); } finally { Object.assign(state, keep); } }
+function censusBlock(eid, cid) {
+  const d = demogFor(eid, cid); if (!d) return null; const S = DEMOG.state;
+  const rows = [['Population', 'population_total_persons'], ['Median age', 'age_median'], ['Median weekly household income', 'income_and_expense_income'], ['Born in Australia', 'country_of_birth_born_in_australia'], ['Speaks only English at home', 'language_speaks_only_english'], ['In tertiary education', 'engaged_in_education_tertiary'], ['Renting', 'household_ownership_rented'], ['Most common religion', 'religion_most_common_1'], ['Most common birthplace abroad', 'country_of_birth_country_of_birth_other_than_australia_1'], ['Most common dwelling', 'dwelling_type_and_household_details_most_common_dwelling_1']];
+  const t = h('table', { class: 'census' }, h('tbody', {}, h('tr', {}, h('td', { class: 'k' }), h('td', { class: 'k', style: 'text-align:right' }, 'seat'), h('td', { class: 'k', style: 'text-align:right' }, 'Victoria'))));
+  for (const [lab, id] of rows) { const x = DEMOG.ind.get(id); if (!x || d[id] == null) continue; const share = x.kind === 'text' ? d[id + '_share'] : null;
+    t.querySelector('tbody').append(h('tr', {}, h('td', {}, lab), h('td', { class: 'num' }, x.kind === 'text' ? `${d[id]}${share != null ? ' ' + pct(share, 0) : ''}` : fmtInd(x.kind, d[id])), h('td', { class: 'num', style: 'color:var(--fg-3)' }, x.kind === 'text' ? `${S[id] || ''}${S[id + '_share'] != null ? ' ' + pct(S[id + '_share'], 0) : ''}` : fmtInd(x.kind, S[id])))); }
+  const box = h('div', {}, h('h3', {}, 'Who lives here'), t, h('div', { class: 'hint', style: 'margin-top:4px' }, `2021 Census on the 2022 boundaries${DEMOG.districts[cid] ? '' : ', matched by seat name'}. `, h('a', { href: '#demog', onclick: (ev) => { ev.preventDefault(); dm.election = eid; showView('demog'); } }, 'Compare every seat')));
+  return box;
+}
+function dmPoints() {
+  const eid = dm.election, xi = DEMOG.ind.get(dm.x); if (!xi) return [];
+  const cats = dm.metric === 'primary' || dm.metric === 'tcpwin';
+  return withState({ election: eid, metric: dm.metric, party: dm.party, gap: dm.gap }, () => laContests(eid).map(c => {
+    const d = demogFor(c.election_id, c.contest_id); if (!d || d[dm.x] == null) return null;
+    const m = metricValueContest(c.contest_id); const y = cats ? (m.cat ? m.strength : null) : m.v; if (y == null) return null;
+    const r = seatStatus(c.election_id, c.contest_id);
+    return { cid: c.contest_id, eid: c.election_id, name: c.contest_name, x: d[dm.x], y, cat: cats ? m.cat : (r.wparty || null), text: m.text, label: m.label, held: r.heldLabel, region: d.region };
+  }).filter(Boolean));
+}
+function pearson(pts) { const n = pts.length; if (n < 3) return null; const mx = pts.reduce((a, p) => a + p.x, 0) / n, my = pts.reduce((a, p) => a + p.y, 0) / n; let sxy = 0, sxx = 0, syy = 0; for (const p of pts) { sxy += (p.x - mx) * (p.y - my); sxx += (p.x - mx) ** 2; syy += (p.y - my) ** 2; } return sxx && syy ? { r: sxy / Math.sqrt(sxx * syy), slope: sxy / sxx, icept: my - (sxy / sxx) * mx } : null; }
+function scatterChart(pts, opts) {
+  const W = opts.W || 900, H = opts.H || 460, m = { l: 56, r: 20, t: 14, b: 44 };
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const S = (tag, attrs = {}, ...kids) => { const n = document.createElementNS(svgNS, tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); for (const c of kids) n.append(c instanceof Node ? c : document.createTextNode(String(c))); return n; };
+  const wrap = h('div', { style: 'position:relative' }); const svg = S('svg', { class: 'chart', viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': opts.label || 'Scatter' }); wrap.append(svg);
+  if (!pts.length) { svg.append(S('text', { x: m.l, y: 30 }, 'Nothing to plot for this combination.')); return wrap; }
+  const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+  const pad = (lo, hi) => { const d = (hi - lo) || 1; return [lo - d * 0.06, hi + d * 0.06]; };
+  let [x0, x1] = pad(Math.min(...xs, opts.xRef ?? Infinity), Math.max(...xs, opts.xRef ?? -Infinity)); let [y0, y1] = pad(Math.min(...ys, opts.yZero ? 0 : Infinity), Math.max(...ys, opts.yZero ? 0 : -Infinity));
+  const x = (v) => m.l + (W - m.l - m.r) * (v - x0) / (x1 - x0), y = (v) => m.t + (H - m.t - m.b) * (1 - (v - y0) / (y1 - y0));
+  const ticks = (lo, hi, n) => { const span = hi - lo, raw = span / n, mag = Math.pow(10, Math.floor(Math.log10(raw))), step = [1, 2, 2.5, 5, 10].map(k => k * mag).find(k => k >= raw) || mag; const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(10)); return out; };
+  const grid = S('g', { class: 'grid' }); for (const v of ticks(y0, y1, 6)) { grid.append(S('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v) })); grid.append(S('text', { x: m.l - 8, y: y(v) + 4, 'text-anchor': 'end' }, opts.fy(v))); } svg.append(grid);
+  const ax = S('g', { class: 'axis' }); for (const v of ticks(x0, x1, 7)) { ax.append(S('line', { x1: x(v), x2: x(v), y1: H - m.b, y2: H - m.b + 4 })); ax.append(S('text', { x: x(v), y: H - m.b + 16, 'text-anchor': 'middle' }, opts.fx(v))); }
+  ax.append(S('line', { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b })); ax.append(S('text', { class: 'lbl', x: (m.l + W - m.r) / 2, y: H - 6, 'text-anchor': 'middle' }, opts.xLabel)); svg.append(ax);
+  if (opts.yZero && y0 < 0 && y1 > 0) svg.append(S('line', { class: 'ref', x1: m.l, x2: W - m.r, y1: y(0), y2: y(0) }));
+  if (opts.xRef != null) { svg.append(S('line', { class: 'avg', x1: x(opts.xRef), x2: x(opts.xRef), y1: m.t, y2: H - m.b })); svg.append(S('text', { x: x(opts.xRef) + 4, y: m.t + 10 }, 'Victoria ' + opts.fx(opts.xRef))); }
+  const fit = pearson(pts); if (fit) { const xa = Math.max(x0, Math.min(...xs)), xb = Math.min(x1, Math.max(...xs)); svg.append(S('line', { class: 'fit', x1: x(xa), y1: y(fit.icept + fit.slope * xa), x2: x(xb), y2: y(fit.icept + fit.slope * xb) })); }
+  const tipDiv = h('div', { class: 'tip', hidden: '' }); wrap.append(tipDiv);
+  for (const p of pts) {
+    const c = S('circle', { class: 'pt', cx: x(p.x), cy: y(p.y), r: 5.5, fill: p.color || (p.cat ? partyColor(p.cat) : css('--fg-3')), 'fill-opacity': 0.9, stroke: css('--line'), 'stroke-width': 0.5 });
+    const show = (ev) => { const r = svg.getBoundingClientRect(); tipDiv.innerHTML = ''; tipDiv.append(h('div', {}, h('strong', {}, p.name), p.region ? h('span', { class: 'k' }, ' · ' + p.region) : ''), h('div', { class: 'row' }, h('span', { class: 'k' }, opts.xLabel), h('b', {}, opts.fx(p.x))), h('div', { class: 'row' }, h('span', { class: 'k' }, p.label), h('b', {}, p.text)), p.held ? h('div', { class: 'k' }, 'held by ' + p.held) : ''); tipDiv.hidden = false; tipDiv.style.left = Math.min(ev.clientX - r.left + 12, r.width - 240) + 'px'; tipDiv.style.top = (ev.clientY - r.top + 12) + 'px'; };
+    c.addEventListener('mousemove', show); c.addEventListener('mouseleave', () => { tipDiv.hidden = true; }); c.addEventListener('click', () => opts.onClick && opts.onClick(p));
+    svg.append(c);
+  }
+  return { el: wrap, fit };
+}
+async function renderDemog() {
+  await ensureDemog();
+  const xs = el('dm-x');
+  if (!xs.options.length) {
+    const groups = new Map(); for (const x of DEMOG.indicators) if (x.kind !== 'text') (groups.get(x.group) || groups.set(x.group, []).get(x.group)).push(x);
+    for (const [g, arr] of groups) { const og = h('optgroup', { label: g }); for (const x of arr) og.append(h('option', { value: x.id }, x.label + (x.partial ? ` (${Object.values(DEMOG.districts).filter(d => d[x.id] != null).length} seats)` : ''))); xs.append(og); }
+    xs.value = dm.x;
+    const ids = D.elections.filter(e => e.election_id.startsWith('vic')).map(e => e.election_id);
+    fillElectionSelect(el('dm-election'), ids); el('dm-election').value = dm.election;
+    fillElectionSelect(el('dm-gap'), D.elections.map(e => e.election_id)); el('dm-gap').value = dm.gap;
+    el('dm-metric').value = dm.metric; el('dm-party').value = dm.party;
+    for (const [k, f] of [['dm-election', 'election'], ['dm-metric', 'metric'], ['dm-party', 'party'], ['dm-gap', 'gap'], ['dm-x', 'x']]) el(k).addEventListener('change', (e) => { dm[f] = e.target.value; renderDemog(); });
+  }
+  el('dm-election').value = dm.election;
+  el('dm-f-party').hidden = dm.metric === 'primary' || dm.metric === 'tcpwin'; el('dm-f-gap').hidden = dm.metric !== 'gap';
+  const xi = DEMOG.ind.get(dm.x), e = idx.electionById.get(dm.election); if (!xi || !e) return;
+  const points = dmPoints(); const cats = dm.metric === 'primary' || dm.metric === 'tcpwin'; const isPts = ['swing', 'tcpswing', 'gap'].includes(dm.metric);
+  const yName = cats ? (dm.metric === 'primary' ? 'Primary-vote leader’s share' : 'Winner’s two-candidate share') : `${PARTY_NAME[dm.party]} ${({ share: 'primary vote', tcp: 'two-candidate preferred', swing: 'primary swing', tcpswing: '2CP swing', gap: 'gap' })[dm.metric]}${dm.metric === 'gap' ? ' vs ' + (idx.electionById.get(dm.gap) || {}).name : ''}`;
+  const fx = (v) => fmtInd(xi.kind, v), fy = (v) => isPts ? pts(v, 0) : pct(v, 0);
+  el('dm-title').textContent = xi.partial ? `${yName}, ${e.name}, against the share ${xi.group.startsWith('Birthplace') ? 'born in ' + xi.label : xi.label}` : `${yName}, ${e.name}, against ${xi.label.toLowerCase()} (${xi.group.toLowerCase()})`;
+  const base = css('--surface');
+  if (cats) { const lo = dm.metric === 'primary' ? 0.25 : 0.5, hi = dm.metric === 'primary' ? 0.55 : 0.75; for (const p of points) { const t = Math.max(0, Math.min(1, (p.y - lo) / (hi - lo))); p.color = p.cat ? mix(base, partyColor(p.cat), 0.4 + 0.6 * t) : css('--fg-3'); } }
+  else if (isPts) { const lim = Math.max(0.05, quantile(points.map(p => Math.abs(p.y)), 0.95) || 0.1); for (const p of points) p.color = divColor(dm.party, p.y, lim); points.lim = lim; }
+  else { const max = quantile(points.map(p => p.y), 0.98) || 0.5; for (const p of points) { const t = Math.pow(Math.max(0, Math.min(1, p.y / max)), 0.75); p.color = mix(base, partyColor(dm.party), 0.12 + 0.88 * t); } points.max = max; }
+  const out = scatterChart(points, { fx, fy, xLabel: xi.label + (xi.group && !xi.label.toLowerCase().includes(xi.group.toLowerCase().split(' ')[0]) ? ' · ' + xi.group : ''), xRef: DEMOG.state[dm.x], yZero: isPts, label: 'Seats by census indicator and vote', onClick: (p) => { setUnit('contest'); setElection(p.eid); selectContest(p.eid, p.cid, true); showView('map'); } });
+  el('dm-chart').innerHTML = ''; el('dm-chart').append(out.el || out);
+  const fit = out.fit; const rTxt = fit ? `r = ${fit.r.toFixed(2)} (${Math.abs(fit.r) < 0.2 ? 'no real relationship' : Math.abs(fit.r) < 0.4 ? 'weak' : Math.abs(fit.r) < 0.6 ? 'moderate' : 'strong'}${fit.r < -0.2 ? ', negative' : fit.r > 0.2 ? ', positive' : ''})` : '';
+  const legend = el('dm-legend'); legend.innerHTML = '';
+  if (cats) legend.append(legendCategorical(true, dm.metric, dm.metric === 'primary' ? 0.25 : 0.5, dm.metric === 'primary' ? 0.55 : 0.75));
+  else if (isPts) legend.append(legendRamp(`${PARTY_NAME[dm.party]} ${dm.metric === 'tcpswing' ? 'two-candidate preferred' : 'primary'}, change in points`, [NEG(), css('--surface-2'), partyColor(dm.party)], [pts(-points.lim, 0), '0', pts(points.lim, 0)], '', true));
+  else legend.append(legendRamp(`${PARTY_NAME[dm.party]} ${dm.metric === 'tcp' ? 'two-candidate preferred' : 'primary vote'}`, [mix(base, partyColor(dm.party), 0.12), partyColor(dm.party)], ['0%', pct(points.max, 0) + '+'], '', true));
+  const total = laContests(dm.election).length;
+  const filtTxt = xi.partial ? ` of ${total}: the ${xi.label} share is only known where it is among the seat's three largest ${xi.group.split(' (')[0].toLowerCase()} groups, so seats where it is smaller are missing and the fit is only across those shown` : '';
+  el('dm-note').textContent = `${points.length} seats${filtTxt}, one dot each, coloured by the vertical measure exactly as the map colours electorates; dashed line: least-squares fit, ${rTxt}. The dotted vertical line is the Victorian figure. ${dm.election === 'vic2022' || dm.election === LIVE.election || dm.election.startsWith('vicby') ? '' : 'Seats are matched to the 2022 boundaries by name, so redistributed seats carry the census profile of their current namesake. '}Click a dot to open the seat on the map.`;
+  // trend: the correlation at each state election
+  const elections = D.elections.filter(x => x.election_id.startsWith('vic') && !x.election_id.startsWith('vicby') && (x.election_id !== LIVE.election || LIVE.available)).sort((a, b) => a.date.localeCompare(b.date));
+  const series = [];
+  for (const q of ['ALP', 'COAL', 'GRN', 'ONP']) {
+    const row = { party: q, pts: [] };
+    for (const x of elections) { const ps = withState({ election: x.election_id, metric: 'share', party: q, gap: dm.gap }, () => laContests(x.election_id).map(c => { const d = demogFor(c.election_id, c.contest_id); if (!d || d[dm.x] == null) return null; const m = metricValueContest(c.contest_id); return m.v == null ? null : { x: d[dm.x], y: m.v }; }).filter(Boolean)); const f = pearson(ps); if (f && ps.length >= 20 && ps.some(p => p.y > 0.02)) row.pts.push({ eid: x.election_id, name: x.name, r: f.r, n: ps.length }); }
+    if (row.pts.length) series.push(row);
+  }
+  el('dm-trend').innerHTML = ''; el('dm-trend').append(trendChart(series, elections, xi));
+  el('dm-trend-note').textContent = `Correlation (r) between ${xi.label.toLowerCase()} and each party’s primary vote across the seats, at every state election with results here. A line moving away from zero means the indicator has become a stronger predictor of that party’s vote; crossing zero means the relationship has flipped. Earlier elections are matched by seat name onto the 2022 boundaries.`;
+  // ranked table
+  const sorted = points.slice().sort((a, b) => b.x - a.x);
+  el('dm-rank-title').textContent = `Seats ranked by ${xi.label.toLowerCase()}`;
+  el('dm-table').innerHTML = ''; el('dm-table').append(h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, 'Seat'), h('th', { class: 'num' }, xi.label), h('th', { class: 'num' }, yName))), h('tbody', {}, ...sorted.map((p, i) => h('tr', { class: 'clickable', onclick: () => { setUnit('contest'); setElection(p.eid); selectContest(p.eid, p.cid, true); showView('map'); } }, h('td', { class: 'num' }, i + 1), h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${p.color || 'transparent'};border:1px solid var(--line)` }), p.name)), h('td', { class: 'num' }, fx(p.x)), h('td', { class: 'num' }, p.text))))));
+  el('dm-source').textContent = `Source: ${DEMOG.source}. Shares are of the relevant census population (persons, households or dwellings as the indicator implies); medians are weekly.`;
+}
+function trendChart(series, elections, xi) {
+  const W = 560, H = 260, m = { l: 40, r: 60, t: 14, b: 40 };
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const S = (tag, attrs = {}, ...kids) => { const n = document.createElementNS(svgNS, tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); for (const c of kids) n.append(c instanceof Node ? c : document.createTextNode(String(c))); return n; };
+  const svg = S('svg', { class: 'chart', viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Correlation over time' });
+  const n = elections.length; if (!n || !series.length) { svg.append(S('text', { x: 10, y: 20 }, 'Not enough elections to compare.')); return svg; }
+  const x = (i) => m.l + (n === 1 ? (W - m.l - m.r) / 2 : i * (W - m.l - m.r) / (n - 1)), y = (v) => m.t + (H - m.t - m.b) * (1 - (v + 1) / 2);
+  const grid = S('g', { class: 'grid' }); for (const v of [-1, -0.5, 0, 0.5, 1]) { grid.append(S('line', { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), style: v === 0 ? 'stroke-dasharray:none;stroke:var(--fg-3)' : '' })); grid.append(S('text', { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, v > 0 ? '+' + v : v)); } svg.append(grid);
+  const ax = S('g', { class: 'axis' }); elections.forEach((e, i) => ax.append(S('text', { x: x(i), y: H - m.b + 16, 'text-anchor': 'middle' }, shortName(e).replace('State ', '')))); svg.append(ax);
+  const idxOf = new Map(elections.map((e, i) => [e.election_id, i]));
+  for (const sr of series) { const col = partyColor(sr.party); let d = ''; for (const p of sr.pts) { d += (d ? ' L' : 'M') + x(idxOf.get(p.eid)).toFixed(1) + ' ' + y(p.r).toFixed(1); const dot = S('circle', { cx: x(idxOf.get(p.eid)), cy: y(p.r), r: 3.5, fill: col }); dot.append(S('title', {}, `${PARTY_NAME[sr.party]}, ${p.name}: r = ${p.r.toFixed(2)} over ${p.n} seats`)); svg.append(dot); } svg.append(S('path', { class: 'trend', d, stroke: col, style: 'stroke-width:2' })); const last = sr.pts[sr.pts.length - 1]; svg.append(S('text', { class: 'lbl mono', x: x(idxOf.get(last.eid)) + 8, y: y(last.r) + 4, style: `fill:${col}` }, `${PARTY_SHORT[sr.party]} ${last.r.toFixed(2)}`)); }
+  return svg;
 }
 
 /* ---------- query view ---------- */
@@ -1801,6 +1960,7 @@ function renderContestDetail2026(cid) {
   }
   // before election day: enrolment at close of roll, how-to-vote cards, any daily figures the VEC has published
   renderDailyBlock(root, cid, c);
+  if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(cb); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail2026(cid); });
   // candidates
   const nominated = cands.some(x => x.nominated);
   root.append(h('h3', {}, lc && lc.candidates.length ? 'Candidates (ballot order)' : nominated ? 'Nominated candidates (ballot order)' : 'Declared candidates'));
@@ -1873,6 +2033,7 @@ function showView(name) {
   if (name === 'compare') renderCompare();
   if (name === 'dash') renderDash();
   if (name === 'polls') renderPolls();
+  if (name === 'demog') renderDemog();
   try { localStorage.setItem('atlas.view', name); } catch (e) {}
 }
 function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at district level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; renderMap(); }
@@ -1927,7 +2088,7 @@ async function boot() {
     renderLiveBox(); if (LIVE.register) startLivePolling();
     let v = 'dash'; try { v = location.hash.replace('#', '') || localStorage.getItem('atlas.view') || 'dash'; } catch (e) {}
     if (v === 'y2026') v = 'dash';
-    if (!['dash', 'map', 'venue', 'compare', 'polls', 'query', 'about'].includes(v)) v = 'dash';
+    if (!['dash', 'map', 'venue', 'compare', 'polls', 'demog', 'query', 'about'].includes(v)) v = 'dash';
     showView(v);
     // re-colour when the theme flips
     const mq = window.matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener('change', () => { if (mapReady) { map.setPaintProperty('bounds-line', 'line-color', css('--map-line')); map.setPaintProperty('contest-fresh', 'line-color', css('--fg')); map.setPaintProperty('catch-fresh', 'line-color', css('--fg')); if (!BASEMAP) map.setPaintProperty('bg', 'background-color', css('--map-bg')); renderMap(); } });

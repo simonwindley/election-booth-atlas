@@ -1,0 +1,9 @@
+{
+ "note": "Polls not (yet) on Wikipedia's compilation page, kept by hand. Party-commissioned polling is flagged internal and is shown separately on the Polls tab, outside the trend.",
+ "polls": [
+  {"date": "2026-10-26", "start": "2026-10-14", "label": "14–26 Oct 2026", "firm": "Online Research Unit", "client": "Victorian Greens (internal)", "internal": true, "n": 1488,
+   "primary": {"ALP": 25, "COAL": 32, "GRN": 15, "ONP": 14}, "tpp": {"ALP": 46, "COAL": 54},
+   "source": "Guardian Australia, 1 Nov 2026: Is One Nation losing steam in Victoria?", "url": "https://www.theguardian.com/australia-news/2026/nov/01/is-one-nation-losing-steam-victoria-new-polling-greens-state-election-ntwnfb",
+   "notes": "Effective sample 1,488, MoE 3%. Greens say the upper-house question gave consistent figures; they read it as holding Richmond, Melbourne and Brunswick, winning Prahran and Northcote, and in contention in Pascoe Vale and Footscray."}
+ ]
+}

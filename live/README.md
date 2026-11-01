@@ -10,7 +10,7 @@ From the project folder on the Mac:
 
     python3 live/vec_live.py --election-id vic2026 \
         --base https://www.vec.vic.gov.au/results/state-election-results/2022-state-election-results \
-        --districts richmond,dandenong,melbourne --once
+        --districts richmond,dandenong,melbourne --once --publish
 
     cd site && python3 -m http.server 8000      # then open http://localhost:8000/ and pick "Victorian state election 2026"
 
@@ -18,10 +18,21 @@ The 2026 layer fills with the 2022 figures for those districts (labelled as 2026
 changed booths get the bold outline, and the electorate view shows the projection. When you are done:
 
     rm -rf site/data/live        # so the 2026 layer goes back to the pre-election preview
+    git add -A site/data/live && git commit -m "clear rehearsal feed" && git push   # if you rehearsed with --publish
 
 ## On the night (Saturday 28 November, counting starts 6 pm)
 
-    python3 live/vec_live.py --base auto --loop 60
+    python3 live/vec_live.py --base auto --loop 60 --publish
+
+That is the only command. `--publish` makes the script commit and push the feed files itself after every
+cycle that found something new (it skips the push when nothing changed), so the public GitHub Pages site
+updates on its own: each push redeploys the site, which takes a minute or two, and viewers' browsers re-read
+the feed every minute. Nothing needs to be done in GitHub Desktop during the night. The push uses the git
+credentials the Terminal already has, so run the rehearsal below with `--publish` once beforehand to be
+sure a push from the Terminal works (if it fails with an authentication error, `gh auth login` or a
+personal access token fixes it; GitHub Desktop's login is not always visible to the command-line git).
+If a push fails mid-night the cycle still completes and the next cycle tries again; your own copy at
+http://localhost:8000 never depends on the push.
 
 `--base auto` finds the 2026 results page from the VEC's results hub (and falls back to the expected URL
 `.../2026-state-election-results`). If the VEC publishes under a different slug, pass it with `--base`.
@@ -46,6 +57,14 @@ any early-voting / postal-vote statistics pages it can find from the election pa
 a per-district daily series where a table has a District column). The 2026 seat panel shows all of this under
 "Before election day". Pages that do not exist yet are skipped; if the VEC puts a statistics page somewhere
 the script does not look, add its path to `live/daily_sources.json`.
+
+## Polls, in the lead-up
+
+    python3 live/polls_update.py --publish
+
+refreshes the Polls tab from Wikipedia's polling page (every poll, the three-party figures, regional
+breakdowns, MRP tallies and leadership ratings) and pushes it. Once a week until mid-November, then every
+couple of days: the last fortnight is when most of the polling lands.
 
 ## What the feed contains
 

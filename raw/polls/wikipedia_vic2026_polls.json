@@ -1,7 +1,7 @@
 {
 "meta": {
-"retrieved": "2026-11-01T00:45:16.730Z",
-"last_edited": " This page was last edited on 30 October 2026, at 12:54\u00a0(UTC).",
+"retrieved": "2026-11-01T01:29:35.479372+00:00",
+"last_edited": "",
 "url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Victorian_state_election"
 },
 "tables": [
@@ -16,7 +16,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -60,7 +60,7 @@
 [
 "26\u201329 Oct",
 "Roy Morgan",
-"\u2014.mw-parser-output .sr-only{border:0;clip:rect(0,0,0,0);clip-path:polygon(0px 0px,0px 0px,0px 0px);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}N/a",
+"\u2014N/a",
 "3,610",
 "22.5%",
 "29.5%",
@@ -706,7 +706,7 @@
 "44%"
 ],
 [
-"12\u201316 Jan& 8\u201314 Feb",
+"12\u201316 Jan & 8\u201314 Feb",
 "Resolve",
 "The Age",
 "1,100",
@@ -754,8 +754,8 @@
 },
 {
 "sec": [
+"Voting intention",
 "Legislative Assembly",
-"2026",
 "2025"
 ],
 "grid": [
@@ -763,7 +763,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -1049,8 +1049,8 @@
 },
 {
 "sec": [
-"2026",
-"2025",
+"Voting intention",
+"Legislative Assembly",
 "2024"
 ],
 "grid": [
@@ -1058,7 +1058,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -1294,8 +1294,8 @@
 },
 {
 "sec": [
-"2025",
-"2024",
+"Voting intention",
+"Legislative Assembly",
 "2023"
 ],
 "grid": [
@@ -1303,7 +1303,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -1543,7 +1543,6 @@
 {
 "sec": [
 "Voting intention",
-"Legislative Assembly",
 "Legislative Council"
 ],
 "grid": [
@@ -1551,7 +1550,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -1664,9 +1663,9 @@
 "grid": [
 [
 "Date",
-"Pollingfirm",
+"Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "3PP vote",
 "<",
 "<"
@@ -1747,7 +1746,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Party leaders",
 "<",
 "<",
@@ -1891,8 +1890,8 @@
 },
 {
 "sec": [
+"Leadership polling",
 "Preferred premier",
-"Carroll vs Wilson vs Pickering",
 "Allan vs Wilson"
 ],
 "grid": [
@@ -1900,7 +1899,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Party leaders",
 "<",
 "<",
@@ -2082,8 +2081,8 @@
 },
 {
 "sec": [
-"Carroll vs Wilson vs Pickering",
-"Allan vs Wilson",
+"Leadership polling",
+"Preferred premier",
 "Allan vs Battin"
 ],
 "grid": [
@@ -2091,7 +2090,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Party leaders",
 "<",
 "<",
@@ -2211,8 +2210,8 @@
 },
 {
 "sec": [
-"Allan vs Wilson",
-"Allan vs Battin",
+"Leadership polling",
+"Preferred premier",
 "Allan vs Pesutto"
 ],
 "grid": [
@@ -2220,7 +2219,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Party leaders",
 "<",
 "<",
@@ -2330,8 +2329,8 @@
 },
 {
 "sec": [
-"Allan vs Battin",
-"Allan vs Pesutto",
+"Leadership polling",
+"Preferred premier",
 "Andrews vs Pesutto"
 ],
 "grid": [
@@ -2339,7 +2338,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Party leaders",
 "<",
 "<",
@@ -2439,7 +2438,7 @@
 },
 {
 "sec": [
-"Preferred premier",
+"Leadership polling",
 "Leadership approval",
 "Carroll vs Wilson vs Pickering"
 ],
@@ -2448,7 +2447,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Carroll",
 "<",
 "<",
@@ -2721,8 +2720,8 @@
 },
 {
 "sec": [
+"Leadership polling",
 "Leadership approval",
-"Carroll vs Wilson vs Pickering",
 "Allan vs Wilson"
 ],
 "grid": [
@@ -2730,7 +2729,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Allan",
 "<",
 "<",
@@ -2927,8 +2926,8 @@
 },
 {
 "sec": [
-"Carroll vs Wilson vs Pickering",
-"Allan vs Wilson",
+"Leadership polling",
+"Leadership approval",
 "Allan vs Battin"
 ],
 "grid": [
@@ -2936,7 +2935,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Allan",
 "<",
 "<",
@@ -3049,8 +3048,8 @@
 },
 {
 "sec": [
-"Allan vs Wilson",
-"Allan vs Battin",
+"Leadership polling",
+"Leadership approval",
 "Allan vs Pesutto"
 ],
 "grid": [
@@ -3058,7 +3057,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Allan",
 "<",
 "<",
@@ -3129,8 +3128,8 @@
 },
 {
 "sec": [
-"Allan vs Battin",
-"Allan vs Pesutto",
+"Leadership polling",
+"Leadership approval",
 "Andrews vs Pesutto"
 ],
 "grid": [
@@ -3138,7 +3137,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Andrews",
 "<",
 "<",
@@ -3230,7 +3229,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -3343,7 +3342,6 @@
 {
 "sec": [
 "Sub-state results",
-"Inner Melbourne",
 "Outer Melbourne"
 ],
 "grid": [
@@ -3351,7 +3349,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -3463,8 +3461,7 @@
 },
 {
 "sec": [
-"Inner Melbourne",
-"Outer Melbourne",
+"Sub-state results",
 "Melbourne"
 ],
 "grid": [
@@ -3472,7 +3469,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -3562,8 +3559,7 @@
 },
 {
 "sec": [
-"Outer Melbourne",
-"Melbourne",
+"Sub-state results",
 "Provincial"
 ],
 "grid": [
@@ -3571,7 +3567,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -3627,8 +3623,7 @@
 },
 {
 "sec": [
-"Melbourne",
-"Provincial",
+"Sub-state results",
 "Rural"
 ],
 "grid": [
@@ -3636,7 +3631,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -3692,8 +3687,7 @@
 },
 {
 "sec": [
-"Provincial",
-"Rural",
+"Sub-state results",
 "Regional/Rural"
 ],
 "grid": [
@@ -3701,7 +3695,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -3859,8 +3853,8 @@
 "Date",
 "Polling firm",
 "Client",
-"Projectiontype",
-"Samplesize",
+"Projection type",
+"Sample size",
 "Seat tally",
 "<",
 "<",
@@ -3923,7 +3917,7 @@
 "6",
 "11",
 "0",
-"Hung(ALP 5 short)"
+"Hung (ALP 5 short)"
 ],
 [
 "July 2026",
@@ -3937,7 +3931,7 @@
 "3",
 "17",
 "0",
-"Hung(L/NP 6 short)"
+"Hung (L/NP 6 short)"
 ],
 [
 "26 November 2022",
@@ -3958,7 +3952,6 @@
 {
 "sec": [
 "Electorate projections (MRP)",
-"Legislative Assembly",
 "Legislative Council"
 ],
 "grid": [
@@ -3966,8 +3959,8 @@
 "Date",
 "Polling firm",
 "Client",
-"Projectiontype",
-"Samplesize",
+"Projection type",
+"Sample size",
 "Seat tally",
 "<",
 "<",
@@ -3989,7 +3982,7 @@
 "GRN",
 "ONP",
 "Others",
-".mw-parser-output .tooltip-dotted{border-bottom:1px dotted;cursor:help}UND",
+"UND",
 "^"
 ],
 [
@@ -4080,7 +4073,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -4335,8 +4328,8 @@
 },
 {
 "sec": [
+"Subpopulation results",
 "By gender",
-"Women",
 "Men"
 ],
 "grid": [
@@ -4344,7 +4337,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -4599,7 +4592,7 @@
 },
 {
 "sec": [
-"By gender",
+"Subpopulation results",
 "By age",
 "18\u201334"
 ],
@@ -4608,7 +4601,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -4818,8 +4811,8 @@
 },
 {
 "sec": [
+"Subpopulation results",
 "By age",
-"18\u201334",
 "35\u201354"
 ],
 "grid": [
@@ -4827,7 +4820,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -4967,8 +4960,8 @@
 },
 {
 "sec": [
-"18\u201334",
-"35\u201354",
+"Subpopulation results",
+"By age",
 "55\u201364"
 ],
 "grid": [
@@ -4976,7 +4969,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -5066,8 +5059,8 @@
 },
 {
 "sec": [
-"35\u201354",
-"55\u201364",
+"Subpopulation results",
+"By age",
 "65+"
 ],
 "grid": [
@@ -5075,7 +5068,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -5165,7 +5158,7 @@
 },
 {
 "sec": [
-"By age",
+"Subpopulation results",
 "By generation",
 "Generation Z"
 ],
@@ -5174,7 +5167,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -5230,8 +5223,8 @@
 },
 {
 "sec": [
+"Subpopulation results",
 "By generation",
-"Generation Z",
 "Millennials"
 ],
 "grid": [
@@ -5239,7 +5232,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -5295,8 +5288,8 @@
 },
 {
 "sec": [
-"Generation Z",
-"Millennials",
+"Subpopulation results",
+"By generation",
 "Generation X"
 ],
 "grid": [
@@ -5304,7 +5297,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -5360,8 +5353,8 @@
 },
 {
 "sec": [
-"Millennials",
-"Generation X",
+"Subpopulation results",
+"By generation",
 "Baby boomers"
 ],
 "grid": [
@@ -5369,7 +5362,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -5425,7 +5418,7 @@
 },
 {
 "sec": [
-"By generation",
+"Subpopulation results",
 "By language",
 "Only English spoken at home"
 ],
@@ -5434,7 +5427,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -5490,8 +5483,8 @@
 },
 {
 "sec": [
+"Subpopulation results",
 "By language",
-"Only English spoken at home",
 "Other language spoken at home"
 ],
 "grid": [
@@ -5499,7 +5492,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",
@@ -5563,7 +5556,7 @@
 "Date",
 "Polling firm",
 "Client",
-"Samplesize",
+"Sample size",
 "Primary vote",
 "<",
 "<",

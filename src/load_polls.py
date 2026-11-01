@@ -219,6 +219,12 @@ def main(raw='raw/polls/wikipedia_vic2026_polls.json', out='site/data/polls_vic2
     win = os.path.join(os.path.dirname(raw), 'roymorgan', 'onp_winnability_2026-10.json')
     if os.path.exists(win):
         out_obj['winnability'] = json.load(open(win))
+    extra = os.path.join(os.path.dirname(raw), 'extra_polls.json')
+    if os.path.exists(extra):
+        ex = json.load(open(extra))
+        out_obj['internal'] = [p for p in ex['polls'] if p.get('internal')]
+        have = {(p['date'], p['firm']) for p in out_obj['polls']}
+        out_obj['polls'] = sorted(out_obj['polls'] + [p for p in ex['polls'] if not p.get('internal') and (p['date'], p['firm']) not in have], key=lambda p: p['date'] or '')
     json.dump(out_obj, open(out, 'w'), separators=(',', ':'))
     print(f"{len(polls)} statewide polls {polls[0]['date']} .. {polls[-1]['date']}; events {len(out_obj['events'])}; 3PP {len(out_obj['tpp3'])}; LC {len(out_obj['lc'])}; "
           f"sub-state {list(out_obj['substate'])}; MRP la {len(out_obj['mrp'].get('la', []))} lc {len(out_obj['mrp'].get('lc', []))}; leaders {list(out_obj['leaders']['preferred'])} / {list(out_obj['leaders']['approval'])}; subpop {list(out_obj['subpop'])}; seat {list(out_obj['seat'])}")

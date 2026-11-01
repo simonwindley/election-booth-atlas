@@ -1,4 +1,4 @@
-# Victoria Booth Atlas — static site
+# The Election Booth Atlas — static site
 
 `index.html` is self-contained apart from two libraries from cdnjs (MapLibre GL, AlaSQL), Google Fonts,
 and the basemap tiles (OpenFreeMap). It reads the files in `data/` (gzipped JSON/GeoJSON, decompressed in

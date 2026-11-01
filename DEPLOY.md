@@ -1,18 +1,27 @@
 # Putting the atlas on GitHub (once) and publishing it
 
-Repository: https://github.com/simonwindley/vic-booth-atlas (public; GitHub Pages is free for public repos).
+## Renaming the repository (done once, November 2026)
+
+The project started as "Victoria Booth Atlas" (`vic-booth-atlas`). To rename on GitHub: Repository → Settings →
+General → Repository name → `election-booth-atlas` → Rename. GitHub redirects the old address, but the Pages
+site moves to `https://simonwindley.github.io/election-booth-atlas/`, so update the remote on the Mac:
+
+    cd ~/Documents/"Election Analyser" && git remote set-url origin https://github.com/simonwindley/election-booth-atlas.git
+
+
+Repository: https://github.com/simonwindley/election-booth-atlas (public; GitHub Pages is free for public repos).
 
 ## 1. Create the repository (on github.com, once)
 
-New repository → name `vic-booth-atlas`, Public, **no** README/.gitignore/licence (the folder already has them) → Create.
+New repository → name `election-booth-atlas`, Public, **no** README/.gitignore/licence (the folder already has them) → Create.
 
 ## 2. First push (Terminal on the Mac, once)
 
     cd ~/Documents/"Election Analyser"
     git init -b main
     git add .
-    git commit -m "Victoria Booth Atlas: data pipeline, site, election-night feed"
-    git remote add origin https://github.com/simonwindley/vic-booth-atlas.git
+    git commit -m "The Election Booth Atlas: data pipeline, site, election-night feed"
+    git remote add origin https://github.com/simonwindley/election-booth-atlas.git
     git push -u origin main
 
 `git push` asks for GitHub credentials the first time: use your username and a personal access token
@@ -27,7 +36,7 @@ Repository → Settings → Pages → "Build and deployment" → Source: **GitHu
 `.github/workflows/pages.yml` then publishes the `site/` folder on every push that touches it. The first
 run takes a minute or two; the address will be
 
-    https://simonwindley.github.io/vic-booth-atlas/
+    https://simonwindley.github.io/election-booth-atlas/
 
 Anyone with that link gets the full atlas, basemap included. Check the Actions tab if it does not appear.
 
