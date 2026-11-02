@@ -219,6 +219,9 @@ def main(raw='raw/polls/wikipedia_vic2026_polls.json', out='site/data/polls_vic2
     win = os.path.join(os.path.dirname(raw), 'roymorgan', 'onp_winnability_2026-10.json')
     if os.path.exists(win):
         out_obj['winnability'] = json.load(open(win))
+    issues = os.path.join(os.path.dirname(raw), 'issues_vic2026.json')   # src.load_issue_polls
+    if os.path.exists(issues):
+        out_obj['issues'] = json.load(open(issues))
     extra = os.path.join(os.path.dirname(raw), 'extra_polls.json')
     if os.path.exists(extra):
         ex = json.load(open(extra))

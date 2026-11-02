@@ -66,6 +66,10 @@ refreshes the Polls tab from Wikipedia's polling page (every poll, the three-par
 breakdowns, MRP tallies and leadership ratings) and pushes it. Once a week until mid-November, then every
 couple of days: the last fortnight is when most of the polling lands.
 
+The issue panel ("What voters say matters") comes from the Herald Sun / Freshwater Strategy monthly data
+tables, which are spreadsheets rather than a Wikipedia table. When a new wave is published, save its
+`Data-Tables-…xlsx` into `raw/polls/freshwater/` and run the same command; it re-reads every workbook there.
+
 ## What the feed contains
 
     site/data/live/latest.json      everything now: per district the summary, candidates with first

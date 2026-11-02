@@ -130,12 +130,15 @@ def main():
     os.makedirs(os.path.dirname(raw), exist_ok=True)
     json.dump(cap, open(raw, 'w'), indent=0)
     print(f'{len(cap["tables"])} tables captured; page {cap["meta"]["last_edited"] or "(last-edited unknown)"}')
-    from src import load_polls
+    from src import load_polls, load_issue_polls
+    fw = os.path.join(ROOT, 'raw', 'polls', 'freshwater')
+    if os.path.isdir(fw):   # issue questions: drop each new Herald Sun / Freshwater data-table .xlsx into raw/polls/freshwater/
+        load_issue_polls.main(fw, os.path.join(ROOT, 'raw', 'polls', 'issues_vic2026.json'))
     out = os.path.join(ROOT, 'site', 'data', 'polls_vic2026.json')
     load_polls.main(raw, out)
     if args.publish:
         import subprocess
-        cmd = ('git add raw/polls/wikipedia_vic2026_polls.json site/data/polls_vic2026.json && '
+        cmd = ('git add raw/polls/wikipedia_vic2026_polls.json raw/polls/issues_vic2026.json raw/polls/freshwater site/data/polls_vic2026.json && '
                '(git diff --cached --quiet || (git commit -q -m "polls update %s" && git push -q))' % dt.date.today().isoformat())
         r = subprocess.run(cmd, shell=True, cwd=ROOT, capture_output=True, text=True, timeout=180)
         print('published' if r.returncode == 0 else f'publish failed ({r.returncode}): {(r.stderr or r.stdout).strip()[-300:]}')

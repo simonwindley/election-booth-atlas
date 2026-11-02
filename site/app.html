@@ -59,7 +59,8 @@ a { color: var(--accent); }
 .brand { display: flex; align-items: baseline; gap: 10px; }
 .brand h1 { font-family: var(--font-display); font-weight: 500; font-size: 19px; margin: 0; letter-spacing: .01em; }
 .brand .sub { color: var(--fg-3); font-size: 12px; }
-nav.views { display: flex; gap: 2px; }
+nav.views { display: flex; gap: 2px; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+nav.views button { flex: 0 0 auto; }
 nav.views button { background: none; border: 0; padding: 6px 10px; border-radius: var(--radius); color: var(--fg-2); cursor: pointer; }
 nav.views button:hover { background: var(--surface-2); }
 nav.views button[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
@@ -166,6 +167,29 @@ table.data tr.clickable:hover td { background: var(--surface-2); }
 .win-grid button:hover { background: var(--surface-2); }
 .win-grid .rk { font-family: var(--font-mono); font-size: 11px; width: 26px; text-align: center; border-radius: 3px; padding: 1px 0; color: var(--fg); }
 .win-grid .hb { width: 8px; height: 8px; border-radius: 2px; flex: 0 0 auto; }
+.iss-h { margin: 18px 0 6px; font-size: 12px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+.iss-list { display: grid; grid-template-columns: minmax(150px, 260px) 1fr 54px 52px 92px; gap: 3px 10px; align-items: center; font-size: 13px; }
+.iss-list .hd { font-size: 11px; color: var(--fg-3); }
+.iss-list .bar { height: 14px; position: relative; }
+.iss-list .bar b { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); border-radius: 0 4px 4px 0; }
+.iss-list .v { font-family: var(--font-mono); text-align: right; }
+.iss-list .d { font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); text-align: right; }
+.iss-list svg { width: 92px; height: 18px; display: block; }
+.iss-list svg path { fill: none; stroke: var(--fg-2); stroke-width: 1.5; }
+.iss-list svg circle { fill: var(--accent); }
+.iss-grid { border-collapse: collapse; font-size: 12.5px; width: 100%; }
+.iss-grid th { font-weight: 500; font-size: 11px; color: var(--fg-2); text-align: center; padding: 3px 4px; vertical-align: bottom; }
+.iss-grid th:first-child, .iss-grid td:first-child { text-align: left; }
+.iss-grid th:not(:first-child) { width: 86px; }
+.iss-grid td { padding: 2px 4px; }
+.iss-grid td.c { text-align: center; font-family: var(--font-mono); border-radius: 3px; border: 2px solid var(--surface); }
+.iss-grid td.c.hi { font-weight: 700; }
+.iss-mg { display: grid; grid-template-columns: minmax(150px, 260px) 1fr 64px; gap: 3px 10px; align-items: center; font-size: 13px; }
+.iss-mg .stack { display: flex; height: 14px; gap: 2px; }
+.iss-mg .stack b { display: block; height: 100%; }
+.iss-mg .stack b:first-child { border-radius: 4px 0 0 4px; } .iss-mg .stack b:last-child { border-radius: 0 4px 4px 0; }
+.iss-mg .v { font-family: var(--font-mono); text-align: right; font-size: 12px; }
+@media (max-width: 640px) { .iss-list { grid-template-columns: minmax(110px, 1fr) 1fr 44px; } .iss-list .d, .iss-list .sp, .iss-list .hd.x { display: none; } .iss-mg { grid-template-columns: minmax(110px, 1fr) 1fr 52px; } }
 .chart .dot { opacity: .55; }
 .chart .trend { fill: none; stroke-width: 2.5; stroke-linejoin: round; }
 .chart .ev line { stroke: var(--fg-3); stroke-dasharray: 3 3; }
@@ -376,6 +400,19 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
         <div class="panel"><h3>By region, latest poll</h3><div class="tablewrap" id="polls-substate"></div></div>
         <div class="panel"><h3>Leaders</h3><div id="polls-leaders"></div></div>
       </div>
+      <div class="panel" id="polls-issues-panel" hidden>
+        <h3>What voters say matters</h3>
+        <div class="row" style="gap:10px;align-items:end;margin-bottom:10px;flex-wrap:wrap">
+            <div class="field" style="flex:0 0 auto"><label>Question</label><div class="seg" id="iss-q"><button data-v="gov" aria-pressed="true">Government priority</button><button data-v="vote" aria-pressed="false">Will sway my vote</button></div></div>
+            <div class="field" style="flex:0 0 auto"><label>Measure</label><div class="seg" id="iss-m"><button data-v="most" aria-pressed="true">Most important</button><button data-v="any" aria-pressed="false">Any of top three</button></div></div>
+            <div class="field" style="flex:0 1 170px"><label for="iss-wave">Poll</label><select id="iss-wave"></select></div>
+            <div class="field" style="flex:0 1 170px"><label for="iss-by">Broken down by</label><select id="iss-by"><option value="">Everyone</option></select></div>
+        </div>
+        <div id="iss-bars"></div>
+        <h4 class="iss-h">Who is trusted to handle each issue</h4>
+        <div id="iss-manage"></div>
+        <p class="hint" id="iss-note"></p>
+      </div>
       <div class="panel" id="polls-seat-panel" hidden><h3>Seat polling</h3><div id="polls-seat"></div><p class="hint">Polls of single seats or small groups of seats. Samples are small (a few hundred people, sometimes under a hundred per seat), so read them as a direction, not a margin. Click a seat to open it on the map.</p></div>
       <div class="panel"><div class="row" style="margin-bottom:8px;justify-content:space-between;align-items:end"><h3 style="margin:0">Every poll</h3><div class="field" style="flex:0 1 220px"><label for="polls-firm">Pollster</label><select id="polls-firm"><option value="all">All</option></select></div></div>
         <div class="tablewrap" id="polls-table"></div></div>
@@ -433,7 +470,7 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
       <h2>How to read it</h2>
       <p>Dots are election-day booths, sized by votes cast there. Catchments are a model: each booth is given the area closer to it than to any other booth in the same district, so the map fills in. Early, postal and absent votes are not tied to a booth by the electoral commissions and are shown at district level in the booth panel only. In 2022 about half of all state votes were cast before election day, so a booth map shows election-day voters, not everyone.</p>
       <p>The Dashboard is the statewide view of any election: primary vote by party with the change since last time, the seat tally against the majority line, a seat spectrum (one box per seat from the strongest Labor seat to the strongest Coalition seat, by primary leader or after preferences), and every seat with who held it, who won or leads, the margin and the 2CP swing, filterable to the seats changing hands or in doubt. On election night it fills in by itself from the live feed; seats are called by this page’s own rule (a clear projected lead for the share of booths in) and marked declared only when the VEC publishes the distribution.</p>
-      <p>Polls is a separate compilation of published opinion polling for the 2026 election — statewide primaries and two-party figures with a smoothed trend, three-party splits, regional breakdowns, the MRP seat projections and leadership ratings — taken from Wikipedia’s polling page. It is for reading the campaign; nothing from it feeds the Dashboard or the election-night projections.</p>
+      <p>Polls is a separate compilation of published opinion polling for the 2026 election — statewide primaries and two-party figures with a smoothed trend, three-party splits, regional breakdowns, the MRP seat projections and leadership ratings — taken from Wikipedia’s polling page, plus “What voters say matters”: the issue questions from the Herald Sun / Freshwater Strategy monthly poll (which issue people want the government to prioritise, which will sway their vote, and which side they trust on each), with the pollster’s own breakdowns by age, income, education, housing, children and vote. It is for reading the campaign; nothing from it feeds the Dashboard or the election-night projections.</p>
       <p>Demographics puts the 2021 Census beside the vote: every seat as a dot, any census indicator across, any of the map’s measures up (primary share, 2CP, swings, leader), with a fitted line and the correlation, and a second chart showing how that correlation has moved from election to election. The census figures come from the ABS Census tables — for the 2022 boundaries, small-area (SA2) counts apportioned onto the districts by where election-day votes were cast, topped up with the Parliament of Victoria Library’s electorate data cards; for the districts as drawn in 2013 (the 2014 and 2018 elections) and the federal divisions of 2021 (the 2022 election), so each election is read against the boundaries it was fought on; other elections are matched by seat name. Every seat’s panel carries a short “who lives here” table against the Victorian figure. One caution on the 2021 figures: the Census was taken during Melbourne’s August 2021 lockdown, so anything about travel to work describes that week.</p>
       <p>Switch from Booths to Electorates to see whole-seat results, which include every vote type and are what decide who is elected. Coalition means Liberal plus National; One Nation and the Victorian Socialists have their own colours; Independents are everyone running without a registered party. Shares are of the formal vote.</p>
       <h2>Where the numbers come from</h2>
@@ -1366,6 +1403,7 @@ async function renderPolls() {
   const pref = Object.entries(P.leaders.preferred)[0]; const appr = Object.entries(P.leaders.approval)[0];
   if (pref) { ld.append(h('div', { class: 'hint', style: 'margin-bottom:4px' }, 'Preferred premier, ' + pref[0].replace(/ vs /g, ' v ')), h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Poll'), ...Object.keys(pref[1][0].leaders).map(k => h('th', { class: 'num' }, k)))), h('tbody', {}, ...pref[1].slice(0, 6).map(p => h('tr', {}, h('td', {}, p.firm, h('div', { class: 'hint' }, p.label)), ...Object.keys(pref[1][0].leaders).map(k => h('td', { class: 'num' }, p.leaders[k] != null ? p.leaders[k] + '%' : '–'))))))); }
   if (appr) { const L = Object.keys(appr[1][0].leaders).filter(k => appr[1][0].leaders[k].Net != null); ld.append(h('div', { class: 'hint', style: 'margin:10px 0 4px' }, 'Net approval (satisfied less dissatisfied)'), h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Poll'), ...L.map(k => h('th', { class: 'num' }, k)))), h('tbody', {}, ...appr[1].slice(0, 5).map(p => h('tr', {}, h('td', {}, p.firm, h('div', { class: 'hint' }, p.label)), ...L.map(k => h('td', { class: 'num' }, p.leaders[k] && p.leaders[k].Net != null ? (p.leaders[k].Net > 0 ? '+' : '') + p.leaders[k].Net : '–'))))))); }
+  renderIssues();
   // seat polls: hand-kept groups (with per-seat calls) and Wikipedia's single-seat tables
   const sp = (P.seat_polls || []).slice(), wikiSeat = Object.entries(P.seat || {});
   el('polls-seat-panel').hidden = !sp.length && !wikiSeat.length;
@@ -1390,6 +1428,78 @@ async function renderPolls() {
   if (ip.length) { const cols = ['ALP', 'COAL', 'GRN', 'ONP']; el('polls-internal').innerHTML = ''; el('polls-internal').append(h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Date'), h('th', {}, 'Pollster · for'), h('th', { class: 'num' }, 'n'), ...cols.map(q => h('th', { class: 'num' }, PARTY_SHORT[q])), h('th', { class: 'num' }, '2PP ALP'), h('th', {}, 'Notes'))),
     h('tbody', {}, ...ip.slice().sort((a, b) => b.date.localeCompare(a.date)).map(p => h('tr', {}, h('td', {}, p.label), h('td', {}, p.firm, h('div', { class: 'hint' }, p.client)), h('td', { class: 'num' }, p.n ? fmt(p.n) : '–'), ...cols.map(q => h('td', { class: 'num' }, p.primary[q] != null ? p.primary[q] : '–')), h('td', { class: 'num' }, p.tpp && p.tpp.ALP != null ? p.tpp.ALP : '–'), h('td', { class: 'hint', style: 'max-width:380px' }, p.notes || '', p.url ? [' ', h('a', { href: p.url, target: '_blank', rel: 'noopener' }, 'source')] : '')))))); }
   renderPollsTable();
+}
+/* issues: Herald Sun / Freshwater monthly tables (src/load_issue_polls.py) */
+const issUI = { q: 'gov', m: 'most', wave: null, by: '', wired: false };
+const ISS_SKIP = new Set(['Other', 'Unsure', 'Nothing', 'None of these']);
+function renderIssues() {
+  const I = POLLS && POLLS.issues; el('polls-issues-panel').hidden = !I || !I.waves.length; if (!I || !I.waves.length) return;
+  const keyOf = () => issUI.q === 'gov' ? (issUI.m === 'most' ? 'most' : 'priority') : (issUI.m === 'most' ? 'vote_most' : 'vote_issue');
+  const waves = I.waves; const key = keyOf();
+  if (!issUI.wired) {
+    issUI.wired = true;
+    for (const [id, prop] of [['iss-q', 'q'], ['iss-m', 'm']]) for (const b of el(id).querySelectorAll('button')) b.addEventListener('click', () => { issUI[prop] = b.dataset.v; for (const o of el(id).querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); renderIssues(); });
+    el('iss-wave').addEventListener('change', (e) => { issUI.wave = +e.target.value; renderIssues(); });
+    el('iss-by').addEventListener('change', (e) => { issUI.by = e.target.value; renderIssues(); });
+  }
+  // the wave list depends on the question: "sway my vote" was first asked in September 2026
+  const avail = waves.map((w, i) => i).filter(i => waves[i][key]);
+  if (issUI.wave == null || !avail.includes(issUI.wave)) issUI.wave = avail[avail.length - 1];
+  const ws = el('iss-wave'); ws.innerHTML = ''; for (const i of avail.slice().reverse()) ws.append(h('option', { value: i }, new Date(waves[i].date).toLocaleDateString('en-AU', { month: 'long', year: 'numeric' }))); ws.value = issUI.wave;
+  const W = waves[issUI.wave], T = W[key];
+  const groups = I.groups.filter(g => g.cols.every(c => T.cols.includes(c)));
+  if (issUI.by && !groups.some(g => g.label === issUI.by)) issUI.by = '';
+  const bs = el('iss-by'); bs.innerHTML = ''; bs.append(h('option', { value: '' }, 'Everyone')); for (const g of groups) bs.append(h('option', { value: g.label }, g.label)); bs.value = issUI.by;
+  const ci = (c) => T.cols.indexOf(c);
+  const rows = T.rows.filter(r => !ISS_SKIP.has(r.issue) && r.v[0] != null).sort((a, b) => b.v[0] - a.v[0]);
+  const box = el('iss-bars'); box.innerHTML = '';
+  const qText = issUI.q === 'gov' ? (issUI.m === 'most' ? 'The single issue people most want the state government to prioritise' : 'Picked among up to three issues people want the state government to prioritise')
+    : (issUI.m === 'most' ? 'The single issue most likely to decide how people vote in November' : 'Picked among up to three issues most likely to influence how people vote');
+  box.append(h('div', { class: 'hint', style: 'margin-bottom:8px' }, `${qText}. ${W.firm} for the ${W.client}, ${W.fieldwork}, n=${fmt(W.n)}.`));
+  if (!issUI.by) {
+    const prevI = avail.filter(i => i < issUI.wave).pop(); const prev = prevI != null ? waves[prevI][key] : null;
+    const hist = avail.filter(i => i <= issUI.wave);
+    const max = Math.max(...rows.map(r => r.v[0]));
+    const list = h('div', { class: 'iss-list' }, h('span', { class: 'hd' }, 'Issue'), h('span', { class: 'hd' }), h('span', { class: 'hd', style: 'text-align:right' }, '%'), h('span', { class: 'hd x', style: 'text-align:right' }, prev ? 'vs ' + new Date(waves[prevI].date).toLocaleDateString('en-AU', { month: 'short' }) : ''), h('span', { class: 'hd x' }, hist.length > 1 ? `${new Date(waves[hist[0]].date).toLocaleDateString('en-AU', { month: 'short' })}–${new Date(W.date).toLocaleDateString('en-AU', { month: 'short' })}` : ''));
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const spark = (issue) => { const pts = hist.map(i => { const r = waves[i][key].rows.find(x => x.issue === issue); return r && r.v[0] != null ? { t: dayOf(waves[i].date), v: r.v[0] } : null; }).filter(Boolean); const s = document.createElementNS(svgNS, 'svg'); s.setAttribute('viewBox', '0 0 92 18'); if (pts.length < 2) return s; const t0 = dayOf(waves[hist[0]].date), t1 = dayOf(W.date); const X = (t) => 4 + 84 * (t - t0) / Math.max(1, t1 - t0), Y = (v) => 15 - 12 * v / max; const p = document.createElementNS(svgNS, 'path'); p.setAttribute('d', pts.map((q, k) => (k ? 'L' : 'M') + X(q.t).toFixed(1) + ' ' + Y(q.v).toFixed(1)).join(' ')); s.append(p); const c = document.createElementNS(svgNS, 'circle'); const L = pts[pts.length - 1]; c.setAttribute('cx', X(L.t)); c.setAttribute('cy', Y(L.v)); c.setAttribute('r', 2.5); s.append(c); return s; };
+    for (const r of rows) {
+      const pr = prev && prev.rows.find(x => x.issue === r.issue); const d = pr && pr.v[0] != null ? r.v[0] - pr.v[0] : null;
+      const tip = `${r.issue}: ${r.v[0]}%` + (d != null ? ` (${d >= 0 ? '+' : ''}${d.toFixed(1)} since ${waves[prevI].fieldwork})` : '');
+      list.append(h('span', { title: tip }, r.issue), h('span', { class: 'bar', title: tip }, h('b', { style: `width:${100 * r.v[0] / max}%` })), h('span', { class: 'v' }, r.v[0].toFixed(1)),
+        h('span', { class: 'd' }, d == null ? '' : (Math.abs(d) < 0.05 ? '0.0' : (d > 0 ? '▲' : '▼') + Math.abs(d).toFixed(1))), h('span', { class: 'sp', title: tip }, spark(r.issue)));
+    }
+    box.append(list);
+  } else {
+    const g = groups.find(x => x.label === issUI.by); const cols = ['Total', ...g.cols];
+    const max = Math.max(...rows.flatMap(r => cols.map(c => r.v[ci(c)] || 0)));
+    const nm = (c) => c === 'Total' ? 'Everyone' : c.replace('HHI less than ', 'Under ').replace('HHI over ', 'Over ').replace('HHI ', '').replace('Homeowner (with mortgage)', 'Mortgage').replace('Homeowner (without mortgage)', 'Own outright').replace('Liberals & Nationals', 'Coalition').replace('Labor Party', 'Labor').replace('The Greens', 'Greens').replace('Degree educated', 'Degree');
+    const t = h('table', { class: 'iss-grid' }, h('thead', {}, h('tr', {}, h('th', {}, 'Issue'), ...cols.map(c => h('th', {}, nm(c), h('div', { class: 'hint' }, T.n[ci(c)] ? 'n=' + fmt(T.n[ci(c)]) : ''))))),
+      h('tbody', {}, ...rows.map(r => h('tr', {}, h('td', {}, r.issue), ...cols.map(c => { const v = r.v[ci(c)]; const dv = v != null && c !== 'Total' ? v - r.v[0] : 0; return h('td', { class: 'c' + (Math.abs(dv) >= 5 ? ' hi' : ''), style: v == null ? '' : `background:${mix(css('--surface'), css('--accent'), 0.06 + 0.5 * v / max)}`, title: v == null ? '' : `${nm(c)}: ${v}%${c !== 'Total' ? ` (${dv >= 0 ? '+' : ''}${dv.toFixed(1)} on everyone)` : ''}` }, v == null ? '–' : v.toFixed(0)); })))));
+    box.append(h('div', { class: 'tablewrap' }, t), h('div', { class: 'hint', style: 'margin-top:4px' }, 'Per cent of each group; bold where a group is 5 points or more away from everyone. Subgroup samples are a few hundred, so differences of a few points are within the noise.'));
+  }
+  // best to manage
+  const M = W.manage, MN = W.manage_net; const mg = el('iss-manage'); mg.innerHTML = '';
+  if (M) {
+    const who = (s) => { const m = s.match(/^(.*?)-led (Labor|Liberal)/); return m ? m[1].split(' ').pop() : s; };
+    const labN = who(M.labor_label), coaN = who(M.coalition_label);
+    const order = M.rows.slice().sort((a, b) => (b.labor - b.coalition) - (a.labor - a.coalition));
+    const lead = (net) => Math.abs(net) < 0.5 ? 'level' : net > 0 ? `ALP +${net.toFixed(0)}` : `L/NP +${(-net).toFixed(0)}`;
+    if (!issUI.by || !MN) {
+      const grid = h('div', { class: 'iss-mg' });
+      for (const r of order) { const net = r.labor - r.coalition; const tip = `${r.issue}: ${labN}-led Labor ${r.labor}% · neither/unsure ${r.neither}% · ${coaN}-led Coalition ${r.coalition}%`;
+        grid.append(h('span', { title: tip }, r.issue), h('span', { class: 'stack', title: tip }, h('b', { style: `width:${r.labor}%;background:${partyColor('ALP')}` }), h('b', { style: `width:${r.neither}%;background:var(--surface-2)` }), h('b', { style: `width:${r.coalition}%;background:${partyColor('COAL')}` })), h('span', { class: 'v' }, lead(net))); }
+      mg.append(h('div', { class: 'tally-key', style: 'margin-bottom:6px' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor('ALP')}` }), `${labN}-led Labor government`), h('span', { class: 'chip' }, h('i', { style: 'background:var(--surface-2)' }), 'Neither / unsure'), h('span', { class: 'chip' }, h('i', { style: `background:${partyColor('COAL')}` }), `${coaN}-led Coalition government`)), grid);
+    } else {
+      const g = groups.find(x => x.label === issUI.by); const cols = ['Total', ...g.cols].filter(c => MN.cols.includes(c)); const mi = (c) => MN.cols.indexOf(c);
+      const nm = (c) => c === 'Total' ? 'Everyone' : c.replace('HHI less than ', 'Under ').replace('HHI over ', 'Over ').replace('HHI ', '').replace('Homeowner (with mortgage)', 'Mortgage').replace('Homeowner (without mortgage)', 'Own outright').replace('Liberals & Nationals', 'Coalition').replace('Labor Party', 'Labor').replace('The Greens', 'Greens').replace('Degree educated', 'Degree');
+      const byIssue = Object.fromEntries(MN.rows.map(r => [r.issue, r.v]));
+      mg.append(h('div', { class: 'tablewrap' }, h('table', { class: 'iss-grid' }, h('thead', {}, h('tr', {}, h('th', {}, 'Issue'), ...cols.map(c => h('th', {}, nm(c))))),
+        h('tbody', {}, ...order.filter(r => byIssue[r.issue]).map(r => h('tr', {}, h('td', {}, r.issue), ...cols.map(c => { const v = byIssue[r.issue][mi(c)]; return h('td', { class: 'c', style: v == null ? '' : `background:${mix(css('--surface'), partyColor(v > 0 ? 'ALP' : 'COAL'), Math.min(0.55, Math.abs(v) / 60))}`, title: v == null ? '' : `${nm(c)}: ${lead(v)}` }, v == null ? '–' : lead(v)); })))))),
+        h('div', { class: 'hint', style: 'margin-top:4px' }, `Net preference: the share saying a ${labN}-led Labor government would handle the issue best, less the share saying a ${coaN}-led Coalition government would.`));
+    }
+  }
+  el('iss-note').textContent = `Source: ${I.source}. Each wave is about a thousand people (margin of error about 3 points on the whole sample, more for groups). The issue lists are the pollster's own and change slightly between questions; Other, Unsure and Nothing are left off. Like the rest of this tab, nothing here feeds the Dashboard.`;
 }
 function renderPollsTable() {
   const polls = POLLS.polls.slice().reverse().filter(p => pollsUI.firm === 'all' || p.firm === pollsUI.firm || p.election);
