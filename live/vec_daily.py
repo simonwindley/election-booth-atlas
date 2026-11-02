@@ -184,6 +184,11 @@ def capture_htv(src, log):
                             'contest_id': ('vic-' if area.endswith('District') else 'vicr-') + slug(area.replace(' District', '').replace(' Region', '')) if area else '',
                             'registration': r[0], 'registered': r[2], 'pdf': pdf})
         log(f'  htv {kind}: {sum(1 for x in out if x["kind"] == kind)} cards from {url}')
+    # until the 2026 register opens (10 Nov) the VEC's how-to-vote pages still list the 2022 cards: keep only this year's
+    old = [c for c in out if re.search(r'\b(19|20)\d\d\b', c['registered'] or '') and not re.search(r'\b2026\b', c['registered'])]
+    if old:
+        log(f'  htv: dropped {len(old)} cards registered before 2026 (the 2022 register)')
+        out = [c for c in out if c not in old]
     return {'cards': out, 'raw': raw}
 
 

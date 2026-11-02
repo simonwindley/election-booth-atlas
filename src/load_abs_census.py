@@ -243,3 +243,6 @@ def main(geo, out):
 
 if __name__ == '__main__':
     main(sys.argv[1], sys.argv[2])
+    if sys.argv[1] == 'SA2':   # the merged 2022-boundary file also carries the modelled issue priorities: rebuild them
+        from src import model_issues
+        model_issues.main()
