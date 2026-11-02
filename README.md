@@ -156,9 +156,19 @@ from the dashboard and the live projections.
 2021 Census indicators by electorate, one file per boundary set, all in the same shape
 (`indicators`, `state`, `districts` keyed by contest id):
 
-* `demog_vic_la_2022` — the 88 districts on the 2022 boundaries, from the Parliament of Victoria Library's
-  "Electorate data cards" workbook (`raw/demographics/`): `python3 -m src.load_demographics`. About 50
-  numeric indicators plus the top-three text fields, which are also turned into per-category shares.
+* `demog_vic_la_2022` — the 88 districts on the 2022 boundaries (used in 2022 and 2026). Two sources
+  merged: the ABS tables at SA2 level apportioned onto the districts (below), and, for what the ABS
+  tables do not cover, the Parliament of Victoria Library's "Electorate data cards" workbook
+  (`raw/demographics/`). Build: `python3 -m src.load_demographics` (workbook alone), then
+  `python3 -m src.load_abs_census SA2 site/data/demog_vic_la_2022.json.gz` (merges in the ABS figures).
+  The apportionment (`python3 -m src.sa2_weights vic_la_2022 vic2022,vic2023n raw/abs/sa2_to_vic_la_2022.json`)
+  splits each of the 522 SA2s (boundaries from geo.abs.gov.au, `raw/boundaries/abs/`) across the districts
+  in proportion to the 2022 election-day votes falling in each part, spread evenly over the booth
+  catchments; 308 SA2s cross a district line. Checked against the workbook: district populations agree
+  to 2.2% on the median seat (worst Albert Park 12%, Bass 10%), and shares such as speaking only English
+  or renting correlate at 0.997–0.999. The comparison also showed the workbook's "born in Australia"
+  figure is misplaced for Werribee, Wendouree and Williamstown; the ABS value is used. Replace with the
+  SA1 DataPacks when they are available.
 * `demog_vic_la_2013` — the districts as drawn in 2013 (ABS "SED 2021"), used at the 2014 and 2018
   elections: 190-odd indicators from 20 General Community Profile tables (age bands, birthplace by
   country, ancestry, language, religion by denomination, education, income bands, tenure, dwellings,

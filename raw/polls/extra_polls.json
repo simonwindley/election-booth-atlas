@@ -1,9 +1,83 @@
 {
  "note": "Polls not (yet) on Wikipedia's compilation page, kept by hand. Party-commissioned polling is flagged internal and is shown separately on the Polls tab, outside the trend.",
  "polls": [
-  {"date": "2026-10-26", "start": "2026-10-14", "label": "14–26 Oct 2026", "firm": "Online Research Unit", "client": "Victorian Greens (internal)", "internal": true, "n": 1488,
-   "primary": {"ALP": 25, "COAL": 32, "GRN": 15, "ONP": 14}, "tpp": {"ALP": 46, "COAL": 54},
-   "source": "Guardian Australia, 1 Nov 2026: Is One Nation losing steam in Victoria?", "url": "https://www.theguardian.com/australia-news/2026/nov/01/is-one-nation-losing-steam-victoria-new-polling-greens-state-election-ntwnfb",
-   "notes": "Effective sample 1,488, MoE 3%. Greens say the upper-house question gave consistent figures; they read it as holding Richmond, Melbourne and Brunswick, winning Prahran and Northcote, and in contention in Pascoe Vale and Footscray."}
+  {
+   "date": "2026-10-26",
+   "start": "2026-10-14",
+   "label": "14–26 Oct 2026",
+   "firm": "Online Research Unit",
+   "client": "Victorian Greens (internal)",
+   "internal": true,
+   "n": 1488,
+   "primary": {
+    "ALP": 25,
+    "COAL": 32,
+    "GRN": 15,
+    "ONP": 14
+   },
+   "tpp": {
+    "ALP": 46,
+    "COAL": 54
+   },
+   "source": "Guardian Australia, 1 Nov 2026: Is One Nation losing steam in Victoria?",
+   "url": "https://www.theguardian.com/australia-news/2026/nov/01/is-one-nation-losing-steam-victoria-new-polling-greens-state-election-ntwnfb",
+   "notes": "Effective sample 1,488, MoE 3%. Greens say the upper-house question gave consistent figures; they read it as holding Richmond, Melbourne and Brunswick, winning Prahran and Northcote, and in contention in Pascoe Vale and Footscray."
+  }
+ ],
+ "seat_polls": [
+  {
+   "date": "2026-10-26",
+   "start": "2026-10-21",
+   "label": "21–26 Oct 2026",
+   "firm": "Roy Morgan (SMS)",
+   "client": "",
+   "n": 283,
+   "seats": [
+    "Bass",
+    "Hastings",
+    "Morwell",
+    "Pakenham"
+   ],
+   "title": "Bass, Hastings, Morwell and Pakenham",
+   "primary_note": "Combined primary vote for Hastings, Morwell and Pakenham",
+   "primary": {
+    "ONP": 39,
+    "COAL": 24,
+    "ALP": 20,
+    "GRN": 8,
+    "OTH": 9
+   },
+   "calls": [
+    {
+     "seat": "Bass",
+     "pair": "Liberal v Labor",
+     "ahead": "LIB"
+    },
+    {
+     "seat": "Hastings",
+     "pair": "One Nation v Liberal",
+     "ahead": "ONP"
+    },
+    {
+     "seat": "Morwell",
+     "pair": "One Nation v Labor",
+     "ahead": "ONP"
+    },
+    {
+     "seat": "Pakenham",
+     "pair": "One Nation v Labor",
+     "ahead": "ONP"
+    }
+   ],
+   "never": {
+    "ALP": 44,
+    "ONP": 41,
+    "GRN": 37,
+    "COAL": 12
+   },
+   "notes": "283 electors across four seats, so roughly 70 per seat: indicative only. 'Never vote for': ALP 44%, One Nation 41%, Greens 37%, Coalition 12%; 40% of Coalition voters would never vote One Nation, 10% of One Nation voters would never vote Coalition.",
+   "source": "Roy Morgan Finding No. 10371, 27 October 2026",
+   "url": "https://www.roymorgan.com/findings/10371-victorian-state-voting-intention-eastern-victoria-seats-october-2026"
+  }
  ]
 }

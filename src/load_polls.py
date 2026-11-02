@@ -223,6 +223,13 @@ def main(raw='raw/polls/wikipedia_vic2026_polls.json', out='site/data/polls_vic2
     if os.path.exists(extra):
         ex = json.load(open(extra))
         out_obj['internal'] = [p for p in ex['polls'] if p.get('internal')]
+        out_obj['seat_polls'] = ex.get('seat_polls', [])
+        # polls commissioned by a party belong with the internal ones, wherever they were found (Wikipedia now lists the Greens' poll in its main table)
+        PARTY_CLIENT = re.compile(r'\b(greens|labor|alp|liberal|nationals?|one nation|socialists?)\b', re.I)
+        moved = [p for p in out_obj['polls'] if not p.get('election') and PARTY_CLIENT.search(p.get('client') or '')]
+        out_obj['polls'] = [p for p in out_obj['polls'] if p not in moved]
+        have_int = {(p['date'], p['firm']) for p in out_obj['internal']}
+        out_obj['internal'] += [{**p, 'internal': True} for p in moved if (p['date'], p['firm']) not in have_int]
         have = {(p['date'], p['firm']) for p in out_obj['polls']}
         out_obj['polls'] = sorted(out_obj['polls'] + [p for p in ex['polls'] if not p.get('internal') and (p['date'], p['firm']) not in have], key=lambda p: p['date'] or '')
     json.dump(out_obj, open(out, 'w'), separators=(',', ':'))

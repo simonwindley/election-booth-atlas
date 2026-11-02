@@ -8,8 +8,13 @@ Geographies: SED (ABS "SED 2021" = the Victorian districts as drawn in 2013, use
 boundaries vic_la_2013, matched by name to the vic2018 contests; CED (federal divisions as at 2021, used in 2022) ->
 boundaries fed_2021, matched by name to the fed2022 contests.
 
-Usage: python3 -m src.load_abs_census SED site/data/demog_vic_la_2013.json
-       python3 -m src.load_abs_census CED site/data/demog_fed_2021.json
+SA2: the same tables at SA2 level, apportioned in the browser onto the 2022 districts with raw/abs/sa2_to_vic_la_2022.json
+(src/sa2_weights.py) -> raw/abs/c21_sa2_vic.json whose regions are already contest ids; merged with the Parliament
+workbook file so the 2022/2026 seats keep the workbook's own figures for anything the ABS tables do not cover.
+
+Usage: python3 -m src.load_abs_census SED site/data/demog_vic_la_2013.json.gz
+       python3 -m src.load_abs_census CED site/data/demog_fed_2021.json.gz
+       python3 -m src.load_abs_census SA2 site/data/demog_vic_la_2022.json.gz   (after src.load_demographics)
 """
 import sys, re, json, gzip, os
 
@@ -26,14 +31,20 @@ def contests_for(boundaries):
 def main(geo, out):
     cap = json.load(open(f'raw/abs/c21_{geo.lower()}_vic.json'))
     T = cap['tables']
-    boundaries = 'vic_la_2013' if geo == 'SED' else 'fed_2021'
-    cmap = contests_for(boundaries)
+    boundaries = {'SED': 'vic_la_2013', 'CED': 'fed_2021', 'SA2': 'vic_la_2022'}[geo]
+    cmap = contests_for(boundaries) if geo != 'SA2' else None
     regions = {}
     for t in T.values():
         regions.update(t['regions'])
     # region code -> contest id (skip the non-geographic codes)
     rid = {}
-    for code, name in regions.items():
+    if geo == 'SA2':
+        wb = json.load(gzip.open('site/data/demog_vic_la_2022.json.gz'))
+        for cid in regions:
+            d = wb['districts'].get(cid)
+            if d:
+                rid[cid] = (cid, d['name'], (d.get('region') or '').replace(' Metropolitan', ' Metropolitan') or None)
+    for code, name in (regions.items() if geo != 'SA2' else []):
         base = re.sub(r'\s*\(.*\)$', '', name).strip()
         if re.search(r'no usual address|migratory|offshore', name, re.I):
             continue
@@ -198,7 +209,30 @@ def main(geo, out):
     for code, (cid, name, region) in rid.items():
         d = {k: v for k, v in vals.get(cid, {}).items() if k in keepids}
         districts[cid] = {'name': name, 'region': region, **d}
-    obj = {'source': f"ABS Census 2021 (General Community Profile tables via the ABS Data API), {'State Electoral Divisions as at 2021, i.e. the Victorian districts drawn in 2013' if geo == 'SED' else 'Commonwealth Electoral Divisions as at 2021'}",
+    if geo == 'SA2':
+        # merge: ABS indicators first, then the workbook's own where the ABS set has no equivalent
+        wb = json.load(gzip.open('site/data/demog_vic_la_2022.json.gz'))
+        if wb.get('merged'):
+            raise SystemExit('demog_vic_la_2022 is already merged: rerun src.load_demographics first')
+        DUP = {'population_total_persons', 'population_male', 'population_female', 'age_median', 'income_and_expense_income', 'income_and_expense_mortage', 'income_and_expense_rent',
+               'household_ownership_owned', 'household_ownership_mortgage', 'household_ownership_rented', 'country_of_birth_born_in_australia', 'language_speaks_only_english',
+               'health_need_assistance', 'motor_vehicle_ownership_no_motor_vehicles', 'volunteering_for_organisation_or_group', 'dwelling_type_and_household_details_persons_per_bedroom',
+               'dwelling_type_and_household_details_people_per_household'}
+        extra = [x for x in wb['indicators'] if x['id'] not in DUP and x['id'] not in keepids and '_cat_' not in x['id']]
+        for x in extra:
+            x = dict(x); x['group'] = x['group'] + ' (Parliament of Victoria cards)' if x['kind'] != 'text' else x['group']; keep.append(x)
+        exids = {x['id'] for x in extra}
+        keepids |= exids | {i + '_share' for i in exids}
+        for cid, d in districts.items():
+            src = wb['districts'].get(cid, {})
+            d.update({k: v for k, v in src.items() if k in exids or k.endswith('_share') and k[:-6] in exids})
+            d['region'] = src.get('region') or d.get('region')
+        state.update({k: v for k, v in wb['state'].items() if k in exids or k.endswith('_share') and k[:-6] in exids})
+        # check the apportionment: ABS persons aggregated from SA2s against the workbook's district populations
+        diffs = sorted(((abs(districts[c]['population'] - wb['districts'][c]['population_total_persons']) / wb['districts'][c]['population_total_persons'], c) for c in districts if c in wb['districts'] and districts[c].get('population')), reverse=True)
+        print('population check vs Parliament cards: median abs diff %.1f%%, worst %s' % (100 * diffs[len(diffs) // 2][0], ', '.join(f'{c} {100 * d:.1f}%' for d, c in diffs[:5])))
+    obj = {'source': ("ABS Census 2021 (General Community Profile tables via the ABS Data API) at SA2 level, apportioned onto the 2022 districts by election-day votes within each SA2; plus the Parliament of Victoria Library electorate data cards" if geo == 'SA2' else f"ABS Census 2021 (General Community Profile tables via the ABS Data API), {'State Electoral Divisions as at 2021, i.e. the Victorian districts drawn in 2013' if geo == 'SED' else 'Commonwealth Electoral Divisions as at 2021'}"),
+           'merged': geo == 'SA2',
            'census': 2021, 'boundaries': boundaries, 'indicators': keep, 'state': {k: v for k, v in state.items() if k in keepids}, 'districts': districts,
            'note': 'State medians are population-weighted averages of the district medians, not the true state median. The 2021 Census was taken on 10 August 2021, during Melbourne\'s lockdown, so travel-to-work and worked-at-home figures describe that week, not normal commuting.'}
     os.makedirs(os.path.dirname(out), exist_ok=True)
