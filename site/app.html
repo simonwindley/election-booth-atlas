@@ -303,12 +303,12 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
         <div class="field"><label for="sel-bound">Boundary outlines</label>
           <select id="sel-bound">
             <option value="auto">This election’s</option>
-            <option value="vic_la_2022">State districts 2022</option><option value="vic_la_2013">State districts 2013</option><option value="vic_la_2001">State districts 2001</option>
+            <option value="vic_la_2022">State electorates 2022</option><option value="vic_la_2013">State electorates 2013</option><option value="vic_la_2001">State electorates 2001</option>
             <option value="fed_2024">Federal divisions 2024</option><option value="fed_2021">Federal divisions 2021</option><option value="fed_2018">Federal divisions 2018</option><option value="fed_2010">Federal divisions 2010</option><option value="fed_2003">Federal divisions 2003</option>
             <option value="vic_lc_2022">Upper house regions 2022</option><option value="vic_lc_2013">Upper house regions 2013</option><option value="vic_lc_2005">Upper house regions 2005</option><option value="none">None</option>
           </select></div>
-        <div class="field"><label for="inp-search">Find a booth or district</label><input type="search" id="inp-search" placeholder="e.g. Northcote, Bridport"><div id="search-hits"></div></div>
-        <p class="hint" id="unit-hint">Election-day booths only. Early, postal and absent votes are counted at district level and are shown in the booth panel for context.</p>
+        <div class="field"><label for="inp-search">Find a booth or electorate</label><input type="search" id="inp-search" placeholder="e.g. Northcote, Bridport"><div id="search-hits"></div></div>
+        <p class="hint" id="unit-hint">Election-day booths only. Early, postal and absent votes are counted at electorate level and are shown in the booth panel for context.</p>
       </aside>
       <div class="mapwrap">
         <div id="map" role="application" aria-label="Map of polling places"></div>
@@ -373,8 +373,8 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
         <div class="tablewrap" id="dash-table"></div>
         <p class="hint" id="dash-note"></p></div>
       <div id="dash-2026" style="display:none">
-      <div class="panel" id="y26-head"><div class="empty">Loading the 2026 register…</div></div>
-      <div class="panel"><h3>Candidates, seat by seat</h3>
+      <div class="panel" id="y26-head" hidden></div>
+      <div class="panel" hidden><h3>Candidates, seat by seat</h3>
         <div class="row" style="margin-bottom:8px"><div class="field" style="flex:0 1 220px"><label for="y26-sort">Sort by</label><select id="y26-sort"><option value="margin">Margin, closest first</option><option value="name">Seat name</option><option value="held">Held by</option></select></div>
           <div class="field" style="flex:1 1 200px"><label for="y26-filter">Filter</label><input type="search" id="y26-filter" placeholder="seat, member, candidate, party"></div></div>
         <div class="tablewrap" id="y26-table"></div>
@@ -485,16 +485,16 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
       <h2>What this is</h2>
       <p>Every polling place, election after election: results pinned to the place the votes were cast, so the vote can be followed by school hall and church porch rather than by electorate. Boundaries change; a school hall does not. It starts with Victoria — the state elections since 2010 and the federal elections since 2010 (House and Senate) — and is built to take on other states and the federal map in the same way.</p>
       <h2>How to read it</h2>
-      <p>Dots are election-day booths, sized by votes cast there. Catchments are a model: each booth is given the area closer to it than to any other booth in the same district, so the map fills in. Early, postal and absent votes are not tied to a booth by the electoral commissions and are shown at district level in the booth panel only. In 2022 about half of all state votes were cast before election day, so a booth map shows election-day voters, not everyone.</p>
+      <p>Dots are election-day booths, sized by votes cast there. Catchments are a model: each booth is given the area closer to it than to any other booth in the same electorate, so the map fills in. Early, postal and absent votes are not tied to a booth by the electoral commissions and are shown at electorate level in the booth panel only. In 2022 about half of all state votes were cast before election day, so a booth map shows election-day voters, not everyone.</p>
       <p>The Dashboard is the statewide view of any election: primary vote by party with the change since last time, the seat tally against the majority line, a seat spectrum (one box per seat from the strongest Labor seat to the strongest Coalition seat, by primary leader or after preferences), and every seat with who held it, who won or leads, the margin and the 2CP swing, filterable to the seats changing hands or in doubt. On election night it fills in by itself from the live feed; seats are called by this page’s own rule (a clear projected lead for the share of booths in) and marked declared only when the VEC publishes the distribution.</p>
       <p>Polls is a separate compilation of published opinion polling for the 2026 election — statewide primaries and two-party figures with a smoothed trend, three-party splits, regional breakdowns, the MRP seat projections and leadership ratings — taken from Wikipedia’s polling page, plus “What voters say matters”: the issue questions from the Herald Sun / Freshwater Strategy monthly poll (which issue people want the government to prioritise, which will sway their vote, and which side they trust on each), with the pollster’s own breakdowns by age, income, education, housing, children and vote. It is for reading the campaign; nothing from it feeds the Dashboard or the election-night projections.</p>
-      <p>Demographics puts the 2021 Census beside the vote: every seat as a dot, any census indicator across, any of the map’s measures up (primary share, 2CP, swings, leader), with a fitted line and the correlation, and a second chart showing how that correlation has moved from election to election. The census figures come from the ABS Census tables. For the 2022 boundaries they are built from the smallest published areas (SA1s, a few streets each) in the ABS DataPacks for 2021, 2016 and 2011, summed onto each district and onto each election-day booth’s catchment (the area nearest the booth within its district) by the share of each SA1 that falls inside, with the Parliament of Victoria Library’s electorate data cards supplying the true district medians and a few extras; the districts as drawn in 2013 (the 2014 and 2018 elections) and the federal divisions of 2021 (the 2022 election) use the ABS tables for those boundaries, so each election is read against the boundaries it was fought on, and other elections are matched by seat name. Because the three censuses are summed onto the same boundaries, the map, the Demographics axes and every seat panel can also show how an area has changed since 2016 or 2011, and the map’s census layer works by booth as well as by seat. Every seat’s panel carries a short “who lives here” table against the Victorian figure, and every booth panel a “who lives nearby” table for its catchment. One caution on the 2021 figures: the Census was taken during Melbourne’s August 2021 lockdown, so anything about travel to work describes that week.</p>
+      <p>Demographics puts the 2021 Census beside the vote: every seat as a dot, any census indicator across, any of the map’s measures up (primary share, 2CP, swings, leader), with a fitted line and the correlation, and a second chart showing how that correlation has moved from election to election. The census figures come from the ABS Census tables. For the 2022 boundaries they are built from the smallest published areas (SA1s, a few streets each) in the ABS DataPacks for 2021, 2016 and 2011, summed onto each electorate and onto each election-day booth’s catchment (the area nearest the booth within its electorate) by the share of each SA1 that falls inside, with the Parliament of Victoria Library’s electorate data cards supplying the true electorate medians and a few extras; the electorates as drawn in 2013 (the 2014 and 2018 elections) and the federal divisions of 2021 (the 2022 election) use the ABS tables for those boundaries, so each election is read against the boundaries it was fought on, and other elections are matched by seat name. Because the three censuses are summed onto the same boundaries, the map, the Demographics axes and every seat panel can also show how an area has changed since 2016 or 2011, and the map’s census layer works by booth as well as by seat. Every seat’s panel carries a short “who lives here” table against the Victorian figure, and every booth panel a “who lives nearby” table for its catchment. One caution on the 2021 figures: the Census was taken during Melbourne’s August 2021 lockdown, so anything about travel to work describes that week.</p>
       <p>Likely priorities (in each seat panel, on the map’s census layer and as a Demographics axis) are modelled, not polled. The Herald Sun / Freshwater Strategy monthly poll publishes its issue questions broken down by age, household income, degree and housing; each group’s gap from everyone (pooled across waves) is applied to how each seat’s 2021 Census mix differs from the state’s, with a correction so that overlapping traits (older seats are also owner-occupier seats) are not counted twice, on top of the latest statewide figure. The poll’s 2026 income bands are deflated to 2021 dollars by wage growth. It shows what a seat’s make-up implies, nothing more: local fights, geography and campaign issues are invisible to it, so a seat can care about something the model can’t see. The code is <code>src/model_issues.py</code>.</p>
       <p>Democratic mood works the same way from a different source: the McKinnon Index 2026, a national survey of about 4,300 people whose dashboard publishes its unit records (answers with the respondent’s age band, education, household income band, birthplace, language and remoteness, but no state, electorate or vote). For each reading of a question — trusts state politicians, thinks Australia is more divided, thinks violence for a cause is sometimes justified, satisfied with local safety, and so on — a weighted regression on those demographics gives each group’s effect, and an area’s estimate is the national figure shifted by how its 2021 Census mix differs from Victoria’s. It is a statement about who lives somewhere, not a poll of them: the “local safety” figure, for instance, knows nothing about local crime. The code is <code>src/model_mood.py</code>.</p>
       <p>Preferences holds the preference-flow model. Every distribution of preferences in the Atlas is treated as observations of where an excluded candidate’s votes went; a Luce choice model fitted by maximum likelihood gives each voter-party a weight for every destination, so a flow can be worked out for any set of candidates still standing. The Dashboard’s “Modelled” spectrum and the “Modelled from first preferences” block in each seat run the first preferences through the exclusions with those flows, giving a two-candidate figure for any pair without a VEC two-candidate count. Each pile keeps track of where its votes started, so a Labor vote sitting on an excluded independent still moves like a Labor vote. Fitted on 2018 and tested on 2022 it picked the right final two in 75 of 76 seats with a mean error of 1.8 points, the misses being the Labor-v-Greens seats where the Liberal how-to-vote card changed; the registered cards close most of that gap (see the Preferences tab). Nothing from the polls goes in. The code is <code>src/pref_flows.py</code>, <code>src/htv_follow.py</code> and <code>src/build_htv.py</code>.</p>
       <p>Switch from Booths to Electorates to see whole-seat results, which include every vote type and are what decide who is elected. Coalition means Liberal plus National; One Nation and the Victorian Socialists have their own colours; Independents are everyone running without a registered party. Shares are of the formal vote.</p>
       <h2>Where the numbers come from</h2>
-      <p>Victorian Electoral Commission results pages and spreadsheets (the 2018 pages via the Internet Archive, as the VEC no longer serves them); Australian Electoral Commission Tally Room downloads; Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every district’s booth totals reconcile to the published district totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount). Narracan’s 2022 contest was deferred to a supplementary election on 28 January 2023 after a candidate died during the campaign; it is shown as part of 2022 (the 88th seat of that parliament) and flagged wherever it appears, including in the <code>contests</code> and <code>booths</code> tables under Query.</p>
+      <p>Victorian Electoral Commission results pages and spreadsheets (the 2018 pages via the Internet Archive, as the VEC no longer serves them); Australian Electoral Commission Tally Room downloads; Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every electorate’s booth totals reconcile to the published electorate totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount). Narracan’s 2022 contest was deferred to a supplementary election on 28 January 2023 after a candidate died during the campaign; it is shown as part of 2022 (the 88th seat of that parliament) and flagged wherever it appears, including in the <code>contests</code> and <code>booths</code> tables under Query.</p>
       <p>Pipeline, raw data and reconciliation checks: the <code>election-analyser</code> project folder.</p>
       <h2>Privacy</h2>
       <p>The public site counts visits with <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a>: which tab was opened and roughly where the visit came from, nothing more. No cookies, no personal data, no advertising, and nothing is counted when the atlas is run from a local copy. Map tiles are served by OpenFreeMap.</p>
@@ -754,7 +754,7 @@ async function renderMap() {
     const cset = demogSet(eid), xi = (cset && cset.ind.get(demogId(state.census, cset))) || (DEMOG_BOOTH && DEMOG_BOOTH.ind.get(state.census)) || { label: '', kind: 'share' }; const vs = vals.map(x => x.m.v).filter(v => v != null);
     const title = xi.modelled ? `${xi.label}: ${(xi.group || '').replace(/\s*\(modelled[^)]*\)/, '').toLowerCase()} (modelled)` : xi.kind === 'delta' || xi.kind === 'pct' ? `${xi.label}: ${(xi.group || '').toLowerCase()}, ${xi.since}–2021 Censuses` : `${xi.label} (${(xi.group || '').toLowerCase()}), 2021 Census`;
     const stateV = byContest ? (cset ? cset.state[demogId(state.census, cset)] : null) : (DEMOG_BOOTH ? DEMOG_BOOTH.state[state.census] : null);
-    const note = `Victoria: ${fmtInd(xi.kind, stateV)}. ${xi.modelled && !(xi.id || '').startsWith('mood_') ? MODEL_CAVEAT + ' ' : ''}${xi.note ? xi.note + ' ' : ''}${byContest ? (demogExact(eid) ? '' : 'Matched by seat name from the nearest boundary set. ') : 'By booth catchment: the area nearest each 2022 election-day booth within its district, from the 2021 Census at SA1 level. Booths at the same venue in other elections show the same figure. '}Hollow: no figure.`;
+    const note = `Victoria: ${fmtInd(xi.kind, stateV)}. ${xi.modelled && !(xi.id || '').startsWith('mood_') ? MODEL_CAVEAT + ' ' : ''}${xi.note ? xi.note + ' ' : ''}${byContest ? (demogExact(eid) ? '' : 'Matched by seat name from the nearest boundary set. ') : 'By booth catchment: the area nearest each 2022 election-day booth within its electorate, from the 2021 Census at SA1 level. Booths at the same venue in other elections show the same figure. '}Hollow: no figure.`;
     if (xi.kind === 'delta' || xi.kind === 'pct') {
       const lim = Math.max(1e-6, quantile(vs.map(Math.abs), 0.95) || 0.01);
       colorOf = (x) => { if (x.m.v == null) return null; const t = Math.max(-1, Math.min(1, x.m.v / lim)); return t >= 0 ? mix(css('--surface-2'), css('--accent'), t) : mix(css('--surface-2'), NEG(), -t); };
@@ -884,8 +884,8 @@ function renderContestDetail(eid, cid) {
   const bl = D.booths.filter(b => b.election_id === eid && b.contest_id === cid && b.booth_type === 'ordinary').sort((a, b) => a.booth_name.localeCompare(b.booth_name));
   root.append(h('h3', {}, `${bl.length} election-day booths`), h('div', { class: 'hint', style: 'display:flex;flex-wrap:wrap;gap:4px 10px' }, ...bl.map(b => h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); if (state.unit !== 'booth') setUnit('booth'); select(eid, b.booth_id, true); } }, b.booth_name))));
 }
-// what to expect from a booth that has not reported: its 2022 result, how it leans against its district, and that result shifted by the
-// swing in the booths counted so far (the district's, or the nearest reported booths when the district has few in)
+// what to expect from a booth that has not reported: its 2022 result, how it leans against its electorate, and that result shifted by the
+// swing in the booths counted so far (the district's, or the nearest reported booths when the electorate has few in)
 function expectBlock(eid, b) {
   const b22 = (idx.boothsByVenue.get(b.venue_id) || []).find(x => x.election_id === 'vic2022' && x.booth_type === 'ordinary') || idx.boothsByKey.get('vic2022|' + b.booth_id);
   if (!b22) return h('div', { class: 'hint' }, 'A new booth: nothing from 2022 to go on.');
@@ -897,13 +897,31 @@ function expectBlock(eid, b) {
   const inDist = swingOver(reported.filter(x => x.b22.contest_id === b22.contest_id));
   const km = (x) => b.lat != null && x.lat != null ? Math.hypot((x.lat - b.lat) * 111, (x.lon - b.lon) * 111 * Math.cos(b.lat * Math.PI / 180)) : Infinity;
   const near = swingOver(reported.filter(x => km(x) <= 6).sort((x, y) => km(x) - km(y)).slice(0, 6));
-  const use = inDist && inDist.n >= 3 ? { ...inDist, what: `the ${inDist.n} booths counted so far in ${idx.contestById.get('vic2022|' + b22.contest_id).contest_name}` } : near && near.n >= 2 ? { ...near, what: `the ${near.n} nearest booths counted so far (within 6 km)` } : inDist && inDist.n ? { ...inDist, what: `the ${inDist.n} booth${inDist.n === 1 ? '' : 's'} counted so far in the district` } : null;
+  const use = inDist && inDist.n >= 3 ? { ...inDist, what: `the ${inDist.n} booths counted so far in ${idx.contestById.get('vic2022|' + b22.contest_id).contest_name}` } : near && near.n >= 2 ? { ...near, what: `the ${near.n} nearest booths counted so far (within 6 km)` } : inDist && inDist.n ? { ...inDist, what: `the ${inDist.n} booth${inDist.n === 1 ? '' : 's'} counted so far in the electorate` } : null;
   const box = h('div', { style: 'margin:6px 0 10px' }, h('h3', {}, 'What to expect here'));
   const ps = PARTIES.filter(p => here[p] && here[p].share >= 0.02);
-  box.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Party'), h('th', { class: 'num' }, '2022 here'), h('th', { class: 'num', title: 'this booth against the whole district in 2022' }, 'vs district'), use ? h('th', { class: 'num', title: 'the 2022 result here shifted by the swing counted so far' }, 'Expected') : '')),
+  box.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Party'), h('th', { class: 'num' }, '2022 here'), h('th', { class: 'num', title: 'this booth against the whole electorate in 2022' }, 'vs electorate'), use ? h('th', { class: 'num', title: 'the 2022 result here shifted by the swing counted so far' }, 'Expected') : '')),
     h('tbody', {}, ...ps.map(p => { const d = here[p].share - (dist[p] ? dist[p].share : 0); const ex = use ? Math.max(0, here[p].share + (use.sw[p] || 0)) : null; return h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p])), h('td', { class: 'num' }, pct(here[p].share)), h('td', { class: 'num', style: Math.abs(d) >= 0.05 ? 'font-weight:600' : '' }, pts(d)), use ? h('td', { class: 'num' }, `≈${pct(ex)}`) : ''); })))));
   const t22 = tcpShares('vic2022', b22.booth_id); const top = t22 ? [...t22].sort((x, y) => y.share - x.share)[0] : null;
   box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, `${fmt(here.formal)} formal votes here in 2022${top ? `; after preferences ${top.cand ? top.cand.surname : top.party} ${pct(top.share)}` : ''}. ` + (use ? `Expected: the 2022 result here plus the swing in ${use.what} (${PARTIES.filter(p => use.sw[p] != null && Math.abs(use.sw[p]) >= 0.005).map(p => `${PARTY_SHORT[p]} ${pts(use.sw[p])}`).join(', ') || 'no swing yet'}).` : 'No booths counted nearby yet, so no expectation beyond the 2022 result.')));
+  // the expected primaries, given to this year's candidates, run through the preference model (fitted flows and the registered cards)
+  const lc = LIVE.latest && LIVE.latest.contests[b.contest_id];
+  const cl = lc && lc.candidates && lc.candidates.length ? lc.candidates.map(c => ({ id: c.candidate_id, party: c.party, cand: idx.candById.get(eid + '|' + c.candidate_id) || { surname: String(c.name || '').split(',')[0] } }))
+    : D.candidates.filter(x => x.election_id === eid && x.contest_id === b.contest_id).map(x => ({ id: x.candidate_id, party: x.party, cand: x }));
+  if (cl.length >= 2) {
+    if (!PREF || HTV[eid] === undefined || HTV[HTV_BASE] === undefined) Promise.all([ensurePref(), ensureHtv(eid), ensureHtv(HTV_BASE)]).then(() => { if (selected && selected.election === eid && selected.booth === b.booth_id) renderDetail(eid, b.booth_id); });
+    const pw = prefWeights(eid);
+    if (pw) {
+      const nG = {}; for (const c of cl) { const g = grpParty(c.party); nG[g] = (nG[g] || 0) + 1; }
+      const fps = cl.map(c => { const g = grpParty(c.party); const sh = Math.max(0, (here[g] ? here[g].share : 0) + (use && use.sw[g] ? use.sw[g] : 0)); return { ...c, votes: here.formal * sh / nG[g] }; }).filter(c => c.votes > 0);
+      if (fps.length >= 2) { const base = HTV[HTV_BASE]; const cards = seatCards(eid, b.contest_id);
+        const { final, cardsUsed } = fps.length > 2 ? simulateCount(fps, pw.W, null, { cards, pairwise: cards && base ? base.pairwise : null }) : { final: new Map(fps.map(c => [c.id, c.votes])), cardsUsed: 0 };
+        const tot = [...final.values()].reduce((x, y) => x + y, 0); const pair = [...final.entries()].map(([id, v]) => { const c = fps.find(f => f.id === id); return { ...c, share: v / tot }; }).sort((x, y) => y.share - x.share);
+        box.append(h('div', { style: 'margin-top:6px' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', {}, h('span', { class: 'hint' }, 'Expected after preferences (model): '), ...pair.map((x, i) => h('span', {}, i ? h('span', { class: 'hint' }, ' v ') : '', h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), candName(x.cand)), h('b', { class: 'mono' }, ` ≈${pct(x.share)}`))))),
+          h('div', { class: 'hint' }, `This year's candidates given the expected primaries, each excluded in turn and their votes split by the fitted preference flows${cardsUsed ? ' and the registered how-to-vote cards' : ''}.`)));
+      }
+    }
+  }
   return box;
 }
 function renderDetail(eid, bid) {
@@ -930,12 +948,12 @@ function renderDetail(eid, bid) {
   const t = tcpShares(eid, bid);
   if (t) { root.append(h('h3', {}, 'Two-candidate preferred')); for (const x of t) root.append(h('div', { style: 'margin:4px 0' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), x.cand ? x.cand.surname : x.party), h('span', { class: 'mono' }, `${fmt(x.votes)} · ${pct(x.share)}`)), h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)}` })))); }
   if (eid.startsWith('fed')) { if (SEN.loaded) senateBoothBlock(root, eid, bid); else ensureSenate().then(() => { if (selected && selected.booth === bid) renderDetail(eid, bid); }); }
-  renderFlows(root, eid, b.contest_id, { title: 'Where preferences went (district)', note: `Preference flows are only published for the whole ${c ? c.contest_name : 'district'}, not by booth.` });
-  // district context: declaration votes
+  renderFlows(root, eid, b.contest_id, { title: 'Where preferences went (electorate)', note: `Preference flows are only published for the whole ${c ? c.contest_name : 'district'}, not by booth.` });
+  // electorate context: declaration votes
   const decl = D.booths.filter(x => x.election_id === eid && x.contest_id === b.contest_id && x.booth_type !== 'ordinary' && x.booth_type !== 'early' && x.booth_type !== 'hospital');
   if (decl.length) {
     const parts = decl.map(x => { const ps = partyShares(eid, x.booth_id); return ps.formal ? `${x.booth_type.replaceAll('_', ' ')} ${fmt(ps.formal)}` : null; }).filter(Boolean);
-    if (parts.length) root.append(h('h3', {}, 'Votes counted at district level'), h('div', { class: 'hint' }, parts.join(' · ')));
+    if (parts.length) root.append(h('h3', {}, 'Votes counted at electorate level'), h('div', { class: 'hint' }, parts.join(' · ')));
   }
   // who lives nearby: the 2022 booth catchment at this venue, from the SA1 census
   if (b.venue_id && b.booth_type === 'ordinary') {
@@ -1100,7 +1118,7 @@ async function render2026() {
     ...Object.entries(kd).filter(([k]) => ['writs', 'nominations_close', 'early_voting_open', 'election_day'].includes(k)).map(([k, v]) => stat(days(v) >= 0 ? `${days(v)} d` : 'done', k.replaceAll('_', ' ') + ' · ' + v.slice(5).replace('-', '/'))),
     stat(fmt(laC.length), 'declared lower-house candidates'), stat(`${seatsWith('ONP')} / 88`, 'seats with a One Nation candidate'), stat(`${seatsWith('VSP')} / 88`, 'seats with a Socialist candidate'), stat(fmt(retiring.length), 'members not recontesting')));
   head.append(h('div', { class: 'hint', style: 'margin-top:10px' }, 'Seats going in: ' + Object.entries(held).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(' · ') + ' (as held now, after by-elections and party changes).'));
-  if (LIVE.daily) { const d = LIVE.daily; const tot = d.enrolment ? Object.values(d.enrolment.districts).reduce((a, x) => a + x.electors, 0) : 0; head.append(h('div', { class: 'hint', style: 'margin-top:8px' }, h('strong', {}, 'VEC figures, captured ' + d.date + ': '), tot ? `${fmt(tot)} electors on the roll (${d.enrolment.date_extracted})` : '', d.htv && d.htv.cards ? ` · ${fmt(d.htv.cards.length)} how-to-vote cards registered` : '', d.candidates ? ` · nominations published for ${Object.keys(d.candidates.districts).length} districts` : '')); }
+  if (LIVE.daily) { const d = LIVE.daily; const tot = d.enrolment ? Object.values(d.enrolment.districts).reduce((a, x) => a + x.electors, 0) : 0; head.append(h('div', { class: 'hint', style: 'margin-top:8px' }, h('strong', {}, 'VEC figures, captured ' + d.date + ': '), tot ? `${fmt(tot)} electors on the roll (${d.enrolment.date_extracted})` : '', d.htv && d.htv.cards ? ` · ${fmt(d.htv.cards.length)} how-to-vote cards registered` : '', d.candidates ? ` · nominations published for ${Object.keys(d.candidates.districts).length} electorates` : '')); }
   const vt = meta.voting || {};
   if (vt.postal || vt.early) head.append(h('div', { class: 'hint', style: 'margin-top:8px' },
     vt.postal ? h('div', {}, h('strong', {}, 'Postal votes: '), `applications open ${fmtDay(vt.postal.applications_open)}, close ${fmtDay(vt.postal.applications_close)}; packs posted from ${fmtDay(vt.postal.packs_posted_from)}. `, h('a', { href: vt.postal.url, target: '_blank', rel: 'noopener' }, 'Apply on the VEC site')) : '',
@@ -1241,10 +1259,13 @@ function renderDash() {
   const declared = rows.filter(r => r.status === 'declared').length, called = rows.filter(r => r.status === 'called').length, doubt = rows.filter(r => r.status === 'doubt' || r.status === 'leaning').length, counting = rows.filter(r => r.status !== 'nocount').length;
   const gains = rows.filter(r => r.changed).length, changing = rows.filter(r => r.changing).length;
   const cur = stateTotals(eid);
+  const t = live ? liveTotals() : null;
   if (live) {
-    const t = liveTotals();
-    if (!LIVE.available) head.append(h('div', { class: 'hint', style: 'margin-top:10px' }, h('span', { class: 'pulse off' }), h('strong', {}, 'Pre-election preview. '), `${total} seats; counting starts 6 pm on election night and this page then fills in by itself (the feed is re-read every minute). Seats show who holds them going in and the margin from the last contest there.`), countdownBlock());
-    else head.append(h('div', { style: 'margin-top:10px' }, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${totalsText(t)} · ${t.freshB} booths and ${t.freshC} districts changed since ${fmtTime(LIVE.seenAt)}`),
+    if (!LIVE.available) { const kd = (LIVE.meta && LIVE.meta.key_dates) || {}; const today = new Date(); const days = (iso) => Math.ceil((new Date(iso + 'T00:00:00') - today) / 86400000);
+      head.append(h('div', { class: 'hint', style: 'margin-top:10px' }, h('span', { class: 'pulse off' }), h('strong', {}, 'Pre-election preview. '), `${total} seats; counting starts 6 pm on election night and this page then fills in by itself (the feed is re-read every minute). Seats show who holds them going in and the margin from the last contest there.`), countdownBlock(),
+        Object.keys(kd).length ? h('div', { class: 'hint', style: 'margin-top:4px' }, Object.entries(kd).filter(([k]) => ['writs', 'nominations_close', 'early_voting_open', 'election_day'].includes(k)).map(([k, v]) => `${k.replaceAll('_', ' ')} ${v.slice(8).replace(/^0/, '')}/${v.slice(5, 7).replace(/^0/, '')}${days(v) > 0 ? ` (in ${days(v)} d)` : days(v) === 0 ? ' (today)' : ''}`).join(' · ')) : '',
+        voteTypeTable(t)); }
+    else head.append(h('div', { style: 'margin-top:10px' }, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${totalsText(t)} · ${t.freshB} booths and ${t.freshC} electorates changed since ${fmtTime(LIVE.seenAt)}`),
       h('span', { style: 'margin-left:10px' }, h('button', { class: 'btn', onclick: () => { LIVE.seenAt = LIVE.fetchedAt || new Date().toISOString(); try { localStorage.setItem('atlas.liveSeenAt', LIVE.seenAt); } catch (e) {} renderDash(); if (mapReady) renderMap(); renderLiveBox(); } }, 'Mark all seen'), ' ', h('button', { class: 'btn', onclick: () => pollLive(true).then(renderDash) }, 'Refresh now'))), voteTypeTable(t));
   }
   head.append(h('div', { class: 'stats', style: 'margin-top:12px' },
@@ -1253,7 +1274,11 @@ function renderDash() {
     stat(String(gains), live ? 'seats changing hands' : 'seats changed hands'), live && changing ? stat(String(changing), 'more leaning to a change') : '',
     majority ? stat(String(majority), 'for a majority') : '',
     stat(fmt(cur.formal), live ? 'formal votes counted' : 'formal votes'), cur.formal ? stat(pct(cur.informal / (cur.formal + cur.informal)), 'informal') : '',
-    live && cur.enrolment && cur.formal ? stat(pct((cur.formal + cur.informal) / cur.enrolment), 'of enrolment counted') : ''));
+    live && cur.enrolment && cur.formal ? stat(pct((cur.formal + cur.informal) / cur.enrolment), 'of enrolment counted') : '',
+    live ? stat(`${fmt(t.reported)} / ${fmt(t.booths)}`, 'election-day booths reported') : '',
+    live ? (t.earlyListed > 88 ? stat(`${t.earlyRep} / ${t.earlyListed}`, 'early voting centres in') : stat(fmt(t.earlyVotes), `early votes counted${t.base.early ? ' (2022: ' + fmt(t.base.early) + ')' : ''}`)) : '',
+    live ? stat(fmt(t.byType.postal), `postal votes counted${t.postalReg ? ' of ' + fmt(t.postalReg) + ' applications' : t.base.postal ? ' (2022: ' + fmt(t.base.postal) + ')' : ''}`) : '',
+    live ? stat(fmt(D.candidates.filter(x => x.election_id === eid && x.contest_id.startsWith('vic-')).length), (LIVE.daily && LIVE.daily.candidates && LIVE.daily.candidates.districts ? 'nominated' : 'declared') + ' lower-house candidates') : ''));
   // ---- statewide
   const st = el('dash-state'); st.innerHTML = '';
   const countedCids = new Set(rows.filter(r => r.ps.formal).map(r => r.cid));
@@ -1284,7 +1309,7 @@ function renderDash() {
       prevEid ? h('td', { class: 'num' }, pre ? '' : seatsBase[p] || seatsNow[p] ? (dSeats > 0 ? '+' : '') + dSeats : '–') : '',
       h('td', { class: 'num' }, pre ? (prev && prev[p] ? fmt(prev[p].votes) : '–') : now[p] ? fmt(now[p].votes) : '–')));
   }
-  st.append(tbl, h('div', { class: 'hint', style: 'margin-top:6px' }, `${pre ? `No votes yet: the primary vote and votes are the ${prevE ? prevE.name : 'previous'} result, as a baseline; they switch to the live count the moment the first booth reports. ` : ''}Primary vote over every vote type${partial ? `, in the ${countedCids.size} districts counting so far; the change is against the same districts at the previous election` : prevE ? '; change in points against ' + prevE.name : ''}. ` +
+  st.append(tbl, h('div', { class: 'hint', style: 'margin-top:6px' }, `${pre ? `No votes yet: the primary vote and votes are the ${prevE ? prevE.name : 'previous'} result, as a baseline; they switch to the live count the moment the first booth reports. ` : ''}Primary vote over every vote type${partial ? `, in the ${countedCids.size} electorates counting so far; the change is against the same electorates at the previous election` : prevE ? '; change in points against ' + prevE.name : ''}. ` +
     (live ? 'Seats are called here when the projected or counted two-candidate lead is clear for the share of booths in (8 pts with 15% of booths, 5 pts with 30%, 3 pts with 60%), declared when the VEC publishes the distribution or names the member; leaning: ahead by 2 pts or more with a fifth of booths in. A seat stays in doubt while a candidate outside the VEC\'s nominated two-candidate pair is at or within 3 pts of the lower of the pair on primaries, since the night\'s 2CP is only indicative and may be counted between the wrong two. The call is this page\'s, not the VEC\'s. Net seats: gains less losses among the seats decided so far, against who held each seat going in.' :
       'Net seats: against the party\'s total at the previous election. Gains in the seat table are against the winner of the same-named seat last time; redistributions are not allowed for, so a new seat shows as a gain.')));
   // ---- seat table
@@ -1635,7 +1660,7 @@ async function renderPrefs() {
     const m0 = modelledTcp('vic2022', c.contest_id, ids, false), m1 = modelledTcp('vic2022', c.contest_id, ids, true); if (!m0 || !m1 || !m1.cardsUsed) continue;
     const real = t.pair[0].share, a0 = m0.pair.find(x => x.cand.candidate_id === ids[0]), a1 = m1.pair.find(x => x.cand.candidate_id === ids[0]); if (!a0 || !a1) continue;
     n++; const d0 = Math.abs(a0.share - real) * 100, d1 = Math.abs(a1.share - real) * 100; e0 += d0; e1 += d1; if (d1 < d0) better++; }
-  cards.append(h('p', { class: 'hint' }, `Registered how-to-vote cards are the other half of the model: a party's flow moves when its card changes. The 2022 register has been read card by card: ${fmt(hv.n_cards)} complete orderings in ${hv.n_seats} districts (cards that only say "vote 1" are left out). For every exclusion in the 2022 count, the excluded candidate's card names who should get the pile next; the share that actually went there is the concordance. Most of that would have happened anyway, so the follow rate is estimated instead from seats where the same party's card pointed different ways, with the natural affinity between each pair of parties taken out. In the model, that share of a pile goes to the card's next name and the rest follows the fitted flow.`),
+  cards.append(h('p', { class: 'hint' }, `Registered how-to-vote cards are the other half of the model: a party's flow moves when its card changes. The 2022 register has been read card by card: ${fmt(hv.n_cards)} complete orderings in ${hv.n_seats} electorates (cards that only say "vote 1" are left out). For every exclusion in the 2022 count, the excluded candidate's card names who should get the pile next; the share that actually went there is the concordance. Most of that would have happened anyway, so the follow rate is estimated instead from seats where the same party's card pointed different ways, with the natural affinity between each pair of parties taken out. In the model, that share of a pile goes to the card's next name and the rest follows the fitted flow.`),
     h('div', { class: 'stats', style: 'margin:10px 0' }, stat(fmt(hv.n_cards), 'card orderings read'), stat(`${hv.n_seats}`, 'districts'), n ? stat(`${(e0 / n).toFixed(2)} → ${(e1 / n).toFixed(2)} pts`, `mean 2CP error in 2022 without, then with, the 2022 cards (${better} of ${n} seats closer)`) : ''),
     h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Voters of'), h('th', { class: 'num' }, 'Exclusions'), h('th', { class: 'num' }, 'Votes'), h('th', { class: 'num', title: 'share of the pile that went to the card\'s next name' }, 'Followed card'), h('th', { class: 'num', title: 'concordance minus what the flow model expected for that destination' }, 'Above flow'), h('th', { class: 'num', title: 'estimated share of voters who do what the card says' }, 'Follow rate'), h('th', {}, 'Typical card order'))),
       h('tbody', {}, ...partiesF.map(p => { const f = F[p]; const typ = (hv.party_order[p] || hv.party_order[modelParty(p)] || []).slice(0, 6).map(x => PARTY_SHORT[x.party] || x.party).join(' > ');
@@ -1733,7 +1758,7 @@ function nearbyBlock(eid, b) {
   const ids = B.indicators.filter(x => x.modelled && x.id.startsWith('issue_gov_most_') && d[x.id] != null).sort((a, b2) => d[b2.id] - d[a.id]).slice(0, 3);
   return h('div', {}, h('h3', {}, 'Who lives nearby'), t,
     ids.length ? h('div', { class: 'hint', style: 'margin-top:4px' }, 'Likely top priorities (modelled): ', ids.map((x, i) => `${i ? ' · ' : ''}${x.label.toLowerCase()} ≈${pct(d[x.id], 0)}`).join('')) : '',
-    h('div', { class: 'hint', style: 'margin-top:4px' }, `2021 Census for the area nearest this venue within its 2022 district (${d.booth_id}), with the same area in 2011. Not who votes here: early, postal and absent votes are counted elsewhere. `, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); state.census = 'income_household_median'; setUnit('booth'); setElection(eid); el('sel-metric').value = 'census'; el('sel-metric').dispatchEvent(new Event('change')); showView('map'); } }, 'Colour the map by booth catchment')));
+    h('div', { class: 'hint', style: 'margin-top:4px' }, `2021 Census for the area nearest this venue within its 2022 electorate (${d.booth_id}), with the same area in 2011. Not who votes here: early, postal and absent votes are counted elsewhere. `, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); state.census = 'income_household_median'; setUnit('booth'); setElection(eid); el('sel-metric').value = 'census'; el('sel-metric').dispatchEvent(new Event('change')); showView('map'); } }, 'Colour the map by booth catchment')));
 }
 function issueBlock(d, set, eid) {
   const ids = set.indicators.filter(x => x.modelled && x.id.startsWith('issue_gov_most_') && d[x.id] != null); if (!ids.length) return null;
@@ -1826,7 +1851,7 @@ async function renderDemog() {
   else legend.append(legendRamp(`${PARTY_NAME[dm.party]} ${dm.metric === 'tcp' ? 'two-candidate preferred' : 'primary vote'}`, [mix(base, partyColor(dm.party), 0.12), partyColor(dm.party)], ['0%', pct(points.max, 0) + '+'], '', null));
   const total = laContests(dm.election).length;
   const filtTxt = xi.partial ? ` of ${total}: the ${xi.label} share is only known where it is among the seat's three largest ${xi.group.split(' (')[0].toLowerCase()} groups, so seats where it is smaller are missing and the fit is only across those shown` : '';
-  el('dm-note').textContent = `${points.length} seats${filtTxt}, one dot each, coloured by the vertical measure exactly as the map colours electorates; dashed line: least-squares fit, ${rTxt}. The dotted vertical line is the Victorian figure. ${demogExact(dm.election) ? '' : `Seats are matched by name to the ${set.set.replace('vic_la_', 'state districts of ').replace('fed_', 'federal divisions of ')}, so redistributed seats carry a neighbour's profile. `}Click a dot to open the seat on the map.${set.ind.get(dm.x) && (set.ind.get(dm.x).kind === 'delta' || set.ind.get(dm.x).kind === 'pct') ? ` Change between the ${set.ind.get(dm.x).since} and 2021 Censuses for the same area (SA1 counts summed onto today’s boundaries); dollar figures are nominal.` : ''}${set.ind.get(dm.x) && set.ind.get(dm.x).modelled ? ' ' + (dm.x.startsWith('mood_') ? set.ind.get(dm.x).note : MODEL_CAVEAT) + ' Because the estimate is built from demographics, it will line up with them by construction; compare it with the vote, not with other census measures.' : ''}`;
+  el('dm-note').textContent = `${points.length} seats${filtTxt}, one dot each, coloured by the vertical measure exactly as the map colours electorates; dashed line: least-squares fit, ${rTxt}. The dotted vertical line is the Victorian figure. ${demogExact(dm.election) ? '' : `Seats are matched by name to the ${set.set.replace('vic_la_', 'state electorates of ').replace('fed_', 'federal divisions of ')}, so redistributed seats carry a neighbour's profile. `}Click a dot to open the seat on the map.${set.ind.get(dm.x) && (set.ind.get(dm.x).kind === 'delta' || set.ind.get(dm.x).kind === 'pct') ? ` Change between the ${set.ind.get(dm.x).since} and 2021 Censuses for the same area (SA1 counts summed onto today’s boundaries); dollar figures are nominal.` : ''}${set.ind.get(dm.x) && set.ind.get(dm.x).modelled ? ' ' + (dm.x.startsWith('mood_') ? set.ind.get(dm.x).note : MODEL_CAVEAT) + ' Because the estimate is built from demographics, it will line up with them by construction; compare it with the vote, not with other census measures.' : ''}`;
   // trend: the correlation at each state election
   const elections = D.elections.filter(x => x.election_id.startsWith('vic') && !x.election_id.startsWith('vicby') && (x.election_id !== LIVE.election || LIVE.available)).sort((a, b) => a.date.localeCompare(b.date));
   const series = [];
@@ -1859,7 +1884,7 @@ function trendChart(series, elections, xi) {
 
 /* ---------- query view ---------- */
 const EXAMPLES = [
-  ['Labor by district 2022', `SELECT c.contest_name, ROUND(100.0*SUM(CASE WHEN p.party='ALP' THEN p.votes END)/SUM(p.votes),1) AS alp_pct, SUM(p.votes) AS formal\nFROM shares p JOIN booths b ON b.booth_id=p.booth_id AND b.election_id=p.election_id JOIN contests c ON c.contest_id=b.contest_id AND c.election_id=b.election_id\nWHERE p.election_id='vic2022' GROUP BY c.contest_name ORDER BY alp_pct DESC`],
+  ['Labor by electorate 2022', `SELECT c.contest_name, ROUND(100.0*SUM(CASE WHEN p.party='ALP' THEN p.votes END)/SUM(p.votes),1) AS alp_pct, SUM(p.votes) AS formal\nFROM shares p JOIN booths b ON b.booth_id=p.booth_id AND b.election_id=p.election_id JOIN contests c ON c.contest_id=b.contest_id AND c.election_id=b.election_id\nWHERE p.election_id='vic2022' GROUP BY c.contest_name ORDER BY alp_pct DESC`],
   ['Greens booths over 40%', `SELECT b.election_id, b.booth_name, c.contest_name, ROUND(100*p.share,1) AS grn_pct, p.votes\nFROM shares p JOIN booths b ON b.booth_id=p.booth_id AND b.election_id=p.election_id JOIN contests c ON c.contest_id=b.contest_id AND c.election_id=b.election_id\nWHERE p.party='GRN' AND b.booth_type='ordinary' AND p.share>0.4 ORDER BY p.share DESC`],
   ['Exclusion order, Richmond 2022', `SELECT d.count_no, ca.surname, ca.party, d.transfer, d.progressive_total, d.excluded\nFROM dop d JOIN candidates ca ON ca.candidate_id=d.candidate_id AND ca.election_id=d.election_id\nWHERE d.election_id='vic2022' AND d.contest_id='vic-richmond' ORDER BY d.count_no, d.progressive_total DESC`],
   ['Vote by type, state 2022', `SELECT b.booth_type, SUM(p.votes) AS votes FROM shares p JOIN booths b ON b.booth_id=p.booth_id AND b.election_id=p.election_id\nWHERE p.election_id='vic2022' GROUP BY b.booth_type ORDER BY votes DESC`],
@@ -1886,7 +1911,7 @@ async function runSql() {
 }
 
 /* ---------- preference flows, seat history, upper house ---------- */
-// where each excluded candidate's ballots went, from the distribution of preferences (district level)
+// where each excluded candidate's ballots went, from the distribution of preferences (electorate level)
 function prefFlows(eid, cid) {
   const rows = D.dop.filter(d => d.election_id === eid && d.contest_id === cid);
   if (!rows.length) return [];
@@ -2121,7 +2146,7 @@ function renderSenateDivision(eid, cid) {
 }
 
 /* ---------- 2026 live layer ----------
-   The 2026 election sits in the election list from the start: the 2022 districts and election-day booths, drawn
+   The 2026 election sits in the election list from the start: the 2022 electorates and election-day booths, drawn
    hollow, with the declared candidates from the register. live/vec_live.py (run on a Mac through the night) writes
    site/data/live/latest.json; the page polls it, rebuilds the vic2026 rows of every table from it and outlines
    whatever changed since the viewer last pressed "mark all seen". Electorate winners are projected from
@@ -2391,7 +2416,7 @@ function liveContestMetric(cid, p) {
   return mine ? { v: mine.share, label: `${PARTY_NAME[p]} 2CP`, text: `${pct(mine.share)} · ${how}` } : { v: null, label: '2CP', text: `${PARTY_NAME[p]} not in the final two` };
 }
 // how far a seat's count has got: election-day booths, early voting, 2CP, share of the 2022 vote
-// the 2022 vote by type for a district (election day, early, postal, absent, provisional): the denominator for the night's progress
+// the 2022 vote by type for an electorate (election day, early, postal, absent, provisional): the denominator for the night's progress
 const TYPES22 = {};
 function types22(cid) {
   if (TYPES22[cid]) return TYPES22[cid];
@@ -2420,7 +2445,7 @@ function progressText(cid, long = false) {
   const parts = [`${g.boothsReported}/${g.boothsListed} booths`];
   if (g.earlyListed > 1) parts.push(`${g.earlyReported}/${g.earlyListed} early centres`); else if (g.earlyVotes) parts.push(`${fmt(g.earlyVotes)} early votes`); else parts.push('no early votes yet');
   if (long) { const f1 = typeFrag('postal', g.postal, g.postalReg || g.t22.postal, g.postalReg ? 'applications' : null); if (f1) parts.push(f1); const f2 = typeFrag('absent', g.absent, g.t22.absent); if (f2) parts.push(f2); }
-  if (g.tcpBooths) parts.push(`2CP at ${g.tcpOrd}/${g.boothsListed}`); else if (g.anyTcp) parts.push('2CP district total only');
+  if (g.tcpBooths) parts.push(`2CP at ${g.tcpOrd}/${g.boothsListed}`); else if (g.anyTcp) parts.push('2CP electorate total only');
   if (g.pct22 != null) parts.push(`${Math.round(100 * g.pct22)}% of the 2022 vote`); else if (g.pctEnrol != null) parts.push(`${g.pctEnrol}% of enrolment`);
   return parts.join(' · ');
 }
@@ -2446,14 +2471,14 @@ function voteTypeTable(t) {
   for (const [k, label, note] of rows) { const n = t.byType[k] || 0, b = t.base[k] || 0; if (!n && !b) continue; const pc = k === 'postal' && t.postalReg ? n / t.postalReg : b ? n / b : null;
     tb.append(h('tr', {}, h('td', {}, label, note ? h('div', { class: 'hint' }, note) : ''), h('td', { class: 'num' }, fmt(n)), h('td', { class: 'num' }, b ? fmt(b) : '–'), h('td', { class: 'num' }, pc != null ? Math.round(100 * pc) + '%' : '–', h('span', { class: 'bar pbar' }, h('b', { style: `width:${Math.min(100, 100 * (pc || 0))}%;background:var(--fg-3)` }))))); }
   return h('div', { class: 'tablewrap', style: 'margin-top:8px;max-width:640px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Vote type'), h('th', { class: 'num' }, 'Counted'), h('th', { class: 'num' }, '2022 total'), h('th', { class: 'num' }, 'Progress'))), tb),
-    h('div', { class: 'hint' }, `Election-day booths and early votes are counted on the night; postal votes are counted at the election office as they arrive (until the Friday after); absent votes are returned to the home district and counted from the Monday. Progress is against the same vote type's 2022 total${t.postalReg ? ', or postal applications where the VEC has published them' : ''}.`));
+    h('div', { class: 'hint' }, `Election-day booths and early votes are counted on the night; postal votes are counted at the election office as they arrive (until the Friday after); absent votes are returned to the home electorate and counted from the Monday. Progress is against the same vote type's 2022 total${t.postalReg ? ', or postal applications where the VEC has published them' : ''}.`));
 }
 // the statewide progress line used by the dashboard and the map note
 function totalsText(t) {
   const ago = t.lastChange ? Math.round((new Date(LIVE.fetchedAt || Date.now()).getTime() - t.lastChange) / 60000) : null;
-  const parts = [`${fmt(t.reported)} of ${fmt(t.booths)} booths reported`, `${t.districts} of 88 districts counting`, t.reported ? `pace ${t.pace10} booths in the last 10 min (${t.pace30} in 30)${ago != null ? `, last change ${ago < 1 ? 'under a minute' : ago + ' min'} ago` : ''}` : ''].filter(Boolean);
+  const parts = [`${fmt(t.reported)} of ${fmt(t.booths)} booths reported`, `${t.districts} of 88 electorates counting`, t.reported ? `pace ${t.pace10} booths in the last 10 min (${t.pace30} in 30)${ago != null ? `, last change ${ago < 1 ? 'under a minute' : ago + ' min'} ago` : ''}` : ''].filter(Boolean);
   if (t.earlyListed > 88) parts.push(`${t.earlyRep} of ${t.earlyListed} early voting centres in`); else parts.push(t.earlyVotes ? `${fmt(t.earlyVotes)} early votes counted` : 'no early votes yet');
-  parts.push(t.tcpBooths ? `two-candidate counts at ${fmt(t.tcpBooths)} booths in ${t.tcpDistricts} districts` : t.tcpDistricts ? `two-candidate totals in ${t.tcpDistricts} districts` : 'no two-candidate counts yet');
+  parts.push(t.tcpBooths ? `two-candidate counts at ${fmt(t.tcpBooths)} booths in ${t.tcpDistricts} electorates` : t.tcpDistricts ? `two-candidate totals in ${t.tcpDistricts} electorates` : 'no two-candidate counts yet');
   if (t.pct22 != null) parts.push(`${fmt(t.votes)} votes counted, ${Math.round(100 * t.pct22)}% of the 2022 total`);
   return parts.join(' · ');
 }
@@ -2471,14 +2496,14 @@ function renderLiveBox() {
     box.append(h('div', {}, h('span', { class: 'pulse off' }), h('strong', {}, 'Pre-election preview')), h('div', { class: 'hint', style: 'margin-top:4px' }, LIVE.error && LIVE.error !== 'no feed yet' ? `Live feed error: ${LIVE.error}` : 'Declared candidates and the 2022 booths. Counting starts 6 pm Saturday 28 November; run live/vec_live.py on the night and this box fills in.'), h('div', { style: 'margin-top:6px' }, h('button', { class: 'btn', onclick: () => pollLive(true) }, 'Check for a feed')));
     return;
   }
-  box.append(h('div', {}, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${fmt(t.reported)}/${fmt(t.booths)} booths · ${t.districts} districts counting`)));
-  box.append(h('div', { style: 'margin-top:6px' }, h('strong', {}, `${t.freshB} booth${t.freshB === 1 ? '' : 's'}, ${t.freshC} district${t.freshC === 1 ? '' : 's'}`), h('span', { class: 'hint' }, ` changed since ${fmtTime(LIVE.seenAt)}`)));
+  box.append(h('div', {}, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${fmt(t.reported)}/${fmt(t.booths)} booths · ${t.districts} electorates counting`)));
+  box.append(h('div', { style: 'margin-top:6px' }, h('strong', {}, `${t.freshB} booth${t.freshB === 1 ? '' : 's'}, ${t.freshC} electorate${t.freshC === 1 ? '' : 's'}`), h('span', { class: 'hint' }, ` changed since ${fmtTime(LIVE.seenAt)}`)));
   box.append(h('div', { class: 'row', style: 'margin-top:6px;gap:6px' }, h('button', { class: 'btn', onclick: () => { LIVE.seenAt = LIVE.fetchedAt || new Date().toISOString(); try { localStorage.setItem('atlas.liveSeenAt', LIVE.seenAt); } catch (e) {} renderMap(); renderLiveBox(); } }, 'Mark all seen'), h('button', { class: 'btn', onclick: () => pollLive(true) }, 'Refresh now')));
   // what changed, newest first
   const items = [];
   for (const [cid, c] of Object.entries(LIVE.latest.contests)) {
     for (const [bid, b] of Object.entries(c.booths)) if (b.reported && b.updated_at && b.updated_at > LIVE.seenAt) items.push({ at: b.updated_at, cid, bid, label: `${c.name} · ${b.type === 'ordinary' ? b.name : b.type.replace('_', ' ') + ' votes'}`, type: b.type });
-    if (isFresh(LIVE.election, null, cid) && !Object.values(c.booths).some(b => b.reported && b.updated_at > LIVE.seenAt)) items.push({ at: c.updated_at, cid, bid: null, label: `${c.name} · district totals`, type: 'district' });
+    if (isFresh(LIVE.election, null, cid) && !Object.values(c.booths).some(b => b.reported && b.updated_at > LIVE.seenAt)) items.push({ at: c.updated_at, cid, bid: null, label: `${c.name} · electorate totals`, type: 'district' });
   }
   items.sort((a, b) => b.at.localeCompare(a.at));
   if (items.length) {
@@ -2533,7 +2558,7 @@ function renderContestDetail2026(cid) {
   const eid = LIVE.election, c = idx.contestById.get(eid + '|' + cid), reg = LIVE.register, meta = LIVE.meta || {}, v = meta.voting || {};
   const root = el('detail'); root.innerHTML = '';
   const lc = LIVE.latest && LIVE.latest.contests[cid];
-  root.append(h('h2', {}, c.contest_name, isFresh(eid, null, cid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(lc.updated_at)) : ''), h('div', { class: 'meta' }, `Victorian state election 2026 · state district · held by ${c.held_by || '–'}`));
+  root.append(h('h2', {}, c.contest_name, isFresh(eid, null, cid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(lc.updated_at)) : ''), h('div', { class: 'meta' }, `Victorian state election 2026 · state electorate · held by ${c.held_by || '–'}`));
   const cands = D.candidates.filter(x => x.election_id === eid && x.contest_id === cid);
   const sitting = cands.find(x => x.incumbent);
   if (sitting) root.append(h('div', { class: 'hint' }, `Sitting member: ${sitting.given_name} ${sitting.surname} (${sitting.party_name || PARTY_NAME[sitting.party] || sitting.party}), recontesting`));
@@ -2545,7 +2570,7 @@ function renderContestDetail2026(cid) {
     const g = countProgress(cid);
     root.append(h('div', { style: 'margin:8px 0 2px' }, h('strong', {}, `${lc.counted.booths_reported} of ${lc.counted.booths_listed} election-day booths reported`), lc.counted.pct_enrolment != null ? h('span', { class: 'hint' }, ` · ${lc.counted.pct_enrolment}% of enrolment counted${g && g.pct22 != null ? ` (${Math.round(100 * g.pct22)}% of the 2022 vote)` : ''}`) : ''),
       h('div', { class: 'hint' }, parts.join(' · ') || 'nothing counted yet', lc.stage ? ` · ${lc.stage}` : ''),
-      g ? h('div', { class: 'hint' }, `${g.earlyListed > 1 ? `${g.earlyReported} of ${g.earlyListed} early voting centres in` : g.earlyVotes ? 'Early votes in' : 'No early votes counted yet'} · ${g.tcpBooths ? `two-candidate count at ${g.tcpOrd} of ${g.boothsListed} booths` : g.anyTcp ? 'two-candidate count at district level only' : 'no two-candidate count yet'}.`) : '');
+      g ? h('div', { class: 'hint' }, `${g.earlyListed > 1 ? `${g.earlyReported} of ${g.earlyListed} early voting centres in` : g.earlyVotes ? 'Early votes in' : 'No early votes counted yet'} · ${g.tcpBooths ? `two-candidate count at ${g.tcpOrd} of ${g.boothsListed} booths` : g.anyTcp ? 'two-candidate count at electorate level only' : 'no two-candidate count yet'}.`) : '');
     const pr = liveProjection(cid);
     if (pr) {
       root.append(h('h3', {}, pr.method === 'official' ? 'Final two' : pr.method === 'projected' ? 'Projected two-candidate result' : 'Two-candidate count so far'));
@@ -2575,7 +2600,7 @@ function renderContestDetail2026(cid) {
     hist.push({ e, oc, t, w, ps });
   }
   if (hist.length) root.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'Won by'), h('th', { class: 'num' }, '2CP'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('th', { class: 'num' }, PARTY_SHORT[p])))),
-    h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setUnit('contest'); setElection(x.e.election_id); selectContest(x.e.election_id, x.oc.contest_id, true); } }, shortName(x.e))), h('td', {}, x.w ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.w.party)}` }), x.w.surname) : '–'), h('td', { class: 'num' }, x.t && x.t.pair.length === 2 ? `${pct(x.t.pair[0].share)} ${PARTY_SHORT[grpParty(x.t.pair[0].party)]} v ${PARTY_SHORT[grpParty(x.t.pair[1].party)]}` : '–'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('td', { class: 'num' }, x.ps[p] ? pct(x.ps[p].share) : '–'))))))), h('div', { class: 'hint' }, 'Same district name; 2014 and 2018 were on the 2013 boundaries, 2010 on the 2001 boundaries. Click an election to open that result.'));
+    h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setUnit('contest'); setElection(x.e.election_id); selectContest(x.e.election_id, x.oc.contest_id, true); } }, shortName(x.e))), h('td', {}, x.w ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.w.party)}` }), x.w.surname) : '–'), h('td', { class: 'num' }, x.t && x.t.pair.length === 2 ? `${pct(x.t.pair[0].share)} ${PARTY_SHORT[grpParty(x.t.pair[0].party)]} v ${PARTY_SHORT[grpParty(x.t.pair[1].party)]}` : '–'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('td', { class: 'num' }, x.ps[p] ? pct(x.ps[p].share) : '–'))))))), h('div', { class: 'hint' }, 'Same electorate name; 2014 and 2018 were on the 2013 boundaries, 2010 on the 2001 boundaries. Click an election to open that result.'));
   // who lives here, how it has changed, modelled priorities and mood
   if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(cb); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail2026(cid); });
   // before election day: enrolment at close of roll, how-to-vote cards, any daily figures the VEC has published
@@ -2609,7 +2634,7 @@ function renderDailyBlock(root, cid, c) {
     const cols = [...new Set(days.flatMap(day => Object.keys(ser[day])))].slice(0, 4);
     items.push(h('div', { class: 'tablewrap', style: 'margin-top:4px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Date'), ...cols.map(k => h('th', { class: 'num' }, k)))), h('tbody', {}, ...days.slice(-8).reverse().map(day => h('tr', {}, h('td', {}, day), ...cols.map(k => h('td', { class: 'num' }, ser[day][k] != null ? fmt(ser[day][k]) : '–'))))))));
   }
-  // how-to-vote cards registered for this district (+ independents matched by name to the candidate list)
+  // how-to-vote cards registered for this electorate (+ independents matched by name to the candidate list)
   const cards = (d.htv && d.htv.cards) || [];
   const cands = D.candidates.filter(x => x.election_id === LIVE.election && x.contest_id === cid);
   const mine = cards.filter(k => k.contest_id === cid || (k.kind === 'independent' && cands.some(x => normName(x.surname) === normName(k.registrant.split(',')[0]) && normName(k.registrant).includes(normName(x.given_name.split(' ')[0] || '')))));
@@ -2644,7 +2669,7 @@ function fillCensusSelect() {
   if (cs.dataset.set !== set.set) { cs.innerHTML = ''; const groups = new Map(); for (const x of set.indicators) if (x.kind !== 'text' && !x.hidden) (groups.get(x.group) || groups.set(x.group, []).get(x.group)).push(x); for (const [g, arr] of groups) { const og = h('optgroup', { label: g }); for (const x of arr) og.append(h('option', { value: x.id }, x.label)); cs.append(og); } cs.dataset.set = set.set; }
   state.census = demogId(state.census, set) || (set.ind.has('income_household_median') ? 'income_household_median' : 'income_and_expense_income'); cs.value = state.census;
 }
-function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at district level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'census'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; el('f-census').hidden = u === 'lc' || state.metric !== 'census'; renderMap(); }
+function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at electorate level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'census'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; el('f-census').hidden = u === 'lc' || state.metric !== 'census'; renderMap(); }
 function setElection(eid) { state.election = eid; el('sel-election').value = eid; renderLiveBox(); renderMap(); if (activeView() === 'dash') renderDash(); }
 function fillElectionSelect(sel, ids) { sel.innerHTML = ''; for (const id of ids) sel.append(h('option', { value: id }, idx.electionById.get(id).name)); }
 function searchBooths(q) {
