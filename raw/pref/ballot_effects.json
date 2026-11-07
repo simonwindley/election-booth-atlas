@@ -1,0 +1,3418 @@
+{
+"position": {
+"by_party": {
+"fed2010": {
+"FFP": {
+"first": {
+"n": 12,
+"dev_pts": 0.44
+},
+"middle": {
+"n": 20,
+"dev_pts": -0.16
+},
+"last": {
+"n": 5,
+"dev_pts": -0.43
+}
+},
+"ALP": {
+"middle": {
+"n": 21,
+"dev_pts": 0.5
+},
+"last": {
+"n": 7,
+"dev_pts": 2.23
+},
+"first": {
+"n": 9,
+"dev_pts": -2.89
+}
+},
+"LIB": {
+"middle": {
+"n": 19,
+"dev_pts": 2.99
+},
+"first": {
+"n": 6,
+"dev_pts": 2.17
+},
+"last": {
+"n": 10,
+"dev_pts": -6.99
+}
+},
+"GRN": {
+"last": {
+"n": 8,
+"dev_pts": -0.67
+},
+"first": {
+"n": 6,
+"dev_pts": -2.01
+},
+"middle": {
+"n": 23,
+"dev_pts": 0.76
+}
+}
+},
+"fed2013": {
+"ALP": {
+"first": {
+"n": 3,
+"dev_pts": -0.26
+},
+"last": {
+"n": 4,
+"dev_pts": -0.47
+},
+"middle": {
+"n": 30,
+"dev_pts": 0.09
+}
+},
+"RUA": {
+"middle": {
+"n": 25,
+"dev_pts": -0.12
+},
+"first": {
+"n": 3,
+"dev_pts": 0.73
+},
+"last": {
+"n": 3,
+"dev_pts": 0.3
+}
+},
+"GRN": {
+"middle": {
+"n": 26,
+"dev_pts": 0.84
+},
+"last": {
+"n": 4,
+"dev_pts": -3.43
+},
+"first": {
+"n": 7,
+"dev_pts": -1.17
+}
+},
+"LIB": {
+"middle": {
+"n": 30,
+"dev_pts": -0.83
+},
+"last": {
+"n": 3,
+"dev_pts": 2.63
+},
+"first": {
+"n": 3,
+"dev_pts": 5.67
+}
+},
+"UAP": {
+"middle": {
+"n": 32,
+"dev_pts": -0.31
+},
+"first": {
+"n": 4,
+"dev_pts": 2.35
+},
+"last": {
+"n": 1,
+"dev_pts": 0.39
+}
+},
+"FFP": {
+"middle": {
+"n": 27,
+"dev_pts": -0.17
+},
+"first": {
+"n": 4,
+"dev_pts": 0.95
+},
+"last": {
+"n": 6,
+"dev_pts": 0.15
+}
+},
+"FRP": {
+"last": {
+"n": 3,
+"dev_pts": 0.18
+},
+"middle": {
+"n": 23,
+"dev_pts": -0.09
+},
+"first": {
+"n": 3,
+"dev_pts": 0.48
+}
+},
+"AUC": {
+"first": {
+"n": 3,
+"dev_pts": 0.3
+},
+"last": {
+"n": 2,
+"dev_pts": -0.19
+},
+"middle": {
+"n": 10,
+"dev_pts": -0.05
+}
+}
+},
+"fed2016": {
+"GRN": {
+"first": {
+"n": 9,
+"dev_pts": -0.42
+},
+"middle": {
+"n": 24,
+"dev_pts": 0.75
+},
+"last": {
+"n": 4,
+"dev_pts": -3.53
+}
+},
+"FFP": {
+"middle": {
+"n": 13,
+"dev_pts": 0.04
+},
+"last": {
+"n": 4,
+"dev_pts": -0.11
+}
+},
+"AJP": {
+"middle": {
+"n": 19,
+"dev_pts": -0.09
+},
+"first": {
+"n": 2,
+"dev_pts": -0.18
+},
+"last": {
+"n": 5,
+"dev_pts": 0.41
+}
+},
+"LIB": {
+"middle": {
+"n": 25,
+"dev_pts": 1.14
+},
+"last": {
+"n": 4,
+"dev_pts": 0.56
+},
+"first": {
+"n": 6,
+"dev_pts": -5.11
+}
+},
+"ALP": {
+"last": {
+"n": 4,
+"dev_pts": -3.65
+},
+"middle": {
+"n": 28,
+"dev_pts": -1.53
+},
+"first": {
+"n": 5,
+"dev_pts": 11.5
+}
+},
+"RUA": {
+"middle": {
+"n": 10,
+"dev_pts": -0.35
+},
+"last": {
+"n": 4,
+"dev_pts": -0.36
+},
+"first": {
+"n": 4,
+"dev_pts": 1.24
+}
+}
+},
+"fed2019": {
+"LIB": {
+"first": {
+"n": 2,
+"dev_pts": 0.17
+},
+"middle": {
+"n": 28,
+"dev_pts": 0.96
+},
+"last": {
+"n": 6,
+"dev_pts": -4.55
+}
+},
+"GRN": {
+"middle": {
+"n": 27,
+"dev_pts": 1.07
+},
+"last": {
+"n": 5,
+"dev_pts": -3.58
+},
+"first": {
+"n": 6,
+"dev_pts": -1.82
+}
+},
+"ALP": {
+"middle": {
+"n": 30,
+"dev_pts": -1.57
+},
+"last": {
+"n": 4,
+"dev_pts": -3.08
+},
+"first": {
+"n": 4,
+"dev_pts": 14.84
+}
+},
+"UAP": {
+"middle": {
+"n": 24,
+"dev_pts": -0.13
+},
+"last": {
+"n": 7,
+"dev_pts": -0.16
+},
+"first": {
+"n": 7,
+"dev_pts": 0.62
+}
+},
+"AJP": {
+"first": {
+"n": 2,
+"dev_pts": 1.36
+},
+"middle": {
+"n": 14,
+"dev_pts": -0.19
+}
+}
+},
+"fed2022": {
+"UAP": {
+"first": {
+"n": 3,
+"dev_pts": -0.66
+},
+"middle": {
+"n": 29,
+"dev_pts": 0.17
+},
+"last": {
+"n": 7,
+"dev_pts": -0.43
+}
+},
+"LIB": {
+"middle": {
+"n": 27,
+"dev_pts": 0.73
+},
+"first": {
+"n": 4,
+"dev_pts": -0.06
+},
+"last": {
+"n": 6,
+"dev_pts": -3.22
+}
+},
+"GRN": {
+"middle": {
+"n": 29,
+"dev_pts": -0.33
+},
+"first": {
+"n": 7,
+"dev_pts": -1.4
+},
+"last": {
+"n": 3,
+"dev_pts": 6.42
+}
+},
+"ONP": {
+"middle": {
+"n": 32,
+"dev_pts": -0.38
+},
+"first": {
+"n": 4,
+"dev_pts": 2.75
+},
+"last": {
+"n": 2,
+"dev_pts": 0.57
+}
+},
+"LDP": {
+"middle": {
+"n": 28,
+"dev_pts": -0.25
+},
+"first": {
+"n": 4,
+"dev_pts": 1.52
+},
+"last": {
+"n": 1,
+"dev_pts": 0.84
+}
+},
+"ALP": {
+"last": {
+"n": 10,
+"dev_pts": -0.14
+},
+"middle": {
+"n": 26,
+"dev_pts": -0.24
+},
+"first": {
+"n": 3,
+"dev_pts": 2.54
+}
+},
+"CYA": {
+"middle": {
+"n": 24,
+"dev_pts": -0.09
+},
+"last": {
+"n": 1,
+"dev_pts": 0.89
+},
+"first": {
+"n": 2,
+"dev_pts": 0.65
+}
+},
+"AJP": {
+"middle": {
+"n": 12,
+"dev_pts": -0.13
+},
+"first": {
+"n": 2,
+"dev_pts": 0.21
+},
+"last": {
+"n": 2,
+"dev_pts": 0.55
+}
+}
+},
+"fed2025": {
+"LIB": {
+"first": {
+"n": 3,
+"dev_pts": 3.2
+},
+"last": {
+"n": 8,
+"dev_pts": -2.77
+},
+"middle": {
+"n": 24,
+"dev_pts": 0.52
+}
+},
+"ALP": {
+"middle": {
+"n": 27,
+"dev_pts": -0.57
+},
+"last": {
+"n": 5,
+"dev_pts": 1.42
+},
+"first": {
+"n": 6,
+"dev_pts": 1.37
+}
+},
+"FFP": {
+"middle": {
+"n": 19,
+"dev_pts": -0.33
+},
+"last": {
+"n": 4,
+"dev_pts": 0.54
+},
+"first": {
+"n": 4,
+"dev_pts": 1.0
+}
+},
+"GRN": {
+"middle": {
+"n": 31,
+"dev_pts": 0.4
+},
+"first": {
+"n": 4,
+"dev_pts": 0.9
+},
+"last": {
+"n": 3,
+"dev_pts": -5.32
+}
+},
+"ONP": {
+"middle": {
+"n": 27,
+"dev_pts": -0.15
+},
+"first": {
+"n": 5,
+"dev_pts": 0.94
+},
+"last": {
+"n": 6,
+"dev_pts": -0.11
+}
+},
+"CYA": {
+"last": {
+"n": 2,
+"dev_pts": -0.2
+},
+"middle": {
+"n": 12,
+"dev_pts": -0.36
+},
+"first": {
+"n": 7,
+"dev_pts": 0.68
+}
+}
+},
+"vic2010": {
+"GRN": {
+"first": {
+"n": 16,
+"dev_pts": 1.74
+},
+"last": {
+"n": 19,
+"dev_pts": -0.52
+},
+"middle": {
+"n": 53,
+"dev_pts": -0.34
+}
+},
+"LIB": {
+"middle": {
+"n": 48,
+"dev_pts": -1.64
+},
+"first": {
+"n": 15,
+"dev_pts": 7.06
+},
+"last": {
+"n": 16,
+"dev_pts": -1.69
+}
+},
+"ALP": {
+"middle": {
+"n": 63,
+"dev_pts": -0.34
+},
+"first": {
+"n": 15,
+"dev_pts": 2.4
+},
+"last": {
+"n": 10,
+"dev_pts": -1.44
+}
+},
+"FFP": {
+"last": {
+"n": 12,
+"dev_pts": 0.08
+},
+"middle": {
+"n": 42,
+"dev_pts": -0.27
+},
+"first": {
+"n": 15,
+"dev_pts": 0.7
+}
+},
+"FRP": {
+"first": {
+"n": 4,
+"dev_pts": 0.92
+},
+"middle": {
+"n": 11,
+"dev_pts": -0.27
+},
+"last": {
+"n": 2,
+"dev_pts": -0.33
+}
+},
+"DLP": {
+"middle": {
+"n": 18,
+"dev_pts": -0.61
+},
+"first": {
+"n": 10,
+"dev_pts": 1.14
+},
+"last": {
+"n": 8,
+"dev_pts": -0.05
+}
+},
+"NAT": {
+"last": {
+"n": 4,
+"dev_pts": 7.7
+},
+"middle": {
+"n": 6,
+"dev_pts": -11.4
+},
+"first": {
+"n": 5,
+"dev_pts": 7.52
+}
+}
+},
+"vic2014": {
+"ALP": {
+"middle": {
+"n": 58,
+"dev_pts": 1.15
+},
+"last": {
+"n": 22,
+"dev_pts": -3.85
+},
+"first": {
+"n": 8,
+"dev_pts": 2.23
+}
+},
+"LIB": {
+"middle": {
+"n": 58,
+"dev_pts": -1.37
+},
+"first": {
+"n": 9,
+"dev_pts": 6.1
+},
+"last": {
+"n": 13,
+"dev_pts": 1.89
+}
+},
+"GRN": {
+"middle": {
+"n": 56,
+"dev_pts": -0.58
+},
+"first": {
+"n": 25,
+"dev_pts": 1.02
+},
+"last": {
+"n": 7,
+"dev_pts": 0.96
+}
+},
+"FFP": {
+"last": {
+"n": 7,
+"dev_pts": -0.6
+},
+"middle": {
+"n": 26,
+"dev_pts": -0.31
+},
+"first": {
+"n": 6,
+"dev_pts": 2.05
+}
+},
+"AUC": {
+"middle": {
+"n": 22,
+"dev_pts": 0.07
+},
+"first": {
+"n": 4,
+"dev_pts": 0.06
+},
+"last": {
+"n": 4,
+"dev_pts": -0.46
+}
+}
+},
+"vic2018": {
+"AJP": {
+"first": {
+"n": 7,
+"dev_pts": 2.23
+},
+"last": {
+"n": 8,
+"dev_pts": -0.32
+},
+"middle": {
+"n": 28,
+"dev_pts": -0.47
+}
+},
+"LIB": {
+"middle": {
+"n": 47,
+"dev_pts": -0.48
+},
+"first": {
+"n": 16,
+"dev_pts": 0.98
+},
+"last": {
+"n": 17,
+"dev_pts": 0.4
+}
+},
+"GRN": {
+"middle": {
+"n": 58,
+"dev_pts": -0.55
+},
+"last": {
+"n": 17,
+"dev_pts": -1.67
+},
+"first": {
+"n": 13,
+"dev_pts": 4.63
+}
+},
+"ALP": {
+"last": {
+"n": 18,
+"dev_pts": 0.56
+},
+"middle": {
+"n": 55,
+"dev_pts": -0.35
+},
+"first": {
+"n": 15,
+"dev_pts": 0.59
+}
+},
+"DLP": {
+"middle": {
+"n": 12,
+"dev_pts": 0.06
+},
+"last": {
+"n": 6,
+"dev_pts": -0.73
+},
+"first": {
+"n": 5,
+"dev_pts": 0.73
+}
+},
+"VSP": {
+"last": {
+"n": 1,
+"dev_pts": -1.03
+},
+"middle": {
+"n": 16,
+"dev_pts": -0.02
+},
+"first": {
+"n": 1,
+"dev_pts": 1.34
+}
+}
+},
+"vic2022": {
+"ALP": {
+"middle": {
+"n": 69,
+"dev_pts": -0.87
+},
+"last": {
+"n": 9,
+"dev_pts": 1.92
+},
+"first": {
+"n": 9,
+"dev_pts": 4.74
+}
+},
+"GRN": {
+"middle": {
+"n": 64,
+"dev_pts": -0.46
+},
+"first": {
+"n": 8,
+"dev_pts": 2.34
+},
+"last": {
+"n": 15,
+"dev_pts": 0.72
+}
+},
+"FRP": {
+"middle": {
+"n": 48,
+"dev_pts": -0.12
+},
+"last": {
+"n": 7,
+"dev_pts": 0.39
+},
+"first": {
+"n": 2,
+"dev_pts": 1.42
+}
+},
+"FFP": {
+"middle": {
+"n": 71,
+"dev_pts": -0.25
+},
+"first": {
+"n": 10,
+"dev_pts": 2.01
+},
+"last": {
+"n": 6,
+"dev_pts": -0.37
+}
+},
+"LIB": {
+"middle": {
+"n": 62,
+"dev_pts": 0.14
+},
+"first": {
+"n": 11,
+"dev_pts": -3.02
+},
+"last": {
+"n": 9,
+"dev_pts": 2.71
+}
+},
+"AJP": {
+"last": {
+"n": 14,
+"dev_pts": 0.04
+},
+"middle": {
+"n": 62,
+"dev_pts": -0.14
+},
+"first": {
+"n": 11,
+"dev_pts": 0.75
+}
+},
+"DLP": {
+"middle": {
+"n": 24,
+"dev_pts": -0.07
+},
+"first": {
+"n": 5,
+"dev_pts": 1.06
+},
+"last": {
+"n": 3,
+"dev_pts": -1.21
+}
+},
+"VSP": {
+"middle": {
+"n": 16,
+"dev_pts": -0.27
+},
+"last": {
+"n": 3,
+"dev_pts": 0.61
+},
+"first": {
+"n": 3,
+"dev_pts": 0.8
+}
+}
+}
+},
+"pooled_minor": {
+"fed2010": {
+"first": {
+"n": 12,
+"dev_pts": 0.44
+},
+"middle": {
+"n": 20,
+"dev_pts": -0.16
+},
+"last": {
+"n": 5,
+"dev_pts": -0.43
+}
+},
+"fed2013": {
+"middle": {
+"n": 117,
+"dev_pts": -0.17
+},
+"first": {
+"n": 17,
+"dev_pts": 1.04
+},
+"last": {
+"n": 15,
+"dev_pts": 0.16
+}
+},
+"fed2016": {
+"middle": {
+"n": 42,
+"dev_pts": -0.11
+},
+"last": {
+"n": 13,
+"dev_pts": 0.01
+},
+"first": {
+"n": 6,
+"dev_pts": 0.77
+}
+},
+"fed2019": {
+"middle": {
+"n": 38,
+"dev_pts": -0.15
+},
+"last": {
+"n": 7,
+"dev_pts": -0.16
+},
+"first": {
+"n": 9,
+"dev_pts": 0.78
+}
+},
+"fed2022": {
+"first": {
+"n": 15,
+"dev_pts": 1.12
+},
+"middle": {
+"n": 125,
+"dev_pts": -0.14
+},
+"last": {
+"n": 13,
+"dev_pts": 0.07
+}
+},
+"fed2025": {
+"middle": {
+"n": 58,
+"dev_pts": -0.25
+},
+"last": {
+"n": 12,
+"dev_pts": 0.09
+},
+"first": {
+"n": 16,
+"dev_pts": 0.84
+}
+},
+"vic2010": {
+"last": {
+"n": 22,
+"dev_pts": -0.0
+},
+"middle": {
+"n": 71,
+"dev_pts": -0.36
+},
+"first": {
+"n": 29,
+"dev_pts": 0.88
+}
+},
+"vic2014": {
+"last": {
+"n": 11,
+"dev_pts": -0.55
+},
+"middle": {
+"n": 48,
+"dev_pts": -0.14
+},
+"first": {
+"n": 10,
+"dev_pts": 1.25
+}
+},
+"vic2018": {
+"first": {
+"n": 13,
+"dev_pts": 1.58
+},
+"last": {
+"n": 15,
+"dev_pts": -0.53
+},
+"middle": {
+"n": 56,
+"dev_pts": -0.23
+}
+},
+"vic2022": {
+"middle": {
+"n": 221,
+"dev_pts": -0.17
+},
+"last": {
+"n": 33,
+"dev_pts": -0.02
+},
+"first": {
+"n": 31,
+"dev_pts": 1.25
+}
+}
+}
+},
+"donkey": {
+"vic2014": {
+"below": 0.0569,
+"above": 0.0536,
+"top": 0.0209,
+"card": null,
+"rows": 978,
+"exclusions": 337,
+"by_party": {
+"FFP": {
+"adjacency": 0.1486,
+"n": 53
+},
+"GRN": {
+"adjacency": 0.1266,
+"n": 40
+},
+"IND": {
+"adjacency": 0.1095,
+"n": 86
+},
+"OTH": {
+"adjacency": 0.1833,
+"n": 120
+}
+},
+"by_ballot_size": {
+"2-5": {
+"adjacency": 0.1298,
+"n": 34
+},
+"6-7": {
+"adjacency": 0.1313,
+"n": 130
+},
+"8-9": {
+"adjacency": 0.1148,
+"n": 126
+},
+"10+": {
+"adjacency": 0.1729,
+"n": 47
+}
+},
+"by_seat": {
+"vic-albert-park": {
+"adjacency": 0.068,
+"n": 7,
+"votes": 3631
+},
+"vic-bass": {
+"adjacency": 0.0714,
+"n": 7,
+"votes": 12390
+},
+"vic-bayswater": {
+"adjacency": 0.1125,
+"n": 4,
+"votes": 1551
+},
+"vic-bellarine": {
+"adjacency": 0.1012,
+"n": 10,
+"votes": 5316
+},
+"vic-bendigo-east": {
+"adjacency": 0.108,
+"n": 6,
+"votes": 1405
+},
+"vic-bendigo-west": {
+"adjacency": 0.1294,
+"n": 4,
+"votes": 2612
+},
+"vic-bentleigh": {
+"adjacency": 0.1707,
+"n": 11,
+"votes": 6899
+},
+"vic-brunswick": {
+"adjacency": 0.0626,
+"n": 9,
+"votes": 2186
+},
+"vic-buninyong": {
+"adjacency": 0.0827,
+"n": 7,
+"votes": 9399
+},
+"vic-cranbourne": {
+"adjacency": 0.195,
+"n": 7,
+"votes": 1973
+},
+"vic-eildon": {
+"adjacency": 0.1402,
+"n": 8,
+"votes": 8449
+},
+"vic-eltham": {
+"adjacency": 0.244,
+"n": 7,
+"votes": 1867
+},
+"vic-essendon": {
+"adjacency": 0.2083,
+"n": 4,
+"votes": 10173
+},
+"vic-euroa": {
+"adjacency": 0.0945,
+"n": 6,
+"votes": 13901
+},
+"vic-footscray": {
+"adjacency": 0.0734,
+"n": 4,
+"votes": 11347
+},
+"vic-frankston": {
+"adjacency": 0.1892,
+"n": 22,
+"votes": 7210
+},
+"vic-geelong": {
+"adjacency": 0.0883,
+"n": 11,
+"votes": 10552
+},
+"vic-ivanhoe": {
+"adjacency": 0.0842,
+"n": 8,
+"votes": 11285
+},
+"vic-melbourne": {
+"adjacency": 0.123,
+"n": 7,
+"votes": 1877
+},
+"vic-mildura": {
+"adjacency": 0.1925,
+"n": 10,
+"votes": 4810
+},
+"vic-monbulk": {
+"adjacency": 0.0699,
+"n": 10,
+"votes": 2336
+},
+"vic-mordialloc": {
+"adjacency": 0.1591,
+"n": 15,
+"votes": 3694
+},
+"vic-morwell": {
+"adjacency": 0.0663,
+"n": 8,
+"votes": 9583
+},
+"vic-mulgrave": {
+"adjacency": 0.2369,
+"n": 5,
+"votes": 4789
+},
+"vic-narre-warren-north": {
+"adjacency": 0.096,
+"n": 9,
+"votes": 5823
+},
+"vic-narre-warren-south": {
+"adjacency": 0.0315,
+"n": 5,
+"votes": 2553
+},
+"vic-niddrie": {
+"adjacency": 0.1173,
+"n": 10,
+"votes": 7508
+},
+"vic-northcote": {
+"adjacency": 0.0927,
+"n": 9,
+"votes": 9727
+},
+"vic-oakleigh": {
+"adjacency": 0.0315,
+"n": 4,
+"votes": 260
+},
+"vic-pascoe-vale": {
+"adjacency": 0.4756,
+"n": 4,
+"votes": 2543
+},
+"vic-prahran": {
+"adjacency": 0.0744,
+"n": 10,
+"votes": 10833
+},
+"vic-richmond": {
+"adjacency": 0.0994,
+"n": 8,
+"votes": 15883
+},
+"vic-ringwood": {
+"adjacency": 0.2455,
+"n": 6,
+"votes": 1824
+},
+"vic-ripon": {
+"adjacency": 0.1106,
+"n": 11,
+"votes": 11082
+},
+"vic-shepparton": {
+"adjacency": 0.1416,
+"n": 6,
+"votes": 6166
+},
+"vic-south-barwon": {
+"adjacency": 0.1271,
+"n": 11,
+"votes": 10558
+},
+"vic-sunbury": {
+"adjacency": 0.311,
+"n": 9,
+"votes": 8700
+},
+"vic-tarneit": {
+"adjacency": 0.1357,
+"n": 10,
+"votes": 3109
+},
+"vic-wendouree": {
+"adjacency": 0.2087,
+"n": 7,
+"votes": 2648
+},
+"vic-yan-yean": {
+"adjacency": 0.0949,
+"n": 6,
+"votes": 6776
+}
+}
+},
+"vic2018": {
+"below": 0.0457,
+"above": 0.0332,
+"top": 0.0251,
+"card": null,
+"rows": 739,
+"exclusions": 278,
+"by_party": {
+"AJP": {
+"adjacency": 0.0953,
+"n": 37
+},
+"DLP": {
+"adjacency": 0.1768,
+"n": 21
+},
+"GRN": {
+"adjacency": 0.0859,
+"n": 49
+},
+"IND": {
+"adjacency": 0.1348,
+"n": 93
+},
+"VSP": {
+"adjacency": 0.0869,
+"n": 17
+}
+},
+"by_ballot_size": {
+"2-5": {
+"adjacency": 0.0883,
+"n": 58
+},
+"6-7": {
+"adjacency": 0.0708,
+"n": 69
+},
+"8-9": {
+"adjacency": 0.1261,
+"n": 107
+},
+"10+": {
+"adjacency": 0.1003,
+"n": 44
+}
+},
+"by_seat": {
+"vic-albert-park": {
+"adjacency": 0.0686,
+"n": 9,
+"votes": 12328
+},
+"vic-bass": {
+"adjacency": 0.0656,
+"n": 11,
+"votes": 8106
+},
+"vic-benambra": {
+"adjacency": 0.033,
+"n": 5,
+"votes": 10116
+},
+"vic-brighton": {
+"adjacency": 0.0653,
+"n": 5,
+"votes": 2521
+},
+"vic-brunswick": {
+"adjacency": 0.1365,
+"n": 11,
+"votes": 11148
+},
+"vic-buninyong": {
+"adjacency": 0.2761,
+"n": 7,
+"votes": 2647
+},
+"vic-burwood": {
+"adjacency": 0.0812,
+"n": 5,
+"votes": 7842
+},
+"vic-caulfield": {
+"adjacency": 0.1312,
+"n": 5,
+"votes": 2051
+},
+"vic-essendon": {
+"adjacency": 0.0544,
+"n": 6,
+"votes": 13003
+},
+"vic-forest-hill": {
+"adjacency": 0.0628,
+"n": 4,
+"votes": 3988
+},
+"vic-frankston": {
+"adjacency": 0.0794,
+"n": 8,
+"votes": 6316
+},
+"vic-geelong": {
+"adjacency": 0.1949,
+"n": 10,
+"votes": 7329
+},
+"vic-hawthorn": {
+"adjacency": 0.0435,
+"n": 6,
+"votes": 9455
+},
+"vic-ivanhoe": {
+"adjacency": 0.0994,
+"n": 5,
+"votes": 8893
+},
+"vic-melbourne": {
+"adjacency": 0.0432,
+"n": 11,
+"votes": 9784
+},
+"vic-melton": {
+"adjacency": 0.1382,
+"n": 18,
+"votes": 30370
+},
+"vic-mildura": {
+"adjacency": 0.0154,
+"n": 5,
+"votes": 11599
+},
+"vic-monbulk": {
+"adjacency": 0.0938,
+"n": 4,
+"votes": 2597
+},
+"vic-morwell": {
+"adjacency": 0.0577,
+"n": 14,
+"votes": 25837
+},
+"vic-nepean": {
+"adjacency": 0.1525,
+"n": 4,
+"votes": 3436
+},
+"vic-northcote": {
+"adjacency": 0.0684,
+"n": 9,
+"votes": 7332
+},
+"vic-ovens-valley": {
+"adjacency": 0.1254,
+"n": 4,
+"votes": 6587
+},
+"vic-pascoe-vale": {
+"adjacency": 0.1313,
+"n": 9,
+"votes": 16673
+},
+"vic-richmond": {
+"adjacency": 0.1227,
+"n": 11,
+"votes": 12819
+},
+"vic-ripon": {
+"adjacency": 0.1026,
+"n": 12,
+"votes": 6073
+},
+"vic-sandringham": {
+"adjacency": 0.1253,
+"n": 8,
+"votes": 6533
+},
+"vic-shepparton": {
+"adjacency": 0.038,
+"n": 8,
+"votes": 17675
+},
+"vic-south-barwon": {
+"adjacency": 0.2126,
+"n": 8,
+"votes": 15843
+},
+"vic-south-west-coast": {
+"adjacency": 0.1232,
+"n": 11,
+"votes": 13221
+},
+"vic-wendouree": {
+"adjacency": 0.102,
+"n": 6,
+"votes": 2497
+},
+"vic-werribee": {
+"adjacency": 0.0903,
+"n": 10,
+"votes": 7965
+}
+}
+},
+"vic2022": {
+"below": 0.0412,
+"above": 0.0407,
+"top": 0.0354,
+"card": 0.0378,
+"rows": 2352,
+"exclusions": 752,
+"by_party": {
+"AJP": {
+"adjacency": 0.1496,
+"n": 120
+},
+"DHJ": {
+"adjacency": 0.1432,
+"n": 19
+},
+"DLP": {
+"adjacency": 0.1605,
+"n": 52
+},
+"FFP": {
+"adjacency": 0.1593,
+"n": 113
+},
+"FRP": {
+"adjacency": 0.1255,
+"n": 84
+},
+"GRN": {
+"adjacency": 0.089,
+"n": 68
+},
+"IND": {
+"adjacency": 0.1698,
+"n": 169
+},
+"NDP": {
+"adjacency": 0.2358,
+"n": 16
+},
+"VSP": {
+"adjacency": 0.1319,
+"n": 33
+}
+},
+"by_ballot_size": {
+"6-7": {
+"adjacency": 0.0914,
+"n": 133
+},
+"8-9": {
+"adjacency": 0.1181,
+"n": 404
+},
+"10+": {
+"adjacency": 0.167,
+"n": 215
+}
+},
+"by_seat": {
+"vic-albert-park": {
+"adjacency": 0.0915,
+"n": 10,
+"votes": 14865
+},
+"vic-ashwood": {
+"adjacency": 0.1143,
+"n": 9,
+"votes": 2566
+},
+"vic-bass": {
+"adjacency": 0.1391,
+"n": 13,
+"votes": 16248
+},
+"vic-bayswater": {
+"adjacency": 0.1216,
+"n": 12,
+"votes": 9145
+},
+"vic-bellarine": {
+"adjacency": 0.1155,
+"n": 12,
+"votes": 12551
+},
+"vic-benambra": {
+"adjacency": 0.2239,
+"n": 8,
+"votes": 6106
+},
+"vic-bendigo-east": {
+"adjacency": -0.0185,
+"n": 5,
+"votes": 5142
+},
+"vic-bendigo-west": {
+"adjacency": 0.0846,
+"n": 10,
+"votes": 6152
+},
+"vic-bentleigh": {
+"adjacency": 0.0914,
+"n": 7,
+"votes": 9802
+},
+"vic-berwick": {
+"adjacency": 0.1212,
+"n": 6,
+"votes": 5377
+},
+"vic-box-hill": {
+"adjacency": 0.0919,
+"n": 12,
+"votes": 13448
+},
+"vic-brighton": {
+"adjacency": 0.131,
+"n": 9,
+"votes": 7583
+},
+"vic-broadmeadows": {
+"adjacency": 0.2149,
+"n": 11,
+"votes": 9457
+},
+"vic-brunswick": {
+"adjacency": 0.0094,
+"n": 11,
+"votes": 8925
+},
+"vic-bulleen": {
+"adjacency": 0.1334,
+"n": 9,
+"votes": 3952
+},
+"vic-bundoora": {
+"adjacency": 0.144,
+"n": 6,
+"votes": 2023
+},
+"vic-caulfield": {
+"adjacency": 0.0633,
+"n": 7,
+"votes": 13146
+},
+"vic-clarinda": {
+"adjacency": 0.1917,
+"n": 8,
+"votes": 3975
+},
+"vic-cranbourne": {
+"adjacency": 0.086,
+"n": 11,
+"votes": 7077
+},
+"vic-croydon": {
+"adjacency": 0.1871,
+"n": 5,
+"votes": 3618
+},
+"vic-eildon": {
+"adjacency": 0.0994,
+"n": 9,
+"votes": 4467
+},
+"vic-eltham": {
+"adjacency": 0.0848,
+"n": 6,
+"votes": 1745
+},
+"vic-essendon": {
+"adjacency": 0.0761,
+"n": 9,
+"votes": 16481
+},
+"vic-eureka": {
+"adjacency": 0.1157,
+"n": 16,
+"votes": 18435
+},
+"vic-euroa": {
+"adjacency": 0.0969,
+"n": 8,
+"votes": 5602
+},
+"vic-evelyn": {
+"adjacency": 0.1495,
+"n": 7,
+"votes": 6158
+},
+"vic-footscray": {
+"adjacency": 0.0354,
+"n": 9,
+"votes": 7636
+},
+"vic-frankston": {
+"adjacency": 0.1027,
+"n": 11,
+"votes": 16122
+},
+"vic-geelong": {
+"adjacency": 0.1378,
+"n": 8,
+"votes": 6157
+},
+"vic-glen-waverley": {
+"adjacency": 0.1319,
+"n": 8,
+"votes": 11350
+},
+"vic-greenvale": {
+"adjacency": 0.236,
+"n": 8,
+"votes": 10753
+},
+"vic-hastings": {
+"adjacency": 0.1098,
+"n": 9,
+"votes": 12601
+},
+"vic-hawthorn": {
+"adjacency": 0.1186,
+"n": 10,
+"votes": 19320
+},
+"vic-ivanhoe": {
+"adjacency": 0.0671,
+"n": 7,
+"votes": 3389
+},
+"vic-kew": {
+"adjacency": 0.3098,
+"n": 9,
+"votes": 12654
+},
+"vic-kororoit": {
+"adjacency": 0.2027,
+"n": 12,
+"votes": 13516
+},
+"vic-lara": {
+"adjacency": 0.1598,
+"n": 4,
+"votes": 2077
+},
+"vic-laverton": {
+"adjacency": 0.1547,
+"n": 13,
+"votes": 11285
+},
+"vic-macedon": {
+"adjacency": 0.0518,
+"n": 10,
+"votes": 11435
+},
+"vic-melbourne": {
+"adjacency": 0.1245,
+"n": 12,
+"votes": 14373
+},
+"vic-melton": {
+"adjacency": 0.218,
+"n": 20,
+"votes": 21486
+},
+"vic-mildura": {
+"adjacency": 0.1141,
+"n": 16,
+"votes": 15875
+},
+"vic-monbulk": {
+"adjacency": 0.0533,
+"n": 10,
+"votes": 20903
+},
+"vic-mordialloc": {
+"adjacency": 0.0364,
+"n": 11,
+"votes": 14304
+},
+"vic-mornington": {
+"adjacency": 0.0224,
+"n": 11,
+"votes": 6654
+},
+"vic-morwell": {
+"adjacency": 0.1352,
+"n": 17,
+"votes": 21806
+},
+"vic-narre-warren-north": {
+"adjacency": 0.1363,
+"n": 13,
+"votes": 8118
+},
+"vic-narre-warren-south": {
+"adjacency": 0.1168,
+"n": 8,
+"votes": 2673
+},
+"vic-nepean": {
+"adjacency": 0.2172,
+"n": 10,
+"votes": 4235
+},
+"vic-niddrie": {
+"adjacency": 0.1861,
+"n": 12,
+"votes": 8432
+},
+"vic-northcote": {
+"adjacency": 0.1355,
+"n": 14,
+"votes": 9416
+},
+"vic-oakleigh": {
+"adjacency": 0.0033,
+"n": 8,
+"votes": 3647
+},
+"vic-pascoe-vale": {
+"adjacency": 0.0977,
+"n": 10,
+"votes": 19931
+},
+"vic-point-cook": {
+"adjacency": 0.2267,
+"n": 23,
+"votes": 19071
+},
+"vic-polwarth": {
+"adjacency": 0.0209,
+"n": 9,
+"votes": 15863
+},
+"vic-prahran": {
+"adjacency": 0.0794,
+"n": 6,
+"votes": 12778
+},
+"vic-preston": {
+"adjacency": 0.1836,
+"n": 14,
+"votes": 22148
+},
+"vic-richmond": {
+"adjacency": 0.1225,
+"n": 10,
+"votes": 15257
+},
+"vic-ringwood": {
+"adjacency": 0.2208,
+"n": 6,
+"votes": 2855
+},
+"vic-ripon": {
+"adjacency": 0.0808,
+"n": 11,
+"votes": 12524
+},
+"vic-rowville": {
+"adjacency": 0.0883,
+"n": 8,
+"votes": 11677
+},
+"vic-sandringham": {
+"adjacency": 0.0654,
+"n": 9,
+"votes": 2961
+},
+"vic-shepparton": {
+"adjacency": 0.0971,
+"n": 13,
+"votes": 17882
+},
+"vic-south-barwon": {
+"adjacency": 0.079,
+"n": 12,
+"votes": 13987
+},
+"vic-south-west-coast": {
+"adjacency": 0.1868,
+"n": 14,
+"votes": 23312
+},
+"vic-st-albans": {
+"adjacency": 0.1014,
+"n": 12,
+"votes": 8735
+},
+"vic-sunbury": {
+"adjacency": 0.1041,
+"n": 10,
+"votes": 7994
+},
+"vic-sydenham": {
+"adjacency": 0.162,
+"n": 8,
+"votes": 5233
+},
+"vic-tarneit": {
+"adjacency": 0.1385,
+"n": 7,
+"votes": 5885
+},
+"vic-warrandyte": {
+"adjacency": 0.1376,
+"n": 6,
+"votes": 4011
+},
+"vic-wendouree": {
+"adjacency": 0.0709,
+"n": 7,
+"votes": 6511
+},
+"vic-werribee": {
+"adjacency": 0.187,
+"n": 20,
+"votes": 5166
+},
+"vic-williamstown": {
+"adjacency": 0.1777,
+"n": 9,
+"votes": 6427
+},
+"vic-yan-yean": {
+"adjacency": 0.1072,
+"n": 10,
+"votes": 9043
+}
+}
+},
+"fed2016": {
+"below": 0.0436,
+"above": 0.03,
+"top": 0.0183,
+"card": null,
+"rows": 831,
+"exclusions": 285,
+"by_party": {
+"AJP": {
+"adjacency": 0.1127,
+"n": 40
+},
+"FFP": {
+"adjacency": 0.0875,
+"n": 26
+},
+"GRN": {
+"adjacency": 0.0777,
+"n": 43
+},
+"IND": {
+"adjacency": 0.115,
+"n": 47
+},
+"OTH": {
+"adjacency": 0.0993,
+"n": 47
+},
+"RUA": {
+"adjacency": 0.1154,
+"n": 28
+}
+},
+"by_ballot_size": {
+"2-5": {
+"adjacency": 0.077,
+"n": 37
+},
+"6-7": {
+"adjacency": 0.1006,
+"n": 69
+},
+"8-9": {
+"adjacency": 0.0819,
+"n": 68
+},
+"10+": {
+"adjacency": 0.0914,
+"n": 111
+}
+},
+"by_seat": {
+"fed-197": {
+"adjacency": 0.127,
+"n": 9,
+"votes": 20724
+},
+"fed-198": {
+"adjacency": 0.0802,
+"n": 10,
+"votes": 28384
+},
+"fed-199": {
+"adjacency": 0.0828,
+"n": 14,
+"votes": 27738
+},
+"fed-200": {
+"adjacency": 0.0995,
+"n": 9,
+"votes": 25601
+},
+"fed-201": {
+"adjacency": 0.1323,
+"n": 7,
+"votes": 15855
+},
+"fed-204": {
+"adjacency": 0.0974,
+"n": 6,
+"votes": 23993
+},
+"fed-205": {
+"adjacency": 0.0721,
+"n": 4,
+"votes": 20552
+},
+"fed-207": {
+"adjacency": 0.0875,
+"n": 14,
+"votes": 30380
+},
+"fed-208": {
+"adjacency": 0.0891,
+"n": 9,
+"votes": 8987
+},
+"fed-209": {
+"adjacency": 0.0754,
+"n": 6,
+"votes": 15327
+},
+"fed-210": {
+"adjacency": 0.1286,
+"n": 12,
+"votes": 24666
+},
+"fed-211": {
+"adjacency": 0.1252,
+"n": 5,
+"votes": 23029
+},
+"fed-213": {
+"adjacency": 0.076,
+"n": 14,
+"votes": 23086
+},
+"fed-214": {
+"adjacency": 0.1136,
+"n": 7,
+"votes": 24243
+},
+"fed-215": {
+"adjacency": 0.1409,
+"n": 7,
+"votes": 4534
+},
+"fed-216": {
+"adjacency": 0.0937,
+"n": 5,
+"votes": 20521
+},
+"fed-217": {
+"adjacency": 0.105,
+"n": 5,
+"votes": 2813
+},
+"fed-218": {
+"adjacency": 0.1274,
+"n": 12,
+"votes": 17834
+},
+"fed-220": {
+"adjacency": 0.0473,
+"n": 4,
+"votes": 2774
+},
+"fed-222": {
+"adjacency": 0.0655,
+"n": 4,
+"votes": 9670
+},
+"fed-223": {
+"adjacency": 0.0789,
+"n": 14,
+"votes": 31095
+},
+"fed-224": {
+"adjacency": 0.0042,
+"n": 5,
+"votes": 6856
+},
+"fed-225": {
+"adjacency": 0.0625,
+"n": 6,
+"votes": 13171
+},
+"fed-226": {
+"adjacency": 0.0694,
+"n": 13,
+"votes": 27915
+},
+"fed-227": {
+"adjacency": 0.0734,
+"n": 11,
+"votes": 33454
+},
+"fed-228": {
+"adjacency": 0.0939,
+"n": 5,
+"votes": 30984
+},
+"fed-229": {
+"adjacency": 0.0626,
+"n": 9,
+"votes": 21060
+},
+"fed-230": {
+"adjacency": 0.1516,
+"n": 9,
+"votes": 6370
+},
+"fed-231": {
+"adjacency": 0.106,
+"n": 16,
+"votes": 21127
+},
+"fed-232": {
+"adjacency": 0.1114,
+"n": 4,
+"votes": 4394
+},
+"fed-233": {
+"adjacency": 0.1073,
+"n": 5,
+"votes": 12386
+},
+"fed-234": {
+"adjacency": 0.0967,
+"n": 15,
+"votes": 34554
+}
+}
+},
+"fed2019": {
+"below": 0.0434,
+"above": 0.0386,
+"top": 0.0144,
+"card": null,
+"rows": 773,
+"exclusions": 269,
+"by_party": {
+"AJP": {
+"adjacency": 0.1301,
+"n": 28
+},
+"GRN": {
+"adjacency": 0.0667,
+"n": 45
+},
+"IND": {
+"adjacency": 0.1048,
+"n": 46
+},
+"OTH": {
+"adjacency": 0.1531,
+"n": 17
+},
+"RUA": {
+"adjacency": 0.1654,
+"n": 23
+},
+"UAP": {
+"adjacency": 0.0887,
+"n": 58
+}
+},
+"by_ballot_size": {
+"2-5": {
+"adjacency": 0.0661,
+"n": 31
+},
+"6-7": {
+"adjacency": 0.1051,
+"n": 101
+},
+"8-9": {
+"adjacency": 0.0973,
+"n": 108
+},
+"10+": {
+"adjacency": 0.0863,
+"n": 29
+}
+},
+"by_seat": {
+"fed-197": {
+"adjacency": 0.039,
+"n": 4,
+"votes": 10154
+},
+"fed-198": {
+"adjacency": 0.1736,
+"n": 7,
+"votes": 31296
+},
+"fed-200": {
+"adjacency": 0.1469,
+"n": 6,
+"votes": 19985
+},
+"fed-203": {
+"adjacency": 0.1288,
+"n": 10,
+"votes": 25416
+},
+"fed-204": {
+"adjacency": 0.1624,
+"n": 12,
+"votes": 21917
+},
+"fed-205": {
+"adjacency": 0.0644,
+"n": 11,
+"votes": 25994
+},
+"fed-207": {
+"adjacency": 0.1012,
+"n": 10,
+"votes": 27873
+},
+"fed-209": {
+"adjacency": 0.1118,
+"n": 9,
+"votes": 23615
+},
+"fed-210": {
+"adjacency": 0.0874,
+"n": 9,
+"votes": 25967
+},
+"fed-211": {
+"adjacency": 0.1745,
+"n": 10,
+"votes": 16510
+},
+"fed-213": {
+"adjacency": 0.0742,
+"n": 8,
+"votes": 21749
+},
+"fed-214": {
+"adjacency": 0.0588,
+"n": 6,
+"votes": 20029
+},
+"fed-215": {
+"adjacency": 0.0175,
+"n": 6,
+"votes": 28278
+},
+"fed-216": {
+"adjacency": 0.0436,
+"n": 4,
+"votes": 14048
+},
+"fed-217": {
+"adjacency": 0.1172,
+"n": 5,
+"votes": 5366
+},
+"fed-218": {
+"adjacency": 0.093,
+"n": 8,
+"votes": 23139
+},
+"fed-219": {
+"adjacency": 0.1494,
+"n": 6,
+"votes": 18552
+},
+"fed-220": {
+"adjacency": 0.0425,
+"n": 4,
+"votes": 5564
+},
+"fed-221": {
+"adjacency": 0.0399,
+"n": 9,
+"votes": 32495
+},
+"fed-222": {
+"adjacency": 0.0684,
+"n": 5,
+"votes": 10118
+},
+"fed-223": {
+"adjacency": 0.1142,
+"n": 8,
+"votes": 20271
+},
+"fed-224": {
+"adjacency": 0.055,
+"n": 17,
+"votes": 52749
+},
+"fed-226": {
+"adjacency": 0.1005,
+"n": 9,
+"votes": 22051
+},
+"fed-228": {
+"adjacency": 0.1754,
+"n": 7,
+"votes": 9077
+},
+"fed-229": {
+"adjacency": 0.051,
+"n": 6,
+"votes": 8505
+},
+"fed-232": {
+"adjacency": 0.0776,
+"n": 7,
+"votes": 18653
+},
+"fed-233": {
+"adjacency": 0.0346,
+"n": 5,
+"votes": 29268
+},
+"fed-234": {
+"adjacency": 0.0659,
+"n": 5,
+"votes": 33236
+},
+"fed-309": {
+"adjacency": -0.0338,
+"n": 4,
+"votes": 28702
+},
+"fed-320": {
+"adjacency": 0.1672,
+"n": 9,
+"votes": 16038
+},
+"fed-321": {
+"adjacency": 0.0721,
+"n": 5,
+"votes": 12714
+},
+"fed-322": {
+"adjacency": 0.0341,
+"n": 12,
+"votes": 34943
+},
+"fed-323": {
+"adjacency": 0.1831,
+"n": 6,
+"votes": 27806
+},
+"fed-324": {
+"adjacency": 0.091,
+"n": 10,
+"votes": 19588
+}
+}
+},
+"fed2022": {
+"below": 0.0413,
+"above": 0.0309,
+"top": 0.0206,
+"card": null,
+"rows": 1227,
+"exclusions": 425,
+"by_party": {
+"AJP": {
+"adjacency": 0.1215,
+"n": 28
+},
+"CYA": {
+"adjacency": 0.1489,
+"n": 51
+},
+"GRN": {
+"adjacency": 0.0819,
+"n": 54
+},
+"IND": {
+"adjacency": 0.08,
+"n": 36
+},
+"LDP": {
+"adjacency": 0.0775,
+"n": 61
+},
+"ONP": {
+"adjacency": 0.0863,
+"n": 69
+},
+"UAP": {
+"adjacency": 0.0916,
+"n": 60
+},
+"VSP": {
+"adjacency": 0.1401,
+"n": 17
+}
+},
+"by_ballot_size": {
+"6-7": {
+"adjacency": 0.0992,
+"n": 79
+},
+"8-9": {
+"adjacency": 0.0857,
+"n": 220
+},
+"10+": {
+"adjacency": 0.0723,
+"n": 126
+}
+},
+"by_seat": {
+"fed-197": {
+"adjacency": 0.0819,
+"n": 9,
+"votes": 31158
+},
+"fed-198": {
+"adjacency": 0.0687,
+"n": 11,
+"votes": 36494
+},
+"fed-200": {
+"adjacency": 0.0617,
+"n": 6,
+"votes": 7479
+},
+"fed-201": {
+"adjacency": 0.1401,
+"n": 5,
+"votes": 25553
+},
+"fed-203": {
+"adjacency": 0.1541,
+"n": 6,
+"votes": 17431
+},
+"fed-204": {
+"adjacency": 0.0185,
+"n": 16,
+"votes": 48718
+},
+"fed-205": {
+"adjacency": 0.0647,
+"n": 20,
+"votes": 32546
+},
+"fed-208": {
+"adjacency": 0.0503,
+"n": 13,
+"votes": 45519
+},
+"fed-209": {
+"adjacency": 0.0896,
+"n": 14,
+"votes": 25392
+},
+"fed-210": {
+"adjacency": 0.0868,
+"n": 12,
+"votes": 28181
+},
+"fed-211": {
+"adjacency": 0.161,
+"n": 13,
+"votes": 34224
+},
+"fed-212": {
+"adjacency": 0.0918,
+"n": 11,
+"votes": 36380
+},
+"fed-213": {
+"adjacency": 0.0951,
+"n": 7,
+"votes": 33130
+},
+"fed-214": {
+"adjacency": 0.1337,
+"n": 12,
+"votes": 17070
+},
+"fed-215": {
+"adjacency": 0.1307,
+"n": 10,
+"votes": 9965
+},
+"fed-216": {
+"adjacency": 0.073,
+"n": 11,
+"votes": 35394
+},
+"fed-217": {
+"adjacency": 0.0687,
+"n": 7,
+"votes": 36389
+},
+"fed-218": {
+"adjacency": 0.0648,
+"n": 15,
+"votes": 38703
+},
+"fed-219": {
+"adjacency": 0.1119,
+"n": 7,
+"votes": 11260
+},
+"fed-220": {
+"adjacency": 0.0486,
+"n": 12,
+"votes": 39474
+},
+"fed-221": {
+"adjacency": 0.0961,
+"n": 15,
+"votes": 5374
+},
+"fed-222": {
+"adjacency": 0.1439,
+"n": 12,
+"votes": 38208
+},
+"fed-223": {
+"adjacency": 0.0196,
+"n": 11,
+"votes": 34140
+},
+"fed-224": {
+"adjacency": 0.0621,
+"n": 10,
+"votes": 30146
+},
+"fed-225": {
+"adjacency": 0.1084,
+"n": 11,
+"votes": 15222
+},
+"fed-226": {
+"adjacency": 0.1156,
+"n": 9,
+"votes": 39054
+},
+"fed-228": {
+"adjacency": 0.0614,
+"n": 11,
+"votes": 9038
+},
+"fed-229": {
+"adjacency": 0.0227,
+"n": 8,
+"votes": 8013
+},
+"fed-232": {
+"adjacency": 0.1116,
+"n": 8,
+"votes": 37797
+},
+"fed-233": {
+"adjacency": 0.1049,
+"n": 10,
+"votes": 21906
+},
+"fed-234": {
+"adjacency": 0.0449,
+"n": 13,
+"votes": 39675
+},
+"fed-309": {
+"adjacency": 0.1585,
+"n": 11,
+"votes": 44408
+},
+"fed-320": {
+"adjacency": 0.0899,
+"n": 10,
+"votes": 37823
+},
+"fed-321": {
+"adjacency": 0.1246,
+"n": 7,
+"votes": 5519
+},
+"fed-322": {
+"adjacency": 0.1641,
+"n": 9,
+"votes": 7991
+},
+"fed-323": {
+"adjacency": 0.0484,
+"n": 10,
+"votes": 46690
+},
+"fed-324": {
+"adjacency": 0.0405,
+"n": 17,
+"votes": 58408
+},
+"fed-326": {
+"adjacency": 0.0876,
+"n": 16,
+"votes": 38817
+},
+"fed-328": {
+"adjacency": 0.0973,
+"n": 10,
+"votes": 29300
+}
+}
+},
+"fed2025": {
+"below": 0.0415,
+"above": 0.0259,
+"top": 0.0237,
+"card": null,
+"rows": 889,
+"exclusions": 315,
+"by_party": {
+"CYA": {
+"adjacency": 0.147,
+"n": 32
+},
+"FFP": {
+"adjacency": 0.1172,
+"n": 45
+},
+"GRN": {
+"adjacency": 0.0876,
+"n": 44
+},
+"IND": {
+"adjacency": 0.0713,
+"n": 42
+},
+"LCP": {
+"adjacency": 0.1186,
+"n": 22
+},
+"ONP": {
+"adjacency": 0.072,
+"n": 60
+},
+"OTH": {
+"adjacency": 0.1317,
+"n": 40
+}
+},
+"by_ballot_size": {
+"2-5": {
+"adjacency": 0.0766,
+"n": 16
+},
+"6-7": {
+"adjacency": 0.0779,
+"n": 127
+},
+"8-9": {
+"adjacency": 0.0957,
+"n": 138
+},
+"10+": {
+"adjacency": 0.0906,
+"n": 34
+}
+},
+"by_seat": {
+"fed-197": {
+"adjacency": 0.1666,
+"n": 11,
+"votes": 11687
+},
+"fed-198": {
+"adjacency": 0.0623,
+"n": 9,
+"votes": 33498
+},
+"fed-200": {
+"adjacency": 0.0963,
+"n": 13,
+"votes": 37859
+},
+"fed-201": {
+"adjacency": 0.0692,
+"n": 9,
+"votes": 41773
+},
+"fed-203": {
+"adjacency": 0.0864,
+"n": 21,
+"votes": 51887
+},
+"fed-204": {
+"adjacency": 0.1329,
+"n": 9,
+"votes": 57053
+},
+"fed-205": {
+"adjacency": 0.0666,
+"n": 8,
+"votes": 26295
+},
+"fed-208": {
+"adjacency": 0.1654,
+"n": 6,
+"votes": 44695
+},
+"fed-209": {
+"adjacency": 0.0303,
+"n": 9,
+"votes": 19099
+},
+"fed-210": {
+"adjacency": 0.0693,
+"n": 11,
+"votes": 36725
+},
+"fed-211": {
+"adjacency": 0.0798,
+"n": 7,
+"votes": 11671
+},
+"fed-212": {
+"adjacency": 0.0542,
+"n": 4,
+"votes": 7856
+},
+"fed-213": {
+"adjacency": 0.0349,
+"n": 5,
+"votes": 26409
+},
+"fed-214": {
+"adjacency": -0.0094,
+"n": 8,
+"votes": 35806
+},
+"fed-216": {
+"adjacency": 0.1197,
+"n": 6,
+"votes": 39872
+},
+"fed-217": {
+"adjacency": 0.135,
+"n": 6,
+"votes": 33333
+},
+"fed-218": {
+"adjacency": 0.041,
+"n": 10,
+"votes": 14911
+},
+"fed-219": {
+"adjacency": 0.0585,
+"n": 5,
+"votes": 20996
+},
+"fed-220": {
+"adjacency": 0.0435,
+"n": 8,
+"votes": 38624
+},
+"fed-221": {
+"adjacency": 0.1424,
+"n": 8,
+"votes": 14232
+},
+"fed-222": {
+"adjacency": 0.0596,
+"n": 7,
+"votes": 33761
+},
+"fed-223": {
+"adjacency": 0.1491,
+"n": 5,
+"votes": 9009
+},
+"fed-224": {
+"adjacency": 0.158,
+"n": 9,
+"votes": 18834
+},
+"fed-226": {
+"adjacency": 0.0992,
+"n": 11,
+"votes": 46032
+},
+"fed-228": {
+"adjacency": -0.0267,
+"n": 8,
+"votes": 11525
+},
+"fed-229": {
+"adjacency": 0.0427,
+"n": 9,
+"votes": 32537
+},
+"fed-232": {
+"adjacency": 0.2006,
+"n": 8,
+"votes": 51749
+},
+"fed-233": {
+"adjacency": 0.1121,
+"n": 12,
+"votes": 19556
+},
+"fed-234": {
+"adjacency": 0.0561,
+"n": 10,
+"votes": 34273
+},
+"fed-309": {
+"adjacency": 0.1301,
+"n": 8,
+"votes": 23534
+},
+"fed-320": {
+"adjacency": 0.1194,
+"n": 4,
+"votes": 6181
+},
+"fed-321": {
+"adjacency": 0.0791,
+"n": 7,
+"votes": 42512
+},
+"fed-322": {
+"adjacency": 0.0389,
+"n": 7,
+"votes": 31902
+},
+"fed-323": {
+"adjacency": 0.1699,
+"n": 10,
+"votes": 33203
+},
+"fed-324": {
+"adjacency": 0.0669,
+"n": 9,
+"votes": 30076
+},
+"fed-326": {
+"adjacency": 0.0329,
+"n": 6,
+"votes": 31102
+},
+"fed-328": {
+"adjacency": 0.0706,
+"n": 10,
+"votes": 40681
+}
+}
+}
+},
+"seats": {
+"n_seats": 68,
+"correlations": {
+"english_not_well": {
+"r": 0.303,
+"n": 68
+},
+"other_language_home": {
+"r": 0.321,
+"n": 68
+},
+"born_overseas": {
+"r": 0.219,
+"n": 68
+},
+"bachelor_or_higher": {
+"r": -0.117,
+"n": 68
+},
+"year12": {
+"r": -0.032,
+"n": 68
+},
+"age_median": {
+"r": -0.092,
+"n": 68
+},
+"age_65_plus": {
+"r": -0.115,
+"n": 68
+},
+"adults_18_34": {
+"r": -0.027,
+"n": 68
+},
+"income_household_median": {
+"r": 0.033,
+"n": 68
+},
+"income_household_under_1000": {
+"r": -0.044,
+"n": 68
+},
+"occupation_labourers": {
+"r": 0.059,
+"n": 68
+},
+"occupation_professionals": {
+"r": -0.133,
+"n": 68
+},
+"religion_no_religion_so_described": {
+"r": -0.42,
+"n": 68
+},
+"flat_apartment": {
+"r": -0.259,
+"n": 68
+}
+},
+"highest": [
+{
+"contest": "vic-kew",
+"name": "Kew",
+"d": 0.3098,
+"n": 9
+},
+{
+"contest": "vic-greenvale",
+"name": "Greenvale",
+"d": 0.236,
+"n": 8
+},
+{
+"contest": "vic-ringwood",
+"name": "Ringwood",
+"d": 0.2331,
+"n": 12
+},
+{
+"contest": "vic-point-cook",
+"name": "Point Cook",
+"d": 0.2267,
+"n": 23
+},
+{
+"contest": "vic-broadmeadows",
+"name": "Broadmeadows",
+"d": 0.2149,
+"n": 11
+},
+{
+"contest": "vic-kororoit",
+"name": "Kororoit",
+"d": 0.2027,
+"n": 12
+},
+{
+"contest": "vic-sunbury",
+"name": "Sunbury",
+"d": 0.2021,
+"n": 19
+},
+{
+"contest": "vic-nepean",
+"name": "Nepean",
+"d": 0.1987,
+"n": 14
+},
+{
+"contest": "vic-clarinda",
+"name": "Clarinda",
+"d": 0.1917,
+"n": 8
+},
+{
+"contest": "vic-preston",
+"name": "Preston",
+"d": 0.1836,
+"n": 14
+},
+{
+"contest": "vic-melton",
+"name": "Melton",
+"d": 0.1802,
+"n": 38
+},
+{
+"contest": "vic-williamstown",
+"name": "Williamstown",
+"d": 0.1777,
+"n": 9
+}
+],
+"lowest": [
+{
+"contest": "vic-oakleigh",
+"name": "Oakleigh",
+"d": 0.0127,
+"n": 12
+},
+{
+"contest": "vic-polwarth",
+"name": "Polwarth",
+"d": 0.0209,
+"n": 9
+},
+{
+"contest": "vic-mornington",
+"name": "Mornington",
+"d": 0.0224,
+"n": 11
+},
+{
+"contest": "vic-footscray",
+"name": "Footscray",
+"d": 0.0471,
+"n": 13
+},
+{
+"contest": "vic-bendigo-east",
+"name": "Bendigo East",
+"d": 0.0505,
+"n": 11
+},
+{
+"contest": "vic-macedon",
+"name": "Macedon",
+"d": 0.0518,
+"n": 10
+},
+{
+"contest": "vic-monbulk",
+"name": "Monbulk",
+"d": 0.067,
+"n": 24
+},
+{
+"contest": "vic-brunswick",
+"name": "Brunswick",
+"d": 0.0699,
+"n": 31
+},
+{
+"contest": "vic-prahran",
+"name": "Prahran",
+"d": 0.0763,
+"n": 16
+},
+{
+"contest": "vic-albert-park",
+"name": "Albert Park",
+"d": 0.0772,
+"n": 26
+},
+{
+"contest": "vic-ivanhoe",
+"name": "Ivanhoe",
+"d": 0.082,
+"n": 20
+},
+{
+"contest": "vic-narre-warren-south",
+"name": "Narre Warren South",
+"d": 0.084,
+"n": 13
+}
+],
+"seats": {
+"vic-albert-park": {
+"d": 0.0772,
+"n": 26,
+"name": "Albert Park"
+},
+"vic-ashwood": {
+"d": 0.1143,
+"n": 9,
+"name": "Ashwood"
+},
+"vic-bass": {
+"d": 0.0977,
+"n": 31,
+"name": "Bass"
+},
+"vic-bayswater": {
+"d": 0.1193,
+"n": 16,
+"name": "Bayswater"
+},
+"vic-bellarine": {
+"d": 0.109,
+"n": 22,
+"name": "Bellarine"
+},
+"vic-benambra": {
+"d": 0.1505,
+"n": 13,
+"name": "Benambra"
+},
+"vic-bendigo-east": {
+"d": 0.0505,
+"n": 11,
+"name": "Bendigo East"
+},
+"vic-bendigo-west": {
+"d": 0.0974,
+"n": 14,
+"name": "Bendigo West"
+},
+"vic-bentleigh": {
+"d": 0.1399,
+"n": 18,
+"name": "Bentleigh"
+},
+"vic-box-hill": {
+"d": 0.0919,
+"n": 12,
+"name": "Box Hill"
+},
+"vic-brighton": {
+"d": 0.1075,
+"n": 14,
+"name": "Brighton"
+},
+"vic-broadmeadows": {
+"d": 0.2149,
+"n": 11,
+"name": "Broadmeadows"
+},
+"vic-brunswick": {
+"d": 0.0699,
+"n": 31,
+"name": "Brunswick"
+},
+"vic-bulleen": {
+"d": 0.1334,
+"n": 9,
+"name": "Bulleen"
+},
+"vic-caulfield": {
+"d": 0.0916,
+"n": 12,
+"name": "Caulfield"
+},
+"vic-clarinda": {
+"d": 0.1917,
+"n": 8,
+"name": "Clarinda"
+},
+"vic-cranbourne": {
+"d": 0.1284,
+"n": 18,
+"name": "Cranbourne"
+},
+"vic-eildon": {
+"d": 0.1186,
+"n": 17,
+"name": "Eildon"
+},
+"vic-eltham": {
+"d": 0.1705,
+"n": 13,
+"name": "Eltham"
+},
+"vic-essendon": {
+"d": 0.0971,
+"n": 19,
+"name": "Essendon"
+},
+"vic-eureka": {
+"d": 0.1157,
+"n": 16,
+"name": "Eureka"
+},
+"vic-euroa": {
+"d": 0.0959,
+"n": 14,
+"name": "Euroa"
+},
+"vic-footscray": {
+"d": 0.0471,
+"n": 13,
+"name": "Footscray"
+},
+"vic-frankston": {
+"d": 0.1446,
+"n": 41,
+"name": "Frankston"
+},
+"vic-geelong": {
+"d": 0.1387,
+"n": 29,
+"name": "Geelong"
+},
+"vic-glen-waverley": {
+"d": 0.1319,
+"n": 8,
+"name": "Glen Waverley"
+},
+"vic-greenvale": {
+"d": 0.236,
+"n": 8,
+"name": "Greenvale"
+},
+"vic-hastings": {
+"d": 0.1098,
+"n": 9,
+"name": "Hastings"
+},
+"vic-hawthorn": {
+"d": 0.0904,
+"n": 16,
+"name": "Hawthorn"
+},
+"vic-ivanhoe": {
+"d": 0.082,
+"n": 20,
+"name": "Ivanhoe"
+},
+"vic-kew": {
+"d": 0.3098,
+"n": 9,
+"name": "Kew"
+},
+"vic-kororoit": {
+"d": 0.2027,
+"n": 12,
+"name": "Kororoit"
+},
+"vic-laverton": {
+"d": 0.1547,
+"n": 13,
+"name": "Laverton"
+},
+"vic-macedon": {
+"d": 0.0518,
+"n": 10,
+"name": "Macedon"
+},
+"vic-melbourne": {
+"d": 0.0943,
+"n": 30,
+"name": "Melbourne"
+},
+"vic-melton": {
+"d": 0.1802,
+"n": 38,
+"name": "Melton"
+},
+"vic-mildura": {
+"d": 0.1235,
+"n": 31,
+"name": "Mildura"
+},
+"vic-monbulk": {
+"d": 0.067,
+"n": 24,
+"name": "Monbulk"
+},
+"vic-mordialloc": {
+"d": 0.1072,
+"n": 26,
+"name": "Mordialloc"
+},
+"vic-mornington": {
+"d": 0.0224,
+"n": 11,
+"name": "Mornington"
+},
+"vic-morwell": {
+"d": 0.0932,
+"n": 39,
+"name": "Morwell"
+},
+"vic-narre-warren-north": {
+"d": 0.1198,
+"n": 22,
+"name": "Narre Warren North"
+},
+"vic-narre-warren-south": {
+"d": 0.084,
+"n": 13,
+"name": "Narre Warren South"
+},
+"vic-nepean": {
+"d": 0.1987,
+"n": 14,
+"name": "Nepean"
+},
+"vic-niddrie": {
+"d": 0.1548,
+"n": 22,
+"name": "Niddrie"
+},
+"vic-northcote": {
+"d": 0.1046,
+"n": 32,
+"name": "Northcote"
+},
+"vic-oakleigh": {
+"d": 0.0127,
+"n": 12,
+"name": "Oakleigh"
+},
+"vic-pascoe-vale": {
+"d": 0.1766,
+"n": 23,
+"name": "Pascoe Vale"
+},
+"vic-point-cook": {
+"d": 0.2267,
+"n": 23,
+"name": "Point Cook"
+},
+"vic-polwarth": {
+"d": 0.0209,
+"n": 9,
+"name": "Polwarth"
+},
+"vic-prahran": {
+"d": 0.0763,
+"n": 16,
+"name": "Prahran"
+},
+"vic-preston": {
+"d": 0.1836,
+"n": 14,
+"name": "Preston"
+},
+"vic-richmond": {
+"d": 0.1162,
+"n": 29,
+"name": "Richmond"
+},
+"vic-ringwood": {
+"d": 0.2331,
+"n": 12,
+"name": "Ringwood"
+},
+"vic-ripon": {
+"d": 0.0981,
+"n": 34,
+"name": "Ripon"
+},
+"vic-rowville": {
+"d": 0.0883,
+"n": 8,
+"name": "Rowville"
+},
+"vic-sandringham": {
+"d": 0.0936,
+"n": 17,
+"name": "Sandringham"
+},
+"vic-shepparton": {
+"d": 0.0895,
+"n": 27,
+"name": "Shepparton"
+},
+"vic-south-barwon": {
+"d": 0.1305,
+"n": 31,
+"name": "South Barwon"
+},
+"vic-south-west-coast": {
+"d": 0.1588,
+"n": 25,
+"name": "South-West Coast"
+},
+"vic-st-albans": {
+"d": 0.1014,
+"n": 12,
+"name": "St Albans"
+},
+"vic-sunbury": {
+"d": 0.2021,
+"n": 19,
+"name": "Sunbury"
+},
+"vic-sydenham": {
+"d": 0.162,
+"n": 8,
+"name": "Sydenham"
+},
+"vic-tarneit": {
+"d": 0.1369,
+"n": 17,
+"name": "Tarneit"
+},
+"vic-wendouree": {
+"d": 0.1285,
+"n": 20,
+"name": "Wendouree"
+},
+"vic-werribee": {
+"d": 0.1548,
+"n": 30,
+"name": "Werribee"
+},
+"vic-williamstown": {
+"d": 0.1777,
+"n": 9,
+"name": "Williamstown"
+},
+"vic-yan-yean": {
+"d": 0.1026,
+"n": 16,
+"name": "Yan Yean"
+}
+}
+},
+"model": {
+"below": 0.0441,
+"above": 0.037,
+"top": 0.025
+},
+"note": "below/above/top: the share of an excluded candidate's pile that goes to the next candidate below (above) on the ballot, or the top of the ballot, beyond what the fitted flows (party affinity) and the registered card explain. Seat values are the adjacency share (below plus above), pooling the state elections."
+}

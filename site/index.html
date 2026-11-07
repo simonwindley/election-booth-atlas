@@ -476,6 +476,7 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
         <div class="tablewrap" id="pf-flows"></div><p class="hint" id="pf-flows-note"></p></div>
       <div class="panel"><h3>How well it predicts: 2022 from 2018</h3><div id="pf-val"></div></div>
       <div class="panel" id="pf-cards-panel"><h3>Registered how-to-vote cards</h3><div id="pf-cards"></div></div>
+      <div class="panel" id="pf-ballot-panel"><h3>Ballot order: donkey and adjacency voting</h3><div id="pf-ballot"></div></div>
     </div></div>
   </section>
 
@@ -934,7 +935,7 @@ function expectBlock(eid, b) {
       const nG = {}; for (const c of cl) { const g = grpParty(c.party); nG[g] = (nG[g] || 0) + 1; }
       const fps = cl.map(c => { const g = grpParty(c.party); const sh = Math.max(0, (here[g] ? here[g].share : 0) + (use && use.sw[g] ? use.sw[g] : 0)); return { ...c, votes: here.formal * sh / nG[g] }; }).filter(c => c.votes > 0);
       if (fps.length >= 2) { const base = HTV[HTV_BASE]; const cards = seatCards(eid, b.contest_id);
-        const { final, cardsUsed } = fps.length > 2 ? simulateCount(fps, pw.W, null, { cards, pairwise: cards && base ? base.pairwise : null }) : { final: new Map(fps.map(c => [c.id, c.votes])), cardsUsed: 0 };
+        const { final, cardsUsed } = fps.length > 2 ? simulateCount(fps, pw.W, null, { cards, pairwise: cards && base ? base.pairwise : null, adj: BALLOT && BALLOT.model, adjScale: adjScaleVenue(b.venue_id) }) : { final: new Map(fps.map(c => [c.id, c.votes])), cardsUsed: 0 };
         const tot = [...final.values()].reduce((x, y) => x + y, 0); const pair = [...final.entries()].map(([id, v]) => { const c = fps.find(f => f.id === id); return { ...c, share: v / tot }; }).sort((x, y) => y.share - x.share);
         box.append(h('div', { style: 'margin-top:6px' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', {}, h('span', { class: 'hint' }, 'Expected after preferences (model): '), ...pair.map((x, i) => h('span', {}, i ? h('span', { class: 'hint' }, ' v ') : '', h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), candName(x.cand)), h('b', { class: 'mono' }, ` ≈${pct(x.share)}`))))),
           h('div', { class: 'hint' }, `This year's candidates given the expected primaries, each excluded in turn and their votes split by the fitted preference flows${cardsUsed ? ' and the registered how-to-vote cards' : ''}.`)));
@@ -952,6 +953,7 @@ function renderDetail(eid, bid) {
     root.append(h('div', { class: 'hint', style: 'margin:6px 0' }, LIVE.available ? 'No figures from this booth yet.' : 'A 2022 booth, carried forward for 2026. Figures appear here on election night.'), h('div', { style: 'margin:4px 0 8px' }, h('button', { class: 'btn', onclick: () => { setUnit('contest'); selectContest(eid, b.contest_id, true); } }, `Open ${c ? c.contest_name : 'the district'}: candidates and history`)));
     if (b.booth_type === 'ordinary') { const xb = expectBlock(eid, b); if (xb) root.append(xb); }
   } else if (eid === LIVE.election && b.reported) root.append(h('div', { class: 'hint', style: 'margin:4px 0' }, `Figures first seen ${fmtTime(b.first_seen)}, last changed ${fmtTime(b.updated_at)}.`));
+  if (BALLOT_B && b.venue_id && BALLOT_B.score[b.venue_id] != null && b.booth_type === 'ordinary') { const sc = BALLOT_B.score[b.venue_id]; root.append(h('div', { class: 'hint', style: 'margin:2px 0 6px' }, `Ballot-order voting: this venue's census profile predicts a position-1 bonus ${Math.abs(sc).toFixed(1)} pts ${sc >= 0 ? 'above' : 'below'} the average Victorian booth (${sc >= 0.4 ? 'younger, more multilingual' : sc <= -0.4 ? 'older, more English-speaking' : 'about average'}); the model scales its ballot-adjacency term ×${adjScaleVenue(b.venue_id).toFixed(2)} here. `, h('a', { href: '#prefs', onclick: (ev) => { ev.preventDefault(); showView('prefs'); } }, 'How this is measured'))); }
   // candidate table
   const fp = D.fp.filter(f => f.election_id === eid && f.booth_id === bid);
   const formal = fp.filter(f => f.candidate_id !== 'INFORMAL').reduce((a, f) => a + f.votes, 0);
@@ -1686,6 +1688,39 @@ async function renderPrefs() {
         return h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(p))}` }), PARTY_NAME[p] || p)), h('td', { class: 'num' }, f.exclusions || '–'), h('td', { class: 'num' }, f.votes ? fmt(f.votes) : '–'), h('td', { class: 'num' }, f.concordance != null ? pct(f.concordance) : '–'), h('td', { class: 'num' }, f.lift != null ? pts(f.lift) : '–'),
           h('td', { class: 'num', title: f.source === 'fitted' ? `fitted on ${f.f_obs} candidate-exclusion observations in ${f.f_seats} seats` : (f.note || '') }, f.f != null ? (100 * f.f).toFixed(0) + '%' + (f.source === 'assumed' ? '*' : '') : '–'), h('td', { class: 'hint' }, typ)); })))),
     h('p', { class: 'hint' }, 'Followed card and above-flow are vote-weighted over every 2022 exclusion where that party had a complete card. A follow rate marked * is assumed: those parties\' cards did not vary across seats in 2022, so the regression cannot see them; the Liberal figure is the 2018-to-2022 natural experiment (Liberal cards moved the Greens above Labor and the Liberal pile\'s Greens share rose 22 points). The typical order is the mean position of each party on that party\'s 2022 cards.'));
+  renderBallotSection();
+}
+function renderBallotSection() {
+  const box = el('pf-ballot'); box.innerHTML = ''; const B = BALLOT;
+  if (!B || !B.model) { box.append(h('p', { class: 'hint' }, 'No ballot-order file (site/data/ballot_effects.json).')); return; }
+  const M = B.model, D_ = B.donkey || {}, P_ = B.position || {}, S_ = B.seats || {};
+  const eids = Object.keys(D_);
+  box.append(h('p', { class: 'hint' }, 'Two things in the data say how many people vote by the ballot paper rather than by the candidates. First preferences: the candidate drawn first on the ballot does better than their party\'s other candidates that election (the classic 1-2-3 "donkey" vote starts at the top). Preferences: when a candidate is excluded, part of the pile goes to whoever is printed next to them on the ballot, beyond what party affinity and the registered card explain. The ballot draw is random, so that excess is clean. It turns out to run both ways, to the name below and to the name above almost equally, with a smaller bonus for the top of the ballot: most of it is people numbering outward from their first choice, not straight down the paper.'),
+    h('div', { class: 'stats', style: 'margin:10px 0' }, stat(`${(100 * M.below).toFixed(1)}%`, 'of an excluded candidate\'s pile to the next name below'), stat(`${(100 * M.above).toFixed(1)}%`, 'to the next name above'), stat(`${(100 * M.top).toFixed(1)}%`, 'to the top of the ballot'),
+      P_.vic2022 && P_.vic2022.first ? stat(pts(P_.vic2022.first.dev_pts / 100), 'first-preference bonus for position 1, 2022 (minor parties)') : ''));
+  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', { class: 'num' }, 'Next below'), h('th', { class: 'num' }, 'Next above'), h('th', { class: 'num' }, 'Top of ballot'), h('th', { class: 'num', title: 'first-preference bonus for the candidate drawn first, minor parties pooled, against the party mean' }, 'Position-1 bonus'), h('th', {}, 'Adjacency by ballot size'))),
+    h('tbody', {}, ...eids.map(e => { const r = D_[e]; const pos = P_[e] && P_[e].first; return h('tr', {}, h('td', {}, idx.electionById.get(e) ? shortName(idx.electionById.get(e)) : e), h('td', { class: 'num' }, r.below != null ? (100 * r.below).toFixed(1) + '%' : '–'), h('td', { class: 'num' }, r.above != null ? (100 * r.above).toFixed(1) + '%' : '–'), h('td', { class: 'num' }, r.top != null ? (100 * r.top).toFixed(1) + '%' : '–'), h('td', { class: 'num' }, pos ? pts(pos.dev_pts / 100) + ' pts' : '–'), h('td', { class: 'hint' }, Object.entries(r.by_ballot_size || {}).map(([k, v]) => `${k} candidates ${(100 * v.adjacency).toFixed(0)}%`).join(' · '))); })));
+  box.append(h('div', { class: 'tablewrap' }, t), h('p', { class: 'hint' }, 'Adjacency by ballot size is the next-below and next-above shares summed: the longer the ballot, the more of the pile moves by position. By excluded party in 2022: ' + Object.entries((D_.vic2022 || {}).by_party || {}).sort((a, b) => b[1].n - a[1].n).slice(0, 8).map(([k, v]) => `${PARTY_SHORT[k] || k} ${(100 * v.adjacency).toFixed(0)}%`).join(', ') + ' (independents\' and minor parties\' voters do it most; the Greens\' least).'));
+  // who does it: seats and census
+  if (S_.correlations) {
+    const cors = Object.entries(S_.correlations).sort((a, b) => Math.abs(b[1].r) - Math.abs(a[1].r)).slice(0, 8);
+    const LAB = { religion_no_religion_so_described: 'No religion', other_language_home: 'Language other than English at home', english_not_well: 'Speaks English not well or not at all', flat_apartment: 'Flats and apartments', born_overseas: 'Born overseas', occupation_professionals: 'Professionals', bachelor_or_higher: 'Bachelor degree or higher', age_65_plus: '65 and over', age_median: 'Median age', occupation_labourers: 'Labourers', income_household_under_1000: 'Household income under $1,000 a week', income_household_median: 'Median weekly household income', year12: 'Completed Year 12', adults_18_34: 'Adults aged 18 to 34' };
+    const lab = (k) => { const set = DEMOGS.vic_la_2022; const i = set && set.ind.get(k); return i ? i.label : (LAB[k] || k.replaceAll('_', ' ')); };
+    box.append(h('h4', { style: 'margin-top:14px' }, 'Where it happens'),
+      h('p', { class: 'hint' }, `Each electorate\'s adjacency share, pooling the state elections (${S_.n_seats} electorates with enough exclusions), against its census profile. Correlations are modest and the per-electorate figures are noisy (a handful of exclusions each), but the pattern is the one the literature finds: ballot-order voting is highest where more people speak a language other than English at home and lowest in secular, inner-city, professional electorates.`),
+      h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Census indicator'), h('th', { class: 'num' }, 'r'))), h('tbody', {}, ...cors.map(([k, v]) => h('tr', {}, h('td', {}, lab(k)), h('td', { class: 'num', style: Math.abs(v.r) >= 0.25 ? 'font-weight:600' : '' }, (v.r >= 0 ? '+' : '−') + Math.abs(v.r).toFixed(2))))))),
+      h('p', { class: 'hint' }, 'Highest: ' + (S_.highest || []).slice(0, 8).map(x => `${x.name} ${(100 * x.d).toFixed(0)}%`).join(', ') + '. Lowest: ' + (S_.lowest || []).slice(0, 8).map(x => `${x.name} ${(100 * x.d).toFixed(0)}%`).join(', ') + '.'));
+  }
+  if (BALLOT_B && BALLOT_B.quartiles) {
+    const Q = BALLOT_B.quartiles; const LABQ = { age_median: 'Median age', other_language_home: 'Language other than English at home', adults_18_34: 'Adults aged 18 to 34', english_not_well: 'Speaks English not well', born_overseas: 'Born overseas', bachelor_or_higher: 'Bachelor degree or higher', income_household_median: 'Median household income', religion_no_religion_so_described: 'No religion', flat_apartment: 'Flats and apartments', age_65_plus: '65 and over' };
+    const keys = ['age_median', 'adults_18_34', 'other_language_home', 'english_not_well', 'born_overseas', 'flat_apartment', 'bachelor_or_higher', 'income_household_median', 'religion_no_religion_so_described'].filter(k => Q[k]);
+    box.append(h('h4', { style: 'margin-top:14px' }, 'Booth by booth'),
+      h('p', { class: 'hint' }, `The same question with far more data: the candidate drawn first is the same at every booth of an electorate, so each booth's first-preference deviation from its electorate (${fmt(BALLOT_B.observations)} booth-candidate observations, ${BALLOT_B.pos1_candidates} position-1 candidates over ${BALLOT_B.elections.length} elections at the same venues) is modelled with each party's own census gradient taken out. What is left for the position-1 candidate, by quartile of the booth's catchment profile (points of the booth vote, lowest to highest quartile):`),
+      h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Booth catchment'), h('th', { class: 'num' }, 'Q1 (low)'), h('th', { class: 'num' }, 'Q2'), h('th', { class: 'num' }, 'Q3'), h('th', { class: 'num' }, 'Q4 (high)'))),
+        h('tbody', {}, ...keys.map(k => { const v = Q[k]; const spread = Math.abs(v[3] - v[0]); return h('tr', {}, h('td', {}, LABQ[k] || k), ...v.map(x => h('td', { class: 'num', style: spread >= 0.4 ? 'font-weight:600' : '' }, (x >= 0 ? '+' : '−') + Math.abs(x).toFixed(2)))); })))),
+      h('p', { class: 'hint' }, `Age is the strongest signal: the youngest quarter of booths give the first-drawn candidate ${Q.age_median ? (Q.age_median[0] - Q.age_median[3]).toFixed(2) : '–'} points more than the oldest quarter, on an average bonus of about 1.2. Multilingual and migrant catchments are next; education and income barely matter once age and language are in. Most prone venues: ${(BALLOT_B.highest || []).slice(0, 6).map(x => `${x.name} (${x.contest.replace('vic-', '').replace(/-/g, ' ')}) ${x.score >= 0 ? '+' : ''}${x.score.toFixed(1)}`).join(', ')}. Least: ${(BALLOT_B.lowest || []).slice(0, 6).map(x => `${x.name} ${x.score.toFixed(1)}`).join(', ')}. Every booth panel shows its venue's score, and the model scales its ballot-adjacency term by it (×0.5 to ×2).`));
+  }
+  box.append(h('p', { class: 'hint', style: 'margin-top:8px' }, 'In the model: once the ballot order is known (the VEC\'s draw after nominations close), each excluded pile gives the shares above to the names printed next to it and to the top of the ballot, after the flows and the card. It is a small term at the seat level (the 2022 test improves from 1.84 to 1.82 points mean, 1.21 to 1.13 median) but it matters where the draw puts a major party next to a big minor pile. The code is src/ballot_effects.py.'));
 }
 function renderPollsTable() {
   const polls = POLLS.polls.slice().reverse().filter(p => pollsUI.firm === 'all' || p.firm === pollsUI.firm || p.election);
@@ -2238,10 +2273,19 @@ function isFresh(eid, bid, cid) {
   const c = LIVE.latest.contests[cid]; return !!(c && c.updated_at && c.updated_at > LIVE.seenAt && (c.counted && (c.counted.booths_reported || Object.keys(c.counted.by_type || {}).length)));
 }
 /* ---------- preference-flow model (src/pref_flows.py): a modelled two-candidate result from first preferences ---------- */
-let PREF = null, PREF_P = null;
+let PREF = null, PREF_P = null, BALLOT = null, BALLOT_B = null;   // BALLOT: ballot-order effects (data/ballot_effects.json), applied with the flows; BALLOT_B: the booth-level susceptibility scores
+// how much more (or less) ballot-order voting a venue's census profile predicts, as a multiplier on the adjacency terms (1 = the average Victorian booth)
+const ADJ_AVG_BONUS = 1.2;   // the average position-1 bonus, points, that the booth score is relative to
+function adjScaleVenue(venueId) { const sc = BALLOT_B && BALLOT_B.score && venueId != null ? BALLOT_B.score[venueId] : null; return sc == null ? 1 : Math.max(0.5, Math.min(2, 1 + sc / ADJ_AVG_BONUS)); }
+const ADJ_SEAT = {};
+function adjScaleSeat(cid) {
+  if (!BALLOT_B) return 1; if (ADJ_SEAT[cid] != null) return ADJ_SEAT[cid];
+  let w = 0, s = 0; for (const b of D.booths) if (b.election_id === 'vic2022' && b.contest_id === cid && b.booth_type === 'ordinary' && b.venue_id && BALLOT_B.score[b.venue_id] != null) { const q = partyShares('vic2022', b.booth_id); w += q.formal; s += q.formal * adjScaleVenue(b.venue_id); }
+  return (ADJ_SEAT[cid] = w ? s / w : 1);
+}
 function ensurePref() {
   if (PREF) return Promise.resolve(PREF);
-  if (!PREF_P) PREF_P = fetch(DATA + 'pref_flows.json').then(r => r.json()).then(j => { PREF = j; return j; }).catch(() => { PREF = { missing: true, parties: [], blend_2026: { weights: {} }, per_election: {}, validation: {} }; return PREF; });
+  if (!PREF_P) PREF_P = Promise.all([fetch(DATA + 'pref_flows.json').then(r => r.json()), fetch(DATA + 'ballot_effects.json').then(r => r.ok ? r.json() : null).catch(() => null), fetch(DATA + 'ballot_booths.json').then(r => r.ok ? r.json() : null).catch(() => null)]).then(([j, b, bb]) => { BALLOT = b; BALLOT_B = bb; PREF = j; return j; }).catch(() => { PREF = { missing: true, parties: [], blend_2026: { weights: {} }, per_election: {}, validation: {} }; return PREF; });
   return PREF_P;
 }
 const modelParty = (p) => (PREF && PREF.parties.includes(p)) ? p : 'OTH';
@@ -2289,6 +2333,13 @@ function simulateCount(cands, W, keep, opts = {}) {
     const perParty = {}; for (const id of rem) (perParty[party.get(id)] = perParty[party.get(id)] || []).push(id);
     const to = {}; for (const id of rem) to[id] = 0;
     let pick = null, fOwn = null;
+    // ballot order: the next candidate below and above the excluded one, and the top of the ballot, each take a fixed share of the pile
+    const adj = opts.adj, sc_ = opts.adjScale || 1; const posOf = (id) => (name.get(id).cand || {}).ballot_position || null; const targets = {};
+    if (adj && posOf(x)) { const px = posOf(x); const below = rem.filter(id => posOf(id) > px), above = rem.filter(id => posOf(id) && posOf(id) < px), withPos = rem.filter(id => posOf(id));
+      if (below.length) { const nb = below.reduce((a, b) => posOf(a) < posOf(b) ? a : b); targets[nb] = (targets[nb] || 0) + adj.below * sc_; }
+      if (above.length) { const na = above.reduce((a, b) => posOf(a) > posOf(b) ? a : b); targets[na] = (targets[na] || 0) + adj.above * sc_; }
+      if (withPos.length) { const t = withPos.reduce((a, b) => posOf(a) < posOf(b) ? a : b); targets[t] = (targets[t] || 0) + adj.top * sc_; } }
+    const A = Object.values(targets).reduce((a, v) => a + v, 0);
     for (const [origin, v] of piles.get(x)) {
       const op = party.get(origin); const sh = prefShare(W, op, remParties);
       let b = sh, p = null, f = null;
@@ -2303,9 +2354,11 @@ function simulateCount(cands, W, keep, opts = {}) {
           if (origin === x) { pick = p; fOwn = f; cardsUsed++; }
         } else f = null;
       }
-      for (const [q, ids] of Object.entries(perParty)) for (const id of ids) { const share = p && f != null ? (1 - f) * (b[q] || 0) / ids.length + (id === p ? f : 0) : (sh[q] || 0) / ids.length; const m = v * share; if (m) { to[id] += m; piles.get(id).set(origin, (piles.get(id).get(origin) || 0) + m); } }
+      const sc = {}; for (const [q, ids] of Object.entries(perParty)) for (const id of ids) sc[id] = p && f != null ? (1 - f) * (b[q] || 0) / ids.length + (id === p ? f : 0) : (sh[q] || 0) / ids.length;
+      if (A > 0) { let tot = 0; for (const id of rem) { sc[id] = Math.max(0, sc[id] - A / rem.length) + (targets[id] || 0); tot += sc[id]; } if (tot > 0) for (const id of rem) sc[id] /= tot; }
+      for (const id of rem) { const m = v * sc[id]; if (m) { to[id] += m; piles.get(id).set(origin, (piles.get(id).get(origin) || 0) + m); } }
     }
-    ladder.push({ id: x, cand: name.get(x).cand, rawParty: name.get(x).party, party: party.get(x), votes: total(x), to, pick, f: fOwn });
+    ladder.push({ id: x, cand: name.get(x).cand, rawParty: name.get(x).party, party: party.get(x), votes: total(x), to, pick, f: fOwn, adj: A > 0 });
     piles.delete(x);
   }
   return { ladder, final: new Map([...piles.keys()].map(id => [id, total(id)])), cardsUsed };
@@ -2323,9 +2376,9 @@ function modelledTcp(eid, cid, keepIds, useCards = true) {
   // the fitted flows already carry the effect of the cards they were fitted with, so a card only moves a pile where it differs from that election's typical card:
   // 2026 flows are fitted mostly on 2022 (the 2022 typical orderings are backed out); 2022 is run on 2018 flows (the 2018 orderings: the same, bar the Liberal Labor/Greens swap)
   const base = HTV[HTV_BASE]; const pairwise = cards && base ? (eid === 'vic2022' ? (base.pairwise_prev || base.pairwise) : base.pairwise) : null;
-  const { ladder, final, cardsUsed } = simulateCount(fps, pw.W, keepIds ? new Set(keepIds) : null, { cards, pairwise }); const tot = [...final.values()].reduce((a, b) => a + b, 0); if (!tot) return null;
+  const { ladder, final, cardsUsed } = simulateCount(fps, pw.W, keepIds ? new Set(keepIds) : null, { cards, pairwise, adj: BALLOT && BALLOT.model, adjScale: adjScaleSeat(cid) }); const tot = [...final.values()].reduce((a, b) => a + b, 0); if (!tot) return null;
   const pair = [...final.entries()].map(([id, v]) => { const c = fps.find(f => f.id === id); return { cand: c.cand, party: c.party, votes: Math.round(v), share: v / tot }; }).sort((a, b) => b.votes - a.votes);
-  return { method: 'modelled', pair, ladder, label: pw.label, fp: fps, formal: fps.reduce((a, f) => a + f.votes, 0), cardsUsed: cardsUsed || 0, cardsAvailable: !!cards };
+  return { method: 'modelled', pair, ladder, label: pw.label, fp: fps, formal: fps.reduce((a, f) => a + f.votes, 0), cardsUsed: cardsUsed || 0, cardsAvailable: !!cards, cid };
 }
 const candName = (c) => c ? (c.surname ? `${c.surname}` : (c.name || c.candidate_id || '?')) : '?';
 function ladderBlock(m, eid) {
@@ -2333,7 +2386,7 @@ function ladderBlock(m, eid) {
   const rows = m.ladder.map(step => { const dest = Object.entries(step.to).sort((a, b) => b[1] - a[1]); const tot = dest.reduce((a, [, v]) => a + v, 0);
     return h('div', { class: 'ladder-row' }, h('div', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(step.party)}` }), candName(step.cand)), h('span', { class: 'hint' }, ` ${PARTY_NAME[step.rawParty] || step.rawParty} · ${fmt(Math.round(step.votes))} excluded`)),
       h('div', { class: 'hint', style: 'margin-left:14px' }, dest.map(([id, v], i) => { const c = m.fp.find(f => f.id === id); return `${i ? ' · ' : '→ '}${candName(c.cand)} ${(100 * v / tot).toFixed(0)}%`; }).join('') + (step.pick ? ` · card says ${candName((m.fp.find(f => f.id === step.pick) || {}).cand)} (follow ${(100 * step.f).toFixed(0)}%)` : ''))); });
-  return h('details', { class: 'ladder' }, h('summary', {}, `How the model got there: ${m.ladder.length} exclusion${m.ladder.length === 1 ? '' : 's'}`), ...rows, h('div', { class: 'hint', style: 'margin-top:4px' }, `Each excluded candidate's pile is split by the fitted flow for their party among those still standing (${m.label})${m.cardsUsed ? `; where the candidate had a registered how-to-vote card (${m.cardsUsed} of them here), that party's follow rate of the pile goes to the card's next name and the rest follows the flow` : ''}. Shares are of the pile, not of the seat.`));
+  return h('details', { class: 'ladder' }, h('summary', {}, `How the model got there: ${m.ladder.length} exclusion${m.ladder.length === 1 ? '' : 's'}`), ...rows, h('div', { class: 'hint', style: 'margin-top:4px' }, `Each excluded candidate's pile is split by the fitted flow for their party among those still standing (${m.label})${m.cardsUsed ? `; where the candidate had a registered how-to-vote card (${m.cardsUsed} of them here), that party's follow rate of the pile goes to the card's next name and the rest follows the flow` : ''}${m.ladder.some(s => s.adj) && BALLOT ? `; ballot order adds ${(100 * BALLOT.model.below).toFixed(1)}% of each pile to the next name below on the ballot, ${(100 * BALLOT.model.above).toFixed(1)}% to the next above and ${(100 * BALLOT.model.top).toFixed(1)}% to the top${BALLOT_B && m.cid && Math.abs(adjScaleSeat(m.cid) - 1) > 0.05 ? `, scaled ×${adjScaleSeat(m.cid).toFixed(2)} for this electorate's booth profile` : ''}` : ''}. Shares are of the pile, not of the seat.`));
 }
 // the registered how-to-vote cards of a seat, each as its full ordering, with how far that party's voters followed it (2022)
 function cardsBlock(eid, cid, rerender) {
@@ -2411,7 +2464,8 @@ function modelledTcpBooth(cid, bid) {
   const fps = Object.entries(b.fp).filter(([, v]) => v > 0).map(([id, v]) => { const c = lc.candidates.find(x => x.candidate_id === id); return { id, party: c ? c.party : 'OTH', votes: v, cand: idx.candById.get(LIVE.election + '|' + id) || c }; });
   if (fps.length < 3) return null;
   const base = HTV[HTV_BASE]; const cards = seatCards(LIVE.election, cid);
-  const { final, cardsUsed } = simulateCount(fps, pw.W, null, { cards, pairwise: cards && base ? base.pairwise : null }); const tot = [...final.values()].reduce((a, v) => a + v, 0); if (!tot) return null;
+  const bb_ = idx.boothsByKey.get(LIVE.election + '|' + bid);
+  const { final, cardsUsed } = simulateCount(fps, pw.W, null, { cards, pairwise: cards && base ? base.pairwise : null, adj: BALLOT && BALLOT.model, adjScale: adjScaleVenue(bb_ && bb_.venue_id) }); const tot = [...final.values()].reduce((a, v) => a + v, 0); if (!tot) return null;
   const pair = [...final.entries()].map(([id, v]) => { const c = fps.find(f => f.id === id); return { cand: c.cand, party: c.party, votes: Math.round(v), share: v / tot }; }).sort((a, b) => b.votes - a.votes);
   return { pair, formal: fps.reduce((a, f) => a + f.votes, 0), cardsUsed };
 }

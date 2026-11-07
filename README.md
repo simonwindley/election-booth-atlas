@@ -225,6 +225,23 @@ flows were fitted with: that share of the pile (the follow rate) goes to the car
 follows the flow. Follow rates the regression cannot identify (Labor, Liberal, National: cards that never
 varied in 2022) are assumed; the Liberal 0.22 is the 2018-to-2022 Labor/Greens swap.
 
+`python3 -m src.ballot_effects` measures ballot-order voting from the same distributions: the first-preference
+bonus for the candidate drawn first (about +1.2 pts for minor parties, every election) and, at each exclusion, the
+share of the pile that goes to the names printed next to the excluded candidate beyond what the fitted flows and the
+card explain (about 4.4% to the next below, 3.7% to the next above, 2.5% to the top of the ballot, consistent from
+2014 to 2025, larger on long ballots and for minor-party and independent piles). The ballot draw is random, so the
+estimate is clean. Seat-level shares are correlated with the SA1 census profile (highest where another language is
+spoken at home, lowest in secular inner-city electorates). The browser model applies the pooled terms whenever ballot
+positions are known (`site/data/ballot_effects.json`).
+
+`python3 -m src.ballot_booths` takes the position-1 bonus to booth level: each booth's first-preference deviation
+from its electorate, modelled with every party's own census gradient taken out, leaves the position-1 candidate's
+excess by booth catchment profile (37k booth-candidate observations, 252 electorate-elections). Age is the strongest
+signal (the youngest quarter of booths give the first-drawn candidate ~0.65 pts more than the oldest), then language
+and birthplace; education and income barely matter. Each venue gets a susceptibility score (predicted position-1
+bonus relative to the average booth), shown in the booth panel; the browser model scales its ballot-adjacency term
+by it (x0.5 to x2) at booth level and by the booth-weighted mean at electorate level (`site/data/ballot_booths.json`).
+
 ## Boundaries and catchments
 
 `data/boundaries/*.geojson` carry a `contest_id` matching the results tables, simplified to ~30 m.
