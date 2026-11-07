@@ -156,19 +156,26 @@ from the dashboard and the live projections.
 2021 Census indicators by electorate, one file per boundary set, all in the same shape
 (`indicators`, `state`, `districts` keyed by contest id):
 
-* `demog_vic_la_2022` — the 88 districts on the 2022 boundaries (used in 2022 and 2026). Two sources
-  merged: the ABS tables at SA2 level apportioned onto the districts (below), and, for what the ABS
-  tables do not cover, the Parliament of Victoria Library's "Electorate data cards" workbook
-  (`raw/demographics/`). Build: `python3 -m src.load_demographics` (workbook alone), then
-  `python3 -m src.load_abs_census SA2 site/data/demog_vic_la_2022.json.gz` (merges in the ABS figures).
-  The apportionment (`python3 -m src.sa2_weights vic_la_2022 vic2022,vic2023n raw/abs/sa2_to_vic_la_2022.json`)
-  splits each of the 522 SA2s (boundaries from geo.abs.gov.au, `raw/boundaries/abs/`) across the districts
-  in proportion to the 2022 election-day votes falling in each part, spread evenly over the booth
-  catchments; 308 SA2s cross a district line. Checked against the workbook: district populations agree
-  to 2.2% on the median seat (worst Albert Park 12%, Bass 10%), and shares such as speaking only English
-  or renting correlate at 0.997–0.999. The comparison also showed the workbook's "born in Australia"
-  figure is misplaced for Werribee, Wendouree and Williamstown; the ABS value is used. Replace with the
-  SA1 DataPacks when they are available.
+* `demog_vic_la_2022` — the 88 districts on the 2022 boundaries (used in 2022 and 2026), built from the
+  ABS SA1 DataPacks for 2021, 2016 and 2011 (`raw/abs/datapacks/`, the `*_SA1_for_VIC_short-header.zip`
+  files, not committed: download them from abs.gov.au/census/find-census-data/datapacks and extract the
+  needed tables to `raw/abs/datapacks/csv/<year>/`). Each SA1 (a few streets,
+  a few hundred people) is split across the districts and across the 2022 booth catchments by area
+  (`python3 -m src.sa1_weights`, boundaries fetched with `tools/fetch_sa1.py` into `raw/boundaries/abs/`, also
+  not committed),
+  and every indicator is a numerator and denominator summed over the pieces (`python3 -m src.load_sa1_census`
+  -> `raw/abs/sa1_census_<year>.json`), so shares are exact aggregates of the small-area counts.
+  `python3 -m src.build_demog` then assembles the site file: the 2021 figures, the Parliament of Victoria
+  Library's "Electorate data cards" (`raw/demographics/`) for the true district medians and a few extras,
+  `chg16_*` / `chg11_*` change indicators (points for shares, per cent for medians and counts) and a
+  `history` block with the 2016 and 2011 figures per district; `python3 -m src.model_issues` adds the
+  modelled issue priorities. Checked against the cards: district populations agree to 0.2% on the median
+  seat (worst Ripon 1.8%); shares such as renting or born in Australia agree to three decimals. Medians
+  other than the cards' are population-weighted means of the SA1 medians, which run a little high.
+* `demog_booth_vic2022` — the same build for every 2022 election-day booth catchment (the area nearest the
+  booth within its district), keyed by venue id so a booth at the same venue in any election can use it,
+  stored column-wise (`cols` + one `v` array per venue; `hcols` + `h` for the 2016 and 2011 history of the
+  headline indicators). Not who votes at the booth: early, postal and absent votes are counted elsewhere.
 * `demog_vic_la_2013` — the districts as drawn in 2013 (ABS "SED 2021"), used at the 2014 and 2018
   elections: 190-odd indicators from 20 General Community Profile tables (age bands, birthplace by
   country, ancestry, language, religion by denomination, education, income bands, tenure, dwellings,
@@ -180,9 +187,8 @@ The ABS tables come from the ABS Data API (data.api.abs.gov.au, SDMX): the brows
 `raw/abs/c21_<geo>_vic.json` keeps, for each table, the Victorian regions' cells with persons totals for
 sex and age; `python3 -m src.load_abs_census SED|CED <out>` turns them into shares. Notes: state medians
 in the ABS files are population-weighted means of the district medians; the 2021 Census fell in
-Melbourne's lockdown, so travel-to-work figures describe that week. The ABS DataPacks (SA1-level, and
-2011/2016) were unavailable when this was built — they are the route to booth-catchment demographics and
-real change over time.
+Melbourne's lockdown, so travel-to-work figures describe that week. (The earlier SA2-based build of the
+2022 file, `src.sa2_weights` + `load_abs_census SA2`, is superseded by the SA1 DataPacks.)
 
 The site picks the file matching each election's boundary set and falls back to the nearest by seat
 name (2010 and the 2001 boundaries use the 2013 file; 2019 and 2025 federal use the 2021 divisions);

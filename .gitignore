@@ -9,3 +9,8 @@ __pycache__/
 *.pyc
 .DS_Store
 *.tmp
+# large ABS inputs, re-downloadable (README.md "Demographics"): the SA1 DataPack zips and the SA1 boundaries from tools/fetch_sa1.py
+raw/abs/datapacks/*.zip
+raw/abs/datapacks/csv/
+raw/abs/datapacks/meta/
+raw/boundaries/abs/sa1_*.geojson

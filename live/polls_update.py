@@ -136,12 +136,12 @@ def main():
         load_issue_polls.main(fw, os.path.join(ROOT, 'raw', 'polls', 'issues_vic2026.json'))
     out = os.path.join(ROOT, 'site', 'data', 'polls_vic2026.json')
     load_polls.main(raw, out)
-    if os.path.exists(os.path.join(ROOT, 'raw', 'abs', 'c21_sa2_vic.json')):   # re-model each seat's likely priorities from the new waves
+    if os.path.exists(os.path.join(ROOT, 'raw', 'abs', 'sa1_census_2021.json')):   # re-model each seat's and booth's likely priorities from the new waves
         from src import model_issues
         model_issues.main()
     if args.publish:
         import subprocess
-        cmd = ('git add raw/polls/wikipedia_vic2026_polls.json raw/polls/issues_vic2026.json raw/polls/freshwater site/data/polls_vic2026.json site/data/demog_vic_la_2022.json.gz && '
+        cmd = ('git add raw/polls/wikipedia_vic2026_polls.json raw/polls/issues_vic2026.json raw/polls/freshwater site/data/polls_vic2026.json site/data/demog_vic_la_2022.json.gz site/data/demog_booth_vic2022.json.gz && '
                '(git diff --cached --quiet || (git commit -q -m "polls update %s" && git push -q))' % dt.date.today().isoformat())
         r = subprocess.run(cmd, shell=True, cwd=ROOT, capture_output=True, text=True, timeout=180)
         print('published' if r.returncode == 0 else f'publish failed ({r.returncode}): {(r.stderr or r.stdout).strip()[-300:]}')
