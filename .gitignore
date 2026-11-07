@@ -14,3 +14,7 @@ raw/abs/datapacks/*.zip
 raw/abs/datapacks/csv/
 raw/abs/datapacks/meta/
 raw/boundaries/abs/sa1_*.geojson
+
+# how-to-vote card PDFs (GBs; the parsed orderings are in raw/htv/cards_*.json)
+raw/htv/2022/
+raw/htv/2026/

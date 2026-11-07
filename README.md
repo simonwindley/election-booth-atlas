@@ -201,6 +201,30 @@ name (2010 and the 2001 boundaries use the 2013 file; 2019 and 2025 federal use 
 `DEMOG_ALIAS` in `app.html` maps the same quantity between the Parliament and ABS ids so the
 correlation-over-time chart can cross boundary sets.
 
+## Preference flows and how-to-vote cards (`site/data/pref_flows.json`, `site/data/htv_<election>.json`)
+
+`python3 -m src.pref_flows` reads every distribution of preferences as a set of exclusions (from-party,
+parties still standing, votes to each) and fits a Luce choice model per voter-party, per election and as a
+2026 blend (state 2022 weighted 2, federal 2025 and the by-elections 1, earlier elections 0.5 and 0.25). The
+browser runs first preferences through the exclusions with those flows to give a two-candidate figure for any
+pair (Dashboard spectrum "Modelled", the seat panels, the Preferences tab). Validation: fitted on 2018 and
+2019, run on the 2022 first preferences, 75 of 76 final pairs and 74 winners right, mean 2CP error 1.8 pts
+(median 1.2). Each pile keeps its composition by origin candidate and every sub-pile moves by its own origin
+party's flow and follows its own origin's card; treating a pile as the excluded party's voters gives 2.5 pts.
+
+The registered how-to-vote cards are the other half. `tools/fetch_htv.py <register> <dir>` downloads the
+PDFs listed in a register capture (`raw/htv/register_2022.json` is the VEC's 2022 archive; the 2026 register
+comes through `live/vec_daily.py`); `tools/parse_htv.py <election> <register> <dir> <out>` reads each
+card's ordering (PDF text layer, then page OCR, then a crop of the box beside each name; `--retry` re-reads
+partial cards, `--seconds N` stops after a budget so it can run in chunks). `python3 -m src.htv_follow`
+compares every 2022 exclusion with the excluded candidate's card (concordance, lift over the flow model, and
+a fixed-effects follow rate per party where the party's cards varied across seats);
+`python3 -m src.build_htv` writes the site file: card orders per seat, follow rates, each party's typical
+ordering of the others. In the browser a card moves a pile only where it differs from the usual card the
+flows were fitted with: that share of the pile (the follow rate) goes to the card's next name, the rest
+follows the flow. Follow rates the regression cannot identify (Labor, Liberal, National: cards that never
+varied in 2022) are assumed; the Liberal 0.22 is the 2018-to-2022 Labor/Greens swap.
+
 ## Boundaries and catchments
 
 `data/boundaries/*.geojson` carry a `contest_id` matching the results tables, simplified to ~30 m.
