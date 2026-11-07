@@ -1614,7 +1614,8 @@ function censusBlock(eid, cid) {
       ht.querySelector('tbody').append(h('tr', {}, h('td', {}, lab), ...['2011', '2016', '2021'].map(y => h('td', { class: 'num', style: y === '2021' ? '' : 'color:var(--fg-2)' }, hist[y] && hist[y][id] != null ? f(hist[y][id]) : '–')), h('td', { class: 'num', style: 'color:var(--fg-3)', title: `Victoria, 2011 to 2021: ${x.kind === 'share' ? fmtInd('delta', sv) : sv == null ? '–' : (sv >= 0 ? '+' : '−') + Math.abs(100 * sv / SH['2011'][id]).toFixed(0) + '%'}; this seat ${x.kind === 'share' ? fmtInd('delta', dv) : (dv >= 0 ? '+' : '−') + Math.abs(100 * dv / hist['2011'][id]).toFixed(0) + '%'}` }, sv == null ? '–' : x.kind === 'share' ? fmtInd('delta', sv).replace(' pts', '') : (sv >= 0 ? '+' : '−') + Math.abs(100 * sv / SH['2011'][id]).toFixed(0) + '%'))); }
     ht = h('div', { style: 'margin-top:10px' }, h('h3', {}, 'How it has changed'), ht, h('div', { class: 'hint', style: 'margin-top:4px' }, 'The same area at the 2011, 2016 and 2021 Censuses (SA1 counts summed onto today’s boundaries; medians are averages of the small-area medians). The last column is how Victoria as a whole moved over the decade; hover for this seat’s own change. Dollars are not adjusted for inflation.'));
   }
-  const box = h('div', {}, h('h3', {}, 'Who lives here'), t, ht, pri || '', h('div', { class: 'hint', style: 'margin-top:4px' }, `2021 Census, ${set.set === 'vic_la_2022' ? '2022 boundaries' : set.set === 'vic_la_2013' ? '2013 boundaries (used in 2014 and 2018)' : set.set === 'fed_2021' ? '2021 federal boundaries' : set.set}${set.districts[cid] ? '' : ', matched by seat name'}. `, h('a', { href: '#demog', onclick: (ev) => { ev.preventDefault(); dm.election = eid; showView('demog'); } }, 'Compare every seat')));
+  const mood = moodBlock(d, set);
+  const box = h('div', {}, pri || '', mood || '', h('div', { style: pri || mood ? 'margin-top:10px' : '' }, h('h3', {}, 'Who lives here'), t), ht, h('div', { class: 'hint', style: 'margin-top:4px' }, `2021 Census, ${set.set === 'vic_la_2022' ? '2022 boundaries' : set.set === 'vic_la_2013' ? '2013 boundaries (used in 2014 and 2018)' : set.set === 'fed_2021' ? '2021 federal boundaries' : set.set}${set.districts[cid] ? '' : ', matched by seat name'}. `, h('a', { href: '#demog', onclick: (ev) => { ev.preventDefault(); dm.election = eid; showView('demog'); } }, 'Compare every seat')));
   return box;
 }
 const CHANGE_ROWS = [['Population', 'population'], ['Median age', 'age_median'], ['Median weekly household income', 'income_household_median'], ['Born overseas', 'born_overseas'], ['Other language at home', 'other_language_home'], ['No religion', 'religion_no_religion_so_described'], ['Bachelor degree or higher', 'bachelor_or_higher'], ['Renting', 'rented'], ['Flats and apartments', 'flat_apartment'], ['Aged 65 and over', 'age_65_plus'], ['Couples with children', 'couple_families_with_children']];
@@ -1641,7 +1642,7 @@ function issueBlock(d, set, eid) {
     ...top.map(x => h('tr', {}, h('td', {}, h('a', { href: '#map', title: 'Show on the map', onclick: (ev) => { ev.preventDefault(); showIssueOnMap(x.id); } }, x.label)), h('td', { class: 'num' }, '≈' + pct(d[x.id], 0)), h('td', { class: 'num', style: 'color:var(--fg-3)' }, pct(S[x.id], 0))))));
   return h('div', { style: 'margin-top:10px' }, h('h3', {}, 'Likely priorities (modelled)'), t,
     gaps.length ? h('div', { class: 'hint', style: 'margin-top:4px' }, 'Furthest from the state: ', ...gaps.map((o, i) => [i ? '; ' : '', `${o.x.label.toLowerCase()} ${o.g > 0 ? 'higher' : 'lower'} (${o.g > 0 ? '+' : '−'}${Math.abs(o.g * 100).toFixed(1)} pts)`]), '.') : '',
-    h('div', { class: 'hint', style: 'margin-top:4px' }, MODEL_CAVEAT), moodBlock(d, set) || '');
+    h('div', { class: 'hint', style: 'margin-top:4px' }, MODEL_CAVEAT));
 }
 const MOOD_ROWS = [['Trusts state politicians', 'mood_trust_state_politicians'], ['Says state politicians represent people like them', 'mood_state_politicians_represent_me'], ['Satisfied with where Australia is heading', 'mood_direction_satisfied'], ['Thinks Australia is more divided', 'mood_more_divided'], ['Thinks violence for a cause is sometimes justified', 'mood_violence_justified'], ['Trusts the news media', 'mood_trust_news_media'], ['Satisfied with local safety', 'mood_local_safety_satisfied']];
 function moodBlock(d, set) {
@@ -2224,9 +2225,6 @@ function renderContestDetail2026(cid) {
       root.append(h('div', { class: 'hint' }, pr.method === 'projected' ? `${PARTY_NAME[pr.baseParty]} had ${pct(pr.base)} after preferences in 2022; the ${pts(pr.swing)} pt swing is measured at ${pr.booths} matched booth${pr.booths === 1 ? '' : 's'}. Counted so far: ${pr.countedPair.map(x => `${x.cand ? x.cand.surname : x.party} ${pct(x.share)}`).join(' v ')}.` : pr.method === 'official' ? 'From the VEC distribution of preferences.' : 'No projection: the two candidates in the VEC count are not the same pairing as 2022, so this is the raw count.'));
     }
   }
-  // before election day: enrolment at close of roll, how-to-vote cards, any daily figures the VEC has published
-  renderDailyBlock(root, cid, c);
-  if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(cb); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail2026(cid); });
   // candidates
   const nominated = cands.some(x => x.nominated);
   root.append(h('h3', {}, lc && lc.candidates.length ? 'Candidates (ballot order)' : nominated ? 'Nominated candidates (ballot order)' : 'Declared candidates'));
@@ -2246,6 +2244,10 @@ function renderContestDetail2026(cid) {
   }
   if (hist.length) root.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'Won by'), h('th', { class: 'num' }, '2CP'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('th', { class: 'num' }, PARTY_SHORT[p])))),
     h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setUnit('contest'); setElection(x.e.election_id); selectContest(x.e.election_id, x.oc.contest_id, true); } }, shortName(x.e))), h('td', {}, x.w ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.w.party)}` }), x.w.surname) : '–'), h('td', { class: 'num' }, x.t && x.t.pair.length === 2 ? `${pct(x.t.pair[0].share)} ${PARTY_SHORT[grpParty(x.t.pair[0].party)]} v ${PARTY_SHORT[grpParty(x.t.pair[1].party)]}` : '–'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('td', { class: 'num' }, x.ps[p] ? pct(x.ps[p].share) : '–'))))))), h('div', { class: 'hint' }, 'Same district name; 2014 and 2018 were on the 2013 boundaries, 2010 on the 2001 boundaries. Click an election to open that result.'));
+  // who lives here, how it has changed, modelled priorities and mood
+  if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(cb); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail2026(cid); });
+  // before election day: enrolment at close of roll, how-to-vote cards, any daily figures the VEC has published
+  renderDailyBlock(root, cid, c);
   // voting information
   root.append(h('h3', {}, 'Voting in this district'));
   const kd = meta.key_dates || {};
