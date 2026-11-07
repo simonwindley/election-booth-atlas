@@ -192,6 +192,34 @@ def capture_htv(src, log):
     return {'cards': out, 'raw': raw}
 
 
+def capture_nominations(src, log):
+    """Who has nominated so far: the VEC lists candidates per district at
+    /electoral-boundaries/state-districts/<district>-district/nominations from 4 Nov (name + party; the contact
+    details on the page are not kept). Until the ballot draw the order is the order of nomination."""
+    index, url = first_ok(src.get('districts_index', ['/electoral-boundaries/state-districts']), log)
+    if not index:
+        return None
+    paths = sorted(set(re.findall(r'href="(/electoral-boundaries/state-districts/[a-z0-9-]+-district)"', index)))
+    if not paths:
+        return None
+    out, n = {}, 0
+    for path in paths:
+        doc, _ = fetch(path + '/nominations', log=log)
+        if not doc:
+            continue
+        dslug = path.rsplit('/', 1)[1].replace('-district', '')
+        cands = []
+        for m in re.finditer(r'<td>\s*([^<]+?)\s*(?:<p>([^<]*)</p>)?\s*</td>', doc):
+            name = htmlmod.unescape(m.group(1)).strip(); party = htmlmod.unescape(m.group(2) or '').strip()
+            if not re.match(r"^[A-Z][A-Z' -]+,\s*\S", name):
+                continue
+            cands.append({'name': name, 'party_name': party or 'Independent', 'party': canon_from_name(party) if party else 'IND', 'ballot_position': len(cands) + 1})
+        if cands:
+            out[f'vic-{dslug}'] = {'enrolment': None, 'candidates': cands}; n += len(cands)
+    log(f'  nominations: {len(out)} districts with nominations so far, {n} candidates')
+    return {'source': url, 'districts': out, 'order': 'nomination', 'declared': False}
+
+
 def capture_candidates(src, log):
     index, url = first_ok(src['results_index'], log)
     if not index:
@@ -272,7 +300,7 @@ def run(args, log):
     cfg = os.path.join(HERE, 'daily_sources.json')
     if os.path.exists(cfg):
         for k, v in json.load(open(cfg)).items():
-            src[k] = v + [x for x in src.get(k, []) if x not in v]
+            if isinstance(v, list): src[k] = v + [x for x in src.get(k, []) if x not in v]
     today = datetime.date.today().isoformat()
     now = datetime.datetime.now().astimezone().isoformat(timespec='seconds')
     os.makedirs(args.out, exist_ok=True)
@@ -293,6 +321,9 @@ def run(args, log):
     out['raw']['htv'] = (hv or {}).get('raw', {})
     log('candidates (results pages)')
     c = capture_candidates(src, log)
+    if not c or not c.get('districts'):
+        log('candidates (nominations so far)')
+        c = capture_nominations(src, log)
     if c and c['districts']:
         out['candidates'] = {'captured': today, **c}
     log('statistics pages')

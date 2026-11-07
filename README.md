@@ -172,6 +172,12 @@ from the dashboard and the live projections.
   modelled issue priorities. Checked against the cards: district populations agree to 0.2% on the median
   seat (worst Ripon 1.8%); shares such as renting or born in Australia agree to three decimals. Medians
   other than the cards' are population-weighted means of the SA1 medians, which run a little high.
+* Modelled attitudes on both files: `python3 -m src.model_issues` (issue priorities, from the Herald Sun /
+  Freshwater breakdowns, `raw/polls/issues_vic2026.json`) and `python3 -m src.model_mood` ("democratic mood",
+  from the McKinnon Index 2026 unit records captured from its dashboard into `raw/mood/mckinnon_2026.json`:
+  a weighted regression of each attitude on age, education, household income, birthplace, language and
+  remoteness, applied to each area's census mix as a shift from Victoria's). Both are labelled modelled on
+  the site; neither is a poll of the area.
 * `demog_booth_vic2022` — the same build for every 2022 election-day booth catchment (the area nearest the
   booth within its district), keyed by venue id so a booth at the same venue in any election can use it,
   stored column-wise (`cols` + one `v` array per venue; `hcols` + `h` for the 2016 and 2011 history of the

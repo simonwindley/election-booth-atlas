@@ -130,15 +130,25 @@ def main():
     os.makedirs(os.path.dirname(raw), exist_ok=True)
     json.dump(cap, open(raw, 'w'), indent=0)
     print(f'{len(cap["tables"])} tables captured; page {cap["meta"]["last_edited"] or "(last-edited unknown)"}')
-    from src import load_polls, load_issue_polls
+    from src import load_polls
     fw = os.path.join(ROOT, 'raw', 'polls', 'freshwater')
     if os.path.isdir(fw):   # issue questions: drop each new Herald Sun / Freshwater data-table .xlsx into raw/polls/freshwater/
-        load_issue_polls.main(fw, os.path.join(ROOT, 'raw', 'polls', 'issues_vic2026.json'))
+        try:
+            from src import load_issue_polls   # needs openpyxl; without it the existing raw/polls/issues_vic2026.json is reused
+            load_issue_polls.main(fw, os.path.join(ROOT, 'raw', 'polls', 'issues_vic2026.json'))
+        except ImportError as e:
+            print(f'issue tables not re-read ({e}); using the existing raw/polls/issues_vic2026.json. To refresh: pip3 install openpyxl')
     out = os.path.join(ROOT, 'site', 'data', 'polls_vic2026.json')
     load_polls.main(raw, out)
     if os.path.exists(os.path.join(ROOT, 'raw', 'abs', 'sa1_census_2021.json')):   # re-model each seat's and booth's likely priorities from the new waves
         from src import model_issues
         model_issues.main()
+        if os.path.exists(os.path.join(ROOT, 'raw', 'mood', 'mckinnon_2026.json')):
+            try:
+                from src import model_mood   # needs numpy; the mood columns already in the files are kept if it is missing
+                model_mood.main()
+            except ImportError as e:
+                print(f'democratic mood not re-modelled ({e}); existing figures kept. To refresh: pip3 install numpy')
     if args.publish:
         import subprocess
         cmd = ('git add raw/polls/wikipedia_vic2026_polls.json raw/polls/issues_vic2026.json raw/polls/freshwater site/data/polls_vic2026.json site/data/demog_vic_la_2022.json.gz site/data/demog_booth_vic2022.json.gz && '
