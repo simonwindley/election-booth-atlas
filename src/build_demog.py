@@ -38,18 +38,21 @@ def gz_write(path, obj):
         fh.write(json.dumps(obj, separators=(',', ':')).encode())
 
 
-def change_indicators(ind21, units21, units16, units11, state21, state16, state11):
-    """add chg16_/chg11_ indicators to the indicator list and values to every unit (and the state)"""
+def change_indicators(ind21, units21, units16, units11, state21, state16, state11, units06=None, state06=None):
+    """add chg16_/chg11_/chg06_ indicators to the indicator list and values to every unit (and the state)"""
     new = []
+    periods = [('chg16', 'since 2016', units16, state16, 2016), ('chg11', 'since 2011', units11, state11, 2011)]
+    if units06 is not None:
+        periods.append(('chg06', 'since 2006', units06, state06, 2006))
     for x in ind21:
         if x.get('hidden') or x['group'] in CHANGE_SKIP_GROUPS or x['kind'] == 'text':
             continue
-        for tag, label, units_then, state_then in (('chg16', 'since 2016', units16, state16), ('chg11', 'since 2011', units11, state11)):
+        for tag, label, units_then, state_then, since in periods:
             if state_then.get(x['id']) is None:
                 continue
             kind = 'delta' if x['kind'] == 'share' else 'pct'
             nid = f'{tag}_{x["id"]}'
-            new.append({'id': nid, 'group': f'Change {label}: {x["group"].lower()}', 'label': x['label'], 'kind': kind, 'base': x['id'], 'since': 2016 if tag == 'chg16' else 2011})
+            new.append({'id': nid, 'group': f'Change {label}: {x["group"].lower()}', 'label': x['label'], 'kind': kind, 'base': x['id'], 'since': since})
             for uid, rec in units21.items():
                 then = units_then.get(uid, {}).get(x['id']); now = rec.get(x['id'])
                 if then is None or now is None:
@@ -66,6 +69,8 @@ def change_indicators(ind21, units21, units16, units11, state21, state16, state1
 
 def main():
     c21, c16, c11 = load('2021'), load('2016'), load('2011')
+    c06 = load('2006') if os.path.exists(os.path.join(ROOT, 'raw/abs/sa1_census_2006.json')) else None   # src.load_cd_census (TableBuilder CDs)
+    e06 = c06 or {'districts': {}, 'booths': {}, 'state': {}}
     cards = load_demographics.main(out=os.path.join(ROOT, 'raw/demographics/parliament_cards.json.gz'))
     # ---- districts
     ind = [dict(x) for x in c21['indicators']]
@@ -80,9 +85,13 @@ def main():
     # history from the SA1 series (all three years), before the card medians replace the 2021 levels
     history = {cid: {'2016': {k: v for k, v in c16['districts'].get(cid, {}).items() if not k.startswith('mi_')},
                      '2011': {k: v for k, v in c11['districts'].get(cid, {}).items() if not k.startswith('mi_')},
+                     **({'2006': dict(e06['districts'].get(cid, {}))} if c06 else {}),
                      '2021': {k: v for k, v in rec.items() if not k.startswith('mi_')}} for cid, rec in c21['districts'].items()}
     state_history = {'2021': {k: v for k, v in c21['state'].items() if not k.startswith('mi_')}, '2016': {k: v for k, v in c16['state'].items() if not k.startswith('mi_')}, '2011': {k: v for k, v in c11['state'].items() if not k.startswith('mi_')}}
-    ind += change_indicators(c21['indicators'], districts, c16['districts'], c11['districts'], state, c16['state'], c11['state'])
+    if c06:
+        state_history['2006'] = dict(c06['state'])
+    ind += change_indicators(c21['indicators'], districts, c16['districts'], c11['districts'], state, c16['state'], c11['state'],
+                             e06['districts'] if c06 else None, e06['state'] if c06 else None)
     # the cards' true district medians replace the SA1 population-weighted means for the 2021 level
     for mine, theirs in MED_FROM_CARDS.items():
         for cid, d in districts.items():
@@ -112,7 +121,7 @@ def main():
     for cid, d in districts.items():
         d.update({k: v for k, v in cards['districts'].get(cid, {}).items() if k in catids})
     state.update({k: v for k, v in cards['state'].items() if k in catids})
-    obj = {'source': 'ABS Census 2021, 2016 and 2011 SA1 DataPacks aggregated onto the 2022 Victorian districts by the share of each SA1 inside each district; plus the Parliament of Victoria Library electorate data cards (true district medians and their own extras)',
+    obj = {'source': 'ABS Census 2021, 2016 and 2011 SA1 DataPacks (and 2006 TableBuilder Collection District tables) aggregated onto the 2022 Victorian districts by the share of each small area inside each district; plus the Parliament of Victoria Library electorate data cards (true district medians and their own extras)',
            'merged': True, 'sa1': True, 'census': 2021, 'boundaries': 'vic_la_2022', 'indicators': ind, 'state': state, 'districts': districts,
            'history': history, 'state_history': state_history,
            'note': 'State medians are population-weighted averages of the district medians, not the true state median. The 2021 Census was taken on 10 August 2021, during Melbourne\'s lockdown, so travel-to-work and worked-at-home figures describe that week, not normal commuting. Change indicators compare the same SA1-based series across censuses; nominal dollars are not adjusted for inflation.'}
@@ -124,8 +133,10 @@ def main():
     booths = {vid: dict(rec) for vid, rec in c21['booths'].items()}
     bstate = dict(c21['state'])
     bhist = {vid: {'2016': {k: v for k, v in c16['booths'].get(vid, {}).items() if not k.startswith('mi_') and k != 'booth_id'},
-                   '2011': {k: v for k, v in c11['booths'].get(vid, {}).items() if not k.startswith('mi_') and k != 'booth_id'}} for vid in booths}
-    bind += change_indicators(c21['indicators'], booths, c16['booths'], c11['booths'], bstate, c16['state'], c11['state'])
+                   '2011': {k: v for k, v in c11['booths'].get(vid, {}).items() if not k.startswith('mi_') and k != 'booth_id'},
+                   **({'2006': {k: v for k, v in e06['booths'].get(vid, {}).items() if k != 'booth_id'}} if c06 else {})} for vid in booths}
+    bind += change_indicators(c21['indicators'], booths, c16['booths'], c11['booths'], bstate, c16['state'], c11['state'],
+                              e06['booths'] if c06 else None, e06['state'] if c06 else None)
     for x in bind:
         if x['kind'] in ('years', 'dollars', 'ratio'):
             x['note'] = 'Population-weighted mean of the SA1 medians, which runs a little above a true median'
@@ -134,12 +145,28 @@ def main():
     hcols = [c for c in CORE if any(c in y for h in bhist.values() for y in h.values())]   # booth history: the headline indicators only, to keep the file small
     r4 = lambda v: (round(v, 4) if isinstance(v, float) else v)
     bvals = {vid: {'booth_id': rec['booth_id'], 'v': [r4(rec.get(c)) for c in bcols], 'h': {y: [r4(h.get(c)) for c in hcols] for y, h in bhist[vid].items()}} for vid, rec in booths.items()}
-    bobj = {'source': 'ABS Census 2021, 2016 and 2011 SA1 DataPacks aggregated onto the 2022 election-day booth catchments (the area nearest each booth within its district) by the share of each SA1 inside each catchment',
+    bobj = {'source': 'ABS Census 2021, 2016 and 2011 SA1 DataPacks (and 2006 Collection Districts) aggregated onto the 2022 election-day booth catchments (the area nearest each booth within its district) by the share of each SA1 inside each catchment',
             'census': 2021, 'boundaries': 'vic_la_2022', 'keyed_by': 'venue_id', 'indicators': [x for x in bind if not x.get('hidden')], 'cols': bcols, 'hcols': hcols, 'state': bstate, 'state_history': state_history, 'booths': bvals,
             'note': 'A catchment is who lives nearest the booth, not who votes there: early, postal and absent votes are not tied to a booth. Small catchments carry small-area census noise.'}
     bout = os.path.join(ROOT, 'site/data/demog_booth_vic2022.json.gz')
     gz_write(bout, bobj)
     print(f'booths: {len(booths)} venues, {len(bcols)} indicators -> {bout} ({os.path.getsize(bout) // 1000} kB)')
+    # ---- the 2006 Census on the boundaries of its own era: 2001 state districts (2002, 2006, 2010) and federal divisions as at 2003-2010 (2004, 2007, 2010)
+    if os.path.exists(os.path.join(ROOT, 'raw/abs/cd_census_2006.json')):
+        cdc = json.load(open(os.path.join(ROOT, 'raw/abs/cd_census_2006.json')))
+        names = {}
+        for f in ('boundary_vic_la_2001', 'boundary_fed_2003'):
+            fc = json.load(gzip.open(os.path.join(ROOT, f'site/data/{f}.geojson.gz')))
+            names.update({x['properties']['contest_id']: x['properties']['name'] for x in fc['features']})
+        for bset, label in (('vic_la_2001', 'the 2001 Victorian districts (used at the 2002, 2006 and 2010 elections)'), ('fed_2003', 'the Victorian federal divisions as at 2003-2010 (used at the 2004, 2007 and 2010 elections)')):
+            dd = {cid: {'name': names.get(cid, cid), **rec} for cid, rec in cdc['units'][bset].items()}
+            o = {'source': f'ABS Census 2006 (TableBuilder, Collection Districts) aggregated onto {label} by the share of each CD inside each area', 'census': 2006, 'boundaries': bset,
+                 'indicators': cdc['indicators'], 'state': cdc['state'], 'districts': dd,
+                 'note': 'Medians (age, weekly personal income in 2006 dollars) are interpolated from the aggregated bands. TableBuilder randomly adjusts small cells.'}
+            gz_write(os.path.join(ROOT, f'site/data/demog_{bset}.json.gz'), o)
+            print(f'{bset}: {len(dd)} areas from the 2006 Census')
+            if os.path.isdir(os.path.join(ROOT, 'site/data_plain')):
+                json.dump(o, open(os.path.join(ROOT, 'site/data_plain', f'demog_{bset}.json'), 'w'), separators=(',', ':'))
     plain = os.path.join(ROOT, 'site/data_plain')
     if os.path.isdir(plain):
         json.dump(obj, open(os.path.join(plain, 'demog_vic_la_2022.json'), 'w'), separators=(',', ':'))

@@ -187,6 +187,18 @@ from the dashboard and the live projections.
   booth within its district), keyed by venue id so a booth at the same venue in any election can use it,
   stored column-wise (`cols` + one `v` array per venue; `hcols` + `h` for the 2016 and 2011 history of the
   headline indicators). Not who votes at the booth: early, postal and absent votes are counted elsewhere.
+* The 2006 Census: the ABS no longer distributes 2006 small-area DataPacks, so the Collection District (CD) tables come from
+  TableBuilder (Victoria, all 9,311 CDs, 16 tables: age, sex, Indigenous status, birthplace region, language, English
+  proficiency, religion, Year 12, qualification level, occupation, labour force status, personal income, tenure, landlord type,
+  dwelling structure, internet), saved in `raw/abs/tablebuilder/2006/` and flattened to `cd2006_tables.json`. The CD boundaries
+  are the ABS ASGC 2006 digital boundaries (`raw/boundaries/abs/cd06/`, cat. 1259.0.30.002). `python3 -m src.cd_weights`
+  apportions CDs by area to the 2022 districts and booth catchments, the 2001 districts and the 2003-2010 federal divisions;
+  `python3 -m src.load_cd_census` builds the indicators (same ids as the SA1 series where the definition matches; medians are
+  interpolated from the aggregated bands, so they are true medians) into `raw/abs/sa1_census_2006.json` (read by
+  `src.build_demog` as a fourth year of history and `chg06_*` change indicators on the 2022 files) and `raw/abs/cd_census_2006.json`.
+  `src.build_demog` also writes `demog_vic_la_2001` (the 2002, 2006 and 2010 state elections; 1999 on the 1991 boundaries falls
+  back to it by seat name) and `demog_fed_2003` (the 2004, 2007 and 2010 federal elections). TableBuilder Basic does not carry
+  the 2001 Census, so there is no 2001 small-area series yet.
 * `demog_vic_la_2013` — the districts as drawn in 2013 (ABS "SED 2021"), used at the 2014 and 2018
   elections: 190-odd indicators from 20 General Community Profile tables (age bands, birthplace by
   country, ancestry, language, religion by denomination, education, income bands, tenure, dwellings,

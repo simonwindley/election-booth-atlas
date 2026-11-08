@@ -21,3 +21,8 @@ raw/htv/2026/
 
 # page caches from tools/fetch_history.py (re-fetchable; the parsed districts.json is committed)
 raw/vec/*/html/
+
+# TableBuilder downloads (the flattened cd2006_tables.json is committed) and the CD boundary shapefile (re-downloadable)
+raw/abs/tablebuilder/2006/*.zip
+raw/boundaries/abs/cd06_vic_shape.zip
+raw/boundaries/abs/asgc2001.gpkg
