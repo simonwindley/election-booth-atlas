@@ -220,6 +220,7 @@ table.data tr.clickable:hover td { background: var(--surface-2); }
 .strip { display: flex; gap: 2px; position: relative; padding: 20px 0 6px; }
 .strip .box { flex: 1 1 0; min-width: 3px; height: 30px; border-radius: 2px; border: 1px solid transparent; cursor: pointer; }
 .strip .box.hollow { background: transparent !important; border-style: dashed; }
+.strip .box.lean { border-style: dashed; border-width: 2px; } .strip .box.doubt { border-style: dotted; border-width: 2px; }
 .strip .box:hover, .strip .box:focus { outline: 2px solid var(--fg); outline-offset: 1px; }
 .strip .maj { position: absolute; top: 16px; bottom: 2px; width: 2px; background: var(--fg); z-index: 1; pointer-events: none; }
 .strip .maj span { position: absolute; top: -13px; font-size: 10px; color: var(--fg-3); white-space: nowrap; }
@@ -380,7 +381,7 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
       <div class="panel" id="dash-head"><div class="empty">Loading…</div></div><select id="dash-election" hidden></select>
       <div class="panel"><h3>Statewide</h3><div id="dash-state"></div></div>
       <div class="panel strip-panel"><div class="row" style="justify-content:space-between;align-items:center"><h3 style="margin:0">Seat spectrum</h3>
-          <div class="seg" id="strip-mode" style="flex:0 0 auto"><button data-v="primary" aria-pressed="true">Primary leader</button><button data-v="tcp" aria-pressed="false">After preferences</button><button data-v="model" aria-pressed="false">Modelled</button></div></div>
+          <div class="seg" id="strip-mode" style="flex:0 0 auto"><button data-v="primary" aria-pressed="true">Primary leader</button><button data-v="tcp" aria-pressed="false">After preferences</button><button data-v="model" aria-pressed="false">Modelled</button><button data-v="proj" aria-pressed="false" hidden>Projected</button></div></div>
         <div class="strip" id="dash-strip"></div><div class="strip-key"><span>strongest Labor</span><span>strongest Coalition</span></div>
         <div class="tip" id="strip-tip" hidden></div><p class="hint" id="strip-note" style="margin-top:8px"></p></div>
       <div class="panel"><h3>Seat by seat</h3>
@@ -1211,8 +1212,27 @@ function seatStatus(eid, cid) {
     const lc = LIVE.latest && LIVE.latest.contests[cid];
     if (lc) { out.updated = lc.updated_at; out.counted = lc.counted; out.stage = lc.stage; out.vecElected = lc.elected; out.frac = lc.counted && lc.counted.booths_listed ? (lc.counted.booths_reported || 0) / lc.counted.booths_listed : 0; }
     const pr = lc ? liveProjection(cid) : null; out.pr = pr;
-    if (pr) {
-      const top = pr.pair[0]; out.winner = top; out.share = top.share; out.margin = top.share - 0.5; out.swing = swingFor(grpParty(top.party), top.share);
+    // the Atlas projection decides the status (the VEC's indicative pair is kept alongside); before the model has loaded, or before any count, the VEC pair stands in
+    const ready = PREF && HTV[LIVE.election] !== undefined && HTV[HTV_BASE] !== undefined && DEMOG_BOOTH;
+    const P = ready && lc && ps.formal ? projectSeat(cid) : null; out.proj = P && P.tcp ? P : null;
+    if (out.proj && !(lc.elected || (pr && pr.method === 'official'))) {
+      const top = out.proj.tcp.pair[0]; out.winner = top; out.share = top.share; out.margin = top.share - 0.5; out.swing = swingFor(grpParty(top.party), top.share); out.basis = 'projection';
+      const lead = out.margin, f = out.proj.countedShare; out.countedShare = f;
+      const thr = f >= 0.85 ? 0.025 : f >= 0.6 ? 0.04 : f >= 0.3 ? 0.06 : f >= 0.15 ? 0.08 : Infinity;   // the margin a call needs, tightening as the vote comes in (the model's own 2CP error is ~1.6 pts on average, so the floor stays above it)
+      out.status = lead >= thr ? 'called' : (lead >= thr / 2 && f >= 0.1) ? 'leaning' : 'doubt';
+      // independent reads must agree before a call: the model on the count so far, and the VEC's own pair where it has one
+      // two kinds of disagreement: a different final two (structural: the seat stays in doubt) and the same two with a different leader
+      // (two estimates of one number: the projection anticipates the outstanding vote, the others do not, so the seat can lean but not be called;
+      // once the count is nearly complete a leader still differing in the VEC count means doubt)
+      const m = out.model || (out.model = modelledTcp(eid, cid)); const disagree = []; let pairDiff = false;
+      const ids = new Set(out.proj.tcp.pair.map(x => x.cand && x.cand.candidate_id));
+      const check = (q, what) => { if (!q || !q.pair[0].cand || !top.cand) return; const samePair = q.pair.length === 2 && q.pair.every(x => x.cand && ids.has(x.cand.candidate_id)); if (!samePair) { pairDiff = true; disagree.push(`${what} has a different final two`); } else if (q.pair[0].cand.candidate_id !== top.cand.candidate_id) disagree.push(`${what} has ${candName(q.pair[0].cand)} ahead`); };
+      check(m, 'the model on the count so far'); check(pr, `the VEC's two-candidate ${pr && pr.method === 'projected' ? 'projection' : 'count'}`);
+      if (disagree.length) { out.disagree = disagree; if (pairDiff || (f >= 0.85 && pr && pr.pair[0].cand && top.cand && pr.pair[0].cand.candidate_id !== top.cand.candidate_id)) { if (out.status !== 'doubt') out.status = 'doubt'; } else if (out.status === 'called') out.status = 'leaning'; }
+      // wrong-pair risk inside the model: the last excluded candidate was close to the runner-up when excluded
+      const L = out.proj.tcp.ladder; if (L && L.length) { const last = L[L.length - 1]; const runner = out.proj.tcp.pair[1]; const recv = runner && runner.cand ? (last.to[runner.cand.candidate_id] || 0) : 0; const before = runner ? runner.votes - recv : 0; if (before > 0 && last.votes >= 0.9 * before) { out.pairRisk = `${candName(last.cand)} (${PARTY_NAME[last.rawParty] || last.rawParty}) was within ${(100 * (before - last.votes) / out.proj.formal).toFixed(1)} pts of ${candName(runner.cand)} at the last exclusion; the final two could be different`; if (out.status === 'called') out.status = 'leaning'; } }
+    } else if (pr) {
+      const top = pr.pair[0]; out.winner = top; out.share = top.share; out.margin = top.share - 0.5; out.swing = swingFor(grpParty(top.party), top.share); out.basis = pr.method === 'official' ? 'declared' : 'vec';
       const lead = out.margin, f = out.frac;
       if (lc.elected || pr.method === 'official') out.status = 'declared';
       else if ((lead >= 0.08 && f >= 0.15) || (lead >= 0.05 && f >= 0.3) || (lead >= 0.03 && f >= 0.6)) out.status = 'called';
@@ -1220,7 +1240,7 @@ function seatStatus(eid, cid) {
       else out.status = 'doubt';
       // the VEC's election-night 2CP is indicative: counted between two candidates it nominated in advance. If a third
       // candidate is at or near the top two on primaries, that pair may be the wrong one, so the seat stays in doubt
-      if (out.status !== 'declared') {
+      if (out.status !== 'declared' && out.basis === 'vec') {
         const fp = lc.candidates.filter(c => c.fp_votes != null); const ids = new Set(pr.pair.map(x => x.cand && x.cand.candidate_id));
         const low = Math.min(...fp.filter(c => ids.has(c.candidate_id)).map(c => c.fp_votes)); const tot = fp.reduce((a, c) => a + c.fp_votes, 0);
         const rival = fp.filter(c => !ids.has(c.candidate_id) && tot && c.fp_votes >= low - 0.03 * tot).sort((a, b) => b.fp_votes - a.fp_votes)[0];
@@ -1249,7 +1269,7 @@ function stateTotals(eid, cids) {
   return out;
 }
 const laContests = (eid) => D.contests.filter(c => c.election_id === eid && c.house !== 'LC');
-function dashRows(eid) { if (!PREF || HTV[eid] === undefined || HTV[HTV_BASE] === undefined) Promise.all([ensurePref(), ensureHtv(eid), ensureHtv(HTV_BASE)]).then(() => { if (activeView() === 'dash') renderStrip(dashRows(state.election), state.election); }); return laContests(eid).map(c => { const r = seatStatus(eid, c.contest_id); if (c.supplementary) r.name += ' (supplementary, Jan 2023)'; return r; }); }
+function dashRows(eid) { if (!PREF || HTV[eid] === undefined || HTV[HTV_BASE] === undefined || (eid === LIVE.election && !DEMOG_BOOTH)) Promise.all([ensurePref(), ensureHtv(eid), ensureHtv(HTV_BASE), eid === LIVE.election ? ensureDemogBooth() : null]).then(() => { if (activeView() === 'dash') renderDash(); }); return laContests(eid).map(c => { const r = seatStatus(eid, c.contest_id); if (c.supplementary) r.name += ' (supplementary, Jan 2023)'; return r; }); }
 // countdown to the close of polls: 6 pm AEDT on Saturday 28 November 2026 (07:00 UTC); ticks every second while the dashboard is open
 const POLLS_CLOSE = Date.parse('2026-11-28T07:00:00Z'), POLLS_OPEN = Date.parse('2026-11-27T21:00:00Z');
 let countdownTimer = null;
@@ -1331,7 +1351,7 @@ function renderDash() {
       h('td', { class: 'num' }, pre ? (prev && prev[p] ? fmt(prev[p].votes) : '–') : now[p] ? fmt(now[p].votes) : '–')));
   }
   st.append(tbl, h('div', { class: 'hint', style: 'margin-top:6px' }, `${pre ? `No votes yet: the primary vote and votes are the ${prevE ? prevE.name : 'previous'} result, as a baseline; they switch to the live count the moment the first booth reports. ` : ''}Primary vote over every vote type${partial ? `, in the ${countedCids.size} electorates counting so far; the change is against the same electorates at the previous election` : prevE ? '; change in points against ' + prevE.name : ''}. ` +
-    (live ? 'Seats are called here when the projected or counted two-candidate lead is clear for the share of booths in (8 pts with 15% of booths, 5 pts with 30%, 3 pts with 60%), declared when the VEC publishes the distribution or names the member; leaning: ahead by 2 pts or more with a fifth of booths in. A seat stays in doubt while a candidate outside the VEC\'s nominated two-candidate pair is at or within 3 pts of the lower of the pair on primaries, since the night\'s 2CP is only indicative and may be counted between the wrong two. The call is this page\'s, not the VEC\'s. Net seats: gains less losses among the seats decided so far, against who held each seat going in.' :
+    (live ? 'Seats are called here on the Atlas projection (counted pools plus the projected rest, through the preference model; where the VEC\'s two-candidate count is between the same two, its counted preferences are used as they are and the model splits only the rest) when its margin clears a bar that tightens as the expected vote comes in: 8 pts with 15% of it counted, 6 pts with 30%, 4 pts with 60%, 2.5 pts with 85% (the model\'s own two-candidate error averages 1.6 pts, so the bar never drops below it); leaning at half those; declared when the VEC publishes the distribution or names the member. A seat stays in doubt while the model on the count so far or the VEC\'s pair has a different final two, or the last candidate excluded in the modelled count was within reach of the runner-up; it can lean but not be called while either has the other candidate of the same pair ahead (the projection anticipates the outstanding vote, the others do not), and falls back to doubt if the VEC count still disagrees with 85% in. The call is this page\'s, not the VEC\'s. Net seats: gains less losses among the seats decided so far, against who held each seat going in.' :
       'Net seats: against the party\'s total at the previous election. Gains in the seat table are against the winner of the same-named seat last time; redistributions are not allowed for, so a new seat shows as a gain.')));
   // ---- seat table
   el('dash-2026').style.display = eid === 'vic2026' ? 'contents' : 'none'; if (eid === 'vic2026') render2026();
@@ -1341,6 +1361,7 @@ function renderDash() {
 // one box per seat, ordered from the strongest Labor seat on the left to the strongest Coalition seat on the right
 const STRIP_ORDER = ['ALP', 'GRN', 'VSP', 'IND', 'OTH', 'ONP', 'COAL'], STRIP_LEFT = new Set(['ALP', 'GRN', 'VSP']);
 function stripValue(r) {
+  if (dash.strip === 'proj') { const P = r.proj; if (P && P.tcp) return { party: grpParty(P.tcp.pair[0].party), strength: P.tcp.pair[0].share, lo: 0.5, hi: 0.75, firm: r.status === 'called' || r.status === 'declared' ? 'firm' : r.status === 'leaning' ? 'lean' : 'doubt' }; if (r.status === 'declared' && r.winner) return { party: grpParty(r.winner.party), strength: r.share || 0.5, lo: 0.5, hi: 0.75 }; return r.held ? { party: r.held, strength: 0, hollow: true } : null; }
   if (dash.strip === 'model') { const m = r.model || (r.model = PREF ? modelledTcp(r.c.election_id, r.cid) : null); if (m) return { party: grpParty(m.pair[0].party), strength: m.pair[0].share, lo: 0.5, hi: 0.75 }; }
   else if (dash.strip === 'tcp') { if (r.share != null && r.wparty) return { party: r.wparty, strength: r.share, lo: 0.5, hi: 0.75 }; }
   else if (r.leader && r.ps.formal) return { party: r.leader, strength: r.ps[r.leader].share, lo: 0.25, hi: 0.55 };
@@ -1350,20 +1371,25 @@ function renderStrip(rows, eid) {
   const live = eid === LIVE.election, strip = el('dash-strip'), tip = el('strip-tip'); strip.innerHTML = ''; tip.hidden = true;
   // 2026 while counting: Primary / VEC two-candidate / Modelled preferences; once every seat has its declared distribution the modelled mode folds away
   const allDeclared = live && rows.length > 0 && rows.every(r => { const pr = liveProjection(r.cid); return pr && pr.method === 'official'; });
-  { const counting = live && !allDeclared; const L = counting ? { primary: 'Primary', tcp: 'VEC two-candidate', model: 'Modelled preferences' } : { primary: 'Primary leader', tcp: 'After preferences', model: 'Modelled' };
-    for (const b of el('strip-mode').querySelectorAll('button')) { b.textContent = L[b.dataset.v] || b.textContent; if (b.dataset.v === 'model') b.hidden = allDeclared; }
-    if (allDeclared && dash.strip === 'model') { dash.strip = 'tcp'; for (const b of el('strip-mode').querySelectorAll('button')) b.setAttribute('aria-pressed', b.dataset.v === 'tcp'); } }
+  { const counting = live && !allDeclared; const L = counting ? { primary: 'Primary', tcp: 'VEC two-candidate', model: 'Modelled (count so far)', proj: 'Projected' } : { primary: 'Primary leader', tcp: 'After preferences', model: 'Modelled' };
+    for (const b of el('strip-mode').querySelectorAll('button')) { b.textContent = L[b.dataset.v] || b.textContent; if (b.dataset.v === 'model') b.hidden = allDeclared; if (b.dataset.v === 'proj') b.hidden = !counting; }
+    if ((allDeclared || !live) && (dash.strip === 'proj' || (allDeclared && dash.strip === 'model'))) { dash.strip = 'tcp'; for (const b of el('strip-mode').querySelectorAll('button')) b.setAttribute('aria-pressed', b.dataset.v === 'tcp'); } }
   const items = rows.map(r => ({ r, v: stripValue(r) })).filter(x => x.v);
   const rank = (x) => { const i = STRIP_ORDER.indexOf(x.v.party); return i < 0 ? 4 : i; };
   items.sort((a, b) => rank(a) - rank(b) || (STRIP_LEFT.has(a.v.party) ? b.v.strength - a.v.strength : a.v.strength - b.v.strength));
   const total = rows.length, majority = eid.startsWith('vic') && total >= 80 ? 45 : null;
   for (const x of items) {
     const { r, v } = x; const t = Math.max(0, Math.min(1, (v.strength - v.lo) / (v.hi - v.lo)));
-    const box = h('div', { class: 'box' + (v.hollow ? ' hollow' : ''), tabindex: '0', style: v.hollow ? `border-color:${partyColor(v.party)}` : `background:${mix(css('--surface'), partyColor(v.party), 0.4 + 0.6 * t)}`, 'aria-label': r.name,
+    const box = h('div', { class: 'box' + (v.hollow ? ' hollow' : '') + (v.firm === 'lean' ? ' lean' : v.firm === 'doubt' ? ' doubt' : ''), tabindex: '0', style: v.hollow ? `border-color:${partyColor(v.party)}` : `background:${mix(css('--surface'), partyColor(v.party), 0.4 + 0.6 * t)}${v.firm && v.firm !== 'firm' ? ';border-color:' + partyColor(v.party) : ''}`, 'aria-label': r.name,
       onclick: () => { setUnit('contest'); setElection(r.c.election_id); selectContest(r.c.election_id, r.cid, true); showView('map'); } });
     const show = (ev) => {
       tip.innerHTML = ''; tip.append(h('div', {}, h('strong', {}, r.name)), h('div', { class: 'k' }, `${r.heldLabel && r.held ? 'held by ' + r.heldLabel : r.heldLabel || ''}${live ? ' · ' + STATUS_LABEL[r.status] : ''}`), r.pairRisk ? h('div', { class: 'k' }, 'Pair at risk: ' + r.pairRisk) : '');
-      if (dash.strip === 'model') {
+      if (dash.strip === 'proj') {
+        const P = r.proj; if (P && P.tcp) { for (const c of P.tcp.pair) tip.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(c.party))}` }), `${candName(c.cand)} (${PARTY_NAME[c.party] || c.party})`), h('b', {}, '≈' + pct(c.share))));
+          tip.append(h('div', { class: 'k' }, `${Math.round(100 * P.countedShare)}% of the expected vote counted (${P.boothsCounted}/${P.boothsListed} booths)` + (r.disagree ? ' · disagrees with ' + r.disagree.join(' and ') : ''))); }
+        else if (r.status === 'declared' && r.winner) tip.append(h('div', { class: 'k' }, `declared: ${candName(r.winner.cand)} ${pct(r.share)}`));
+        else tip.append(h('div', { class: 'k' }, 'nothing counted yet'));
+      } else if (dash.strip === 'model') {
         const m = r.model; if (m) { for (const c of m.pair) tip.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(c.party))}` }), `${candName(c.cand)} (${PARTY_NAME[c.party] || c.party})`), h('b', {}, '≈' + pct(c.share))));
           const vec = r.pr || (r.share != null ? contestTcp(r.c.election_id, r.cid) : null); const vecIds = vec ? new Set(vec.pair.map(x => x.cand && x.cand.candidate_id)) : null; const diff = vecIds && !m.pair.every(x => x.cand && vecIds.has(x.cand.candidate_id));
           tip.append(h('div', { class: 'k' }, `modelled from ${fmt(m.formal)} first preferences` + (diff ? ' · final two differ from the ' + (live ? 'VEC pair' : 'actual count') : vec ? ' · same pair as the ' + (live ? 'VEC' : 'count') : ''))); }
@@ -1386,7 +1412,9 @@ function renderStrip(rows, eid) {
   if (majority && items.length === total) {
     strip.append(h('div', { class: 'maj', style: `left:calc(${100 * majority / total}% - 1px)` }, h('span', { style: 'left:-24px' }, `majority ${majority}`)));
   }
-  el('strip-note').textContent = dash.strip === 'model'
+  el('strip-note').textContent = dash.strip === 'proj'
+    ? `One box per seat, coloured by the party the Atlas projection has winning, deeper the larger its projected two-candidate share: the counted pools as they stand, the uncounted booths and vote types projected from 2022 plus the swing coming in (electorate, nearby, state, by vote type), all through the preference model. The fill is the projected share; the border is the call: plain for called or declared, dashed for leaning, dotted for in doubt (not enough counted for the margin, or the count so far or the VEC's pair reads differently), hollow and dashed where nothing is counted yet. Hover for the projected pair and how much of the expected vote is in.`
+    : dash.strip === 'model'
     ? `One box per seat, coloured by the party the preference-flow model puts ahead, from first preferences alone (every candidate excluded in turn, their votes split by the fitted flow for their party and the registered how-to-vote cards; see the Preferences tab), deeper the larger its modelled two-candidate share. It needs no VEC two-candidate count, so it works for any final pair${live ? ' and updates with every booth through the night. Dashed: no first preferences yet' : ''}. Hover for the pair and whether it matches the ${live ? 'VEC\'s' : 'actual'} final two.`
     : dash.strip === 'tcp'
     ? `One box per seat, coloured by the party ahead after preferences, deeper the larger its two-candidate share (50% to 75%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no two-candidate count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`
@@ -1406,11 +1434,11 @@ function renderDashTable(rows, eid) {
     return true; });
   const m = (r) => r.margin != null ? Math.abs(r.margin) : r.lastMargin != null ? Math.abs(r.lastMargin) : 9;
   list.sort((a, b) => dash.sort === 'name' ? a.name.localeCompare(b.name) : dash.sort === 'updated' ? String(b.updated || '').localeCompare(String(a.updated || '')) || m(a) - m(b) : dash.sort === 'swing' ? (b.swing ?? -9) - (a.swing ?? -9) : dash.sort === 'status' ? STATUS_RANK[a.status] - STATUS_RANK[b.status] || m(a) - m(b) : m(a) - m(b));
-  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', {}, 'Held by'), h('th', {}, live ? 'Leading / elected' : 'Elected'), h('th', { class: 'num', title: live ? 'the VEC\'s two-candidate count (projected from matched booths until it is complete)' : '' }, live ? 'VEC 2CP' : '2CP'), h('th', { class: 'num' }, 'Margin'), h('th', { class: 'num', title: live ? 'swing in the VEC two-candidate count against 2022' : '' }, '2CP swing'), live ? h('th', { title: 'the Atlas preference model: first preferences counted so far through the fitted flows and the registered cards' }, 'Modelled') : '', h('th', {}, 'Primary leader'), h('th', {}, live ? 'Counted' : 'Formal'), h('th', {}, 'Status'), live ? h('th', {}, 'Updated') : '')));
+  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', {}, 'Held by'), h('th', {}, live ? 'Leading / elected' : 'Elected'), h('th', { class: 'num', title: live ? 'the Atlas projection\'s two-candidate share for the leader (the VEC\'s own pair until the model has loaded, and the declared result once published)' : '' }, live ? 'Projected 2CP' : '2CP'), h('th', { class: 'num' }, 'Margin'), h('th', { class: 'num', title: live ? 'swing in the projected two-candidate share against 2022' : '' }, '2CP swing'), live ? h('th', { title: 'the VEC\'s indicative two-candidate count between its nominated pair (projected from matched booths until complete); ≠ when its leader differs from the projection' }, 'VEC 2CP') : '', h('th', {}, 'Primary leader'), h('th', {}, live ? 'Counted' : 'Formal'), h('th', {}, 'Status'), live ? h('th', {}, 'Updated') : '')));
   const tb = h('tbody'); t.append(tb);
   for (const r of list) {
     const w = r.winner, wp = r.wparty; const name = w && w.cand ? `${w.cand.surname}` : (wp ? PARTY_NAME[wp] : '–');
-    const how = r.pr ? (r.pr.method === 'official' ? '' : r.pr.method === 'projected' ? ' · proj.' : ' · count') : '';
+    const how = r.basis === 'projection' ? ` · ${Math.round(100 * (r.countedShare || 0))}% in` : r.pr ? (r.pr.method === 'official' ? '' : r.pr.method === 'projected' ? ' · VEC proj.' : ' · VEC count') : '';
     const tr = h('tr', { class: 'clickable' + (live && isFresh(eid, null, r.cid) ? ' fresh' : ''), onclick: () => { setUnit('contest'); setElection(eid); selectContest(eid, r.cid, true); showView('map'); } },
       h('td', {}, h('strong', {}, r.name), r.changed || r.changing ? h('div', { class: 'gain' }, `${PARTY_NAME[wp]} ${r.changed ? 'gain' : 'leading'} from ${PARTY_NAME[r.held]}`) : ''),
       h('td', {}, r.held ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.held)}` }), r.heldLabel) : h('span', { class: 'hint' }, r.heldLabel || '–')),
@@ -1418,10 +1446,10 @@ function renderDashTable(rows, eid) {
       h('td', { class: 'num' }, r.share != null ? pct(r.share) + how : '–'),
       h('td', { class: 'num' }, r.margin != null ? (100 * r.margin).toFixed(1) : r.lastMargin != null ? h('span', { class: 'hint', title: `${PARTY_NAME[r.lastParty]} margin at the last contest here (${idx.electionById.get(r.lastEid).name})` }, `${PARTY_SHORT[r.lastParty]} ${(100 * r.lastMargin).toFixed(1)}`) : '–'),
       h('td', { class: 'num' }, r.swing != null ? pts(r.swing) : '–'),
-      live ? h('td', {}, (() => { const m = r.model || (r.model = PREF ? modelledTcp(eid, r.cid) : null); if (!m) return h('span', { class: 'hint' }, '–'); const a = m.pair[0], g = grpParty(a.party); const same = r.pr && r.pr.pair[0] && r.pr.pair[0].cand && a.cand && r.pr.pair[0].cand.candidate_id === a.cand.candidate_id; return h('span', { class: 'chip', title: `${m.pair.map(x => `${candName(x.cand)} ≈${pct(x.share)}`).join(' v ')} · ${same ? 'same leader as the VEC count' : r.pr ? 'differs from the VEC count' : 'no VEC two-candidate count yet'}` }, h('i', { style: `background:${partyColor(g)}` }), `${candName(a.cand)} ≈${pct(a.share)}`, same || !r.pr ? '' : h('span', { style: 'color:var(--alp)' }, ' ≠')); })()) : '',
+      live ? h('td', {}, (() => { const pr = r.pr; if (!pr) return h('span', { class: 'hint' }, '–'); const a = pr.pair[0], g = grpParty(a.party); const same = !r.winner || !r.winner.cand || !a.cand || r.winner.cand.candidate_id === a.cand.candidate_id; return h('span', { class: 'chip', title: `${pr.pair.map(x => `${candName(x.cand)} ${pct(x.share)}`).join(' v ')} · ${pr.method === 'official' ? 'declared' : pr.method === 'projected' ? 'projected from matched booths' : 'counted so far'}${same ? '' : ' · a different leader from the Atlas projection'}` }, h('i', { style: `background:${partyColor(g)}` }), `${candName(a.cand)} ${pct(a.share)}`, same ? '' : h('span', { style: 'color:var(--alp)' }, ' ≠')); })()) : '',
       h('td', {}, r.leader ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.leader)}` }), `${PARTY_SHORT[r.leader]} ${pct(r.ps[r.leader].share)}`) : h('span', { class: 'hint' }, '–')),
       h('td', { class: 'hint', style: live ? 'max-width:230px' : '' }, live ? (r.counted ? progressText(r.cid) : '–') : fmt(r.ps.formal)),
-      h('td', {}, h('span', { class: 'st ' + r.status, title: r.pairRisk || '' }, STATUS_LABEL[r.status]), r.pairRisk ? h('div', { class: 'hint', style: 'max-width:220px' }, 'Pair at risk: ' + r.pairRisk.split(',')[0]) : ''),
+      h('td', {}, h('span', { class: 'st ' + r.status, title: (r.pairRisk || '') + (r.disagree ? ' · disagrees with ' + r.disagree.join(' and ') : '') }, STATUS_LABEL[r.status]), r.pairRisk ? h('div', { class: 'hint', style: 'max-width:220px' }, 'Pair at risk: ' + r.pairRisk.split(',')[0]) : '', r.disagree ? h('div', { class: 'hint', style: 'max-width:220px' }, 'Not called: ' + r.disagree.join('; ')) : ''),
       live ? h('td', { class: 'hint' }, r.updated ? fmtTime(r.updated) : '') : '');
     tb.append(tr);
   }
@@ -2513,6 +2541,20 @@ function projEngine() {
   E.nReported = E.booths.length;
   const agg = (list) => { const w = list.reduce((a, r) => a + r.w, 0); if (!w) return null; const sw = {}; for (const g of PROJ_GROUPS) sw[g] = list.reduce((a, r) => a + r.w * r.sw[g], 0) / w; return { sw, n: list.length, w }; };
   E.state = agg(E.booths);
+  // statewide swing by vote type, from the electorates where that pool is at least a fifth counted, and its differential against those electorates' booth swing
+  E.typeSwing = {};
+  for (const type of ['early', 'postal', 'absent', 'provisional']) {
+    let nSeats = 0; const now = { formal: 0 }, was = { formal: 0 }, bNow = { formal: 0 }, bWas = { formal: 0 }; for (const g of PROJ_GROUPS) { now[g] = 0; was[g] = 0; bNow[g] = 0; bWas[g] = 0; }
+    const add = (acc, q) => { for (const g of PROJ_GROUPS) acc[g] += q[g] * q.formal; acc.formal += q.formal; };
+    for (const c of laContests(eid)) { const cid = c.contest_id; const c22 = contestIn('vic2022', cid, eid); if (!c22) continue;
+      const rows = D.booths.filter(x => x.election_id === eid && x.contest_id === cid && x.booth_type === type && x.reported); const rows22 = D.booths.filter(x => x.election_id === 'vic2022' && x.contest_id === c22.contest_id && x.booth_type === type);
+      const n = rows.reduce((a, r) => a + projSharesOf(eid, r.booth_id).formal, 0), n22 = rows22.reduce((a, r) => a + projSharesOf('vic2022', r.booth_id).formal, 0);
+      if (!n22 || n < 0.2 * n22) continue;
+      const seatBooths = E.bySeat.get(cid) || []; if (!seatBooths.length) continue;
+      nSeats++; for (const r of rows) add(now, projSharesOf(eid, r.booth_id)); for (const r of rows22) add(was, projSharesOf('vic2022', r.booth_id));
+      for (const r of seatBooths) { const q = projSharesOf(eid, r.bid); add(bNow, q); const b22 = proj22Booth(idx.boothsByKey.get(eid + '|' + r.bid)); if (b22) add(bWas, projSharesOf('vic2022', b22.booth_id)); } }
+    if (nSeats >= 10 && now.formal && was.formal && bNow.formal && bWas.formal) { const diff = {}; for (const g of PROJ_GROUPS) diff[g] = (now[g] / now.formal - was[g] / was.formal) - (bNow[g] / bNow.formal - bWas[g] / bWas.formal); E.typeSwing[type] = { diff, seats: nSeats, votes: now.formal }; }
+  }
   // demographic gradient of the swing, within electorates: swing_b - swing_e = sum_k gamma_g,k * (z_bk - z_ek); needs enough booths
   if (DEMOG_BOOTH && E.booths.length >= 80) {
     const rows = [];
@@ -2581,13 +2623,14 @@ function projectSeat(cid) {
     if (type === 'early' && reg.early) size = Math.round(reg.early * 0.985); if (type === 'postal' && reg.postal_applications) size = Math.round(reg.postal_applications * 0.85);
     const now = { formal: 0 }; for (const g of PROJ_GROUPS) now[g] = 0;
     for (const r of booths.filter(x => x.booth_type === type && x.reported)) { const q = projSharesOf(eid, r.booth_id); if (!q.formal) continue; for (const g of PROJ_GROUPS) now[g] = (now[g] * now.formal + q[g] * q.formal) / (now.formal + q.formal); now.formal += q.formal; }
-    const projected = was.formal ? projApply(was, seatSwing.sw) : null;
+    const ts = projEngine().typeSwing[type]; const swT = {}; for (const g of PROJ_GROUPS) swT[g] = seatSwing.sw[g] + (ts ? ts.diff[g] : 0);   // the electorate's swing plus the state's vote-type differential
+    const projected = was.formal ? projApply(was, swT) : null;
     const total = Math.max(size, now.formal); if (!total) continue;
     // counted fraction: the counted pool is a sample of the rest of it; trust it fully once a third is in
     const f = now.formal ? Math.min(1, now.formal / Math.max(1, size) / 0.33) : 0;
     const sh = {}; for (const g of PROJ_GROUPS) sh[g] = now.formal ? f * now[g] + (1 - f) * (projected ? projected[g] : now[g]) : (projected ? projected[g] : 0);
     for (const g of PROJ_GROUPS) tot[g] += total * sh[g]; expected += total; counted += now.formal;
-    pools.push({ type, label, counted: now.formal, listed: null, votes: now.formal, size: total, shares: sh, projected, was, sized_by: type === 'early' && reg.early ? 'VEC early-voting statistics' : type === 'postal' && reg.postal_applications ? 'postal applications' : '2022' });
+    pools.push({ type, label, counted: now.formal, listed: null, votes: now.formal, size: total, shares: sh, projected, was, typeSwing: ts || null, sized_by: type === 'early' && reg.early ? 'VEC early-voting statistics' : type === 'postal' && reg.postal_applications ? 'postal applications' : '2022' });
   }
   // projected first preferences by candidate: each group's votes split among its candidates by the counted proportions (or equally)
   const cands = D.candidates.filter(x => x.election_id === eid && x.contest_id === cid); const byG = {}; for (const c of cands) (byG[grpParty(c.party)] = byG[grpParty(c.party)] || []).push(c);
@@ -2599,7 +2642,25 @@ function projectSeat(cid) {
   if (fps.length >= 2 && PREF) { const pw = prefWeights(eid); const cards = seatCards(eid, cid); const base = HTV[HTV_BASE];
     const sim = fps.length > 2 ? simulateCount(fps, pw.W, null, { cards, pairwise: cards && base ? base.pairwise : null, adj: BALLOT && BALLOT.model, adjScale: adjScaleSeat(cid) }) : { final: new Map(fps.map(f => [f.id, f.votes])), ladder: [], cardsUsed: 0 };
     const t = [...sim.final.values()].reduce((a, v) => a + v, 0); if (t) tcp = { pair: [...sim.final.entries()].map(([id, v]) => { const c = fps.find(f => f.id === id); return { cand: c.cand, party: c.party, votes: Math.round(v), share: v / t }; }).sort((a, b) => b.votes - a.votes), ladder: sim.ladder, cardsUsed: sim.cardsUsed, fp: fps, label: pw.label }; }
-  const out = { cid, pools, fps, formal, tcp, counted, expected, countedShare: expected ? counted / expected : 0, seatSwing, boothsCounted: nbc, boothsListed: nb, cands };
+  // hybrid two-candidate figure: where the VEC's indicative count is between the same two candidates the model's exclusions produce, its counted
+  // two-candidate votes at each booth are used as they are (real ballots), and the model splits only the rest (uncounted booths and pools, and
+  // counted booths without a two-candidate count yet) between the pair
+  let hybrid = null;
+  if (tcp && lc && lc.tcp_pair && lc.tcp_pair.length === 2) {
+    const ids = tcp.pair.map(x => x.cand && x.cand.candidate_id); const samePair = ids.every(id => lc.tcp_pair.includes(id));
+    if (samePair) {
+      const tcpVotes = {}; for (const id of ids) tcpVotes[id] = 0; let tcpBooths = 0; const restFp = {}; for (const f of fps) restFp[f.id] = f.votes;
+      for (const [bid, b] of Object.entries(lc.booths || {})) { if (!b.reported || !b.tcp || !Object.keys(b.tcp).length) continue; let ok = true; for (const id of ids) if (b.tcp[id] == null) ok = false; if (!ok) continue; tcpBooths++;
+        for (const id of ids) tcpVotes[id] += b.tcp[id]; for (const [cnd, v] of Object.entries(b.fp || {})) if (restFp[cnd] != null) restFp[cnd] = Math.max(0, restFp[cnd] - v); }
+      const tcpTot = ids.reduce((a, id) => a + tcpVotes[id], 0);
+      if (tcpTot > 0 && tcpBooths) { const rest = fps.map(f => ({ ...f, votes: restFp[f.id] })).filter(f => f.votes > 0); let split = {}; for (const id of ids) split[id] = 0;
+        if (rest.length >= 2) { const pw = prefWeights(eid); const cards = seatCards(eid, cid); const base = HTV[HTV_BASE]; const sim = rest.length > 2 ? simulateCount(rest, pw.W, new Set(ids), { cards, pairwise: cards && base ? base.pairwise : null, adj: BALLOT && BALLOT.model, adjScale: adjScaleSeat(cid) }) : { final: new Map(rest.map(f => [f.id, f.votes])) }; for (const id of ids) split[id] = sim.final.get(id) || 0; }
+        const all = ids.map(id => tcpVotes[id] + split[id]); const t = all[0] + all[1];
+        if (t > 0) { const pair = ids.map((id, i) => { const c = fps.find(f => f.id === id); return { cand: c.cand, party: c.party, votes: Math.round(all[i]), share: all[i] / t }; }).sort((x, y) => y.votes - x.votes);
+          hybrid = { pair, tcpBooths, tcpVotes: tcpTot, restVotes: t - tcpTot, modelPair: tcp.pair }; } }
+    }
+  }
+  const out = { cid, pools, fps, formal, tcp: hybrid ? { ...tcp, pair: hybrid.pair, hybrid } : tcp, counted, expected, countedShare: expected ? counted / expected : 0, seatSwing, boothsCounted: nbc, boothsListed: nb, cands };
   PROJ.seats.set(cid, out); return out;
 }
 // map metrics
@@ -2619,7 +2680,8 @@ function projMetricBooth(bid, p) {
   const pw = prefWeights(LIVE.election); const cards = seatCards(LIVE.election, b.contest_id); const base = HTV[HTV_BASE];
   const sim = fps.length > 2 ? simulateCount(fps, pw.W, null, { cards, pairwise: cards && base ? base.pairwise : null, adj: BALLOT && BALLOT.model, adjScale: adjScaleVenue(b.venue_id) }) : { final: new Map(fps.map(f => [f.id, f.votes])) };
   const t = [...sim.final.values()].reduce((a, v) => a + v, 0); const pair = [...sim.final.entries()].map(([id, v]) => { const c = fps.find(f => f.id === id); return { cand: c.cand, party: c.party, share: v / t }; }).sort((a, b_) => b_.share - a.share);
-  const how = P.counted ? 'counted' : `projected: 2022 here + swing from ${P.swing.basis}`;
+  let how = P.counted ? 'counted, through the preference model' : `projected: 2022 here + swing from ${P.swing.basis}`;
+  if (P.counted) { const lc = LIVE.latest && LIVE.latest.contests[b.contest_id]; const lb = lc && lc.booths[bid]; const ids = pair.slice(0, 2).map(x => x.cand && x.cand.candidate_id); if (lb && lb.tcp && ids.every(id => lb.tcp[id] != null)) { const t = ids.reduce((a, id) => a + lb.tcp[id], 0); if (t > 0) { pair.length = 0; ids.forEach(id => { const c = fps.find(f => f.id === id); pair.push({ cand: c.cand, party: c.party, share: lb.tcp[id] / t }); }); pair.sort((x, y) => y.share - x.share); how = 'VEC two-candidate count at this booth'; } } }
   const top = pair[0], cat = grpParty(top.party);
   if (state.metric === 'projwin') return { cat, strength: top.share, label: P.counted ? 'Counted (model 2CP)' : 'Projected winner', text: `${candName(top.cand)} ≈${pct(top.share)} · ${how}`, projected: !P.counted };
   const mine = pair.find(x => grpParty(x.party) === p); return mine ? { v: mine.share, label: `${PARTY_NAME[p]} ${P.counted ? '' : 'projected '}2CP`, text: `≈${pct(mine.share)} · ${how}`, projected: !P.counted } : { v: null, label: 'Projected 2CP', text: `${PARTY_NAME[p]} not in the final two here` };
@@ -2630,9 +2692,10 @@ function projectionBlock(cid) {
   const P = projectSeat(cid); if (!P || !P.tcp) return null;
   const box = h('div', { style: 'margin-top:8px' }, h('h3', {}, 'Projected result (Atlas)'));
   for (const x of P.tcp.pair) box.append(h('div', { style: 'margin:4px 0' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), candName(x.cand)), h('span', { class: 'mono' }, `≈${pct(x.share)}`)), h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)};opacity:.85` }))));
+  if (P.tcp.hybrid) box.append(h('div', { class: 'hint' }, `The VEC's two-candidate count is between the same two: its ${fmt(P.tcp.hybrid.tcpVotes)} counted preferences at ${P.tcp.hybrid.tcpBooths} booths are used as they are, and the model splits the remaining ${fmt(Math.round(P.tcp.hybrid.restVotes))} (the model alone would say ${candName(P.tcp.hybrid.modelPair[0].cand)} ${pct(P.tcp.hybrid.modelPair[0].share)}).`));
   box.append(h('div', { class: 'hint' }, `${Math.round(100 * P.countedShare)}% of the expected vote is counted (${P.boothsCounted} of ${P.boothsListed} booths). The rest is projected pool by pool: uncounted booths from their 2022 result plus the swing estimated from ${P.seatSwing.basis}; early, postal, absent and provisional votes from the electorate's 2022 pools with the same swing, each keeping its own lean, replaced by the counted pool as it comes in. The projected first preferences then run through the preference model.`));
   const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Pool'), h('th', { class: 'num' }, 'Counted'), h('th', { class: 'num' }, 'Expected'), h('th', {}, 'Basis'))),
-    h('tbody', {}, ...P.pools.map(pl => h('tr', {}, h('td', {}, pl.label), h('td', { class: 'num' }, pl.type === 'ordinary' ? `${pl.counted}/${pl.listed} booths · ${fmt(pl.votes)}` : fmt(pl.counted)), h('td', { class: 'num' }, pl.type === 'ordinary' ? fmt(Math.round(P.expected - P.pools.filter(q => q.type !== 'ordinary').reduce((a, q) => a + q.size, 0))) : fmt(pl.size)), h('td', { class: 'hint' }, pl.type === 'ordinary' ? (pl.counted === pl.listed ? 'all counted' : 'uncounted booths from 2022 + swing') : pl.counted >= 0.33 * pl.size ? 'counted pool' : pl.counted ? 'counted pool blended with 2022 + swing' : `2022 pool + swing, sized by ${pl.sized_by}`)))));
+    h('tbody', {}, ...P.pools.map(pl => h('tr', {}, h('td', {}, pl.label), h('td', { class: 'num' }, pl.type === 'ordinary' ? `${pl.counted}/${pl.listed} booths · ${fmt(pl.votes)}` : fmt(pl.counted)), h('td', { class: 'num' }, pl.type === 'ordinary' ? fmt(Math.round(P.expected - P.pools.filter(q => q.type !== 'ordinary').reduce((a, q) => a + q.size, 0))) : fmt(pl.size)), h('td', { class: 'hint' }, pl.type === 'ordinary' ? (pl.counted === pl.listed ? 'all counted' : 'uncounted booths from 2022 + swing') : pl.counted >= 0.33 * pl.size ? 'counted pool' : (pl.counted ? 'counted pool blended with 2022 + swing' : `2022 pool + swing, sized by ${pl.sized_by}`) + (pl.typeSwing ? ` (${pl.label.toLowerCase()} statewide are running ${PROJ_GROUPS.filter(g => Math.abs(pl.typeSwing.diff[g]) >= 0.005 && ['ALP', 'COAL', 'GRN'].includes(g)).map(g => `${PARTY_SHORT[g]} ${pts(pl.typeSwing.diff[g])}`).join(', ') || 'level'} against the booths, from ${pl.typeSwing.seats} electorates)` : ''))))));
   box.append(h('div', { class: 'tablewrap', style: 'margin-top:6px' }, t));
   const fpsSorted = P.fps.slice().sort((a, b) => b.votes - a.votes);
   box.append(h('div', { class: 'tablewrap', style: 'margin-top:6px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Projected first preferences'), h('th', { class: 'num' }, 'Counted'), h('th', { class: 'num' }, 'Projected'))),

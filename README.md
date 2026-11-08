@@ -255,7 +255,14 @@ early-voting statistics / postal applications when captured, and replaced by the
 trusted once a third is in). The projected first preferences for this year's candidates then run through the
 preference model (flows, cards, ballot order) for the projected two-candidate result. Booth level: the same for one
 booth. The seat panel shows the pools, the projected first preferences and the ladder; hover text gives the share of
-the expected vote counted.
+the expected vote counted. Uncounted pools also take the statewide differential between that vote type's swing and
+the booths' swing once ten electorates have the pool a fifth counted.
+
+The dashboard calls seats on the projection: a call needs the projected margin to clear a bar that tightens with the
+share of the expected vote counted (8 pts at 15%, 6 at 30%, 4 at 60%, 2.5 at 85%; leaning at half), and is withheld
+while the model on the count so far or the VEC's own pair has a different leader, or while the last candidate
+excluded in the modelled count was within reach of the runner-up. The seat spectrum has a Projected mode while
+counting; the VEC's indicative pair stays in the table as a column.
 
 ## Boundaries and catchments
 
