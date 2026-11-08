@@ -515,14 +515,11 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
   <section class="view" id="view-prefs">
     <div class="page"><div class="inner">
       <div class="panel" id="md-head"></div>
-      <details class="panel book" id="bk-members"><summary><span class="bk-t">The personal vote</span><span class="bk-s" id="bk-members-s"></span></summary><div class="bk-b">
-        <div id="md-members"></div>
-      </div></details>
-      <details class="panel book" id="bk-pendulum"><summary><span class="bk-t">Who loses: the pendulum, tested</span><span class="bk-s" id="bk-pendulum-s"></span></summary><div class="bk-b">
-        <div id="md-pendulum"></div>
-      </div></details>
       <details class="panel book" id="bk-swings"><summary><span class="bk-t">Swings and roundabouts</span><span class="bk-s" id="bk-swings-s"></span></summary><div class="bk-b">
         <div id="md-swings"></div>
+      </div></details>
+      <details class="panel book" id="bk-members"><summary><span class="bk-t">The personal vote</span><span class="bk-s" id="bk-members-s"></span></summary><div class="bk-b">
+        <div id="md-members"></div>
       </div></details>
       <details class="panel book" id="bk-prefs"><summary><span class="bk-t">Preference flows and the two-candidate model</span><span class="bk-s" id="bk-prefs-s"></span></summary><div class="bk-b">
         <div class="bk-sec" id="pf-head"><div class="empty">Loading the preference model…</div></div>
@@ -534,6 +531,9 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
       </div></details>
       <details class="panel book" id="bk-ballot"><summary><span class="bk-t">Ballot order: donkey and adjacency voting</span><span class="bk-s" id="bk-ballot-s"></span></summary><div class="bk-b">
         <div id="pf-ballot"></div>
+      </div></details>
+      <details class="panel book" id="bk-pendulum"><summary><span class="bk-t">The pendulum, tested: why the Atlas doesn’t use it</span><span class="bk-s" id="bk-pendulum-s"></span></summary><div class="bk-b">
+        <div id="md-pendulum"></div>
       </div></details>
       <details class="panel book" id="bk-bounds"><summary><span class="bk-t">New boundaries: notional results</span><span class="bk-s" id="bk-bounds-s"></span></summary><div class="bk-b">
         <div id="md-bounds"></div>
@@ -1799,13 +1799,15 @@ async function renderModel() {
   for (const d of document.querySelectorAll('details.book')) { if (openB.includes(d.id)) d.open = true;
     d.addEventListener('toggle', () => { try { const ids = [...document.querySelectorAll('details.book')].filter(x => x.open).map(x => x.id); localStorage.setItem('eba_books', JSON.stringify(ids)); } catch (e) {} }); }
   const teaser = (id, t) => { const x = el(id + '-s'); if (x) x.textContent = t; };
-  teaser('bk-members', `A member who wins a seat from the other side gains about ${M.members.all.sophomore_gain.pts.toFixed(1)} points at their first re-election. When a member retires, the party loses about ${Math.abs(M.members.all.open.pts).toFixed(0)}.`);
-  teaser('bk-pendulum', `A point of swing is worth a point of margin, and hardly anything else predicts who loses, except the independent nobody saw coming.`);
-  teaser('bk-swings', `The Greens move by the same points everywhere, Labor loses most where it is strongest, and One Nation grows where it is already strong.`);
+  teaser('bk-members', `Step two: add the sitting member's personal vote. A member who wins a seat from the other side gains about ${M.members.all.sophomore_gain.pts.toFixed(1)} points at their first re-election. When a member retires, the party loses about ${Math.abs(M.members.all.open.pts).toFixed(0)}.`);
+  { const bt = M.swings.backtest.total; teaser('bk-pendulum', `A uniform two-party swing works in Labor v Coalition seats but cannot see the challengers who cause the surprises. Primaries plus preferences called ${bt.primaries} of ${bt.seats} past seats; the pendulum ${bt.two_party}.`); }
+  teaser('bk-swings', `Step one: move each party's first-preference vote by its own rule. The Greens move by the same points everywhere, Labor loses most where it is strongest, and One Nation grows where it is already strong.`);
   teaser('bk-bounds', `Our notional results sit within half a point of the published ones, and seats that change hands on paper are decided by the swing.`);
   head.append(h('h2', { class: 'dash-title' }, 'The Atlas Model'),
-    h('p', { class: 'hint' }, 'What the Atlas has learnt from Victorian results since 1999 (state elections and federal elections in Victoria), and how it uses it. Every figure here is measured on past elections and, where it matters, tested on elections it was not fitted on. This page is history: seat-by-seat readings for 2026 follow once nominations close. Open any section for the detail.'),
-    h('p', { class: 'hint', style: 'margin-top:6px' }, jump('bk-members', 'The personal vote'), ' · ', jump('bk-pendulum', 'Who loses'), ' · ', jump('bk-swings', 'Swings and roundabouts'), ' · ', jump('bk-prefs', 'Preferences'), ' · ', jump('bk-ballot', 'Ballot order'), ' · ', jump('bk-bounds', 'New boundaries')));
+    h('p', { class: 'hint' }, 'What the Atlas has learnt from Victorian results since 1999 (state elections and federal elections in Victoria), and how it uses it. Every figure here is measured on past elections and, where it matters, tested on elections it was not fitted on. Open any section for the detail.'),
+    h('p', { style: 'margin:10px 0 0;max-width:72ch;font-size:14px' }, h('b', {}, 'How the model works. '), 'It does not apply a single two-party swing. In each seat it moves every party\'s first-preference vote by that party\'s own rule (', h('i', {}, 'swings and roundabouts'), '), adds the sitting member\'s personal vote, then runs the preference count, candidate by candidate, to find the final two and the winner. On election night the counted first preferences replace the first step. The last two sections are the checks and tools behind it.'),
+    h('p', { class: 'hint', style: 'margin-top:6px' }, 'This page is history: seat-by-seat readings for 2026 follow once nominations close.'),
+    h('p', { class: 'hint', style: 'margin-top:6px' }, jump('bk-swings', 'Swings and roundabouts'), ' · ', jump('bk-members', 'The personal vote'), ' · ', jump('bk-prefs', 'Preferences'), ' · ', jump('bk-ballot', 'Ballot order'), ' · ', jump('bk-pendulum', 'The pendulum, tested'), ' · ', jump('bk-bounds', 'New boundaries')));
   // --- members
   const Me = M.members, A = Me.all, Tn = Me.tenure, TL = M.two_levels, Ch = M.challengers;
   const mv = Me.member_value['2_terms'];
@@ -1829,12 +1831,13 @@ async function renderModel() {
   const bandRows = [...new Set(P.by_margin.map(r => r.band))].map(b => { const a = P.by_margin.find(r => r.band === b && r.swing === 'against'), t = P.by_margin.find(r => r.band === b && r.swing === 'towards'); return h('tr', {}, h('td', {}, b.replace('-', '–') + '%'), h('td', { class: 'num' }, `${a.lost} of ${a.n}`), h('td', { class: 'num' }, `${t.lost} of ${t.n}`)); });
   const preds = P.predictors.filter(p => p.key !== 'leader').sort((a, b) => b.loeo_gain - a.loeo_gain);
   const LT = P.lost_to['surprise (p < 0.2)'];
-  pb.append(h('p', { class: 'hint' }, `Every Labor or Coalition member who stood again (${P.n}, of whom ${P.losses} lost). Two things sort the winners from the losers: their margin last time (notional where boundaries changed) and the statewide two-party swing. A point of swing turns out to be worth a point of margin, which is the pendulum, estimated rather than assumed. Seats scatter around a uniform swing by about ${B.seat_sd_pts.toFixed(1)} points, and a member standing again holds on until the uniform-swing margin reaches about ${sp(-B.members_beat_uniform_by_pts)} pts: their personal vote again.`),
+  pb.append(h('p', { class: 'hint' }, `The uniform two-party swing (the Mackerras pendulum) is how most election coverage reads seats, so the Atlas tested it rather than assumed it. Every Labor or Coalition member who stood again (${P.n}, of whom ${P.losses} lost). Two things sort the winners from the losers: their margin last time (notional where boundaries changed) and the statewide two-party swing. A point of swing turns out to be worth a point of margin, which is the pendulum, estimated rather than assumed. Seats scatter around a uniform swing by about ${B.seat_sd_pts.toFixed(1)} points, and a member standing again holds on until the uniform-swing margin reaches about ${sp(-B.members_beat_uniform_by_pts)} pts: their personal vote again.`),
     h('div', { class: 'stats', style: 'margin:10px 0' }, stat(B.loeo_auc.toFixed(2), 'accuracy (AUC), each election predicted from the others'), stat(B.swing_worth_margin.toFixed(2), 'points of margin per point of swing'), stat(B.seat_sd_pts.toFixed(1) + ' pts', 'seat scatter around uniform swing'), stat(`${LT['IND/other'] + LT.GRN} of ${LT.n}`, 'surprise losses that went to an independent or the Greens')),
     h('div', { class: 'two' }, h('div', {}, h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Margin last time'), h('th', { class: 'num' }, 'Lost, swing against'), h('th', { class: 'num' }, 'Lost, swing towards'))), h('tbody', {}, ...bandRows)))),
       h('div', {}, h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Anything else?'), h('th', { class: 'num', title: 'odds ratio of losing, on top of margin and swing, 90% interval' }, 'Odds of losing'))),
         h('tbody', {}, ...preds.slice(0, 9).map(p => h('tr', {}, h('td', {}, p.label), h('td', { class: 'num', style: (p.lo > 1 || p.hi < 1) ? 'font-weight:600' : 'color:var(--fg-3)' }, `×${p.odds_ratio.toFixed(2)} (${p.lo.toFixed(2)}–${p.hi.toFixed(2)})`)))))))),
-    h('p', { class: 'hint' }, `Beyond margin and swing, almost nothing helps predict a loss on elections the model has not seen: tenure, region, the Greens' vote, how the seat swung last time, new boundaries, the number of candidates. The one that points the right way is a member defending a seat they won from the other side (harder to dislodge). The losses nobody saw coming mostly went to independents and Greens who were not in the final two last time, which is what a two-party pendulum cannot see.`));
+    h('p', { class: 'hint' }, `Beyond margin and swing, almost nothing helps predict a loss on elections the model has not seen: tenure, region, the Greens' vote, how the seat swung last time, new boundaries, the number of candidates. The one that points the right way is a member defending a seat they won from the other side (harder to dislodge). The losses nobody saw coming mostly went to independents and Greens who were not in the final two last time, which is what a two-party pendulum cannot see.`),
+    h('p', { class: 'hint' }, h('b', {}, 'Why the Atlas does not use it. '), `It works where the contest is Labor v Coalition and the swing is ordinary. It cannot see a Green, an independent or a surging minor party reaching the final two, and with One Nation polling far above anything in this history, those are the seats that matter in 2026. Given perfect polls for both, first preferences plus preferences called ${M.swings.backtest.total.primaries} of ${M.swings.backtest.total.seats} past seats and the pendulum ${M.swings.backtest.total.two_party} (see Swings and roundabouts). What the Atlas keeps from this test: the size of the seat-to-seat scatter, and confirmation that members carry a personal vote.`));
   // --- swings
   const S = M.swings, R_ = S.rules, sw = el('md-swings'), PNM = { ALP: 'Labor', COAL: 'Coalition', GRN: 'Greens', MINOR: 'Minor parties' };
   const read = (l) => l < 0.25 ? 'uniform' : l > 0.75 ? 'proportional' : 'in between';
@@ -1870,7 +1873,7 @@ async function renderPrefs() {
   if (P.missing) { head.append(h('div', { class: 'empty' }, 'No preference model file (site/data/pref_flows.json).')); return; }
   if (!pfUI.wired) { pfUI.wired = true; el('pf-choice').addEventListener('change', (e) => { pfUI.choice = e.target.value; renderPrefs(); }); }
   const V = P.validation || {};
-  { const t = el('bk-prefs-s'); if (t && V.contests) t.textContent = `Fitted on 2018 and given only the 2022 first preferences, the model picked the right final two in ${V.final_pair_right} of ${V.contests} seats and the right winner in ${V.winner_right}.`; }
+  { const t = el('bk-prefs-s'); if (t && V.contests) t.textContent = `Step three: run the count. Fitted on 2018 and given only the 2022 first preferences, the model picked the right final two in ${V.final_pair_right} of ${V.contests} seats and the right winner in ${V.winner_right}.`; }
   head.append(h('p', { class: 'hint' }, 'Every distribution of preferences the Atlas holds (state 2010–2022, federal 2010–2025, the by-elections) is read as a set of observations: when a candidate is excluded, where their pile goes among those still standing. From those, each voter-party gets a fitted weight for every destination (a Luce choice model, by maximum likelihood), so the share going to any party can be worked out for any combination of candidates left, including ones never seen. On election night the model runs the first preferences counted so far through the exclusions, which gives a two-candidate figure for any pair in every seat without waiting for a VEC two-candidate count. Nothing from the polls goes in.'),
     h('div', { class: 'stats', style: 'margin-top:10px' }, stat(`${V.final_pair_right}/${V.contests}`, 'seats where the 2018-fitted model picked the right final two in 2022'), stat(`${V.winner_right}/${V.contests}`, 'right winner'), stat(`${V.mean_abs_error_2cp_pts} pts`, 'mean error in the 2CP (median ' + V.median_abs_error_2cp_pts + ')'), stat(fmt(P.blend_2026.n_exclusions), 'exclusions behind the 2026 flows')));
   // flows table
@@ -1912,7 +1915,7 @@ function renderBallotSection() {
   const box = el('pf-ballot'); box.innerHTML = ''; const B = BALLOT;
   if (!B || !B.model) { box.append(h('p', { class: 'hint' }, 'No ballot-order file (site/data/ballot_effects.json).')); return; }
   const M = B.model, D_ = B.donkey || {}, P_ = B.position || {}, S_ = B.seats || {};
-  { const t = el('bk-ballot-s'); if (t) t.textContent = `About ${(100 * M.below).toFixed(0)}% of an excluded candidate's votes go to the name printed just below them on the ballot, and almost as many to the name just above.`; }
+  { const t = el('bk-ballot-s'); if (t) t.textContent = `Part of the count: about ${(100 * M.below).toFixed(0)}% of an excluded candidate's votes go to the name printed just below them on the ballot, and almost as many to the name just above.`; }
   const eids = Object.keys(D_);
   box.append(h('p', { class: 'hint' }, 'Two things in the data say how many people vote by the ballot paper rather than by the candidates. First preferences: the candidate drawn first on the ballot does better than their party\'s other candidates that election (the classic 1-2-3 "donkey" vote starts at the top). Preferences: when a candidate is excluded, part of the pile goes to whoever is printed next to them on the ballot, beyond what party affinity and the registered card explain. The ballot draw is random, so that excess is clean. It turns out to run both ways, to the name below and to the name above almost equally, with a smaller bonus for the top of the ballot: most of it is people numbering outward from their first choice, not straight down the paper.'),
     h('div', { class: 'stats', style: 'margin:10px 0' }, stat(`${(100 * M.below).toFixed(1)}%`, 'of an excluded candidate\'s pile to the next name below'), stat(`${(100 * M.above).toFixed(1)}%`, 'to the next name above'), stat(`${(100 * M.top).toFixed(1)}%`, 'to the top of the ballot'),
