@@ -1506,7 +1506,7 @@ function pollChart(opts) {
   svg.addEventListener('mouseleave', () => { hair.setAttribute('visibility', 'hidden'); tipDiv.hidden = true; });
   return wrap;
 }
-const shortEvent = (t) => { if (/by-election/.test(t)) return t.split(' ')[0] + ' by-el.'; const m = t.match(/(Pesutto|Allan|Sandell|Battin|Wilson|Carroll|Pickering)/); return m ? m[1] : t.slice(0, 14); };
+const shortEvent = (t) => { if (/by-election/.test(t)) return t.split(' ')[0] + ' by-el.'; const m = t.match(/(Pesutto|Allan|Sandell|Battin|Wilson|Carroll|Pickering)/g); return m ? m[m.length - 1] : t.slice(0, 14); };  // the incoming leader (the last name mentioned), not the one resigning
 async function renderPolls() {
   if (!POLLS) {
     try { POLLS = await (await fetch(DATA + 'polls_vic2026.json')).json(); } catch (e) { el('polls-head').innerHTML = ''; el('polls-head').append(h('div', { class: 'empty' }, 'No polling file (site/data/polls_vic2026.json).')); return; }
