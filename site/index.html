@@ -16,6 +16,12 @@ if (/(\.github\.io|electionboothatlas\.(org|com))$/.test(location.hostname)) {
 }
 </script>
 <title>The Election Booth Atlas</title>
+<meta name="description" content="Every booth. Every election. Victorian results polling place by polling place, 1999 to 2026, with census profiles, preference flows and live election-night counts.">
+<meta property="og:title" content="The Election Booth Atlas">
+<meta property="og:description" content="Every booth. Every election. Victorian results polling place by polling place, 1999 to 2026.">
+<meta property="og:url" content="https://electionboothatlas.org/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,500;1,400&display=swap">
 <style>
@@ -76,6 +82,7 @@ a { color: var(--accent); }
 .brand { display: flex; align-items: baseline; gap: 10px; }
 .brand h1 { font-family: var(--font-display); font-weight: 500; font-size: 19px; margin: 0; letter-spacing: .01em; }
 .brand .sub { color: var(--fg-3); font-size: 12px; }
+.brand .sub .tag { color: var(--fg-2); font-family: var(--font-display); font-style: italic; font-size: 13px; }
 nav.views { display: flex; gap: 2px; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
 nav.views button { flex: 0 0 auto; }
 nav.views button { background: none; border: 0; padding: 6px 10px; border-radius: var(--radius); color: var(--fg-2); cursor: pointer; }
@@ -291,7 +298,7 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
 <body>
 <div class="app">
   <header class="top">
-    <div class="brand"><h1>The Election Booth Atlas</h1><span class="sub">every polling place, election after election · Victoria, 1999–2026</span></div>
+    <div class="brand"><h1>The Election Booth Atlas</h1><span class="sub"><span class="tag">Every booth. Every election.</span> · Victoria, 1999–2026</span></div>
     <nav class="views" aria-label="Views">
       <button data-view="dash">Dashboard</button>
       <button data-view="map" aria-current="page">Map</button>
