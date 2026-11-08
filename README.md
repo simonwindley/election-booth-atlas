@@ -196,9 +196,17 @@ from the dashboard and the live projections.
   `python3 -m src.load_cd_census` builds the indicators (same ids as the SA1 series where the definition matches; medians are
   interpolated from the aggregated bands, so they are true medians) into `raw/abs/sa1_census_2006.json` (read by
   `src.build_demog` as a fourth year of history and `chg06_*` change indicators on the 2022 files) and `raw/abs/cd_census_2006.json`.
-  `src.build_demog` also writes `demog_vic_la_2001` (the 2002, 2006 and 2010 state elections; 1999 on the 1991 boundaries falls
-  back to it by seat name) and `demog_fed_2003` (the 2004, 2007 and 2010 federal elections). TableBuilder Basic does not carry
-  the 2001 Census, so there is no 2001 small-area series yet.
+  `src.build_demog` also writes `demog_vic_la_2001` (the 2002, 2006 and 2010 state elections) and `demog_fed_2003` (the 2004,
+  2007 and 2010 federal elections).
+* `demog_vic_la_1991` — the 2001 Census for the 88 districts used at the 1999 election. The 2001 Census was coded to the
+  districts then in force (drawn in 1991), so the ABS 2001 Basic Community Profile for each State Electoral Division is
+  exactly one 1999 district and nothing is apportioned. `python3 tools/fetch_bcp2001.py raw/abs/bcp2001` downloads the 88
+  profiles plus Victoria (`BCP_SED*.xlsx`, `BCP_2.xlsx`; gitignored, 32 MB) and `python3 -m src.load_bcp2001` writes the
+  file: 64 indicators with the 2006-2021 ids where the definition matches. Place of enumeration (census night), medians
+  interpolated from the profile bands in 2001 dollars, occupations on ASCO (managers, professionals, trades, labourers and
+  production/transport are close to the later ANZSCO groups; clerical/sales/service are not carried), English proficiency
+  for the overseas-born only, internet as personal use (no household question until 2006), plus households with no car.
+  TableBuilder Basic does not carry 2001, so there is no 2001 series on today's boundaries or for booth catchments.
 * `demog_vic_la_2013` — the districts as drawn in 2013 (ABS "SED 2021"), used at the 2014 and 2018
   elections: 190-odd indicators from 20 General Community Profile tables (age bands, birthplace by
   country, ancestry, language, religion by denomination, education, income bands, tenure, dwellings,
