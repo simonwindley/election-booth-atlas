@@ -1,0 +1,460 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+vic2006,vic-albert-park,vic-albert-park-1,Reece,David,CEC,,ACP,1,0
+vic2006,vic-albert-park,vic-albert-park-2,Thwaites,John,ALP,,ALP,2,1
+vic2006,vic-albert-park,vic-albert-park-3,Jackson,Adrian,,,IND,3,0
+vic2006,vic-albert-park,vic-albert-park-4,Middleton,John,Greens,,GRN,4,0
+vic2006,vic-albert-park,vic-albert-park-5,Smith,Clive,Liberal,,LIB,5,0
+vic2006,vic-albert-park,vic-albert-park-6,Robertson,Sam,FAMILY FIRST,,FFP,6,0
+vic2006,vic-albert-park,vic-albert-park-7,Pavlis,Stratos,PEOPLE POWER,,OTH,7,0
+vic2006,vic-altona,vic-altona-1,Soylemez,Ian,Liberal,,LIB,1,0
+vic2006,vic-altona,vic-altona-2,Bischof,Andreas,Greens,,GRN,2,0
+vic2006,vic-altona,vic-altona-3,Kosky,Lynne,ALP,,ALP,3,1
+vic2006,vic-altona,vic-altona-4,Bernard,David,FAMILY FIRST,,FFP,4,0
+vic2006,vic-ballarat-east,vic-ballarat-east-1,Bailey,Grace,FAMILY FIRST,,FFP,1,0
+vic2006,vic-ballarat-east,vic-ballarat-east-2,Hadden,Dianne,,,IND,2,0
+vic2006,vic-ballarat-east,vic-ballarat-east-3,Howard,Geoff,ALP,,ALP,3,1
+vic2006,vic-ballarat-east,vic-ballarat-east-4,Hayes,Geoff,Liberal,,LIB,4,0
+vic2006,vic-ballarat-east,vic-ballarat-east-5,Harvie,Michele,Greens,,GRN,5,0
+vic2006,vic-ballarat-west,vic-ballarat-west-1,Coates,Belinda,Greens,,GRN,1,0
+vic2006,vic-ballarat-west,vic-ballarat-west-2,Butterfield,Dale,FAMILY FIRST,,FFP,2,0
+vic2006,vic-ballarat-west,vic-ballarat-west-3,Overington,Karen,ALP,,ALP,3,1
+vic2006,vic-ballarat-west,vic-ballarat-west-4,Brennan,Shane,Liberal,,LIB,4,0
+vic2006,vic-bass,vic-bass-1,Fletcher,Tully,Greens,,GRN,1,0
+vic2006,vic-bass,vic-bass-2,Smith,Ken,Liberal,,LIB,2,1
+vic2006,vic-bass,vic-bass-3,Begg,Cameron,FAMILY FIRST,,FFP,3,0
+vic2006,vic-bass,vic-bass-4,Anderson,John,ALP,,ALP,4,0
+vic2006,vic-bass,vic-bass-5,Billing-Smith,Cheryl,,,IND,5,0
+vic2006,vic-bass,vic-bass-6,Abbott,Jacky,Nationals,,NAT,6,0
+vic2006,vic-bayswater,vic-bayswater-1,Ashley,Gordon,,,IND,1,0
+vic2006,vic-bayswater,vic-bayswater-2,Tennant,James,Greens,,GRN,2,0
+vic2006,vic-bayswater,vic-bayswater-3,Raskovy,Steve,,,IND,3,0
+vic2006,vic-bayswater,vic-bayswater-4,Mortimer,Stephanie,PEOPLE POWER,,OTH,4,0
+vic2006,vic-bayswater,vic-bayswater-5,Victoria,Heidi,Liberal,,LIB,5,1
+vic2006,vic-bayswater,vic-bayswater-6,Lockwood,Peter,ALP,,ALP,6,0
+vic2006,vic-bayswater,vic-bayswater-7,Beilharz,Kurt,CEC,,ACP,7,0
+vic2006,vic-bayswater,vic-bayswater-8,Murphy,Warwick,FAMILY FIRST,,FFP,8,0
+vic2006,vic-bellarine,vic-bellarine-1,Teague,Justin,Greens,,GRN,1,0
+vic2006,vic-bellarine,vic-bellarine-2,Lengyel,Len,FAMILY FIRST,,FFP,2,0
+vic2006,vic-bellarine,vic-bellarine-3,Neville,Lisa,ALP,,ALP,3,1
+vic2006,vic-bellarine,vic-bellarine-4,Gibson,Don,Liberal,,LIB,4,0
+vic2006,vic-benalla,vic-benalla-1,Mitchell,Rob,ALP,,ALP,1,0
+vic2006,vic-benalla,vic-benalla-2,Rainey,James A.,FAMILY FIRST,,FFP,2,0
+vic2006,vic-benalla,vic-benalla-3,Mcmillan,Hamish,Liberal,,LIB,3,0
+vic2006,vic-benalla,vic-benalla-4,Sykes,Bill,Nationals,,NAT,4,1
+vic2006,vic-benalla,vic-benalla-5,Cordner Hunt,Kammy,Greens,,GRN,5,0
+vic2006,vic-benambra,vic-benambra-1,Mahood,Lisa,ALP,,ALP,1,0
+vic2006,vic-benambra,vic-benambra-2,Robinson,Helen Judith,Greens,,GRN,2,0
+vic2006,vic-benambra,vic-benambra-3,Baxter,Bill,Nationals,,NAT,3,0
+vic2006,vic-benambra,vic-benambra-4,Corboy,Martin,FAMILY FIRST,,FFP,4,0
+vic2006,vic-benambra,vic-benambra-5,Pearce,Shane,,,IND,5,0
+vic2006,vic-benambra,vic-benambra-6,Tilley,Bill,Liberal,,LIB,6,1
+vic2006,vic-bendigo-east,vic-bendigo-east-1,Gibbins,Kevin,Liberal,,LIB,1,0
+vic2006,vic-bendigo-east,vic-bendigo-east-2,Hardy,Gail,FAMILY FIRST,,FFP,2,0
+vic2006,vic-bendigo-east,vic-bendigo-east-3,Manning,John,Nationals,,NAT,3,0
+vic2006,vic-bendigo-east,vic-bendigo-east-4,James,Colin,PEOPLE POWER,,OTH,4,0
+vic2006,vic-bendigo-east,vic-bendigo-east-5,Allan,Jacinta,ALP,,ALP,5,1
+vic2006,vic-bendigo-east,vic-bendigo-east-6,Bardsley,John,Greens,,GRN,6,0
+vic2006,vic-bendigo-west,vic-bendigo-west-1,Mcclure,Bruce,Liberal,,LIB,1,0
+vic2006,vic-bendigo-west,vic-bendigo-west-2,Radford,Sue-Ellen,Greens,,GRN,2,0
+vic2006,vic-bendigo-west,vic-bendigo-west-3,Murrells,Glenn,Nationals,,NAT,3,0
+vic2006,vic-bendigo-west,vic-bendigo-west-4,Cameron,Bob,ALP,,ALP,4,1
+vic2006,vic-bendigo-west,vic-bendigo-west-5,Harrison,Rachel,FAMILY FIRST,,FFP,5,0
+vic2006,vic-bentleigh,vic-bentleigh-1,Gobbo,James,Liberal,,LIB,1,0
+vic2006,vic-bentleigh,vic-bentleigh-2,D'Arcy,Peter,Greens,,GRN,2,0
+vic2006,vic-bentleigh,vic-bentleigh-3,Hudson,Rob,ALP,,ALP,3,1
+vic2006,vic-bentleigh,vic-bentleigh-4,Portelli,Michael John,FAMILY FIRST,,FFP,4,0
+vic2006,vic-bentleigh,vic-bentleigh-5,Horne,Colin,CEC,,ACP,5,0
+vic2006,vic-box-hill,vic-box-hill-1,Campbell,Peter,Greens,,GRN,1,0
+vic2006,vic-box-hill,vic-box-hill-2,Chong,Robert,ALP,,ALP,2,0
+vic2006,vic-box-hill,vic-box-hill-3,Cummins,Christine,PEOPLE POWER,,OTH,3,0
+vic2006,vic-box-hill,vic-box-hill-4,Clark,Robert,Liberal,,LIB,4,1
+vic2006,vic-box-hill,vic-box-hill-5,Ong,Gary,FAMILY FIRST,,FFP,5,0
+vic2006,vic-brighton,vic-brighton-1,Hayes,Clifford,,,IND,1,0
+vic2006,vic-brighton,vic-brighton-2,Walters,Jonathan,Greens,,GRN,2,0
+vic2006,vic-brighton,vic-brighton-3,Freeman,Mark,FAMILY FIRST,,FFP,3,0
+vic2006,vic-brighton,vic-brighton-4,Shelton,Jane,ALP,,ALP,4,0
+vic2006,vic-brighton,vic-brighton-5,Asher,Louise,Liberal,,LIB,5,1
+vic2006,vic-broadmeadows,vic-broadmeadows-1,Hines,Gerard,FAMILY FIRST,,FFP,1,0
+vic2006,vic-broadmeadows,vic-broadmeadows-2,Brumby,John,ALP,,ALP,2,1
+vic2006,vic-broadmeadows,vic-broadmeadows-3,Ebejer,Marlene,PEOPLE POWER,,OTH,3,0
+vic2006,vic-broadmeadows,vic-broadmeadows-4,Yohanna,Sleiman,CEC,,ACP,4,0
+vic2006,vic-broadmeadows,vic-broadmeadows-5,Parsons,Daniel,Liberal,,LIB,5,0
+vic2006,vic-broadmeadows,vic-broadmeadows-6,Taylor,Emily Katya,Greens,,GRN,6,0
+vic2006,vic-broadmeadows,vic-broadmeadows-7,Marshall,Will,,,IND,7,0
+vic2006,vic-brunswick,vic-brunswick-1,Dawes,Cyndi,Greens,,GRN,1,0
+vic2006,vic-brunswick,vic-brunswick-2,Hearman,Vannessa,SA,,OTH,2,0
+vic2006,vic-brunswick,vic-brunswick-3,Carli,Carlo,ALP,,ALP,3,1
+vic2006,vic-brunswick,vic-brunswick-4,Arborea,Vince,Liberal,,LIB,4,0
+vic2006,vic-brunswick,vic-brunswick-5,Mcdonald,James Thomas,FAMILY FIRST,,FFP,5,0
+vic2006,vic-brunswick,vic-brunswick-6,Astourian,Christian,PEOPLE POWER,,OTH,6,0
+vic2006,vic-bulleen,vic-bulleen-1,Kotsiras,Nicholas,Liberal,,LIB,1,1
+vic2006,vic-bulleen,vic-bulleen-2,Mackenzie,Fiona,Greens,,GRN,2,0
+vic2006,vic-bulleen,vic-bulleen-3,Tong,Carmen,FAMILY FIRST,,FFP,3,0
+vic2006,vic-bulleen,vic-bulleen-4,Campbell,Neill,ALP,,ALP,4,0
+vic2006,vic-bundoora,vic-bundoora-1,Jefford,Sarah,Greens,,GRN,1,0
+vic2006,vic-bundoora,vic-bundoora-2,Cronkwright,Dean,FAMILY FIRST,,FFP,2,0
+vic2006,vic-bundoora,vic-bundoora-3,Mclennan,Rod,CEC,,ACP,3,0
+vic2006,vic-bundoora,vic-bundoora-4,Brooks,Colin,ALP,,ALP,4,1
+vic2006,vic-bundoora,vic-bundoora-5,Afford,Kane,Liberal,,LIB,5,0
+vic2006,vic-burwood,vic-burwood-1,Presley,John,Greens,,GRN,1,0
+vic2006,vic-burwood,vic-burwood-2,Canavan,John Gerard,FAMILY FIRST,,FFP,2,0
+vic2006,vic-burwood,vic-burwood-3,Stensholt,Bob,ALP,,ALP,3,1
+vic2006,vic-burwood,vic-burwood-4,Bailey,Graham,Liberal,,LIB,4,0
+vic2006,vic-carrum,vic-carrum-1,Lindell,Jenny,ALP,,ALP,1,1
+vic2006,vic-carrum,vic-carrum-2,Shelley,Jeff,Liberal,,LIB,2,0
+vic2006,vic-carrum,vic-carrum-3,Musster,Ronnie,,,IND,3,0
+vic2006,vic-carrum,vic-carrum-4,Mclean,Michael,FAMILY FIRST,,FFP,4,0
+vic2006,vic-carrum,vic-carrum-5,Thompson,Alan,,,IND,5,0
+vic2006,vic-carrum,vic-carrum-6,Lopez,Carlos,Greens,,GRN,6,0
+vic2006,vic-caulfield,vic-caulfield-1,Shardey,Helen,Liberal,,LIB,1,1
+vic2006,vic-caulfield,vic-caulfield-2,Labonne,Eric,FAMILY FIRST,,FFP,2,0
+vic2006,vic-caulfield,vic-caulfield-3,Cusworth,Steve,ALP,,ALP,3,0
+vic2006,vic-caulfield,vic-caulfield-4,Job,Peter,Greens,,GRN,4,0
+vic2006,vic-clayton,vic-clayton-1,Isherwood,Siobhan,Greens,,GRN,1,0
+vic2006,vic-clayton,vic-clayton-2,Hall,Simon,CEC,,ACP,2,0
+vic2006,vic-clayton,vic-clayton-3,Carty,Michael,Liberal,,LIB,3,0
+vic2006,vic-clayton,vic-clayton-4,Aditya,Emyr,FAMILY FIRST,,FFP,4,0
+vic2006,vic-clayton,vic-clayton-5,Lim,Hong,ALP,,ALP,5,1
+vic2006,vic-cranbourne,vic-cranbourne-1,Perera,Jude,ALP,,ALP,1,1
+vic2006,vic-cranbourne,vic-cranbourne-2,Martin,Luke,Liberal,,LIB,2,0
+vic2006,vic-cranbourne,vic-cranbourne-3,Bray,Hilary,Greens,,GRN,3,0
+vic2006,vic-cranbourne,vic-cranbourne-4,Hermans,Mark,FAMILY FIRST,,FFP,4,0
+vic2006,vic-dandenong,vic-dandenong-1,Blair,Peter,Greens,,GRN,1,0
+vic2006,vic-dandenong,vic-dandenong-2,Dorian,Peter,FAMILY FIRST,,FFP,2,0
+vic2006,vic-dandenong,vic-dandenong-3,Pandazopoulos,John,ALP,,ALP,3,1
+vic2006,vic-dandenong,vic-dandenong-4,Nicholls,Cameron,Liberal,,LIB,4,0
+vic2006,vic-derrimut,vic-derrimut-1,Languiller,Telmo,ALP,,ALP,1,1
+vic2006,vic-derrimut,vic-derrimut-2,Doel,Rod,CEC,,ACP,2,0
+vic2006,vic-derrimut,vic-derrimut-3,Purcell,Marc,Greens,,GRN,3,0
+vic2006,vic-derrimut,vic-derrimut-4,Forster,Margaret,FAMILY FIRST,,FFP,4,0
+vic2006,vic-derrimut,vic-derrimut-5,Tran,Charles,Liberal,,LIB,5,0
+vic2006,vic-derrimut,vic-derrimut-6,Jorquera,Jorge,,,IND,6,0
+vic2006,vic-doncaster,vic-doncaster-1,Wooldridge,Mary,Liberal,,LIB,1,1
+vic2006,vic-doncaster,vic-doncaster-2,Goonan,Irene,,,IND,2,0
+vic2006,vic-doncaster,vic-doncaster-3,Argondizzo,Lidia,ALP,,ALP,3,0
+vic2006,vic-doncaster,vic-doncaster-4,Gymer,Chris,Greens,,GRN,4,0
+vic2006,vic-doncaster,vic-doncaster-5,Peak,Dot,FAMILY FIRST,,FFP,5,0
+vic2006,vic-eltham,vic-eltham-1,Herbert,Steve,ALP,,ALP,1,1
+vic2006,vic-eltham,vic-eltham-2,Ondarchie,Craig,Liberal,,LIB,2,0
+vic2006,vic-eltham,vic-eltham-3,Porter,Shane,FAMILY FIRST,,FFP,3,0
+vic2006,vic-eltham,vic-eltham-4,Magner,Damian,Greens,,GRN,4,0
+vic2006,vic-essendon,vic-essendon-1,D'Souza,Conrad,Liberal,,LIB,1,0
+vic2006,vic-essendon,vic-essendon-2,Cutler,Philip,,,IND,2,0
+vic2006,vic-essendon,vic-essendon-3,Muntz,Bob,Greens,,GRN,3,0
+vic2006,vic-essendon,vic-essendon-4,Tsiglopoulos,Arthur,FAMILY FIRST,,FFP,4,0
+vic2006,vic-essendon,vic-essendon-5,Beck,Jeremy,CEC,,ACP,5,0
+vic2006,vic-essendon,vic-essendon-6,Maddigan,Judy,ALP,,ALP,6,1
+vic2006,vic-evelyn,vic-evelyn-1,Williamson,Roger,FAMILY FIRST,,FFP,1,0
+vic2006,vic-evelyn,vic-evelyn-2,Mctaggart,Heather,ALP,,ALP,2,0
+vic2006,vic-evelyn,vic-evelyn-3,Byrne,Peter,PEOPLE POWER,,OTH,3,0
+vic2006,vic-evelyn,vic-evelyn-4,Indigo-Rose,Justine,Greens,,GRN,4,0
+vic2006,vic-evelyn,vic-evelyn-5,Fyffe,Christine,Liberal,,LIB,5,1
+vic2006,vic-ferntree-gully,vic-ferntree-gully-1,Eckstein,Anne,ALP,,ALP,1,0
+vic2006,vic-ferntree-gully,vic-ferntree-gully-2,Bullock,Steve,Greens,,GRN,2,0
+vic2006,vic-ferntree-gully,vic-ferntree-gully-3,Rouse,Allister,FAMILY FIRST,,FFP,3,0
+vic2006,vic-ferntree-gully,vic-ferntree-gully-4,Wakeling,Nick,Liberal,,LIB,4,1
+vic2006,vic-ferntree-gully,vic-ferntree-gully-5,Russell,Ross,CEC,,ACP,5,0
+vic2006,vic-ferntree-gully,vic-ferntree-gully-6,Dowell,Adrian,PEOPLE POWER,,OTH,6,0
+vic2006,vic-footscray,vic-footscray-1,Thomson,Marsha,ALP,,ALP,1,1
+vic2006,vic-footscray,vic-footscray-2,Cumming,Catherine,,,IND,2,0
+vic2006,vic-footscray,vic-footscray-3,Nation,Cam,Liberal,,LIB,3,0
+vic2006,vic-footscray,vic-footscray-4,Ferrington,Greg,Greens,,GRN,4,0
+vic2006,vic-footscray,vic-footscray-5,Berchy,Ron,FAMILY FIRST,,FFP,5,0
+vic2006,vic-footscray,vic-footscray-6,Windisch,Margarita,SA,,OTH,6,0
+vic2006,vic-forest-hill,vic-forest-hill-1,Collins,Stella,FAMILY FIRST,,FFP,1,0
+vic2006,vic-forest-hill,vic-forest-hill-2,Marshall,Kirstie,ALP,,ALP,2,1
+vic2006,vic-forest-hill,vic-forest-hill-3,Kir,Mick,Greens,,GRN,3,0
+vic2006,vic-forest-hill,vic-forest-hill-4,Angus,Neil,Liberal,,LIB,4,0
+vic2006,vic-frankston,vic-frankston-1,Smith,Wendy,Greens,,GRN,1,0
+vic2006,vic-frankston,vic-frankston-2,Harkness,Alistair,ALP,,ALP,2,1
+vic2006,vic-frankston,vic-frankston-3,Mcarthur,Rochelle,Liberal,,LIB,3,0
+vic2006,vic-frankston,vic-frankston-4,Pleiter,Michael,FAMILY FIRST,,FFP,4,0
+vic2006,vic-frankston,vic-frankston-5,Davis,Fletcher,,,IND,5,0
+vic2006,vic-geelong,vic-geelong-1,Teer,Elsie,PEOPLE POWER,,OTH,1,0
+vic2006,vic-geelong,vic-geelong-2,Dixon,Scott,Liberal,,LIB,2,0
+vic2006,vic-geelong,vic-geelong-3,Lindsay,Bruce,Greens,,GRN,3,0
+vic2006,vic-geelong,vic-geelong-4,Trezise,Ian,ALP,,ALP,4,1
+vic2006,vic-geelong,vic-geelong-5,Plumridge,Gary D.,FAMILY FIRST,,FFP,5,0
+vic2006,vic-gembrook,vic-gembrook-1,Watson,Gordon,Greens,,GRN,1,0
+vic2006,vic-gembrook,vic-gembrook-2,Allcock,Robyn,PEOPLE POWER,,OTH,2,0
+vic2006,vic-gembrook,vic-gembrook-3,Wildes,Simon,Liberal,,LIB,3,0
+vic2006,vic-gembrook,vic-gembrook-4,Dean,Frank,,,IND,4,0
+vic2006,vic-gembrook,vic-gembrook-5,Gebbing,Peter,FAMILY FIRST,,FFP,5,0
+vic2006,vic-gembrook,vic-gembrook-6,Lobato,Tammy,ALP,,ALP,6,1
+vic2006,vic-gembrook,vic-gembrook-7,Mcconachy,Peter,Nationals,,NAT,7,0
+vic2006,vic-gippsland-east,vic-gippsland-east-1,De Jonge,Geoffrey,Greens,,GRN,1,0
+vic2006,vic-gippsland-east,vic-gippsland-east-2,Eastwood,Clint,,,IND,2,0
+vic2006,vic-gippsland-east,vic-gippsland-east-3,Beveridge,Dean Andrew,FAMILY FIRST,,FFP,3,0
+vic2006,vic-gippsland-east,vic-gippsland-east-4,Ingram,Craig,,,IND,4,1
+vic2006,vic-gippsland-east,vic-gippsland-east-5,Bommer,Peter,Liberal,,LIB,5,0
+vic2006,vic-gippsland-east,vic-gippsland-east-6,Nixon,Chris,Nationals,,NAT,6,0
+vic2006,vic-gippsland-east,vic-gippsland-east-7,Smith,Zach,ALP,,ALP,7,0
+vic2006,vic-gippsland-south,vic-gippsland-south-1,Wilson,Simon,Liberal,,LIB,1,0
+vic2006,vic-gippsland-south,vic-gippsland-south-2,Boyce,Steve,ALP,,ALP,2,0
+vic2006,vic-gippsland-south,vic-gippsland-south-3,Ryan,Peter,Nationals,,NAT,3,1
+vic2006,vic-gippsland-south,vic-gippsland-south-4,Heath,Clare,FAMILY FIRST,,FFP,4,0
+vic2006,vic-gippsland-south,vic-gippsland-south-5,Alblas,Theo,CEC,,ACP,5,0
+vic2006,vic-gippsland-south,vic-gippsland-south-6,Dargaville,Jackie,Greens,,GRN,6,0
+vic2006,vic-gippsland-south,vic-gippsland-south-7,Mccubbin,Jo,,,IND,7,0
+vic2006,vic-hastings,vic-hastings-1,King,Jim,Nationals,,NAT,1,0
+vic2006,vic-hastings,vic-hastings-2,Marcin,Melanie,FAMILY FIRST,,FFP,2,0
+vic2006,vic-hastings,vic-hastings-3,Buckley,Francine Monica,Greens,,GRN,3,0
+vic2006,vic-hastings,vic-hastings-4,Holm,Stuart Anthony,PEOPLE POWER,,OTH,4,0
+vic2006,vic-hastings,vic-hastings-5,Buchanan,Rosy,ALP,,ALP,5,0
+vic2006,vic-hastings,vic-hastings-6,Burgess,Neale,Liberal,,LIB,6,1
+vic2006,vic-hawthorn,vic-hawthorn-1,Baillieu,Ted,Liberal,,LIB,1,1
+vic2006,vic-hawthorn,vic-hawthorn-2,Birch,Lynda,Greens,,GRN,2,0
+vic2006,vic-hawthorn,vic-hawthorn-3,Sidhu,Veronica,FAMILY FIRST,,FFP,3,0
+vic2006,vic-hawthorn,vic-hawthorn-4,Mcnally,John,ALP,,ALP,4,0
+vic2006,vic-ivanhoe,vic-ivanhoe-1,Palmer,Marisa,Greens,,GRN,1,0
+vic2006,vic-ivanhoe,vic-ivanhoe-2,Langdon,Craig,ALP,,ALP,2,1
+vic2006,vic-ivanhoe,vic-ivanhoe-3,Gratton,Maxwell,Liberal,,LIB,3,0
+vic2006,vic-ivanhoe,vic-ivanhoe-4,Mulholland,Jenny,,,IND,4,0
+vic2006,vic-ivanhoe,vic-ivanhoe-5,Tan,Kevin,FAMILY FIRST,,FFP,5,0
+vic2006,vic-keilor,vic-keilor-1,Amberley,Scott,FAMILY FIRST,,FFP,1,0
+vic2006,vic-keilor,vic-keilor-2,Asbury,Lisa,Greens,,GRN,2,0
+vic2006,vic-keilor,vic-keilor-3,Seitz,George,ALP,,ALP,3,1
+vic2006,vic-keilor,vic-keilor-4,Clifford,John,Liberal,,LIB,4,0
+vic2006,vic-kew,vic-kew-1,Henley,Emma,Greens,,GRN,1,0
+vic2006,vic-kew,vic-kew-2,Dobinson,John F.,,,IND,2,0
+vic2006,vic-kew,vic-kew-3,Williams,Maree,ALP,,ALP,3,0
+vic2006,vic-kew,vic-kew-4,Mcintosh,Andrew,Liberal,,LIB,4,1
+vic2006,vic-kew,vic-kew-5,Pattisonn,Wallis,FAMILY FIRST,,FFP,5,0
+vic2006,vic-kilsyth,vic-kilsyth-1,Schwab,Gillian,FAMILY FIRST,,FFP,1,0
+vic2006,vic-kilsyth,vic-kilsyth-2,Beard,Dympna,ALP,,ALP,2,0
+vic2006,vic-kilsyth,vic-kilsyth-3,Craig,Salore,Greens,,GRN,3,0
+vic2006,vic-kilsyth,vic-kilsyth-4,Hill,Patsy,,,IND,4,0
+vic2006,vic-kilsyth,vic-kilsyth-5,Hodgett,David,Liberal,,LIB,5,1
+vic2006,vic-kororoit,vic-kororoit-1,Walters,Tania,FAMILY FIRST,,FFP,1,0
+vic2006,vic-kororoit,vic-kororoit-2,Kozlowski,Andre,CEC,,ACP,2,0
+vic2006,vic-kororoit,vic-kororoit-3,Haermeyer,Andre,ALP,,ALP,3,1
+vic2006,vic-kororoit,vic-kororoit-4,Alexander,Mick,Liberal,,LIB,4,0
+vic2006,vic-kororoit,vic-kororoit-5,Power,Marcus,Greens,,GRN,5,0
+vic2006,vic-lara,vic-lara-1,Haines,Peter,FAMILY FIRST,,FFP,1,0
+vic2006,vic-lara,vic-lara-2,Eren,John,ALP,,ALP,2,1
+vic2006,vic-lara,vic-lara-3,Kakouros,Angelo,Liberal,,LIB,3,0
+vic2006,vic-lara,vic-lara-4,Jones,Catherine,Greens,,GRN,4,0
+vic2006,vic-lowan,vic-lowan-1,Delahunty,Hugh,Nationals,,NAT,1,1
+vic2006,vic-lowan,vic-lowan-2,Battista,Paul,ALP,,ALP,2,0
+vic2006,vic-lowan,vic-lowan-3,Presser,Graeme,FAMILY FIRST,,FFP,3,0
+vic2006,vic-lowan,vic-lowan-4,Rainsford,Katrina,Liberal,,LIB,4,0
+vic2006,vic-lowan,vic-lowan-5,Daly,Rob,Greens,,GRN,5,0
+vic2006,vic-lyndhurst,vic-lyndhurst-1,Holding,Tim,ALP,,ALP,1,1
+vic2006,vic-lyndhurst,vic-lyndhurst-2,Anderton,Gary,Liberal,,LIB,2,0
+vic2006,vic-lyndhurst,vic-lyndhurst-3,Ford,Gordon W.,,,IND,3,0
+vic2006,vic-lyndhurst,vic-lyndhurst-4,Walsh,Jenny,FAMILY FIRST,,FFP,4,0
+vic2006,vic-lyndhurst,vic-lyndhurst-5,Henley,Andrew,Greens,,GRN,5,0
+vic2006,vic-macedon,vic-macedon-1,O'Connor,Frank,FAMILY FIRST,,FFP,1,0
+vic2006,vic-macedon,vic-macedon-2,Johnson,Leigh,Greens,,GRN,2,0
+vic2006,vic-macedon,vic-macedon-3,Guthrie,Rob,PEOPLE POWER,,OTH,3,0
+vic2006,vic-macedon,vic-macedon-4,Medcraft,Steve Jack,,,IND,4,0
+vic2006,vic-macedon,vic-macedon-5,Head,Robyne,Liberal,,LIB,5,0
+vic2006,vic-macedon,vic-macedon-6,Barry,Dave,,,IND,6,0
+vic2006,vic-macedon,vic-macedon-7,Duncan,Joanne,ALP,,ALP,7,1
+vic2006,vic-malvern,vic-malvern-1,Vout,Paul,ALP,,ALP,1,0
+vic2006,vic-malvern,vic-malvern-2,Grauer,Ann,FAMILY FIRST,,FFP,2,0
+vic2006,vic-malvern,vic-malvern-3,Giles,Tania,Greens,,GRN,3,0
+vic2006,vic-malvern,vic-malvern-4,Holmes,Deborah,PEOPLE POWER,,OTH,4,0
+vic2006,vic-malvern,vic-malvern-5,O'Brien,Michael,Liberal,,LIB,5,1
+vic2006,vic-melbourne,vic-melbourne-1,Collins,Isabell,PEOPLE POWER,,OTH,1,0
+vic2006,vic-melbourne,vic-melbourne-2,Di Natale,Richard,Greens,,GRN,2,0
+vic2006,vic-melbourne,vic-melbourne-3,Pike,Bronwyn,ALP,,ALP,3,1
+vic2006,vic-melbourne,vic-melbourne-4,Gebbing,Rebecca,FAMILY FIRST,,FFP,4,0
+vic2006,vic-melbourne,vic-melbourne-5,Papas,Steve,Liberal,,LIB,5,0
+vic2006,vic-melbourne,vic-melbourne-6,Chamberlin,Kevin F.,,,IND,6,0
+vic2006,vic-melton,vic-melton-1,Southall,John,,,IND,1,0
+vic2006,vic-melton,vic-melton-2,Hooper,Graham,Liberal,,LIB,2,0
+vic2006,vic-melton,vic-melton-3,Sanders,Jeremy,Greens,,GRN,3,0
+vic2006,vic-melton,vic-melton-4,Goodman,John J.,,,IND,4,0
+vic2006,vic-melton,vic-melton-5,Nardella,Don,ALP,,ALP,5,1
+vic2006,vic-melton,vic-melton-6,Lee,Pamela,FAMILY FIRST,,FFP,6,0
+vic2006,vic-mildura,vic-mildura-1,Middleton,Tim,FAMILY FIRST,,FFP,1,0
+vic2006,vic-mildura,vic-mildura-2,Crisp,Peter,Nationals,,NAT,2,1
+vic2006,vic-mildura,vic-mildura-3,Katis,Chris,,,IND,3,0
+vic2006,vic-mildura,vic-mildura-4,Sedgmen,Gavin,Liberal,,LIB,4,0
+vic2006,vic-mildura,vic-mildura-5,Smith,Alison,ALP,,ALP,5,0
+vic2006,vic-mildura,vic-mildura-6,Savage,Russell,,,IND,6,0
+vic2006,vic-mildura,vic-mildura-7,Rivendell,Bruce,Greens,,GRN,7,0
+vic2006,vic-mill-park,vic-mill-park-1,Mcleod,Carmel,FAMILY FIRST,,FFP,1,0
+vic2006,vic-mill-park,vic-mill-park-2,Papaevangelou,Adam,Liberal,,LIB,2,0
+vic2006,vic-mill-park,vic-mill-park-3,D'Ambrosio,Lily,ALP,,ALP,3,1
+vic2006,vic-mill-park,vic-mill-park-4,Hughes,Benedict,Greens,,GRN,4,0
+vic2006,vic-mill-park,vic-mill-park-5,Stow,Christine,PEOPLE POWER,,OTH,5,0
+vic2006,vic-mitcham,vic-mitcham-1,Robinson,Tony,ALP,,ALP,1,1
+vic2006,vic-mitcham,vic-mitcham-2,Partridge,Sharon L.,PEOPLE POWER,,OTH,2,0
+vic2006,vic-mitcham,vic-mitcham-3,Allan,Peter,,,IND,3,0
+vic2006,vic-mitcham,vic-mitcham-4,Daw,Philip,Liberal,,LIB,4,0
+vic2006,vic-mitcham,vic-mitcham-5,Redman,Rob,Greens,,GRN,5,0
+vic2006,vic-mitcham,vic-mitcham-6,Rawson,Miriam,FAMILY FIRST,,FFP,6,0
+vic2006,vic-monbulk,vic-monbulk-1,Larkman,Clive,Liberal,,LIB,1,0
+vic2006,vic-monbulk,vic-monbulk-2,Merlino,James,ALP,,ALP,2,1
+vic2006,vic-monbulk,vic-monbulk-3,Huybers,Carl,FAMILY FIRST,,FFP,3,0
+vic2006,vic-monbulk,vic-monbulk-4,Stride,Joanne,PEOPLE POWER,,OTH,4,0
+vic2006,vic-monbulk,vic-monbulk-5,Stephen,Robert,Greens,,GRN,5,0
+vic2006,vic-mordialloc,vic-mordialloc-1,Nerenberg,Shana,Greens,,GRN,1,0
+vic2006,vic-mordialloc,vic-mordialloc-2,Milroy,Jadah,FAMILY FIRST,,FFP,2,0
+vic2006,vic-mordialloc,vic-mordialloc-3,Hartney,Stephen,Liberal,,LIB,3,0
+vic2006,vic-mordialloc,vic-mordialloc-4,Munt,Janice,ALP,,ALP,4,1
+vic2006,vic-mornington,vic-mornington-1,Morris,David,Liberal,,LIB,1,1
+vic2006,vic-mornington,vic-mornington-2,Puls,William,ALP,,ALP,2,0
+vic2006,vic-mornington,vic-mornington-3,Clarke,Thea,FAMILY FIRST,,FFP,3,0
+vic2006,vic-mornington,vic-mornington-4,Jones,Malcolm,Greens,,GRN,4,0
+vic2006,vic-mornington,vic-mornington-5,Fleming,Mark,PEOPLE POWER,,OTH,5,0
+vic2006,vic-morwell,vic-morwell-1,Wrathall,Jeffrey,Greens,,GRN,1,0
+vic2006,vic-morwell,vic-morwell-2,Proctor,Lisa,,,IND,2,0
+vic2006,vic-morwell,vic-morwell-3,Northe,Russell,Nationals,,NAT,3,1
+vic2006,vic-morwell,vic-morwell-4,Parker,Stephen,Liberal,,LIB,4,0
+vic2006,vic-morwell,vic-morwell-5,Koo,Katy,FAMILY FIRST,,FFP,5,0
+vic2006,vic-morwell,vic-morwell-6,Jenkins,Brendan,ALP,,ALP,6,0
+vic2006,vic-mount-waverley,vic-mount-waverley-1,Paxinos,Kali,PEOPLE POWER,,OTH,1,0
+vic2006,vic-mount-waverley,vic-mount-waverley-2,Gidley,Michael,Liberal,,LIB,2,0
+vic2006,vic-mount-waverley,vic-mount-waverley-3,Morand,Maxine,ALP,,ALP,3,1
+vic2006,vic-mount-waverley,vic-mount-waverley-4,Boland,John,FAMILY FIRST,,FFP,4,0
+vic2006,vic-mount-waverley,vic-mount-waverley-5,Poppins,John,Greens,,GRN,5,0
+vic2006,vic-mount-waverley,vic-mount-waverley-6,Smith,N. H.,,,IND,6,0
+vic2006,vic-mulgrave,vic-mulgrave-1,Andrews,Daniel,ALP,,ALP,1,1
+vic2006,vic-mulgrave,vic-mulgrave-2,Ashokkumar,Ashton,Liberal,,LIB,2,0
+vic2006,vic-mulgrave,vic-mulgrave-3,Badwal,Penny,FAMILY FIRST,,FFP,3,0
+vic2006,vic-mulgrave,vic-mulgrave-4,Owen,Jon,Greens,,GRN,4,0
+vic2006,vic-murray-valley,vic-murray-valley-1,Kunert,Carol,Greens,,GRN,1,0
+vic2006,vic-murray-valley,vic-murray-valley-2,O'Neill,Lauren,ALP,,ALP,2,0
+vic2006,vic-murray-valley,vic-murray-valley-3,Duke,Garry,FAMILY FIRST,,FFP,3,0
+vic2006,vic-murray-valley,vic-murray-valley-4,Mchugh,Nick,Liberal,,LIB,4,0
+vic2006,vic-murray-valley,vic-murray-valley-5,Jasper,Ken,Nationals,,NAT,5,1
+vic2006,vic-narracan,vic-narracan-1,Jackson,Kate,Greens,,GRN,1,0
+vic2006,vic-narracan,vic-narracan-2,Marks,Roger A.,PEOPLE POWER,,OTH,2,0
+vic2006,vic-narracan,vic-narracan-3,Bird,Steven Maxwell,CEC,,ACP,3,0
+vic2006,vic-narracan,vic-narracan-4,Verhoeven,John,Nationals,,NAT,4,0
+vic2006,vic-narracan,vic-narracan-5,Blackwood,Gary,Liberal,,LIB,5,1
+vic2006,vic-narracan,vic-narracan-6,Mckenna,Terry,FAMILY FIRST,,FFP,6,0
+vic2006,vic-narracan,vic-narracan-7,Maxfield,Ian,ALP,,ALP,7,0
+vic2006,vic-narre-warren-north,vic-narre-warren-north-1,Taylor,Bree,Greens,,GRN,1,0
+vic2006,vic-narre-warren-north,vic-narre-warren-north-2,Smulders,Peterine,FAMILY FIRST,,FFP,2,0
+vic2006,vic-narre-warren-north,vic-narre-warren-north-3,Morland,Mick,Liberal,,LIB,3,0
+vic2006,vic-narre-warren-north,vic-narre-warren-north-4,Donnellan,Luke,ALP,,ALP,4,1
+vic2006,vic-narre-warren-north,vic-narre-warren-north-5,Murphy,Ian,PEOPLE POWER,,OTH,5,0
+vic2006,vic-narre-warren-south,vic-narre-warren-south-1,Tanti,Meg,Greens,,GRN,1,0
+vic2006,vic-narre-warren-south,vic-narre-warren-south-2,Rawlins,Bronwyn,FAMILY FIRST,,FFP,2,0
+vic2006,vic-narre-warren-south,vic-narre-warren-south-3,Graley,Judith,ALP,,ALP,3,1
+vic2006,vic-narre-warren-south,vic-narre-warren-south-4,Shepherdson,Michael,Liberal,,LIB,4,0
+vic2006,vic-nepean,vic-nepean-1,Dixon,Martin,Liberal,,LIB,1,1
+vic2006,vic-nepean,vic-nepean-2,Marshall,Anne,ALP,,ALP,2,0
+vic2006,vic-nepean,vic-nepean-3,Nelson,Craig,FAMILY FIRST,,FFP,3,0
+vic2006,vic-nepean,vic-nepean-4,Kelsall,Henry,Greens,,GRN,4,0
+vic2006,vic-niddrie,vic-niddrie-1,Lee,Gwen,Greens,,GRN,1,0
+vic2006,vic-niddrie,vic-niddrie-2,Markovic,Mark,FAMILY FIRST,,FFP,2,0
+vic2006,vic-niddrie,vic-niddrie-3,Buonopane,James,Liberal,,LIB,3,0
+vic2006,vic-niddrie,vic-niddrie-4,Hulls,Rob,ALP,,ALP,4,1
+vic2006,vic-northcote,vic-northcote-1,Willis,Daniel,FAMILY FIRST,,FFP,1,0
+vic2006,vic-northcote,vic-northcote-2,Bhathal,Alex,Greens,,GRN,2,0
+vic2006,vic-northcote,vic-northcote-3,Richardson,Fiona,ALP,,ALP,3,1
+vic2006,vic-northcote,vic-northcote-4,Watt,Graham,Liberal,,LIB,4,0
+vic2006,vic-northcote,vic-northcote-5,Lewin-Hill,Darren,,,IND,5,0
+vic2006,vic-oakleigh,vic-oakleigh-1,Billman,Matthew,Greens,,GRN,1,0
+vic2006,vic-oakleigh,vic-oakleigh-2,Barker,Ann,ALP,,ALP,2,1
+vic2006,vic-oakleigh,vic-oakleigh-3,Khoo,Joyce,FAMILY FIRST,,FFP,3,0
+vic2006,vic-oakleigh,vic-oakleigh-4,Dixon,Colin,Liberal,,LIB,4,0
+vic2006,vic-pascoe-vale,vic-pascoe-vale-1,Tomisich,Claude,Liberal,,LIB,1,0
+vic2006,vic-pascoe-vale,vic-pascoe-vale-2,Collis,David,Greens,,GRN,2,0
+vic2006,vic-pascoe-vale,vic-pascoe-vale-3,Campbell,Christine,ALP,,ALP,3,1
+vic2006,vic-pascoe-vale,vic-pascoe-vale-4,Pittari,Stefan,FAMILY FIRST,,FFP,4,0
+vic2006,vic-pascoe-vale,vic-pascoe-vale-5,Isherwood,Noelene,CEC,,ACP,5,0
+vic2006,vic-polwarth,vic-polwarth-1,Atherden,Natalie,Greens,,GRN,1,0
+vic2006,vic-polwarth,vic-polwarth-2,Pearce,Trevor Walter,FAMILY FIRST,,FFP,2,0
+vic2006,vic-polwarth,vic-polwarth-3,Neal,Charles,Nationals,,NAT,3,0
+vic2006,vic-polwarth,vic-polwarth-4,Cheeseman,Darren,ALP,,ALP,4,0
+vic2006,vic-polwarth,vic-polwarth-5,Mulder,Terry,Liberal,,LIB,5,1
+vic2006,vic-prahran,vic-prahran-1,Walker,Justin,Greens,,GRN,1,0
+vic2006,vic-prahran,vic-prahran-2,Lupton,Tony,ALP,,ALP,2,1
+vic2006,vic-prahran,vic-prahran-3,Newton-Brown,Clem,Liberal,,LIB,3,0
+vic2006,vic-prahran,vic-prahran-4,Pinto,Gary,FAMILY FIRST,,FFP,4,0
+vic2006,vic-preston,vic-preston-1,Scott,Robin,ALP,,ALP,1,1
+vic2006,vic-preston,vic-preston-2,Chaplin,Chris,Greens,,GRN,2,0
+vic2006,vic-preston,vic-preston-3,Field,Christopher David,FAMILY FIRST,,FFP,3,0
+vic2006,vic-preston,vic-preston-4,Hammond,Peter,Liberal,,LIB,4,0
+vic2006,vic-preston,vic-preston-5,Barwick,Robert,CEC,,ACP,5,0
+vic2006,vic-richmond,vic-richmond-1,Grummet,Richard,PEOPLE POWER,,OTH,1,0
+vic2006,vic-richmond,vic-richmond-2,Bown Seeley,Ann,FAMILY FIRST,,FFP,2,0
+vic2006,vic-richmond,vic-richmond-3,Sekhon,Gurm,Greens,,GRN,3,0
+vic2006,vic-richmond,vic-richmond-4,Wynne,Richard,ALP,,ALP,4,1
+vic2006,vic-richmond,vic-richmond-5,Watts,Luke,,,IND,5,0
+vic2006,vic-richmond,vic-richmond-6,Jolly,Stephen,,,IND,6,0
+vic2006,vic-richmond,vic-richmond-7,Walkley,Maina,Liberal,,LIB,7,0
+vic2006,vic-ripon,vic-ripon-1,Smith,Robyn,Nationals,,NAT,1,0
+vic2006,vic-ripon,vic-ripon-2,Dunn,Vic,Liberal,,LIB,2,0
+vic2006,vic-ripon,vic-ripon-3,Rawson,Leanne,FAMILY FIRST,,FFP,3,0
+vic2006,vic-ripon,vic-ripon-4,Morse,Steven,Greens,,GRN,4,0
+vic2006,vic-ripon,vic-ripon-5,Helper,Joe,ALP,,ALP,5,1
+vic2006,vic-rodney,vic-rodney-1,Repacholi,Neil,Liberal,,LIB,1,0
+vic2006,vic-rodney,vic-rodney-2,Weller,Paul,Nationals,,NAT,2,1
+vic2006,vic-rodney,vic-rodney-3,Simmons,Jeff,,,IND,3,0
+vic2006,vic-rodney,vic-rodney-4,Murphy,Tony,,,IND,4,0
+vic2006,vic-rodney,vic-rodney-5,Castleman,Nicola,ALP,,ALP,5,0
+vic2006,vic-rodney,vic-rodney-6,Bachelor,Paul Edward,FAMILY FIRST,,FFP,6,0
+vic2006,vic-rodney,vic-rodney-7,Lowe,Beck,Greens,,GRN,7,0
+vic2006,vic-sandringham,vic-sandringham-1,Pullen,Noel,ALP,,ALP,1,0
+vic2006,vic-sandringham,vic-sandringham-2,Thompson,Murray,Liberal,,LIB,2,1
+vic2006,vic-sandringham,vic-sandringham-3,Campbell,Stuart,FAMILY FIRST,,FFP,3,0
+vic2006,vic-sandringham,vic-sandringham-4,Mcphate,Bruce,Greens,,GRN,4,0
+vic2006,vic-sandringham,vic-sandringham-5,Castelli,Sonia,,,IND,5,0
+vic2006,vic-scoresby,vic-scoresby-1,Lake,Peter,FAMILY FIRST,,FFP,1,0
+vic2006,vic-scoresby,vic-scoresby-2,Tibble,John,PEOPLE POWER,,OTH,2,0
+vic2006,vic-scoresby,vic-scoresby-3,Wells,Kim,Liberal,,LIB,3,1
+vic2006,vic-scoresby,vic-scoresby-4,Thompson,Rex,Greens,,GRN,4,0
+vic2006,vic-scoresby,vic-scoresby-5,Raleigh,Gerry,ALP,,ALP,5,0
+vic2006,vic-seymour,vic-seymour-1,Dalmau,Mike,Liberal,,LIB,1,0
+vic2006,vic-seymour,vic-seymour-2,O'Sullivan,Sean,Greens,,GRN,2,0
+vic2006,vic-seymour,vic-seymour-3,Dolan,Josh,FAMILY FIRST,,FFP,3,0
+vic2006,vic-seymour,vic-seymour-4,Gordon,Robert,PEOPLE POWER,,OTH,4,0
+vic2006,vic-seymour,vic-seymour-5,Hardman,Ben,ALP,,ALP,5,1
+vic2006,vic-shepparton,vic-shepparton-1,Ralph,Doug,Greens,,GRN,1,0
+vic2006,vic-shepparton,vic-shepparton-2,Taylor,James,ALP,,ALP,2,0
+vic2006,vic-shepparton,vic-shepparton-3,Meyer,Neil Martin,FAMILY FIRST,,FFP,3,0
+vic2006,vic-shepparton,vic-shepparton-4,Merrylees,Stephen,Liberal,,LIB,4,0
+vic2006,vic-shepparton,vic-shepparton-5,Powell,Jeanette,Nationals,,NAT,5,1
+vic2006,vic-south-west-coast,vic-south-west-coast-1,Reekie,Roy,ALP,,ALP,1,0
+vic2006,vic-south-west-coast,vic-south-west-coast-2,Wilson,Barry M.,FAMILY FIRST,,FFP,2,0
+vic2006,vic-south-west-coast,vic-south-west-coast-3,Napthine,Denis,Liberal,,LIB,3,1
+vic2006,vic-south-west-coast,vic-south-west-coast-4,O'Brien,David,Nationals,,NAT,4,0
+vic2006,vic-south-west-coast,vic-south-west-coast-5,Adams,Phoebe,Greens,,GRN,5,0
+vic2006,vic-south-west-coast,vic-south-west-coast-6,Noske,Mike,PEOPLE POWER,,OTH,6,0
+vic2006,vic-south-barwon,vic-south-barwon-1,Tinney,Jonathan,FAMILY FIRST,,FFP,1,0
+vic2006,vic-south-barwon,vic-south-barwon-2,Lambert,John M.,,,IND,2,0
+vic2006,vic-south-barwon,vic-south-barwon-3,King,Michael,Liberal,,LIB,3,0
+vic2006,vic-south-barwon,vic-south-barwon-4,Crutchfield,Michael,ALP,,ALP,4,1
+vic2006,vic-south-barwon,vic-south-barwon-5,Walters,Matthew,Greens,,GRN,5,0
+vic2006,vic-swan-hill,vic-swan-hill-1,Campbell,Trudy,CEC,,ACP,1,0
+vic2006,vic-swan-hill,vic-swan-hill-2,Tomamichel,Suellen,Liberal,,LIB,2,0
+vic2006,vic-swan-hill,vic-swan-hill-3,Jones,Martin Patrick,FAMILY FIRST,,FFP,3,0
+vic2006,vic-swan-hill,vic-swan-hill-4,Morrison,Glenn,ALP,,ALP,4,0
+vic2006,vic-swan-hill,vic-swan-hill-5,Walsh,Peter,Nationals,,NAT,5,1
+vic2006,vic-swan-hill,vic-swan-hill-6,Roberts,Simon,Greens,,GRN,6,0
+vic2006,vic-tarneit,vic-tarneit-1,Gibbons,John,,,IND,1,0
+vic2006,vic-tarneit,vic-tarneit-2,Goldsworthy,Michael,PEOPLE POWER,,OTH,2,0
+vic2006,vic-tarneit,vic-tarneit-3,Harrison,Chris,FAMILY FIRST,,FFP,3,0
+vic2006,vic-tarneit,vic-tarneit-4,Rose,Mark,Liberal,,LIB,4,0
+vic2006,vic-tarneit,vic-tarneit-5,Pallas,Tim,ALP,,ALP,5,1
+vic2006,vic-tarneit,vic-tarneit-6,Boyd,Pamela,Greens,,GRN,6,0
+vic2006,vic-thomastown,vic-thomastown-1,Batchelor,Peter,ALP,,ALP,1,1
+vic2006,vic-thomastown,vic-thomastown-2,Hargrave,Jen,Greens,,GRN,2,0
+vic2006,vic-thomastown,vic-thomastown-3,Coles,Simon,Liberal,,LIB,3,0
+vic2006,vic-thomastown,vic-thomastown-4,Rebbechi,Tim,FAMILY FIRST,,FFP,4,0
+vic2006,vic-warrandyte,vic-warrandyte-1,Ellis,David,Greens,,GRN,1,0
+vic2006,vic-warrandyte,vic-warrandyte-2,Panther,Jarrod,ALP,,ALP,2,0
+vic2006,vic-warrandyte,vic-warrandyte-3,Bronte,Paul,FAMILY FIRST,,FFP,3,0
+vic2006,vic-warrandyte,vic-warrandyte-4,Smith,Ryan,Liberal,,LIB,4,1
+vic2006,vic-williamstown,vic-williamstown-1,Hayes,Veronica,FAMILY FIRST,,FFP,1,0
+vic2006,vic-williamstown,vic-williamstown-2,Bracks,Steve,ALP,,ALP,2,1
+vic2006,vic-williamstown,vic-williamstown-3,Evers-Buckland,Alan,Liberal,,LIB,3,0
+vic2006,vic-williamstown,vic-williamstown-4,Faltermaier,Michael,Greens,,GRN,4,0
+vic2006,vic-williamstown,vic-williamstown-5,Assaf,Wajde,,,IND,5,0
+vic2006,vic-yan-yean,vic-yan-yean-1,Mawhinney,Brian,PEOPLE POWER,,OTH,1,0
+vic2006,vic-yan-yean,vic-yan-yean-2,Field,Matthew,FAMILY FIRST,,FFP,2,0
+vic2006,vic-yan-yean,vic-yan-yean-3,Geradts,Karin,Greens,,GRN,3,0
+vic2006,vic-yan-yean,vic-yan-yean-4,Ivanovski,Aneta,Liberal,,LIB,4,0
+vic2006,vic-yan-yean,vic-yan-yean-5,Clarkson,Belinda,,,IND,5,0
+vic2006,vic-yan-yean,vic-yan-yean-6,Green,Danielle,ALP,,ALP,6,1
+vic2006,vic-yuroke,vic-yuroke-1,Connell,Belinda,Greens,,GRN,1,0
+vic2006,vic-yuroke,vic-yuroke-2,Finn,Cathy,Liberal,,LIB,2,0
+vic2006,vic-yuroke,vic-yuroke-3,Barrett,George,FAMILY FIRST,,FFP,3,0
+vic2006,vic-yuroke,vic-yuroke-4,Beattie,Liz,ALP,,ALP,4,1

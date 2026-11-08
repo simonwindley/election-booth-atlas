@@ -18,7 +18,7 @@ from shapely import make_valid
 import h3
 
 OUT = 'data/catchments'
-SETS = {'vic2010': 'vic_la_2001', 'vic2014': 'vic_la_2013', 'vic2018': 'vic_la_2013', 'vic2022': 'vic_la_2022', 'vic2023n': 'vic_la_2022', 'fed2010': 'fed_2003', 'fed2013': 'fed_2010', 'fed2016': 'fed_2010', 'fed2019': 'fed_2018', 'fed2022': 'fed_2021', 'fed2025': 'fed_2024'}
+SETS = {'vic1999': 'vic_la_1991', 'vic2002': 'vic_la_2001', 'vic2006': 'vic_la_2001', 'fed2004': 'fed_2003', 'fed2007': 'fed_2003', 'vic2010': 'vic_la_2001', 'vic2014': 'vic_la_2013', 'vic2018': 'vic_la_2013', 'vic2022': 'vic_la_2022', 'vic2023n': 'vic_la_2022', 'fed2010': 'fed_2003', 'fed2013': 'fed_2010', 'fed2016': 'fed_2010', 'fed2019': 'fed_2018', 'fed2022': 'fed_2021', 'fed2025': 'fed_2024'}
 
 
 def polygons(set_name):
@@ -83,5 +83,7 @@ def build(con, eid, set_name):
 
 if __name__ == '__main__':
     con = sqlite3.connect(sys.argv[1])
+    only = sys.argv[2].split(',') if len(sys.argv) > 2 else None   # optional: just these elections
     for eid, s in SETS.items():
-        build(con, eid, s)
+        if only is None or eid in only:
+            build(con, eid, s)

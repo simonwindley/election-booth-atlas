@@ -9,11 +9,16 @@ import pandas as pd
 
 ELECTIONS = {
     # election_id: (level, date, name)
+    'vic1999': ('state', '1999-09-18', 'Victorian state election 1999'),
+    'vic2002': ('state', '2002-11-30', 'Victorian state election 2002'),
+    'vic2006': ('state', '2006-11-25', 'Victorian state election 2006'),
     'vic2010': ('state', '2010-11-27', 'Victorian state election 2010'),
     'vic2014': ('state', '2014-11-29', 'Victorian state election 2014'),
     'vic2018': ('state', '2018-11-24', 'Victorian state election 2018'),
     'vic2022': ('state', '2022-11-26', 'Victorian state election 2022'),
     'vic2023n': ('state', '2023-01-28', 'Narracan supplementary election 2023'),
+    'fed2004': ('federal', '2004-10-09', 'Federal election 2004'),
+    'fed2007': ('federal', '2007-11-24', 'Federal election 2007'),
     'fed2010': ('federal', '2010-08-21', 'Federal election 2010'),
     'fed2013': ('federal', '2013-09-07', 'Federal election 2013'),
     'fed2016': ('federal', '2016-07-02', 'Federal election 2016'),
@@ -44,7 +49,8 @@ def main(db_path, data_dir):
             tables.setdefault(t, []).append(pd.read_csv(f))
     for t, dfs in tables.items():
         pd.concat(dfs, ignore_index=True).to_sql(t, con, index=False)
-    pd.DataFrame([{'election_id': k, 'level': v[0], 'date': v[1], 'name': v[2]} for k, v in ELECTIONS.items()]).to_sql('elections', con, index=False)
+    have = set(pd.concat(tables['contests']).election_id)
+    pd.DataFrame([{'election_id': k, 'level': v[0], 'date': v[1], 'name': v[2]} for k, v in ELECTIONS.items() if k in have]).to_sql('elections', con, index=False)
     venues = pd.read_csv(f'{data_dir}/venues/venues.csv')
     venues.to_sql('venues', con, index=False)
     bv = pd.read_csv(f'{data_dir}/venues/vec_booth_venue.csv')
@@ -55,7 +61,11 @@ def main(db_path, data_dir):
     ab = ab[ab.election_id.str.startswith('fed') & ab.lat.notna()].copy()
     ab['vkey'] = ab.premises.fillna('').map(norm) + '|' + ab.lat.round(2).astype(str) + '|' + ab.lon.round(2).astype(str)
     ab = ab.merge(venues[['vkey', 'venue_id']], on='vkey', how='left')
-    ab[['election_id', 'booth_id', 'venue_id']].to_sql('aec_booth_venue', con, index=False)
+    ab = ab[['election_id', 'booth_id', 'venue_id']]
+    if os.path.exists(f'{data_dir}/venues/aec_old_booth_venue.csv'):   # 2004 and 2007: src.match_old_aec
+        old = pd.read_csv(f'{data_dir}/venues/aec_old_booth_venue.csv')
+        ab = pd.concat([ab[~ab.election_id.isin(old.election_id.unique())], old[old.venue_id.notna()][['election_id', 'booth_id', 'venue_id']]], ignore_index=True)
+    ab.to_sql('aec_booth_venue', con, index=False)
     pd.read_csv(f'{data_dir}/venues/geocoded.csv').to_sql('geocoded', con, index=False)
     if os.path.exists(f'{data_dir}/senate/senators_elected.csv'):
         pd.read_csv(f'{data_dir}/senate/senators_elected.csv').to_sql('senators_elected', con, index=False)
@@ -65,8 +75,9 @@ def main(db_path, data_dir):
     SELECT b.election_id, b.contest_id, b.booth_id, b.booth_type,
            COALESCE(CASE WHEN b.election_id LIKE 'fed%' THEN v.venue_id ELSE m.venue_id END,
                     CASE WHEN g.lat IS NOT NULL THEN 'g-' || b.booth_id END) AS venue_id,
-           COALESCE(b.lat, v2.lat, g.lat) AS lat, COALESCE(b.lon, v2.lon, g.lon) AS lon,
+           COALESCE(b.lat, v2.lat, v3.lat, g.lat) AS lat, COALESCE(b.lon, v2.lon, v3.lon, g.lon) AS lon,
            CASE WHEN b.lat IS NOT NULL THEN 'aec'
+                WHEN v3.lat IS NOT NULL THEN 'aec_id_match'
                 WHEN m.method IN ('exact_unique','exact_cluster','exact_nearest') THEN 'aec_name_match'
                 WHEN m.method = 'fuzzy' THEN 'aec_fuzzy_review'
                 WHEN g.lat IS NOT NULL THEN 'geocoded_approx' ELSE NULL END AS geo_source
@@ -74,6 +85,7 @@ def main(db_path, data_dir):
     LEFT JOIN vec_booth_venue m ON m.booth_id = b.booth_id AND m.method <> 'unmatched' AND m.method <> 'fuzzy'
     LEFT JOIN venues v2 ON v2.venue_id = m.venue_id
     LEFT JOIN aec_booth_venue v ON v.election_id = b.election_id AND v.booth_id = b.booth_id
+    LEFT JOIN venues v3 ON v3.venue_id = v.venue_id AND b.lat IS NULL
     LEFT JOIN geocoded g ON g.booth_id = b.booth_id;
     CREATE INDEX ix_fp ON fp_votes(election_id, contest_id, booth_id);
     CREATE INDEX ix_cand ON candidates(election_id, candidate_id);

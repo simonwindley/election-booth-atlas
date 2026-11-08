@@ -18,3 +18,6 @@ raw/boundaries/abs/sa1_*.geojson
 # how-to-vote card PDFs (GBs; the parsed orderings are in raw/htv/cards_*.json)
 raw/htv/2022/
 raw/htv/2026/
+
+# page caches from tools/fetch_history.py (re-fetchable; the parsed districts.json is committed)
+raw/vec/*/html/

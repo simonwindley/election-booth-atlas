@@ -14,6 +14,7 @@ from .parties import canon_from_name
 VOTE_TYPE_ROWS = {
     'absent votes': 'absent', 'early votes': 'early', 'marked as voted votes': 'marked_as_voted',
     'postal votes': 'postal', 'provisional votes': 'provisional', 'all votes votes': 'all_votes',
+    'declaration votes': 'provisional',   # the 1999-2006 name for the enrolment-declaration (provisional) votes
 }
 SKIP_ROWS = {'ordinary votes total', 'total', 'percentage of formal vote polled by candidate', ''}
 
@@ -61,6 +62,8 @@ def parse_booth_table(rows, cand_index):
         if key in SKIP_ROWS:
             continue
         kind = VOTE_TYPE_ROWS.get(key, 'ordinary')
+        if kind == 'ordinary' and (re.search(r'\bE Centre$', label) or label == 'Melbourne Airport'):
+            kind = 'early_centre'   # 1999-2006: an early voting centre (often another district's, or the airport) listed among the ordinary rows
         if len(r) < len(rows[1]):
             continue
         votes = {n: num(r[i]) for i, n in cand_cols}
@@ -144,11 +147,11 @@ def load(year, src, out):
         dist_key = next((k for k in pages if k.endswith('results-distribution')), None)
         booth_seen = {}
         def booth_id_for(label, kind):
-            if kind == 'ordinary':
+            if kind in ('ordinary', 'early_centre'):
                 bid = f'{cid}-{slug(label)}'
                 if bid not in booth_seen:
                     booth_seen[bid] = {'election_id': eid, 'contest_id': cid, 'booth_id': bid, 'booth_name': label,
-                                       'booth_type': 'ordinary', 'premises': '', 'address': '', 'suburb': '', 'postcode': '',
+                                       'booth_type': 'ordinary' if kind == 'ordinary' else 'early', 'premises': '', 'address': '', 'suburb': '', 'postcode': '',
                                        'lat': None, 'lon': None}
             else:
                 bid = f'{cid}-{kind}'
@@ -157,6 +160,14 @@ def load(year, src, out):
                                        'booth_type': kind, 'premises': '', 'address': '', 'suburb': '', 'postcode': '',
                                        'lat': None, 'lon': None}
             return bid
+        if not (fp_key and pages[fp_key]) and fp_tbl:
+            # no booth table survives (Ferntree Gully 2006 was never archived): keep the district totals as one 'all_votes' row
+            bid = booth_id_for('all votes', 'all_votes')
+            for r in fp_tbl[1:]:
+                if r[0] in cand_ids and num(r[2]) is not None:
+                    fp_votes.append({'election_id': eid, 'contest_id': cid, 'booth_id': bid, 'candidate_id': cand_ids[r[0]], 'votes': num(r[2])})
+            if s['informal'] is not None:
+                fp_votes.append({'election_id': eid, 'contest_id': cid, 'booth_id': bid, 'candidate_id': 'INFORMAL', 'votes': s['informal']})
         if fp_key and pages[fp_key]:
             for b in parse_booth_table(pages[fp_key][0], cand_ids):
                 bid = booth_id_for(b['label'], b['kind'])

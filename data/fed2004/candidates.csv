@@ -1,0 +1,258 @@
+election_id,contest_id,candidate_id,surname,given_name,party_name,party_ab_src,party,ballot_position,elected
+fed2004,fed-197,14486,MITCHELL,Doug,Citizens Electoral Council,CEC,ACP,1,0
+fed2004,fed-197,15032,ABSON,Michael,Australian Greens,GRN,GRN,2,0
+fed2004,fed-197,14771,NATHAN,Peter,Family First,FFP,FFP,3,0
+fed2004,fed-197,14255,PEARCE,Chris,Liberal,LP,LIB,4,1
+fed2004,fed-197,14647,MORGAN,Paul,Australian Labor Party,ALP,ALP,5,0
+fed2004,fed-197,15463,BREWER,Nevil,No GST,NGST,OTH,6,0
+fed2004,fed-197,15161,AYLIFFE,Nahum,Democrats,DEM,DEM,7,0
+fed2004,fed-198,14261,MATUSCHKA,Elizabeth,Liberal,LP,LIB,1,0
+fed2004,fed-198,15038,KELLY,Tony,Australian Greens,GRN,GRN,2,0
+fed2004,fed-198,14872,LINDORFF,Claire,D.L.P. - Democratic Labor Party,DLP,DLP,3,0
+fed2004,fed-198,14638,KING,Catherine,Australian Labor Party,ALP,ALP,4,1
+fed2004,fed-198,14511,von THULE HALBORG,Valiant,Citizens Electoral Council,CEC,ACP,5,0
+fed2004,fed-198,14862,ADAMEK,Vlad,Family First,FFP,FFP,6,0
+fed2004,fed-199,14239,GRATTON,Maxwell,Liberal,LP,LIB,1,0
+fed2004,fed-199,14657,FERGUSON,Martin,Australian Labor Party,ALP,ALP,2,1
+fed2004,fed-199,15191,KNEEBONE,Scott,Democrats,DEM,DEM,3,0
+fed2004,fed-199,14495,MELLADO,Walter Hernan,Citizens Electoral Council,CEC,ACP,4,0
+fed2004,fed-199,14966,BHATHAL,Alexandra,Australian Greens,GRN,GRN,5,0
+fed2004,fed-199,15513,BISHOP,Craig,Independent,IND,IND,6,0
+fed2004,fed-199,14663,BYRNE,Peter,,NAFD,IND,7,0
+fed2004,fed-199,14378,MATTHEWS,Graham,Socialist Alliance,SAL,SAP,8,0
+fed2004,fed-199,14712,ARIARATNAM,Chris,Family First,FFP,FFP,9,0
+fed2004,fed-200,14237,GIBBINS,Kevin,Liberal,LP,LIB,1,0
+fed2004,fed-200,14713,HULLS,Nathan,Family First,FFP,FFP,2,0
+fed2004,fed-200,14653,GIBBONS,Steve,Australian Labor Party,ALP,ALP,3,1
+fed2004,fed-200,14471,WHITE,Vern,Citizens Electoral Council,CEC,ACP,4,0
+fed2004,fed-200,14954,PETERSEN,David,Australian Greens,GRN,GRN,5,0
+fed2004,fed-201,14658,GRIFFIN,Alan,Australian Labor Party,ALP,ALP,1,1
+fed2004,fed-201,15000,GILES,Tania,Australian Greens,GRN,GRN,2,0
+fed2004,fed-201,14748,WARNER,Richard,Family First,FFP,FFP,3,0
+fed2004,fed-201,15147,van den BERGEN,Paul,Democrats,DEM,DEM,4,0
+fed2004,fed-201,14227,RANDALL,Angela,Liberal,LP,LIB,5,0
+fed2004,fed-201,14484,LARNER,William,Citizens Electoral Council,CEC,ACP,6,0
+fed2004,fed-203,14257,LIVETT,Dianne,Liberal,LP,LIB,1,0
+fed2004,fed-203,15050,CANHAM,Gary,Family First,FFP,FFP,2,0
+fed2004,fed-203,14485,YOHANNA,Sleiman,Citizens Electoral Council,CEC,ACP,3,0
+fed2004,fed-203,15051,ALMAN,Mohamad,Australian Greens,GRN,GRN,4,0
+fed2004,fed-203,15182,GATT,Jonathon,Democrats,DEM,DEM,5,0
+fed2004,fed-203,14640,VAMVAKINOU,Maria,Australian Labor Party,ALP,ALP,6,1
+fed2004,fed-203,15529,TOWERS,Denis,Independent,IND,IND,7,0
+fed2004,fed-204,14976,RINGROSE,Joy,Australian Greens,GRN,GRN,1,0
+fed2004,fed-204,15512,CHAPMAN,Daniel,,NAFD,IND,2,0
+fed2004,fed-204,14715,RUSHTON,Andrew,Family First,FFP,FFP,3,0
+fed2004,fed-204,15181,VANDERSMAN,Jos,Democrats,DEM,DEM,4,0
+fed2004,fed-204,14483,BECK,Jeremy,Citizens Electoral Council,CEC,ACP,5,0
+fed2004,fed-204,14688,DIB,Tony,Australian Labor Party,ALP,ALP,6,0
+fed2004,fed-204,14226,SMITH,Tony,Liberal,LP,LIB,7,1
+fed2004,fed-205,15176,BENNETT,James,Democrats,DEM,DEM,1,0
+fed2004,fed-205,14690,BURKE,Anna Elizabeth,Australian Labor Party,ALP,ALP,2,1
+fed2004,fed-205,14723,ONG,Gary,Family First,FFP,FFP,3,0
+fed2004,fed-205,14241,HARTNEY,Stephen,Liberal,LP,LIB,4,0
+fed2004,fed-205,14259,LYSAGHT,Owen,Independent,IND,IND,5,0
+fed2004,fed-205,14491,BARWICK,Wayne,Citizens Electoral Council,CEC,ACP,6,0
+fed2004,fed-205,14979,HARRIS,Penny,Australian Greens,GRN,GRN,7,0
+fed2004,fed-207,14243,McARTHUR,Stewart,Liberal,LP,LIB,1,1
+fed2004,fed-207,14980,CHENERY,Stephen,Australian Greens,GRN,GRN,2,0
+fed2004,fed-207,14805,MODRA,Christine,Family First,FFP,FFP,3,0
+fed2004,fed-207,14664,McMULLIN,Peter,Australian Labor Party,ALP,ALP,4,0
+fed2004,fed-207,14498,BAILEY,Andrew,Citizens Electoral Council,CEC,ACP,5,0
+fed2004,fed-207,14385,JOHNSON,Chris,Socialist Alliance,SAL,SAP,6,0
+fed2004,fed-208,12288,MALESIC,Steve,Independent,IND,IND,1,0
+fed2004,fed-208,14490,BIRD,Steven,Citizens Electoral Council,CEC,ACP,2,0
+fed2004,fed-208,14774,ALDERSON,Gordon,Family First,FFP,FFP,3,0
+fed2004,fed-208,14998,CONSTABLE,Brett,Australian Greens,GRN,GRN,4,0
+fed2004,fed-208,14635,O'CONNOR,Gavan,Australian Labor Party,ALP,ALP,5,1
+fed2004,fed-208,14387,GOODEN,Tim,Socialist Alliance,SAL,SAP,6,0
+fed2004,fed-208,14222,KING,Bruce,Liberal,LP,LIB,7,0
+fed2004,fed-209,15179,BAILEY,Alan,Democrats,DEM,DEM,1,0
+fed2004,fed-209,14238,BARRESI,Phil,Liberal,LP,LIB,2,1
+fed2004,fed-209,14726,DE ZILWA,Yasmin,Family First,FFP,FFP,3,0
+fed2004,fed-209,14691,LYNCH,Peter,Australian Labor Party,ALP,ALP,4,0
+fed2004,fed-209,15471,RASKOVY,Steve,Independent,IND,IND,5,0
+fed2004,fed-209,14472,TAIT,Simon,Citizens Electoral Council,CEC,ACP,6,0
+fed2004,fed-209,14982,PEMBERTON,Bill,Australian Greens,GRN,GRN,7,0
+fed2004,fed-210,14225,BILLSON,Bruce,Liberal,LP,LIB,1,1
+fed2004,fed-210,14527,PEUT,Gabrielle M,Citizens Electoral Council,CEC,ACP,2,0
+fed2004,fed-210,15145,BAILEY,Karen,Democrats,DEM,DEM,3,0
+fed2004,fed-210,15049,JOHNSON,Paula,Australian Greens,GRN,GRN,4,0
+fed2004,fed-210,14773,EASTMAN,Cameron,Family First,FFP,FFP,5,0
+fed2004,fed-210,13435,DAVIS,Fletcher,Independent,IND,IND,6,0
+fed2004,fed-210,14655,CONSTAS,Helen,Australian Labor Party,ALP,ALP,7,0
+fed2004,fed-211,15535,MADIGAN,Paul,Independent,IND,IND,1,0
+fed2004,fed-211,14916,JOHNSTONE,Dean,Family First,FFP,FFP,2,0
+fed2004,fed-211,14992,KINGSFORD,Stuart,Australian Greens,GRN,GRN,3,0
+fed2004,fed-211,15545,ADAMS,Neale,Independent,IND,IND,4,0
+fed2004,fed-211,15132,ERROL,Bruce,Democrats,DEM,DEM,5,0
+fed2004,fed-211,14654,NAPTHINE,Simon,Australian Labor Party,ALP,ALP,6,0
+fed2004,fed-211,14507,BROADBENT,Henry,Citizens Electoral Council,CEC,ACP,7,0
+fed2004,fed-211,14248,HUNT,Greg,Liberal,LP,LIB,8,1
+fed2004,fed-212,14249,McCONNELL,David,Liberal,LP,LIB,1,0
+fed2004,fed-212,15024,BUI,Nam,Australian Greens,GRN,GRN,2,0
+fed2004,fed-212,15532,ASSAF,Wajde,Independent,IND,IND,3,0
+fed2004,fed-212,14697,ROXON,Nicola,Australian Labor Party,ALP,ALP,4,1
+fed2004,fed-212,14839,LEE,Michael,Family First,FFP,FFP,5,0
+fed2004,fed-212,14492,ISHERWOOD,Kel,Citizens Electoral Council,CEC,ACP,6,0
+fed2004,fed-212,14406,WALDRON,Linda,Socialist Alliance,SAL,SAP,7,0
+fed2004,fed-212,15174,GRAROCK,Max,Democrats,DEM,DEM,8,0
+fed2004,fed-213,14534,SINDT,Christina,,NAFD,IND,1,0
+fed2004,fed-213,14856,McGAURAN,Peter,The Nationals,NP,NAT,2,1
+fed2004,fed-213,14516,STANTON,Heather,Citizens Electoral Council,CEC,ACP,3,0
+fed2004,fed-213,15027,LANE,Madelon,Australian Greens,GRN,GRN,4,0
+fed2004,fed-213,15189,LANGMORE,David Leonard,Democrats,DEM,DEM,5,0
+fed2004,fed-213,15553,KELLY,Peter Maxwell,Independent,IND,IND,6,0
+fed2004,fed-213,14815,LILLYMAN,Doug,Family First,FFP,FFP,7,0
+fed2004,fed-213,14645,WISHART,Don,Australian Labor Party,ALP,ALP,8,0
+fed2004,fed-213,14642,BUCKLEY,Ben,One Nation,HAN,ONP,9,0
+fed2004,fed-214,15549,O'BRIEN,Terry,Independent,IND,IND,1,0
+fed2004,fed-214,14223,ROBB,Andrew,Liberal,LP,LIB,2,1
+fed2004,fed-214,14711,HERMANS,Mark,Family First,FFP,FFP,3,0
+fed2004,fed-214,14629,TUCKER,Craig,Australian Labor Party,ALP,ALP,4,0
+fed2004,fed-214,15153,IGAI,Aron Paul,Democrats,DEM,DEM,5,0
+fed2004,fed-214,15004,CLAIR,Bill,Australian Greens,GRN,GRN,6,0
+fed2004,fed-214,14468,SHOMALI,Heather E,Citizens Electoral Council,CEC,ACP,7,0
+fed2004,fed-309,14650,O'CONNOR,Brendan,Australian Labor Party,ALP,ALP,1,1
+fed2004,fed-309,14962,WILSON,Steven,Australian Greens,GRN,GRN,2,0
+fed2004,fed-309,14797,MALLON,Ian,Family First,FFP,FFP,3,0
+fed2004,fed-309,14221,JENNISON,Susan,Liberal,LP,LIB,4,0
+fed2004,fed-309,14494,CAMPBELL,Colin Ross Morgan,Citizens Electoral Council,CEC,ACP,5,0
+fed2004,fed-215,14692,KLISARIS,Paul,Australian Labor Party,ALP,ALP,1,0
+fed2004,fed-215,15223,McBETH,Adam,Democrats,DEM,DEM,2,0
+fed2004,fed-215,14506,REID,Katherine,Citizens Electoral Council,CEC,ACP,3,0
+fed2004,fed-215,14824,PRINGLE,Glen,Family First,FFP,FFP,4,0
+fed2004,fed-215,14990,TRAFFICANTE,Robert,Australian Greens,GRN,GRN,5,0
+fed2004,fed-215,14231,COSTELLO,Peter,Liberal,LP,LIB,6,1
+fed2004,fed-216,14522,JOHN,Jason,Citizens Electoral Council,CEC,ACP,1,0
+fed2004,fed-216,14958,REIHER,Jim,Australian Greens,GRN,GRN,2,0
+fed2004,fed-216,14250,TEIWES,Paul,Liberal,LP,LIB,3,0
+fed2004,fed-216,14770,BURGESS,Stephen,Family First,FFP,FFP,4,0
+fed2004,fed-216,14652,BYRNE,Anthony,Australian Labor Party,ALP,ALP,5,1
+fed2004,fed-216,15142,BERK,Daniel,Democrats,DEM,DEM,6,0
+fed2004,fed-217,14758,COOMBE,Roger,Family First,FFP,FFP,1,0
+fed2004,fed-217,15068,PERROTT,Kiera,Australian Greens,GRN,GRN,2,0
+fed2004,fed-217,14376,COX,Josephine,Socialist Alliance,SAL,SAP,3,0
+fed2004,fed-217,14251,MARRINER,Jennifer,Liberal,LP,LIB,4,0
+fed2004,fed-217,14695,CREAN,Simon,Australian Labor Party,ALP,ALP,5,1
+fed2004,fed-217,15295,JOSS,Jessica,Democrats,DEM,DEM,6,0
+fed2004,fed-217,14481,ELLERY,Adam,Citizens Electoral Council,CEC,ACP,7,0
+fed2004,fed-218,14738,McMARTIN,Warren,Family First,FFP,FFP,1,0
+fed2004,fed-218,14474,BAILEY,Merrill Christine,Citizens Electoral Council,CEC,ACP,2,0
+fed2004,fed-218,14999,O'CONNOR,Jenny,Australian Greens,GRN,GRN,3,0
+fed2004,fed-218,14672,WILLIAMS,John,Australian Labor Party,ALP,ALP,4,0
+fed2004,fed-218,14240,PANOPOULOS,Sophie,Liberal,LP,LIB,5,1
+fed2004,fed-219,15030,HARDY,Sean,Australian Greens,GRN,GRN,1,0
+fed2004,fed-219,14228,SHELLEY,Jeff,Liberal,LP,LIB,2,0
+fed2004,fed-219,15151,FLETCHER,Haydn,Democrats,DEM,DEM,3,0
+fed2004,fed-219,15530,FORD,Gordon W,Independent,IND,IND,4,0
+fed2004,fed-219,14706,GROVES,Carl L,One Nation,HAN,ONP,5,0
+fed2004,fed-219,15025,MATHEWS,Jacob,Family First,FFP,FFP,6,0
+fed2004,fed-219,14496,MALLIOTIS,Martha,Citizens Electoral Council,CEC,ACP,7,0
+fed2004,fed-219,14689,CORCORAN,Ann K,Australian Labor Party,ALP,ALP,8,1
+fed2004,fed-220,14710,BARTON,Jennifer,Family First,FFP,FFP,1,0
+fed2004,fed-220,14632,MACKLIN,Jenny,Australian Labor Party,ALP,ALP,2,1
+fed2004,fed-220,14256,INMAN,Woody,Liberal,LP,LIB,3,0
+fed2004,fed-220,14466,LELE,Stephen,Citizens Electoral Council,CEC,ACP,4,0
+fed2004,fed-220,15159,HAYWARD,Cate,Democrats,DEM,DEM,5,0
+fed2004,fed-220,15630,SCHOREL-HLAVKA,Gary,The Aged and Disability Pensioners Party,ADP,OTH,6,0
+fed2004,fed-220,14973,ARDIN,Don,Australian Greens,GRN,GRN,7,0
+fed2004,fed-220,14263,MINSTER,Barry,"Ex-Service, Service & Veterans Party",VET,OTH,8,0
+fed2004,fed-221,14523,REED,Andrew,Citizens Electoral Council,CEC,ACP,1,0
+fed2004,fed-221,15013,CAMPBELL,Peter,Australian Greens,GRN,GRN,2,0
+fed2004,fed-221,14282,GEORGIOU,Petro,Liberal,LP,LIB,3,1
+fed2004,fed-221,14832,LAIDLER,John,Family First,FFP,FFP,4,0
+fed2004,fed-221,15167,DETTMAN,Mary,Democrats,DEM,DEM,5,0
+fed2004,fed-221,14676,WILSON,Tom,Australian Labor Party,ALP,ALP,6,0
+fed2004,fed-223,15023,SMITH,Craig,Australian Greens,GRN,GRN,1,0
+fed2004,fed-223,15131,HOLLAND,Tony,Democrats,DEM,DEM,2,0
+fed2004,fed-223,14683,DAVIES,Susan,Australian Labor Party,ALP,ALP,3,0
+fed2004,fed-223,6850,DEAN,Frank,Independent,IND,IND,4,0
+fed2004,fed-223,14224,WOOD,Jason,Liberal,LP,LIB,5,1
+fed2004,fed-223,14509,BEILHARZ,Kurt,Citizens Electoral Council,CEC,ACP,6,0
+fed2004,fed-223,15281,VOIGT,Wolf,Christian Democratic Party (Fred Nile Group),CDP,CDP,7,0
+fed2004,fed-223,14786,BRIDGES,Darryl,Family First,FFP,FFP,8,0
+fed2004,fed-222,14646,GILLARD,Julia,Australian Labor Party,ALP,ALP,1,1
+fed2004,fed-222,14776,BULLER,Arthur,Family First,FFP,FFP,2,0
+fed2004,fed-222,15002,BROWNING,Malcolm,Australian Greens,GRN,GRN,3,0
+fed2004,fed-222,14258,CURTIS,Peter,Liberal,LP,LIB,4,0
+fed2004,fed-222,15141,HOWE,Roger,Democrats,DEM,DEM,5,0
+fed2004,fed-222,14480,LARNER,Sally,Citizens Electoral Council,CEC,ACP,6,0
+fed2004,fed-224,14686,ZIGOURAS,J N,Australian Labor Party,ALP,ALP,1,0
+fed2004,fed-224,14875,FORREST,John,The Nationals,NP,NAT,2,1
+fed2004,fed-224,15005,ROBERTS,Simon,Australian Greens,GRN,GRN,3,0
+fed2004,fed-224,14864,SMITH,Kevin,Family First,FFP,FFP,4,0
+fed2004,fed-224,15186,PARR,Stephen,Democrats,DEM,DEM,5,0
+fed2004,fed-224,14473,CAMPBELL,Trudy,Citizens Electoral Council,CEC,ACP,6,0
+fed2004,fed-225,14246,D'SOUZA,Conrad,Liberal,LP,LIB,1,0
+fed2004,fed-225,15185,LIVESAY,Robert,Democrats,DEM,DEM,2,0
+fed2004,fed-225,14641,SERCOMBE,Bob,Australian Labor Party,ALP,ALP,3,1
+fed2004,fed-225,14760,HOLT,David,Family First,FFP,FFP,4,0
+fed2004,fed-225,14488,KOZLOWSKI,Andre,Citizens Electoral Council,CEC,ACP,5,0
+fed2004,fed-225,14965,MUNTZ,Bob,Australian Greens,GRN,GRN,6,0
+fed2004,fed-226,15550,GORDON,Robert,Independent,IND,IND,1,0
+fed2004,fed-226,14721,SACH,Mark,Family First,FFP,FFP,2,0
+fed2004,fed-226,15085,HANNES-PATERSON,Megan,Australian Greens,GRN,GRN,3,0
+fed2004,fed-226,15154,WHITE,Marj,Democrats,DEM,DEM,4,0
+fed2004,fed-226,14469,McLENNAN,Rod,Citizens Electoral Council,CEC,ACP,5,0
+fed2004,fed-226,14260,SMITH,Maurie,Independent,IND,IND,6,0
+fed2004,fed-226,14236,BAILEY,Fran,Liberal,LP,LIB,7,1
+fed2004,fed-226,14630,BEALES,Jenny,Australian Labor Party,ALP,ALP,8,0
+fed2004,fed-226,15503,LUTZ,Damon Gordon,Independent,IND,IND,9,0
+fed2004,fed-227,14648,GIZYCKI de GOZDAWA,A R,One Nation,HAN,ONP,1,0
+fed2004,fed-227,14524,REID,Graeme,Citizens Electoral Council,CEC,ACP,2,0
+fed2004,fed-227,14607,EMANUEL,Howard,Independent,IND,IND,3,0
+fed2004,fed-227,14253,BROADBENT,Russell,Liberal,LP,LIB,4,1
+fed2004,fed-227,15298,GRANT,Julie,Democrats,DEM,DEM,5,0
+fed2004,fed-227,15042,McKENZIE,Bridget,The Nationals,NP,NAT,6,0
+fed2004,fed-227,14651,ZAHRA,Christian,Australian Labor Party,ALP,ALP,7,0
+fed2004,fed-227,15039,BYRNE,Greg,D.L.P. - Democratic Labor Party,DLP,DLP,8,0
+fed2004,fed-227,15320,PAUL,Harold,Family First,FFP,FFP,9,0
+fed2004,fed-227,15026,AITKEN,Chris,Australian Greens,GRN,GRN,10,0
+fed2004,fed-228,14636,TANNER,Lindsay James,Australian Labor Party,ALP,ALP,1,1
+fed2004,fed-228,14382,KENNY,Zoe,Socialist Alliance,SAL,SAP,2,0
+fed2004,fed-228,14247,DIMITROULIS,Jerry,Liberal,LP,LIB,3,0
+fed2004,fed-228,15249,WILLIAMS,Angela,Democrats,DEM,DEM,4,0
+fed2004,fed-228,15037,PINNELL,Gemma,Australian Greens,GRN,GRN,5,0
+fed2004,fed-228,14476,ANGER,Steven,Independent,IND,IND,6,0
+fed2004,fed-228,14768,WILLIS,Chris,Family First,FFP,FFP,7,0
+fed2004,fed-228,14487,McGUCKIN,Rhys,Citizens Electoral Council,CEC,ACP,8,0
+fed2004,fed-230,15516,CAMERON,Les,Independent,IND,IND,1,0
+fed2004,fed-230,14245,SOUTHWICK,David,Liberal,LP,LIB,2,0
+fed2004,fed-230,15236,BEALE,Craig,Democrats,DEM,DEM,3,0
+fed2004,fed-230,14660,DANBY,Michael,Australian Labor Party,ALP,ALP,4,1
+fed2004,fed-230,14750,JACKEL,Graeme,Family First,FFP,FFP,5,0
+fed2004,fed-230,14493,ISHERWOOD,Aaron,Citizens Electoral Council,CEC,ACP,6,0
+fed2004,fed-230,15248,HORIN,Leonie,Independent,IND,IND,7,0
+fed2004,fed-230,15036,LEWIS,Jo,Australian Greens,GRN,GRN,8,0
+fed2004,fed-229,14687,JONES,Brian,Australian Labor Party,ALP,ALP,1,0
+fed2004,fed-229,14482,DAVIDSON,Jordon,Citizens Electoral Council,CEC,ACP,2,0
+fed2004,fed-229,14720,BRIDGE,John,Family First,FFP,FFP,3,0
+fed2004,fed-229,15177,PAGE,Anne,Democrats,DEM,DEM,4,0
+fed2004,fed-229,14235,ANDREWS,Kevin,Liberal,LP,LIB,5,1
+fed2004,fed-229,14988,WRIGHT,Matthew,Australian Greens,GRN,GRN,6,0
+fed2004,fed-231,15041,MORGAN,Monica,Australian Greens,GRN,GRN,1,0
+fed2004,fed-231,14201,BRYANT,Rob,Independent,IND,IND,2,0
+fed2004,fed-231,14232,STONE,Sharman,Liberal,LP,LIB,3,1
+fed2004,fed-231,14714,MADILL,Janine,Family First,FFP,FFP,4,0
+fed2004,fed-231,14477,BARWICK,Elisa,Citizens Electoral Council,CEC,ACP,5,0
+fed2004,fed-231,15554,TEASDALE,Diane,Independent,IND,IND,6,0
+fed2004,fed-231,14649,KELLY,Norm,Australian Labor Party,ALP,ALP,7,0
+fed2004,fed-232,14499,STEER,Simon,Citizens Electoral Council,CEC,ACP,1,0
+fed2004,fed-232,14242,KOSTADINOSKI,Lucas,Liberal,LP,LIB,2,0
+fed2004,fed-232,14708,SHAND,Amy,Family First,FFP,FFP,3,0
+fed2004,fed-232,14637,JENKINS,Harry,Australian Labor Party,ALP,ALP,4,1
+fed2004,fed-232,15035,GRAY,Merinda,Australian Greens,GRN,GRN,5,0
+fed2004,fed-233,14678,McALPINE,Robert John,Australian Labor Party,ALP,ALP,1,0
+fed2004,fed-233,14244,HAWKER,David,Liberal,LP,LIB,2,1
+fed2004,fed-233,15169,WILLSHER,Kerre,Democrats,DEM,DEM,3,0
+fed2004,fed-233,14788,HAZELTON,Ruth,Family First,FFP,FFP,4,0
+fed2004,fed-233,15010,BLAIR,Gillian,Australian Greens,GRN,GRN,5,0
+fed2004,fed-233,14519,BARWICK,Robert,Citizens Electoral Council,CEC,ACP,6,0
+fed2004,fed-233,9618,McDONALD,Leigh,Independent,IND,IND,7,0
+fed2004,fed-234,14996,ARCHER,Toby,Australian Greens,GRN,GRN,1,0
+fed2004,fed-234,14475,ISHERWOOD,Noelene W,Citizens Electoral Council,CEC,ACP,2,0
+fed2004,fed-234,14229,HAMILTON,Blair,Liberal,LP,LIB,3,0
+fed2004,fed-234,15140,STONE,Robert,Democrats,DEM,DEM,4,0
+fed2004,fed-234,14631,THOMSON,Kelvin,Australian Labor Party,ALP,ALP,5,1
+fed2004,fed-234,14707,SURACI,Deborah,Family First,FFP,FFP,6,0
+fed2004,fed-234,14373,GLANZ,David,Socialist Alliance,SAL,SAP,7,0

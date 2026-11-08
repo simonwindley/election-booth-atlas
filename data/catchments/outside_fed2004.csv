@@ -1,0 +1,39 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+fed-197,fed-31993,Melbourne (Aston),aec_id_match,23.1
+fed-198,fed-31986,Melbourne (Ballarat),aec_id_match,50.9
+fed-199,fed-32039,Melbourne (Batman),aec_id_match,5.0
+fed-200,fed-31987,Melbourne (Bendigo),aec_id_match,72.7
+fed-201,fed-31995,Melbourne (Bruce),aec_id_match,21.6
+fed-203,fed-32027,Melbourne (Calwell),aec_id_match,14.0
+fed-204,fed-31998,Melbourne (Casey),aec_id_match,32.2
+fed-205,fed-32045,Melbourne (Chisholm),aec_id_match,15.0
+fed-207,fed-32040,Melbourne (Corangamite),aec_id_match,44.9
+fed-208,fed-31981,Melbourne (Corio),aec_id_match,46.1
+fed-209,fed-32043,Melbourne (Deakin),aec_id_match,19.1
+fed-210,fed-32006,Melbourne (Dunkley),aec_id_match,34.3
+fed-210,fed-34007,Mt Martha North (Dunkley),aec_id_match,1.3
+fed-211,fed-31996,Melbourne (Flinders),aec_id_match,44.9
+fed-212,fed-31984,Melbourne (Gellibrand),aec_id_match,5.7
+fed-213,fed-32019,Melbourne (Gippsland),aec_id_match,151.2
+fed-214,fed-31977,Melbourne (Goldstein),aec_id_match,7.9
+fed-215,fed-3919,Burwood West,aec_id_match,3.3
+fed-215,fed-32004,Melbourne (Higgins),aec_id_match,2.9
+fed-216,fed-31999,Melbourne (Holt),aec_id_match,32.9
+fed-217,fed-32007,Melbourne (Hotham),aec_id_match,13.0
+fed-218,fed-32008,Melbourne (Indi),aec_id_match,96.7
+fed-219,fed-33982,Melbourne (Isaacs),aec_id_match,19.1
+fed-220,fed-31988,Melbourne (Jagajaga),aec_id_match,8.9
+fed-221,fed-32021,Melbourne (Kooyong),aec_id_match,4.2
+fed-222,fed-32018,Melbourne (Lalor),aec_id_match,15.2
+fed-223,fed-32003,Melbourne (La Trobe),aec_id_match,33.2
+fed-224,fed-32001,Melbourne (Mallee),aec_id_match,192.3
+fed-225,fed-32041,Melbourne (Maribyrnong),aec_id_match,5.8
+fed-226,fed-31997,Melbourne (McEwen),aec_id_match,20.8
+fed-227,fed-32032,Melbourne (McMillan),aec_id_match,59.3
+fed-227,fed-4406,Moe Central,aec_id_match,399.5
+fed-229,fed-32044,Melbourne (Menzies),aec_id_match,12.2
+fed-231,fed-32010,Melbourne (Murray),aec_id_match,118.7
+fed-232,fed-32000,Melbourne (Scullin),aec_id_match,14.1
+fed-233,fed-31992,Melbourne (Wannon),aec_id_match,146.7
+fed-234,fed-32909,Melbourne (Wills),aec_id_match,4.5
+fed-309,fed-32035,Melbourne (Gorton),aec_id_match,14.4

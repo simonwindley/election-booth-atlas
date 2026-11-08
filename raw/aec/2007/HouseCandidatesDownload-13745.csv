@@ -1,0 +1,244 @@
+2007 Federal Election House of Representatives Candidates [Event:13745 Phase:FinalResults Generated:2008-09-03T12:42:03 Cycle:349e38e7-5eda-4bc7-a4a0-805bff59620f Created:2008-08-13T17:22:12 Environment:TEST Site:Primary Server:TST-VTR04 Version:4.8.0.0]
+StateAb,DivisionID,DivisionNm,PartyAb,PartyNm,CandidateID,Surname,GivenNm,Elected,HistoricElected
+VIC,210,Dunkley,GRN,Australian Greens,18367,ADAMS,Neale,N,N
+VIC,227,McMillan,FFP,Family First,17647,AESCHLIMANN,Terry,N,N
+VIC,227,McMillan,CEC,Citizens Electoral Council,17571,ALBLAS,Theo Matthew,N,N
+VIC,234,Wills,SAL,Socialist Alliance,17798,ALCORN,Zane,N,N
+VIC,208,Corio,FFP,Family First,17910,ALDERSON,Gordon,N,N
+VIC,309,Gorton,FFP,Family First,17645,AMBERLEY,Scott,N,N
+VIC,229,Menzies,LP,Liberal,17256,ANDREWS,Kevin,Y,Y
+VIC,217,Hotham,LP,Liberal,17282,ARBOREA,Vince,N,N
+VIC,210,Dunkley,FFP,Family First,17663,ASHDOWN,Steven,N,N
+VIC,197,Aston,DEM,Australian Democrats,17950,AZA,Rachal,N,N
+VIC,215,Higgins,FFP,Family First,17639,BADWAL,Penny,N,N
+VIC,226,McEwen,LP,Liberal,17265,BAILEY,Fran,Y,Y
+VIC,210,Dunkley,DEM,Australian Democrats,17958,BAILEY,Karen,N,N
+VIC,214,Goldstein,DEM,Australian Democrats,17954,BAILEY,Michael,N,N
+VIC,228,Melbourne,GRN,Australian Greens,18381,BANDT,Adam,N,N
+VIC,209,Deakin,LP,Liberal,17261,BARRESI,Phil,N,Y
+VIC,199,Batman,CEC,Citizens Electoral Council,17561,BARWICK,Robert,N,N
+VIC,211,Flinders,DEM,Australian Democrats,18016,BATTEN,David,N,N
+VIC,223,La Trobe,DEM,Australian Democrats,17938,BEALE,Craig,N,N
+VIC,204,Casey,ALP,Australian Labor Party,18046,BEARD,Dympna,N,N
+VIC,218,Indi,CEC,Citizens Electoral Council,17569,BECK,Jeremy,N,N
+VIC,223,La Trobe,CEC,Citizens Electoral Council,17555,BEILHARZ,Kurt,N,N
+VIC,218,Indi,DEM,Australian Democrats,17935,BENSON,Sarah,N,N
+VIC,205,Chisholm,DEM,Australian Democrats,17956,BERK,Daniel,N,N
+VIC,227,McMillan,GRN,Australian Greens,18374,BETTS,Sandra,N,N
+VIC,217,Hotham,GRN,Australian Greens,18350,BILLMAN,Matthew,N,N
+VIC,210,Dunkley,LP,Liberal,17252,BILLSON,Bruce,Y,Y
+VIC,227,McMillan,LP,Liberal,17251,BROADBENT,Russell,Y,Y
+VIC,209,Deakin,FFP,Family First,17651,BRONTE,Fiona,N,N
+VIC,211,Flinders,GRN,Australian Greens,18399,BROWN,Bob,N,N
+VIC,231,Murray,IND,Independent,14201,BRYANT,Rob,N,N
+VIC,213,Gippsland,IND,Independent,14642,BUCKLEY,Ben,N,N
+VIC,203,Calwell,FFP,Family First,17634,BULLER,Arthur,N,N
+VIC,205,Chisholm,ALP,Australian Labor Party,18049,BURKE,Anna,Y,Y
+VIC,198,Ballarat,FFP,Family First,17657,BUTTERFIELD,Dale,N,N
+VIC,232,Scullin,FFP,Family First,17650,BYERS,Tania,N,N
+VIC,216,Holt,ALP,Australian Labor Party,18358,BYRNE,Anthony,Y,Y
+VIC,200,Bendigo,GRN,Australian Greens,18378,BYRNE,Toby,N,N
+VIC,217,Hotham,DEM,Australian Democrats,17980,CADBY,Craig,N,N
+VIC,229,Menzies,ALP,Australian Labor Party,18063,CAMPBELL,Andrew,N,N
+VIC,221,Kooyong,GRN,Australian Greens,18379,CAMPBELL,Peter,N,N
+VIC,199,Batman,GRN,Australian Greens,18325,CAREY,Patricia,N,N
+VIC,201,Bruce,GRN,Australian Greens,18323,CASSIDY,Rob,N,N
+VIC,227,McMillan,DLP,D.L.P. - Democratic Labor Party,18002,CHANDRASEGARAN,Suryan,N,N
+VIC,207,Corangamite,ALP,Australian Labor Party,18083,CHEESEMAN,Darren,Y,N
+VIC,219,Isaacs,DEM,Australian Democrats,17960,CHIPP,Laura,N,N
+VIC,231,Murray,GRN,Australian Greens,18377,CHRISTOE,Ian,N,N
+VIC,216,Holt,LP,Liberal,17253,CICCHIELLO,Emanuele,N,N
+VIC,234,Wills,DEM,Australian Democrats,17941,CLARKE,Edward,N,N
+VIC,198,Ballarat,GRN,Australian Greens,18400,COATES,Belinda,N,N
+VIC,223,La Trobe,ALP,Australian Labor Party,18054,COCKS,Rodney,N,N
+VIC,234,Wills,GRN,Australian Greens,18356,COLLIS,David,N,N
+VIC,221,Kooyong,DEM,Australian Democrats,17953,COLLYER,David,N,N
+VIC,220,Jagajaga,FFP,Family First,17656,CONLON,Andrew,N,N
+VIC,200,Bendigo,IND,Independent,18527,CONSANDINE,Peter,N,N
+VIC,215,Higgins,LP,Liberal,17294,COSTELLO,Peter,Y,Y
+VIC,224,Mallee,FFP,Family First,17665,COULTHARD,Glenn,N,N
+VIC,212,Gellibrand,SAL,Socialist Alliance,17875,COURTICE,Ben,N,N
+VIC,204,Casey,GRN,Australian Greens,18329,CRAIG,Salore,N,N
+VIC,226,McEwen,FFP,Family First,17660,CRANSON,Ian,N,N
+VIC,217,Hotham,ALP,Australian Labor Party,18189,CREAN,Simon,Y,Y
+VIC,222,Lalor,LP,Liberal,17264,CURTIS,Peter,N,N
+VIC,221,Kooyong,CEC,Citizens Electoral Council,17576,CURTIS,Pierre,N,N
+VIC,203,Calwell,IND,Independent,18534,CUTLER,Philip,N,N
+VIC,230,Melbourne Ports,ALP,Australian Labor Party,18093,DANBY,Michael,Y,Y
+VIC,231,Murray,CEC,Citizens Electoral Council,17565,DAVY,Jeff,N,N
+VIC,216,Holt,FFP,Family First,17662,DE ZILWA,Yasmin,N,N
+VIC,228,Melbourne,LP,Liberal,17255,DEL CIOTTO,Andrea,N,N
+VIC,215,Higgins,DEM,Australian Democrats,17978,DETTMAN,Mary,N,N
+VIC,212,Gellibrand,CEC,Citizens Electoral Council,17606,DOEL,Rodney,N,N
+VIC,217,Hotham,FFP,Family First,17712,DORIAN,Peter,N,N
+VIC,219,Isaacs,ALP,Australian Labor Party,18048,DREYFUS,Mark,Y,N
+VIC,220,Jagajaga,LP,Liberal,17270,D'SOUZA,Conrad,N,N
+VIC,211,Flinders,FFP,Family First,17771,EASTMAN,Cameron,N,N
+VIC,207,Corangamite,FFP,Family First,17688,EDWARDS,Jan,N,N
+VIC,229,Menzies,GRN,Australian Greens,18330,ELLIS,David,N,N
+VIC,217,Hotham,DLP,D.L.P. - Democratic Labor Party,17986,FARRELL,Terry,N,N
+VIC,224,Mallee,GRN,Australian Greens,18368,FARRELLY,Liam,N,N
+VIC,199,Batman,ALP,Australian Labor Party,18024,FERGUSON,Martin,Y,Y
+VIC,227,McMillan,LDP,LDP,17997,FIECHTNER,Ben,N,N
+VIC,219,Isaacs,IND,Independent,15530,FORD,Gordon W,N,N
+VIC,215,Higgins,IND,Independent,18522,FORDE,Genevieve Maria,N,N
+VIC,224,Mallee,NP,The Nationals,17297,FORREST,John,Y,Y
+VIC,219,Isaacs,LP,Liberal,17266,FOX,Ross,N,N
+VIC,203,Calwell,SEP,Socialist Equality Party,17298,GAGLIOTI,Frank,N,N
+VIC,200,Bendigo,LDP,LDP,17985,GALE,Clinton,N,N
+VIC,212,Gellibrand,FFP,Family First,17884,GARG,Mukesh,N,N
+VIC,230,Melbourne Ports,FFP,Family First,17689,GEBBING,Rebecca,N,N
+VIC,221,Kooyong,LP,Liberal,17267,GEORGIOU,Petro,Y,Y
+VIC,200,Bendigo,ALP,Australian Labor Party,18031,GIBBONS,Steve,Y,Y
+VIC,212,Gellibrand,GRN,Australian Greens,18385,GIBSON,Robert,N,N
+VIC,222,Lalor,ALP,Australian Labor Party,18108,GILLARD,Julia,Y,Y
+VIC,222,Lalor,FFP,Family First,17659,GLEESON,Steve,N,N
+VIC,220,Jagajaga,DEM,Australian Democrats,17944,GRAHAM,Jason,N,N
+VIC,201,Bruce,ALP,Australian Labor Party,18035,GRIFFIN,Alan,Y,Y
+VIC,201,Bruce,DEM,Australian Democrats,17947,GROSSI,Richard,N,N
+VIC,200,Bendigo,DEM,Australian Democrats,17945,GUYMER,Edward,N,N
+VIC,203,Calwell,IND,Independent,17895,HAMPSHIRE,Don,N,N
+VIC,204,Casey,FFP,Family First,17638,HARRISON,Daniel,N,N
+VIC,221,Kooyong,ALP,Australian Labor Party,18104,HARVEY,Ken,N,N
+VIC,199,Batman,DEM,Australian Democrats,18013,HASSAN,Darren,N,N
+VIC,233,Wannon,LP,Liberal,17271,HAWKER,David,Y,Y
+VIC,230,Melbourne Ports,LP,Liberal,17283,HELD,Adam,N,N
+VIC,201,Bruce,CDP,Christian Democratic Party (Fred Nile Group),17931,HERRMANN,Sandra Joy,N,N
+VIC,220,Jagajaga,GRN,Australian Greens,18380,HODGSON,Lisa,N,N
+VIC,214,Goldstein,CEC,Citizens Electoral Council,17573,HORNE,Colin,N,N
+VIC,222,Lalor,DEM,Australian Democrats,17961,HOWE,Roger,N,N
+VIC,232,Scullin,DEM,Australian Democrats,17943,HUDE,Peter,N,N
+VIC,309,Gorton,DLP,D.L.P. - Democratic Labor Party,17987,HUGHES,Vern,N,N
+VIC,211,Flinders,LP,Liberal,17291,HUNT,Greg,Y,Y
+VIC,204,Casey,DEM,Australian Democrats,17967,INGLESE,Tony,N,N
+VIC,231,Murray,DEM,Australian Democrats,17959,ISGRO,Sarina,N,N
+VIC,230,Melbourne Ports,CEC,Citizens Electoral Council,17591,ISHERWOOD,Aaron,N,N
+VIC,234,Wills,CEC,Citizens Electoral Council,17574,ISHERWOOD,Craig William,N,N
+VIC,200,Bendigo,FFP,Family First,17641,JARVIS,Terry,N,N
+VIC,232,Scullin,ALP,Australian Labor Party,18116,JENKINS,Harry,Y,Y
+VIC,309,Gorton,LP,Liberal,17268,JENNISON,Susan,N,N
+VIC,208,Corio,SAL,Socialist Alliance,17854,JOHNSON,Chris,N,N
+VIC,208,Corio,LP,Liberal,17262,KAKOUROS,Angelo,N,N
+VIC,226,McEwen,DEM,Australian Democrats,17951,KANE,David Scott,N,N
+VIC,225,Maribyrnong,FFP,Family First,17701,KEELING,Ian,N,N
+VIC,234,Wills,FFP,Family First,17670,KELADA,Ihab,N,N
+VIC,216,Holt,GRN,Australian Greens,18355,KELEHER,Lynette,N,N
+VIC,200,Bendigo,LP,Liberal,17249,KENNEDY,Peter,N,N
+VIC,199,Batman,FFP,Family First,17648,KERIN,Peter,N,N
+VIC,214,Goldstein,FFP,Family First,17883,KHOO,Joyce,N,N
+VIC,207,Corangamite,DEM,Australian Democrats,17968,KILLEEN,Gabrielle,N,N
+VIC,198,Ballarat,ALP,Australian Labor Party,18094,KING,Catherine,Y,Y
+VIC,205,Chisholm,LP,Liberal,17260,KING,Myles,N,N
+VIC,225,Maribyrnong,CEC,Citizens Electoral Council,17566,KOZLOWSKI,Andre,N,N
+VIC,222,Lalor,DLP,D.L.P. - Democratic Labor Party,18027,KREPP,Libby,N,N
+VIC,224,Mallee,CEC,Citizens Electoral Council,17563,LAHY,Chris,N,N
+VIC,221,Kooyong,FFP,Family First,17643,LAIDLER,John,N,N
+VIC,197,Aston,FFP,Family First,17640,LAKE,Peter,N,N
+VIC,232,Scullin,GRN,Australian Greens,18375,LAOS,Linda,N,N
+VIC,208,Corio,GRN,Australian Greens,18441,LEACH,Rob,N,N
+VIC,220,Jagajaga,CEC,Citizens Electoral Council,17579,LELE,Stephen,N,N
+VIC,218,Indi,ALP,Australian Labor Party,18052,LESCHEN,Zuvele,N,N
+VIC,225,Maribyrnong,DEM,Australian Democrats,17962,LIVESAY,Robert,N,N
+VIC,203,Calwell,LP,Liberal,17492,LIVETT,Dianne,N,N
+VIC,219,Isaacs,GRN,Australian Greens,18398,LONG,Colin,N,N
+VIC,220,Jagajaga,ALP,Australian Labor Party,18074,MACKLIN,Jenny,Y,Y
+VIC,211,Flinders,ALP,Australian Labor Party,18127,MARCH,Gary,N,N
+VIC,208,Corio,ALP,Australian Labor Party,18033,MARLES,Richard,Y,N
+VIC,228,Melbourne,SEP,Socialist Equality Party,17302,MARSHALL,Will,N,N
+VIC,214,Goldstein,ALP,Australian Labor Party,18080,MASON,Julia,N,N
+VIC,230,Melbourne Ports,DEM,Australian Democrats,18076,MATHIESON,John,N,N
+VIC,227,McMillan,ALP,Australian Labor Party,18114,MAXFIELD,Christine,N,N
+VIC,215,Higgins,IND,Independent,18472,MAYNE,Stephen,N,N
+VIC,213,Gippsland,WWW,What Women Want (Australia),17459,MCADAM,Helen,N,N
+VIC,207,Corangamite,LP,Liberal,17275,McARTHUR,Stewart,N,Y
+VIC,210,Dunkley,ALP,Australian Labor Party,18039,McBRIDE,Graham,N,N
+VIC,205,Chisholm,GRN,Australian Greens,18328,McCASKILL,Alistair,N,N
+VIC,213,Gippsland,NP,The Nationals,17307,McGAURAN,Peter,Y,Y
+VIC,228,Melbourne,,,18517,MCGREGOR,Kylie,N,N
+VIC,198,Ballarat,LP,Liberal,17279,MCINTOSH,Samantha,N,N
+VIC,226,McEwen,CEC,Citizens Electoral Council,17671,McLENNAN,Rod,N,N
+VIC,224,Mallee,DEM,Australian Democrats,17966,McLEOD,Vikki,N,N
+VIC,226,McEwen,GRN,Australian Greens,18340,MEACHER,Steve,N,N
+VIC,215,Higgins,IND,Independent,17472,MEDDINGS,Graeme,N,N
+VIC,208,Corio,DEM,Australian Democrats,17946,MENHEERE-THOMPSON,Erica C,N,N
+VIC,231,Murray,IND,Independent,17429,MERRIGAN,M Paul P,N,N
+VIC,218,Indi,LP,Liberal,17274,MIRABELLA,Sophie,Y,Y
+VIC,197,Aston,CEC,Citizens Electoral Council,17580,MITCHELL,Doug,N,N
+VIC,226,McEwen,ALP,Australian Labor Party,18067,MITCHELL,Rob,N,N
+VIC,233,Wannon,ALP,Australian Labor Party,18089,MOORE,Antony,N,N
+VIC,231,Murray,FFP,Family First,17695,MOORE,Serena,N,N
+VIC,204,Casey,CDP,Christian Democratic Party (Fred Nile Group),17981,MORAN,George Thomas,N,N
+VIC,216,Holt,CEC,Citizens Electoral Council,17578,MORGAN,Chris,N,N
+VIC,225,Maribyrnong,GRN,Australian Greens,18386,MUNTZ,Bob,N,N
+VIC,203,Calwell,DEM,Australian Democrats,17942,MUSOLINO,Vanessa,N,N
+VIC,207,Corangamite,GRN,Australian Greens,18332,NELSON,Fiona,N,N
+VIC,226,McEwen,LDP,LDP,17982,NEWNHAM,Robert A,N,N
+VIC,209,Deakin,DEM,Australian Democrats,17970,NICHOLSON,Paula,N,N
+VIC,229,Menzies,IND,Independent,17427,NITSCHKE,Philip,N,N
+VIC,215,Higgins,ALP,Australian Labor Party,18158,NORMAN,Barbara,N,N
+VIC,219,Isaacs,LDP,LDP,18022,NORRIE,Robert,N,N
+VIC,309,Gorton,ALP,Australian Labor Party,18141,O'CONNOR,Brendan,Y,Y
+VIC,208,Corio,IND,Independent,14635,O'CONNOR,Gavan,N,Y
+VIC,212,Gellibrand,IND,Independent,18456,O'NEIL,Dave,N,N
+VIC,205,Chisholm,FFP,Family First,17637,ONG,Gary,N,N
+VIC,233,Wannon,GRN,Australian Greens,18417,OWEN,Lisa,N,N
+VIC,197,Aston,LP,Liberal,17236,PEARCE,Chris,Y,Y
+VIC,228,Melbourne,FFP,Family First,17683,PEARSON,Georgia,N,N
+VIC,199,Batman,LP,Liberal,17257,PEART,Jonathan,N,N
+VIC,233,Wannon,FFP,Family First,17666,PECH,Daniel,N,N
+VIC,209,Deakin,GRN,Australian Greens,18331,PEMBERTON,Bill,N,N
+VIC,197,Aston,GRN,Australian Greens,18373,PEPPER,Adam,N,N
+VIC,214,Goldstein,GRN,Australian Greens,18389,PILLING,Neil,N,N
+VIC,219,Isaacs,FFP,Family First,17725,PLEITER,Jadah,N,N
+VIC,218,Indi,FFP,Family First,17654,RAINEY,Jim,N,N
+VIC,197,Aston,ALP,Australian Labor Party,18028,RALEIGH,Gerry,N,N
+VIC,201,Bruce,LP,Liberal,17269,RANDALL,Angela,N,N
+VIC,200,Bendigo,IND,Independent,18523,RATHJEN,Eril,N,N
+VIC,201,Bruce,FFP,Family First,17636,RAWLINS,Bronwyn,N,N
+VIC,228,Melbourne,CEC,Citizens Electoral Council,17585,REED,Andrew,N,N
+VIC,212,Gellibrand,DEM,Australian Democrats,17957,RICHARDS,Rachel,N,N
+VIC,214,Goldstein,LP,Liberal,17263,ROBB,Andrew,Y,Y
+VIC,218,Indi,GRN,Australian Greens,18388,ROBINSON,Helen,N,N
+VIC,213,Gippsland,ALP,Australian Labor Party,18161,ROWE,Jane,N,N
+VIC,213,Gippsland,FFP,Family First,17705,ROWELL,Michael,N,N
+VIC,212,Gellibrand,ALP,Australian Labor Party,18126,ROXON,Nicola,Y,Y
+VIC,208,Corio,CEC,Citizens Electoral Council,17600,RUSSELL,Ross,N,N
+VIC,207,Corangamite,LDP,LDP,17971,SABHLOK,Sukrit,N,N
+VIC,231,Murray,ALP,Australian Labor Party,18071,SCATES,Bob,N,N
+VIC,216,Holt,DEM,Australian Democrats,17964,SEYMOUR,Ken,N,N
+VIC,203,Calwell,GRN,Australian Greens,18404,SHAUNE,Brook,N,N
+VIC,225,Maribyrnong,ALP,Australian Labor Party,18059,SHORTEN,Bill,Y,N
+VIC,223,La Trobe,LDP,LDP,17995,SINGH,Surome,N,N
+VIC,201,Bruce,ON,One Nation,17422,SMITH,Neil Henry,N,N
+VIC,204,Casey,LP,Liberal,17276,SMITH,Tony,Y,Y
+VIC,229,Menzies,FFP,Family First,17661,SMITHIES,Ken,N,N
+VIC,225,Maribyrnong,LP,Liberal,17248,SOYLEMEZ,Ian,N,N
+VIC,232,Scullin,CEC,Citizens Electoral Council,17587,STEER,Simon J,N,N
+VIC,209,Deakin,LDP,LDP,17996,STEVENSON,Nick,N,N
+VIC,231,Murray,LP,Liberal,17258,STONE,Sharman,Y,Y
+VIC,209,Deakin,ALP,Australian Labor Party,18060,SYMON,Mike,Y,N
+VIC,228,Melbourne,ALP,Australian Labor Party,18091,TANNER,Lindsay,Y,Y
+VIC,223,La Trobe,GRN,Australian Greens,18369,TAYLOR,Bree,N,N
+VIC,231,Murray,IND,Independent,15554,TEASDALE,Diane,N,N
+VIC,234,Wills,ALP,Australian Labor Party,18065,THOMSON,Kelvin,Y,Y
+VIC,205,Chisholm,CEC,Citizens Electoral Council,17570,THYSTRUP,Lars,N,N
+VIC,222,Lalor,GRN,Australian Greens,18425,TILLEY,Jay,N,N
+VIC,234,Wills,LP,Liberal,17254,TOMISICH,Claude,N,N
+VIC,226,McEwen,IND,Independent,17503,TRUEMAN,Darren,N,N
+VIC,309,Gorton,GRN,Australian Greens,18343,TRUONG,Huong,N,N
+VIC,212,Gellibrand,LP,Liberal,17333,TSENG,Wayne,N,N
+VIC,203,Calwell,ALP,Australian Labor Party,18045,VAMVAKINOU,Maria,Y,Y
+VIC,200,Bendigo,IND,Independent,18491,VEITCH,Adam,N,N
+VIC,230,Melbourne Ports,GRN,Australian Greens,18384,WALKER,Phillip,N,N
+VIC,227,McMillan,DEM,Australian Democrats,17973,WALTERS,Don,N,N
+VIC,208,Corio,LDP,LDP,18010,WELDEN,Darrin Jeffrey,N,N
+VIC,215,Higgins,GRN,Australian Greens,18403,WILBUR-HAM,Michael,N,N
+VIC,232,Scullin,LP,Liberal,17250,WILLIAMS,Charles,N,N
+VIC,229,Menzies,DEM,Australian Democrats,17955,WISE,Damian,N,N
+VIC,223,La Trobe,LP,Liberal,17259,WOOD,Jason,Y,Y
+VIC,217,Hotham,CEC,Citizens Electoral Council,17685,WOODWARD,Mike,N,N
+VIC,213,Gippsland,GRN,Australian Greens,18382,WRATHALL,Jeff,N,N
+VIC,228,Melbourne,DEM,Australian Democrats,18072,WRIGHT,Tim,N,N
+VIC,203,Calwell,CEC,Citizens Electoral Council,17557,YOHANNA,Sleiman,N,N
+VIC,224,Mallee,ALP,Australian Labor Party,18058,ZIGOURAS,John,N,N
+VIC,223,La Trobe,FFP,Family First,17649,ZUBIC,Jim,N,N

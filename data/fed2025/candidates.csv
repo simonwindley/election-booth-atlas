@@ -3,7 +3,7 @@ fed2025,fed-197,40786,CICCHIELLO,Manny,Liberal,LP,LIB,1,0
 fed2025,fed-197,40809,DOYLE,Mary,Australian Labor Party,ALP,ALP,2,1
 fed2025,fed-197,41529,MANNERS,Craig,Family First,FFP,FFP,3,0
 fed2025,fed-197,41147,WILLIAMS,Andrew,Independent,IND,IND,4,0
-fed2025,fed-197,41307,FAWCETT,David,Libertarian,LTP,OTH,5,0
+fed2025,fed-197,41307,FAWCETT,David,Libertarian,LTP,LDP,5,0
 fed2025,fed-197,42063,GRONDMAN,Mark,Independent,IND,IND,6,0
 fed2025,fed-197,41080,STEEN,Reuben,The Greens,GRN,GRN,7,0
 fed2025,fed-197,41505,De WACHT,John,Pauline Hanson's One Nation,ON,ONP,8,0
@@ -13,14 +13,14 @@ fed2025,fed-198,41081,BARNES,John,The Greens,GRN,GRN,2,0
 fed2025,fed-198,41508,PRYSE-SMITH,Terri,Pauline Hanson's One Nation,ON,ONP,3,0
 fed2025,fed-198,40839,KING,Catherine,Australian Labor Party,ALP,ALP,4,1
 fed2025,fed-198,41833,PARKER,Luke,Independent,IND,IND,5,0
-fed2025,fed-198,41312,REDFERN,Ryan,Libertarian,LTP,OTH,6,0
+fed2025,fed-198,41312,REDFERN,Ryan,Libertarian,LTP,LDP,6,0
 fed2025,fed-198,41571,HARKNESS,Ian Maxwell,Family First,FFP,FFP,7,0
 fed2025,fed-200,41569,KEETELAAR,Evelyn,Family First,FFP,FFP,1,0
 fed2025,fed-200,41090,BARNETT-DACEY,Avery,The Greens,GRN,GRN,2,0
 fed2025,fed-200,41520,FREEMAN,Heather,Pauline Hanson's One Nation,ON,ONP,3,0
 fed2025,fed-200,40869,CHESTERS,Lisa,Australian Labor Party,ALP,ALP,4,1
 fed2025,fed-200,41141,LETHLEAN,Andrew,The Nationals,NP,NAT,5,0
-fed2025,fed-200,41618,BANSEMER,Matt,Libertarian,LTP,OTH,6,0
+fed2025,fed-200,41618,BANSEMER,Matt,Libertarian,LTP,LDP,6,0
 fed2025,fed-200,41000,TYLER,Rohan,Victorian Socialists,VNS,VSP,7,0
 fed2025,fed-200,42015,VINCENT,David,Independent,IND,IND,8,0
 fed2025,fed-200,41217,TAYLOR,Wayne,Legalise Cannabis Party,HMP,LCP,9,0
@@ -28,7 +28,7 @@ fed2025,fed-200,40866,EVANS,Matt,Liberal,LP,LIB,10,0
 fed2025,fed-201,41522,COLECCHIA,Bianca,Pauline Hanson's One Nation,ON,ONP,1,0
 fed2025,fed-201,41085,GARAD,Rhonda,The Greens,GRN,GRN,2,0
 fed2025,fed-201,40851,HILL,Julian,Australian Labor Party,ALP,ALP,3,1
-fed2025,fed-201,41305,SKROBO,Christine,Libertarian,LTP,OTH,4,0
+fed2025,fed-201,41305,SKROBO,Christine,Libertarian,LTP,LDP,4,0
 fed2025,fed-201,40790,SAFI,Zahid,Liberal,LP,LIB,5,0
 fed2025,fed-201,41370,ANDERSON,Samuel James,Trumpet of Patriots,CYA,CYA,6,0
 fed2025,fed-201,41225,LOUTH,Andrew,Legalise Cannabis Party,HMP,LCP,7,0
@@ -42,8 +42,8 @@ fed2025,fed-203,40654,YOUHANA,Joseph,Independent,IND,IND,6,0
 fed2025,fed-203,41084,GARCHA,Ravneet Kaur,The Greens,GRN,GRN,7,0
 fed2025,fed-203,41362,ISSA,Assaad,Trumpet of Patriots,CYA,CYA,8,0
 fed2025,fed-203,40860,ABDO,Basem,Australian Labor Party,ALP,ALP,9,1
-fed2025,fed-203,41196,PEACH,Morgan,,NAFD,OTH,10,0
-fed2025,fed-203,40700,HAWLI,Bassima,Citizens Party,CEC,CYA,11,0
+fed2025,fed-203,41196,PEACH,Morgan,,NAFD,IND,10,0
+fed2025,fed-203,40700,HAWLI,Bassima,Citizens Party,CEC,ACP,11,0
 fed2025,fed-203,41940,RAGUPATHY,Ravi,Independent,IND,IND,12,0
 fed2025,fed-203,40752,GHANI,Usman,Liberal,LP,LIB,13,0
 fed2025,fed-204,41389,COURTIS,Phillip,Trumpet of Patriots,CYA,CYA,1,0
@@ -69,7 +69,7 @@ fed2025,fed-320,41002,LARKIN,Kath,Victorian Socialists,VNS,VSP,5,0
 fed2025,fed-320,41206,STOLZENBERG,Donna,Legalise Cannabis Party,HMP,LCP,6,0
 fed2025,fed-328,41191,LOCKHART,Kate,Independent,IND,IND,1,0
 fed2025,fed-328,41380,JACKSON,James,Trumpet of Patriots,CYA,CYA,2,0
-fed2025,fed-328,41911,BARKER,Paul,Libertarian,LTP,OTH,3,0
+fed2025,fed-328,41911,BARKER,Paul,Libertarian,LTP,LDP,3,0
 fed2025,fed-328,41088,POPE,Mitch,The Greens,GRN,GRN,4,0
 fed2025,fed-328,41510,SEABROOK,Colin,Pauline Hanson's One Nation,ON,ONP,5,0
 fed2025,fed-328,40877,COKER,Libby,Australian Labor Party,ALP,ALP,6,1
@@ -88,7 +88,7 @@ fed2025,fed-209,41512,COOKE,Anne,Pauline Hanson's One Nation,ON,ONP,4,0
 fed2025,fed-209,41547,GRIFFITH-JONES,Richard,Family First,FFP,FFP,5,0
 fed2025,fed-209,41128,MILLS,Amy,The Greens,GRN,GRN,6,0
 fed2025,fed-209,41387,WILDE,Milton,Trumpet of Patriots,CYA,CYA,7,0
-fed2025,fed-209,41746,VANDERMEER,Will,Libertarian,LTP,OTH,8,0
+fed2025,fed-209,41746,VANDERMEER,Will,Libertarian,LTP,LDP,8,0
 fed2025,fed-210,40803,CONROY,Nathan,Liberal,LP,LIB,1,0
 fed2025,fed-210,41683,THURLEY,Robert,Independent,IND,IND,2,0
 fed2025,fed-210,41555,DAVIS,Jessica,Pauline Hanson's One Nation,ON,ONP,3,0
@@ -119,16 +119,16 @@ fed2025,fed-213,40832,STEPHENS,Sonny,Australian Labor Party,ALP,ALP,1,0
 fed2025,fed-213,41523,HANSFORD,Gregory,Pauline Hanson's One Nation,ON,ONP,2,0
 fed2025,fed-213,41118,HINE,Rochelle,The Greens,GRN,GRN,3,0
 fed2025,fed-213,41138,CHESTER,Darren,The Nationals,NP,NAT,4,1
-fed2025,fed-213,41317,WILSON,Simon,Libertarian,LTP,OTH,5,0
+fed2025,fed-213,41317,WILSON,Simon,Libertarian,LTP,LDP,5,0
 fed2025,fed-214,41372,WILLIAMS,Vicki Jane,Trumpet of Patriots,CYA,CYA,1,0
 fed2025,fed-214,40813,GADANI,Nildhara,Australian Labor Party,ALP,ALP,2,0
-fed2025,fed-214,41309,SEGAL,David,Libertarian,LTP,OTH,3,0
+fed2025,fed-214,41309,SEGAL,David,Libertarian,LTP,LDP,3,0
 fed2025,fed-214,41112,GALLI-McROSTIE,Alana,The Greens,GRN,GRN,4,0
 fed2025,fed-214,41925,GARDINER,Leon,Pauline Hanson's One Nation,ON,ONP,5,0
 fed2025,fed-214,36074,DANIEL,Zoe,Independent,IND,IND,6,0
 fed2025,fed-214,40747,WILSON,Tim,Liberal,LP,LIB,7,1
 fed2025,fed-309,41218,MENTA,Xavier,Legalise Cannabis Party,HMP,LCP,1,0
-fed2025,fed-309,41313,McCATHIE,Rob,Libertarian,LTP,OTH,2,0
+fed2025,fed-309,41313,McCATHIE,Rob,Libertarian,LTP,LDP,2,0
 fed2025,fed-309,40823,JORDAN-BAIRD,Alice,Australian Labor Party,ALP,ALP,3,1
 fed2025,fed-309,41586,ASHTON,Kathrine,Family First,FFP,FFP,4,0
 fed2025,fed-309,40743,FLETCHER,John,Liberal,LP,LIB,5,0
@@ -147,7 +147,7 @@ fed2025,fed-216,41624,HAMMOND,Trevor,Pauline Hanson's One Nation,ON,ONP,3,0
 fed2025,fed-216,41221,AICKIN,Riley,Legalise Cannabis Party,HMP,LCP,4,0
 fed2025,fed-216,40850,FERNANDO,Cassandra,Australian Labor Party,ALP,ALP,5,1
 fed2025,fed-216,40855,SAMUEL,Annette,Liberal,LP,LIB,6,0
-fed2025,fed-217,40701,VAINORAS,Tony,Citizens Party,CEC,CYA,1,0
+fed2025,fed-217,40701,VAINORAS,Tony,Citizens Party,CEC,ACP,1,0
 fed2025,fed-217,41115,BARRY,Martin,The Greens,GRN,GRN,2,0
 fed2025,fed-217,41627,FOGARTY,Stuart,Pauline Hanson's One Nation,ON,ONP,3,0
 fed2025,fed-217,41595,BROWN,Mark,Family First,FFP,FFP,4,0
@@ -158,7 +158,7 @@ fed2025,fed-218,40842,BRIDGES,Mitch,Australian Labor Party,ALP,ALP,2,0
 fed2025,fed-218,40750,TRENERY,James,Liberal,LP,LIB,3,0
 fed2025,fed-218,41626,THOMAS,Athol,Pauline Hanson's One Nation,ON,ONP,4,0
 fed2025,fed-218,41125,REGAN,Alysia,The Greens,GRN,GRN,5,0
-fed2025,fed-218,41314,QUILTY,Tim,Libertarian,LTP,OTH,6,0
+fed2025,fed-218,41314,QUILTY,Tim,Libertarian,LTP,LDP,6,0
 fed2025,fed-218,41573,WHITE,Michael,Family First,FFP,FFP,7,0
 fed2025,fed-218,41929,HOWMAN,Ben,Legalise Cannabis Party,HMP,LCP,8,0
 fed2025,fed-218,40628,McFARLANE,Mark,Independent,IND,IND,9,0
@@ -174,7 +174,7 @@ fed2025,fed-220,41095,SANDFORD,Jy,The Greens,GRN,GRN,4,0
 fed2025,fed-220,41542,KEARNEY,Chris,Independent,IND,IND,5,0
 fed2025,fed-220,41617,RALPH,Leslie,Pauline Hanson's One Nation,ON,ONP,6,0
 fed2025,fed-220,40833,THWAITES,Kate,Australian Labor Party,ALP,ALP,7,1
-fed2025,fed-221,41311,PEPPARD,Richard,Libertarian,LTP,OTH,1,0
+fed2025,fed-221,41311,PEPPARD,Richard,Libertarian,LTP,LDP,1,0
 fed2025,fed-221,40763,HAMER,Amelia,Liberal,LP,LIB,2,0
 fed2025,fed-221,41098,CARTER,Jackie,The Greens,GRN,GRN,3,0
 fed2025,fed-221,41611,BRACHE,Camille,Pauline Hanson's One Nation,ON,ONP,4,0
@@ -193,20 +193,20 @@ fed2025,fed-222,41566,EMERSON,Matthew,Family First,FFP,FFP,3,0
 fed2025,fed-222,41615,OOSTHUIZEN,Jason,Pauline Hanson's One Nation,ON,ONP,4,0
 fed2025,fed-222,40779,D'SILVA,Mira,Liberal,LP,LIB,5,0
 fed2025,fed-222,32267,MOINUDDIN,Aijaz,Independent,IND,IND,6,0
-fed2025,fed-222,42079,BARCATTA,Patrizia,Libertarian,LTP,OTH,7,0
+fed2025,fed-222,42079,BARCATTA,Patrizia,Libertarian,LTP,LDP,7,0
 fed2025,fed-322,40825,BURNS,Josh,Australian Labor Party,ALP,ALP,1,1
 fed2025,fed-322,41628,RUBIN,Sean,Pauline Hanson's One Nation,ON,ONP,2,0
 fed2025,fed-322,41110,SEMMENS,Sonya,The Greens,GRN,GRN,3,0
 fed2025,fed-322,40768,SAULO,Benson,Liberal,LP,LIB,4,0
-fed2025,fed-322,42010,ABELMAN,Michael,Libertarian,LTP,OTH,5,0
+fed2025,fed-322,42010,ABELMAN,Michael,Libertarian,LTP,LDP,5,0
 fed2025,fed-322,37774,MYERS,JB,Independent,IND,IND,6,0
 fed2025,fed-224,41116,ROWAN,Nicole,The Greens,GRN,GRN,1,0
 fed2025,fed-224,41140,WEBSTER,Anne,The Nationals,NP,NAT,2,1
-fed2025,fed-224,40699,LAHY,Chris,Citizens Party,CEC,CYA,3,0
+fed2025,fed-224,40699,LAHY,Chris,Citizens Party,CEC,ACP,3,0
 fed2025,fed-224,41418,VEITCH,Adam Troy,Trumpet of Patriots,CYA,CYA,4,0
 fed2025,fed-224,40824,OLSEN,Greg,Australian Labor Party,ALP,ALP,5,0
 fed2025,fed-224,41613,WILLIAMS,Vaughan,Pauline Hanson's One Nation,ON,ONP,6,0
-fed2025,fed-224,41308,BARRY,Jeff,Libertarian,LTP,OTH,7,0
+fed2025,fed-224,41308,BARRY,Jeff,Libertarian,LTP,LDP,7,0
 fed2025,fed-224,41583,GRAY,Ashleigh,Family First,FFP,FFP,8,0
 fed2025,fed-225,41117,WILLIAMS,James,The Greens,GRN,GRN,1,0
 fed2025,fed-225,40821,BRISKEY,Jo,Australian Labor Party,ALP,ALP,2,1
@@ -232,7 +232,7 @@ fed2025,fed-229,41438,PALIOURAS,Amanda,Trumpet of Patriots,CYA,CYA,1,0
 fed2025,fed-229,41123,PHEASANT,Bill,The Greens,GRN,GRN,2,0
 fed2025,fed-229,40778,WOLAHAN,Keith,Liberal,LP,LIB,3,0
 fed2025,fed-229,40638,YEE,Stella,Independent,IND,IND,4,0
-fed2025,fed-229,41310,UTOYO,Joshua,Libertarian,LTP,OTH,5,0
+fed2025,fed-229,41310,UTOYO,Joshua,Libertarian,LTP,LDP,5,0
 fed2025,fed-229,41580,SEELEY,Ann,Family First,FFP,FFP,6,0
 fed2025,fed-229,40820,NG,Gabriel,Australian Labor Party,ALP,ALP,7,1
 fed2025,fed-229,41603,EDWARDS-SCOTT,Jhett,Pauline Hanson's One Nation,ON,ONP,8,0
@@ -250,7 +250,7 @@ fed2025,fed-324,41549,BACHELOR,Paul Edward,Family First,FFP,FFP,2,0
 fed2025,fed-324,41394,FLOYD,Glenn Francis,Trumpet of Patriots,CYA,CYA,3,0
 fed2025,fed-324,41597,TYRRELL,Aaron,Pauline Hanson's One Nation,ON,ONP,4,0
 fed2025,fed-324,41134,BIRRELL,Sam,The Nationals,NP,NAT,5,1
-fed2025,fed-324,40702,DAVY,Jeff,Citizens Party,CEC,CYA,6,0
+fed2025,fed-324,40702,DAVY,Jeff,Citizens Party,CEC,ACP,6,0
 fed2025,fed-324,41106,EADE,Shelby,The Greens,GRN,GRN,7,0
 fed2025,fed-232,41392,BUCCIANTI,Adriana,Trumpet of Patriots,CYA,CYA,1,0
 fed2025,fed-232,41540,BELL,Cassandra,Family First,FFP,FFP,2,0
@@ -275,5 +275,5 @@ fed2025,fed-234,40775,KIDNEY,Jeff,Liberal,LP,LIB,3,0
 fed2025,fed-234,41220,GLOVER,Margee,Legalise Cannabis Party,HMP,LCP,4,0
 fed2025,fed-234,41378,MILLER,Owen,FUSION | Planet Rescue | Whistleblower Protection | Innovation,SOPA,FUS,5,0
 fed2025,fed-234,41108,RATNAM,Samantha,The Greens,GRN,GRN,6,0
-fed2025,fed-234,41315,VERSTEEGEN,Rachel,Libertarian,LTP,OTH,7,0
+fed2025,fed-234,41315,VERSTEEGEN,Rachel,Libertarian,LTP,LDP,7,0
 fed2025,fed-234,41593,STEVENS,Bruce,Pauline Hanson's One Nation,ON,ONP,8,0

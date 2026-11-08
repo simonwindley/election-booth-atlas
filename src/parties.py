@@ -64,7 +64,7 @@ _NAME_RULES = [
     (r'sex party|reason', 'FRP'),
     (r'country alliance', 'CYA'),
     (r'australian democrats|^democrats$', 'DEM'),
-    (r'christian democratic', 'CDP'),
+    (r'christian democratic|^cdp$', 'CDP'),
     (r'victorian socialist', 'VSP'),
     (r'reason', 'RUA'),
     (r'sustainable australia', 'SAP'),
@@ -78,7 +78,8 @@ _NAME_RULES = [
     (r'companions and pets', 'CPP'),
     (r'australian christians', 'AUC'),
     (r'fusion', 'FUS'),
-    (r'citizens party|citizens electoral', 'ACP'),
+    (r'citizens party|citizens electoral|^cec$', 'ACP'),
+    (r'^ca$', 'CYA'),   # the VEC's 2010 abbreviation for Country Alliance
     (r'indigenous', 'AIP'),
     (r'^tnl', 'TNL'),
     (r'independent', 'IND'),

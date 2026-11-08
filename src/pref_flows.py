@@ -27,7 +27,7 @@ from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KEEP = {'ALP', 'LIB', 'NAT', 'GRN', 'ONP', 'VSP', 'AJP', 'FFP', 'LDP', 'DLP', 'FRP', 'RUA', 'SFF', 'UAP', 'LCP', 'DHJ', 'IND', 'SAP', 'TMP', 'CYA', 'NDP'}
 GRP = {'LIB': 'COAL', 'NAT': 'COAL'}
-ELECTIONS = ['vic2010', 'vic2014', 'vic2018', 'vic2022', 'vic2023n', 'fed2010', 'fed2013', 'fed2016', 'fed2019', 'fed2022', 'fed2025', 'vicby-mulgrave-2023', 'vicby-prahran-2025', 'vicby-werribee-2025', 'vicby-nepean-2026']
+ELECTIONS = ['vic1999', 'vic2002', 'vic2006', 'fed2004', 'fed2007', 'vic2010', 'vic2014', 'vic2018', 'vic2022', 'vic2023n', 'fed2010', 'fed2013', 'fed2016', 'fed2019', 'fed2022', 'fed2025', 'vicby-mulgrave-2023', 'vicby-prahran-2025', 'vicby-werribee-2025', 'vicby-nepean-2026']
 BLEND_2026 = {'vic2022': 2.0, 'vic2023n': 1.0, 'vicby-mulgrave-2023': 1.0, 'vicby-prahran-2025': 1.0, 'vicby-werribee-2025': 1.0, 'vicby-nepean-2026': 1.0, 'fed2025': 1.0, 'fed2022': 0.5, 'vic2018': 0.5, 'fed2019': 0.25, 'vic2014': 0.25}
 
 

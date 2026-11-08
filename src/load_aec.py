@@ -22,11 +22,20 @@ def rd(path):
 def load(event, year, raw, out):
     eid = f'fed{year}'
     pp = rd(f'{raw}/GeneralPollingPlacesDownload-{event}.csv')
+    for col in ('Latitude', 'Longitude', 'PremisesAddress1', 'PremisesSuburb', 'PremisesPostCode', 'PremisesNm'):
+        if col not in pp.columns:   # the 2004 list has no coordinates
+            pp[col] = None
+    pp = pp[pp.State == 'VIC'].copy()   # the national files (2004, 2007 as downloaded) are cut to Victoria here
     cand = rd(f'{raw}/HouseCandidatesDownload-{event}.csv')
     fp = rd(f'{raw}/HouseStateFirstPrefsByPollingPlaceDownload-{event}-VIC.csv')
     fpvt = rd(f'{raw}/HouseFirstPrefsByCandidateByVoteTypeDownload-{event}.csv')
     tcp = rd(f'{raw}/HouseTcpByCandidateByPollingPlaceDownload-{event}.csv')
     dop = rd(f'{raw}/HouseDopByDivisionDownload-{event}.csv')
+    cand, fpvt, tcp, dop = (d[d.StateAb == 'VIC'].copy() for d in (cand, fpvt, tcp, dop))
+    if 'Elected' not in fpvt.columns:   # 2004: elected members come as a separate list
+        won = set(rd(f'{raw}/HouseMembersElectedDownload-{event}.csv').CandidateID)
+        fpvt['Elected'] = fpvt.CandidateID.isin(won).map({True: 'Y', False: 'N'})
+        dop['Elected'] = dop.CandidateID.isin(won).map({True: 'Y', False: 'N'})
 
     # --- contests
     contests = pp[['DivisionID', 'DivisionNm']].drop_duplicates().rename(

@@ -38,7 +38,8 @@ def vicmap(layer, out, house):
     for f in j['features']:
         p = f['properties']
         if house == 'LA':
-            nm = p['district_label'].replace(' District', '').title().replace("'S", "'s")
+            nm = re.sub(r'\s+\d{4}$', '', p['district_label'].replace(' District', '')).title().replace("'S", "'s")   # the 1991 layer's labels end in the year
+            if nm == 'Forest Hills': nm = 'Forest Hill'   # Vicmap's 1991 layer misspells the district
             cid = f'vic-{slug(nm)}'
         else:
             nm = p['region_label'].replace(' Region', '')
@@ -117,6 +118,8 @@ if __name__ == '__main__':
     vicmap('state_council_2013', 'vic_lc_2013', 'LC')
     vicmap('state_assembly_2001', 'vic_la_2001', 'LA')   # 2002, 2006 and 2010 state elections
     vicmap('state_council_2005', 'vic_lc_2005', 'LC')    # 2006 and 2010 Legislative Council regions
+    if os.path.exists(f'{RAW}/state_assembly_1991.geojson'):
+        vicmap('state_assembly_1991', 'vic_la_1991', 'LA')   # 1992, 1996 and 1999 state elections
     ids22 = {r.contest_name.upper(): r.contest_id for r in pd.read_csv('data/fed2022/contests.csv').itertuples()}
     ids25 = {r.contest_name.upper(): r.contest_id for r in pd.read_csv('data/fed2025/contests.csv').itertuples()}
     aec(f'{RAW}/aec/vic-july-2021-esri/E_VIC21_region.shp', 'fed_2021', ids22)

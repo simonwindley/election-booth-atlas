@@ -1,0 +1,7 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+vic-altona,vic-altona-derrimut,Derrimut,aec_name_match,2.5
+vic-altona,vic-altona-laverton,Laverton,aec_name_match,2.6
+vic-bayswater,vic-bayswater-southwood,Southwood,geocoded_approx,1.5
+vic-bayswater,vic-bayswater-wantirna-west,Wantirna West,aec_name_match,2.0
+vic-berwick,vic-berwick-mitchell,Mitchell,aec_name_match,35.8
+vic-glen-waverley,vic-glen-waverley-glen-waverley-east,Glen Waverley East,aec_name_match,1.2

@@ -1,5 +1,5 @@
 booth_id,reason
-vic-albert-park-kerferd-south,"13 km from district, outside footprint 4 km"
+vic-albert-park-kerferd-south,"14 km from district, outside footprint 4 km"
 vic-albert-park-south-melbourne-park,type beach
 vic-ashwood-starling,"34 km from district, outside footprint 4 km"
 vic-bayswater-knox,"18 km from district, outside footprint 4 km"
@@ -7,7 +7,7 @@ vic-benambra-wodonga-birallee,no hit
 vic-bendigo-west-kangaroo-flat-south-west,no hit
 vic-bendigo-west-sandhurst,type reservoir
 vic-bendigo-west-sparrowhawk,type drain
-vic-berwick-avebury,"43 km from district, outside footprint 7 km"
+vic-berwick-avebury,type house
 vic-box-hill-starling,"37 km from district, outside footprint 4 km"
 vic-box-hill-warrawong,"26 km from district, outside footprint 4 km"
 vic-brighton-berendale,no hit
@@ -15,8 +15,8 @@ vic-brunswick-blyth,"17 km from district, outside footprint 3 km"
 vic-brunswick-edward,"22 km from district, outside footprint 3 km"
 vic-brunswick-glen-nichol,no hit
 vic-brunswick-mitchell-street,"9 km from district, outside footprint 3 km"
-vic-bulleen-st-gregory-s,"20 km from district, outside footprint 4 km"
-vic-caulfield-alma,"41 km from district, outside footprint 3 km"
+vic-bulleen-st-gregory-s,"20 km from district, outside footprint 5 km"
+vic-caulfield-alma,"42 km from district, outside footprint 3 km"
 vic-caulfield-clarence,"44 km from district, outside footprint 3 km"
 vic-caulfield-glen-eira,type convenience
 vic-cranbourne-amstel,type yes
@@ -29,7 +29,7 @@ vic-euroa-benalla-west,type service
 vic-euroa-devenish,no hit
 vic-euroa-lurg,no hit
 vic-euroa-thoona,no hit
-vic-evelyn-bimbadeen,"22 km from district, outside footprint 9 km"
+vic-evelyn-bimbadeen,"31 km from district, outside footprint 24 km"
 vic-footscray-hyde,"16 km from district, outside footprint 6 km"
 vic-footscray-maidstone-west,type clinic
 vic-footscray-maribyrnong-river,type river
@@ -41,7 +41,7 @@ vic-geelong-kardinia-park,type stadium
 vic-geelong-shannon,"41 km from district, outside footprint 19 km"
 vic-gippsland-south-sandy-point,type yes
 vic-gippsland-south-wurruk,no hit
-vic-hastings-woodlands,"28 km from district, outside footprint 17 km"
+vic-hastings-woodlands,"27 km from district, outside footprint 18 km"
 vic-ivanhoe-golf-links,"21 km from district, outside footprint 3 km"
 vic-ivanhoe-ivanhoe-west,type industrial
 vic-kororoit-mount-derrimut,type grassland
@@ -55,13 +55,13 @@ vic-mildura-cullulleraine,no hit
 vic-mildura-mildura-ranfurly,no hit
 vic-mill-park-marymeade,no hit
 vic-mill-park-morang-south,type farmyard
-vic-mill-park-the-lakes,"33 km from district, outside footprint 7 km"
+vic-mill-park-the-lakes,"33 km from district, outside footprint 8 km"
 vic-mordialloc-chapel,"39 km from district, outside footprint 7 km"
 vic-mornington-osborne,type wood
 vic-morwell-morwell-east,type river
 vic-morwell-traralgon-north-east,type tower
 vic-mulgrave-northvale,type newsagent
-vic-mulgrave-springvale-heights,"11 km from district, outside footprint 4 km"
+vic-mulgrave-springvale-heights,"10 km from district, outside footprint 4 km"
 vic-narre-warren-north-avebury,type house
 vic-narre-warren-north-glen-eagles,no hit
 vic-oakleigh-monash-east,type motorway
@@ -69,7 +69,7 @@ vic-oakleigh-oakleigh-north,type barracks
 vic-ovens-valley-running-creek,type stream
 vic-ovens-valley-tawonga,no hit
 vic-ovens-valley-yarrawonga-central,type aerodrome
-vic-pakenham-lakeside-east,"34 km from district, outside footprint 6 km"
+vic-pakenham-lakeside-east,"32 km from district, outside footprint 24 km"
 vic-point-cook-homestead,type yes
 vic-polwarth-ecklin,no hit
 vic-richmond-hosie,"21 km from district, outside footprint 3 km"
@@ -118,6 +118,6 @@ vic-lowan-minimay,no hit
 vic-lowan-serviceton,no hit
 vic-lowan-yanac,type unclassified
 vic-murray-plains-yarrawalla-south,type unclassified
-vic-prahran-alma,"46 km from district, outside footprint 4 km"
-vic-ripon-litchfield,"109 km from district, outside footprint 98 km"
+vic-prahran-alma,"45 km from district, outside footprint 4 km"
+vic-ripon-litchfield,"110 km from district, outside footprint 99 km"
 vic-south-west-coast-portland-south-west-tafe,no hit

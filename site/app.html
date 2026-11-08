@@ -261,7 +261,7 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
 
 <div class="app">
   <header class="top">
-    <div class="brand"><h1>The Election Booth Atlas</h1><span class="sub">every polling place, election after election · Victoria, 2010–2026</span></div>
+    <div class="brand"><h1>The Election Booth Atlas</h1><span class="sub">every polling place, election after election · Victoria, 1999–2026</span></div>
     <nav class="views" aria-label="Views">
       <button data-view="dash">Dashboard</button>
       <button data-view="map" aria-current="page">Map</button>
@@ -316,7 +316,7 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
         <div class="field"><label for="sel-bound">Boundary outlines</label>
           <select id="sel-bound">
             <option value="auto">This election’s</option>
-            <option value="vic_la_2022">State electorates 2022</option><option value="vic_la_2013">State electorates 2013</option><option value="vic_la_2001">State electorates 2001</option>
+            <option value="vic_la_2022">State electorates 2022</option><option value="vic_la_2013">State electorates 2013</option><option value="vic_la_2001">State electorates 2001</option><option value="vic_la_1991">State electorates 1991</option>
             <option value="fed_2024">Federal divisions 2024</option><option value="fed_2021">Federal divisions 2021</option><option value="fed_2018">Federal divisions 2018</option><option value="fed_2010">Federal divisions 2010</option><option value="fed_2003">Federal divisions 2003</option>
             <option value="vic_lc_2022">Upper house regions 2022</option><option value="vic_lc_2013">Upper house regions 2013</option><option value="vic_lc_2005">Upper house regions 2005</option><option value="none">None</option>
           </select></div>
@@ -497,7 +497,7 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
   <section class="view" id="view-about">
     <div class="page"><div class="inner prose">
       <h2>What this is</h2>
-      <p>Every polling place, election after election: results pinned to the place the votes were cast, so the vote can be followed by school hall and church porch rather than by electorate. Boundaries change; a school hall does not. It starts with Victoria — the state elections since 2010 and the federal elections since 2010 (House and Senate) — and is built to take on other states and the federal map in the same way.</p>
+      <p>Every polling place, election after election: results pinned to the place the votes were cast, so the vote can be followed by school hall and church porch rather than by electorate. Boundaries change; a school hall does not. It starts with Victoria — every state election since 1999 and every federal election in Victoria since 2004 (House, with the Senate from 2010) — and is built to take on other states and the federal map in the same way.</p>
       <h2>How to read it</h2>
       <p>Dots are election-day booths, sized by votes cast there. Catchments are a model: each booth is given the area closer to it than to any other booth in the same electorate, so the map fills in. Early, postal and absent votes are not tied to a booth by the electoral commissions and are shown at electorate level in the booth panel only. In 2022 about half of all state votes were cast before election day, so a booth map shows election-day voters, not everyone.</p>
       <p>The Dashboard is the statewide view of any election: primary vote by party with the change since last time, the seat tally against the majority line, a seat spectrum (one box per seat from the strongest Labor seat to the strongest Coalition seat, by primary leader or after preferences), and every seat with who held it, who won or leads, the margin and the 2CP swing, filterable to the seats changing hands or in doubt. On election night it fills in by itself from the live feed; seats are called by this page’s own rule (a clear projected lead for the share of booths in) and marked declared only when the VEC publishes the distribution.</p>
@@ -508,7 +508,7 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
       <p>Preferences holds the preference-flow model. Every distribution of preferences in the Atlas is treated as observations of where an excluded candidate’s votes went; a Luce choice model fitted by maximum likelihood gives each voter-party a weight for every destination, so a flow can be worked out for any set of candidates still standing. The Dashboard’s “Modelled” spectrum and the “Modelled from first preferences” block in each seat run the first preferences through the exclusions with those flows, giving a two-candidate figure for any pair without a VEC two-candidate count. Each pile keeps track of where its votes started, so a Labor vote sitting on an excluded independent still moves like a Labor vote. Fitted on 2018 and tested on 2022 it picked the right final two in 75 of 76 seats with a mean error of 1.8 points, the misses being the Labor-v-Greens seats where the Liberal how-to-vote card changed; the registered cards close most of that gap (see the Preferences tab). Nothing from the polls goes in. The code is <code>src/pref_flows.py</code>, <code>src/htv_follow.py</code> and <code>src/build_htv.py</code>.</p>
       <p>Switch from Booths to Electorates to see whole-seat results, which include every vote type and are what decide who is elected. Coalition means Liberal plus National; One Nation and the Victorian Socialists have their own colours; Independents are everyone running without a registered party. Shares are of the formal vote.</p>
       <h2>Where the numbers come from</h2>
-      <p>Victorian Electoral Commission results pages and spreadsheets (the 2018 pages via the Internet Archive, as the VEC no longer serves them); Australian Electoral Commission Tally Room downloads; Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every electorate’s booth totals reconcile to the published electorate totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount). Narracan’s 2022 contest was deferred to a supplementary election on 28 January 2023 after a candidate died during the campaign; it is shown as part of 2022 (the 88th seat of that parliament) and flagged wherever it appears, including in the <code>contests</code> and <code>booths</code> tables under Query.</p>
+      <p>Victorian Electoral Commission results pages and spreadsheets (the 1999–2018 pages via the Internet Archive, as the VEC no longer serves them; three booth pages were never captured — Ferntree Gully 2006, Evelyn and Nepean 2002, Geelong 1999 — so those seats carry their district totals only, and Frankston East 1999 is the supplementary election held after a candidate died); Australian Electoral Commission Tally Room downloads (the 2004 polling-place list has no coordinates, so those booths are placed by the polling-place id they share with later elections); Vicmap and AEC boundary files. Coordinates come from AEC polling place data where a state booth matches a federal premises by name, otherwise from OpenStreetMap at locality level, flagged as approximate. Every electorate’s booth totals reconcile to the published electorate totals, with one documented exception (Ripon 2018, where the only booth-level count published predates the recount). Narracan’s 2022 contest was deferred to a supplementary election on 28 January 2023 after a candidate died during the campaign; it is shown as part of 2022 (the 88th seat of that parliament) and flagged wherever it appears, including in the <code>contests</code> and <code>booths</code> tables under Query.</p>
       <p>Pipeline, raw data and reconciliation checks: the <code>election-analyser</code> project folder.</p>
       <h2>Privacy</h2>
       <p>The public site counts visits with <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a>: which tab was opened and roughly where the visit came from, nothing more. No cookies, no personal data, no advertising, and nothing is counted when the atlas is run from a local copy. Map tiles are served by OpenFreeMap.</p>
@@ -526,8 +526,8 @@ const BASEMAP = window.__BASEMAP || null;   // a MapLibre style URL when tiles a
 const PARTIES = ['ALP', 'COAL', 'GRN', 'ONP', 'VSP', 'IND', 'OTH'];
 const PARTY_NAME = { ALP: 'Labor', COAL: 'Coalition', LIB: 'Liberal', NAT: 'National', GRN: 'Greens', ONP: 'One Nation', VSP: 'Socialists', IND: 'Independent', OTH: 'Other' };
 const PARTY_SHORT = { ALP: 'ALP', COAL: 'Coal.', GRN: 'GRN', ONP: 'ONP', VSP: 'VSP', IND: 'IND', OTH: 'OTH' };
-const PREV = { vic2014: 'vic2010', vic2018: 'vic2014', vic2022: 'vic2018', vic2026: 'vic2022', fed2013: 'fed2010', fed2016: 'fed2013', fed2019: 'fed2016', fed2022: 'fed2019', fed2025: 'fed2022', vic2023n: 'vic2022', 'vicby-warrandyte-2023': 'vic2022', 'vicby-mulgrave-2023': 'vic2022', 'vicby-prahran-2025': 'vic2022', 'vicby-werribee-2025': 'vic2022', 'vicby-nepean-2026': 'vic2022' };
-const BOUND_FOR = new Proxy({ vic2010: 'vic_la_2001', vic2014: 'vic_la_2013', vic2018: 'vic_la_2013', vic2022: 'vic_la_2022', vic2023n: 'vic_la_2022', fed2010: 'fed_2003', fed2013: 'fed_2010', fed2016: 'fed_2010', fed2019: 'fed_2018', fed2022: 'fed_2021', fed2025: 'fed_2024' }, { get: (o, k) => o[k] || (String(k).startsWith('vicby') ? 'vic_la_2022' : 'vic_la_2022') });
+const PREV = { vic2002: 'vic1999', vic2006: 'vic2002', vic2010: 'vic2006', fed2007: 'fed2004', fed2010: 'fed2007', vic2014: 'vic2010', vic2018: 'vic2014', vic2022: 'vic2018', vic2026: 'vic2022', fed2013: 'fed2010', fed2016: 'fed2013', fed2019: 'fed2016', fed2022: 'fed2019', fed2025: 'fed2022', vic2023n: 'vic2022', 'vicby-warrandyte-2023': 'vic2022', 'vicby-mulgrave-2023': 'vic2022', 'vicby-prahran-2025': 'vic2022', 'vicby-werribee-2025': 'vic2022', 'vicby-nepean-2026': 'vic2022' };
+const BOUND_FOR = new Proxy({ vic1999: 'vic_la_1991', vic2002: 'vic_la_2001', vic2006: 'vic_la_2001', fed2004: 'fed_2003', fed2007: 'fed_2003', vic2010: 'vic_la_2001', vic2014: 'vic_la_2013', vic2018: 'vic_la_2013', vic2022: 'vic_la_2022', vic2023n: 'vic_la_2022', fed2010: 'fed_2003', fed2013: 'fed_2010', fed2016: 'fed_2010', fed2019: 'fed_2018', fed2022: 'fed_2021', fed2025: 'fed_2024' }, { get: (o, k) => o[k] || (String(k).startsWith('vicby') ? 'vic_la_2022' : 'vic_la_2022') });
 const CATCH_FOR = { vic2026: 'vic2022' };   // 2026 is fought on the 2022 boundaries with (so far) the 2022 booth list
 const LIVE = { election: 'vic2026', latest: null, fetchedAt: null, seenAt: null, timer: null, available: false, error: null, meta: null, register: null, daily: null, dailyAt: null };
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -952,7 +952,7 @@ function expectBlock(eid, b) {
 function renderDetail(eid, bid) {
   const b = idx.boothsByKey.get(eid + '|' + bid); const c = idx.contestById.get(eid + '|' + b.contest_id); const e = idx.electionById.get(eid);
   const root = el('detail'); root.innerHTML = '';
-  root.append(h('h2', {}, b.booth_name, isFresh(eid, bid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(b.updated_at)) : ''), h('div', { class: 'meta' }, `${c ? c.contest_name : b.contest_id} · ${e.name} · ${b.geo_source === 'geocoded_approx' ? 'approximate location' : b.geo_source === 'aec' || b.geo_source === 'aec_name_match' ? 'located' : 'not located'}`));
+  root.append(h('h2', {}, b.booth_name, isFresh(eid, bid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(b.updated_at)) : ''), h('div', { class: 'meta' }, `${c ? c.contest_name : b.contest_id} · ${e.name} · ${b.geo_source === 'geocoded_approx' ? 'approximate location' : b.geo_source === 'aec' || b.geo_source === 'aec_name_match' || b.geo_source === 'aec_id_match' ? 'located' : 'not located'}`));
   if (suppNote(c)) root.append(h('div', { class: 'hint' }, suppNote(c)));
   if (eid === LIVE.election && !b.reported) {
     root.append(h('div', { class: 'hint', style: 'margin:6px 0' }, LIVE.available ? 'No figures from this booth yet.' : 'A 2022 booth, carried forward for 2026. Figures appear here on election night.'), h('div', { style: 'margin:4px 0 8px' }, h('button', { class: 'btn', onclick: () => { setUnit('contest'); selectContest(eid, b.contest_id, true); } }, `Open ${c ? c.contest_name : 'the district'}: candidates and history`)));
@@ -1769,7 +1769,7 @@ function renderPollsTable() {
 const DEMOGS = {}; let DEMOG = null;   // census datasets by boundary set; DEMOG stays truthy once any has loaded
 const DEMOG_SETS = ['vic_la_2022', 'vic_la_2013', 'fed_2021'];
 // which boundary set's census file describes an election: its own where one exists, else the nearest by seat name
-const DEMOG_FALLBACK = { vic_la_2001: 'vic_la_2013', fed_2024: 'fed_2021', fed_2018: 'fed_2021', fed_2010: 'fed_2021', fed_2003: 'fed_2021' };
+const DEMOG_FALLBACK = { vic_la_1991: 'vic_la_2013', vic_la_2001: 'vic_la_2013', fed_2024: 'fed_2021', fed_2018: 'fed_2021', fed_2010: 'fed_2021', fed_2003: 'fed_2021' };
 // the same quantity under different ids in the Parliament workbook (2022 boundaries) and the ABS tables
 const DEMOG_ALIAS = { income_household_median: 'income_and_expense_income', income_and_expense_income: 'income_household_median', age_median: 'age_median', born_australia: 'country_of_birth_born_in_australia', country_of_birth_born_in_australia: 'born_australia',
   speaks_english_only: 'language_speaks_only_english', language_speaks_only_english: 'speaks_english_only', rented: 'household_ownership_rented', household_ownership_rented: 'rented', owned_mortgage: 'household_ownership_mortgage', household_ownership_mortgage: 'owned_mortgage',
@@ -2059,7 +2059,7 @@ async function ensureLc() {
   if (typeof alasql !== 'undefined') for (const [n, d] of [['lc_contests', contests], ['lc_candidates', candidates], ['lc_groups', groups], ['lc_result', result], ['lc_flows', flows]]) alasql.tables[n] = new alasql.Table({ data: d });
   status(`${fmt(D.booths.filter(b => b.booth_type === 'ordinary').length)} booths · ${D.elections.length} elections`);
 }
-const LC_BOUND = { vic2010: 'vic_lc_2005', vic2014: 'vic_lc_2013', vic2018: 'vic_lc_2013', vic2022: 'vic_lc_2022', vic2026: 'vic_lc_2022' };
+const LC_BOUND = { vic2006: 'vic_lc_2005', vic2010: 'vic_lc_2005', vic2014: 'vic_lc_2013', vic2018: 'vic_lc_2013', vic2022: 'vic_lc_2022', vic2026: 'vic_lc_2022' };
 function lcShares(eid, cid) {
   const rows = LC.groupsBy.get(eid + '|' + cid) || []; const out = { formal: 0 };
   for (const r of rows) { const p = grpParty(r.party); out[p] = out[p] || { votes: 0, atl: 0 }; out[p].votes += r.total; out[p].atl += r.atl; out.formal += r.total; }
@@ -3054,6 +3054,6 @@ async function boot() {
   } catch (e) { status('failed to load: ' + e.message); console.error(e); }
 }
 boot();
-window.__eba = { get map() { return map; }, modelledTcp, contestTcp, laContests, HTV, ensureHtv, ensurePref, metricValueContest, metricValue, state, tipForContest, progressText, countProgress, select, boothsOf: (cid) => D.booths.filter(x => x.election_id === LIVE.election && x.contest_id === cid && x.booth_type === 'ordinary'), pickUnreported: () => { const d = D.booths.find(x => x.election_id === LIVE.election && x.booth_type === 'ordinary' && !x.reported && x.contest_id === 'vic-richmond'); return d ? d.booth_id : null; } };   // for headless checks
+window.__eba = { get map() { return map; }, modelledTcp, contestTcp, laContests, HTV, ensureHtv, ensurePref, metricValueContest, metricValue, state, tipForContest, progressText, countProgress, select, selectContest, renderContest: (eid, cid) => renderContestDetail(eid, cid), boothsOf: (cid) => D.booths.filter(x => x.election_id === LIVE.election && x.contest_id === cid && x.booth_type === 'ordinary'), pickUnreported: () => { const d = D.booths.find(x => x.election_id === LIVE.election && x.booth_type === 'ordinary' && !x.reported && x.contest_id === 'vic-richmond'); return d ? d.booth_id : null; } };   // for headless checks
 })();
 </script>

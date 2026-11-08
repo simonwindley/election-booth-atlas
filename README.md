@@ -21,13 +21,15 @@ raw/                      # untouched source data
   vec/2018/               # 2018 scrape (from the Internet Archive's copy of the old VEC results
                           #   site) + 2018 Legislative Council .xls files
   vec/2014/, vec/2010/    # 2014 and 2010 scrapes, also from the Internet Archive (latest 2020 captures)
+  vec/2006/, vec/2002/, vec/1999/   # the old results site via the Internet Archive (2010-2012 captures): districts.json from tools/fetch_history.py; html/ page cache (not committed)
+  aec/2004, aec/2007      # Tally Room CSVs (events 12246, 13745), national; the loader cuts them to Victoria
   vec/osm_geocodes_raw.json  # raw OpenStreetMap lookups for VEC-only booth names
   boundaries/             # Vicmap WFS extracts and AEC shapefiles as downloaded
 data/
   vic2010/ … vic2022/, vic2023n/, vicby-*/, fed2010/ … fed2025/   # normalised CSVs, one set per election
   senate/                 # senators elected for Victoria at each federal election
   venues/                 # venue table, VEC booth -> venue matches, geocodes
-  boundaries/             # simplified GeoJSON: vic_la_2013/2022, vic_lc_2013/2022, fed_2021/2024
+  boundaries/             # simplified GeoJSON: vic_la_1991/2001/2013/2022, vic_lc_2005/2013/2022, fed_2003/2010/2018/2021/2024
   catchments/             # Voronoi booth catchments per election (+ H3 res-7 hex shares, review lists)
   bundle/                 # Parquet tables + GeoJSON + manifest.json (for DuckDB-style tooling)
 site/                     # the Election Booth Atlas static site: app.html, index.html, build.py, data/ (see site/README.md)
@@ -54,7 +56,7 @@ tools/                    # helpers for moving data through the browser pane
 
 | table | key | notes |
 |---|---|---|
-| `elections` | election_id | state: `vic2010`, `vic2014`, `vic2018`, `vic2022`, `vic2023n` (Narracan supplementary) and the by-elections `vicby-warrandyte-2023`, `vicby-mulgrave-2023`, `vicby-prahran-2025`, `vicby-werribee-2025`, `vicby-nepean-2026`; federal: `fed2010`, `fed2013`, `fed2016`, `fed2019`, `fed2022`, `fed2025` |
+| `elections` | election_id | state: `vic1999`, `vic2002`, `vic2006`, `vic2010`, `vic2014`, `vic2018`, `vic2022`, `vic2023n` (Narracan supplementary) and the by-elections `vicby-warrandyte-2023`, `vicby-mulgrave-2023`, `vicby-prahran-2025`, `vicby-werribee-2025`, `vicby-nepean-2026`; federal: `fed2004`, `fed2007`, `fed2010`, `fed2013`, `fed2016`, `fed2019`, `fed2022`, `fed2025` |
 | `contests` | election_id, contest_id | a district (`vic-albert-park`) or division (`fed-197`); enrolment/formal/informal for VEC |
 | `candidates` | election_id, candidate_id | surname, given_name, party_name (as published), `party` (canonical), ballot_position, elected |
 | `booths` | election_id, booth_id | `booth_type` is `ordinary` (election-day booth), `early` (pre-poll centre), or a declaration type (`postal`, `absent`, `provisional`, `early_declaration`, `marked_as_voted`) which is a synthetic district-level row |
@@ -81,7 +83,10 @@ at each election).
   `verify_exceptions.json`: Ripon 2018 and Prahran 2014, where the only booth-level count the VEC published
   predates the recount; and a handful of districts in 2010 and 2014 whose archived distribution page carries
   a first-preference total a few votes different from the rechecked district total).
-* Seats: 2010 ALP 43, LIB 35, NAT 10; 2014 ALP 47, LIB 30, NAT 8, GRN 2, IND 1. Federal (Vic): 2010 ALP 22 LIB 12 NAT 2 GRN 1;
+* Seats: 1999 ALP 42, LIB 36, NAT 7, IND 3 (Frankston East is the supplementary election); 2002 ALP 62, LIB 17, NAT 7, IND 2; 2006 ALP 55, LIB 23, NAT 9, IND 1;
+  2010 ALP 43, LIB 35, NAT 10; 2014 ALP 47, LIB 30, NAT 8, GRN 2, IND 1. Booth first preferences reconcile to the district formal vote in every
+  district of 1999, 2002 and 2006 except the four whose booth page the Internet Archive never captured (Geelong 1999, Evelyn and Nepean 2002,
+  Ferntree Gully 2006: district totals kept as one `all_votes` row) and two 2006 distribution-page totals that differ from the recheck (`verify_exceptions.json`). Federal (Vic): 2010 ALP 22 LIB 12 NAT 2 GRN 1;
   2013 ALP 19 LIB 14 NAT 2 GRN 1 IND 1; 2016 ALP 18 LIB 14 NAT 3 GRN 1 IND 1; 2019 ALP 21 LIB 12 NAT 3 GRN 1 IND 1.
 * Senate booth totals reconcile to the booth formal vote in every election 2010–2025.
 * Distribution of preferences: transfers at every count sum to zero and the final progressive
@@ -285,6 +290,9 @@ This is what the static site loads (DuckDB-WASM for the tables, MapLibre for the
 ## Re-running
 
 ```
+python3 tools/fetch_history.py aec 2007 raw/aec/2007               # the 2004 (12246) and 2007 (13745) Tally Room CSVs (national; the loader cuts them to Victoria)
+python3 tools/fetch_history.py vec 2006 raw/vec/2006               # 1999, 2002 and 2006: the old VEC results site via the Internet Archive -> districts.json
+python3 -m src.load_aec 12246 2004 raw/aec/2004 data/fed2004      # likewise 13745 2007
 python3 -m src.load_aec 15508 2010 raw/aec/2010 data/fed2010      # likewise 17496 2013, 20499 2016, 24310 2019
 python3 -m src.load_aec 27966 2022 raw/aec/2022 data/fed2022
 python3 -m src.load_aec 31496 2025 raw/aec/2025 data/fed2025
@@ -293,16 +301,18 @@ python3 -m src.load_vec 2022 raw/vec/2022/districts.json data/vic2022
 python3 -m src.load_vec 2018 raw/vec/2018/districts.json data/vic2018
 python3 -m src.load_vec 2014 raw/vec/2014/districts.json data/vic2014   # districts.json = normalise_2018() over districts_wayback.json
 python3 -m src.load_vec 2010 raw/vec/2010/districts.json data/vic2010
+python3 -m src.load_vec 2006 raw/vec/2006/districts.json data/vic2006   # likewise 2002, 1999 (tools/fetch_history.py writes the normalised shape directly)
 python3 -m src.load_lc 2022 raw/vec/2022/legislative_council data/vic2022
 python3 -m src.load_lc 2018 raw/vec/2018/legislative_council data/vic2018
 # by-elections: raw/vec/by_<seat><year>.json -> data/vicby-<seat>-<year> (see src/load_vec.load)
 python3 -m src.load_2026 raw/vec/2026/wikipedia_candidates_raw_2026-10-31.json data/vic2026 2026-10-31
 python3 -m src.verify data/vic2022 && python3 -m src.verify data/vic2018
 python3 -m src.match_venues data/vic2022/booths.csv,data/vic2018/booths.csv,data/vic2014/booths.csv,data/vic2010/booths.csv,data/vic2023n/booths.csv,<by-election booths…> data/venues data/fed2025/booths.csv data/fed2022/booths.csv data/fed2019/booths.csv data/fed2016/booths.csv data/fed2013/booths.csv data/fed2010/booths.csv
+python3 -m src.match_old_aec data/venues data/fed2007/booths.csv data/fed2004/booths.csv   # 2004/2007 federal booths -> venues (by premises+coordinates, then polling-place id); appends 2007-only premises to venues.csv
 python3 -m src.filter_geocodes raw/vec/osm_geocodes_raw.json data
 python3 -m src.boundaries
 python3 -m src.build_db data/elections.sqlite data
-python3 -m src.catchments data/elections.sqlite
+python3 -m src.catchments data/elections.sqlite            # optionally a comma-separated list of election ids to rebuild
 python3 -m src.export_bundle data/elections.sqlite data/bundle
 python3 -m src.compare data/elections.sqlite
 ```
@@ -317,6 +327,7 @@ Requires pandas, xlrd, openpyxl, shapely, pyshp, h3, pyarrow.
   (vec.vic.gov.au/Results/State2018/) is preserved by the Internet Archive and was scraped from there
   (captures from late 2019, i.e. final rechecked figures).
 * VEC indicative distributions: https://www.vec.vic.gov.au/results/electoral-statistics/state-election-statistics/full-preference-distributions
-* AEC Tally Room downloads: https://results.aec.gov.au/27966/Website/HouseDownloadsMenu-27966-Csv.htm and .../31496/...
-* Boundaries: Vicmap Admin state assembly/council polygons via the DataVic WFS (open-data-platform:state_assembly_2001/2013/2022, state_council_2005/2013/2022); AEC Victorian division files: February 2010 (MapInfo, used at the 2010 election), December 2010 (2013 and 2016), July 2018 (2019), July 2021 (2022), October 2024 (2025).
+* AEC Tally Room downloads: https://results.aec.gov.au/27966/Website/HouseDownloadsMenu-27966-Csv.htm and .../31496/...; the 2004 (event 12246, no coordinates in its polling-place list) and 2007 (13745) menus are still served. Polling-place ids are stable across elections, which is how the 2004 booths get their venues (`data/venues/aec_old_booth_venue.csv`, method `id_2007` when the 2007 list names the same premises, `id_only` when it cannot be checked).
+* VEC 1999, 2002 and 2006 results: the old results site (`vec.vic.gov.au/Results/state2006result<District>District.html` and its FPVbyVotingCentre / TCPbyVC / distribution pages) as captured by the Internet Archive in 2010-2012; `tools/fetch_history.py`. From 1999 to 2006 the voting-centre tables list the early voting centres of other districts as rows (`… E Centre`, loaded as `booth_type = 'early'` with their own ids) and call provisional votes "Declaration Votes".
+* Boundaries: Vicmap Admin state assembly/council polygons via the DataVic WFS (open-data-platform:state_assembly_1991/2001/2013/2022 (1991: the 1999 election; its "Forest Hills" is corrected to Forest Hill), state_council_1991/2001/2005/2013/2022); AEC Victorian division files: February 2010 (MapInfo, used at the 2010 election), December 2010 (2013 and 2016), July 2018 (2019), July 2021 (2022), October 2024 (2025).
 * Senate by polling place: the Tally Room's `SenatePollingPlaceFirstPrefs-<event>-<pp>.htm` pages (and the 2010/2013 VTR equivalents), ~2,000 per election, parsed in the browser into `raw/aec/senate/senate_pp_<event>.json`.

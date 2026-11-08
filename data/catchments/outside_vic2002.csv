@@ -1,0 +1,7 @@
+contest_id,booth_id,booth_name,geo_source,km_outside
+vic-altona,vic-altona-derrimut,Derrimut,aec_name_match,2.4
+vic-altona,vic-altona-laverton,Laverton,aec_name_match,2.6
+vic-bendigo-west,vic-bendigo-west-eaglehawk-west,Eaglehawk West,geocoded_approx,1.9
+vic-bulleen,vic-bulleen-manningham,Manningham,aec_name_match,1.4
+vic-mount-waverley,vic-mount-waverley-glen-waverley-east,Glen Waverley East,aec_name_match,1.5
+vic-narre-warren-north,vic-narre-warren-north-mitchell,Mitchell,aec_name_match,38.2
