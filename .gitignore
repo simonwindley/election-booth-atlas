@@ -26,3 +26,6 @@ raw/vec/*/html/
 raw/abs/tablebuilder/2006/*.zip
 raw/boundaries/abs/cd06_vic_shape.zip
 raw/boundaries/abs/asgc2001.gpkg
+
+# 2001 Basic Community Profiles by SED (re-downloadable with tools/fetch_bcp2001.py)
+raw/abs/bcp2001/

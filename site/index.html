@@ -145,6 +145,17 @@ select, input[type=text], input[type=search], textarea { width: 100%; background
 .detail h2 { font-family: var(--font-display); font-weight: 500; font-size: 18px; margin: 0 0 2px; text-wrap: balance; }
 .detail .meta { color: var(--fg-2); font-size: 12px; margin-bottom: 10px; }
 .detail h3 { margin: 14px 0 6px; }
+details.fold { border-top: 1px solid var(--line); margin-top: 10px; }
+details.fold > summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 8px; padding: 9px 0 7px; user-select: none; }
+details.fold > summary::-webkit-details-marker { display: none; }
+details.fold > summary::before { content: '›'; display: inline-block; width: 10px; color: var(--fg-3); transition: transform .15s; transform-origin: 40% 55%; }
+details.fold[open] > summary::before { transform: rotate(90deg); }
+details.fold > summary .fold-t { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--fg-3); font-weight: 500; white-space: nowrap; }
+details.fold > summary .fold-s { font-size: 12px; color: var(--fg-2); margin-left: auto; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+details.fold > summary:hover .fold-t { color: var(--fg); }
+details.fold > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+details.fold > .fold-b { padding-bottom: 6px; }
+details.fold > .fold-b > div > h3:first-child, details.fold > .fold-b > h3:first-child { margin-top: 2px; }
 table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
 table.data th { text-align: left; font-weight: 500; color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--line); padding: 4px 6px; }
 table.data td { padding: 4px 6px; border-bottom: 1px solid var(--surface-2); }
@@ -895,6 +906,20 @@ function selectContest(eid, cid, fly) {
   renderContestDetail(eid, cid);
 }
 function bboxOf(g) { let w = 180, s = 90, e = -180, n = -90; const walk = (c) => { if (typeof c[0] === 'number') { w = Math.min(w, c[0]); e = Math.max(e, c[0]); s = Math.min(s, c[1]); n = Math.max(n, c[1]); } else c.forEach(walk); }; walk(g.coordinates); return [[w, s], [e, n]]; }
+// collapsible panel sections; the open/closed choice is remembered per section across seats and visits
+const FOLD_OPEN = (() => { try { return JSON.parse(localStorage.getItem('eba_fold') || '{}'); } catch (e) { return {}; } })();
+function fold(key, title, summary, body, dflt = false) {
+  if (!body) return null;
+  const nodes = Array.isArray(body) ? body.filter(Boolean) : [body];
+  if (!nodes.length) return null;
+  const b = h('div', { class: 'fold-b' }, ...nodes);
+  const dup = [...b.querySelectorAll('h3')].find(x => x.textContent.trim().toLowerCase() === title.toLowerCase()); if (dup && dup === b.querySelector('h3')) dup.remove();   // the section's own heading is now the summary
+  const d = h('details', { class: 'fold' }); if (key in FOLD_OPEN ? FOLD_OPEN[key] : dflt) d.open = true;
+  d.append(h('summary', {}, h('span', { class: 'fold-t' }, title), summary ? h('span', { class: 'fold-s' }, summary) : ''), b);
+  d.addEventListener('toggle', () => { FOLD_OPEN[key] = d.open; try { localStorage.setItem('eba_fold', JSON.stringify(FOLD_OPEN)); } catch (e) { /* storage unavailable */ } });
+  return d;
+}
+function capture(fn) { const tmp = h('div', {}); fn(tmp); return tmp.childNodes.length ? tmp : null; }
 function renderContestDetail(eid, cid) {
   if (eid === LIVE.election && LIVE.register) return renderContestDetail2026(cid);
   const c = idx.contestById.get(eid + '|' + cid), e = idx.electionById.get(eid), ps = contestShares(eid, cid), w = idx.elected.get(eid + '|' + cid);
@@ -918,19 +943,19 @@ function renderContestDetail(eid, cid) {
     const margin = t.pair.length === 2 ? Math.abs(t.pair[0].share - 0.5) : null;
     root.append(h('div', { class: 'hint' }, `${margin != null ? 'Margin ' + (100 * margin).toFixed(1) + ' pts · ' : ''}from the ${t.source}`));
   }
-  renderFlows(root, eid, cid);
-  { const cb = cardsBlock(eid, cid, () => renderContestDetail(eid, cid)); if (cb) root.append(cb); }
+  // how this seat has voted: every election held under this name
+  const series = contestSeries(eid, cid);
+  if (series.length > 1) { root.append(h('h3', {}, 'How this seat has voted'), seriesChart(series, 340, 200), h('div', { class: 'hint' }, `Primary vote by party at every election with a seat of this name: ${series.length} contests, ${series[0].election.date.slice(0, 4)}–${series[series.length - 1].election.date.slice(0, 4)}. Boundaries move between redistributions.`)); }
+  { const flows = prefFlows(eid, cid); const fl = capture(r => renderFlows(r, eid, cid)); if (fl) root.append(fold('flows', 'Where preferences went', `${flows.length} ${flows.length === 1 ? 'exclusion' : 'exclusions'}`, fl)); }
+  { const cb = cardsBlock(eid, cid, () => renderContestDetail(eid, cid)); if (cb) { const hv = HTV[eid]; const n = hv && hv.cards && hv.cards[cid] ? new Set(hv.cards[cid].map(x => x.owner)).size : 0; root.append(fold('cards', 'How-to-vote cards', n ? `${n} registered` : '', cb)); } }
   // vote types
   const types = D.booths.filter(b => b.election_id === eid && b.contest_id === cid).reduce((acc, b) => { const q = partyShares(eid, b.booth_id); if (q.formal) acc[b.booth_type] = (acc[b.booth_type] || 0) + q.formal; return acc; }, {});
   const tot = Object.values(types).reduce((a, v) => a + v, 0);
-  if (tot) root.append(h('h3', {}, 'How the vote was cast'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('tbody', {}, ...Object.entries(types).sort((a, b) => b[1] - a[1]).map(([k, v]) => h('tr', {}, h('td', {}, k === 'ordinary' ? 'election day' : k === 'early' ? 'pre-poll' : k.replaceAll('_', ' ')), h('td', { class: 'num' }, fmt(v)), h('td', { class: 'num' }, pct(v / tot))))))));
-  // how this seat has voted: every election held under this name
-  if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(cb); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail(eid, cid); });
-  const series = contestSeries(eid, cid);
-  if (series.length > 1) { root.append(h('h3', {}, 'How this seat has voted'), seriesChart(series, 340, 200), h('div', { class: 'hint' }, 'Primary vote by party, every election with a seat of this name. Boundaries move between redistributions.')); }
+  if (tot) root.append(fold('votetypes', 'How the vote was cast', ['ordinary', 'early', 'postal'].filter(k => types[k]).map(k => `${pct(types[k] / tot, 0)} ${k === 'ordinary' ? 'on the day' : k}`).join(' · '), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('tbody', {}, ...Object.entries(types).sort((a, b) => b[1] - a[1]).map(([k, v]) => h('tr', {}, h('td', {}, k === 'ordinary' ? 'election day' : k === 'early' ? 'pre-poll' : k.replaceAll('_', ' ')), h('td', { class: 'num' }, fmt(v)), h('td', { class: 'num' }, pct(v / tot)))))))));
+  if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(fold('census', 'Who lives here', censusSummary(eid, cid), cb)); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail(eid, cid); });
   // booths
   const bl = D.booths.filter(b => b.election_id === eid && b.contest_id === cid && b.booth_type === 'ordinary').sort((a, b) => a.booth_name.localeCompare(b.booth_name));
-  root.append(h('h3', {}, `${bl.length} election-day booths`), h('div', { class: 'hint', style: 'display:flex;flex-wrap:wrap;gap:4px 10px' }, ...bl.map(b => h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); if (state.unit !== 'booth') setUnit('booth'); select(eid, b.booth_id, true); } }, b.booth_name))));
+  if (bl.length) root.append(fold('boothlist', 'Election-day booths', `${bl.length}`, h('div', { class: 'hint', style: 'display:flex;flex-wrap:wrap;gap:4px 10px' }, ...bl.map(b => h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); if (state.unit !== 'booth') setUnit('booth'); select(eid, b.booth_id, true); } }, b.booth_name)))));
 }
 // what to expect from a booth that has not reported: its 2022 result, how it leans against its electorate, and that result shifted by the
 // swing in the booths counted so far (the district's, or the nearest reported booths when the electorate has few in)
@@ -992,20 +1017,7 @@ function renderDetail(eid, bid) {
   }
   const t = tcpShares(eid, bid);
   if (t) { root.append(h('h3', {}, 'Two-candidate preferred')); for (const x of t) root.append(h('div', { style: 'margin:4px 0' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), x.cand ? x.cand.surname : x.party), h('span', { class: 'mono' }, `${fmt(x.votes)} · ${pct(x.share)}`)), h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)}` })))); }
-  if (eid.startsWith('fed')) { if (SEN.loaded) senateBoothBlock(root, eid, bid); else ensureSenate().then(() => { if (selected && selected.booth === bid) renderDetail(eid, bid); }); }
-  renderFlows(root, eid, b.contest_id, { title: 'Where preferences went (electorate)', note: `Preference flows are only published for the whole ${c ? c.contest_name : 'district'}, not by booth.` });
-  // electorate context: declaration votes
-  const decl = D.booths.filter(x => x.election_id === eid && x.contest_id === b.contest_id && x.booth_type !== 'ordinary' && x.booth_type !== 'early' && x.booth_type !== 'hospital');
-  if (decl.length) {
-    const parts = decl.map(x => { const ps = partyShares(eid, x.booth_id); return ps.formal ? `${x.booth_type.replaceAll('_', ' ')} ${fmt(ps.formal)}` : null; }).filter(Boolean);
-    if (parts.length) root.append(h('h3', {}, 'Votes counted at electorate level'), h('div', { class: 'hint' }, parts.join(' · ')));
-  }
-  // who lives nearby: the 2022 booth catchment at this venue, from the SA1 census
-  if (b.venue_id && b.booth_type === 'ordinary') {
-    if (!DEMOG_BOOTH || !DEMOG) { Promise.all([ensureDemogBooth(), ensureDemog()]).then(() => { if (selected && selected.election === eid && selected.booth === bid) renderDetail(eid, bid); }); }
-    else { const nb = nearbyBlock(eid, b); if (nb) root.append(nb); }
-  }
-  // venue series
+  // venue series: how this spot has voted over time, straight after the result
   if (b.venue_id) {
     const v = idx.venueById.get(b.venue_id); const series = venueSeries(b.venue_id);
     root.append(h('h3', {}, 'This venue over time'));
@@ -1014,6 +1026,22 @@ function renderDetail(eid, bid) {
     root.append(h('div', { style: 'margin-top:8px' }, h('button', { class: 'btn', onclick: () => { openVenue(b.venue_id); showView('venue'); } }, 'Open in Venue view')));
   } else {
     root.append(h('h3', {}, 'This venue over time'), h('div', { class: 'hint' }, 'This booth has no coordinates yet, so it cannot be linked to other elections.'));
+  }
+  if (eid.startsWith('fed')) {
+    if (SEN.loaded) { const ss = senateShares(eid, bid); const sb = capture(r => senateBoothBlock(r, eid, bid)); if (sb) root.append(fold('senate', 'Senate at this booth', ss && ss.formal ? `${fmt(ss.formal)} ballots` : '', sb)); }
+    else ensureSenate().then(() => { if (selected && selected.booth === bid) renderDetail(eid, bid); });
+  }
+  // who lives nearby: the 2022 booth catchment at this venue, from the SA1 census
+  if (b.venue_id && b.booth_type === 'ordinary') {
+    if (!DEMOG_BOOTH || !DEMOG) { Promise.all([ensureDemogBooth(), ensureDemog()]).then(() => { if (selected && selected.election === eid && selected.booth === bid) renderDetail(eid, bid); }); }
+    else { const nb = nearbyBlock(eid, b); if (nb) { const d = demogBooth(b.venue_id); const bits = []; if (d && d.age_median != null) bits.push(`median age ${Math.round(d.age_median)}`); if (d && d.born_overseas != null) bits.push(`${pct(d.born_overseas, 0)} born overseas`); root.append(fold('nearby', 'Who lives nearby', bits.join(' · '), nb)); } }
+  }
+  { const flows = prefFlows(eid, b.contest_id); const fl = capture(r => renderFlows(r, eid, b.contest_id, { title: 'Where preferences went (electorate)', note: `Preference flows are only published for the whole ${c ? c.contest_name : 'district'}, not by booth.` })); if (fl) root.append(fold('flows', 'Where preferences went (electorate)', `${flows.length} ${flows.length === 1 ? 'exclusion' : 'exclusions'}`, fl)); }
+  // electorate context: declaration votes
+  const decl = D.booths.filter(x => x.election_id === eid && x.contest_id === b.contest_id && x.booth_type !== 'ordinary' && x.booth_type !== 'early' && x.booth_type !== 'hospital');
+  if (decl.length) {
+    const parts = decl.map(x => { const ps = partyShares(eid, x.booth_id); return ps.formal ? `${x.booth_type.replaceAll('_', ' ')} ${fmt(ps.formal)}` : null; }).filter(Boolean);
+    if (parts.length) root.append(h('h3', {}, 'Votes counted at electorate level'), h('div', { class: 'hint' }, parts.join(' · ')));
   }
 }
 // a venue's series with an All / State / Federal switch (the choice sticks for the session and across reloads)
@@ -1829,6 +1857,14 @@ function demogId(id, set) { if (!set) return null; if (set.ind.has(id)) return i
 function demogFor(eid, cid) { const set = demogSet(eid); if (!set) return null; const c = idx.contestById.get(eid + '|' + cid); if (!c) return null; const d = set.districts[cid] ? { cid, ...set.districts[cid] } : set.byName.get(c.contest_name.toLowerCase()) || null; if (d) d.__set = set; return d; }
 // run a metric with other map settings without disturbing the map
 function withState(over, fn) { const keep = { election: state.election, metric: state.metric, party: state.party, gap: state.gap }; Object.assign(state, over); try { return fn(); } finally { Object.assign(state, keep); } }
+function censusSummary(eid, cid) {
+  const d = demogFor(eid, cid); if (!d) return ''; const set = d.__set; const bits = [];
+  const g = (id) => { const k = demogId(id, set); return k && d[k] != null ? d[k] : null; };
+  if (g('age_median') != null) bits.push(`median age ${Math.round(g('age_median'))}`);
+  if (g('income_household_median') != null) bits.push(`$${fmt(Math.round(g('income_household_median')))}/wk household`);
+  if (g('born_australia') != null) bits.push(`${pct(1 - g('born_australia'), 0)} born overseas`);
+  return [`${set.census || ''} census`.trim(), ...bits].join(' · ');
+}
 function censusBlock(eid, cid) {
   const d = demogFor(eid, cid); if (!d) return null; const set = d.__set, S = set.state;
   const rows = set.ind.has('population_total_persons')
@@ -2914,7 +2950,6 @@ function renderContestDetail2026(cid) {
   root.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Candidate'), h('th', { class: 'num' }, fpTot ? 'Votes' : ''), h('th', { class: 'num' }, fpTot ? '%' : ''))),
     h('tbody', {}, ...rows.map(x => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), `${x.given_name} ${x.surname}`, x.incumbent ? h('span', { class: 'hint' }, ' · sitting') : '', x.elected ? h('strong', {}, ' · elected') : ''), h('div', { class: 'hint' }, x.party_name || PARTY_NAME[x.party] || x.party, ' ', linksRow(x.links))), h('td', { class: 'num' }, fpTot ? fmt(x.fp_total) : ''), h('td', { class: 'num' }, fpTot ? pct((x.fp_total || 0) / fpTot) : '')))))));
   root.append(h('div', { class: 'hint' }, lc && lc.candidates.length ? 'Names and parties as the VEC publishes them.' : nominated ? `Nominations as published by the VEC, captured ${LIVE.daily.candidates.captured}.` : `${reg.meta && reg.meta.source ? reg.meta.source : 'Wikipedia register'}, captured ${reg.meta && reg.meta.retrieved ? reg.meta.retrieved : ''}; nominations close 9 November.`));
-  { const cb = cardsBlock(eid, cid, () => renderContestDetail2026(cid)); if (cb) root.append(cb); }
   // history
   root.append(h('h3', {}, 'How this seat has voted'));
   { const series = contestSeries('vic2022', cid); if (series.length > 1) root.append(seriesChart(series, 340, 200), h('div', { class: 'hint', style: 'margin-bottom:6px' }, 'Primary vote by party at each state election for a seat of this name (hover for the figures).')); }
@@ -2924,14 +2959,14 @@ function renderContestDetail2026(cid) {
     const t = contestTcp(e.election_id, oc.contest_id), w = idx.elected.get(e.election_id + '|' + oc.contest_id), ps = contestShares(e.election_id, oc.contest_id);
     hist.push({ e, oc, t, w, ps });
   }
-  if (hist.length) root.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'Won by'), h('th', { class: 'num' }, '2CP'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('th', { class: 'num' }, PARTY_SHORT[p])))),
-    h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setUnit('contest'); setElection(x.e.election_id); selectContest(x.e.election_id, x.oc.contest_id, true); } }, shortName(x.e))), h('td', {}, x.w ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.w.party)}` }), x.w.surname) : '–'), h('td', { class: 'num' }, x.t && x.t.pair.length === 2 ? `${pct(x.t.pair[0].share)} ${PARTY_SHORT[grpParty(x.t.pair[0].party)]} v ${PARTY_SHORT[grpParty(x.t.pair[1].party)]}` : '–'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('td', { class: 'num' }, x.ps[p] ? pct(x.ps[p].share) : '–'))))))), h('div', { class: 'hint' }, 'Same electorate name; 2014 and 2018 were on the 2013 boundaries, 2010 on the 2001 boundaries. Click an election to open that result.'));
+  if (hist.length) root.append(fold('pastresults', 'Past results', `${hist.length} elections since ${hist[hist.length - 1].e.date.slice(0, 4)}`, h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'Won by'), h('th', { class: 'num' }, '2CP'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('th', { class: 'num' }, PARTY_SHORT[p])))),
+    h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setUnit('contest'); setElection(x.e.election_id); selectContest(x.e.election_id, x.oc.contest_id, true); } }, shortName(x.e))), h('td', {}, x.w ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.w.party)}` }), x.w.surname) : '–'), h('td', { class: 'num' }, x.t && x.t.pair.length === 2 ? `${pct(x.t.pair[0].share)} ${PARTY_SHORT[grpParty(x.t.pair[0].party)]} v ${PARTY_SHORT[grpParty(x.t.pair[1].party)]}` : '–'), ...['ALP', 'COAL', 'GRN', 'ONP', 'VSP'].map(p => h('td', { class: 'num' }, x.ps[p] ? pct(x.ps[p].share) : '–'))))))), h('div', { class: 'hint' }, 'Same electorate name; 2014 and 2018 were on the 2013 boundaries, 2010 on the 2001 boundaries. Click an election to open that result.')));
+  { const cb = cardsBlock(eid, cid, () => renderContestDetail2026(cid)); if (cb) { const hv = HTV[eid]; const n = hv && hv.cards && hv.cards[cid] ? new Set(hv.cards[cid].map(x => x.owner)).size : 0; root.append(fold('cards', 'How-to-vote cards', n ? `${n} registered` : '', cb)); } }
   // who lives here, how it has changed, modelled priorities and mood
-  if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(cb); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail2026(cid); });
+  if (DEMOG) { const cb = censusBlock(eid, cid); if (cb) root.append(fold('census', 'Who lives here', censusSummary(eid, cid), cb)); } else ensureDemog().then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail2026(cid); });
   // before election day: enrolment at close of roll, how-to-vote cards, any daily figures the VEC has published
   renderDailyBlock(root, cid, c);
   // voting information
-  root.append(h('h3', {}, 'Voting in this district'));
   const kd = meta.key_dates || {};
   const info = h('div', { class: 'hint', style: 'display:grid;grid-template-columns:auto 1fr;gap:3px 10px' });
   const add = (k, val) => info.append(h('span', { style: 'color:var(--fg-2)' }, k), h('span', {}, val));
@@ -2940,11 +2975,11 @@ function renderContestDetail2026(cid) {
   if (v.low_sensory) add('Low sensory', `${fmtDay(v.low_sensory.date)}, ${v.low_sensory.note}`);
   if (kd.election_day) add('Election day', `${fmtDay(kd.election_day)}, ${v.election_day ? v.election_day.hours : '8 am to 6 pm'}, ${v.election_day ? v.election_day.note : ''}`);
   if (v.district_page) add('VEC', h('a', { href: v.district_page.replace('{slug}', cid.replace('vic-', '')), target: '_blank', rel: 'noopener' }, 'District profile, map and past results'));
-  root.append(info);
+  root.append(fold('voting', 'Voting in this district', v.early ? `early voting ${fmtDay(v.early.open)} – ${fmtDay(v.early.close)}` : '', info));
   // booths
   const bl = D.booths.filter(b => b.election_id === eid && b.contest_id === cid && b.booth_type === 'ordinary').sort((a, b) => a.booth_name.localeCompare(b.booth_name));
-  root.append(h('h3', {}, `${bl.length} election-day booths${lc ? '' : ' (2022 list)'}`), h('div', { class: 'hint', style: 'display:flex;flex-wrap:wrap;gap:4px 10px' }, ...bl.map(b => h('a', { href: '#map', style: b.reported ? 'font-weight:600' : '', onclick: (ev) => { ev.preventDefault(); if (state.unit !== 'booth') setUnit('booth'); select(eid, b.booth_id, true); } }, b.booth_name, isFresh(eid, b.booth_id) ? ' ●' : ''))));
-  if (lc) root.append(h('div', { class: 'hint', style: 'margin-top:4px' }, 'Bold: reported · ● changed since you last looked'));
+  const legend = lc ? h('div', { class: 'hint', style: 'margin-top:4px' }, 'Bold: reported · ● changed since you last looked') : null;
+  if (bl.length) root.append(fold('boothlist', 'Election-day booths', `${bl.length}${lc ? ` · ${bl.filter(b => b.reported).length} reported` : ' (2022 list)'}`, [h('div', { class: 'hint', style: 'display:flex;flex-wrap:wrap;gap:4px 10px' }, ...bl.map(b => h('a', { href: '#map', style: b.reported ? 'font-weight:600' : '', onclick: (ev) => { ev.preventDefault(); if (state.unit !== 'booth') setUnit('booth'); select(eid, b.booth_id, true); } }, b.booth_name, isFresh(eid, b.booth_id) ? ' ●' : ''))), legend]));
 }
 function renderDailyBlock(root, cid, c) {
   const d = LIVE.daily; if (!d) return;
