@@ -1,0 +1,601 @@
+{
+ "index_artifact": "https://claude.ai/artifact/QoAEWjmTjkm2t9esjHZqY1",
+ "about": "Every question we have asked of the data, what answers it, and which new data should make us ask it again. Edit by hand; tools/rerun_analyses.py reads it (and logs runs to analysis/runs.json). Statuses: done, next, planned, idea.",
+ "triggers": {
+  "htv_2026": {
+   "label": "2026 how-to-vote cards",
+   "when": "VEC register opens about 10 Nov 2026"
+  },
+  "nominations_2026": {
+   "label": "2026 nominations and ballot draw",
+   "when": "mid-Nov 2026 (VEC)"
+  },
+  "polls_2026": {
+   "label": "New 2026 polls",
+   "when": "ongoing to 28 Nov 2026"
+  },
+  "results_2026": {
+   "label": "2026 state results",
+   "when": "from 28 Nov 2026; final after the preference distributions in December"
+  },
+  "state_byelection": {
+   "label": "A new state by-election",
+   "when": "as they happen"
+  },
+  "federal_next": {
+   "label": "Next federal election",
+   "when": "due by 2028"
+  },
+  "census_2026": {
+   "label": "2026 Census",
+   "when": "ABS first release mid-2027, SA1 tables later"
+  },
+  "redistribution_vic": {
+   "label": "Victorian redivision",
+   "when": "after the 2026 election, for 2030"
+  },
+  "redistribution_fed": {
+   "label": "Federal redistribution of Victoria",
+   "when": "when the AEC triggers one"
+  },
+  "mckinnon_next": {
+   "label": "New McKinnon Index wave",
+   "when": "annual"
+  },
+  "aes_next": {
+   "label": "New Australian Election Study wave",
+   "when": "after each federal election (Mac only: licensed unit records)"
+  },
+  "national_results": {
+   "label": "National federal results by state",
+   "when": "one-off load; not yet in the Atlas"
+  }
+ },
+ "questions": [
+  {
+   "id": "member_personal_vote",
+   "group": "Members",
+   "status": "done",
+   "question": "How much is a sitting member worth to their party's vote? The sophomore surge and the open-seat penalty.",
+   "run": [
+    "python3 -m src.member_effects"
+   ],
+   "inputs": [
+    "data/elections.sqlite"
+   ],
+   "outputs": [
+    "data/analysis/member_effects.json",
+    "data/analysis/member_history.csv"
+   ],
+   "page": {
+    "title": "The Personal Vote",
+    "builder": "tools/dark/build_member_page.py",
+    "data": "data/analysis/member_effects.json",
+    "html": "analysis/dark/personal_vote.html",
+    "artifact": "https://claude.ai/artifact/TAp6NSGDomxSe25Gmeykqs"
+   },
+   "headline": "A first-term member who won the seat from another party gains about 3.5 pts at their first re-election; an open seat costs the party about 2.9 pts.",
+   "triggers": [
+    "results_2026",
+    "federal_next",
+    "state_byelection"
+   ]
+  },
+  {
+   "id": "member_tenure",
+   "group": "Members",
+   "status": "done",
+   "depends_on": [
+    "member_personal_vote"
+   ],
+   "question": "Do long-standing members keep building a personal vote, or does it fade?",
+   "run": [
+    "python3 -m src.member_effects"
+   ],
+   "outputs": [
+    "data/analysis/member_effects.json"
+   ],
+   "headline": "Neither: after the second term it is flat (+0.6, -0.4, +0.2 pts for 3, 4, 5+ terms). Losing a member of two or more terms costs about 3 pts.",
+   "triggers": [
+    "results_2026",
+    "federal_next"
+   ]
+  },
+  {
+   "id": "member_leaders",
+   "group": "Members",
+   "status": "done",
+   "depends_on": [
+    "member_personal_vote"
+   ],
+   "question": "Do premiers and opposition leaders get a bonus in their own seat?",
+   "run": [
+    "python3 -m src.member_effects"
+   ],
+   "outputs": [
+    "data/analysis/member_effects.json"
+   ],
+   "headline": "Premiers about +4 pts relative to their party (Napthine 2014 is an outlier); opposition leaders about -1 pt. Only 12 cases.",
+   "triggers": [
+    "results_2026"
+   ]
+  },
+  {
+   "id": "transferred_voters",
+   "group": "Members",
+   "status": "done",
+   "depends_on": [
+    "member_personal_vote"
+   ],
+   "question": "Does a member's personal vote reach voters newly moved into their seat?",
+   "run": [
+    "python3 -m src.member_effects"
+   ],
+   "outputs": [
+    "data/analysis/member_effects.json"
+   ],
+   "headline": "Booths moved in from another party's member swing about 3 pts more to the receiving party; from a same-party member, no difference.",
+   "triggers": [
+    "results_2026",
+    "redistribution_vic",
+    "redistribution_fed"
+   ]
+  },
+  {
+   "id": "member_outlook_2026",
+   "group": "Members",
+   "status": "done",
+   "depends_on": [
+    "member_personal_vote",
+    "member_tenure"
+   ],
+   "question": "What do the member effects imply for each 2026 seat: who is standing again, who is new, who is retiring?",
+   "run": [
+    "python3 -m src.member_effects"
+   ],
+   "inputs": [
+    "data/vic2026/candidates.csv",
+    "data/vic2026/retiring.csv"
+   ],
+   "outputs": [
+    "data/analysis/member_effects.json"
+   ],
+   "headline": "21 open seats; six first-term members defending gains (Hastings, Hawthorn, Mildura, Morwell, Richmond, Ripon).",
+   "triggers": [
+    "nominations_2026"
+   ]
+  },
+  {
+   "id": "returning_challengers",
+   "group": "Members",
+   "status": "done",
+   "depends_on": [
+    "member_personal_vote",
+    "notional_results"
+   ],
+   "question": "How do challengers who lost and come back fare (second, third go, former members), against a sitting member or in an open seat, and how do they move the vote?",
+   "run": [
+    "python3 -m src.returning_challengers"
+   ],
+   "inputs": [
+    "data/elections.sqlite",
+    "data/analysis/member_history.csv",
+    "data/analysis/notionals.json",
+    "data/vic2026/candidates.csv"
+   ],
+   "outputs": [
+    "data/analysis/returning_challengers.json"
+   ],
+   "page": {
+    "title": "Second Chances",
+    "builder": "tools/dark/build_challenger_page.py",
+    "data": "data/analysis/returning_challengers.json",
+    "html": "analysis/dark/second_chances.html",
+    "artifact": "https://claude.ai/artifact/ELeCnruD3Tk69dWo3tnvTw"
+   },
+   "headline": "No personal vote for challengers: a second go is worth +0.5 pts (n.s.) and nothing for winning once margin and swing are allowed for; their higher raw win rate is selection. Facing the member who beat them costs about 2 pts (sophomore surge). Rematches help the member slightly (+0.8). Independents' second tries slip 0.4 pts on average, with a few campaigns building.",
+   "triggers": [
+    "nominations_2026",
+    "results_2026",
+    "federal_next"
+   ]
+  },
+  {
+   "id": "seat_loss",
+   "group": "Members",
+   "status": "done",
+   "depends_on": [
+    "member_personal_vote",
+    "notional_results"
+   ],
+   "question": "What predicts a sitting member losing their seat?",
+   "run": [
+    "python3 -m src.seat_loss"
+   ],
+   "inputs": [
+    "data/analysis/member_history.csv",
+    "site/data/polls_vic2026.json",
+    "data/analysis/notionals.json"
+   ],
+   "outputs": [
+    "data/analysis/seat_loss.json",
+    "data/analysis/seat_loss_rows.csv"
+   ],
+   "page": {
+    "title": "Who Loses",
+    "builder": "tools/dark/build_loss_page.py",
+    "data": "data/analysis/seat_loss.json",
+    "html": "analysis/dark/who_loses.html",
+    "artifact": "https://claude.ai/artifact/954Q7qF75mTRZfuPZJ5xUU"
+   },
+   "headline": "Margin and statewide swing, almost alone (out-of-sample AUC 0.94, using notional margins in redrawn seats); a point of swing is worth a point of margin. First-term members who won the seat are harder to dislodge. The surprises are losses to independents and Greens, which the pendulum cannot see.",
+   "triggers": [
+    "results_2026",
+    "federal_next",
+    "polls_2026",
+    "nominations_2026"
+   ],
+   "next": "Fill the candidate count from the 2026 ballot draw; add a challenger-strength measure. (Notional margins now used for redrawn seats.)"
+  },
+  {
+   "id": "two_levels_members",
+   "group": "Two levels",
+   "status": "done",
+   "depends_on": [
+    "member_personal_vote"
+   ],
+   "question": "At the same polling place, do the state and federal members each pull their own level's vote?",
+   "run": [
+    "python3 -m src.cross_level"
+   ],
+   "outputs": [
+    "data/analysis/cross_level.json"
+   ],
+   "page": {
+    "title": "Two Levels",
+    "builder": "tools/dark/build_levels_page.py",
+    "data": "data/analysis/cross_level.json",
+    "html": "analysis/dark/two_levels.html",
+    "artifact": "https://claude.ai/artifact/CeLcK1NMVZYQVLupSaNdmT"
+   },
+   "headline": "Yes, about 1.5-2.4 pts each way. Where a federal independent holds the seat, Labor and the Coalition run 9-10 pts higher at state elections.",
+   "triggers": [
+    "results_2026",
+    "federal_next"
+   ]
+  },
+  {
+   "id": "federal_member_spillover",
+   "group": "Two levels",
+   "status": "done",
+   "depends_on": [
+    "two_levels_members"
+   ],
+   "question": "Does a change of federal member move the state vote?",
+   "run": [
+    "python3 -m src.cross_level"
+   ],
+   "outputs": [
+    "data/analysis/cross_level.json"
+   ],
+   "headline": "No detectable effect (+0.3 pts, interval includes zero). Local federal swings carry only weakly to state (slope about 0.1).",
+   "triggers": [
+    "results_2026",
+    "federal_next"
+   ]
+  },
+  {
+   "id": "federal_government_headwind",
+   "group": "Two levels",
+   "status": "done",
+   "depends_on": [
+    "two_levels_members"
+   ],
+   "question": "Do state elections punish the party governing federally, and does it matter how long since the federal election?",
+   "run": [
+    "python3 -m src.cross_level"
+   ],
+   "outputs": [
+    "data/analysis/cross_level.json"
+   ],
+   "headline": "It lost ground at 5 of 6 state elections (mean -4.9 pts), with no timing pattern. Six cases, tangled with state incumbency.",
+   "triggers": [
+    "results_2026"
+   ]
+  },
+  {
+   "id": "state_government_at_federal",
+   "group": "Two levels",
+   "status": "planned",
+   "question": "The reverse: do Victorians punish the state government at federal elections?",
+   "headline": "",
+   "needs": "National federal results to measure Victoria against.",
+   "triggers": [
+    "national_results",
+    "federal_next"
+   ]
+  },
+  {
+   "id": "notional_results",
+   "group": "Boundaries",
+   "status": "done",
+   "question": "What would the last election have looked like on the new boundaries? Notional results for every redistribution in the Atlas.",
+   "run": [
+    "python3 -m src.notional"
+   ],
+   "inputs": [
+    "data/elections.sqlite",
+    "data/catchments/vic2018.geojson"
+   ],
+   "outputs": [
+    "data/analysis/notionals.json"
+   ],
+   "headline": "Seven redistributions (state 2002, 2014, 2022; federal 2010, 2019, 2022, 2025). Within 0.45 pts of Antony Green's notional margins on average (2022 state, 2025 federal).",
+   "triggers": [
+    "redistribution_vic",
+    "redistribution_fed"
+   ],
+   "next": "When a new redistribution lands: add its boundaries to data/boundaries/, a line to REDIST in src/notional.py, then re-run with --trigger."
+  },
+  {
+   "id": "boundary_effects",
+   "group": "Boundaries",
+   "status": "done",
+   "depends_on": [
+    "notional_results",
+    "member_personal_vote"
+   ],
+   "question": "What do redistributions do to seats, margins and members? Do notional flips stick, and what does new territory cost a member?",
+   "run": [
+    "python3 -m src.boundary_effects"
+   ],
+   "inputs": [
+    "data/analysis/notionals.json",
+    "data/analysis/member_history.csv",
+    "raw/reference/notional_margins_green.json"
+   ],
+   "outputs": [
+    "data/analysis/boundary_effects.json"
+   ],
+   "page": {
+    "title": "New Lines",
+    "builder": "tools/dark/build_boundary_page.py",
+    "data": "data/analysis/boundary_effects.json",
+    "html": "analysis/dark/new_lines.html",
+    "artifact": "https://claude.ai/artifact/VaetHyWPhGWN5yr4tonPjc"
+   },
+   "headline": "A redistribution moves the typical seat's margin 0.6-1.6 pts. Of 16 seats handed to the other side on paper, the notional party won 6, as uniform swing predicts (5.6): notionals are honest. Voters moved in from an opposing member's seat swing about 4 pts to the receiving member, as the old member's personal vote unwinds.",
+   "triggers": [
+    "redistribution_vic",
+    "redistribution_fed",
+    "results_2026"
+   ]
+  },
+  {
+   "id": "primary_swings",
+   "group": "Seats",
+   "status": "done",
+   "depends_on": [
+    "notional_results",
+    "pref_flows",
+    "member_outlook_2026"
+   ],
+   "question": "What do primary-vote swings tell us seat by seat? Uniform or proportional swings for Labor, Coalition, Greens and others; where minor-party surges land; seats projected from primaries through preference flows instead of a two-party swing.",
+   "headline": "Greens and Coalition primaries swing uniformly, Labor in between (lambda 0.6), One Nation closer to proportional (0.64, Senate 2022-25). Primaries + preferences called 220 of 252 past seats against 214 for a uniform two-party swing. On today's polls: Coalition 44 (35-54), Labor 31 (19-41), One Nation 6, Greens 6; One Nation in the final two in about 30 seats.",
+   "triggers": [
+    "polls_2026",
+    "nominations_2026",
+    "results_2026",
+    "federal_next"
+   ],
+   "run": [
+    "python3 -m src.primary_swings"
+   ],
+   "inputs": [
+    "data/analysis/notionals.json",
+    "site/data/pref_flows.json",
+    "site/data/polls_vic2026.json",
+    "data/vic2026/candidates.csv",
+    "data/analysis/member_effects.json"
+   ],
+   "outputs": [
+    "data/analysis/primary_swings.json"
+   ],
+   "page": {
+    "title": "First Preferences",
+    "builder": "tools/dark/build_primary_page.py",
+    "data": "data/analysis/primary_swings.json",
+    "html": "analysis/dark/first_preferences.html",
+    "artifact": "https://claude.ai/artifact/7coAN5BMAUWTWKve51DCbX"
+   },
+   "next": "Coalition-to-One Nation preference strength is assumed (neutral 1); 2025 federal counts from Queensland/NSW would pin it down. Re-run after nominations for who stands where."
+  },
+  {
+   "id": "seat_swing_deviation",
+   "group": "Seats",
+   "status": "planned",
+   "depends_on": [
+    "seat_loss",
+    "boundary_effects"
+   ],
+   "question": "What makes a seat swing more or less than the state? The continuous version of seat_loss, with far more statistical power.",
+   "headline": "Seat-level spread around uniform swing is about 3.4 pts (from seat_loss).",
+   "triggers": [
+    "results_2026",
+    "census_2026"
+   ]
+  },
+  {
+   "id": "demographic_change",
+   "group": "Demography",
+   "status": "planned",
+   "depends_on": [
+    "boundary_effects"
+   ],
+   "question": "Does demographic change between censuses predict swing?",
+   "headline": "",
+   "triggers": [
+    "census_2026",
+    "results_2026"
+   ]
+  },
+  {
+   "id": "member_extensions",
+   "group": "Members",
+   "status": "idea",
+   "depends_on": [
+    "member_personal_vote"
+   ],
+   "question": "Ministers, independents and members' effects on preference flows.",
+   "headline": "",
+   "needs": "A list of ministers by date.",
+   "triggers": [
+    "results_2026"
+   ]
+  },
+  {
+   "id": "historical_mood",
+   "group": "Mood",
+   "status": "idea",
+   "question": "Can the AES and ANU Polls stand in for McKinnon-style mood at older elections?",
+   "headline": "",
+   "needs": "AES unit records stay on the Mac (licence).",
+   "triggers": [
+    "aes_next"
+   ]
+  },
+  {
+   "id": "mood_model",
+   "group": "Models",
+   "status": "done",
+   "question": "How would each seat answer the McKinnon Index questions, given who lives there?",
+   "run": [
+    "python3 -m src.model_mood"
+   ],
+   "outputs": [
+    "site/data/demog_vic_la_2022.json.gz",
+    "site/data/demog_fed_2024.json.gz",
+    "site/data/demog_booth_vic2022.json.gz"
+   ],
+   "headline": "Shown on the site from 2025 (McKinnon 2025) and 2026 (McKinnon 2026).",
+   "triggers": [
+    "mckinnon_next",
+    "census_2026"
+   ]
+  },
+  {
+   "id": "issues_model",
+   "group": "Models",
+   "status": "done",
+   "question": "Which issues would each seat rank highest, from the pollsters' demographic breakdowns?",
+   "run": [
+    "python3 -m src.model_issues"
+   ],
+   "outputs": [
+    "site/data/demog_vic_la_2022.json.gz",
+    "site/data/demog_booth_vic2022.json.gz"
+   ],
+   "headline": "Shown on the site for 2026 only.",
+   "triggers": [
+    "polls_2026",
+    "census_2026"
+   ]
+  },
+  {
+   "id": "pref_flows",
+   "group": "Preferences",
+   "status": "done",
+   "question": "Where do each party's preferences go, given who is left in the count?",
+   "run": [
+    "python3 -m src.pref_flows"
+   ],
+   "outputs": [
+    "site/data/pref_flows.json"
+   ],
+   "headline": "Luce choice model from every distribution of preferences, 2010-2025.",
+   "triggers": [
+    "results_2026",
+    "federal_next"
+   ]
+  },
+  {
+   "id": "htv_following",
+   "group": "Preferences",
+   "status": "done",
+   "depends_on": [
+    "pref_flows"
+   ],
+   "question": "How closely do voters follow their party's how-to-vote card?",
+   "run": [
+    "python3 -m src.htv_follow vic2022"
+   ],
+   "outputs": [
+    "site/data/htv_vic2022.json"
+   ],
+   "headline": "Measured for 2022; re-run for 2026 needs both the cards and the preference distributions.",
+   "triggers": [
+    "htv_2026",
+    "results_2026"
+   ],
+   "next": "For 2026, change the run command to vic2026 once the preference distributions are published."
+  },
+  {
+   "id": "ballot_position",
+   "group": "Preferences",
+   "status": "done",
+   "depends_on": [
+    "pref_flows"
+   ],
+   "question": "How big is the donkey vote, in first preferences and in preferences?",
+   "run": [
+    "python3 -m src.ballot_effects",
+    "python3 -m src.ballot_booths"
+   ],
+   "outputs": [
+    "site/data/ballot_effects.json",
+    "site/data/ballot_booths.json"
+   ],
+   "headline": "",
+   "triggers": [
+    "results_2026",
+    "nominations_2026"
+   ]
+  },
+  {
+   "id": "site_model_page",
+   "group": "Site",
+   "status": "done",
+   "depends_on": [
+    "member_personal_vote",
+    "two_levels_members",
+    "seat_loss",
+    "primary_swings",
+    "boundary_effects",
+    "returning_challengers"
+   ],
+   "question": "Publish the settled findings on the Atlas Model page (site: Model tab).",
+   "run": [
+    "python3 -m src.export_model_findings"
+   ],
+   "inputs": [
+    "data/analysis/member_effects.json",
+    "data/analysis/cross_level.json",
+    "data/analysis/seat_loss.json",
+    "data/analysis/primary_swings.json",
+    "data/analysis/boundary_effects.json",
+    "data/analysis/returning_challengers.json"
+   ],
+   "outputs": [
+    "site/data/model_findings.json"
+   ],
+   "headline": "Model tab: the personal vote, who loses, how votes move, preferences, ballot order, new boundaries. History only; no 2026 seat calls until nominations close and the One Nation preference question is settled.",
+   "triggers": [
+    "results_2026",
+    "nominations_2026",
+    "federal_next",
+    "redistribution_vic",
+    "redistribution_fed"
+   ]
+  }
+ ]
+}

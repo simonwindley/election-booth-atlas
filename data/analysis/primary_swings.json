@@ -1,0 +1,2753 @@
+{
+ "method": "1. Uniform or proportional? For Labor, the Coalition, the Greens and everyone else, at every pair of consecutive\n   elections (state 2002-2022, federal 2007-2025; notional first preferences where boundaries changed), a seat's\n   change is compared with two rules: uniform (every seat moves by the statewide change) and proportional (every seat\n   moves by the same ratio, so more where the party was stronger). lambda = 0 is uniform, 1 is proportional, fitted\n   per party group; each rule is scored by how well it predicts seats from the true statewide result, one election\n   held out at a time.\n2. Where do minor-party surges land? The same test for One Nation, using its Senate vote at every booth (2019, 2022,\n   2025 federal), where it stood everywhere; and One Nation's 2022 Legislative Council vote by district, its only\n   statewide state result, as the map of where it starts.\n3. From primaries to seats. 2026 seat primaries are projected from 2022 by the rule each party follows, to the\n   latest polls; then a preference count is run in each seat (lowest excluded first, votes passed on by the Atlas's\n   preference-flow model) to find the final two and the winner. Backtested first: 2018->2022 state and 2022->2025\n   federal, given the true statewide primaries, against a uniform two-party swing given the true two-party swing.\n   Both are run with and without the member effects (sophomore surge, open-seat penalty), and an independent's vote\n   is carried forward only if the same independent stands again (known once nominations close).",
+ "rules": {
+  "ALP": {
+   "n": 790,
+   "lambda": 0.61,
+   "rmse_uniform": 4.42,
+   "rmse_proportional": 4.38,
+   "rmse_lambda_out_of_sample": 4.38,
+   "lambda_by_election": {
+    "fed2007": 0.09,
+    "fed2010": -1.12,
+    "fed2013": 0.84,
+    "fed2016": 8.7,
+    "fed2019": -2.39,
+    "fed2022": 1.22,
+    "fed2025": -1.79,
+    "vic2002": -0.8,
+    "vic2006": 0.41,
+    "vic2010": 0.87,
+    "vic2014": -0.92,
+    "vic2018": -0.52,
+    "vic2022": 1.53
+   }
+  },
+  "COAL": {
+   "n": 789,
+   "lambda": -0.15,
+   "rmse_uniform": 4.66,
+   "rmse_proportional": 4.88,
+   "rmse_lambda_out_of_sample": 4.71,
+   "lambda_by_election": {
+    "fed2007": -0.44,
+    "fed2010": -1.48,
+    "fed2013": -1.17,
+    "fed2016": 1.16,
+    "fed2019": 1.88,
+    "fed2022": 1.03,
+    "fed2025": -5.46,
+    "vic2002": -0.29,
+    "vic2006": 2.75,
+    "vic2010": -1.25,
+    "vic2014": 0.87,
+    "vic2018": 0.3,
+    "vic2022": 16.74
+   }
+  },
+  "GRN": {
+   "n": 734,
+   "lambda": -0.03,
+   "rmse_uniform": 2.48,
+   "rmse_proportional": 5.22,
+   "rmse_lambda_out_of_sample": 2.87,
+   "lambda_by_election": {
+    "fed2007": 1.09,
+    "fed2010": 0.7,
+    "fed2013": -1.96,
+    "fed2016": 0.51,
+    "fed2019": 0.76,
+    "fed2022": -0.37,
+    "fed2025": 7.68,
+    "vic2002": -0.04,
+    "vic2006": -0.56,
+    "vic2010": 0.48,
+    "vic2014": 7.5,
+    "vic2018": 0.08,
+    "vic2022": -0.67
+   }
+  },
+  "OTHERS": {
+   "n": 790,
+   "lambda": -0.47,
+   "rmse_uniform": 6.32,
+   "rmse_proportional": 7.78,
+   "rmse_lambda_out_of_sample": 6.22,
+   "lambda_by_election": {
+    "fed2007": -1.56,
+    "fed2010": 4.38,
+    "fed2013": 0.09,
+    "fed2016": 1.34,
+    "fed2019": -0.76,
+    "fed2022": -0.15,
+    "fed2025": 0.49,
+    "vic2002": 0.89,
+    "vic2006": -0.53,
+    "vic2010": -6.8,
+    "vic2014": -2.7,
+    "vic2018": -0.48,
+    "vic2022": -1.05
+   }
+  },
+  "MINOR": {
+   "n": 790,
+   "lambda": -0.32,
+   "rmse_uniform": 3.99,
+   "rmse_proportional": 5.19,
+   "rmse_lambda_out_of_sample": 3.99,
+   "lambda_by_election": {
+    "fed2007": -0.3,
+    "fed2010": 3.28,
+    "fed2013": 0.04,
+    "fed2016": 2.85,
+    "fed2019": -3.21,
+    "fed2022": -1.57,
+    "fed2025": 0.72,
+    "vic2002": 15.06,
+    "vic2006": -0.17,
+    "vic2010": -10.55,
+    "vic2014": -7.88,
+    "vic2018": -3.2,
+    "vic2022": -0.61
+   }
+  }
+ },
+ "onp_senate": {
+  "fed2019->fed2022": {
+   "venues": 1138,
+   "statewide_from": 2.89,
+   "statewide_to": 2.94,
+   "lambda": -13.94,
+   "rmse_uniform": 1.16,
+   "rmse_proportional": 1.19,
+   "correlation": 0.844
+  },
+  "fed2022->fed2025": {
+   "venues": 1173,
+   "statewide_from": 2.94,
+   "statewide_to": 4.51,
+   "lambda": 0.64,
+   "rmse_uniform": 1.46,
+   "rmse_proportional": 1.36,
+   "correlation": 0.869
+  }
+ },
+ "backtest": {
+  "vic2014->vic2018": {
+   "primaries": 78,
+   "two_party": 73,
+   "primaries_member": 78,
+   "two_party_member": 72,
+   "seats": 88,
+   "misses": [
+    {
+     "seat": "Bass",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Box Hill",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Brunswick",
+     "projected": "ALP",
+     "actual": "GRN"
+    },
+    {
+     "seat": "Forest Hill",
+     "projected": "ALP",
+     "actual": "COAL"
+    },
+    {
+     "seat": "Hawthorn",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Mildura",
+     "projected": "COAL",
+     "actual": "IND"
+    },
+    {
+     "seat": "Morwell",
+     "projected": "ALP",
+     "actual": "IND"
+    },
+    {
+     "seat": "Nepean",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Prahran",
+     "projected": "ALP",
+     "actual": "GRN"
+    },
+    {
+     "seat": "Ripon",
+     "projected": "ALP",
+     "actual": "COAL"
+    }
+   ]
+  },
+  "vic2018->vic2022": {
+   "primaries": 71,
+   "two_party": 73,
+   "primaries_member": 71,
+   "two_party_member": 74,
+   "seats": 87,
+   "misses": [
+    {
+     "seat": "Ashwood",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Bass",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Bayswater",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Benambra",
+     "projected": "IND",
+     "actual": "COAL"
+    },
+    {
+     "seat": "Glen Waverley",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Hastings",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Hawthorn",
+     "projected": "ALP",
+     "actual": "COAL"
+    },
+    {
+     "seat": "Melton",
+     "projected": "IND",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Mildura",
+     "projected": "IND",
+     "actual": "COAL"
+    },
+    {
+     "seat": "Morwell",
+     "projected": "ALP",
+     "actual": "COAL"
+    },
+    {
+     "seat": "Pakenham",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Richmond",
+     "projected": "ALP",
+     "actual": "GRN"
+    },
+    {
+     "seat": "Ringwood",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Ripon",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Shepparton",
+     "projected": "IND",
+     "actual": "COAL"
+    },
+    {
+     "seat": "South-West Coast",
+     "projected": "IND",
+     "actual": "COAL"
+    }
+   ]
+  },
+  "fed2019->fed2022": {
+   "primaries": 36,
+   "two_party": 34,
+   "primaries_member": 36,
+   "two_party_member": 32,
+   "seats": 39,
+   "misses": [
+    {
+     "seat": "Goldstein",
+     "projected": "COAL",
+     "actual": "IND"
+    },
+    {
+     "seat": "Higgins",
+     "projected": "COAL",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Kooyong",
+     "projected": "COAL",
+     "actual": "IND"
+    }
+   ]
+  },
+  "fed2022->fed2025": {
+   "primaries": 35,
+   "two_party": 34,
+   "primaries_member": 35,
+   "two_party_member": 35,
+   "seats": 38,
+   "misses": [
+    {
+     "seat": "Goldstein",
+     "projected": "IND",
+     "actual": "COAL"
+    },
+    {
+     "seat": "Melbourne",
+     "projected": "GRN",
+     "actual": "ALP"
+    },
+    {
+     "seat": "Menzies",
+     "projected": "COAL",
+     "actual": "ALP"
+    }
+   ]
+  },
+  "total": {
+   "primaries": 220,
+   "two_party": 214,
+   "primaries_member": 220,
+   "two_party_member": 213,
+   "seats": 252
+  }
+ },
+ "outlook_2026": {
+  "polls": {
+   "ALP": 23.9,
+   "COAL": 29.4,
+   "GRN": 14.2,
+   "ONP": 22.3,
+   "IND": 3.3,
+   "OTH": 7.0
+  },
+  "polls_2022_baseline": {
+   "ALP": 37.0,
+   "COAL": 34.5,
+   "GRN": 11.5,
+   "ONP": 0.3,
+   "IND": 5.5,
+   "OTH": 11.6
+  },
+  "polls_n": 7,
+  "polls_to": "2026-10-29",
+  "statewide_2022": {
+   "IND": 4.74,
+   "ALP": 36.66,
+   "GRN": 11.5,
+   "OTH": 12.18,
+   "COAL": 34.64,
+   "ONP": 0.28
+  },
+  "statewide_target": {
+   "ALP": 23.51,
+   "COAL": 29.5,
+   "GRN": 14.21,
+   "IND": 2.55,
+   "OTH": 7.56,
+   "ONP": 22.29
+  },
+  "winners": {
+   "ALP": 30,
+   "COAL": 52,
+   "GRN": 5,
+   "IND": 1
+  },
+  "final_twos": {
+   "ALP v COAL": 46,
+   "COAL v ONP": 9,
+   "COAL v GRN": 7,
+   "ALP v ONP": 18,
+   "GRN v ONP": 3,
+   "COAL v IND": 2,
+   "ALP v IND": 1,
+   "ALP v GRN": 1,
+   "COAL v COAL": 1
+  },
+  "seats": [
+   {
+    "seat": "Albert Park",
+    "member": "Nina Taylor",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0074,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5477,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.464,
+     "GRN": 0.254,
+     "COAL": 0.19,
+     "ONP": 0.092
+    },
+    "primaries": {
+     "ALP": 0.2428,
+     "LIB": 0.2386,
+     "GRN": 0.2289,
+     "ONP": 0.2193,
+     "IND": 0.0381,
+     "OTH": 0.0324
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Ashwood",
+    "member": "Matt Fregon",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0072,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5401,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.647,
+     "ALP": 0.247,
+     "ONP": 0.095,
+     "GRN": 0.011
+    },
+    "primaries": {
+     "LIB": 0.3174,
+     "ALP": 0.2608,
+     "ONP": 0.2229,
+     "GRN": 0.172,
+     "OTH": 0.0269
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Bass",
+    "member": "Jordan Crugnale",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.034,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.6257,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.944,
+     "ONP": 0.048,
+     "ALP": 0.007,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "LIB": 0.2725,
+     "ONP": 0.229,
+     "ALP": 0.1801,
+     "NAT": 0.1202,
+     "GRN": 0.1099,
+     "OTH": 0.0884
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Bayswater",
+    "member": "Jackson Taylor",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0151,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5826,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.911,
+     "ONP": 0.051,
+     "ALP": 0.037
+    },
+    "primaries": {
+     "LIB": 0.3563,
+     "ALP": 0.2534,
+     "ONP": 0.229,
+     "GRN": 0.1038,
+     "OTH": 0.0574
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Bellarine",
+    "member": "Alison Marchant",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0152,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5088,
+    "winner": "LIB",
+    "p_win": {
+     "ALP": 0.468,
+     "COAL": 0.446,
+     "ONP": 0.084,
+     "GRN": 0.003
+    },
+    "primaries": {
+     "ALP": 0.305,
+     "LIB": 0.287,
+     "ONP": 0.2193,
+     "GRN": 0.1457,
+     "OTH": 0.0429
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Benambra",
+    "member": "Bill Tilley",
+    "member_party": "COAL",
+    "member_category": "open",
+    "onp_lc_2022": 0.033,
+    "final_two": [
+     "LIB",
+     "ONP"
+    ],
+    "winner_share": 0.664,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 1.0
+    },
+    "primaries": {
+     "LIB": 0.5236,
+     "ONP": 0.2298,
+     "ALP": 0.0934,
+     "GRN": 0.0801,
+     "OTH": 0.0732
+    }
+   },
+   {
+    "seat": "Bendigo East",
+    "member": "Jacinta Allan",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0417,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5208,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.736,
+     "COAL": 0.186,
+     "ONP": 0.078
+    },
+    "primaries": {
+     "ALP": 0.3478,
+     "LIB": 0.2575,
+     "ONP": 0.2298,
+     "GRN": 0.1304,
+     "OTH": 0.0345
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Bendigo West",
+    "member": "Maree Edwards",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0312,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5033,
+    "winner": "LIB",
+    "p_win": {
+     "ALP": 0.519,
+     "COAL": 0.345,
+     "ONP": 0.133,
+     "GRN": 0.003
+    },
+    "primaries": {
+     "ALP": 0.2992,
+     "LIB": 0.2669,
+     "ONP": 0.2298,
+     "GRN": 0.1494,
+     "OTH": 0.0548
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Bentleigh",
+    "member": "Nick Staikos",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0096,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5247,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.609,
+     "ALP": 0.323,
+     "ONP": 0.068,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "LIB": 0.314,
+     "ALP": 0.3078,
+     "ONP": 0.2229,
+     "GRN": 0.1343,
+     "OTH": 0.0209
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Berwick",
+    "member": "Brad Battin",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0145,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.6094,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.971,
+     "ALP": 0.015,
+     "ONP": 0.014,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "LIB": 0.3878,
+     "ONP": 0.2229,
+     "ALP": 0.2201,
+     "GRN": 0.1196,
+     "OTH": 0.0497
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Box Hill",
+    "member": "Paul Hamer",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0072,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5275,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.537,
+     "ALP": 0.341,
+     "ONP": 0.109,
+     "GRN": 0.013
+    },
+    "primaries": {
+     "LIB": 0.2976,
+     "ALP": 0.2694,
+     "ONP": 0.2229,
+     "GRN": 0.1661,
+     "OTH": 0.0441
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Brighton",
+    "member": "James Newbury",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0055,
+    "final_two": [
+     "LIB",
+     "GRN"
+    ],
+    "winner_share": 0.6439,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.998,
+     "ONP": 0.002,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "LIB": 0.4245,
+     "ONP": 0.2229,
+     "GRN": 0.167,
+     "ALP": 0.1504,
+     "OTH": 0.0353
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Broadmeadows",
+    "member": "Kathleen Matthews-Ward",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0123,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5634,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.896,
+     "ONP": 0.066,
+     "COAL": 0.038
+    },
+    "primaries": {
+     "ALP": 0.3388,
+     "ONP": 0.2193,
+     "LIB": 0.1883,
+     "OTH": 0.1383,
+     "GRN": 0.1153
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Brunswick",
+    "member": "Tim Read",
+    "member_party": "GRN",
+    "member_category": "open",
+    "onp_lc_2022": 0.0039,
+    "final_two": [
+     "GRN",
+     "ONP"
+    ],
+    "winner_share": 0.6718,
+    "winner": "GRN",
+    "p_win": {
+     "GRN": 1.0
+    },
+    "primaries": {
+     "GRN": 0.4382,
+     "ONP": 0.229,
+     "ALP": 0.174,
+     "OTH": 0.1055,
+     "LIB": 0.0533
+    }
+   },
+   {
+    "seat": "Bulleen",
+    "member": "Matthew Guy",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0096,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.6326,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.994,
+     "ALP": 0.004,
+     "ONP": 0.003
+    },
+    "primaries": {
+     "LIB": 0.4153,
+     "ONP": 0.2229,
+     "ALP": 0.1966,
+     "GRN": 0.1281,
+     "OTH": 0.0372
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Bundoora",
+    "member": "Colin Brooks",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0169,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.535,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.817,
+     "COAL": 0.103,
+     "ONP": 0.078,
+     "GRN": 0.002
+    },
+    "primaries": {
+     "ALP": 0.3274,
+     "LIB": 0.2276,
+     "ONP": 0.2229,
+     "GRN": 0.1606,
+     "OTH": 0.0616
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Carrum",
+    "member": "Sonya Kilkenny",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.019,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5158,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.668,
+     "COAL": 0.25,
+     "ONP": 0.082
+    },
+    "primaries": {
+     "ALP": 0.3506,
+     "LIB": 0.2608,
+     "ONP": 0.2229,
+     "GRN": 0.106,
+     "OTH": 0.0599
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Caulfield",
+    "member": "David Southwick",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0054,
+    "final_two": [
+     "LIB",
+     "GRN"
+    ],
+    "winner_share": 0.6184,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.984,
+     "ONP": 0.009,
+     "ALP": 0.004,
+     "GRN": 0.003
+    },
+    "primaries": {
+     "LIB": 0.4008,
+     "ONP": 0.2229,
+     "GRN": 0.1842,
+     "ALP": 0.1698,
+     "OTH": 0.0224
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Clarinda",
+    "member": "Meng Heang Tak",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0149,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5085,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.591,
+     "COAL": 0.24,
+     "ONP": 0.169
+    },
+    "primaries": {
+     "ALP": 0.3083,
+     "LIB": 0.2363,
+     "ONP": 0.2229,
+     "GRN": 0.1085,
+     "IND": 0.0637,
+     "OTH": 0.0603
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Cranbourne",
+    "member": "Pauline Richards",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0253,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5364,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.647,
+     "COAL": 0.179,
+     "ONP": 0.174
+    },
+    "primaries": {
+     "ALP": 0.3187,
+     "LIB": 0.2287,
+     "ONP": 0.2229,
+     "OTH": 0.1441,
+     "GRN": 0.0857
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Croydon",
+    "member": "David Hodgett",
+    "member_party": "COAL",
+    "member_category": "open",
+    "onp_lc_2022": 0.0157,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5874,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.889,
+     "ONP": 0.067,
+     "ALP": 0.043,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "LIB": 0.343,
+     "ONP": 0.2311,
+     "ALP": 0.2153,
+     "GRN": 0.1355,
+     "OTH": 0.0751
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Dandenong",
+    "member": "Gabrielle Williams",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0179,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5908,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.968,
+     "ONP": 0.028,
+     "COAL": 0.005
+    },
+    "primaries": {
+     "ALP": 0.3915,
+     "ONP": 0.2229,
+     "LIB": 0.1661,
+     "GRN": 0.1128,
+     "OTH": 0.1067
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Eildon",
+    "member": "Cindy Mcleish",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0283,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.6426,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.993,
+     "ONP": 0.007,
+     "ALP": 0.001
+    },
+    "primaries": {
+     "LIB": 0.4106,
+     "ONP": 0.2229,
+     "ALP": 0.1691,
+     "GRN": 0.1336,
+     "OTH": 0.0638
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Eltham",
+    "member": "Vicki Ward",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0101,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5195,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.505,
+     "ALP": 0.408,
+     "ONP": 0.083,
+     "GRN": 0.004
+    },
+    "primaries": {
+     "LIB": 0.2993,
+     "ALP": 0.2909,
+     "ONP": 0.2229,
+     "GRN": 0.1585,
+     "OTH": 0.0285
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Essendon",
+    "member": "Danny Pearson",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.006,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5153,
+    "winner": "LIB",
+    "p_win": {
+     "ALP": 0.425,
+     "COAL": 0.32,
+     "ONP": 0.189,
+     "GRN": 0.066
+    },
+    "primaries": {
+     "LIB": 0.2491,
+     "ALP": 0.2405,
+     "ONP": 0.2311,
+     "GRN": 0.1837,
+     "OTH": 0.0957
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Eureka",
+    "member": "Michaela Settle",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0305,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5189,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.443,
+     "ALP": 0.388,
+     "ONP": 0.168,
+     "GRN": 0.002
+    },
+    "primaries": {
+     "ALP": 0.275,
+     "LIB": 0.2708,
+     "ONP": 0.2229,
+     "GRN": 0.1371,
+     "OTH": 0.0942
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Euroa",
+    "member": "Annabelle Cleeland",
+    "member_party": "COAL",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0389,
+    "final_two": [
+     "NAT",
+     "ONP"
+    ],
+    "winner_share": 0.6475,
+    "winner": "NAT",
+    "p_win": {
+     "COAL": 0.999,
+     "ONP": 0.001,
+     "ALP": 0.001
+    },
+    "primaries": {
+     "NAT": 0.272,
+     "ONP": 0.2193,
+     "LIB": 0.2019,
+     "ALP": 0.1738,
+     "GRN": 0.0753,
+     "OTH": 0.0578
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Evelyn",
+    "member": "Bridget Vallence",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.024,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.6299,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.984,
+     "ONP": 0.011,
+     "ALP": 0.005
+    },
+    "primaries": {
+     "LIB": 0.4048,
+     "ONP": 0.2229,
+     "ALP": 0.1979,
+     "GRN": 0.1158,
+     "OTH": 0.0587
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Footscray",
+    "member": "Katie Hall",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0079,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.6294,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.737,
+     "GRN": 0.257,
+     "ONP": 0.005,
+     "COAL": 0.001
+    },
+    "primaries": {
+     "ALP": 0.2877,
+     "GRN": 0.2526,
+     "ONP": 0.2229,
+     "LIB": 0.1246,
+     "OTH": 0.1122
+    }
+   },
+   {
+    "seat": "Frankston",
+    "member": "Paul Edbrooke",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.017,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5002,
+    "winner": "LIB",
+    "p_win": {
+     "ALP": 0.58,
+     "COAL": 0.271,
+     "ONP": 0.141,
+     "GRN": 0.009
+    },
+    "primaries": {
+     "ALP": 0.2794,
+     "LIB": 0.2475,
+     "ONP": 0.2229,
+     "GRN": 0.1559,
+     "OTH": 0.0943
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Geelong",
+    "member": "Christine Couzens",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.019,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5377,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.855,
+     "COAL": 0.086,
+     "ONP": 0.053,
+     "GRN": 0.006
+    },
+    "primaries": {
+     "ALP": 0.3186,
+     "LIB": 0.2252,
+     "ONP": 0.2229,
+     "GRN": 0.183,
+     "OTH": 0.0503
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Gippsland East",
+    "member": "Tim Bull",
+    "member_party": "COAL",
+    "member_category": "open",
+    "onp_lc_2022": 0.0385,
+    "final_two": [
+     "NAT",
+     "ONP"
+    ],
+    "winner_share": 0.6935,
+    "winner": "NAT",
+    "p_win": {
+     "COAL": 1.0
+    },
+    "primaries": {
+     "NAT": 0.5264,
+     "ONP": 0.2298,
+     "GRN": 0.0865,
+     "OTH": 0.0798,
+     "ALP": 0.0775
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Gippsland South",
+    "member": "Danny O'Brien",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0403,
+    "final_two": [
+     "NAT",
+     "ONP"
+    ],
+    "winner_share": 0.689,
+    "winner": "NAT",
+    "p_win": {
+     "COAL": 1.0
+    },
+    "primaries": {
+     "NAT": 0.4833,
+     "ONP": 0.2229,
+     "ALP": 0.1331,
+     "GRN": 0.1081,
+     "OTH": 0.0527
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Glen Waverley",
+    "member": "John Mullahy",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0085,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5579,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.82,
+     "ALP": 0.116,
+     "ONP": 0.065
+    },
+    "primaries": {
+     "LIB": 0.3378,
+     "ALP": 0.2719,
+     "ONP": 0.2193,
+     "GRN": 0.1183,
+     "OTH": 0.0527
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Greenvale",
+    "member": "Iwan Walters",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.014,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5378,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.666,
+     "COAL": 0.18,
+     "ONP": 0.154
+    },
+    "primaries": {
+     "ALP": 0.3124,
+     "LIB": 0.2193,
+     "ONP": 0.2193,
+     "OTH": 0.1587,
+     "GRN": 0.0902
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Hastings",
+    "member": "Paul Mercurio",
+    "member_party": "ALP",
+    "member_category": "sophomore_gain",
+    "onp_lc_2022": 0.0266,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5542,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.799,
+     "ALP": 0.134,
+     "ONP": 0.067,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "LIB": 0.3302,
+     "ALP": 0.2681,
+     "ONP": 0.2139,
+     "GRN": 0.1201,
+     "OTH": 0.0678
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Hawthorn",
+    "member": "John Pesutto",
+    "member_party": "COAL",
+    "member_category": "sophomore_gain",
+    "onp_lc_2022": 0.0039,
+    "final_two": [
+     "LIB",
+     "GRN"
+    ],
+    "winner_share": 0.6748,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 1.0,
+     "ONP": 0.001
+    },
+    "primaries": {
+     "LIB": 0.4702,
+     "ONP": 0.2139,
+     "GRN": 0.1484,
+     "ALP": 0.1472,
+     "OTH": 0.0203
+    }
+   },
+   {
+    "seat": "Ivanhoe",
+    "member": "Anthony Carbines",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0102,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5125,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.648,
+     "COAL": 0.177,
+     "ONP": 0.093,
+     "GRN": 0.081
+    },
+    "primaries": {
+     "ALP": 0.2821,
+     "LIB": 0.2573,
+     "ONP": 0.2229,
+     "GRN": 0.2175,
+     "OTH": 0.0202
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Kalkallo",
+    "member": "Ros Spence",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0176,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.579,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.938,
+     "ONP": 0.043,
+     "COAL": 0.019
+    },
+    "primaries": {
+     "ALP": 0.3907,
+     "ONP": 0.2229,
+     "LIB": 0.1855,
+     "OTH": 0.1164,
+     "GRN": 0.0845
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Kew",
+    "member": "Jess Wilson",
+    "member_party": "COAL",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.005,
+    "final_two": [
+     "LIB",
+     "IND"
+    ],
+    "winner_share": 0.5465,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.818,
+     "IND": 0.129,
+     "ONP": 0.053
+    },
+    "primaries": {
+     "LIB": 0.3659,
+     "ONP": 0.2193,
+     "IND": 0.1996,
+     "ALP": 0.112,
+     "GRN": 0.0979,
+     "OTH": 0.0053
+    }
+   },
+   {
+    "seat": "Kororoit",
+    "member": "Luba Grigorovitch",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0172,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5438,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.755,
+     "ONP": 0.161,
+     "COAL": 0.084
+    },
+    "primaries": {
+     "ALP": 0.3142,
+     "ONP": 0.2193,
+     "LIB": 0.1972,
+     "OTH": 0.1736,
+     "GRN": 0.0957
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Lara",
+    "member": "Ella George",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0294,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5894,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.973,
+     "ONP": 0.025,
+     "COAL": 0.003,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "ALP": 0.3666,
+     "ONP": 0.2193,
+     "LIB": 0.1672,
+     "GRN": 0.1447,
+     "OTH": 0.1021
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Laverton",
+    "member": "Sarah Connolly",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.012,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5569,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.875,
+     "ONP": 0.098,
+     "COAL": 0.026,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "ALP": 0.319,
+     "ONP": 0.2229,
+     "LIB": 0.1744,
+     "OTH": 0.158,
+     "GRN": 0.1257
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Lowan",
+    "member": "Emma Kealy",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0391,
+    "final_two": [
+     "NAT",
+     "ONP"
+    ],
+    "winner_share": 0.7031,
+    "winner": "NAT",
+    "p_win": {
+     "COAL": 1.0
+    },
+    "primaries": {
+     "NAT": 0.533,
+     "ONP": 0.2229,
+     "ALP": 0.1034,
+     "GRN": 0.0835,
+     "OTH": 0.0573
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Macedon",
+    "member": "Mary-Anne Thomas",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0294,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5187,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.438,
+     "ALP": 0.406,
+     "ONP": 0.147,
+     "GRN": 0.009
+    },
+    "primaries": {
+     "LIB": 0.2836,
+     "ALP": 0.2747,
+     "ONP": 0.2311,
+     "GRN": 0.171,
+     "OTH": 0.0396
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Malvern",
+    "member": "Michael O'Brien",
+    "member_party": "COAL",
+    "member_category": "open",
+    "onp_lc_2022": 0.0047,
+    "final_two": [
+     "LIB",
+     "GRN"
+    ],
+    "winner_share": 0.6453,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.998,
+     "ONP": 0.002,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "LIB": 0.4335,
+     "ONP": 0.2298,
+     "GRN": 0.1775,
+     "ALP": 0.1496,
+     "OTH": 0.0096
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Melbourne",
+    "member": "Ellen Sandell",
+    "member_party": "GRN",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0042,
+    "final_two": [
+     "GRN",
+     "ONP"
+    ],
+    "winner_share": 0.6503,
+    "winner": "GRN",
+    "p_win": {
+     "GRN": 0.994,
+     "ONP": 0.006
+    },
+    "primaries": {
+     "GRN": 0.3893,
+     "ONP": 0.2229,
+     "ALP": 0.1847,
+     "LIB": 0.1197,
+     "OTH": 0.0835
+    }
+   },
+   {
+    "seat": "Melton",
+    "member": "Steve Mcghie",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0321,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.503,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.369,
+     "ONP": 0.345,
+     "COAL": 0.285,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "ALP": 0.2597,
+     "ONP": 0.229,
+     "LIB": 0.2257,
+     "OTH": 0.2039,
+     "GRN": 0.0817
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Mildura",
+    "member": "Jade Benham",
+    "member_party": "COAL",
+    "member_category": "sophomore_gain",
+    "onp_lc_2022": 0.0456,
+    "final_two": [
+     "NAT",
+     "IND"
+    ],
+    "winner_share": 0.5051,
+    "winner": "NAT",
+    "p_win": {
+     "IND": 0.564,
+     "COAL": 0.43,
+     "ONP": 0.005
+    },
+    "primaries": {
+     "IND": 0.3119,
+     "ONP": 0.2139,
+     "NAT": 0.1892,
+     "LIB": 0.1801,
+     "OTH": 0.0628,
+     "GRN": 0.0421
+    }
+   },
+   {
+    "seat": "Mill Park",
+    "member": "Lily D'Ambrosio",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0232,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5448,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.728,
+     "ONP": 0.145,
+     "COAL": 0.127
+    },
+    "primaries": {
+     "ALP": 0.3266,
+     "ONP": 0.2298,
+     "LIB": 0.2174,
+     "OTH": 0.1201,
+     "GRN": 0.1061
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Monbulk",
+    "member": "Daniela De Martino",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.024,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5075,
+    "winner": "LIB",
+    "p_win": {
+     "ALP": 0.505,
+     "COAL": 0.31,
+     "ONP": 0.142,
+     "GRN": 0.042
+    },
+    "primaries": {
+     "ALP": 0.2548,
+     "LIB": 0.2515,
+     "ONP": 0.2193,
+     "GRN": 0.1793,
+     "OTH": 0.095
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Mordialloc",
+    "member": "Tim Richardson",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0103,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5046,
+    "winner": "LIB",
+    "p_win": {
+     "ALP": 0.506,
+     "COAL": 0.407,
+     "ONP": 0.086
+    },
+    "primaries": {
+     "ALP": 0.3176,
+     "LIB": 0.285,
+     "ONP": 0.2229,
+     "GRN": 0.137,
+     "OTH": 0.0375
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Mornington",
+    "member": "Chris Crewther",
+    "member_party": "COAL",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0152,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.6906,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 1.0,
+     "ONP": 0.001
+    },
+    "primaries": {
+     "LIB": 0.4796,
+     "ONP": 0.2193,
+     "ALP": 0.1572,
+     "GRN": 0.1011,
+     "OTH": 0.0428
+    }
+   },
+   {
+    "seat": "Morwell",
+    "member": "Martin Cameron",
+    "member_party": "COAL",
+    "member_category": "sophomore_gain",
+    "onp_lc_2022": 0.0629,
+    "final_two": [
+     "NAT",
+     "ALP"
+    ],
+    "winner_share": 0.6386,
+    "winner": "NAT",
+    "p_win": {
+     "COAL": 0.977,
+     "ALP": 0.013,
+     "ONP": 0.011
+    },
+    "primaries": {
+     "NAT": 0.2157,
+     "ONP": 0.2139,
+     "ALP": 0.212,
+     "LIB": 0.1865,
+     "OTH": 0.0985,
+     "GRN": 0.0734
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Mulgrave",
+    "member": "Eden Foster",
+    "member_party": "ALP",
+    "member_category": "sophomore_byelection",
+    "onp_lc_2022": 0.0154,
+    "final_two": [
+     "IND",
+     "ALP"
+    ],
+    "winner_share": 0.501,
+    "winner": "IND",
+    "p_win": {
+     "ALP": 0.628,
+     "IND": 0.231,
+     "ONP": 0.14,
+     "COAL": 0.002
+    },
+    "primaries": {
+     "ALP": 0.3375,
+     "ONP": 0.2262,
+     "IND": 0.1899,
+     "LIB": 0.1184,
+     "GRN": 0.0797,
+     "OTH": 0.0483
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Murray Plains",
+    "member": "Peter Walsh",
+    "member_party": "COAL",
+    "member_category": "open",
+    "onp_lc_2022": 0.0482,
+    "final_two": [
+     "NAT",
+     "ONP"
+    ],
+    "winner_share": 0.6943,
+    "winner": "NAT",
+    "p_win": {
+     "COAL": 1.0,
+     "ONP": 0.001
+    },
+    "primaries": {
+     "NAT": 0.5274,
+     "ONP": 0.2311,
+     "ALP": 0.0951,
+     "OTH": 0.0816,
+     "GRN": 0.0647
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Narracan",
+    "member": "Wayne Farnham",
+    "member_party": "COAL",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0197,
+    "final_two": [
+     "LIB",
+     "ONP"
+    ],
+    "winner_share": 0.6217,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.997,
+     "ONP": 0.003
+    },
+    "primaries": {
+     "LIB": 0.4374,
+     "ONP": 0.2193,
+     "OTH": 0.2035,
+     "GRN": 0.1398
+    }
+   },
+   {
+    "seat": "Narre Warren North",
+    "member": "Belinda Wilson",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0212,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5256,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.754,
+     "COAL": 0.136,
+     "ONP": 0.11
+    },
+    "primaries": {
+     "ALP": 0.3392,
+     "LIB": 0.2267,
+     "ONP": 0.2193,
+     "OTH": 0.1176,
+     "GRN": 0.0971
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Narre Warren South",
+    "member": "Gary Maas",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0188,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5007,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.562,
+     "COAL": 0.258,
+     "ONP": 0.179
+    },
+    "primaries": {
+     "ALP": 0.3133,
+     "LIB": 0.2464,
+     "ONP": 0.229,
+     "OTH": 0.1129,
+     "GRN": 0.0984
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Nepean",
+    "member": "Anthony Marsh",
+    "member_party": "COAL",
+    "member_category": "sophomore_byelection",
+    "onp_lc_2022": 0.0178,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.6329,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.99,
+     "ONP": 0.007,
+     "ALP": 0.003
+    },
+    "primaries": {
+     "LIB": 0.4098,
+     "ONP": 0.2262,
+     "ALP": 0.2004,
+     "GRN": 0.1125,
+     "OTH": 0.0511
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Niddrie",
+    "member": "Ben Carroll",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0154,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5283,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.577,
+     "ALP": 0.292,
+     "ONP": 0.132
+    },
+    "primaries": {
+     "ALP": 0.292,
+     "LIB": 0.2879,
+     "ONP": 0.2229,
+     "GRN": 0.1012,
+     "OTH": 0.096
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Northcote",
+    "member": "Kat Theophanous",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0052,
+    "final_two": [
+     "GRN",
+     "ALP"
+    ],
+    "winner_share": 0.5313,
+    "winner": "GRN",
+    "p_win": {
+     "GRN": 0.831,
+     "ALP": 0.169
+    },
+    "primaries": {
+     "GRN": 0.3307,
+     "ALP": 0.2706,
+     "ONP": 0.2229,
+     "OTH": 0.1084,
+     "LIB": 0.0674
+    }
+   },
+   {
+    "seat": "Oakleigh",
+    "member": "Steve Dimopoulos",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0092,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5247,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.772,
+     "COAL": 0.138,
+     "ONP": 0.074,
+     "GRN": 0.017
+    },
+    "primaries": {
+     "ALP": 0.3061,
+     "LIB": 0.2448,
+     "ONP": 0.2229,
+     "GRN": 0.1945,
+     "OTH": 0.0318
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Ovens Valley",
+    "member": "Tim Mccurdy",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0355,
+    "final_two": [
+     "NAT",
+     "ONP"
+    ],
+    "winner_share": 0.6726,
+    "winner": "NAT",
+    "p_win": {
+     "COAL": 1.0
+    },
+    "primaries": {
+     "NAT": 0.446,
+     "ONP": 0.2229,
+     "OTH": 0.1168,
+     "GRN": 0.1102,
+     "ALP": 0.1041
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Pakenham",
+    "member": "Emma Vulin",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0368,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5926,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.939,
+     "ONP": 0.038,
+     "ALP": 0.022
+    },
+    "primaries": {
+     "LIB": 0.3653,
+     "ALP": 0.2408,
+     "ONP": 0.2228,
+     "GRN": 0.1011,
+     "OTH": 0.07
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Pascoe Vale",
+    "member": "Anthony Cianflone",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0082,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.6231,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.643,
+     "GRN": 0.333,
+     "ONP": 0.015,
+     "COAL": 0.009
+    },
+    "primaries": {
+     "ALP": 0.2749,
+     "GRN": 0.2546,
+     "ONP": 0.2193,
+     "LIB": 0.1613,
+     "OTH": 0.0899
+    }
+   },
+   {
+    "seat": "Point Cook",
+    "member": "Mathew Hilakari",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0166,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5367,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.683,
+     "ONP": 0.162,
+     "COAL": 0.154
+    },
+    "primaries": {
+     "ALP": 0.302,
+     "ONP": 0.2193,
+     "LIB": 0.2128,
+     "OTH": 0.1651,
+     "GRN": 0.1009
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Polwarth",
+    "member": "Richard Riordan",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0199,
+    "final_two": [
+     "LIB",
+     "GRN"
+    ],
+    "winner_share": 0.5997,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.933,
+     "ONP": 0.025,
+     "ALP": 0.025,
+     "GRN": 0.017
+    },
+    "primaries": {
+     "LIB": 0.3735,
+     "ONP": 0.2229,
+     "GRN": 0.19,
+     "ALP": 0.178,
+     "OTH": 0.0356
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Prahran",
+    "member": "Rachel Westaway",
+    "member_party": "COAL",
+    "member_category": "sophomore_byelection",
+    "onp_lc_2022": 0.0056,
+    "final_two": [
+     "GRN",
+     "LIB"
+    ],
+    "winner_share": 0.5538,
+    "winner": "GRN",
+    "p_win": {
+     "GRN": 0.899,
+     "COAL": 0.052,
+     "ONP": 0.049
+    },
+    "primaries": {
+     "GRN": 0.3737,
+     "LIB": 0.2339,
+     "ONP": 0.2262,
+     "ALP": 0.1506,
+     "OTH": 0.0155
+    }
+   },
+   {
+    "seat": "Preston",
+    "member": "Nathan Lambert",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0109,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.62,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.944,
+     "GRN": 0.033,
+     "ONP": 0.018,
+     "COAL": 0.006
+    },
+    "primaries": {
+     "ALP": 0.3048,
+     "ONP": 0.2193,
+     "GRN": 0.2015,
+     "LIB": 0.1452,
+     "OTH": 0.1292
+    }
+   },
+   {
+    "seat": "Richmond",
+    "member": "Gabrielle De Vietri",
+    "member_party": "GRN",
+    "member_category": "sophomore_gain",
+    "onp_lc_2022": 0.0034,
+    "final_two": [
+     "GRN",
+     "ONP"
+    ],
+    "winner_share": 0.6584,
+    "winner": "GRN",
+    "p_win": {
+     "GRN": 0.997,
+     "ONP": 0.003
+    },
+    "primaries": {
+     "GRN": 0.3909,
+     "ONP": 0.2139,
+     "ALP": 0.1939,
+     "LIB": 0.1257,
+     "OTH": 0.0755
+    }
+   },
+   {
+    "seat": "Ringwood",
+    "member": "Will Fowles",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0099,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5262,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.496,
+     "ALP": 0.331,
+     "ONP": 0.142,
+     "GRN": 0.032
+    },
+    "primaries": {
+     "LIB": 0.2805,
+     "ALP": 0.2486,
+     "ONP": 0.2228,
+     "GRN": 0.1784,
+     "OTH": 0.0698
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Ripon",
+    "member": "Martha Haylett",
+    "member_party": "ALP",
+    "member_category": "sophomore_gain",
+    "onp_lc_2022": 0.0346,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5419,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.697,
+     "ALP": 0.18,
+     "ONP": 0.123
+    },
+    "primaries": {
+     "LIB": 0.3032,
+     "ALP": 0.2845,
+     "ONP": 0.2139,
+     "OTH": 0.1142,
+     "GRN": 0.0842
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Rowville",
+    "member": "Kim Wells",
+    "member_party": "COAL",
+    "member_category": "open",
+    "onp_lc_2022": 0.0129,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5978,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.953,
+     "ONP": 0.029,
+     "ALP": 0.018
+    },
+    "primaries": {
+     "LIB": 0.3753,
+     "ALP": 0.2412,
+     "ONP": 0.2311,
+     "GRN": 0.1075,
+     "OTH": 0.0449
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Sandringham",
+    "member": "Brad Rowswell",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0067,
+    "final_two": [
+     "LIB",
+     "GRN"
+    ],
+    "winner_share": 0.6384,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.995,
+     "ONP": 0.003,
+     "ALP": 0.002,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "LIB": 0.4208,
+     "ONP": 0.2229,
+     "GRN": 0.1726,
+     "ALP": 0.154,
+     "OTH": 0.0297
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Shepparton",
+    "member": "Kim O'Keeffe",
+    "member_party": "COAL",
+    "member_category": "open",
+    "onp_lc_2022": 0.0424,
+    "final_two": [
+     "NAT",
+     "LIB"
+    ],
+    "winner_share": 0.5932,
+    "winner": "NAT",
+    "p_win": {
+     "COAL": 1.0
+    },
+    "primaries": {
+     "NAT": 0.3842,
+     "LIB": 0.2466,
+     "ONP": 0.2228,
+     "GRN": 0.0573,
+     "OTH": 0.0561,
+     "ALP": 0.033
+    }
+   },
+   {
+    "seat": "South Barwon",
+    "member": "Darren Cheeseman",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0135,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5186,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.438,
+     "ALP": 0.399,
+     "ONP": 0.158,
+     "GRN": 0.005
+    },
+    "primaries": {
+     "LIB": 0.2746,
+     "ALP": 0.2723,
+     "ONP": 0.229,
+     "GRN": 0.1567,
+     "OTH": 0.0675
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "South-West Coast",
+    "member": "Roma Britnell",
+    "member_party": "COAL",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0279,
+    "final_two": [
+     "LIB",
+     "ONP"
+    ],
+    "winner_share": 0.6261,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.997,
+     "ONP": 0.003
+    },
+    "primaries": {
+     "LIB": 0.4321,
+     "ONP": 0.2229,
+     "ALP": 0.1355,
+     "OTH": 0.1231,
+     "GRN": 0.0864
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "St Albans",
+    "member": "Natalie Suleyman",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0144,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5316,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.633,
+     "ONP": 0.192,
+     "COAL": 0.174
+    },
+    "primaries": {
+     "ALP": 0.2963,
+     "ONP": 0.2229,
+     "LIB": 0.2136,
+     "OTH": 0.1677,
+     "GRN": 0.0995
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Sunbury",
+    "member": "Josh Bull",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0254,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5204,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.484,
+     "ALP": 0.355,
+     "ONP": 0.161
+    },
+    "primaries": {
+     "ALP": 0.3002,
+     "LIB": 0.2773,
+     "ONP": 0.2229,
+     "OTH": 0.1039,
+     "GRN": 0.0957
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Sydenham",
+    "member": "Natalie Hutchins",
+    "member_party": "ALP",
+    "member_category": "open",
+    "onp_lc_2022": 0.0207,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5271,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.402,
+     "ONP": 0.303,
+     "ALP": 0.294
+    },
+    "primaries": {
+     "ALP": 0.2669,
+     "LIB": 0.2502,
+     "ONP": 0.2311,
+     "OTH": 0.1611,
+     "GRN": 0.0906
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Tarneit",
+    "member": "Dylan Wight",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0173,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.553,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.768,
+     "COAL": 0.126,
+     "ONP": 0.105,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "ALP": 0.335,
+     "ONP": 0.2193,
+     "LIB": 0.2191,
+     "OTH": 0.1238,
+     "GRN": 0.1028
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Thomastown",
+    "member": "Bronwyn Halfpenny",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0149,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5689,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.903,
+     "ONP": 0.06,
+     "COAL": 0.036
+    },
+    "primaries": {
+     "ALP": 0.3644,
+     "ONP": 0.2229,
+     "LIB": 0.1924,
+     "OTH": 0.1216,
+     "GRN": 0.0988
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Warrandyte",
+    "member": "Nicole Werner",
+    "member_party": "COAL",
+    "member_category": "sophomore_byelection",
+    "onp_lc_2022": 0.0103,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.6195,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.98,
+     "ONP": 0.013,
+     "ALP": 0.006,
+     "GRN": 0.001
+    },
+    "primaries": {
+     "LIB": 0.4013,
+     "ONP": 0.2262,
+     "ALP": 0.204,
+     "GRN": 0.1408,
+     "OTH": 0.0277
+    },
+    "two_party_winner": "COAL"
+   },
+   {
+    "seat": "Wendouree",
+    "member": "Juliana Addison",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0227,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5161,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.677,
+     "COAL": 0.213,
+     "ONP": 0.11
+    },
+    "primaries": {
+     "ALP": 0.3258,
+     "LIB": 0.2494,
+     "ONP": 0.2229,
+     "GRN": 0.1329,
+     "OTH": 0.069
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Werribee",
+    "member": "John Lister",
+    "member_party": "ALP",
+    "member_category": "sophomore_byelection",
+    "onp_lc_2022": 0.0217,
+    "final_two": [
+     "ALP",
+     "ONP"
+    ],
+    "winner_share": 0.5424,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.708,
+     "ONP": 0.15,
+     "COAL": 0.142
+    },
+    "primaries": {
+     "ALP": 0.3222,
+     "ONP": 0.2262,
+     "LIB": 0.224,
+     "OTH": 0.1245,
+     "GRN": 0.103
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Williamstown",
+    "member": "Melissa Horne",
+    "member_party": "ALP",
+    "member_category": "veteran",
+    "onp_lc_2022": 0.0113,
+    "final_two": [
+     "ALP",
+     "LIB"
+    ],
+    "winner_share": 0.5129,
+    "winner": "ALP",
+    "p_win": {
+     "ALP": 0.664,
+     "COAL": 0.176,
+     "ONP": 0.129,
+     "GRN": 0.031
+    },
+    "primaries": {
+     "ALP": 0.2718,
+     "LIB": 0.2266,
+     "ONP": 0.2229,
+     "GRN": 0.1804,
+     "OTH": 0.0983
+    },
+    "two_party_winner": "ALP"
+   },
+   {
+    "seat": "Yan Yean",
+    "member": "Lauren Kathage",
+    "member_party": "ALP",
+    "member_category": "sophomore_held",
+    "onp_lc_2022": 0.0223,
+    "final_two": [
+     "LIB",
+     "ALP"
+    ],
+    "winner_share": 0.5318,
+    "winner": "LIB",
+    "p_win": {
+     "COAL": 0.57,
+     "ALP": 0.268,
+     "ONP": 0.163
+    },
+    "primaries": {
+     "ALP": 0.2843,
+     "LIB": 0.2831,
+     "ONP": 0.2193,
+     "OTH": 0.1229,
+     "GRN": 0.0905
+    },
+    "two_party_winner": "COAL"
+   }
+  ],
+  "simulated_seats": {
+   "ALP": {
+    "median": 31,
+    "lo": 19,
+    "hi": 41
+   },
+   "COAL": {
+    "median": 44,
+    "lo": 35,
+    "hi": 54
+   },
+   "GRN": {
+    "median": 6,
+    "lo": 4,
+    "hi": 8
+   },
+   "ONP": {
+    "median": 6,
+    "lo": 2,
+    "hi": 12
+   },
+   "IND": {
+    "median": 1,
+    "lo": 0,
+    "hi": 2
+   }
+  },
+  "sensitivity_coalition_to_onp": {
+   "0.5": {
+    "ALP": 30,
+    "COAL": 52,
+    "GRN": 5,
+    "IND": 1
+   },
+   "1.0": {
+    "ALP": 30,
+    "COAL": 52,
+    "GRN": 5,
+    "IND": 1
+   },
+   "2.0": {
+    "ALP": 28,
+    "COAL": 52,
+    "GRN": 5,
+    "ONP": 3
+   },
+   "4.0": {
+    "ALP": 22,
+    "COAL": 51,
+    "GRN": 5,
+    "ONP": 10
+   }
+  },
+  "two_party_swing_from_polls_pts": -9.5,
+  "two_party_seats": {
+   "ALP": 25,
+   "COAL": 48
+  },
+  "assumptions": [
+   "One Nation stands in every seat (check against the 2026 ballot draw)",
+   "Liberal and National voters' preferences to One Nation are not in the flow model (they were rarely excluded with One Nation still in the count); set to the neutral default",
+   "Independents keep their 2022 vote scaled by the statewide change; new independents are not known until nominations"
+  ]
+ },
+ "generated": "2026-11-08"
+}

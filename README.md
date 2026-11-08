@@ -321,6 +321,25 @@ nearest booth, which is roughly true in suburbs and less so in the country.
 Parquet copies of every table and view plus the GeoJSON layers and a `manifest.json`, ~14 MB.
 This is what the static site loads (DuckDB-WASM for the tables, MapLibre for the layers).
 
+## Analyses and the question registry (`analysis/questions.json`)
+
+Every question asked of the data is listed in `analysis/questions.json`: the question, the command that answers it,
+its inputs and outputs, the current headline finding, and the data events ("triggers") that should prompt a re-run,
+for example `results_2026`, `nominations_2026`, `census_2026`, `federal_next`. `tools/rerun_analyses.py` reads it:
+
+    python3 tools/rerun_analyses.py                          # list questions, status, last run
+    python3 tools/rerun_analyses.py --trigger results_2026   # re-run everything new results touch, in dependency order
+    python3 tools/rerun_analyses.py --id seat_loss --deps    # one question and what it depends on
+    python3 tools/rerun_analyses.py --due                    # questions whose inputs changed since they last ran
+    add --dry-run to see the commands, --pages to rebuild the private EBA Dark pages in analysis/dark/ (not committed)
+
+Runs are logged in `analysis/runs.json`. Analyses so far: `src/member_effects.py` (personal vote, tenure, leaders,
+transferred voters, 2026 outlook), `src/cross_level.py` (state v federal), `src/seat_loss.py` (what predicts a member
+losing), `src/notional.py` (notional results on new boundaries, all seven redistributions) and `src/boundary_effects.py`
+(what redistributions do to seats and members), `src/primary_swings.py` (how primaries swing seat by seat; 2026
+projected from primaries through preferences), `src/returning_challengers.py` (candidates who lost and come back).
+Outputs in `data/analysis/`.
+
 ## Re-running
 
 ```

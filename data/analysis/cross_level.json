@@ -1,0 +1,204 @@
+{
+ "method": "1. Split tickets at the same polling place. Each state election is paired with the federal election nearest in time\n   (2006-2007, 2010-2010, 2014-2013, 2018-2019, 2022-2022). At venues used for both, the gap between a party's state and\n   federal first-preference shares is modelled on who the local member is at each level: +1 if the sitting member standing\n   again is from that party, -1 if from its main rival, 0 for an open seat or other member. A personal vote predicts a\n   positive state-member effect and a negative federal-member effect (the federal member pulls the federal vote their way).\n   Three versions: pooled with election-pair effects; within the same state district (identifies the federal member from\n   districts split between divisions); within the same federal division (identifies the state member).",
+ "split_tickets": {
+  "ALP": {
+   "venues": 4466,
+   "mean_gap_by_pair": {
+    "vic2006": -2.54,
+    "vic2010": -6.82,
+    "vic2014": 2.81,
+    "vic2018": 6.22,
+    "vic2022": 4.2
+   },
+   "pooled": {
+    "xs": {
+     "pts": 1.48,
+     "lo": 1.01,
+     "hi": 1.95
+    },
+    "xf": {
+     "pts": -1.84,
+     "lo": -2.35,
+     "hi": -1.29
+    },
+    "ind_fed": {
+     "pts": 9.02,
+     "lo": 4.07,
+     "hi": 13.05
+    }
+   },
+   "within_state_district": {
+    "xf": {
+     "pts": -2.4,
+     "lo": -3.03,
+     "hi": -1.78
+    },
+    "ind_fed": {
+     "pts": 8.06,
+     "lo": 5.98,
+     "hi": 9.03
+    }
+   },
+   "within_federal_division": {
+    "xs": {
+     "pts": 1.61,
+     "lo": 1.06,
+     "hi": 2.06
+    }
+   }
+  },
+  "COAL": {
+   "venues": 4459,
+   "mean_gap_by_pair": {
+    "vic2006": -0.07,
+    "vic2010": 4.95,
+    "vic2014": -0.22,
+    "vic2018": -1.07,
+    "vic2022": 2.93
+   },
+   "pooled": {
+    "xs": {
+     "pts": 2.37,
+     "lo": 1.79,
+     "hi": 3.0
+    },
+    "xf": {
+     "pts": -1.54,
+     "lo": -2.19,
+     "hi": -0.92
+    },
+    "ind_fed": {
+     "pts": 9.66,
+     "lo": 3.95,
+     "hi": 14.2
+    }
+   },
+   "within_state_district": {
+    "xf": {
+     "pts": -1.71,
+     "lo": -2.37,
+     "hi": -1.08
+    },
+    "ind_fed": {
+     "pts": 7.32,
+     "lo": 0.0,
+     "hi": 7.93
+    }
+   },
+   "within_federal_division": {
+    "xs": {
+     "pts": 1.93,
+     "lo": 1.3,
+     "hi": 2.56
+    }
+   }
+  }
+ },
+ "federal_member_changes": {
+  "ALP": {
+   "venues": 2999,
+   "flipped": 341,
+   "member_only": {
+    "dmem": {
+     "pts": 0.29,
+     "lo": -0.07,
+     "hi": 0.68
+    }
+   },
+   "member_and_federal_swing": {
+    "dmem": {
+     "pts": 0.18,
+     "lo": -0.17,
+     "hi": 0.55
+    },
+    "fswing": {
+     "slope": 0.11,
+     "lo": 0.065,
+     "hi": 0.16
+    }
+   }
+  },
+  "COAL": {
+   "venues": 2990,
+   "flipped": 340,
+   "member_only": {
+    "dmem": {
+     "pts": 0.37,
+     "lo": -0.13,
+     "hi": 0.85
+    }
+   },
+   "member_and_federal_swing": {
+    "dmem": {
+     "pts": 0.32,
+     "lo": -0.15,
+     "hi": 0.79
+    },
+    "fswing": {
+     "slope": 0.151,
+     "lo": 0.092,
+     "hi": 0.208
+    }
+   }
+  }
+ },
+ "statewide": {
+  "rows": [
+   {
+    "election": "vic2002",
+    "federal_government": "COAL",
+    "state_government_going_in": "ALP",
+    "months_since_federal_election": 12.6,
+    "swing_to_federal_government_party": -8.81,
+    "ALP": 47.95,
+    "COAL": 38.22
+   },
+   {
+    "election": "vic2006",
+    "federal_government": "COAL",
+    "state_government_going_in": "ALP",
+    "months_since_federal_election": 25.5,
+    "swing_to_federal_government_party": 1.39,
+    "ALP": 43.06,
+    "COAL": 39.6
+   },
+   {
+    "election": "vic2010",
+    "federal_government": "ALP",
+    "state_government_going_in": "ALP",
+    "months_since_federal_election": 3.2,
+    "swing_to_federal_government_party": -6.81,
+    "ALP": 36.25,
+    "COAL": 44.78
+   },
+   {
+    "election": "vic2014",
+    "federal_government": "COAL",
+    "state_government_going_in": "COAL",
+    "months_since_federal_election": 14.7,
+    "swing_to_federal_government_party": -2.78,
+    "ALP": 38.1,
+    "COAL": 42.0
+   },
+   {
+    "election": "vic2018",
+    "federal_government": "COAL",
+    "state_government_going_in": "ALP",
+    "months_since_federal_election": 28.7,
+    "swing_to_federal_government_party": -6.8,
+    "ALP": 42.86,
+    "COAL": 35.19
+   },
+   {
+    "election": "vic2022",
+    "federal_government": "ALP",
+    "state_government_going_in": "ALP",
+    "months_since_federal_election": 6.2,
+    "swing_to_federal_government_party": -5.83,
+    "ALP": 37.03,
+    "COAL": 34.54
+   }
+  ],
+  "mean_swing_to_federal_government_party": -4.94
+ }
+}

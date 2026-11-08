@@ -1,0 +1,100 @@
+{
+ "seat_loss": {
+  "at": "2026-11-08T22:32:19",
+  "commands": [
+   "python3 -m src.seat_loss"
+  ],
+  "trigger": null
+ },
+ "member_personal_vote": {
+  "at": "2026-11-08T22:08:45",
+  "commands": [
+   "python3 -m src.member_effects"
+  ],
+  "trigger": null
+ },
+ "member_tenure": {
+  "at": "2026-11-08T22:08:45",
+  "commands": [
+   "python3 -m src.member_effects"
+  ],
+  "trigger": null
+ },
+ "member_leaders": {
+  "at": "2026-11-08T22:08:45",
+  "commands": [
+   "python3 -m src.member_effects"
+  ],
+  "trigger": null
+ },
+ "transferred_voters": {
+  "at": "2026-11-08T22:08:45",
+  "commands": [
+   "python3 -m src.member_effects"
+  ],
+  "trigger": null
+ },
+ "member_outlook_2026": {
+  "at": "2026-11-08T22:08:45",
+  "commands": [
+   "python3 -m src.member_effects"
+  ],
+  "trigger": null
+ },
+ "two_levels_members": {
+  "at": "2026-11-08T22:08:45",
+  "commands": [
+   "python3 -m src.cross_level"
+  ],
+  "trigger": null
+ },
+ "federal_member_spillover": {
+  "at": "2026-11-08T22:08:45",
+  "commands": [
+   "python3 -m src.cross_level"
+  ],
+  "trigger": null
+ },
+ "federal_government_headwind": {
+  "at": "2026-11-08T22:08:45",
+  "commands": [
+   "python3 -m src.cross_level"
+  ],
+  "trigger": null
+ },
+ "boundary_effects": {
+  "at": "2026-11-08T22:32:19",
+  "commands": [
+   "python3 -m src.boundary_effects"
+  ],
+  "trigger": null
+ },
+ "notional_results": {
+  "at": "2026-11-08T22:32:19",
+  "commands": [
+   "python3 -m src.notional"
+  ],
+  "trigger": null
+ },
+ "primary_swings": {
+  "at": "2026-11-08T22:38:33",
+  "commands": [
+   "python3 -m src.primary_swings"
+  ],
+  "trigger": null
+ },
+ "returning_challengers": {
+  "at": "2026-11-08T22:47:01",
+  "commands": [
+   "python3 -m src.returning_challengers"
+  ],
+  "trigger": null
+ },
+ "site_model_page": {
+  "at": "2026-11-08T23:03:07",
+  "commands": [
+   "python3 -m src.export_model_findings"
+  ],
+  "trigger": null
+ }
+}

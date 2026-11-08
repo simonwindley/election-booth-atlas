@@ -1,0 +1,4438 @@
+{
+ "method": "1. Check: our notional two-party margins against Antony Green's published ones (2022 state, 2025 federal).\n  2. What each redistribution did: seats abolished and created, how much of each seat came from its namesake, how far\n     notional margins moved, and which seats changed hands on paper.\n  3. Notional flips: when a redistribution hands a seat to the other side on paper, does that side win it?\n  4. The cost of new territory: a member standing again in a redrawn seat, compared with the notional result. The\n     seat's swing (actual two-candidate minus notional two-party, Labor v Coalition contests) relative to the statewide\n     swing on the same basis, against the share of the new seat that came from another party's seat and from a\n     same-party colleague's seat. The member's own old voters carry their personal vote; new ones should not.",
+ "check": {
+  "source": "Antony Green (ABC) notional margins, as tabulated in the Wikipedia pre-election pendulums (2022 Victorian state election; Pre-election pendulum for the 2025 Australian federal election), retrieved 2026-11-08. Margins in points; vs = the notional opponent where not Labor v Coalition. Federal: Nicholls, Wannon, Kooyong, Goldstein margins are v independents; Aston and Dunkley were by-election gains with no margin given.",
+  "vic2022": {
+   "seats": 78,
+   "mean_diff": 0.08,
+   "mean_abs_diff": 0.45,
+   "within_1pt": 66,
+   "largest": [
+    {
+     "seat": "Geelong",
+     "green": 60.3,
+     "atlas": 62.2
+    },
+    {
+     "seat": "Berwick",
+     "green": 48.7,
+     "atlas": 50.57
+    },
+    {
+     "seat": "South Barwon",
+     "green": 53.0,
+     "atlas": 54.58
+    },
+    {
+     "seat": "Morwell",
+     "green": 54.0,
+     "atlas": 55.51
+    },
+    {
+     "seat": "Kalkallo",
+     "green": 70.9,
+     "atlas": 69.47
+    }
+   ],
+   "holder_disagree": [
+    {
+     "seat": "Hastings",
+     "green": 50.0,
+     "atlas": 49.71
+    },
+    {
+     "seat": "Caulfield",
+     "green": 49.96,
+     "atlas": 50.02
+    },
+    {
+     "seat": "Bass",
+     "green": 49.3,
+     "atlas": 50.45
+    },
+    {
+     "seat": "Glen Waverley",
+     "green": 49.1,
+     "atlas": 50.28
+    },
+    {
+     "seat": "Berwick",
+     "green": 48.7,
+     "atlas": 50.57
+    }
+   ],
+   "rows": [
+    {
+     "seat": "Hawthorn",
+     "green": 50.6,
+     "atlas": 50.67
+    },
+    {
+     "seat": "Nepean",
+     "green": 50.7,
+     "atlas": 50.82
+    },
+    {
+     "seat": "Ashwood",
+     "green": 52.0,
+     "atlas": 52.24
+    },
+    {
+     "seat": "Pakenham",
+     "green": 52.2,
+     "atlas": 51.08
+    },
+    {
+     "seat": "Ripon",
+     "green": 52.8,
+     "atlas": 52.43
+    },
+    {
+     "seat": "South Barwon",
+     "green": 53.0,
+     "atlas": 54.58
+    },
+    {
+     "seat": "Box Hill",
+     "green": 53.1,
+     "atlas": 52.12
+    },
+    {
+     "seat": "Ringwood",
+     "green": 53.2,
+     "atlas": 52.7
+    },
+    {
+     "seat": "Morwell",
+     "green": 54.0,
+     "atlas": 55.51
+    },
+    {
+     "seat": "Melton",
+     "green": 55.0,
+     "atlas": 55.03
+    },
+    {
+     "seat": "Monbulk",
+     "green": 57.1,
+     "atlas": 56.56
+    },
+    {
+     "seat": "Eltham",
+     "green": 58.8,
+     "atlas": 59.2
+    },
+    {
+     "seat": "Cranbourne",
+     "green": 59.3,
+     "atlas": 60.22
+    },
+    {
+     "seat": "Eureka",
+     "green": 59.6,
+     "atlas": 59.35
+    },
+    {
+     "seat": "Frankston",
+     "green": 60.2,
+     "atlas": 60.11
+    },
+    {
+     "seat": "Geelong",
+     "green": 60.3,
+     "atlas": 62.2
+    },
+    {
+     "seat": "Narre Warren South",
+     "green": 60.4,
+     "atlas": 59.31
+    },
+    {
+     "seat": "Narre Warren North",
+     "green": 60.4,
+     "atlas": 60.6
+    },
+    {
+     "seat": "Wendouree",
+     "green": 61.0,
+     "atlas": 60.85
+    },
+    {
+     "seat": "Bellarine",
+     "green": 61.4,
+     "atlas": 61.4
+    },
+    {
+     "seat": "Bentleigh",
+     "green": 61.4,
+     "atlas": 61.93
+    },
+    {
+     "seat": "Carrum",
+     "green": 62.0,
+     "atlas": 61.83
+    },
+    {
+     "seat": "Bendigo East",
+     "green": 62.1,
+     "atlas": 62.11
+    },
+    {
+     "seat": "Ivanhoe",
+     "green": 62.3,
+     "atlas": 62.39
+    },
+    {
+     "seat": "Niddrie",
+     "green": 62.5,
+     "atlas": 62.79
+    },
+    {
+     "seat": "Point Cook",
+     "green": 62.8,
+     "atlas": 63.65
+    },
+    {
+     "seat": "Albert Park",
+     "green": 63.1,
+     "atlas": 63.18
+    },
+    {
+     "seat": "Macedon",
+     "green": 63.4,
+     "atlas": 63.18
+    },
+    {
+     "seat": "Mordialloc",
+     "green": 63.4,
+     "atlas": 63.06
+    },
+    {
+     "seat": "Sunbury",
+     "green": 64.5,
+     "atlas": 64.43
+    },
+    {
+     "seat": "Clarinda",
+     "green": 64.9,
+     "atlas": 65.6
+    },
+    {
+     "seat": "Mulgrave",
+     "green": 65.8,
+     "atlas": 64.74
+    },
+    {
+     "seat": "Essendon",
+     "green": 65.8,
+     "atlas": 65.86
+    },
+    {
+     "seat": "Oakleigh",
+     "green": 66.0,
+     "atlas": 65.97
+    },
+    {
+     "seat": "Bundoora",
+     "green": 66.2,
+     "atlas": 66.09
+    },
+    {
+     "seat": "Yan Yean",
+     "green": 66.9,
+     "atlas": 66.15
+    },
+    {
+     "seat": "Tarneit",
+     "green": 67.9,
+     "atlas": 67.81
+    },
+    {
+     "seat": "Sydenham",
+     "green": 68.3,
+     "atlas": 68.28
+    },
+    {
+     "seat": "Bendigo West",
+     "green": 68.6,
+     "atlas": 68.44
+    },
+    {
+     "seat": "Lara",
+     "green": 69.1,
+     "atlas": 69.11
+    },
+    {
+     "seat": "Williamstown",
+     "green": 69.9,
+     "atlas": 69.66
+    },
+    {
+     "seat": "Kalkallo",
+     "green": 70.9,
+     "atlas": 69.47
+    },
+    {
+     "seat": "St Albans",
+     "green": 72.0,
+     "atlas": 72.17
+    },
+    {
+     "seat": "Greenvale",
+     "green": 72.0,
+     "atlas": 73.34
+    },
+    {
+     "seat": "Pascoe Vale",
+     "green": 72.3,
+     "atlas": 71.94
+    },
+    {
+     "seat": "Dandenong",
+     "green": 73.1,
+     "atlas": 71.96
+    },
+    {
+     "seat": "Laverton",
+     "green": 73.4,
+     "atlas": 72.98
+    },
+    {
+     "seat": "Mill Park",
+     "green": 74.9,
+     "atlas": 74.91
+    },
+    {
+     "seat": "Broadmeadows",
+     "green": 75.2,
+     "atlas": 74.34
+    },
+    {
+     "seat": "Kororoit",
+     "green": 75.3,
+     "atlas": 75.46
+    },
+    {
+     "seat": "Thomastown",
+     "green": 77.4,
+     "atlas": 77.23
+    },
+    {
+     "seat": "Footscray",
+     "green": 77.6,
+     "atlas": 77.96
+    },
+    {
+     "seat": "Hastings",
+     "green": 50.0,
+     "atlas": 49.71
+    },
+    {
+     "seat": "Caulfield",
+     "green": 49.96,
+     "atlas": 50.02
+    },
+    {
+     "seat": "Sandringham",
+     "green": 49.6,
+     "atlas": 49.69
+    },
+    {
+     "seat": "Brighton",
+     "green": 49.5,
+     "atlas": 49.47
+    },
+    {
+     "seat": "Bayswater",
+     "green": 49.4,
+     "atlas": 49.31
+    },
+    {
+     "seat": "Bass",
+     "green": 49.3,
+     "atlas": 50.45
+    },
+    {
+     "seat": "Glen Waverley",
+     "green": 49.1,
+     "atlas": 50.28
+    },
+    {
+     "seat": "Croydon",
+     "green": 49.0,
+     "atlas": 49.16
+    },
+    {
+     "seat": "Eildon",
+     "green": 49.0,
+     "atlas": 49.08
+    },
+    {
+     "seat": "Berwick",
+     "green": 48.7,
+     "atlas": 50.57
+    },
+    {
+     "seat": "Evelyn",
+     "green": 48.2,
+     "atlas": 48.77
+    },
+    {
+     "seat": "Polwarth",
+     "green": 48.0,
+     "atlas": 47.01
+    },
+    {
+     "seat": "South-West Coast",
+     "green": 46.8,
+     "atlas": 47.02
+    },
+    {
+     "seat": "Warrandyte",
+     "green": 46.2,
+     "atlas": 46.57
+    },
+    {
+     "seat": "Kew",
+     "green": 45.3,
+     "atlas": 45.74
+    },
+    {
+     "seat": "Mornington",
+     "green": 45.0,
+     "atlas": 45.01
+    },
+    {
+     "seat": "Rowville",
+     "green": 44.5,
+     "atlas": 45.14
+    },
+    {
+     "seat": "Bulleen",
+     "green": 44.5,
+     "atlas": 44.52
+    },
+    {
+     "seat": "Malvern",
+     "green": 44.0,
+     "atlas": 44.45
+    },
+    {
+     "seat": "Narracan",
+     "green": 40.0,
+     "atlas": 40.93
+    },
+    {
+     "seat": "Ovens Valley",
+     "green": 37.9,
+     "atlas": 37.81
+    },
+    {
+     "seat": "Gippsland South",
+     "green": 35.8,
+     "atlas": 36.53
+    },
+    {
+     "seat": "Euroa",
+     "green": 34.2,
+     "atlas": 34.38
+    },
+    {
+     "seat": "Gippsland East",
+     "green": 32.4,
+     "atlas": 32.47
+    },
+    {
+     "seat": "Lowan",
+     "green": 28.9,
+     "atlas": 28.74
+    },
+    {
+     "seat": "Murray Plains",
+     "green": 26.0,
+     "atlas": 26.07
+    }
+   ]
+  },
+  "fed2025": {
+   "seats": 27,
+   "mean_diff": -0.12,
+   "mean_abs_diff": 0.36,
+   "within_1pt": 26,
+   "largest": [
+    {
+     "seat": "Menzies",
+     "green": 50.4,
+     "atlas": 48.68
+    },
+    {
+     "seat": "Chisholm",
+     "green": 53.3,
+     "atlas": 52.61
+    },
+    {
+     "seat": "Gippsland",
+     "green": 29.4,
+     "atlas": 30.05
+    },
+    {
+     "seat": "McEwen",
+     "green": 53.8,
+     "atlas": 54.41
+    },
+    {
+     "seat": "Flinders",
+     "green": 43.8,
+     "atlas": 43.26
+    }
+   ],
+   "holder_disagree": [
+    {
+     "seat": "Menzies",
+     "green": 50.4,
+     "atlas": 48.68
+    }
+   ],
+   "rows": [
+    {
+     "seat": "Menzies",
+     "green": 50.4,
+     "atlas": 48.68
+    },
+    {
+     "seat": "Chisholm",
+     "green": 53.3,
+     "atlas": 52.61
+    },
+    {
+     "seat": "McEwen",
+     "green": 53.8,
+     "atlas": 54.41
+    },
+    {
+     "seat": "Bruce",
+     "green": 55.3,
+     "atlas": 55.77
+    },
+    {
+     "seat": "Holt",
+     "green": 57.1,
+     "atlas": 56.95
+    },
+    {
+     "seat": "Hawke",
+     "green": 57.6,
+     "atlas": 57.3
+    },
+    {
+     "seat": "Corangamite",
+     "green": 57.8,
+     "atlas": 57.55
+    },
+    {
+     "seat": "Isaacs",
+     "green": 59.5,
+     "atlas": 59.07
+    },
+    {
+     "seat": "Gorton",
+     "green": 60.0,
+     "atlas": 59.61
+    },
+    {
+     "seat": "Bendigo",
+     "green": 61.2,
+     "atlas": 61.08
+    },
+    {
+     "seat": "Gellibrand",
+     "green": 61.2,
+     "atlas": 61.64
+    },
+    {
+     "seat": "Hotham",
+     "green": 61.6,
+     "atlas": 61.52
+    },
+    {
+     "seat": "Jagajaga",
+     "green": 62.2,
+     "atlas": 62.14
+    },
+    {
+     "seat": "Calwell",
+     "green": 62.4,
+     "atlas": 62.73
+    },
+    {
+     "seat": "Corio",
+     "green": 62.5,
+     "atlas": 62.4
+    },
+    {
+     "seat": "Lalor",
+     "green": 62.8,
+     "atlas": 62.55
+    },
+    {
+     "seat": "Ballarat",
+     "green": 63.0,
+     "atlas": 63.2
+    },
+    {
+     "seat": "Maribyrnong",
+     "green": 63.0,
+     "atlas": 63.04
+    },
+    {
+     "seat": "Scullin",
+     "green": 65.4,
+     "atlas": 65.52
+    },
+    {
+     "seat": "Fraser",
+     "green": 66.6,
+     "atlas": 66.46
+    },
+    {
+     "seat": "Deakin",
+     "green": 49.98,
+     "atlas": 49.64
+    },
+    {
+     "seat": "Casey",
+     "green": 48.6,
+     "atlas": 48.21
+    },
+    {
+     "seat": "Monash",
+     "green": 47.1,
+     "atlas": 46.75
+    },
+    {
+     "seat": "Flinders",
+     "green": 43.8,
+     "atlas": 43.26
+    },
+    {
+     "seat": "La Trobe",
+     "green": 41.6,
+     "atlas": 41.42
+    },
+    {
+     "seat": "Mallee",
+     "green": 31.0,
+     "atlas": 31.32
+    },
+    {
+     "seat": "Gippsland",
+     "green": 29.4,
+     "atlas": 30.05
+    }
+   ]
+  }
+ },
+ "redistributions": [
+  {
+   "from": "vic1999",
+   "for": "vic2002",
+   "seats": 88,
+   "abolished": [
+    "Bennettswood",
+    "Berwick",
+    "Coburg",
+    "Dandenong North",
+    "Dromana",
+    "Frankston East",
+    "Geelong North",
+    "Gippsland West",
+    "Gisborne",
+    "Glen Waverley",
+    "Knox",
+    "Mooroolbark",
+    "Pakenham",
+    "Portland",
+    "Springvale",
+    "Sunshine",
+    "Tullamarine",
+    "Wantirna",
+    "Warrnambool",
+    "Werribee",
+    "Wimmera"
+   ],
+   "created": [
+    "Bass",
+    "Brunswick",
+    "Derrimut",
+    "Ferntree Gully",
+    "Gembrook",
+    "Hastings",
+    "Kilsyth",
+    "Kororoit",
+    "Lara",
+    "Lowan",
+    "Lyndhurst",
+    "Macedon",
+    "Mount Waverley",
+    "Mulgrave",
+    "Narre Warren North",
+    "Narre Warren South",
+    "Nepean",
+    "Scoresby",
+    "South-West Coast",
+    "Tarneit",
+    "Yuroke"
+   ],
+   "swing_on_notional_pts": 7.99,
+   "median_from_namesake": 0.888,
+   "heavily_redrawn": [
+    "Dandenong",
+    "Frankston",
+    "Keilor",
+    "Melton",
+    "Mornington",
+    "Pascoe Vale"
+   ],
+   "mean_abs_shift_pts": 1.08,
+   "largest_shifts": [
+    {
+     "seat": "Frankston",
+     "old": 39.3,
+     "notional": 47.8
+    },
+    {
+     "seat": "Cranbourne",
+     "old": 44.3,
+     "notional": 49.8
+    },
+    {
+     "seat": "Mornington",
+     "old": 44.3,
+     "notional": 39.6
+    },
+    {
+     "seat": "Melton",
+     "old": 61.7,
+     "notional": 57.2
+    },
+    {
+     "seat": "Yan Yean",
+     "old": 54.2,
+     "notional": 50.3
+    },
+    {
+     "seat": "Dandenong",
+     "old": 56.2,
+     "notional": 60.0
+    }
+   ],
+   "notional_flips": 4,
+   "flips_won_by_notional_party": 0
+  },
+  {
+   "from": "vic2010",
+   "for": "vic2014",
+   "seats": 88,
+   "abolished": [
+    "Ballarat East",
+    "Ballarat West",
+    "Benalla",
+    "Clayton",
+    "Derrimut",
+    "Doncaster",
+    "Keilor",
+    "Kilsyth",
+    "Lyndhurst",
+    "Mitcham",
+    "Murray Valley",
+    "Rodney",
+    "Scoresby",
+    "Seymour",
+    "Swan Hill"
+   ],
+   "created": [
+    "Buninyong",
+    "Clarinda",
+    "Croydon",
+    "Eildon",
+    "Euroa",
+    "Keysborough",
+    "Murray Plains",
+    "Ovens Valley",
+    "Ringwood",
+    "Rowville",
+    "St Albans",
+    "Sunbury",
+    "Sydenham",
+    "Wendouree",
+    "Werribee"
+   ],
+   "swing_on_notional_pts": 3.26,
+   "median_from_namesake": 0.869,
+   "heavily_redrawn": [
+    "Bayswater",
+    "Box Hill",
+    "Carrum",
+    "Cranbourne",
+    "Ferntree Gully",
+    "Geelong",
+    "Gembrook",
+    "Macedon",
+    "Mill Park",
+    "Monbulk",
+    "Mordialloc",
+    "Tarneit",
+    "Thomastown",
+    "Warrandyte"
+   ],
+   "mean_abs_shift_pts": 1.07,
+   "largest_shifts": [
+    {
+     "seat": "Mulgrave",
+     "old": 58.5,
+     "notional": 52.2
+    },
+    {
+     "seat": "Ripon",
+     "old": 52.7,
+     "notional": 48.3
+    },
+    {
+     "seat": "Box Hill",
+     "old": 36.2,
+     "notional": 40.2
+    },
+    {
+     "seat": "Mill Park",
+     "old": 69.5,
+     "notional": 65.5
+    },
+    {
+     "seat": "Bayswater",
+     "old": 39.4,
+     "notional": 43.2
+    },
+    {
+     "seat": "Monbulk",
+     "old": 52.1,
+     "notional": 48.4
+    }
+   ],
+   "notional_flips": 3,
+   "flips_won_by_notional_party": 1
+  },
+  {
+   "from": "vic2018",
+   "for": "vic2022",
+   "seats": 88,
+   "abolished": [
+    "Altona",
+    "Buninyong",
+    "Burwood",
+    "Ferntree Gully",
+    "Forest Hill",
+    "Gembrook",
+    "Keysborough",
+    "Mount Waverley",
+    "Yuroke"
+   ],
+   "created": [
+    "Ashwood",
+    "Berwick",
+    "Eureka",
+    "Glen Waverley",
+    "Greenvale",
+    "Kalkallo",
+    "Laverton",
+    "Pakenham",
+    "Point Cook"
+   ],
+   "swing_on_notional_pts": -3.03,
+   "median_from_namesake": 0.914,
+   "heavily_redrawn": [
+    "Bayswater",
+    "Box Hill",
+    "Broadmeadows",
+    "Clarinda",
+    "Dandenong",
+    "Footscray",
+    "Monbulk",
+    "Narre Warren South",
+    "Pascoe Vale"
+   ],
+   "mean_abs_shift_pts": 0.82,
+   "largest_shifts": [
+    {
+     "seat": "Broadmeadows",
+     "old": 80.3,
+     "notional": 74.3
+    },
+    {
+     "seat": "Pascoe Vale",
+     "old": 67.6,
+     "notional": 71.9
+    },
+    {
+     "seat": "Ripon",
+     "old": 49.9,
+     "notional": 52.4
+    },
+    {
+     "seat": "Narre Warren South",
+     "old": 56.9,
+     "notional": 59.3
+    },
+    {
+     "seat": "Polwarth",
+     "old": 44.6,
+     "notional": 47.0
+    },
+    {
+     "seat": "Williamstown",
+     "old": 72.1,
+     "notional": 69.7
+    }
+   ],
+   "notional_flips": 5,
+   "flips_won_by_notional_party": 2
+  },
+  {
+   "from": "fed2007",
+   "for": "fed2010",
+   "seats": 37,
+   "abolished": [],
+   "created": [],
+   "swing_on_notional_pts": 1.13,
+   "median_from_namesake": 0.914,
+   "heavily_redrawn": [
+    "Calwell",
+    "Gorton",
+    "McEwen"
+   ],
+   "mean_abs_shift_pts": 0.71,
+   "largest_shifts": [
+    {
+     "seat": "McEwen",
+     "old": 50.0,
+     "notional": 54.0
+    },
+    {
+     "seat": "Scullin",
+     "old": 71.0,
+     "notional": 68.7
+    },
+    {
+     "seat": "Deakin",
+     "old": 51.4,
+     "notional": 49.3
+    },
+    {
+     "seat": "Casey",
+     "old": 44.2,
+     "notional": 45.7
+    },
+    {
+     "seat": "Higgins",
+     "old": 42.8,
+     "notional": 44.1
+    },
+    {
+     "seat": "Aston",
+     "old": 45.0,
+     "notional": 46.2
+    }
+   ],
+   "notional_flips": 2,
+   "flips_won_by_notional_party": 1
+  },
+  {
+   "from": "fed2016",
+   "for": "fed2019",
+   "seats": 38,
+   "abolished": [
+    "Batman",
+    "McMillan",
+    "Melbourne Ports",
+    "Murray"
+   ],
+   "created": [
+    "Cooper",
+    "Fraser",
+    "Macnamara",
+    "Monash",
+    "Nicholls"
+   ],
+   "swing_on_notional_pts": 1.27,
+   "median_from_namesake": 0.813,
+   "heavily_redrawn": [
+    "Bruce",
+    "Chisholm",
+    "Hotham",
+    "La Trobe"
+   ],
+   "mean_abs_shift_pts": 1.59,
+   "largest_shifts": [
+    {
+     "seat": "Bruce",
+     "old": 54.2,
+     "notional": 63.0
+    },
+    {
+     "seat": "Holt",
+     "old": 64.2,
+     "notional": 60.0
+    },
+    {
+     "seat": "Hotham",
+     "old": 57.5,
+     "notional": 54.3
+    },
+    {
+     "seat": "Corangamite",
+     "old": 46.8,
+     "notional": 49.8
+    },
+    {
+     "seat": "Gellibrand",
+     "old": 68.4,
+     "notional": 65.5
+    },
+    {
+     "seat": "Menzies",
+     "old": 39.6,
+     "notional": 42.3
+    }
+   ],
+   "notional_flips": 1,
+   "flips_won_by_notional_party": 1
+  },
+  {
+   "from": "fed2019",
+   "for": "fed2022",
+   "seats": 39,
+   "abolished": [],
+   "created": [
+    "Hawke"
+   ],
+   "swing_on_notional_pts": 1.55,
+   "median_from_namesake": 0.975,
+   "heavily_redrawn": [
+    "Bruce",
+    "Chisholm",
+    "Fraser",
+    "Gorton",
+    "Hotham"
+   ],
+   "mean_abs_shift_pts": 0.7,
+   "largest_shifts": [
+    {
+     "seat": "Bruce",
+     "old": 64.4,
+     "notional": 57.9
+    },
+    {
+     "seat": "Hotham",
+     "old": 55.9,
+     "notional": 60.2
+    },
+    {
+     "seat": "Fraser",
+     "old": 64.3,
+     "notional": 66.7
+    },
+    {
+     "seat": "Gellibrand",
+     "old": 65.1,
+     "notional": 63.6
+    },
+    {
+     "seat": "Ballarat",
+     "old": 61.1,
+     "notional": 59.8
+    },
+    {
+     "seat": "Jagajaga",
+     "old": 56.7,
+     "notional": 55.5
+    }
+   ],
+   "notional_flips": 1,
+   "flips_won_by_notional_party": 1
+  },
+  {
+   "from": "fed2022",
+   "for": "fed2025",
+   "seats": 38,
+   "abolished": [
+    "Higgins"
+   ],
+   "created": [],
+   "swing_on_notional_pts": 2.24,
+   "median_from_namesake": 0.949,
+   "heavily_redrawn": [
+    "Chisholm"
+   ],
+   "mean_abs_shift_pts": 0.57,
+   "largest_shifts": [
+    {
+     "seat": "Chisholm",
+     "old": 56.0,
+     "notional": 52.6
+    },
+    {
+     "seat": "Hotham",
+     "old": 64.3,
+     "notional": 61.5
+    },
+    {
+     "seat": "Isaacs",
+     "old": 56.9,
+     "notional": 59.1
+    },
+    {
+     "seat": "Wills",
+     "old": 72.5,
+     "notional": 74.1
+    },
+    {
+     "seat": "Nicholls",
+     "old": 31.2,
+     "notional": 32.5
+    },
+    {
+     "seat": "Bendigo",
+     "old": 62.2,
+     "notional": 61.1
+    }
+   ],
+   "notional_flips": 0,
+   "flips_won_by_notional_party": 0
+  }
+ ],
+ "flips": [
+  {
+   "for": "vic2002",
+   "seat": "Geelong",
+   "new_seat": false,
+   "was": "ALP",
+   "notional": "COAL",
+   "notional_margin_pts": 0.18,
+   "winner": "ALP",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": -7.99,
+   "p_uniform": 0.008
+  },
+  {
+   "for": "vic2002",
+   "seat": "Macedon",
+   "new_seat": true,
+   "was": "ALP",
+   "notional": "COAL",
+   "notional_margin_pts": 0.12,
+   "winner": "ALP",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": -7.99,
+   "p_uniform": 0.008
+  },
+  {
+   "for": "vic2002",
+   "seat": "Mitcham",
+   "new_seat": false,
+   "was": "ALP",
+   "notional": "COAL",
+   "notional_margin_pts": 0.06,
+   "winner": "ALP",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": -7.99,
+   "p_uniform": 0.007
+  },
+  {
+   "for": "vic2002",
+   "seat": "Narracan",
+   "new_seat": false,
+   "was": "ALP",
+   "notional": "COAL",
+   "notional_margin_pts": 1.04,
+   "winner": "ALP",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": -7.99,
+   "p_uniform": 0.016
+  },
+  {
+   "for": "vic2014",
+   "seat": "Bellarine",
+   "new_seat": false,
+   "was": "ALP",
+   "notional": "COAL",
+   "notional_margin_pts": 0.67,
+   "winner": "ALP",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": -3.26,
+   "p_uniform": 0.213
+  },
+  {
+   "for": "vic2014",
+   "seat": "Monbulk",
+   "new_seat": false,
+   "was": "ALP",
+   "notional": "COAL",
+   "notional_margin_pts": 1.57,
+   "winner": "ALP",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": -3.26,
+   "p_uniform": 0.302
+  },
+  {
+   "for": "vic2014",
+   "seat": "Ripon",
+   "new_seat": false,
+   "was": "ALP",
+   "notional": "COAL",
+   "notional_margin_pts": 1.7,
+   "winner": "COAL",
+   "notional_party_won": true,
+   "swing_to_notional_party_pts": -3.26,
+   "p_uniform": 0.316
+  },
+  {
+   "for": "vic2022",
+   "seat": "Bayswater",
+   "new_seat": false,
+   "was": "ALP",
+   "notional": "COAL",
+   "notional_margin_pts": 0.69,
+   "winner": "ALP",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": 3.03,
+   "p_uniform": 0.874
+  },
+  {
+   "for": "vic2022",
+   "seat": "Berwick",
+   "new_seat": true,
+   "was": "COAL",
+   "notional": "ALP",
+   "notional_margin_pts": 0.57,
+   "winner": "COAL",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": -3.03,
+   "p_uniform": 0.225
+  },
+  {
+   "for": "vic2022",
+   "seat": "Caulfield",
+   "new_seat": false,
+   "was": "COAL",
+   "notional": "ALP",
+   "notional_margin_pts": 0.02,
+   "winner": "COAL",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": -3.03,
+   "p_uniform": 0.177
+  },
+  {
+   "for": "vic2022",
+   "seat": "Glen Waverley",
+   "new_seat": true,
+   "was": "COAL",
+   "notional": "ALP",
+   "notional_margin_pts": 0.28,
+   "winner": "ALP",
+   "notional_party_won": true,
+   "swing_to_notional_party_pts": -3.03,
+   "p_uniform": 0.199
+  },
+  {
+   "for": "vic2022",
+   "seat": "Ripon",
+   "new_seat": false,
+   "was": "COAL",
+   "notional": "ALP",
+   "notional_margin_pts": 2.43,
+   "winner": "ALP",
+   "notional_party_won": true,
+   "swing_to_notional_party_pts": -3.03,
+   "p_uniform": 0.427
+  },
+  {
+   "for": "fed2010",
+   "seat": "Deakin",
+   "new_seat": false,
+   "was": "ALP",
+   "notional": "COAL",
+   "notional_margin_pts": 0.69,
+   "winner": "ALP",
+   "notional_party_won": false,
+   "swing_to_notional_party_pts": -1.13,
+   "p_uniform": 0.446
+  },
+  {
+   "for": "fed2010",
+   "seat": "McEwen",
+   "new_seat": false,
+   "was": "COAL",
+   "notional": "ALP",
+   "notional_margin_pts": 4.01,
+   "winner": "ALP",
+   "notional_party_won": true,
+   "swing_to_notional_party_pts": 1.13,
+   "p_uniform": 0.943
+  },
+  {
+   "for": "fed2019",
+   "seat": "Dunkley",
+   "new_seat": false,
+   "was": "COAL",
+   "notional": "ALP",
+   "notional_margin_pts": 1.1,
+   "winner": "ALP",
+   "notional_party_won": true,
+   "swing_to_notional_party_pts": 1.27,
+   "p_uniform": 0.767
+  },
+  {
+   "for": "fed2022",
+   "seat": "Chisholm",
+   "new_seat": false,
+   "was": "COAL",
+   "notional": "ALP",
+   "notional_margin_pts": 0.02,
+   "winner": "ALP",
+   "notional_party_won": true,
+   "swing_to_notional_party_pts": 1.55,
+   "p_uniform": 0.685
+  }
+ ],
+ "territory": {
+  "n": 258,
+  "intercept_pts": -0.12,
+  "other_party_pts_per_100pct": 3.86,
+  "other_ci": [
+   -0.41,
+   8.07
+  ],
+  "same_party_pts_per_100pct": -0.24,
+  "same_ci": [
+   -2.39,
+   2.17
+  ],
+  "by_own_share": {
+   "mostly own (90%+)": {
+    "n": 124,
+    "mean_rel_swing_pts": 0.04
+   },
+   "some new (70-90%)": {
+    "n": 101,
+    "mean_rel_swing_pts": -0.22
+   },
+   "much new (<70%)": {
+    "n": 33,
+    "mean_rel_swing_pts": 0.67
+   }
+  },
+  "rows": [
+   {
+    "for": "vic2014",
+    "seat": "Warrandyte",
+    "member": "Ryan Smith",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.292,
+    "same_party": 0.658,
+    "other_party": 0.05,
+    "swing_rel": -0.013238642846093468,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Ferntree Gully",
+    "member": "Nick Wakeling",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.321,
+    "same_party": 0.679,
+    "other_party": 0,
+    "swing_rel": -0.007225925832394425,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Bruce",
+    "member": "Julian HILL",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.374,
+    "same_party": 0.626,
+    "other_party": 0,
+    "swing_rel": 0.006401131662495197,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Dandenong",
+    "member": "John Pandazopoulos",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.408,
+    "same_party": 0.451,
+    "other_party": 0.141,
+    "swing_rel": 0.023087939050449535,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Clarinda",
+    "member": "Meng Heang Tak",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.424,
+    "same_party": 0.576,
+    "other_party": 0,
+    "swing_rel": -0.02202943152564477,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Hotham",
+    "member": "Clare O'NEIL",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.454,
+    "same_party": 0.336,
+    "other_party": 0.21,
+    "swing_rel": 0.010502287754428708,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Frankston",
+    "member": "Andrea Mccall",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.47,
+    "same_party": 0.0,
+    "other_party": 0.53,
+    "swing_rel": -0.0029250080198412465,
+    "held": false
+   },
+   {
+    "for": "vic2014",
+    "seat": "Mordialloc",
+    "member": "Lorraine Wreford",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.478,
+    "same_party": 0.522,
+    "other_party": 0,
+    "swing_rel": -0.004975736815308579,
+    "held": false
+   },
+   {
+    "for": "vic2014",
+    "seat": "Bayswater",
+    "member": "Heidi Victoria",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.484,
+    "same_party": 0.236,
+    "other_party": 0.28,
+    "swing_rel": 0.010724696137904582,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Carrum",
+    "member": "Donna Bauer",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.507,
+    "same_party": 0.001,
+    "other_party": 0.492,
+    "swing_rel": 0.02343056088801923,
+    "held": false
+   },
+   {
+    "for": "vic2022",
+    "seat": "Bayswater",
+    "member": "Jackson Taylor",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 0.526,
+    "same_party": 0.0,
+    "other_party": 0.473,
+    "swing_rel": 0.07848229448069674,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Cranbourne",
+    "member": "Jude Perera",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.556,
+    "same_party": 0.372,
+    "other_party": 0.073,
+    "swing_rel": -0.029168947312987498,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Gorton",
+    "member": "Brendan O'CONNOR",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.579,
+    "same_party": 0.421,
+    "other_party": 0,
+    "swing_rel": -0.059214193182186584,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Fraser",
+    "member": "Daniel MULINO",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.586,
+    "same_party": 0.414,
+    "other_party": 0,
+    "swing_rel": -0.01682978570810602,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Mornington",
+    "member": "Robin Cooper",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.592,
+    "same_party": 0.408,
+    "other_party": 0,
+    "swing_rel": -0.0037371064444042257,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Box Hill",
+    "member": "Paul Hamer",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 0.61,
+    "same_party": 0.242,
+    "other_party": 0.148,
+    "swing_rel": 0.07694440701433833,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Bruce",
+    "member": "Julian HILL",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.613,
+    "same_party": 0.115,
+    "other_party": 0.271,
+    "swing_rel": -0.02339891983628963,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Monbulk",
+    "member": "James Merlino",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.624,
+    "same_party": 0.001,
+    "other_party": 0.375,
+    "swing_rel": 0.03277136891691659,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Chisholm",
+    "member": "Carina GARLAND",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 0.624,
+    "same_party": 0.313,
+    "other_party": 0.062,
+    "swing_rel": 0.02021345794533733,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Thomastown",
+    "member": "Bronwyn Halfpenny",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.625,
+    "same_party": 0.375,
+    "other_party": 0,
+    "swing_rel": 0.044457845689985426,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Hotham",
+    "member": "Clare O'NEIL",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.635,
+    "same_party": 0.32,
+    "other_party": 0.045,
+    "swing_rel": 0.02595774877041544,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Gembrook",
+    "member": "Brad Battin",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.639,
+    "same_party": 0.179,
+    "other_party": 0.182,
+    "swing_rel": 0.04388550306160785,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Narre Warren South",
+    "member": "Gary Maas",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.651,
+    "same_party": 0.349,
+    "other_party": 0,
+    "swing_rel": 0.022147791713476663,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Melton",
+    "member": "Don Nardella",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.663,
+    "same_party": 0.337,
+    "other_party": 0,
+    "swing_rel": 0.001793252643841503,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Pascoe Vale",
+    "member": "Christine Campbell",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.666,
+    "same_party": 0.334,
+    "other_party": 0,
+    "swing_rel": -0.004508701618513078,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Box Hill",
+    "member": "Robert Clark",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.67,
+    "same_party": 0.33,
+    "other_party": 0,
+    "swing_rel": -0.008081743850263917,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Calwell",
+    "member": "Maria VAMVAKINOU",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.676,
+    "same_party": 0.324,
+    "other_party": 0,
+    "swing_rel": -0.009057009118551826,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Gorton",
+    "member": "Brendan O'CONNOR",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.678,
+    "same_party": 0.322,
+    "other_party": 0,
+    "swing_rel": 0.0091925778642052,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Keilor",
+    "member": "George Seitz",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.679,
+    "same_party": 0.321,
+    "other_party": 0,
+    "swing_rel": 0.015620388144498343,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Dandenong",
+    "member": "Gabrielle Williams",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.683,
+    "same_party": 0.317,
+    "other_party": 0,
+    "swing_rel": 0.0017460445994063843,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "La Trobe",
+    "member": "Jason WOOD",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.685,
+    "same_party": 0.315,
+    "other_party": 0,
+    "swing_rel": 0.025716143454149167,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Mill Park",
+    "member": "Lily D'Ambrosio",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.687,
+    "same_party": 0.313,
+    "other_party": 0,
+    "swing_rel": 0.01126037748689121,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Chisholm",
+    "member": "Gladys LIU",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.688,
+    "same_party": 0.001,
+    "other_party": 0.311,
+    "swing_rel": -0.05948265251643446,
+    "held": false
+   },
+   {
+    "for": "vic2002",
+    "seat": "Ripon",
+    "member": "Joe Helper",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.701,
+    "same_party": 0.048,
+    "other_party": 0.252,
+    "swing_rel": -0.01713899408625147,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Isaacs",
+    "member": "Mark DREYFUS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.703,
+    "same_party": 0.297,
+    "other_party": 0,
+    "swing_rel": 0.019793294084881917,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Gellibrand",
+    "member": "Tim WATTS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.705,
+    "same_party": 0.295,
+    "other_party": 0,
+    "swing_rel": -0.014730228796651123,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Polwarth",
+    "member": "Richard Riordan",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.712,
+    "same_party": 0.0,
+    "other_party": 0.288,
+    "swing_rel": -0.041956244567183415,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Maribyrnong",
+    "member": "Bill SHORTEN",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.715,
+    "same_party": 0.158,
+    "other_party": 0.127,
+    "swing_rel": -0.021380395271863008,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Rowville",
+    "member": "Kim Wells",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.716,
+    "same_party": 0.284,
+    "other_party": 0,
+    "swing_rel": -0.04171757759335057,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Hotham",
+    "member": "Clare O'NEIL",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.717,
+    "same_party": 0.283,
+    "other_party": 0,
+    "swing_rel": 0.0411393393389807,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Deakin",
+    "member": "Mike SYMON",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 0.726,
+    "same_party": 0.001,
+    "other_party": 0.274,
+    "swing_rel": 0.02509673314724932,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Bayswater",
+    "member": "Gordon Ashley",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.728,
+    "same_party": 0.272,
+    "other_party": 0,
+    "swing_rel": -0.004697150845666576,
+    "held": false
+   },
+   {
+    "for": "vic2022",
+    "seat": "Croydon",
+    "member": "David Hodgett",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.731,
+    "same_party": 0.001,
+    "other_party": 0.268,
+    "swing_rel": -0.025436988981750255,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Corangamite",
+    "member": "Sarah HENDERSON",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.732,
+    "same_party": 0.0,
+    "other_party": 0.268,
+    "swing_rel": -0.0065429714869724934,
+    "held": false
+   },
+   {
+    "for": "vic2014",
+    "seat": "Footscray",
+    "member": "Marsha Thomson",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.735,
+    "same_party": 0.265,
+    "other_party": 0,
+    "swing_rel": -0.04761178770125521,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Menzies",
+    "member": "Keith WOLAHAN",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.736,
+    "same_party": 0.001,
+    "other_party": 0.263,
+    "swing_rel": -0.012890214076946214,
+    "held": false
+   },
+   {
+    "for": "vic2002",
+    "seat": "Ballarat East",
+    "member": "Geoff Howard",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.739,
+    "same_party": 0.261,
+    "other_party": 0,
+    "swing_rel": -0.03836756334675634,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Warrandyte",
+    "member": "Ryan Smith",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.744,
+    "same_party": 0.153,
+    "other_party": 0.103,
+    "swing_rel": -0.023089760606937595,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Isaacs",
+    "member": "Mark DREYFUS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.745,
+    "same_party": 0.255,
+    "other_party": 0,
+    "swing_rel": 0.03741105655291785,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Evelyn",
+    "member": "Christine Fyffe",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.747,
+    "same_party": 0.253,
+    "other_party": 0,
+    "swing_rel": -0.04030296205772127,
+    "held": false
+   },
+   {
+    "for": "vic2014",
+    "seat": "Mulgrave",
+    "member": "Daniel Andrews",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.752,
+    "same_party": 0.0,
+    "other_party": 0.248,
+    "swing_rel": -0.010521301569058866,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Cranbourne",
+    "member": "Gary Rowe",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.753,
+    "same_party": 0.0,
+    "other_party": 0.247,
+    "swing_rel": -0.030308835702643422,
+    "held": false
+   },
+   {
+    "for": "vic2014",
+    "seat": "Kororoit",
+    "member": "Marlene Kairouz",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.756,
+    "same_party": 0.244,
+    "other_party": 0,
+    "swing_rel": -0.006783538167392106,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Preston",
+    "member": "Michael Leighton",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.761,
+    "same_party": 0.239,
+    "other_party": 0,
+    "swing_rel": -0.008550762781029564,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Narre Warren South",
+    "member": "Judith Graley",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.764,
+    "same_party": 0.147,
+    "other_party": 0.089,
+    "swing_rel": -0.04081374261275797,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Deakin",
+    "member": "Michael SUKKAR",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.765,
+    "same_party": 0.235,
+    "other_party": 0,
+    "swing_rel": -0.010535762021666584,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Mulgrave",
+    "member": "Daniel Andrews",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.769,
+    "same_party": 0.231,
+    "other_party": 0,
+    "swing_rel": -0.015123831494946036,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Lara",
+    "member": "John Eren",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.771,
+    "same_party": 0.229,
+    "other_party": 0,
+    "swing_rel": 0.007818329555540487,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Narre Warren North",
+    "member": "Luke Donnellan",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.772,
+    "same_party": 0.228,
+    "other_party": 0,
+    "swing_rel": -0.032174711305343134,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Corio",
+    "member": "Richard MARLES",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.775,
+    "same_party": 0.0,
+    "other_party": 0.225,
+    "swing_rel": 0.014076488478491711,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Holt",
+    "member": "Anthony BYRNE",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.775,
+    "same_party": 0.0,
+    "other_party": 0.225,
+    "swing_rel": -0.0211782764831873,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Calwell",
+    "member": "Maria VAMVAKINOU",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.781,
+    "same_party": 0.219,
+    "other_party": 0,
+    "swing_rel": -0.0030229463709460554,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Wannon",
+    "member": "Dan TEHAN",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.783,
+    "same_party": 0.179,
+    "other_party": 0.038,
+    "swing_rel": 0.02833910892021505,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Bendigo West",
+    "member": "Bob Cameron",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.785,
+    "same_party": 0.215,
+    "other_party": 0,
+    "swing_rel": -0.02636812040708153,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Casey",
+    "member": "Tony SMITH",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.789,
+    "same_party": 0.211,
+    "other_party": 0,
+    "swing_rel": 0.006342539474777795,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Maribyrnong",
+    "member": "Bill SHORTEN",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.789,
+    "same_party": 0.211,
+    "other_party": 0,
+    "swing_rel": -0.0018080252626623688,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Eltham",
+    "member": "Vicki Ward",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.79,
+    "same_party": 0.21,
+    "other_party": 0,
+    "swing_rel": 0.02509571520479167,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Bundoora",
+    "member": "Colin Brooks",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.791,
+    "same_party": 0.209,
+    "other_party": 0,
+    "swing_rel": -0.013015306564467505,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Bentleigh",
+    "member": "Nick Staikos",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.791,
+    "same_party": 0.168,
+    "other_party": 0.041,
+    "swing_rel": -0.009441973314752859,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Menzies",
+    "member": "Kevin ANDREWS",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.796,
+    "same_party": 0.003,
+    "other_party": 0.201,
+    "swing_rel": 0.006353523547908668,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Polwarth",
+    "member": "Terry Mulder",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.798,
+    "same_party": 0.202,
+    "other_party": 0,
+    "swing_rel": 0.054651953961892596,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Bass",
+    "member": "Jordan Crugnale",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 0.8,
+    "same_party": 0.003,
+    "other_party": 0.196,
+    "swing_rel": 0.028325425071099444,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Evelyn",
+    "member": "Bridget Vallence",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.8,
+    "same_party": 0.002,
+    "other_party": 0.198,
+    "swing_rel": 0.00955876531584535,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "McEwen",
+    "member": "Rob MITCHELL",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.801,
+    "same_party": 0.199,
+    "other_party": 0,
+    "swing_rel": -0.031292794190017084,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Dunkley",
+    "member": "Chris CREWTHER",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.802,
+    "same_party": 0.0,
+    "other_party": 0.198,
+    "swing_rel": -0.007789605508170061,
+    "held": false
+   },
+   {
+    "for": "fed2010",
+    "seat": "Gellibrand",
+    "member": "Nicola ROXON",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.805,
+    "same_party": 0.195,
+    "other_party": 0,
+    "swing_rel": 0.01528659376525772,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Chisholm",
+    "member": "Anna BURKE",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.808,
+    "same_party": 0.192,
+    "other_party": 0,
+    "swing_rel": -0.014256092037251353,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Narracan",
+    "member": "Ian Maxfield",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.812,
+    "same_party": 0.006,
+    "other_party": 0.182,
+    "swing_rel": -0.001202830851899428,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Casey",
+    "member": "Tony SMITH",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.813,
+    "same_party": 0.187,
+    "other_party": 0,
+    "swing_rel": 0.007603612909376589,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Gippsland South",
+    "member": "Peter Ryan",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.815,
+    "same_party": 0.008,
+    "other_party": 0.177,
+    "swing_rel": 0.09965415651137172,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Ripon",
+    "member": "Louise Staley",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.817,
+    "same_party": 0.019,
+    "other_party": 0.164,
+    "swing_rel": -0.035561446731252805,
+    "held": false
+   },
+   {
+    "for": "vic2022",
+    "seat": "Oakleigh",
+    "member": "Steve Dimopoulos",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.819,
+    "same_party": 0.181,
+    "other_party": 0,
+    "swing_rel": 0.005138257981584928,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Deakin",
+    "member": "Michael SUKKAR",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.825,
+    "same_party": 0.163,
+    "other_party": 0.011,
+    "swing_rel": -0.0269291414482791,
+    "held": false
+   },
+   {
+    "for": "vic2014",
+    "seat": "Williamstown",
+    "member": "Wade Noonan",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.828,
+    "same_party": 0.172,
+    "other_party": 0,
+    "swing_rel": 0.002312336144576793,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Flinders",
+    "member": "Greg HUNT",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.829,
+    "same_party": 0.171,
+    "other_party": 0,
+    "swing_rel": -0.008423072689181544,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Jagajaga",
+    "member": "Kate THWAITES",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.83,
+    "same_party": 0.001,
+    "other_party": 0.169,
+    "swing_rel": 0.05523397960215602,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Maribyrnong",
+    "member": "Bill SHORTEN",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.831,
+    "same_party": 0.102,
+    "other_party": 0.067,
+    "swing_rel": -0.011287872115915882,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Williamstown",
+    "member": "Melissa Horne",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.832,
+    "same_party": 0.168,
+    "other_party": 0,
+    "swing_rel": -0.040182560170399145,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Thomastown",
+    "member": "Peter Batchelor",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.833,
+    "same_party": 0.167,
+    "other_party": 0,
+    "swing_rel": -0.0018426967570722153,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Bendigo East",
+    "member": "Jacinta Allan",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.839,
+    "same_party": 0.161,
+    "other_party": 0,
+    "swing_rel": 0.016886044425102054,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Doncaster",
+    "member": "Victor Perton",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.84,
+    "same_party": 0.16,
+    "other_party": 0,
+    "swing_rel": -0.03641131915137674,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Wendouree",
+    "member": "Juliana Addison",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.845,
+    "same_party": 0.155,
+    "other_party": 0,
+    "swing_rel": 0.0564023620935071,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "St Albans",
+    "member": "Natalie Suleyman",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.847,
+    "same_party": 0.153,
+    "other_party": 0,
+    "swing_rel": -0.09713097677142915,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Scullin",
+    "member": "Andrew GILES",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.847,
+    "same_party": 0.153,
+    "other_party": 0,
+    "swing_rel": 0.014494993185965888,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Brighton",
+    "member": "Louise Asher",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.848,
+    "same_party": 0.007,
+    "other_party": 0.145,
+    "swing_rel": -0.012108718759658327,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "La Trobe",
+    "member": "Jason WOOD",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.848,
+    "same_party": 0.009,
+    "other_party": 0.143,
+    "swing_rel": -0.008253963372694476,
+    "held": false
+   },
+   {
+    "for": "vic2014",
+    "seat": "Narracan",
+    "member": "Gary Blackwood",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.85,
+    "same_party": 0.15,
+    "other_party": 0,
+    "swing_rel": -0.003333492591147652,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Bundoora",
+    "member": "Colin Brooks",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.85,
+    "same_party": 0.15,
+    "other_party": 0,
+    "swing_rel": -0.0032539165318176445,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Gellibrand",
+    "member": "Tim WATTS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.85,
+    "same_party": 0.15,
+    "other_party": 0,
+    "swing_rel": -0.03232154305603198,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Mordialloc",
+    "member": "Tim Richardson",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.854,
+    "same_party": 0.146,
+    "other_party": 0,
+    "swing_rel": -0.020602646903837982,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Ivanhoe",
+    "member": "Anthony Carbines",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.858,
+    "same_party": 0.142,
+    "other_party": 0,
+    "swing_rel": -0.023600637271073338,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Forest Hill",
+    "member": "Neil Angus",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.86,
+    "same_party": 0.14,
+    "other_party": 0,
+    "swing_rel": 0.04710539425787322,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Seymour",
+    "member": "Ben Hardman",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.863,
+    "same_party": 0.037,
+    "other_party": 0.1,
+    "swing_rel": 0.014507353878816465,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Geelong",
+    "member": "Christine Couzens",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.864,
+    "same_party": 0.035,
+    "other_party": 0.1,
+    "swing_rel": 0.04625161307398537,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Morwell",
+    "member": "Russell Northe",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.867,
+    "same_party": 0.133,
+    "other_party": 0,
+    "swing_rel": -0.09136342661282196,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "La Trobe",
+    "member": "Jason WOOD",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.867,
+    "same_party": 0.133,
+    "other_party": 0,
+    "swing_rel": 0.04488182902531952,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Benambra",
+    "member": "Bill Tilley",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.868,
+    "same_party": 0.132,
+    "other_party": 0,
+    "swing_rel": -0.03407742272574385,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Scullin",
+    "member": "Harry JENKINS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.87,
+    "same_party": 0.001,
+    "other_party": 0.129,
+    "swing_rel": 0.030527889602328065,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Mordialloc",
+    "member": "Geoff Leigh",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.873,
+    "same_party": 0.008,
+    "other_party": 0.119,
+    "swing_rel": 0.01549650611133474,
+    "held": false
+   },
+   {
+    "for": "vic2002",
+    "seat": "Ballarat West",
+    "member": "Karen Overington",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.874,
+    "same_party": 0.126,
+    "other_party": 0,
+    "swing_rel": -0.006241582941090618,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Niddrie",
+    "member": "Ben Carroll",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.874,
+    "same_party": 0.126,
+    "other_party": 0,
+    "swing_rel": -0.026621089610681024,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Preston",
+    "member": "Robin Scott",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.876,
+    "same_party": 0.124,
+    "other_party": 0,
+    "swing_rel": 0.014048393651455576,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Carrum",
+    "member": "Jenny Lindell",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.877,
+    "same_party": 0.061,
+    "other_party": 0.062,
+    "swing_rel": 0.032153642187930875,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Williamstown",
+    "member": "Steve Bracks",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.878,
+    "same_party": 0.122,
+    "other_party": 0,
+    "swing_rel": -0.0047190017841867715,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Warrandyte",
+    "member": "Phil Honeywood",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.879,
+    "same_party": 0.121,
+    "other_party": 0,
+    "swing_rel": 0.007946817202627354,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Geelong",
+    "member": "Ian Trezise",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.881,
+    "same_party": 0.119,
+    "other_party": 0,
+    "swing_rel": 0.002978938111381446,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Niddrie",
+    "member": "Rob Hulls",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.882,
+    "same_party": 0.118,
+    "other_party": 0,
+    "swing_rel": 0.020893900497839735,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Oakleigh",
+    "member": "Ann Barker",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.882,
+    "same_party": 0.012,
+    "other_party": 0.106,
+    "swing_rel": 0.04702091882084364,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Lowan",
+    "member": "Emma Kealy",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.882,
+    "same_party": 0.118,
+    "other_party": 0,
+    "swing_rel": -0.026815388975237133,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Ballarat",
+    "member": "Catherine KING",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.884,
+    "same_party": 0.04,
+    "other_party": 0.076,
+    "swing_rel": 0.01651075026657343,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Monbulk",
+    "member": "Steve Mcarthur",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.885,
+    "same_party": 0.115,
+    "other_party": 0,
+    "swing_rel": -0.024782221771067203,
+    "held": false
+   },
+   {
+    "for": "fed2025",
+    "seat": "Bruce",
+    "member": "Julian HILL",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.887,
+    "same_party": 0.054,
+    "other_party": 0.059,
+    "swing_rel": 0.08254707675935122,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Caulfield",
+    "member": "Helen Shardey",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.888,
+    "same_party": 0.112,
+    "other_party": 0,
+    "swing_rel": 0.033305761990661154,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Bulleen",
+    "member": "Matthew Guy",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.888,
+    "same_party": 0.112,
+    "other_party": 0,
+    "swing_rel": -0.025738898988379468,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Hastings",
+    "member": "Neale Burgess",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.889,
+    "same_party": 0.001,
+    "other_party": 0.11,
+    "swing_rel": 0.013779226949523965,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Aston",
+    "member": "Alan TUDGE",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.891,
+    "same_party": 0.109,
+    "other_party": 0,
+    "swing_rel": 0.04050322386802544,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Brighton",
+    "member": "Louise Asher",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.893,
+    "same_party": 0.011,
+    "other_party": 0.097,
+    "swing_rel": 0.018133032406525362,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Hotham",
+    "member": "Simon CREAN",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.893,
+    "same_party": 0.107,
+    "other_party": 0,
+    "swing_rel": 0.0008050198878271769,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Bulleen",
+    "member": "Nicholas Kotsiras",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.894,
+    "same_party": 0.106,
+    "other_party": 0,
+    "swing_rel": -0.019597089180264315,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Deakin",
+    "member": "Michael SUKKAR",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.894,
+    "same_party": 0.106,
+    "other_party": 0,
+    "swing_rel": -0.042295084394259316,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Footscray",
+    "member": "Bruce Mildenhall",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.896,
+    "same_party": 0.104,
+    "other_party": 0,
+    "swing_rel": -0.012235353908577717,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Yan Yean",
+    "member": "Danielle Green",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.896,
+    "same_party": 0.001,
+    "other_party": 0.103,
+    "swing_rel": -0.01634460853005995,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Gippsland South",
+    "member": "Danny O'Brien",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.896,
+    "same_party": 0.009,
+    "other_party": 0.095,
+    "swing_rel": -0.012492991975520031,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Ivanhoe",
+    "member": "Craig Langdon",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.897,
+    "same_party": 0.103,
+    "other_party": 0,
+    "swing_rel": -0.00550246222510592,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Box Hill",
+    "member": "Robert Clark",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.9,
+    "same_party": 0.1,
+    "other_party": 0,
+    "swing_rel": 0.013148780126007564,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Indi",
+    "member": "Sophie MIRABELLA",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.9,
+    "same_party": 0.1,
+    "other_party": 0,
+    "swing_rel": 0.02111724297666971,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Prahran",
+    "member": "Clem Newton-Brown",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.903,
+    "same_party": 0.03,
+    "other_party": 0.067,
+    "swing_rel": -0.011183815602843455,
+    "held": false
+   },
+   {
+    "for": "fed2010",
+    "seat": "Menzies",
+    "member": "Kevin ANDREWS",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.905,
+    "same_party": 0.095,
+    "other_party": 0,
+    "swing_rel": 0.027738152880245878,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Caulfield",
+    "member": "David Southwick",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.906,
+    "same_party": 0.035,
+    "other_party": 0.059,
+    "swing_rel": -0.02171889123383977,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Essendon",
+    "member": "Judy Maddigan",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.909,
+    "same_party": 0.091,
+    "other_party": 0,
+    "swing_rel": -0.009503226762592354,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Goldstein",
+    "member": "Andrew ROBB",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.909,
+    "same_party": 0.0,
+    "other_party": 0.09,
+    "swing_rel": 0.013574716201529766,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Clayton",
+    "member": "Hong Lim",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.912,
+    "same_party": 0.088,
+    "other_party": 0,
+    "swing_rel": 0.037194546843792364,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "South Barwon",
+    "member": "Andrew Katos",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.912,
+    "same_party": 0.003,
+    "other_party": 0.086,
+    "swing_rel": 0.019810019277245322,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Broadmeadows",
+    "member": "John Brumby",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.913,
+    "same_party": 0.087,
+    "other_party": 0,
+    "swing_rel": -0.0188409034923695,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Carrum",
+    "member": "Sonya Kilkenny",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.913,
+    "same_party": 0.087,
+    "other_party": 0,
+    "swing_rel": 0.011353569557899314,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Frankston",
+    "member": "Paul Edbrooke",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.914,
+    "same_party": 0.086,
+    "other_party": 0,
+    "swing_rel": 0.015739415018807237,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Bruce",
+    "member": "Alan GRIFFIN",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.914,
+    "same_party": 0.086,
+    "other_party": 0,
+    "swing_rel": -0.008596217324124453,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Murray",
+    "member": "Sharman STONE",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.914,
+    "same_party": 0.086,
+    "other_party": 0,
+    "swing_rel": 0.035691386400089495,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Gellibrand",
+    "member": "Tim WATTS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.914,
+    "same_party": 0.086,
+    "other_party": 0,
+    "swing_rel": 0.017791950375269348,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Rodney",
+    "member": "Noel Maughan",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.915,
+    "same_party": 0.016,
+    "other_party": 0.069,
+    "swing_rel": 0.10069364175782175,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Bundoora",
+    "member": "Sherryl Garbutt",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.917,
+    "same_party": 0.071,
+    "other_party": 0.011,
+    "swing_rel": 0.025831332342853675,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Malvern",
+    "member": "Michael O'Brien",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.922,
+    "same_party": 0.005,
+    "other_party": 0.072,
+    "swing_rel": -0.0029680737596654815,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Bentleigh",
+    "member": "Inga Peulich",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.923,
+    "same_party": 0.005,
+    "other_party": 0.072,
+    "swing_rel": 0.0161970582804144,
+    "held": false
+   },
+   {
+    "for": "fed2010",
+    "seat": "Bendigo",
+    "member": "Steve GIBBONS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.923,
+    "same_party": 0.002,
+    "other_party": 0.074,
+    "swing_rel": 0.025104707271215013,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Nepean",
+    "member": "Martin Dixon",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.924,
+    "same_party": 0.076,
+    "other_party": 0,
+    "swing_rel": -0.029608779173467853,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Eildon",
+    "member": "Cindy Mcleish",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.925,
+    "same_party": 0.003,
+    "other_party": 0.072,
+    "swing_rel": 0.031271893227902386,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "McEwen",
+    "member": "Rob MITCHELL",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.928,
+    "same_party": 0.072,
+    "other_party": 0,
+    "swing_rel": -0.022375101181872616,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Mitcham",
+    "member": "Tony Robinson",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.93,
+    "same_party": 0.008,
+    "other_party": 0.062,
+    "swing_rel": -0.0023672354116653915,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Bellarine",
+    "member": "Lisa Neville",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.93,
+    "same_party": 0.0,
+    "other_party": 0.07,
+    "swing_rel": 0.029361072492781665,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Caulfield",
+    "member": "David Southwick",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.93,
+    "same_party": 0.009,
+    "other_party": 0.061,
+    "swing_rel": -0.009043850414355816,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "South-West Coast",
+    "member": "Roma Britnell",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.93,
+    "same_party": 0.07,
+    "other_party": 0,
+    "swing_rel": 0.019944452280926703,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Lalor",
+    "member": "Julia GILLARD",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.93,
+    "same_party": 0.07,
+    "other_party": 0,
+    "swing_rel": 0.05074872809626303,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Burwood",
+    "member": "Graham Watt",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.931,
+    "same_party": 0.069,
+    "other_party": 0,
+    "swing_rel": -6.580615835002912e-05,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Ovens Valley",
+    "member": "Tim Mccurdy",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.932,
+    "same_party": 0.061,
+    "other_party": 0.006,
+    "swing_rel": 0.027470689710530603,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "South Barwon",
+    "member": "Darren Cheeseman",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 0.932,
+    "same_party": 0.068,
+    "other_party": 0,
+    "swing_rel": 0.08260094630528422,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Mallee",
+    "member": "John FORREST",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.933,
+    "same_party": 0.067,
+    "other_party": 0,
+    "swing_rel": 0.05394870845973686,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Corio",
+    "member": "Richard MARLES",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.935,
+    "same_party": 0.065,
+    "other_party": 0,
+    "swing_rel": -0.007673412239624613,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Northcote",
+    "member": "Mary Delahunty",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.937,
+    "same_party": 0.063,
+    "other_party": 0,
+    "swing_rel": -0.021837131419821076,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Corio",
+    "member": "Richard MARLES",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.938,
+    "same_party": 0.062,
+    "other_party": 0,
+    "swing_rel": 0.05178552956089651,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "McEwen",
+    "member": "Rob MITCHELL",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.938,
+    "same_party": 0.062,
+    "other_party": 0,
+    "swing_rel": -0.008095779826080365,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Jagajaga",
+    "member": "Jenny MACKLIN",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.939,
+    "same_party": 0.013,
+    "other_party": 0.048,
+    "swing_rel": 0.02120101379856905,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Mallee",
+    "member": "Anne WEBSTER",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.939,
+    "same_party": 0.061,
+    "other_party": 0,
+    "swing_rel": 0.05784685130517893,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Nicholls",
+    "member": "Sam BIRRELL",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.943,
+    "same_party": 0.001,
+    "other_party": 0.057,
+    "swing_rel": 0.003057817619202565,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Brighton",
+    "member": "James Newbury",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.944,
+    "same_party": 0.006,
+    "other_party": 0.049,
+    "swing_rel": 0.006529077618444321,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Mount Waverley",
+    "member": "Michael Gidley",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.945,
+    "same_party": 0.055,
+    "other_party": 0,
+    "swing_rel": -0.00011006112461489637,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Wills",
+    "member": "Kelvin THOMSON",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.945,
+    "same_party": 0.055,
+    "other_party": 0,
+    "swing_rel": -0.013656255673702253,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Bentleigh",
+    "member": "Elizabeth Miller",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.949,
+    "same_party": 0.051,
+    "other_party": 0,
+    "swing_rel": 0.012860683672190537,
+    "held": false
+   },
+   {
+    "for": "fed2022",
+    "seat": "Higgins",
+    "member": "Katie ALLEN",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.953,
+    "same_party": 0.001,
+    "other_party": 0.046,
+    "swing_rel": -0.0502237533048288,
+    "held": false
+   },
+   {
+    "for": "vic2022",
+    "seat": "Sandringham",
+    "member": "Brad Rowswell",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.954,
+    "same_party": 0.009,
+    "other_party": 0.037,
+    "swing_rel": 0.018105593151453356,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Sandringham",
+    "member": "Murray Thompson",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.955,
+    "same_party": 0.045,
+    "other_party": 0,
+    "swing_rel": -0.04768137453728463,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Macnamara",
+    "member": "Josh BURNS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.955,
+    "same_party": 0.045,
+    "other_party": 0,
+    "swing_rel": 0.0066780842710745004,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Scullin",
+    "member": "Andrew GILES",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.955,
+    "same_party": 0.045,
+    "other_party": 0,
+    "swing_rel": -0.03353698800421015,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Malvern",
+    "member": "Robert Doyle",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.956,
+    "same_party": 0.011,
+    "other_party": 0.033,
+    "swing_rel": 0.028861652934468907,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Prahran",
+    "member": "Leonie Burke",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.96,
+    "same_party": 0.005,
+    "other_party": 0.035,
+    "swing_rel": -0.008968419973233943,
+    "held": false
+   },
+   {
+    "for": "fed2022",
+    "seat": "Lalor",
+    "member": "Joanne RYAN",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.96,
+    "same_party": 0.04,
+    "other_party": 0,
+    "swing_rel": -0.018460483643792398,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Bendigo East",
+    "member": "Jacinta Allan",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.961,
+    "same_party": 0.007,
+    "other_party": 0.032,
+    "swing_rel": -0.012309333682211682,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Polwarth",
+    "member": "Terry Mulder",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.961,
+    "same_party": 0.024,
+    "other_party": 0.015,
+    "swing_rel": 0.0032870712473918318,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Malvern",
+    "member": "Michael O'Brien",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.964,
+    "same_party": 0.036,
+    "other_party": 0,
+    "swing_rel": -0.007220079613109692,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Altona",
+    "member": "Jill Hennessy",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.965,
+    "same_party": 0.035,
+    "other_party": 0,
+    "swing_rel": -0.024447797210328664,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Bendigo",
+    "member": "Lisa CHESTERS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.965,
+    "same_party": 0.005,
+    "other_party": 0.03,
+    "swing_rel": -0.11905997161009677,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Casey",
+    "member": "Aaron VIOLI",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 0.965,
+    "same_party": 0.023,
+    "other_party": 0.013,
+    "swing_rel": 0.020434892405254503,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Jagajaga",
+    "member": "Kate THWAITES",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.965,
+    "same_party": 0.017,
+    "other_party": 0.018,
+    "swing_rel": -0.007984480361353265,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "McMillan",
+    "member": "Russell BROADBENT",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.967,
+    "same_party": 0.033,
+    "other_party": 0,
+    "swing_rel": 0.007644274418282845,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Albert Park",
+    "member": "Martin Foley",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.972,
+    "same_party": 0.001,
+    "other_party": 0.026,
+    "swing_rel": -0.016122544140592582,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Evelyn",
+    "member": "Christine Fyffe",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.972,
+    "same_party": 0.022,
+    "other_party": 0.006,
+    "swing_rel": -0.00029390326572240055,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Bendigo West",
+    "member": "Maree Edwards",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.973,
+    "same_party": 0.027,
+    "other_party": 0,
+    "swing_rel": 0.008077462074134595,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Sydenham",
+    "member": "Natalie Hutchins",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.976,
+    "same_party": 0.024,
+    "other_party": 0,
+    "swing_rel": -0.0652433759485466,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Murray Valley",
+    "member": "Ken Jasper",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.978,
+    "same_party": 0.022,
+    "other_party": 0,
+    "swing_rel": 0.07036784109266536,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Mornington",
+    "member": "David Morris",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.978,
+    "same_party": 0.022,
+    "other_party": 0,
+    "swing_rel": -0.0017499920298373606,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Sandringham",
+    "member": "Murray Thompson",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.98,
+    "same_party": 0.02,
+    "other_party": 0,
+    "swing_rel": -0.00832442339341144,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Essendon",
+    "member": "Danny Pearson",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.982,
+    "same_party": 0.018,
+    "other_party": 0,
+    "swing_rel": 0.001454138361977466,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Melton",
+    "member": "Stephen John Mcghie",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.983,
+    "same_party": 0.017,
+    "other_party": 0,
+    "swing_rel": 0.023897579662850745,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Eltham",
+    "member": "Wayne Phillips",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.985,
+    "same_party": 0.001,
+    "other_party": 0.014,
+    "swing_rel": -0.0030063067799083187,
+    "held": false
+   },
+   {
+    "for": "vic2022",
+    "seat": "Bendigo East",
+    "member": "Jacinta Allan",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.986,
+    "same_party": 0.014,
+    "other_party": 0,
+    "swing_rel": 0.018281665635097668,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Bendigo West",
+    "member": "Maree Edwards",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.986,
+    "same_party": 0.014,
+    "other_party": 0,
+    "swing_rel": -0.01064558561157428,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Hawthorn",
+    "member": "Ted Baillieu",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.988,
+    "same_party": 0.012,
+    "other_party": 0,
+    "swing_rel": -0.003055102821851452,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Gippsland South",
+    "member": "Peter Ryan",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.988,
+    "same_party": 0.012,
+    "other_party": 0,
+    "swing_rel": -0.03616530680804694,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Gippsland",
+    "member": "Darren CHESTER",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.988,
+    "same_party": 0.012,
+    "other_party": 0,
+    "swing_rel": 0.0064950524866341005,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Richmond",
+    "member": "Richard Wynne",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.989,
+    "same_party": 0.011,
+    "other_party": 0,
+    "swing_rel": 0.01811054487973468,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "South-West Coast",
+    "member": "Denis Napthine",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.99,
+    "same_party": 0.01,
+    "other_party": 0,
+    "swing_rel": 0.02330523000003351,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "South Barwon",
+    "member": "Alister Paterson",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.992,
+    "same_party": 0.008,
+    "other_party": 0,
+    "swing_rel": -0.016932637603080614,
+    "held": false
+   },
+   {
+    "for": "vic2002",
+    "seat": "Benambra",
+    "member": "Tony Plowman",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.993,
+    "same_party": 0.007,
+    "other_party": 0,
+    "swing_rel": 0.04942466171809479,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Kew",
+    "member": "Andrew Mcintosh",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.993,
+    "same_party": 0.007,
+    "other_party": 0,
+    "swing_rel": 0.0021711486064623364,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Thomastown",
+    "member": "Bronwyn Halfpenny",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.993,
+    "same_party": 0.007,
+    "other_party": 0,
+    "swing_rel": -0.08205212817561738,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Dunkley",
+    "member": "Bruce BILLSON",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.993,
+    "same_party": 0.007,
+    "other_party": 0,
+    "swing_rel": -0.024949633645025407,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Altona",
+    "member": "Lynne Kosky",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.994,
+    "same_party": 0.006,
+    "other_party": 0,
+    "swing_rel": 0.01147575633278669,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Bendigo",
+    "member": "Lisa CHESTERS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.994,
+    "same_party": 0.006,
+    "other_party": 0,
+    "swing_rel": 0.017972533018796737,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Mill Park",
+    "member": "Lily D'Ambrosio",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.995,
+    "same_party": 0.005,
+    "other_party": 0,
+    "swing_rel": -0.10446752656312522,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Bendigo",
+    "member": "Lisa CHESTERS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.995,
+    "same_party": 0.005,
+    "other_party": 0,
+    "swing_rel": 0.04268465164945675,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Hawke",
+    "member": "Sam RAE",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.995,
+    "same_party": 0.005,
+    "other_party": 0,
+    "swing_rel": -0.014084837781795947,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Mallee",
+    "member": "Anne WEBSTER",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.995,
+    "same_party": 0.005,
+    "other_party": 0,
+    "swing_rel": 0.03127128145417199,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Gippsland East",
+    "member": "Tim Bull",
+    "party": "COAL",
+    "category": "sophomore_gain",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": -0.08629856850495923,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Gippsland East",
+    "member": "Tim Bull",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": 0.03363795367432257,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Ivanhoe",
+    "member": "Anthony Carbines",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": 0.033924109659076634,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Macedon",
+    "member": "Mary-Anne Thomas",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": -0.006371151417085139,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Ballarat",
+    "member": "Catherine KING",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": 0.023915764390282826,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Corangamite",
+    "member": "Darren CHEESEMAN",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": -0.011479515615746047,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Holt",
+    "member": "Anthony BYRNE",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": 0.003174556581977808,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Isaacs",
+    "member": "Mark DREYFUS",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": 0.03826523627050289,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Corangamite",
+    "member": "Libby COKER",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": 0.06679111443849838,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Corio",
+    "member": "Richard MARLES",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": 0.011275026501470924,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Corangamite",
+    "member": "Libby COKER",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.996,
+    "same_party": 0.004,
+    "other_party": 0,
+    "swing_rel": -0.005420278035007577,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Cranbourne",
+    "member": "Pauline Richards",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.997,
+    "same_party": 0.003,
+    "other_party": 0,
+    "swing_rel": 0.018083329048143217,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Murray Plains",
+    "member": "Peter Walsh",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.997,
+    "same_party": 0.003,
+    "other_party": 0,
+    "swing_rel": -0.04071473442638204,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Sunbury",
+    "member": "Josh Bull",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.997,
+    "same_party": 0.003,
+    "other_party": 0,
+    "swing_rel": -0.05030368548643563,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "La Trobe",
+    "member": "Jason WOOD",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.997,
+    "same_party": 0.003,
+    "other_party": 0,
+    "swing_rel": -0.051229394899206,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Melbourne Ports",
+    "member": "Michael DANBY",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.998,
+    "same_party": 0.002,
+    "other_party": 0,
+    "swing_rel": 0.0004637823141403069,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Gippsland",
+    "member": "Darren CHESTER",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.998,
+    "same_party": 0.002,
+    "other_party": 0,
+    "swing_rel": 0.06577405691849698,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Isaacs",
+    "member": "Mark DREYFUS",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.998,
+    "same_party": 0.002,
+    "other_party": 0,
+    "swing_rel": -0.008563686985051184,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Macnamara",
+    "member": "Josh BURNS",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.998,
+    "same_party": 0.002,
+    "other_party": 0,
+    "swing_rel": 0.0722024299792242,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Monash",
+    "member": "Russell BROADBENT",
+    "party": "COAL",
+    "category": "unknown_tenure",
+    "own": 0.998,
+    "same_party": 0.002,
+    "other_party": 0,
+    "swing_rel": -0.030684712894731108,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Scullin",
+    "member": "Andrew GILES",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.998,
+    "same_party": 0.002,
+    "other_party": 0,
+    "swing_rel": -0.0735398476242536,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Gippsland",
+    "member": "Darren CHESTER",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.998,
+    "same_party": 0.002,
+    "other_party": 0,
+    "swing_rel": 0.022974362177486076,
+    "held": true
+   },
+   {
+    "for": "vic2002",
+    "seat": "Albert Park",
+    "member": "John Thwaites",
+    "party": "ALP",
+    "category": "unknown_tenure",
+    "own": 0.999,
+    "same_party": 0.001,
+    "other_party": 0,
+    "swing_rel": -0.022890786823112352,
+    "held": true
+   },
+   {
+    "for": "vic2022",
+    "seat": "Nepean",
+    "member": "Chris Brayne",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 0.999,
+    "same_party": 0.001,
+    "other_party": 0,
+    "swing_rel": -0.044730907429164996,
+    "held": false
+   },
+   {
+    "for": "vic2022",
+    "seat": "Werribee",
+    "member": "Tim Pallas",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.999,
+    "same_party": 0.001,
+    "other_party": 0,
+    "swing_rel": 0.005602576658003979,
+    "held": true
+   },
+   {
+    "for": "fed2010",
+    "seat": "Flinders",
+    "member": "Greg HUNT",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.999,
+    "same_party": 0.001,
+    "other_party": 0,
+    "swing_rel": 0.012373170540730158,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Ballarat",
+    "member": "Catherine KING",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.999,
+    "same_party": 0.001,
+    "other_party": 0,
+    "swing_rel": 0.02520954540812089,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Aston",
+    "member": "Alan TUDGE",
+    "party": "COAL",
+    "category": "veteran",
+    "own": 0.999,
+    "same_party": 0.001,
+    "other_party": 0,
+    "swing_rel": -0.060705633323054495,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Calwell",
+    "member": "Maria VAMVAKINOU",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.999,
+    "same_party": 0.001,
+    "other_party": 0,
+    "swing_rel": -0.0798238349680518,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Ballarat",
+    "member": "Catherine KING",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 0.999,
+    "same_party": 0.001,
+    "other_party": 0,
+    "swing_rel": -0.047565077987953425,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Holt",
+    "member": "Cassandra FERNANDO",
+    "party": "ALP",
+    "category": "sophomore_held",
+    "own": 0.999,
+    "same_party": 0.001,
+    "other_party": 0,
+    "swing_rel": 0.060011474322872654,
+    "held": true
+   },
+   {
+    "for": "vic2014",
+    "seat": "Melton",
+    "member": "Don Nardella",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 1.0,
+    "same_party": 0.0,
+    "other_party": 0,
+    "swing_rel": -0.058011779002785674,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Goldstein",
+    "member": "Tim WILSON",
+    "party": "COAL",
+    "category": "sophomore_held",
+    "own": 1.0,
+    "same_party": 0.0,
+    "other_party": 0,
+    "swing_rel": -0.036683781359467614,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Gorton",
+    "member": "Brendan O'CONNOR",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 1.0,
+    "same_party": 0.0,
+    "other_party": 0,
+    "swing_rel": -0.04556767173508939,
+    "held": true
+   },
+   {
+    "for": "fed2019",
+    "seat": "Lalor",
+    "member": "Joanne RYAN",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 1.0,
+    "same_party": 0.0,
+    "other_party": 0,
+    "swing_rel": -0.03240933342543643,
+    "held": true
+   },
+   {
+    "for": "fed2022",
+    "seat": "Dunkley",
+    "member": "Peta MURPHY",
+    "party": "ALP",
+    "category": "sophomore_gain",
+    "own": 1.0,
+    "same_party": 0.0,
+    "other_party": 0,
+    "swing_rel": 0.02665384646241407,
+    "held": true
+   },
+   {
+    "for": "fed2025",
+    "seat": "Lalor",
+    "member": "Joanne RYAN",
+    "party": "ALP",
+    "category": "veteran",
+    "own": 1.0,
+    "same_party": 0.0,
+    "other_party": 0,
+    "swing_rel": -0.014466303514959946,
+    "held": true
+   }
+  ]
+ },
+ "flips_summary": {
+  "n": 16,
+  "won_by_notional_party": 6,
+  "expected_on_uniform_swing": 5.6,
+  "median_notional_margin_pts": 0.68
+ }
+}

@@ -32,3 +32,6 @@ raw/abs/bcp2001/
 
 # Australian Election Study unit records (ADA terms: not to be redistributed). Analysed on this Mac only.
 raw/aes/
+
+# EBA Dark: private working pages, built by tools/rerun_analyses.py --pages
+analysis/dark/

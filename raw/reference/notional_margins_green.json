@@ -1,0 +1,637 @@
+{
+ "source": "Antony Green (ABC) notional margins, as tabulated in the Wikipedia pre-election pendulums (2022 Victorian state election; Pre-election pendulum for the 2025 Australian federal election), retrieved 2026-11-08. Margins in points; vs = the notional opponent where not Labor v Coalition. Federal: Nicholls, Wannon, Kooyong, Goldstein margins are v independents; Aston and Dunkley were by-election gains with no margin given.",
+ "vic2022": {
+  "Hawthorn": {
+   "holder": "ALP",
+   "margin": 0.6,
+   "vs": "COAL"
+  },
+  "Nepean": {
+   "holder": "ALP",
+   "margin": 0.7,
+   "vs": "COAL"
+  },
+  "Northcote": {
+   "holder": "ALP",
+   "margin": 1.7,
+   "vs": "GRN"
+  },
+  "Ashwood": {
+   "holder": "ALP",
+   "margin": 2.0,
+   "vs": "COAL"
+  },
+  "Pakenham": {
+   "holder": "ALP",
+   "margin": 2.2,
+   "vs": "COAL"
+  },
+  "Ripon": {
+   "holder": "ALP",
+   "margin": 2.8,
+   "vs": "COAL"
+  },
+  "South Barwon": {
+   "holder": "ALP",
+   "margin": 3.0,
+   "vs": "COAL"
+  },
+  "Box Hill": {
+   "holder": "ALP",
+   "margin": 3.1,
+   "vs": "COAL"
+  },
+  "Ringwood": {
+   "holder": "ALP",
+   "margin": 3.2,
+   "vs": "COAL"
+  },
+  "Morwell": {
+   "holder": "ALP",
+   "margin": 4.0,
+   "vs": "COAL"
+  },
+  "Melton": {
+   "holder": "ALP",
+   "margin": 5.0,
+   "vs": "COAL"
+  },
+  "Richmond": {
+   "holder": "ALP",
+   "margin": 5.8,
+   "vs": "GRN"
+  },
+  "Monbulk": {
+   "holder": "ALP",
+   "margin": 7.1,
+   "vs": "COAL"
+  },
+  "Eltham": {
+   "holder": "ALP",
+   "margin": 8.8,
+   "vs": "COAL"
+  },
+  "Werribee": {
+   "holder": "ALP",
+   "margin": 9.1,
+   "vs": "IND"
+  },
+  "Cranbourne": {
+   "holder": "ALP",
+   "margin": 9.3,
+   "vs": "COAL"
+  },
+  "Eureka": {
+   "holder": "ALP",
+   "margin": 9.6,
+   "vs": "COAL"
+  },
+  "Frankston": {
+   "holder": "ALP",
+   "margin": 10.2,
+   "vs": "COAL"
+  },
+  "Geelong": {
+   "holder": "ALP",
+   "margin": 10.3,
+   "vs": "COAL"
+  },
+  "Narre Warren South": {
+   "holder": "ALP",
+   "margin": 10.4,
+   "vs": "COAL"
+  },
+  "Narre Warren North": {
+   "holder": "ALP",
+   "margin": 10.4,
+   "vs": "COAL"
+  },
+  "Wendouree": {
+   "holder": "ALP",
+   "margin": 11.0,
+   "vs": "COAL"
+  },
+  "Bellarine": {
+   "holder": "ALP",
+   "margin": 11.4,
+   "vs": "COAL"
+  },
+  "Bentleigh": {
+   "holder": "ALP",
+   "margin": 11.4,
+   "vs": "COAL"
+  },
+  "Carrum": {
+   "holder": "ALP",
+   "margin": 12.0,
+   "vs": "COAL"
+  },
+  "Bendigo East": {
+   "holder": "ALP",
+   "margin": 12.1,
+   "vs": "COAL"
+  },
+  "Ivanhoe": {
+   "holder": "ALP",
+   "margin": 12.3,
+   "vs": "COAL"
+  },
+  "Niddrie": {
+   "holder": "ALP",
+   "margin": 12.5,
+   "vs": "COAL"
+  },
+  "Point Cook": {
+   "holder": "ALP",
+   "margin": 12.8,
+   "vs": "COAL"
+  },
+  "Albert Park": {
+   "holder": "ALP",
+   "margin": 13.1,
+   "vs": "COAL"
+  },
+  "Macedon": {
+   "holder": "ALP",
+   "margin": 13.4,
+   "vs": "COAL"
+  },
+  "Mordialloc": {
+   "holder": "ALP",
+   "margin": 13.4,
+   "vs": "COAL"
+  },
+  "Sunbury": {
+   "holder": "ALP",
+   "margin": 14.5,
+   "vs": "COAL"
+  },
+  "Clarinda": {
+   "holder": "ALP",
+   "margin": 14.9,
+   "vs": "COAL"
+  },
+  "Mulgrave": {
+   "holder": "ALP",
+   "margin": 15.8,
+   "vs": "COAL"
+  },
+  "Essendon": {
+   "holder": "ALP",
+   "margin": 15.8,
+   "vs": "COAL"
+  },
+  "Oakleigh": {
+   "holder": "ALP",
+   "margin": 16.0,
+   "vs": "COAL"
+  },
+  "Bundoora": {
+   "holder": "ALP",
+   "margin": 16.2,
+   "vs": "COAL"
+  },
+  "Yan Yean": {
+   "holder": "ALP",
+   "margin": 16.9,
+   "vs": "COAL"
+  },
+  "Tarneit": {
+   "holder": "ALP",
+   "margin": 17.9,
+   "vs": "COAL"
+  },
+  "Sydenham": {
+   "holder": "ALP",
+   "margin": 18.3,
+   "vs": "COAL"
+  },
+  "Bendigo West": {
+   "holder": "ALP",
+   "margin": 18.6,
+   "vs": "COAL"
+  },
+  "Lara": {
+   "holder": "ALP",
+   "margin": 19.1,
+   "vs": "COAL"
+  },
+  "Williamstown": {
+   "holder": "ALP",
+   "margin": 19.9,
+   "vs": "COAL"
+  },
+  "Kalkallo": {
+   "holder": "ALP",
+   "margin": 20.9,
+   "vs": "COAL"
+  },
+  "Preston": {
+   "holder": "ALP",
+   "margin": 21.3,
+   "vs": "GRN"
+  },
+  "St Albans": {
+   "holder": "ALP",
+   "margin": 22.0,
+   "vs": "COAL"
+  },
+  "Greenvale": {
+   "holder": "ALP",
+   "margin": 22.0,
+   "vs": "COAL"
+  },
+  "Pascoe Vale": {
+   "holder": "ALP",
+   "margin": 22.3,
+   "vs": "COAL"
+  },
+  "Dandenong": {
+   "holder": "ALP",
+   "margin": 23.1,
+   "vs": "COAL"
+  },
+  "Laverton": {
+   "holder": "ALP",
+   "margin": 23.4,
+   "vs": "COAL"
+  },
+  "Mill Park": {
+   "holder": "ALP",
+   "margin": 24.9,
+   "vs": "COAL"
+  },
+  "Broadmeadows": {
+   "holder": "ALP",
+   "margin": 25.2,
+   "vs": "COAL"
+  },
+  "Kororoit": {
+   "holder": "ALP",
+   "margin": 25.3,
+   "vs": "COAL"
+  },
+  "Thomastown": {
+   "holder": "ALP",
+   "margin": 27.4,
+   "vs": "COAL"
+  },
+  "Footscray": {
+   "holder": "ALP",
+   "margin": 27.6,
+   "vs": "COAL"
+  },
+  "Hastings": {
+   "holder": "COAL",
+   "margin": 0.0,
+   "vs": "ALP"
+  },
+  "Caulfield": {
+   "holder": "COAL",
+   "margin": 0.04,
+   "vs": "ALP"
+  },
+  "Sandringham": {
+   "holder": "COAL",
+   "margin": 0.4,
+   "vs": "ALP"
+  },
+  "Brighton": {
+   "holder": "COAL",
+   "margin": 0.5,
+   "vs": "ALP"
+  },
+  "Bayswater": {
+   "holder": "COAL",
+   "margin": 0.6,
+   "vs": "ALP"
+  },
+  "Bass": {
+   "holder": "COAL",
+   "margin": 0.7,
+   "vs": "ALP"
+  },
+  "Glen Waverley": {
+   "holder": "COAL",
+   "margin": 0.9,
+   "vs": "ALP"
+  },
+  "Croydon": {
+   "holder": "COAL",
+   "margin": 1.0,
+   "vs": "ALP"
+  },
+  "Eildon": {
+   "holder": "COAL",
+   "margin": 1.0,
+   "vs": "ALP"
+  },
+  "Berwick": {
+   "holder": "COAL",
+   "margin": 1.3,
+   "vs": "ALP"
+  },
+  "Evelyn": {
+   "holder": "COAL",
+   "margin": 1.8,
+   "vs": "ALP"
+  },
+  "Polwarth": {
+   "holder": "COAL",
+   "margin": 2.0,
+   "vs": "ALP"
+  },
+  "Benambra": {
+   "holder": "COAL",
+   "margin": 2.6,
+   "vs": "IND"
+  },
+  "South-West Coast": {
+   "holder": "COAL",
+   "margin": 3.2,
+   "vs": "ALP"
+  },
+  "Warrandyte": {
+   "holder": "COAL",
+   "margin": 3.8,
+   "vs": "ALP"
+  },
+  "Kew": {
+   "holder": "COAL",
+   "margin": 4.7,
+   "vs": "ALP"
+  },
+  "Mornington": {
+   "holder": "COAL",
+   "margin": 5.0,
+   "vs": "ALP"
+  },
+  "Rowville": {
+   "holder": "COAL",
+   "margin": 5.5,
+   "vs": "ALP"
+  },
+  "Bulleen": {
+   "holder": "COAL",
+   "margin": 5.5,
+   "vs": "ALP"
+  },
+  "Malvern": {
+   "holder": "COAL",
+   "margin": 6.0,
+   "vs": "ALP"
+  },
+  "Narracan": {
+   "holder": "COAL",
+   "margin": 10.0,
+   "vs": "ALP"
+  },
+  "Ovens Valley": {
+   "holder": "COAL",
+   "margin": 12.1,
+   "vs": "ALP"
+  },
+  "Gippsland South": {
+   "holder": "COAL",
+   "margin": 14.2,
+   "vs": "ALP"
+  },
+  "Euroa": {
+   "holder": "COAL",
+   "margin": 15.8,
+   "vs": "ALP"
+  },
+  "Gippsland East": {
+   "holder": "COAL",
+   "margin": 17.6,
+   "vs": "ALP"
+  },
+  "Lowan": {
+   "holder": "COAL",
+   "margin": 21.1,
+   "vs": "ALP"
+  },
+  "Murray Plains": {
+   "holder": "COAL",
+   "margin": 24.0,
+   "vs": "ALP"
+  },
+  "Mildura": {
+   "holder": "OTH",
+   "margin": 0.0,
+   "vs": "NAT"
+  },
+  "Melbourne": {
+   "holder": "OTH",
+   "margin": 1.7,
+   "vs": "ALP"
+  },
+  "Brunswick": {
+   "holder": "OTH",
+   "margin": 2.0,
+   "vs": "ALP"
+  },
+  "Shepparton": {
+   "holder": "OTH",
+   "margin": 5.3,
+   "vs": "LIB"
+  },
+  "Prahran": {
+   "holder": "OTH",
+   "margin": 8.2,
+   "vs": "LIB"
+  }
+ },
+ "fed2025": {
+  "Menzies": {
+   "holder": "ALP",
+   "margin": 0.4,
+   "vs": "COAL"
+  },
+  "Chisholm": {
+   "holder": "ALP",
+   "margin": 3.3,
+   "vs": "COAL"
+  },
+  "Aston": {
+   "holder": "ALP",
+   "margin": null,
+   "vs": "COAL"
+  },
+  "McEwen": {
+   "holder": "ALP",
+   "margin": 3.8,
+   "vs": "COAL"
+  },
+  "Wills": {
+   "holder": "ALP",
+   "margin": 4.6,
+   "vs": "GRN"
+  },
+  "Bruce": {
+   "holder": "ALP",
+   "margin": 5.3,
+   "vs": "COAL"
+  },
+  "Dunkley": {
+   "holder": "ALP",
+   "margin": null,
+   "vs": "COAL"
+  },
+  "Holt": {
+   "holder": "ALP",
+   "margin": 7.1,
+   "vs": "COAL"
+  },
+  "Hawke": {
+   "holder": "ALP",
+   "margin": 7.6,
+   "vs": "COAL"
+  },
+  "Cooper": {
+   "holder": "ALP",
+   "margin": 7.8,
+   "vs": "GRN"
+  },
+  "Corangamite": {
+   "holder": "ALP",
+   "margin": 7.8,
+   "vs": "COAL"
+  },
+  "Isaacs": {
+   "holder": "ALP",
+   "margin": 9.5,
+   "vs": "COAL"
+  },
+  "Gorton": {
+   "holder": "ALP",
+   "margin": 10.0,
+   "vs": "COAL"
+  },
+  "Bendigo": {
+   "holder": "ALP",
+   "margin": 11.2,
+   "vs": "COAL"
+  },
+  "Gellibrand": {
+   "holder": "ALP",
+   "margin": 11.2,
+   "vs": "COAL"
+  },
+  "Hotham": {
+   "holder": "ALP",
+   "margin": 11.6,
+   "vs": "COAL"
+  },
+  "Macnamara": {
+   "holder": "ALP",
+   "margin": 12.2,
+   "vs": "COAL?"
+  },
+  "Jagajaga": {
+   "holder": "ALP",
+   "margin": 12.2,
+   "vs": "COAL"
+  },
+  "Calwell": {
+   "holder": "ALP",
+   "margin": 12.4,
+   "vs": "COAL"
+  },
+  "Corio": {
+   "holder": "ALP",
+   "margin": 12.5,
+   "vs": "COAL"
+  },
+  "Lalor": {
+   "holder": "ALP",
+   "margin": 12.8,
+   "vs": "COAL"
+  },
+  "Ballarat": {
+   "holder": "ALP",
+   "margin": 13.0,
+   "vs": "COAL"
+  },
+  "Maribyrnong": {
+   "holder": "ALP",
+   "margin": 13.0,
+   "vs": "COAL"
+  },
+  "Scullin": {
+   "holder": "ALP",
+   "margin": 15.4,
+   "vs": "COAL"
+  },
+  "Fraser": {
+   "holder": "ALP",
+   "margin": 16.6,
+   "vs": "COAL"
+  },
+  "Deakin": {
+   "holder": "COAL",
+   "margin": 0.02,
+   "vs": "ALP"
+  },
+  "Casey": {
+   "holder": "COAL",
+   "margin": 1.4,
+   "vs": "ALP"
+  },
+  "Monash": {
+   "holder": "COAL",
+   "margin": 2.9,
+   "vs": "ALP"
+  },
+  "Nicholls": {
+   "holder": "COAL",
+   "margin": 3.4,
+   "vs": "IND"
+  },
+  "Wannon": {
+   "holder": "COAL",
+   "margin": 3.8,
+   "vs": "IND"
+  },
+  "Flinders": {
+   "holder": "COAL",
+   "margin": 6.2,
+   "vs": "ALP"
+  },
+  "La Trobe": {
+   "holder": "COAL",
+   "margin": 8.4,
+   "vs": "ALP"
+  },
+  "Mallee": {
+   "holder": "COAL",
+   "margin": 19.0,
+   "vs": "ALP"
+  },
+  "Gippsland": {
+   "holder": "COAL",
+   "margin": 20.6,
+   "vs": "ALP"
+  },
+  "Kooyong": {
+   "holder": "OTH",
+   "margin": 2.2,
+   "vs": "IND"
+  },
+  "Goldstein": {
+   "holder": "OTH",
+   "margin": 3.3,
+   "vs": "IND"
+  },
+  "Melbourne": {
+   "holder": "OTH",
+   "margin": 6.5,
+   "vs": null
+  },
+  "Indi": {
+   "holder": "OTH",
+   "margin": 8.9,
+   "vs": null
+  }
+ }
+}
