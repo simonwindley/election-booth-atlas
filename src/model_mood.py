@@ -25,6 +25,8 @@ import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WAGE_2021_TO_2026 = 1.18
+WAGE_TO_2021 = {2025: 1.135, 2026: 1.18}   # Wage Price Index growth from September 2021 to each survey year (approx.)
+VIC_CODE = 1   # McKinnon 2025 'state' filter: codes follow the ABS state order (0 NSW, 1 Vic, 2 Qld, 3 SA, 4 WA, 5 Tas, 6 NT, 7 ACT); sample sizes match that order
 AGE = ['18_24', '25_34', '35_49', '50_64', '65_plus']            # survey codes 0..4
 EDU = ['secondary', 'vocational', 'bachelor', 'postgrad']         # survey codes 0..3 (weighted shares and the trust gradient identify this order)
 INC = [(0, 50000), (50000, 80000), (80000, 120000), (120000, 200000), (200000, None)]   # survey codes 0..4, annual household income, 2026 dollars
@@ -66,7 +68,7 @@ def design(age, edu, inc, born, lang, rem):
     return np.column_stack(cols)
 
 
-def fit(mck):
+def fit(mck, year=2026):
     f = mck['filters']
     n = mck['n']
     W = np.array(mck['weight'], dtype=float)
@@ -76,20 +78,28 @@ def fit(mck):
     ok = (age >= 0) & (edu >= 0) & (inc >= 0) & (born >= 0) & (lang >= 0) & (rem >= 0)
     X = design(age, edu, inc, born, lang, rem)
     models = {}
+    reg = {r['codes'].get('2026'): r['codes'] for r in (mck.get('registry') or {}).get('questions', [])}
+    vic = np.array([v == VIC_CODE for v in f['state']]) if 'state' in f else None
     for oid, label, q, reading in OUTCOMES:
-        a = mck['answers'].get(q)
+        code = reg.get(q, {}).get(str(year), q) if reg else q
+        a = mck['answers'].get(code) if code else None
         if a is None:
             continue
+        labs = mck['labels'].get(code, {})
+        dk = {int(k) for k, t in labs.items() if 'know' in str(t).lower() or 'refused' in str(t).lower()}
         y = np.array([1.0 if (v is not None and reading(v)) else 0.0 for v in a])
-        valid = ok & np.array([v is not None and v <= 10 for v in a])   # drop don't-know / not stated
+        valid = ok & np.array([v is not None and v <= 10 and v not in dk for v in a])   # drop don't-know / not stated
         sw = np.sqrt(W[valid])
         beta, *_ = np.linalg.lstsq(X[valid] * sw[:, None], y[valid] * sw, rcond=None)
         level = float(np.average(y[valid], weights=W[valid]))
-        models[oid] = {'label': label, 'q': q, 'beta': beta.tolist(), 'level': level, 'n': int(valid.sum())}
+        mod = {'label': label, 'q': code, 'beta': beta.tolist(), 'level': level, 'national': level, 'n': int(valid.sum())}
+        if vic is not None and (valid & vic).sum() > 300:
+            mod['level'] = float(np.average(y[valid & vic], weights=W[valid & vic])); mod['n_vic'] = int((valid & vic).sum())   # anchor on Victoria
+        models[oid] = mod
     return models
 
 
-def margins(rec, remoteness):
+def margins(rec, remoteness, wage=WAGE_2021_TO_2026):
     """an area's shares in each survey group, in the design's column order (excluding the intercept)"""
     adults = sum(rec.get('mi_age_' + a, 0) for a in AGE)
     p15 = rec.get('mi_persons_15_plus', 0)
@@ -104,7 +114,7 @@ def margins(rec, remoteness):
     bands = [('negative_nil_income', 0, 0), ('hi_1_149', 1, 150), ('hi_150_299', 150, 300), ('hi_300_399', 300, 400), ('hi_400_499', 400, 500), ('hi_500_649', 500, 650), ('hi_650_799', 650, 800),
              ('hi_800_999', 800, 1000), ('hi_1000_1249', 1000, 1250), ('hi_1250_1499', 1250, 1500), ('hi_1500_1749', 1500, 1750), ('hi_1750_1999', 1750, 2000), ('hi_2000_2499', 2000, 2500),
              ('hi_2500_2999', 2500, 3000), ('hi_3000_3499', 3000, 3500), ('hi_3500_3999', 3500, 4000), ('hi_4000_more', 4000, 6000)]
-    cuts = [c / 52 / WAGE_2021_TO_2026 for _, c in INC[:-1]]
+    cuts = [c / 52 / wage for _, c in INC[:-1]]
     tot = sum(hh.get(b, 0) for b, _, _ in bands)
     def frac_below(lo, hi, cut):
         if hi <= cut: return 1.0
@@ -140,11 +150,11 @@ def gz_write(path, obj):
 
 def main():
     mck = json.load(open(os.path.join(ROOT, 'raw/mood/mckinnon_2026.json')))
-    models = fit(mck)
+    models = fit(mck, 2026)
     c21 = json.load(open(os.path.join(ROOT, 'raw/abs/sa1_census_2021.json')))
     note = ('Modelled from the McKinnon Index 2026 (national survey, n≈4,300): the relationship between attitudes and age, education, household income, birthplace, language and remoteness, '
             'applied to the area’s 2021 Census mix. The level is the national figure; it is not a Victorian poll and not a measure of how anyone votes.')
-    inds = [{'id': 'mood_' + oid, 'group': GROUP, 'label': mod['label'], 'kind': 'share', 'modelled': True, 'note': note} for oid, mod in models.items()]
+    inds = [{'id': 'mood_' + oid, 'group': GROUP, 'label': mod['label'], 'kind': 'share', 'modelled': True, 'from': '2026-01-01', 'note': note} for oid, mod in models.items()]
     # districts
     path = os.path.join(ROOT, 'site/data/demog_vic_la_2022.json.gz'); D = json.load(gzip.open(path))
     D['indicators'] = [x for x in D['indicators'] if not x['id'].startswith('mood_')] + inds
@@ -193,6 +203,66 @@ def main():
         vals = [d['mood_' + oid] for d in D['districts'].values() if 'mood_' + oid in d]
         print(f'{oid:34s} national {100 * mod["level"]:5.1f}%  seats {100 * min(vals):5.1f}..{100 * max(vals):5.1f}  n={mod["n"]}')
     print(len(models), 'mood indicators ->', path, 'and', bpath)
+
+
+    main_2025(c21)
+
+
+def main_2025(c21):
+    """the McKinnon Index 2025 (first wave, n=4,416, with the respondent's state): the same model, levelled on its ~1,000
+    Victorian respondents, for the 2025 contests only: the federal election (2024 divisions) and the 2025 by-elections
+    (2022 districts). Indicator ids mood25_*, valid for elections held in 2025."""
+    path25 = os.path.join(ROOT, 'raw/mood/mckinnon_2025.json')
+    if not os.path.exists(path25):
+        return
+    mck = json.load(open(path25))
+    models = fit(mck, 2025)
+    wage = WAGE_TO_2021[2025]
+    note = ('Modelled from the McKinnon Index 2025 (national survey, n≈4,400, about 1,000 of them Victorian): the relationship between attitudes and age, education, household income, '
+            'birthplace, language and remoteness, applied to the area’s 2021 Census mix and levelled on the Victorian respondents. Shown for 2025 contests only; not a measure of how anyone votes.')
+    inds = [{'id': 'mood25_' + oid, 'group': 'Democratic mood (modelled from the McKinnon Index 2025)', 'label': mod['label'], 'kind': 'share', 'modelled': True,
+             'from': '2025-01-01', 'to': '2025-12-31', 'note': note} for oid, mod in models.items()]
+    D = json.load(gzip.open(os.path.join(ROOT, 'site/data/demog_vic_la_2022.json.gz')))
+    rem_of = {cid: remoteness_of(d) for cid, d in D['districts'].items()}
+    pop = {cid: c21['districts'][cid].get('population', 0) for cid in D['districts'] if cid in c21['districts']}
+    m_state = margins(c21['state'], 'major_city', wage)
+    for i, cls in ((-4, 'inner_regional'), (-3, 'outer_regional')):
+        m_state[i] = sum(p for cid, p in pop.items() if rem_of[cid] == cls) / sum(pop.values())
+    def apply(fname, units, rem):
+        path = os.path.join(ROOT, 'site/data', fname); X = json.load(gzip.open(path))
+        X['indicators'] = [x for x in X['indicators'] if not x['id'].startswith('mood25_')] + inds
+        for rec in list(X['districts'].values()) + [X['state']]:
+            for k in [k for k in rec if k.startswith('mood25_')]:
+                del rec[k]
+        for cid, d in X['districts'].items():
+            m = margins(units.get(cid, {}), rem(cid, d), wage)
+            if m is None:
+                continue
+            for oid, v in predict(models, m, m_state).items():
+                d['mood25_' + oid] = round(v, 4)
+        for oid, mod in models.items():
+            X['state']['mood25_' + oid] = round(mod['level'], 4)
+        X['mood25_model'] = {'source': mck['source'], 'retrieved': mck['retrieved'], 'n': mck['n'], 'wage_deflator': wage, 'victoria_code': VIC_CODE,
+                             'outcomes': {oid: {'q': mod['q'], 'n': mod['n'], 'n_vic': mod.get('n_vic'), 'victoria': round(mod['level'], 4), 'national': round(mod['national'], 4)} for oid, mod in models.items()}}
+        gz_write(path, X)
+        plain = os.path.join(ROOT, 'site/data_plain')
+        if os.path.isdir(plain):
+            json.dump(X, open(os.path.join(plain, fname.replace('.gz', '')), 'w'), separators=(',', ':'))
+        return X
+    apply('demog_vic_la_2022.json.gz', c21['districts'], lambda cid, d: rem_of[cid])
+    # federal divisions: metropolitan if most of the division's people live in metropolitan districts, outer regional if very large
+    F = None
+    if os.path.exists(os.path.join(ROOT, 'site/data/demog_fed_2024.json.gz')):
+        F = apply('demog_fed_2024.json.gz', c21.get('fed_2024', {}), lambda cid, d: FED_REMOTENESS.get(d['name'].title().replace('Mce', 'McE'), 'major_city'))
+    for oid, mod in models.items():
+        vals = [d['mood25_' + oid] for d in (F or D)['districts'].values() if 'mood25_' + oid in d]
+        print(f'2025 {oid:34s} Victoria {100 * mod["level"]:5.1f}% (national {100 * mod["national"]:5.1f}%, n_vic={mod.get("n_vic")})  divisions {100 * min(vals):5.1f}..{100 * max(vals):5.1f}')
+
+
+# Victorian federal divisions (2024 boundaries) outside Greater Melbourne: inner regional, or outer regional for the big rural ones
+FED_REMOTENESS = {'Ballarat': 'inner_regional', 'Bendigo': 'inner_regional', 'Corangamite': 'inner_regional', 'Corio': 'inner_regional', 'Flinders': 'inner_regional',
+                  'McEwen': 'inner_regional', 'Monash': 'inner_regional', 'Indi': 'outer_regional', 'Mallee': 'outer_regional', 'Nicholls': 'outer_regional',
+                  'Wannon': 'outer_regional', 'Gippsland': 'outer_regional'}
 
 
 if __name__ == '__main__':

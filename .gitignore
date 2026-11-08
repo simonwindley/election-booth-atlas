@@ -29,3 +29,6 @@ raw/boundaries/abs/asgc2001.gpkg
 
 # 2001 Basic Community Profiles by SED (re-downloadable with tools/fetch_bcp2001.py)
 raw/abs/bcp2001/
+
+# Australian Election Study unit records (ADA terms: not to be redistributed). Analysed on this Mac only.
+raw/aes/

@@ -291,7 +291,7 @@ def main(years):
         def agg(key):
             accN, accD = defaultdict(lambda: np.zeros(len(plan))), defaultdict(lambda: np.zeros(len(plan)))
             for s in sa1s:
-                for tid, w in W[s][key].items():
+                for tid, w in W[s].get(key, {}).items():
                     accN[tid] += w * N[si[s]]; accD[tid] += w * Dn[si[s]]
             return accN, accD
         def finish(accN, accD):
@@ -323,6 +323,9 @@ def main(years):
                'source': f'ABS Census {year} SA1 DataPack ({"General" if year != "2011" else "Basic"} Community Profile), aggregated onto the 2022 Victorian districts and the 2022 election-day booth catchments by the share of each SA1 inside them',
                'indicators': [{'id': id_, 'group': group, 'label': label, 'kind': kind, **({'hidden': True} if id_.startswith('mi_') else {})} for id_, group, label, kind, _, _ in plan],
                'state': state, 'districts': districts, 'booths': by_venue}
+        if any('f24' in v for v in W.values()):
+            fN, fD = agg('f24'); obj['fed_2024'] = finish(fN, fD)
+            print(f'   {len(obj["fed_2024"])} federal divisions (2024 boundaries)')
         out = os.path.join(ROOT, f'raw/abs/sa1_census_{year}.json')
         json.dump(obj, open(out, 'w'), separators=(',', ':'))
         print(f'   {len(districts)} districts, {len(by_venue)} booth venues, state population {state.get("population")} -> {out}')

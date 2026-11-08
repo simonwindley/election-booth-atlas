@@ -7,7 +7,7 @@ the SA1 are dropped and the rest renormalised, so slivers from boundary mismatch
 
 Usage: python3 -m src.sa1_weights 2021            (also 2016, 2011)
 Writes raw/abs/sa1_weights_<year>.json:
-  {year, boundaries, sa1: {code: {"d": {contest_id: w}, "b": {booth_id: w}}}}
+  {year, boundaries, sa1: {code: {"d": {contest_id: w}, "b": {booth_id: w}, "f24": {division: w} (2021 only)}}}
 """
 import sys, json, gzip, os
 from collections import defaultdict
@@ -68,6 +68,13 @@ def main(year):
     wd = apportion(sa1, dist)
     wb = apportion(sa1, cat)
     out = {code: {'d': wd.get(code, {}), 'b': wb.get(code, {})} for code in set(wd) | set(wb)}
+    if year == '2021':
+        # the Victorian federal divisions as redrawn in 2024 (used at the 2025 election): a census file of their own
+        fed = [(f['properties']['contest_id'], geom(f)) for f in load_fc(os.path.join(ROOT, 'site/data/boundary_fed_2024.geojson.gz'))['features'] if f['properties'].get('contest_id')]
+        wf = apportion(sa1, fed)
+        for code, ws in wf.items():
+            out.setdefault(code, {'d': {}, 'b': {}})['f24'] = ws
+        print(f'   federal 2024 boundaries: {len(fed)} divisions, {len(wf)} SA1s')
     path = os.path.join(ROOT, f'raw/abs/sa1_weights_{year}.json')
     json.dump({'year': int(year), 'boundaries': 'vic_la_2022', 'method': 'area share of each SA1 inside each district / booth catchment (catchment_vic2022 + catchment_vic2023n)', 'sa1': out}, open(path, 'w'), separators=(',', ':'))
     split_d = sum(1 for v in out.values() if len(v['d']) > 1); split_b = sum(1 for v in out.values() if len(v['b']) > 1)

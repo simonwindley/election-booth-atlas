@@ -183,6 +183,20 @@ from the dashboard and the live projections.
   a weighted regression of each attitude on age, education, household income, birthplace, language and
   remoteness, applied to each area's census mix as a shift from Victoria's). Both are labelled modelled on
   the site; neither is a poll of the area.
+* Each modelled indicator carries the window its survey speaks for (`from`/`to`), and the site shows it only for
+  elections inside that window: the Freshwater issues and McKinnon 2026 (`mood_*`, July 2026 fieldwork) for 2026
+  on; the McKinnon Index 2025 (`mood25_*`, `raw/mood/mckinnon_2025.json`, n=4,416 with the respondent's state; state
+  code 1 is Victoria, ~1,000 respondents) for the 2025 contests only, levelled on the Victorian respondents. The 2025
+  layer sits on `demog_vic_la_2022` (the 2025 by-elections) and on `demog_fed_2024` (the 2025 federal election).
+* `demog_fed_2024` — the 2021 Census on the Victorian federal divisions as redrawn in 2024 (used in 2025): SA1s
+  apportioned by area (`src.sa1_weights` 2021 writes an `f24` weight set; `src.load_sa1_census` aggregates it into
+  `sa1_census_2021.json` under `fed_2024`; `src.build_demog` writes the file). Same ids as the district series.
+* The Australian Election Study integrated time series (1967-2025, Australian Data Archive, doi:10.26193/HJ3KT1) is
+  in `raw/aes/` on the Mac only: gitignored, because the ADA terms forbid passing on the unit records. Anything built
+  from it is computed on the Mac and only summary coefficients leave it; published outputs must acknowledge the AES
+  investigators and the ADA, state that they bear no responsibility for the analysis, and the ADA asks to be emailed
+  (ada@anu.edu.au) a link to published work. The general release has no state or electorate (a restricted release
+  with geography can be requested).
 * `demog_booth_vic2022` — the same build for every 2022 election-day booth catchment (the area nearest the
   booth within its district), keyed by venue id so a booth at the same venue in any election can use it,
   stored column-wise (`cols` + one `v` array per venue; `hcols` + `h` for the 2016 and 2011 history of the

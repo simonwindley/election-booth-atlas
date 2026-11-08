@@ -67,8 +67,26 @@ def change_indicators(ind21, units21, units16, units11, state21, state16, state1
     return new
 
 
+def build_fed_2024(c21):
+    """the 2021 Census on the Victorian federal divisions as redrawn in 2024 (the 2025 election): SA1s apportioned by area
+    (src.sa1_weights 'f24'), the same indicators and ids as the SA1 district series"""
+    if 'fed_2024' not in c21:
+        return
+    fc = json.load(gzip.open(os.path.join(ROOT, 'site/data/boundary_fed_2024.geojson.gz')))
+    names = {f['properties']['contest_id']: f['properties']['name'] for f in fc['features'] if f['properties'].get('contest_id')}
+    o = {'source': 'ABS Census 2021 SA1 DataPack (General Community Profile), aggregated onto the Victorian federal divisions as redrawn in 2024 (used at the 2025 election) by the share of each SA1 inside them',
+         'census': 2021, 'boundaries': 'fed_2024', 'indicators': [dict(x) for x in c21['indicators']], 'state': dict(c21['state']),
+         'districts': {cid: {'name': names.get(cid, cid).replace('Mcewen', 'McEwen'), **rec} for cid, rec in c21['fed_2024'].items()},
+         'note': 'Medians are population-weighted averages of SA1 medians, not true medians of the division.'}
+    gz_write(os.path.join(ROOT, 'site/data/demog_fed_2024.json.gz'), o)
+    if os.path.isdir(os.path.join(ROOT, 'site/data_plain')):
+        json.dump(o, open(os.path.join(ROOT, 'site/data_plain/demog_fed_2024.json'), 'w'), separators=(',', ':'))
+    print(f'fed_2024: {len(o["districts"])} divisions from the 2021 Census')
+
+
 def main():
     c21, c16, c11 = load('2021'), load('2016'), load('2011')
+    build_fed_2024(c21)
     c06 = load('2006') if os.path.exists(os.path.join(ROOT, 'raw/abs/sa1_census_2006.json')) else None   # src.load_cd_census (TableBuilder CDs)
     e06 = c06 or {'districts': {}, 'booths': {}, 'state': {}}
     cards = load_demographics.main(out=os.path.join(ROOT, 'raw/demographics/parliament_cards.json.gz'))
