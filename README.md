@@ -242,6 +242,21 @@ and birthplace; education and income barely matter. Each venue gets a susceptibi
 bonus relative to the average booth), shown in the booth panel; the browser model scales its ballot-adjacency term
 by it (x0.5 to x2) at booth level and by the booth-weighted mean at electorate level (`site/data/ballot_booths.json`).
 
+## The election-night projection (`app.html`, "Projected" on the 2026 map)
+
+What the final result looks like given what is counted, what is still to come and how the uncounted parts are
+expected to vote. Every pool of an electorate is projected separately and the pools are summed: each election-day
+booth is its count once reported, otherwise its 2022 result at that venue shifted by a swing estimate (the
+electorate's counted booths, the nearest counted booths within 8 km and the state, blended by how much of each is
+in, plus the statewide within-electorate demographic gradient of the swing applied to the booth's own SA1 census
+profile once 80+ booths are in); early, postal, absent and provisional votes are the electorate's 2022 pools shifted
+by the electorate's swing, each keeping its own lean, sized by 2022 (enrolment-adjusted) or by the VEC's
+early-voting statistics / postal applications when captured, and replaced by the counted pool as it arrives (fully
+trusted once a third is in). The projected first preferences for this year's candidates then run through the
+preference model (flows, cards, ballot order) for the projected two-candidate result. Booth level: the same for one
+booth. The seat panel shows the pools, the projected first preferences and the ladder; hover text gives the share of
+the expected vote counted.
+
 ## Boundaries and catchments
 
 `data/boundaries/*.geojson` carry a `contest_id` matching the results tables, simplified to ~30 m.

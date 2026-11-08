@@ -289,6 +289,8 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
             <option value="gap">Gap vs another election</option>
             <option value="primary">Leader on primary votes</option>
             <option value="tcpwin">Winner after preferences (2PP/2CP)</option>
+            <option value="projwin">Projected winner (Atlas projection, 2026)</option>
+            <option value="proj">Projected 2CP share (Atlas projection, 2026)</option>
             <option value="senate">Senate primary share (federal only)</option>
             <option value="census">Census indicator (2021, state seats)</option>
           </select></div>
@@ -684,6 +686,7 @@ function metricValueContest(cid) {
   const eid = state.election, p = state.party, ps = contestShares(eid, cid);
   if (state.metric === 'senate') { const ss = senateDivShares(eid, cid); return ss && ss.formal ? { v: ss[p] ? ss[p].share : 0, label: `${PARTY_NAME[p]} Senate primary`, text: pct(ss[p] ? ss[p].share : 0) } : { v: null, label: 'Senate', text: 'federal elections only' }; }
   if (state.metric === 'census') { const set = demogSet(eid), xid = demogId(state.census, set), xi = set && xid && set.ind.get(xid), d = demogFor(eid, cid); return xi && d && d[xid] != null ? { v: d[xid], label: xi.label, text: fmtInd(xi.kind, d[xid]) } : { v: null, label: 'Census', text: set ? 'no figure for this seat' : 'no census file for these boundaries' }; }
+  if (state.metric === 'projwin' || state.metric === 'proj') { if (eid !== LIVE.election) return { v: null, cat: null, label: 'Projected', text: '2026 only' }; if (!PREF || !DEMOG_BOOTH || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined) { if (!modelLoadKicked) { modelLoadKicked = true; Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE), ensureDemogBooth()]).then(() => renderMap()); } return { v: null, cat: null, label: 'Projected', text: 'loading the model' }; } return projMetricContest(cid, p); }
   if (eid === LIVE.election && (state.metric === 'tcpwin' || state.metric === 'tcp')) { const mv = liveModelMetric(cid, p); if (mv) return mv; const lv = liveContestMetric(cid, p); if (lv) return lv; }
   if (state.metric === 'share') return !ps.formal ? { v: null, label: `${PARTY_NAME[p]} primary`, text: 'no count yet' } : { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
   if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
@@ -710,6 +713,7 @@ function metricValue(bid) {
   if (state.metric === 'census') { const b = idx.boothsByKey.get(eid + '|' + bid) || {}; const B = DEMOG_BOOTH; const xi = B && B.ind.get(state.census); const d = demogBooth(b.venue_id); const v = d && xi ? d[state.census] : null; return { v: v == null ? null : v, label: xi ? xi.label : 'Census', text: !B ? 'loading' : !xi ? 'not available by booth' : v == null ? (b.booth_type !== 'ordinary' ? 'not an election-day booth' : 'no catchment for this venue') : fmtInd(xi.kind, v) }; }
   if (state.metric === 'share') return { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
   if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
+  if (state.metric === 'projwin' || state.metric === 'proj') { if (eid !== LIVE.election) return { v: null, cat: null, label: 'Projected', text: '2026 only' }; if (!PREF || !DEMOG_BOOTH || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined) { if (!modelLoadKicked) { modelLoadKicked = true; Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE), ensureDemogBooth()]).then(() => renderMap()); } return { v: null, cat: null, label: 'Projected', text: 'loading the model' }; } return projMetricBooth(bid, p); }
   if (eid === LIVE.election && (state.metric === 'tcpwin' || state.metric === 'tcp')) { const bb = idx.boothsByKey.get(eid + '|' + bid); const mv = bb ? liveModelMetricBooth(bb.contest_id, bid, p) : null; if (mv) return mv; }
   if (state.metric === 'tcpwin') { const t = tcpShares(eid, bid); if (!t) return { cat: null, label: 'After preferences', text: 'no 2CP count at this booth' }; const top = [...t].sort((a, b) => b.share - a.share)[0]; const cat = (top.party === 'LIB' || top.party === 'NAT') ? 'COAL' : (PARTIES.includes(top.party) ? top.party : 'OTH'); return { cat, strength: top.share, label: 'Ahead after preferences', text: `${top.cand ? top.cand.surname : cat} ${pct(top.share)}` }; }
   if (state.metric === 'tcp') { const t = tcpShares(eid, bid); if (!t) return { v: null, label: '2CP', text: 'not counted' }; const mine = t.find(x => (x.party === 'LIB' || x.party === 'NAT' ? 'COAL' : x.party) === p); return mine ? { v: mine.share, label: `${PARTY_NAME[p]} 2CP`, text: pct(mine.share) } : { v: null, label: '2CP', text: `${PARTY_NAME[p]} not in final two` }; }
@@ -747,9 +751,9 @@ async function renderMap() {
   const unitWord = byContest ? 'electorate' : 'booth';
   // scale
   let colorOf, legend;
-  if (state.metric === 'primary' || state.metric === 'tcpwin') {
+  if (state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin') {
     const lo = state.metric === 'primary' ? 0.25 : 0.5, hi = state.metric === 'primary' ? 0.55 : 0.75;   // share range mapped to colour depth
-    colorOf = (x) => { if (!x.m.cat) return null; const t = Math.max(0, Math.min(1, ((x.m.strength || 0) - lo) / (hi - lo))); return mix(css('--map-bg'), partyColor(x.m.cat), 0.45 + 0.55 * t); };
+    colorOf = (x) => { if (!x.m.cat) return null; const t = Math.max(0, Math.min(1, ((x.m.strength || 0) - lo) / (hi - lo))); return mix(css('--map-bg'), partyColor(x.m.cat), (x.m.projected ? 0.3 : 0.45) + 0.55 * t); };
     legend = legendCategorical(byContest, state.metric, lo, hi);
   } else if (state.metric === 'census') {
     const cset = demogSet(eid), xi = (cset && cset.ind.get(demogId(state.census, cset))) || (DEMOG_BOOTH && DEMOG_BOOTH.ind.get(state.census)) || { label: '', kind: 'share' }; const vs = vals.map(x => x.m.v).filter(v => v != null);
@@ -794,7 +798,7 @@ async function renderMap() {
     return;
   }
   map.setLayoutProperty('contest-fill', 'visibility', 'none'); map.setLayoutProperty('contest-line', 'visibility', 'none'); map.setFilter('contest-sel', ['==', 'contest_id', '']);
-  const feats = vals.map(x => { const fresh = isFresh(eid, x.b.booth_id); const col = colorOf(x); return { type: 'Feature', geometry: { type: 'Point', coordinates: [x.b.lon, x.b.lat] }, properties: { booth_id: x.b.booth_id, color: col || 'rgba(0,0,0,0)', stroke: fresh ? css('--fg') : (col ? css('--map-bg') : css('--nodata')), sw: fresh ? 3 : 1, r: 2.5 + 7 * Math.sqrt((x.ps.formal || (eid === LIVE.election ? 800 : 0)) / 3000) } }; });
+  const feats = vals.map(x => { const fresh = isFresh(eid, x.b.booth_id); const col = colorOf(x); return { type: 'Feature', geometry: { type: 'Point', coordinates: [x.b.lon, x.b.lat] }, properties: { booth_id: x.b.booth_id, color: col || 'rgba(0,0,0,0)', stroke: fresh ? css('--fg') : x.m.projected ? css('--fg-3') : (col ? css('--map-bg') : css('--nodata')), sw: fresh ? 3 : 1, r: 2.5 + 7 * Math.sqrt((x.ps.formal || (eid === LIVE.election ? 800 : 0)) / 3000) } }; });
   // changed-since-last-look booths drawn last so their outline sits on top
   feats.sort((a, b) => a.properties.sw - b.properties.sw);
   map.getSource('booths').setData({ type: 'FeatureCollection', features: feats });
@@ -828,9 +832,9 @@ function legendRamp(title, stops, labels, note, byContest) {
 function legendCategorical(byContest, metric, lo, hi) {
   const box = h('div');
   const live = state.election === LIVE.election;
-  box.append(h('h4', {}, metric === 'tcpwin' ? (live ? 'Party ahead on the preference model' : byContest ? 'Party of the elected member' : 'Party ahead after preferences') : (byContest ? 'Party leading on first preferences' : 'Party with the most first preferences')));
+  box.append(h('h4', {}, metric === 'projwin' ? (byContest ? 'Projected winner (Atlas projection)' : 'Projected winner at the booth') : metric === 'tcpwin' ? (live ? 'Party ahead on the preference model' : byContest ? 'Party of the elected member' : 'Party ahead after preferences') : (byContest ? 'Party leading on first preferences' : 'Party with the most first preferences')));
   box.append(h('div', { class: 'swatches' }, ...PARTIES.map(p => h('div', { class: 'swatch' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p]))));
-  box.append(h('div', { class: 'hint', style: 'margin-top:6px' }, `Deeper colour, larger share: pale at ${Math.round(lo * 100)}% ${metric === 'tcpwin' ? '2CP' : 'primary'}, full at ${Math.round(hi * 100)}%+.${metric === 'tcpwin' && !byContest ? ' Hollow: no two-candidate count at that booth.' : ''}${metric === 'tcpwin' && live ? ` Each ${byContest ? 'seat' : 'booth'} is the first preferences counted so far run through the fitted preference flows and the registered how-to-vote cards, so it updates with every booth through the night; hover for the VEC\'s own two-candidate figure.${byContest ? ' A seat switches to the declared result once the VEC publishes its distribution.' : ''}` : ''}`));
+  box.append(h('div', { class: 'hint', style: 'margin-top:6px' }, `Deeper colour, larger share: pale at ${Math.round(lo * 100)}% ${metric === 'tcpwin' || metric === 'projwin' ? '2CP' : 'primary'}, full at ${Math.round(hi * 100)}%+.${metric === 'tcpwin' && !byContest ? ' Hollow: no two-candidate count at that booth.' : ''}${metric === 'tcpwin' && live ? ` Each ${byContest ? 'seat' : 'booth'} is the first preferences counted so far run through the fitted preference flows and the registered how-to-vote cards, so it updates with every booth through the night; hover for the VEC\'s own two-candidate figure.${byContest ? ' A seat switches to the declared result once the VEC publishes its distribution.' : ''}` : ''}${metric === 'projwin' ? (byContest ? ' The projection fills in what is not yet counted: uncounted booths from their 2022 result plus the swing estimated from the electorate\'s counted booths, the nearest counted booths and the state (blended by how much is in) and the booth\'s census profile; early, postal, absent and provisional votes from the 2022 pools with the same swing, each keeping its own lean, replaced by the counted pool as it arrives. Then the preference model. Hover for how much of the expected vote is in.' : ' Counted booths show their result through the preference model; uncounted booths (grey outline, paler) show the projection from their 2022 result plus the estimated swing.') : ''}`));
   return box;
 }
 
@@ -892,19 +896,15 @@ function expectBlock(eid, b) {
   if (!b22) return h('div', { class: 'hint' }, 'A new booth: nothing from 2022 to go on.');
   const here = partyShares('vic2022', b22.booth_id); if (!here.formal) return null;
   const dist = contestShares('vic2022', b22.contest_id);
-  const swingOver = (list) => { const a = {}, c = {}; let fa = 0, fc = 0, n = 0; for (const x of list) { const q = partyShares(eid, x.booth_id), q22 = partyShares('vic2022', x.b22.booth_id); if (!q.formal || !q22.formal) continue; n++; fa += q.formal; fc += q22.formal; for (const p of PARTIES) { a[p] = (a[p] || 0) + (q[p] ? q[p].votes : 0); c[p] = (c[p] || 0) + (q22[p] ? q22[p].votes : 0); } } if (!n) return null; const sw = {}; for (const p of PARTIES) sw[p] = a[p] / fa - c[p] / fc; return { sw, n, votes: fa }; };
-  const match = (x) => { const m = (idx.boothsByVenue.get(x.venue_id) || []).find(y => y.election_id === 'vic2022' && y.booth_type === 'ordinary'); return m ? { booth_id: x.booth_id, b22: m, lat: x.lat, lon: x.lon } : null; };
-  const reported = D.booths.filter(x => x.election_id === eid && x.booth_type === 'ordinary' && x.reported).map(match).filter(Boolean);
-  const inDist = swingOver(reported.filter(x => x.b22.contest_id === b22.contest_id));
-  const km = (x) => b.lat != null && x.lat != null ? Math.hypot((x.lat - b.lat) * 111, (x.lon - b.lon) * 111 * Math.cos(b.lat * Math.PI / 180)) : Infinity;
-  const near = swingOver(reported.filter(x => km(x) <= 6).sort((x, y) => km(x) - km(y)).slice(0, 6));
-  const use = inDist && inDist.n >= 3 ? { ...inDist, what: `the ${inDist.n} booths counted so far in ${idx.contestById.get('vic2022|' + b22.contest_id).contest_name}` } : near && near.n >= 2 ? { ...near, what: `the ${near.n} nearest booths counted so far (within 6 km)` } : inDist && inDist.n ? { ...inDist, what: `the ${inDist.n} booth${inDist.n === 1 ? '' : 's'} counted so far in the electorate` } : null;
+  // the projection engine's swing estimate for this booth (electorate's counted booths, nearest counted booths, the state, the booth's census profile)
+  const P = LIVE.available ? projectBooth(b.contest_id, b) : null;
+  const use = P && P.swing && P.swing.n && P.swing.n.state ? { sw: P.swing.sw, what: P.swing.basis } : null;
   const box = h('div', { style: 'margin:6px 0 10px' }, h('h3', {}, 'What to expect here'));
   const ps = PARTIES.filter(p => here[p] && here[p].share >= 0.02);
   box.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Party'), h('th', { class: 'num' }, '2022 here'), h('th', { class: 'num', title: 'this booth against the whole electorate in 2022' }, 'vs electorate'), use ? h('th', { class: 'num', title: 'the 2022 result here shifted by the swing counted so far' }, 'Expected') : '')),
     h('tbody', {}, ...ps.map(p => { const d = here[p].share - (dist[p] ? dist[p].share : 0); const ex = use ? Math.max(0, here[p].share + (use.sw[p] || 0)) : null; return h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p])), h('td', { class: 'num' }, pct(here[p].share)), h('td', { class: 'num', style: Math.abs(d) >= 0.05 ? 'font-weight:600' : '' }, pts(d)), use ? h('td', { class: 'num' }, `≈${pct(ex)}`) : ''); })))));
   const t22 = tcpShares('vic2022', b22.booth_id); const top = t22 ? [...t22].sort((x, y) => y.share - x.share)[0] : null;
-  box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, `${fmt(here.formal)} formal votes here in 2022${top ? `; after preferences ${top.cand ? top.cand.surname : top.party} ${pct(top.share)}` : ''}. ` + (use ? `Expected: the 2022 result here plus the swing in ${use.what} (${PARTIES.filter(p => use.sw[p] != null && Math.abs(use.sw[p]) >= 0.005).map(p => `${PARTY_SHORT[p]} ${pts(use.sw[p])}`).join(', ') || 'no swing yet'}).` : 'No booths counted nearby yet, so no expectation beyond the 2022 result.')));
+  box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, `${fmt(here.formal)} formal votes here in 2022${top ? `; after preferences ${top.cand ? top.cand.surname : top.party} ${pct(top.share)}` : ''}. ` + (use ? `Expected: the 2022 result here plus the swing estimated from ${use.what} (${PARTIES.filter(p => use.sw[p] != null && Math.abs(use.sw[p]) >= 0.005).map(p => `${PARTY_SHORT[p]} ${pts(use.sw[p])}`).join(', ') || 'no swing yet'}).` : 'No booths counted nearby yet, so no expectation beyond the 2022 result.')));
   // the expected primaries, given to this year's candidates, run through the preference model (fitted flows and the registered cards)
   const lc = LIVE.latest && LIVE.latest.contests[b.contest_id];
   const cl = lc && lc.candidates && lc.candidates.length ? lc.candidates.map(c => ({ id: c.candidate_id, party: c.party, cand: idx.candById.get(eid + '|' + c.candidate_id) || { surname: String(c.name || '').split(',')[0] } }))
@@ -2460,6 +2460,167 @@ function liveModelMetricBooth(cid, bid, p) {
   const mine = m.pair.find(x => grpParty(x.party) === p);
   return mine ? { v: mine.share, label: `${PARTY_NAME[p]} 2CP (modelled)`, text: `≈${pct(mine.share)} · ${how}` } : { v: null, label: '2CP (modelled)', text: `${PARTY_NAME[p]} not in the model's final two here` };
 }
+/* ---------- the Atlas projection (election night) ----------
+   What the final result looks like given what has been counted, what is still to come, and how the uncounted parts
+   are expected to vote. Every vote pool of an electorate is projected separately:
+     - each election-day booth: the count where it has reported; otherwise its 2022 result at that venue shifted by
+       the swing estimate for that booth (the electorate's counted booths, the nearest counted booths and the state,
+       blended by how much of each is in, plus the statewide demographic gradient of the swing applied to the booth's
+       own census profile);
+     - early, postal, absent and provisional votes: the 2022 pool for the electorate shifted by the electorate's swing
+       estimate, sized by 2022 (or the VEC's early-voting statistics when captured), replaced by the counted pool as it
+       comes in; each pool keeps its own 2022 lean (the early vote's Coalition lean, the absent vote's Greens lean).
+   The pools sum to projected first preferences for this year's candidates, which run through the preference model
+   (flows, cards, ballot order) for the projected two-candidate result. */
+const PROJ = { at: null, engine: null, seats: new Map(), booths: new Map() };
+const PROJ_GROUPS = ['ALP', 'COAL', 'GRN', 'ONP', 'VSP', 'IND', 'OTH'];
+const PROJ_DEMOG = ['age_median', 'other_language_home', 'bachelor_or_higher', 'income_household_median', 'religion_no_religion_so_described'];
+function projReset() { PROJ.at = null; PROJ.engine = null; PROJ.seats.clear(); PROJ.booths.clear(); }
+function projSharesOf(eid, bid) { const q = partyShares(eid, bid); const o = { formal: q.formal }; for (const g of PROJ_GROUPS) o[g] = q[g] ? q[g].share : 0; return o; }
+function proj22Booth(b) { const b22 = b.venue_id && (idx.boothsByVenue.get(b.venue_id) || []).find(x => x.election_id === 'vic2022' && x.booth_type === 'ordinary'); return b22 || idx.boothsByKey.get('vic2022|' + b.booth_id) || null; }
+// the swing engine: built once per feed update
+function projEngine() {
+  const stamp = LIVE.fetchedAt || 'none'; if (PROJ.engine && PROJ.at === stamp) return PROJ.engine;
+  const eid = LIVE.election; const E = { stamp, booths: [], bySeat: new Map(), state: null, gamma: null, zbar: null, zsd: null, nReported: 0 };
+  // matched reported booths with their swing by party group
+  for (const b of D.booths) {
+    if (b.election_id !== eid || b.booth_type !== 'ordinary' || !b.reported) continue;
+    const b22 = proj22Booth(b); if (!b22) continue;
+    const now = projSharesOf(eid, b.booth_id), was = projSharesOf('vic2022', b22.booth_id); if (!now.formal || !was.formal) continue;
+    const sw = {}; for (const g of PROJ_GROUPS) sw[g] = now[g] - was[g];
+    const r = { bid: b.booth_id, cid: b.contest_id, venue: b.venue_id, lat: b.lat, lon: b.lon, w: now.formal, sw };
+    E.booths.push(r); (E.bySeat.get(b.contest_id) || E.bySeat.set(b.contest_id, []).get(b.contest_id)).push(r);
+  }
+  E.nReported = E.booths.length;
+  const agg = (list) => { const w = list.reduce((a, r) => a + r.w, 0); if (!w) return null; const sw = {}; for (const g of PROJ_GROUPS) sw[g] = list.reduce((a, r) => a + r.w * r.sw[g], 0) / w; return { sw, n: list.length, w }; };
+  E.state = agg(E.booths);
+  // demographic gradient of the swing, within electorates: swing_b - swing_e = sum_k gamma_g,k * (z_bk - z_ek); needs enough booths
+  if (DEMOG_BOOTH && E.booths.length >= 80) {
+    const rows = [];
+    for (const [cid, list] of E.bySeat) { if (list.length < 2) continue; const se = agg(list); const zs = list.map(r => ({ r, z: demogBooth(r.venue) })).filter(x => x.z && PROJ_DEMOG.every(k => x.z[k] != null)); if (zs.length < 2) continue;
+      const w = zs.reduce((a, x) => a + x.r.w, 0); const zbar = {}; for (const k of PROJ_DEMOG) zbar[k] = zs.reduce((a, x) => a + x.r.w * x.z[k], 0) / w;
+      for (const x of zs) rows.push({ w: x.r.w, dz: PROJ_DEMOG.map(k => x.z[k] - zbar[k]), dsw: PROJ_GROUPS.map(g => x.r.sw[g] - se.sw[g]) }); }
+    if (rows.length >= 80) {
+      const k = PROJ_DEMOG.length; const sd = PROJ_DEMOG.map((_, i) => Math.sqrt(rows.reduce((a, r) => a + r.w * r.dz[i] * r.dz[i], 0) / rows.reduce((a, r) => a + r.w, 0)) || 1);
+      const A = Array.from({ length: k }, () => Array(k).fill(0)); const B = PROJ_GROUPS.map(() => Array(k).fill(0));
+      for (const r of rows) { const z = r.dz.map((v, i) => v / sd[i]); for (let i = 0; i < k; i++) { for (let j = 0; j < k; j++) A[i][j] += r.w * z[i] * z[j]; for (let g = 0; g < PROJ_GROUPS.length; g++) B[g][i] += r.w * z[i] * r.dsw[g]; } }
+      for (let i = 0; i < k; i++) A[i][i] *= 1.05;   // light ridge
+      E.gamma = {}; E.zsd = sd; PROJ_GROUPS.forEach((g, gi) => { E.gamma[g] = projSolve(A, B[gi]); });
+    }
+  }
+  PROJ.engine = E; PROJ.at = stamp; PROJ.seats.clear(); PROJ.booths.clear(); return E;
+}
+function projSolve(A, b) { const n = b.length; const M = A.map((row, i) => [...row, b[i]]); for (let i = 0; i < n; i++) { let p = i; for (let r = i + 1; r < n; r++) if (Math.abs(M[r][i]) > Math.abs(M[p][i])) p = r; [M[i], M[p]] = [M[p], M[i]]; if (Math.abs(M[i][i]) < 1e-12) continue; for (let r = 0; r < n; r++) if (r !== i) { const f = M[r][i] / M[i][i]; for (let c = i; c <= n; c++) M[r][c] -= f * M[i][c]; } } return M.map((row, i) => Math.abs(row[i]) > 1e-12 ? row[n] / row[i] : 0); }
+// the swing estimate for one booth (or for an electorate's non-booth pools when b is null): blend of the electorate's counted booths, the nearest counted booths and the state
+function projSwing(cid, b) {
+  const E = projEngine(); const out = { sw: {}, parts: [] }; for (const g of PROJ_GROUPS) out.sw[g] = 0;
+  const seat = E.bySeat.get(cid) || []; const se = seat.length ? aggSw(seat) : null;
+  let near = null;
+  if (b && b.lat != null && E.booths.length) { const km = (r) => r.lat == null ? Infinity : Math.hypot((r.lat - b.lat) * 111, (r.lon - b.lon) * 111 * Math.cos(b.lat * Math.PI / 180)); const cand = E.booths.filter(r => r.bid !== b.booth_id && km(r) <= 8).sort((x, y) => km(x) - km(y)).slice(0, 8); if (cand.length) near = aggSw(cand); }
+  const wE = se ? se.n / (se.n + 3) : 0, wN = near ? (1 - wE) * near.n / (near.n + 2) : 0, wS = E.state ? 1 - wE - wN : 0;
+  if (!E.state) return { sw: out.sw, basis: 'no booths counted yet: the 2022 result', weights: { seat: 0, near: 0, state: 0 }, n: { seat: 0, near: 0, state: 0 } };
+  for (const g of PROJ_GROUPS) out.sw[g] = wE * (se ? se.sw[g] : 0) + wN * (near ? near.sw[g] : 0) + wS * E.state.sw[g];
+  // demographic adjustment: the booth's profile against its electorate's counted booths (or the state)
+  let demo = false;
+  if (b && E.gamma && b.venue_id) { const z = demogBooth(b.venue_id); if (z && PROJ_DEMOG.every(k => z[k] != null)) { const ref = seat.length >= 2 ? seat : E.booths; const w = ref.reduce((a, r) => a + r.w, 0); const zr = {}; let ok = true; for (const k of PROJ_DEMOG) { const vals = ref.map(r => ({ r, z: demogBooth(r.venue) })).filter(x => x.z && x.z[k] != null); if (!vals.length) { ok = false; break; } zr[k] = vals.reduce((a, x) => a + x.r.w * x.z[k], 0) / vals.reduce((a, x) => a + x.r.w, 0); }
+    if (ok) { demo = true; for (const g of PROJ_GROUPS) { let d = 0; PROJ_DEMOG.forEach((k, i) => { d += E.gamma[g][i] * (z[k] - zr[k]) / E.zsd[i]; }); out.sw[g] += Math.max(-0.08, Math.min(0.08, d)); } } } }
+  const parts = []; if (se) parts.push(`${se.n} counted booth${se.n === 1 ? '' : 's'} in the electorate (weight ${Math.round(100 * wE)}%)`); if (near) parts.push(`${near.n} nearest counted booths (${Math.round(100 * wN)}%)`); parts.push(`the state's ${E.state.n} counted booths (${Math.round(100 * wS)}%)`); if (demo) parts.push('its census profile against those booths');
+  return { sw: out.sw, basis: parts.join(', '), weights: { seat: wE, near: wN, state: wS }, n: { seat: se ? se.n : 0, near: near ? near.n : 0, state: E.state.n }, demo };
+}
+function aggSw(list) { const w = list.reduce((a, r) => a + r.w, 0); const sw = {}; for (const g of PROJ_GROUPS) sw[g] = list.reduce((a, r) => a + r.w * r.sw[g], 0) / w; return { sw, n: list.length, w }; }
+// apply a swing to 2022 shares, clipped and renormalised
+function projApply(was, sw) { const o = {}; let t = 0; for (const g of PROJ_GROUPS) { o[g] = Math.max(0, (was[g] || 0) + (sw[g] || 0)); t += o[g]; } if (t > 0) for (const g of PROJ_GROUPS) o[g] /= t; return o; }
+// one booth: counted, or projected shares with the basis
+function projectBooth(cid, b) {
+  const key = b.booth_id; if (PROJ.booths.has(key) && PROJ.at === (LIVE.fetchedAt || 'none')) return PROJ.booths.get(key);
+  const eid = LIVE.election; let out;
+  if (b.reported) { const q = projSharesOf(eid, b.booth_id); out = q.formal ? { counted: true, shares: q, votes: q.formal } : null; }
+  if (!out) { const b22 = proj22Booth(b); const enrolRatio = projEnrolRatio(cid);
+    if (b22) { const was = projSharesOf('vic2022', b22.booth_id); const s = projSwing(cid, b); out = { counted: false, shares: projApply(was, s.sw), votes: Math.round(was.formal * enrolRatio), was, swing: s, newBooth: false }; }
+    else { const was = projSharesOf('vic2022', (contestIn('vic2022', cid, eid) || {}).contest_id || cid); const s = projSwing(cid, b); out = { counted: false, shares: projApply(was, s.sw), votes: Math.round(600 * enrolRatio), was, swing: s, newBooth: true }; } }
+  PROJ.booths.set(key, out); return out;
+}
+function projEnrolRatio(cid) { const c = idx.contestById.get(LIVE.election + '|' + cid), c22 = idx.contestById.get('vic2022|' + cid); return c && c.enrolment && c22 && c22.enrolment ? Math.max(0.85, Math.min(1.25, c.enrolment / c22.enrolment)) : 1; }
+// the whole electorate: pools -> projected first preferences for this year's candidates -> preference model
+function projectSeat(cid) {
+  if (PROJ.seats.has(cid) && PROJ.at === (LIVE.fetchedAt || 'none')) return PROJ.seats.get(cid);
+  const eid = LIVE.election; const lc = LIVE.latest && LIVE.latest.contests[cid]; projEngine();
+  const booths = D.booths.filter(b => b.election_id === eid && b.contest_id === cid);
+  const pools = []; const tot = {}; for (const g of PROJ_GROUPS) tot[g] = 0; let counted = 0, expected = 0;
+  // election-day booths
+  let nb = 0, nbc = 0;
+  for (const b of booths.filter(x => x.booth_type === 'ordinary')) { const p = projectBooth(cid, b); if (!p) continue; nb++; if (p.counted) nbc++; for (const g of PROJ_GROUPS) tot[g] += p.votes * p.shares[g]; expected += p.votes; if (p.counted) counted += p.votes; }
+  pools.push({ type: 'ordinary', label: 'Election-day booths', counted: nbc, listed: nb, votes: booths.filter(x => x.booth_type === 'ordinary' && x.reported).reduce((a, b) => a + projSharesOf(eid, b.booth_id).formal, 0) });
+  // the other pools: 2022 size and shares for this electorate, shifted by the electorate's swing; the counted pool takes over as it comes in
+  const c22 = contestIn('vic2022', cid, eid); const cid22 = c22 ? c22.contest_id : cid; const enrolRatio = projEnrolRatio(cid);
+  const seatSwing = projSwing(cid, null);
+  const reg = (LIVE.daily && LIVE.daily.early_voting && LIVE.daily.early_voting[cid]) || {};
+  for (const [type, label] of [['early', 'Early votes'], ['postal', 'Postal votes'], ['absent', 'Absent votes'], ['provisional', 'Provisional votes']]) {
+    const rows22 = D.booths.filter(x => x.election_id === 'vic2022' && x.contest_id === cid22 && x.booth_type === type); let was = { formal: 0 }; for (const g of PROJ_GROUPS) was[g] = 0;
+    for (const r of rows22) { const q = projSharesOf('vic2022', r.booth_id); if (!q.formal) continue; for (const g of PROJ_GROUPS) was[g] = (was[g] * was.formal + q[g] * q.formal) / (was.formal + q.formal); was.formal += q.formal; }
+    let size = Math.round(was.formal * enrolRatio);
+    if (type === 'early' && reg.early) size = Math.round(reg.early * 0.985); if (type === 'postal' && reg.postal_applications) size = Math.round(reg.postal_applications * 0.85);
+    const now = { formal: 0 }; for (const g of PROJ_GROUPS) now[g] = 0;
+    for (const r of booths.filter(x => x.booth_type === type && x.reported)) { const q = projSharesOf(eid, r.booth_id); if (!q.formal) continue; for (const g of PROJ_GROUPS) now[g] = (now[g] * now.formal + q[g] * q.formal) / (now.formal + q.formal); now.formal += q.formal; }
+    const projected = was.formal ? projApply(was, seatSwing.sw) : null;
+    const total = Math.max(size, now.formal); if (!total) continue;
+    // counted fraction: the counted pool is a sample of the rest of it; trust it fully once a third is in
+    const f = now.formal ? Math.min(1, now.formal / Math.max(1, size) / 0.33) : 0;
+    const sh = {}; for (const g of PROJ_GROUPS) sh[g] = now.formal ? f * now[g] + (1 - f) * (projected ? projected[g] : now[g]) : (projected ? projected[g] : 0);
+    for (const g of PROJ_GROUPS) tot[g] += total * sh[g]; expected += total; counted += now.formal;
+    pools.push({ type, label, counted: now.formal, listed: null, votes: now.formal, size: total, shares: sh, projected, was, sized_by: type === 'early' && reg.early ? 'VEC early-voting statistics' : type === 'postal' && reg.postal_applications ? 'postal applications' : '2022' });
+  }
+  // projected first preferences by candidate: each group's votes split among its candidates by the counted proportions (or equally)
+  const cands = D.candidates.filter(x => x.election_id === eid && x.contest_id === cid); const byG = {}; for (const c of cands) (byG[grpParty(c.party)] = byG[grpParty(c.party)] || []).push(c);
+  const fps = [];
+  for (const g of PROJ_GROUPS) { const list = byG[g]; if (!list || !list.length || !tot[g]) continue; const cnt = list.map(c => c.fp_total || 0); const cs = cnt.reduce((a, v) => a + v, 0); list.forEach((c, i) => fps.push({ id: c.candidate_id, party: c.party, votes: tot[g] * (cs ? cnt[i] / cs : 1 / list.length), cand: c })); }
+  // groups with projected votes but no candidate this year (e.g. no One Nation candidate): give them to OTH / IND candidates, else drop
+  const formal = fps.reduce((a, f) => a + f.votes, 0);
+  let tcp = null;
+  if (fps.length >= 2 && PREF) { const pw = prefWeights(eid); const cards = seatCards(eid, cid); const base = HTV[HTV_BASE];
+    const sim = fps.length > 2 ? simulateCount(fps, pw.W, null, { cards, pairwise: cards && base ? base.pairwise : null, adj: BALLOT && BALLOT.model, adjScale: adjScaleSeat(cid) }) : { final: new Map(fps.map(f => [f.id, f.votes])), ladder: [], cardsUsed: 0 };
+    const t = [...sim.final.values()].reduce((a, v) => a + v, 0); if (t) tcp = { pair: [...sim.final.entries()].map(([id, v]) => { const c = fps.find(f => f.id === id); return { cand: c.cand, party: c.party, votes: Math.round(v), share: v / t }; }).sort((a, b) => b.votes - a.votes), ladder: sim.ladder, cardsUsed: sim.cardsUsed, fp: fps, label: pw.label }; }
+  const out = { cid, pools, fps, formal, tcp, counted, expected, countedShare: expected ? counted / expected : 0, seatSwing, boothsCounted: nbc, boothsListed: nb, cands };
+  PROJ.seats.set(cid, out); return out;
+}
+// map metrics
+function projMetricContest(cid, p) {
+  const P = projectSeat(cid); if (!P || !P.tcp) return { cat: null, strength: 0, label: 'Projected', text: 'no projection (no candidates or model)' };
+  const top = P.tcp.pair[0], cat = grpParty(top.party); const how = `${Math.round(100 * P.countedShare)}% of the expected vote counted (${P.boothsCounted}/${P.boothsListed} booths)`;
+  if (state.metric === 'projwin') return { cat, strength: top.share, label: 'Projected winner', text: `${candName(top.cand)} ≈${pct(top.share)} · ${how}` };
+  const mine = P.tcp.pair.find(x => grpParty(x.party) === p); return mine ? { v: mine.share, label: `${PARTY_NAME[p]} projected 2CP`, text: `≈${pct(mine.share)} · ${how}` } : { v: null, label: 'Projected 2CP', text: `${PARTY_NAME[p]} not in the projected final two · ${how}` };
+}
+function projMetricBooth(bid, p) {
+  const b = idx.boothsByKey.get(LIVE.election + '|' + bid); if (!b || b.booth_type !== 'ordinary') return { v: null, cat: null, label: 'Projected', text: 'election-day booths only' };
+  const P = projectBooth(b.contest_id, b); if (!P) return { v: null, cat: null, label: 'Projected', text: 'nothing to project from' };
+  // the booth's projected (or counted) primaries through the model for a two-candidate figure
+  const cands = D.candidates.filter(x => x.election_id === LIVE.election && x.contest_id === b.contest_id); const byG = {}; for (const c of cands) (byG[grpParty(c.party)] = byG[grpParty(c.party)] || []).push(c);
+  const fps = []; for (const g of PROJ_GROUPS) { const list = byG[g]; if (!list || !P.shares[g]) continue; const cnt = list.map(c => c.fp_total || 0); const cs = cnt.reduce((a, v) => a + v, 0); list.forEach((c, i) => fps.push({ id: c.candidate_id, party: c.party, votes: P.votes * P.shares[g] * (cs ? cnt[i] / cs : 1 / list.length), cand: c })); }
+  if (fps.length < 2 || !PREF) return { v: null, cat: null, label: 'Projected', text: 'no candidates yet' };
+  const pw = prefWeights(LIVE.election); const cards = seatCards(LIVE.election, b.contest_id); const base = HTV[HTV_BASE];
+  const sim = fps.length > 2 ? simulateCount(fps, pw.W, null, { cards, pairwise: cards && base ? base.pairwise : null, adj: BALLOT && BALLOT.model, adjScale: adjScaleVenue(b.venue_id) }) : { final: new Map(fps.map(f => [f.id, f.votes])) };
+  const t = [...sim.final.values()].reduce((a, v) => a + v, 0); const pair = [...sim.final.entries()].map(([id, v]) => { const c = fps.find(f => f.id === id); return { cand: c.cand, party: c.party, share: v / t }; }).sort((a, b_) => b_.share - a.share);
+  const how = P.counted ? 'counted' : `projected: 2022 here + swing from ${P.swing.basis}`;
+  const top = pair[0], cat = grpParty(top.party);
+  if (state.metric === 'projwin') return { cat, strength: top.share, label: P.counted ? 'Counted (model 2CP)' : 'Projected winner', text: `${candName(top.cand)} ≈${pct(top.share)} · ${how}`, projected: !P.counted };
+  const mine = pair.find(x => grpParty(x.party) === p); return mine ? { v: mine.share, label: `${PARTY_NAME[p]} ${P.counted ? '' : 'projected '}2CP`, text: `≈${pct(mine.share)} · ${how}`, projected: !P.counted } : { v: null, label: 'Projected 2CP', text: `${PARTY_NAME[p]} not in the final two here` };
+}
+// the seat panel block
+function projectionBlock(cid) {
+  if (!PREF || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined || !DEMOG_BOOTH) { Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE), ensureDemogBooth()]).then(() => { if (selected && selected.election === LIVE.election && selected.contest === cid) renderContestDetail2026(cid); }); }
+  const P = projectSeat(cid); if (!P || !P.tcp) return null;
+  const box = h('div', { style: 'margin-top:8px' }, h('h3', {}, 'Projected result (Atlas)'));
+  for (const x of P.tcp.pair) box.append(h('div', { style: 'margin:4px 0' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), candName(x.cand)), h('span', { class: 'mono' }, `≈${pct(x.share)}`)), h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)};opacity:.85` }))));
+  box.append(h('div', { class: 'hint' }, `${Math.round(100 * P.countedShare)}% of the expected vote is counted (${P.boothsCounted} of ${P.boothsListed} booths). The rest is projected pool by pool: uncounted booths from their 2022 result plus the swing estimated from ${P.seatSwing.basis}; early, postal, absent and provisional votes from the electorate's 2022 pools with the same swing, each keeping its own lean, replaced by the counted pool as it comes in. The projected first preferences then run through the preference model.`));
+  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Pool'), h('th', { class: 'num' }, 'Counted'), h('th', { class: 'num' }, 'Expected'), h('th', {}, 'Basis'))),
+    h('tbody', {}, ...P.pools.map(pl => h('tr', {}, h('td', {}, pl.label), h('td', { class: 'num' }, pl.type === 'ordinary' ? `${pl.counted}/${pl.listed} booths · ${fmt(pl.votes)}` : fmt(pl.counted)), h('td', { class: 'num' }, pl.type === 'ordinary' ? fmt(Math.round(P.expected - P.pools.filter(q => q.type !== 'ordinary').reduce((a, q) => a + q.size, 0))) : fmt(pl.size)), h('td', { class: 'hint' }, pl.type === 'ordinary' ? (pl.counted === pl.listed ? 'all counted' : 'uncounted booths from 2022 + swing') : pl.counted >= 0.33 * pl.size ? 'counted pool' : pl.counted ? 'counted pool blended with 2022 + swing' : `2022 pool + swing, sized by ${pl.sized_by}`)))));
+  box.append(h('div', { class: 'tablewrap', style: 'margin-top:6px' }, t));
+  const fpsSorted = P.fps.slice().sort((a, b) => b.votes - a.votes);
+  box.append(h('div', { class: 'tablewrap', style: 'margin-top:6px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Projected first preferences'), h('th', { class: 'num' }, 'Counted'), h('th', { class: 'num' }, 'Projected'))),
+    h('tbody', {}, ...fpsSorted.map(f => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(f.party)}` }), candName(f.cand))), h('td', { class: 'num' }, f.cand.fp_total != null && P.counted ? pct(f.cand.fp_total / Math.max(1, P.cands.reduce((a, c) => a + (c.fp_total || 0), 0))) : '–'), h('td', { class: 'num' }, `≈${pct(f.votes / P.formal)}`)))))));
+  box.append(ladderBlock({ ...P.tcp, cid }, LIVE.election));
+  return box;
+}
 function liveContestMetric(cid, p) {
   const pr = liveProjection(cid);
   if (!pr) return state.metric === 'tcpwin' ? { cat: null, strength: 0, label: 'Projected winner', text: 'no count yet' } : { v: null, label: '2CP', text: 'no count yet' };
@@ -2587,7 +2748,7 @@ async function pollLive(manual) {
     const j = await res.json();
     if (!j || !j.contests) throw new Error('unexpected feed format');
     const changed = j.fetched_at !== LIVE.fetchedAt;
-    LIVE.latest = j; LIVE.fetchedAt = j.fetched_at; LIVE.available = true; LIVE.error = null;
+    LIVE.latest = j; LIVE.fetchedAt = j.fetched_at; LIVE.available = true; LIVE.error = null; projReset();
     if (changed) {
       rebuildLiveTables(j); buildIndexes(); refreshSql(); venueRows = null;
       if (state.election === LIVE.election && mapReady) renderMap();
@@ -2631,6 +2792,8 @@ function renderContestDetail2026(cid) {
       for (const x of pr.pair) root.append(h('div', { style: 'margin:4px 0' }, h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), x.cand ? x.cand.surname : x.party), h('span', { class: 'mono' }, `${x.votes != null ? fmt(x.votes) + ' · ' : ''}${pct(x.share)}`)), h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)}` }))));
       root.append(h('div', { class: 'hint' }, pr.method === 'projected' ? `${PARTY_NAME[pr.baseParty]} had ${pct(pr.base)} after preferences in 2022; the ${pts(pr.swing)} pt swing is measured at ${pr.booths} matched booth${pr.booths === 1 ? '' : 's'}. Counted so far: ${pr.countedPair.map(x => `${x.cand ? x.cand.surname : x.party} ${pct(x.share)}`).join(' v ')}.` : pr.method === 'official' ? 'From the VEC distribution of preferences.' : 'No projection: the two candidates in the VEC count are not the same pairing as 2022, so this is the raw count.'));
     }
+    // the Atlas projection: counted pools plus the projected rest, through the preference model
+    if (pr && pr.method !== 'official') { const pb = projectionBlock(cid); if (pb) root.append(pb); }
     // the preference-flow model: a two-candidate result for any pair, from the first preferences counted so far
     if (PREF) { const mb = modelledBlock(eid, cid, pr && pr.method !== 'official' ? { compare: pr, compareLabel: pr.method === 'projected' ? 'VEC pair, projected' : 'VEC count' } : {}); if (mb) root.append(mb); }
     else Promise.all([ensurePref(), ensureHtv(eid), ensureHtv(HTV_BASE)]).then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail2026(cid); });
@@ -2723,7 +2886,7 @@ function fillCensusSelect() {
   if (cs.dataset.set !== set.set) { cs.innerHTML = ''; const groups = new Map(); for (const x of set.indicators) if (x.kind !== 'text' && !x.hidden) (groups.get(x.group) || groups.set(x.group, []).get(x.group)).push(x); for (const [g, arr] of groups) { const og = h('optgroup', { label: g }); for (const x of arr) og.append(h('option', { value: x.id }, x.label)); cs.append(og); } cs.dataset.set = set.set; }
   state.census = demogId(state.census, set) || (set.ind.has('income_household_median') ? 'income_household_median' : 'income_and_expense_income'); cs.value = state.census;
 }
-function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at electorate level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'census'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; el('f-census').hidden = u === 'lc' || state.metric !== 'census'; renderMap(); }
+function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at electorate level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin' || state.metric === 'census'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; el('f-census').hidden = u === 'lc' || state.metric !== 'census'; renderMap(); }
 function setElection(eid) { state.election = eid; el('sel-election').value = eid; renderLiveBox(); renderMap(); if (activeView() === 'dash') renderDash(); }
 function fillElectionSelect(sel, ids) { sel.innerHTML = ''; for (const id of ids) sel.append(h('option', { value: id }, idx.electionById.get(id).name)); }
 function searchBooths(q) {
@@ -2759,7 +2922,7 @@ async function boot() {
     for (const b of el('strip-mode').querySelectorAll('button')) { b.setAttribute('aria-pressed', b.dataset.v === dash.strip); b.addEventListener('click', () => { dash.strip = b.dataset.v; for (const o of el('strip-mode').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); try { localStorage.setItem('atlas.strip', dash.strip); } catch (e) {} renderStrip(dashRows(state.election), state.election); }); }
     fillElectionSelect(el('cmp-a'), ids); fillElectionSelect(el('cmp-b'), ids); el('cmp-a').value = 'fed2022'; el('cmp-b').value = 'vic2022';
     el('sel-election').addEventListener('change', (e) => setElection(e.target.value));
-    el('sel-metric').addEventListener('change', async (e) => { state.metric = e.target.value; el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'census'; el('f-gap').hidden = state.metric !== 'gap'; el('f-census').hidden = state.metric !== 'census';
+    el('sel-metric').addEventListener('change', async (e) => { state.metric = e.target.value; el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin' || state.metric === 'census'; el('f-gap').hidden = state.metric !== 'gap'; el('f-census').hidden = state.metric !== 'census';
       if (state.metric === 'census') { await ensureDemog(); fillCensusSelect(); }
       renderMap(); });
     el('sel-party').addEventListener('change', (e) => { state.party = e.target.value; renderMap(); });
@@ -2785,6 +2948,6 @@ async function boot() {
   } catch (e) { status('failed to load: ' + e.message); console.error(e); }
 }
 boot();
-window.__eba = { modelledTcp, contestTcp, laContests, HTV, ensureHtv, ensurePref, metricValueContest, metricValue, state, tipForContest, progressText, countProgress, select, pickUnreported: () => { const d = D.booths.find(x => x.election_id === LIVE.election && x.booth_type === 'ordinary' && !x.reported && x.contest_id === 'vic-richmond'); return d ? d.booth_id : null; } };   // for headless checks
+window.__eba = { modelledTcp, contestTcp, laContests, HTV, ensureHtv, ensurePref, metricValueContest, metricValue, state, tipForContest, progressText, countProgress, select, boothsOf: (cid) => D.booths.filter(x => x.election_id === LIVE.election && x.contest_id === cid && x.booth_type === 'ordinary'), pickUnreported: () => { const d = D.booths.find(x => x.election_id === LIVE.election && x.booth_type === 'ordinary' && !x.reported && x.contest_id === 'vic-richmond'); return d ? d.booth_id : null; } };   // for headless checks
 })();
 </script>
