@@ -23,7 +23,7 @@ if (/(\.github\.io|electionboothatlas\.(org|com))$/.test(location.hostname)) {
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,500;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,400&display=swap">
 <style>
 /* Layout: a full-height workbench. Top rail (name + views), then a three-column map bench:
    controls | map | detail. Charts and tables live in the detail column and the other views. */
@@ -152,6 +152,16 @@ select, input[type=text], input[type=search], textarea { width: 100%; background
 .detail h2 { font-family: var(--font-display); font-weight: 500; font-size: 18px; margin: 0 0 2px; text-wrap: balance; }
 .detail .meta { color: var(--fg-2); font-size: 12px; margin-bottom: 10px; }
 .detail h3 { margin: 14px 0 6px; }
+details.book > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 14px minmax(0, 1fr); column-gap: 8px; row-gap: 3px; align-items: baseline; user-select: none; }
+details.book > summary::-webkit-details-marker { display: none; }
+details.book > summary::before { content: '›'; grid-row: 1; color: var(--fg-3); font-size: 18px; line-height: 1; transition: transform .15s; transform-origin: 40% 55%; }
+details.book[open] > summary::before { transform: rotate(90deg); }
+details.book > summary .bk-t { font-family: var(--font-display); font-weight: 600; font-size: 19px; letter-spacing: -.005em; }
+details.book > summary .bk-s { grid-column: 2; font-size: 13px; color: var(--fg-2); line-height: 1.45; }
+details.book > summary:hover .bk-t { color: var(--accent); }
+details.book > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+details.book[open] > summary { padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line); }
+details.book .bk-sec + .bk-sec { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
 details.fold { border-top: 1px solid var(--line); margin-top: 10px; }
 details.fold > summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 8px; padding: 9px 0 7px; user-select: none; }
 details.fold > summary::-webkit-details-marker { display: none; }
@@ -505,17 +515,29 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
   <section class="view" id="view-prefs">
     <div class="page"><div class="inner">
       <div class="panel" id="md-head"></div>
-      <div class="panel" id="md-members"></div>
-      <div class="panel" id="md-pendulum"></div>
-      <div class="panel" id="md-swings"></div>
-      <div class="panel" id="pf-head"><div class="empty">Loading the preference model…</div></div>
-      <div class="panel"><div class="row" style="justify-content:space-between;align-items:end;gap:10px;margin-bottom:8px;flex-wrap:wrap"><h3 style="margin:0">Where each party’s voters go</h3>
+      <details class="panel book" id="bk-members"><summary><span class="bk-t">The personal vote</span><span class="bk-s" id="bk-members-s"></span></summary><div class="bk-b">
+        <div id="md-members"></div>
+      </div></details>
+      <details class="panel book" id="bk-pendulum"><summary><span class="bk-t">Who loses: the pendulum, tested</span><span class="bk-s" id="bk-pendulum-s"></span></summary><div class="bk-b">
+        <div id="md-pendulum"></div>
+      </div></details>
+      <details class="panel book" id="bk-swings"><summary><span class="bk-t">Swings and roundabouts</span><span class="bk-s" id="bk-swings-s"></span></summary><div class="bk-b">
+        <div id="md-swings"></div>
+      </div></details>
+      <details class="panel book" id="bk-prefs"><summary><span class="bk-t">Preference flows and the two-candidate model</span><span class="bk-s" id="bk-prefs-s"></span></summary><div class="bk-b">
+        <div class="bk-sec" id="pf-head"><div class="empty">Loading the preference model…</div></div>
+        <div class="bk-sec"><div class="row" style="justify-content:space-between;align-items:end;gap:10px;margin-bottom:8px;flex-wrap:wrap"><h3 style="margin:0">Where each party’s voters go</h3>
           <div class="field" style="flex:0 1 260px"><label for="pf-choice">When the choice left is</label><select id="pf-choice"><option value="ALP|LIB">Labor v Liberal</option><option value="ALP|GRN">Labor v Greens</option><option value="LIB|ONP">Liberal v One Nation</option><option value="ALP|ONP">Labor v One Nation</option><option value="ALP|NAT">Labor v Nationals</option><option value="LIB|IND">Liberal v independent</option><option value="ALP|IND">Labor v independent</option></select></div></div>
         <div class="tablewrap" id="pf-flows"></div><p class="hint" id="pf-flows-note"></p></div>
-      <div class="panel"><h3>How well it predicts: 2022 from 2018</h3><div id="pf-val"></div></div>
-      <div class="panel" id="pf-cards-panel"><h3>Registered how-to-vote cards</h3><div id="pf-cards"></div></div>
-      <div class="panel" id="pf-ballot-panel"><h3>Ballot order: donkey and adjacency voting</h3><div id="pf-ballot"></div></div>
-      <div class="panel" id="md-bounds"></div>
+        <div class="bk-sec"><h3>How well it predicts: 2022 from 2018</h3><div id="pf-val"></div></div>
+        <div class="bk-sec" id="pf-cards-panel"><h3>Registered how-to-vote cards</h3><div id="pf-cards"></div></div>
+      </div></details>
+      <details class="panel book" id="bk-ballot"><summary><span class="bk-t">Ballot order: donkey and adjacency voting</span><span class="bk-s" id="bk-ballot-s"></span></summary><div class="bk-b">
+        <div id="pf-ballot"></div>
+      </div></details>
+      <details class="panel book" id="bk-bounds"><summary><span class="bk-t">New boundaries: notional results</span><span class="bk-s" id="bk-bounds-s"></span></summary><div class="bk-b">
+        <div id="md-bounds"></div>
+      </div></details>
     </div></div>
   </section>
 
@@ -1771,16 +1793,24 @@ async function renderModel() {
   await ensureModelF(); const M = MODEL_F;
   const head = el('md-head'); if (!head || head.dataset.done) return; head.dataset.done = '1';
   if (!M) { head.append(h('div', { class: 'empty' }, 'No model findings file (site/data/model_findings.json).')); return; }
-  const jump = (id, t) => h('a', { href: '#' + id, onclick: (ev) => { ev.preventDefault(); el(id).scrollIntoView({ behavior: 'smooth', block: 'start' }); } }, t);
+  const jump = (id, t) => h('a', { href: '#' + id, onclick: (ev) => { ev.preventDefault(); el(id).open = true; el(id).scrollIntoView({ behavior: 'smooth', block: 'start' }); } }, t);
+  // the books: closed by default, the ones a reader opened stay open next time
+  let openB = []; try { openB = JSON.parse(localStorage.getItem('eba_books') || '[]'); } catch (e) {}
+  for (const d of document.querySelectorAll('details.book')) { if (openB.includes(d.id)) d.open = true;
+    d.addEventListener('toggle', () => { try { const ids = [...document.querySelectorAll('details.book')].filter(x => x.open).map(x => x.id); localStorage.setItem('eba_books', JSON.stringify(ids)); } catch (e) {} }); }
+  const teaser = (id, t) => { const x = el(id + '-s'); if (x) x.textContent = t; };
+  teaser('bk-members', `A member who wins a seat from the other side gains about ${M.members.all.sophomore_gain.pts.toFixed(1)} points at their first re-election. When a member retires, the party loses about ${Math.abs(M.members.all.open.pts).toFixed(0)}.`);
+  teaser('bk-pendulum', `A point of swing is worth a point of margin, and hardly anything else predicts who loses, except the independent nobody saw coming.`);
+  teaser('bk-swings', `The Greens move by the same points everywhere, Labor loses most where it is strongest, and One Nation grows where it is already strong.`);
+  teaser('bk-bounds', `Our notional results sit within half a point of the published ones, and seats that change hands on paper are decided by the swing.`);
   head.append(h('h2', { class: 'dash-title' }, 'The Atlas Model'),
-    h('p', { class: 'hint' }, 'What the Atlas has learnt from Victorian results since 1999 (state elections and federal elections in Victoria), and how it uses it. Every figure here is measured on past elections and, where it matters, tested on elections it was not fitted on. This page is history: seat-by-seat readings for 2026 follow once nominations close.'),
-    h('p', { class: 'hint', style: 'margin-top:6px' }, jump('md-members', 'The personal vote'), ' · ', jump('md-pendulum', 'Who loses'), ' · ', jump('md-swings', 'How votes move'), ' · ', jump('pf-head', 'Preferences'), ' · ', jump('pf-ballot-panel', 'Ballot order'), ' · ', jump('md-bounds', 'New boundaries')));
+    h('p', { class: 'hint' }, 'What the Atlas has learnt from Victorian results since 1999 (state elections and federal elections in Victoria), and how it uses it. Every figure here is measured on past elections and, where it matters, tested on elections it was not fitted on. This page is history: seat-by-seat readings for 2026 follow once nominations close. Open any section for the detail.'),
+    h('p', { class: 'hint', style: 'margin-top:6px' }, jump('bk-members', 'The personal vote'), ' · ', jump('bk-pendulum', 'Who loses'), ' · ', jump('bk-swings', 'Swings and roundabouts'), ' · ', jump('bk-prefs', 'Preferences'), ' · ', jump('bk-ballot', 'Ballot order'), ' · ', jump('bk-bounds', 'New boundaries')));
   // --- members
   const Me = M.members, A = Me.all, Tn = Me.tenure, TL = M.two_levels, Ch = M.challengers;
   const mv = Me.member_value['2_terms'];
   const box = el('md-members');
-  box.append(h('h3', {}, 'The personal vote'),
-    h('p', { class: 'hint' }, `Sitting members carry a vote of their own. Every seat contested at two elections in a row (${A.n} of them) is followed: how the member's party did against the same party's other seats that election, depending on what happened to the member. A member who won the seat from the other side gains at their first re-election (the sophomore surge); when a member does not stand again, the party pays. After the second term the personal vote neither grows nor fades.`),
+  box.append(h('p', { class: 'hint' }, `Sitting members carry a vote of their own. Every seat contested at two elections in a row (${A.n} of them) is followed: how the member's party did against the same party's other seats that election, depending on what happened to the member. A member who won the seat from the other side gains at their first re-election (the sophomore surge); when a member does not stand again, the party pays. After the second term the personal vote neither grows nor fades.`),
     h('div', { class: 'stats', style: 'margin:10px 0' }, stat(sp(A.sophomore_gain.pts) + ' pts', 'first re-election, member who won the seat from another party'), stat(sp(A.open.pts) + ' pts', 'party\'s vote when the member does not stand again'), stat('about ' + Math.round(mv.pts) + ' pts', 'what a member of two or more terms is worth to their party'), stat(sp(TL.ALP.xs.pts) + ' / ' + sp(TL.ALP.xf.pts), 'state / federal member, same polling place (split tickets)')),
     h('div', { class: 'tablewrap' }, effectPlot([['First re-election, won from another party', A.sophomore_gain], ['First re-election, succeeded a colleague', A.sophomore_held], ['First re-election after a by-election', A.sophomore_byelection], ['Standing for a 4th term', Tn.stand_3], ['Standing for a 5th term', Tn.stand_4], ['Standing for a 6th or later term', Tn.stand_5plus], ['Open seat: member served 1 term', Tn.open_1], ['Open seat: 2 terms', Tn.open_2], ['Open seat: 3 terms', Tn.open_3], ['Open seat: 4 or more terms', Tn.open_4plus]], -6, 6, 'Personal vote effects')),
     h('p', { class: 'hint' }, `Points of first preferences for the member's party, against the same party's other seats that election, with 90% bootstrap intervals. The first-term rows compare with longer-serving members standing again; the later-term and open-seat rows compare with members standing for a third term. State elections alone: ${sp(Me.state.sophomore_gain.pts)} for a gain, ${sp(Me.state.open.pts)} for an open seat.`),
@@ -1799,8 +1829,7 @@ async function renderModel() {
   const bandRows = [...new Set(P.by_margin.map(r => r.band))].map(b => { const a = P.by_margin.find(r => r.band === b && r.swing === 'against'), t = P.by_margin.find(r => r.band === b && r.swing === 'towards'); return h('tr', {}, h('td', {}, b.replace('-', '–') + '%'), h('td', { class: 'num' }, `${a.lost} of ${a.n}`), h('td', { class: 'num' }, `${t.lost} of ${t.n}`)); });
   const preds = P.predictors.filter(p => p.key !== 'leader').sort((a, b) => b.loeo_gain - a.loeo_gain);
   const LT = P.lost_to['surprise (p < 0.2)'];
-  pb.append(h('h3', {}, 'Who loses: the pendulum, tested'),
-    h('p', { class: 'hint' }, `Every Labor or Coalition member who stood again (${P.n}, of whom ${P.losses} lost). Two things sort the winners from the losers: their margin last time (notional where boundaries changed) and the statewide two-party swing. A point of swing turns out to be worth a point of margin, which is the pendulum, estimated rather than assumed. Seats scatter around a uniform swing by about ${B.seat_sd_pts.toFixed(1)} points, and a member standing again holds on until the uniform-swing margin reaches about ${sp(-B.members_beat_uniform_by_pts)} pts: their personal vote again.`),
+  pb.append(h('p', { class: 'hint' }, `Every Labor or Coalition member who stood again (${P.n}, of whom ${P.losses} lost). Two things sort the winners from the losers: their margin last time (notional where boundaries changed) and the statewide two-party swing. A point of swing turns out to be worth a point of margin, which is the pendulum, estimated rather than assumed. Seats scatter around a uniform swing by about ${B.seat_sd_pts.toFixed(1)} points, and a member standing again holds on until the uniform-swing margin reaches about ${sp(-B.members_beat_uniform_by_pts)} pts: their personal vote again.`),
     h('div', { class: 'stats', style: 'margin:10px 0' }, stat(B.loeo_auc.toFixed(2), 'accuracy (AUC), each election predicted from the others'), stat(B.swing_worth_margin.toFixed(2), 'points of margin per point of swing'), stat(B.seat_sd_pts.toFixed(1) + ' pts', 'seat scatter around uniform swing'), stat(`${LT['IND/other'] + LT.GRN} of ${LT.n}`, 'surprise losses that went to an independent or the Greens')),
     h('div', { class: 'two' }, h('div', {}, h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Margin last time'), h('th', { class: 'num' }, 'Lost, swing against'), h('th', { class: 'num' }, 'Lost, swing towards'))), h('tbody', {}, ...bandRows)))),
       h('div', {}, h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Anything else?'), h('th', { class: 'num', title: 'odds ratio of losing, on top of margin and swing, 90% interval' }, 'Odds of losing'))),
@@ -1810,8 +1839,7 @@ async function renderModel() {
   const S = M.swings, R_ = S.rules, sw = el('md-swings'), PNM = { ALP: 'Labor', COAL: 'Coalition', GRN: 'Greens', MINOR: 'Minor parties' };
   const read = (l) => l < 0.25 ? 'uniform' : l > 0.75 ? 'proportional' : 'in between';
   const BT = S.backtest;
-  sw.append(h('h3', {}, 'How votes move: first preferences, party by party'),
-    h('p', { class: 'hint' }, 'When a party\'s statewide vote rises or falls, does every seat move by the same number of points (a uniform swing), or by the same proportion, so that seats move more where the party was stronger? Tested on every pair of consecutive elections, given the true statewide result, one election held out at a time. λ blends the two rules: 0 is uniform, 1 is proportional.'),
+  sw.append(h('p', { class: 'hint' }, 'When a party\'s statewide vote rises or falls, does every seat move by the same number of points (a uniform swing), or by the same proportion, so that seats move more where the party was stronger? Tested on every pair of consecutive elections, given the true statewide result, one election held out at a time. λ blends the two rules: 0 is uniform, 1 is proportional.'),
     h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Party'), h('th', { class: 'num' }, 'λ'), h('th', { class: 'num' }, 'Seat error, uniform'), h('th', { class: 'num' }, 'Seat error, proportional'), h('th', {}, 'Moves'))),
       h('tbody', {}, ...['ALP', 'COAL', 'GRN', 'MINOR'].map(k => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${k === 'MINOR' ? 'var(--oth)' : partyColor(k)}` }), PNM[k])), h('td', { class: 'num' }, R_[k].lambda.toFixed(2)), h('td', { class: 'num' }, R_[k].rmse_uniform.toFixed(1) + ' pts'), h('td', { class: 'num' }, R_[k].rmse_proportional.toFixed(1) + ' pts'), h('td', {}, read(R_[k].lambda)))),
         h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: 'background:var(--onp)' }), 'One Nation (Senate, 2022→2025)')), h('td', { class: 'num' }, S.onp.lambda.toFixed(2)), h('td', { class: 'num' }, S.onp.rmse_uniform.toFixed(1) + ' pts'), h('td', { class: 'num' }, S.onp.rmse_proportional.toFixed(1) + ' pts'), h('td', {}, read(S.onp.lambda) + ', grew most where already strong')))))),
@@ -1828,8 +1856,7 @@ async function renderModel() {
     s += `<line x1="${X(lo)}" y1="${Y(lo)}" x2="${X(hi)}" y2="${Y(hi)}" stroke="var(--fg-3)"/><text x="${(X(lo) + X(hi)) / 2}" y="${Hh - 4}" text-anchor="middle" style="fill:var(--fg-3);font:10px var(--font-ui)">Published notional, Labor two-party %</text>`;
     for (const [e, sh] of [['vic2022', 'c'], ['fed2025', 's']]) for (const r of C[e].rows) { const col = r.green >= 50 ? 'var(--alp)' : 'var(--coal)'; s += sh === 'c' ? `<circle cx="${X(r.green)}" cy="${Y(r.atlas)}" r="3" fill="${col}" fill-opacity=".75"><title>${r.seat}: published ${r.green.toFixed(1)}, Atlas ${r.atlas.toFixed(1)}</title></circle>` : `<rect x="${X(r.green) - 3}" y="${Y(r.atlas) - 3}" width="6" height="6" fill="none" stroke="${col}" stroke-width="1.4"><title>${r.seat} (federal): published ${r.green.toFixed(1)}, Atlas ${r.atlas.toFixed(1)}</title></rect>`; }
     return svgEl(s + '</svg>'); })();
-  bx.append(h('h3', {}, 'New boundaries: notional results'),
-    h('p', { class: 'hint' }, `When boundaries change, the last election is rebuilt on the new map: votes at each election-day booth follow its catchment, weighted by where people live (census SA1s), and every other vote follows the old seat's population. The Atlas holds notional results for all seven redistributions since 1999 (state 2002, 2014, 2022; federal 2010, 2019, 2022, 2025) and uses them for swings and margins in redrawn seats.`),
+  bx.append(h('p', { class: 'hint' }, `When boundaries change, the last election is rebuilt on the new map: votes at each election-day booth follow its catchment, weighted by where people live (census SA1s), and every other vote follows the old seat's population. The Atlas holds notional results for all seven redistributions since 1999 (state 2002, 2014, 2022; federal 2010, 2019, 2022, 2025) and uses them for swings and margins in redrawn seats.`),
     h('div', { class: 'stats', style: 'margin:10px 0' }, stat(C.vic2022.mean_abs_diff.toFixed(2) + ' pts', `average gap from published notionals (2022 state)`), stat(`${F.won_by_notional_party} of ${F.n}`, `paper changes of hand won by the paper side (${F.expected_on_uniform_swing} expected)`), stat(sp(Tr.other_party_pts_per_100pct) + ' pts', 'swing to the new member, voters from an opposing seat')),
     h('p', { class: 'hint' }, `Published notionals: Antony Green (ABC), ${C.vic2022.seats} state seats in 2022 and ${C.fed2025.seats} federal divisions in 2025 (average gap ${C.fed2025.mean_abs_diff.toFixed(2)} pts). The swing figure is per 100% of the seat moved in from an opposing member's seat, so a seat taking a fifth of its voters from the other side's MP is about ${(Tr.other_party_pts_per_100pct / 5).toFixed(1)} pts better for its member than its notional margin says.`),
     h('div', { class: 'two' }, h('div', {}, sc, h('p', { class: 'hint' }, 'Atlas against published notionals: 2022 state (circles), 2025 federal (squares), Labor v Coalition seats.')),
@@ -1843,8 +1870,8 @@ async function renderPrefs() {
   if (P.missing) { head.append(h('div', { class: 'empty' }, 'No preference model file (site/data/pref_flows.json).')); return; }
   if (!pfUI.wired) { pfUI.wired = true; el('pf-choice').addEventListener('change', (e) => { pfUI.choice = e.target.value; renderPrefs(); }); }
   const V = P.validation || {};
-  head.append(h('h3', {}, 'Preference flows and the two-candidate model'),
-    h('p', { class: 'hint' }, 'Every distribution of preferences the Atlas holds (state 2010–2022, federal 2010–2025, the by-elections) is read as a set of observations: when a candidate is excluded, where their pile goes among those still standing. From those, each voter-party gets a fitted weight for every destination (a Luce choice model, by maximum likelihood), so the share going to any party can be worked out for any combination of candidates left, including ones never seen. On election night the model runs the first preferences counted so far through the exclusions, which gives a two-candidate figure for any pair in every seat without waiting for a VEC two-candidate count. Nothing from the polls goes in.'),
+  { const t = el('bk-prefs-s'); if (t && V.contests) t.textContent = `Fitted on 2018 and given only the 2022 first preferences, the model picked the right final two in ${V.final_pair_right} of ${V.contests} seats and the right winner in ${V.winner_right}.`; }
+  head.append(h('p', { class: 'hint' }, 'Every distribution of preferences the Atlas holds (state 2010–2022, federal 2010–2025, the by-elections) is read as a set of observations: when a candidate is excluded, where their pile goes among those still standing. From those, each voter-party gets a fitted weight for every destination (a Luce choice model, by maximum likelihood), so the share going to any party can be worked out for any combination of candidates left, including ones never seen. On election night the model runs the first preferences counted so far through the exclusions, which gives a two-candidate figure for any pair in every seat without waiting for a VEC two-candidate count. Nothing from the polls goes in.'),
     h('div', { class: 'stats', style: 'margin-top:10px' }, stat(`${V.final_pair_right}/${V.contests}`, 'seats where the 2018-fitted model picked the right final two in 2022'), stat(`${V.winner_right}/${V.contests}`, 'right winner'), stat(`${V.mean_abs_error_2cp_pts} pts`, 'mean error in the 2CP (median ' + V.median_abs_error_2cp_pts + ')'), stat(fmt(P.blend_2026.n_exclusions), 'exclusions behind the 2026 flows')));
   // flows table
   const [A, B] = pfUI.choice.split('|'); const cols = ['vic2014', 'vic2018', 'vic2022', 'fed2022', 'fed2025', 'blend'];
@@ -1885,6 +1912,7 @@ function renderBallotSection() {
   const box = el('pf-ballot'); box.innerHTML = ''; const B = BALLOT;
   if (!B || !B.model) { box.append(h('p', { class: 'hint' }, 'No ballot-order file (site/data/ballot_effects.json).')); return; }
   const M = B.model, D_ = B.donkey || {}, P_ = B.position || {}, S_ = B.seats || {};
+  { const t = el('bk-ballot-s'); if (t) t.textContent = `About ${(100 * M.below).toFixed(0)}% of an excluded candidate's votes go to the name printed just below them on the ballot, and almost as many to the name just above.`; }
   const eids = Object.keys(D_);
   box.append(h('p', { class: 'hint' }, 'Two things in the data say how many people vote by the ballot paper rather than by the candidates. First preferences: the candidate drawn first on the ballot does better than their party\'s other candidates that election (the classic 1-2-3 "donkey" vote starts at the top). Preferences: when a candidate is excluded, part of the pile goes to whoever is printed next to them on the ballot, beyond what party affinity and the registered card explain. The ballot draw is random, so that excess is clean. It turns out to run both ways, to the name below and to the name above almost equally, with a smaller bonus for the top of the ballot: most of it is people numbering outward from their first choice, not straight down the paper.'),
     h('div', { class: 'stats', style: 'margin:10px 0' }, stat(`${(100 * M.below).toFixed(1)}%`, 'of an excluded candidate\'s pile to the next name below'), stat(`${(100 * M.above).toFixed(1)}%`, 'to the next name above'), stat(`${(100 * M.top).toFixed(1)}%`, 'to the top of the ballot'),
