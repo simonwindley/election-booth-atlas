@@ -596,6 +596,26 @@
     "redistribution_vic",
     "redistribution_fed"
    ]
+  },
+  {
+   "id": "site_seat_assumptions",
+   "group": "Site",
+   "status": "planned",
+   "depends_on": [
+    "primary_swings",
+    "member_outlook_2026",
+    "returning_challengers",
+    "pref_flows",
+    "ballot_position"
+   ],
+   "question": "A 'Model assumptions' fold at the bottom of every 2026 seat panel: what the Atlas assumed for that seat.",
+   "headline": "",
+   "needs": "Final candidates (ballot draw) and 2026 how-to-vote cards. Contents: starting primaries (2022, by-election or notional) and any independent carried forward or dropped; each party's swing rule and the poll average used; One Nation's starting point (2022 upper-house vote in the district); the member effect applied (category, points); returning challengers (no bonus); preference flows (model version, registered cards, the Coalition-to-One Nation assumption, ballot-order adjacency once the draw is known); the uncertainty range; what would change the reading.",
+   "triggers": [
+    "nominations_2026",
+    "htv_2026",
+    "polls_2026"
+   ]
   }
  ]
 }
