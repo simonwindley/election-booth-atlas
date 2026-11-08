@@ -36,9 +36,27 @@ Repository → Settings → Pages → "Build and deployment" → Source: **GitHu
 `.github/workflows/pages.yml` then publishes the `site/` folder on every push that touches it. The first
 run takes a minute or two; the address will be
 
-    https://simonwindley.github.io/election-booth-atlas/
+    https://electionboothatlas.org/
 
-Anyone with that link gets the full atlas, basemap included. Check the Actions tab if it does not appear.
+(the old `https://simonwindley.github.io/election-booth-atlas/` address redirects there). Anyone with that link gets the
+full atlas, basemap included. Check the Actions tab if it does not appear.
+
+## The domains (Cloudflare, November 2026)
+
+Both domains are registered at Cloudflare on the electionboothatlas@gmail.com account.
+
+* **electionboothatlas.org** is the canonical address. DNS (all *DNS only*, grey cloud, so GitHub can issue the
+  certificate): four `A` records for the apex to 185.199.108-111.153, four `AAAA` to 2606:50c0:8000-8003::153, and
+  `CNAME www → simonwindley.github.io`. The `_github-pages-challenge-simonwindley` TXT record verifies the domain to the
+  GitHub account (github.com → Settings → Pages → Verified domains), so no one else can point a Pages site at it.
+  Repository → Settings → Pages → Custom domain is `electionboothatlas.org`, with Enforce HTTPS on. The Actions
+  workflow takes the domain from that setting, so there is no CNAME file in `site/`.
+* **electionboothatlas.com** redirects: placeholder proxied records (`A @ 192.0.2.1`, `CNAME www`) and a Redirect Rule
+  sending every request, path and query string kept, to `https://electionboothatlas.org` with a 301.
+* **Email**: Cloudflare Email Routing on both domains forwards `hello@` on both the .org and the .com to electionboothatlas@gmail.com (other addresses are dropped).
+  Cloudflare only receives; to send as hello@, add it in Gmail → Settings → Accounts → "Send mail as" (smtp.gmail.com,
+  port 587, a Google app password) and add `include:_spf.google.com` to the .org SPF record. `_dmarc` is `p=none`.
+* Visit counts (GoatCounter) run on the github.io and electionboothatlas hosts only (see `site/build.py`).
 
 ## 4. Updating
 
