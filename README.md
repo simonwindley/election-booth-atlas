@@ -264,6 +264,10 @@ while the model on the count so far or the VEC's own pair has a different leader
 excluded in the modelled count was within reach of the runner-up. The seat spectrum has a Projected mode while
 counting; the VEC's indicative pair stays in the table as a column.
 
+`tools/synth_feed.py OUT.json --swing-coal 6 --swing-grn 1.5 --reported 0.65 --pools early --tcp 0.8` writes a
+synthetic election-night feed from the 2022 results (uniform swing with booth noise, a share of booths in, chosen
+pools counted) in the live feed's format, for rehearsing the 2026 pages: copy it to `site/data/live/latest.json`.
+
 ## Boundaries and catchments
 
 `data/boundaries/*.geojson` carry a `contest_id` matching the results tables, simplified to ~30 m.

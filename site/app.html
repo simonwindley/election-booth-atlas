@@ -290,6 +290,7 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
             <option value="gap">Gap vs another election</option>
             <option value="primary">Leader on primary votes</option>
             <option value="tcpwin">Winner after preferences (2PP/2CP)</option>
+            <option value="called">Called seats (2026): colour once called, striped where changed hands</option>
             <option value="projwin">Projected winner (Atlas projection, 2026)</option>
             <option value="proj">Projected 2CP share (Atlas projection, 2026)</option>
             <option value="senate">Senate primary share (federal only)</option>
@@ -641,6 +642,10 @@ function makeMap() {
     map.addLayer({ id: 'catch-line', type: 'line', source: 'catch', paint: { 'line-color': css('--map-bg'), 'line-width': 0.5 }, layout: { visibility: 'none' } }, 'bounds-line');
     map.addSource('contests', { type: 'geojson', data: { type: 'FeatureCollection', features: [] }, promoteId: 'contest_id' });
     map.addLayer({ id: 'contest-fill', type: 'fill', source: 'contests', paint: { 'fill-color': ['coalesce', ['feature-state', 'color'], 'rgba(0,0,0,0)'], 'fill-opacity': 0.8 }, layout: { visibility: 'none' } }, 'bounds-line');
+    // hatching for seats that changed hands (the "Called" layer): diagonal stripes in the previous holder's colour over the winner's fill
+    // thin, half-transparent stripes in the old party's colour, so the winner's fill stays the dominant read
+    for (const p of PARTIES.concat(['none'])) { const c = document.createElement('canvas'); c.width = c.height = 16; const g = c.getContext('2d'); if (p !== 'none') { g.strokeStyle = partyColor(p); g.globalAlpha = 0.45; g.lineWidth = 2; for (let k = -16; k <= 32; k += 16) { g.beginPath(); g.moveTo(k, 16); g.lineTo(k + 16, 0); g.stroke(); } } map.addImage('stripe-' + p, g.getImageData(0, 0, 16, 16), { pixelRatio: 1 }); }
+    map.addLayer({ id: 'contest-stripes', type: 'fill', source: 'contests', paint: { 'fill-pattern': ['coalesce', ['get', 'stripe'], 'stripe-none'], 'fill-opacity': 0.85 }, layout: { visibility: 'none' } }, 'bounds-line');
     map.addLayer({ id: 'contest-line', type: 'line', source: 'contests', paint: { 'line-color': css('--map-bg'), 'line-width': 1 }, layout: { visibility: 'none' } }, 'bounds-line');
     // bold outline on electorates / catchments whose figures changed since the viewer last looked (live mode)
     map.addLayer({ id: 'contest-fresh', type: 'line', source: 'contests', paint: { 'line-color': css('--fg'), 'line-width': ['case', ['boolean', ['feature-state', 'fresh'], false], 3.5, 0] } });
@@ -687,6 +692,7 @@ function metricValueContest(cid) {
   const eid = state.election, p = state.party, ps = contestShares(eid, cid);
   if (state.metric === 'senate') { const ss = senateDivShares(eid, cid); return ss && ss.formal ? { v: ss[p] ? ss[p].share : 0, label: `${PARTY_NAME[p]} Senate primary`, text: pct(ss[p] ? ss[p].share : 0) } : { v: null, label: 'Senate', text: 'federal elections only' }; }
   if (state.metric === 'census') { const set = demogSet(eid), xid = demogId(state.census, set), xi = set && xid && set.ind.get(xid), d = demogFor(eid, cid); return xi && d && d[xid] != null ? { v: d[xid], label: xi.label, text: fmtInd(xi.kind, d[xid]) } : { v: null, label: 'Census', text: set ? 'no figure for this seat' : 'no census file for these boundaries' }; }
+  if (state.metric === 'called') { if (eid !== LIVE.election) return { v: null, cat: null, label: 'Called', text: '2026 only' }; if (!PREF || !DEMOG_BOOTH || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined) { if (!modelLoadKicked) { modelLoadKicked = true; Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE), ensureDemogBooth()]).then(() => renderMap()); } } const r = seatStatus(eid, cid); const sure = r.status === 'called' || r.status === 'declared'; const gain = sure && r.changed; return { cat: sure ? r.wparty : null, strength: 1, label: sure ? (r.status === 'declared' ? 'Declared' : 'Called') : 'Not called', text: sure ? `${candName(r.winner.cand)} (${PARTY_NAME[r.winner.party] || r.winner.party})${gain ? `, ${PARTY_NAME[r.wparty]} gain from ${PARTY_NAME[r.held]}` : r.held ? ', held' : ''} · ${r.status === 'declared' ? 'declared by the VEC' : r.basis === 'projection' ? `projected ${pct(r.share)}, ${Math.round(100 * (r.countedShare || 0))}% in` : `VEC pair ${pct(r.share)} (model still loading)`}` : (r.status === 'nocount' ? 'no count yet' : `${STATUS_LABEL[r.status]}${r.winner ? ': ' + candName(r.winner.cand) + ' ' + pct(r.share) : ''}${r.disagree ? ' · ' + r.disagree.join('; ') : ''}`), called: sure, gain, from: gain ? r.held : null }; }
   if (state.metric === 'projwin' || state.metric === 'proj') { if (eid !== LIVE.election) return { v: null, cat: null, label: 'Projected', text: '2026 only' }; if (!PREF || !DEMOG_BOOTH || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined) { if (!modelLoadKicked) { modelLoadKicked = true; Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE), ensureDemogBooth()]).then(() => renderMap()); } return { v: null, cat: null, label: 'Projected', text: 'loading the model' }; } return projMetricContest(cid, p); }
   if (eid === LIVE.election && (state.metric === 'tcpwin' || state.metric === 'tcp')) { const mv = liveModelMetric(cid, p); if (mv) return mv; const lv = liveContestMetric(cid, p); if (lv) return lv; }
   if (state.metric === 'share') return !ps.formal ? { v: null, label: `${PARTY_NAME[p]} primary`, text: 'no count yet' } : { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
@@ -714,6 +720,7 @@ function metricValue(bid) {
   if (state.metric === 'census') { const b = idx.boothsByKey.get(eid + '|' + bid) || {}; const B = DEMOG_BOOTH; const xi = B && B.ind.get(state.census); const d = demogBooth(b.venue_id); const v = d && xi ? d[state.census] : null; return { v: v == null ? null : v, label: xi ? xi.label : 'Census', text: !B ? 'loading' : !xi ? 'not available by booth' : v == null ? (b.booth_type !== 'ordinary' ? 'not an election-day booth' : 'no catchment for this venue') : fmtInd(xi.kind, v) }; }
   if (state.metric === 'share') return { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
   if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
+  if (state.metric === 'called') return { v: null, cat: null, label: 'Called', text: 'electorates only: switch to Electorates' };
   if (state.metric === 'projwin' || state.metric === 'proj') { if (eid !== LIVE.election) return { v: null, cat: null, label: 'Projected', text: '2026 only' }; if (!PREF || !DEMOG_BOOTH || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined) { if (!modelLoadKicked) { modelLoadKicked = true; Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE), ensureDemogBooth()]).then(() => renderMap()); } return { v: null, cat: null, label: 'Projected', text: 'loading the model' }; } return projMetricBooth(bid, p); }
   if (eid === LIVE.election && (state.metric === 'tcpwin' || state.metric === 'tcp')) { const bb = idx.boothsByKey.get(eid + '|' + bid); const mv = bb ? liveModelMetricBooth(bb.contest_id, bid, p) : null; if (mv) return mv; }
   if (state.metric === 'tcpwin') { const t = tcpShares(eid, bid); if (!t) return { cat: null, label: 'After preferences', text: 'no 2CP count at this booth' }; const top = [...t].sort((a, b) => b.share - a.share)[0]; const cat = (top.party === 'LIB' || top.party === 'NAT') ? 'COAL' : (PARTIES.includes(top.party) ? top.party : 'OTH'); return { cat, strength: top.share, label: 'Ahead after preferences', text: `${top.cand ? top.cand.surname : cat} ${pct(top.share)}` }; }
@@ -752,7 +759,11 @@ async function renderMap() {
   const unitWord = byContest ? 'electorate' : 'booth';
   // scale
   let colorOf, legend;
-  if (state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin') {
+  if (state.metric === 'called') {
+    colorOf = (x) => x.m.called ? mix(css('--map-bg'), partyColor(x.m.cat), 0.9) : null;
+    legend = h('div'); legend.append(h('h4', {}, 'Called seats'), h('div', { class: 'swatches' }, ...PARTIES.map(p => h('div', { class: 'swatch' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p]))),
+      h('div', { class: 'hint', style: 'margin-top:6px' }, 'Coloured once the Atlas projection calls the seat or the VEC declares it; transparent until then. Striped where the seat has changed hands: the fill is the winner, the stripes are the party that held it going in. Hover a transparent seat for where it stands.'));
+  } else if (state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin') {
     const lo = state.metric === 'primary' ? 0.25 : 0.5, hi = state.metric === 'primary' ? 0.55 : 0.75;   // share range mapped to colour depth
     colorOf = (x) => { if (!x.m.cat) return null; const t = Math.max(0, Math.min(1, ((x.m.strength || 0) - lo) / (hi - lo))); return mix(css('--map-bg'), partyColor(x.m.cat), (x.m.projected ? 0.3 : 0.45) + 0.55 * t); };
     legend = legendCategorical(byContest, state.metric, lo, hi);
@@ -785,7 +796,9 @@ async function renderMap() {
   el('legend').innerHTML = ''; el('legend').append(legend);
   if (byContest) {
     const fc = await loadGz('boundary_' + BOUND_FOR[eid], 'geojson');
+    if (state.metric === 'called') { const byId = new Map(vals.map(x => [x.c.contest_id, x])); for (const f of fc.features) { const x = byId.get(f.properties.contest_id); f.properties.stripe = x && x.m.gain && x.m.from ? 'stripe-' + x.m.from : 'stripe-none'; } } else for (const f of fc.features) f.properties.stripe = 'stripe-none';
     map.getSource('contests').setData(fc);
+    map.setLayoutProperty('contest-stripes', 'visibility', state.metric === 'called' ? 'visible' : 'none');
     map.setPaintProperty('contest-line', 'line-color', eid === LIVE.election ? css('--map-line') : css('--map-bg'));
     for (const x of vals) map.setFeatureState({ source: 'contests', id: x.c.contest_id }, { color: colorOf(x) || 'rgba(0,0,0,0)', fresh: isFresh(eid, null, x.c.contest_id) });
     map.setLayoutProperty('contest-fill', 'visibility', 'visible'); map.setLayoutProperty('contest-line', 'visibility', 'visible');
@@ -798,7 +811,7 @@ async function renderMap() {
     el('map-loading').hidden = true;
     return;
   }
-  map.setLayoutProperty('contest-fill', 'visibility', 'none'); map.setLayoutProperty('contest-line', 'visibility', 'none'); map.setFilter('contest-sel', ['==', 'contest_id', '']);
+  map.setLayoutProperty('contest-fill', 'visibility', 'none'); map.setLayoutProperty('contest-line', 'visibility', 'none'); map.setLayoutProperty('contest-stripes', 'visibility', 'none'); map.setFilter('contest-sel', ['==', 'contest_id', '']);
   const feats = vals.map(x => { const fresh = isFresh(eid, x.b.booth_id); const col = colorOf(x); return { type: 'Feature', geometry: { type: 'Point', coordinates: [x.b.lon, x.b.lat] }, properties: { booth_id: x.b.booth_id, color: col || 'rgba(0,0,0,0)', stroke: fresh ? css('--fg') : x.m.projected ? css('--fg-3') : (col ? css('--map-bg') : css('--nodata')), sw: fresh ? 3 : 1, r: 2.5 + 7 * Math.sqrt((x.ps.formal || (eid === LIVE.election ? 800 : 0)) / 3000) } }; });
   // changed-since-last-look booths drawn last so their outline sits on top
   feats.sort((a, b) => a.properties.sw - b.properties.sw);
@@ -2060,7 +2073,7 @@ async function renderLcMap() {
   const legend = h('div');
   if (eid.startsWith('fed')) return renderSenateMap(eid);
   if (!bset) {
-    map.getSource('contests').setData({ type: 'FeatureCollection', features: [] }); map.setLayoutProperty('contest-fill', 'visibility', 'none'); map.setLayoutProperty('contest-line', 'visibility', 'none');
+    map.getSource('contests').setData({ type: 'FeatureCollection', features: [] }); map.setLayoutProperty('contest-fill', 'visibility', 'none'); map.setLayoutProperty('contest-line', 'visibility', 'none'); map.setLayoutProperty('contest-stripes', 'visibility', 'none');
     legend.append(h('h4', {}, 'Upper house'), h('div', { class: 'hint' }, 'No upper-house contest for this election.'));
     el('legend').innerHTML = ''; el('legend').append(legend); el('map-loading').hidden = true; return;
   }
@@ -2949,9 +2962,16 @@ function fillCensusSelect() {
   if (cs.dataset.set !== set.set) { cs.innerHTML = ''; const groups = new Map(); for (const x of set.indicators) if (x.kind !== 'text' && !x.hidden) (groups.get(x.group) || groups.set(x.group, []).get(x.group)).push(x); for (const [g, arr] of groups) { const og = h('optgroup', { label: g }); for (const x of arr) og.append(h('option', { value: x.id }, x.label)); cs.append(og); } cs.dataset.set = set.set; }
   state.census = demogId(state.census, set) || (set.ind.has('income_household_median') ? 'income_household_median' : 'income_and_expense_income'); cs.value = state.census;
 }
-function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at electorate level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin' || state.metric === 'census'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; el('f-census').hidden = u === 'lc' || state.metric !== 'census'; renderMap(); }
+function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === u); el('unit-hint').textContent = u === 'contest' ? 'Whole electorates, every vote type. This is what decides who is elected.' : u === 'lc' ? 'Legislative Council regions: five members each, elected by proportional representation. Dots are the members elected, in the order the count filled the seats; the fill is the party with the largest share of the region vote.' : 'Election-day booths only. Early, postal and absent votes are counted at electorate level and are shown in the booth panel for context.'; el('seg-layer').parentElement.hidden = u !== 'booth'; el('sel-metric').parentElement.hidden = u === 'lc'; el('f-party').hidden = u === 'lc' || state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin' || state.metric === 'called' || state.metric === 'census'; el('f-gap').hidden = u === 'lc' || state.metric !== 'gap'; el('f-census').hidden = u === 'lc' || state.metric !== 'census'; renderMap(); }
 function setElection(eid) { state.election = eid; el('sel-election').value = eid; renderLiveBox(); renderMap(); if (activeView() === 'dash') renderDash(); }
-function fillElectionSelect(sel, ids) { sel.innerHTML = ''; for (const id of ids) sel.append(h('option', { value: id }, idx.electionById.get(id).name)); }
+// election drop-downs: state elections first (most recent at the top), then the state by-elections, then federal, each group newest first
+function fillElectionSelect(sel, ids) {
+  sel.innerHTML = '';
+  const e = (id) => idx.electionById.get(id); const byDate = (a, b) => (e(b).date || '').localeCompare(e(a).date || '');
+  const groups = [['Victorian state elections', ids.filter(id => e(id) && e(id).level === 'state')], ['State by-elections', ids.filter(id => e(id) && e(id).level === 'state-by')], ['Federal elections', ids.filter(id => e(id) && e(id).level === 'federal')]];
+  const seen = new Set(groups.flatMap(g => g[1])); const rest = ids.filter(id => !seen.has(id)); if (rest.length) groups.push(['Other', rest]);
+  for (const [label, list] of groups) { if (!list.length) continue; const og = h('optgroup', { label }); for (const id of list.slice().sort(byDate)) og.append(h('option', { value: id }, e(id).name)); sel.append(og); }
+}
 function searchBooths(q) {
   const box = el('search-hits'); box.innerHTML = ''; q = q.trim().toLowerCase(); if (q.length < 2) return;
   if (state.unit === 'contest') { const cs = D.contests.filter(c => c.election_id === state.election && c.house !== 'LC' && c.contest_name.toLowerCase().includes(q)).slice(0, 8); for (const c of cs) box.append(h('button', { class: 'btn', style: 'display:block;width:100%;text-align:left;margin-top:4px', onclick: () => selectContest(state.election, c.contest_id, true) }, c.contest_name)); return; }
@@ -2985,7 +3005,7 @@ async function boot() {
     for (const b of el('strip-mode').querySelectorAll('button')) { b.setAttribute('aria-pressed', b.dataset.v === dash.strip); b.addEventListener('click', () => { dash.strip = b.dataset.v; for (const o of el('strip-mode').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); try { localStorage.setItem('atlas.strip', dash.strip); } catch (e) {} renderStrip(dashRows(state.election), state.election); }); }
     fillElectionSelect(el('cmp-a'), ids); fillElectionSelect(el('cmp-b'), ids); el('cmp-a').value = 'fed2022'; el('cmp-b').value = 'vic2022';
     el('sel-election').addEventListener('change', (e) => setElection(e.target.value));
-    el('sel-metric').addEventListener('change', async (e) => { state.metric = e.target.value; el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin' || state.metric === 'census'; el('f-gap').hidden = state.metric !== 'gap'; el('f-census').hidden = state.metric !== 'census';
+    el('sel-metric').addEventListener('change', async (e) => { state.metric = e.target.value; el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin' || state.metric === 'called' || state.metric === 'census'; el('f-gap').hidden = state.metric !== 'gap'; el('f-census').hidden = state.metric !== 'census';
       if (state.metric === 'census') { await ensureDemog(); fillCensusSelect(); }
       renderMap(); });
     el('sel-party').addEventListener('change', (e) => { state.party = e.target.value; renderMap(); });
@@ -3011,6 +3031,6 @@ async function boot() {
   } catch (e) { status('failed to load: ' + e.message); console.error(e); }
 }
 boot();
-window.__eba = { modelledTcp, contestTcp, laContests, HTV, ensureHtv, ensurePref, metricValueContest, metricValue, state, tipForContest, progressText, countProgress, select, boothsOf: (cid) => D.booths.filter(x => x.election_id === LIVE.election && x.contest_id === cid && x.booth_type === 'ordinary'), pickUnreported: () => { const d = D.booths.find(x => x.election_id === LIVE.election && x.booth_type === 'ordinary' && !x.reported && x.contest_id === 'vic-richmond'); return d ? d.booth_id : null; } };   // for headless checks
+window.__eba = { get map() { return map; }, modelledTcp, contestTcp, laContests, HTV, ensureHtv, ensurePref, metricValueContest, metricValue, state, tipForContest, progressText, countProgress, select, boothsOf: (cid) => D.booths.filter(x => x.election_id === LIVE.election && x.contest_id === cid && x.booth_type === 'ordinary'), pickUnreported: () => { const d = D.booths.find(x => x.election_id === LIVE.election && x.booth_type === 'ordinary' && !x.reported && x.contest_id === 'vic-richmond'); return d ? d.booth_id : null; } };   // for headless checks
 })();
 </script>
