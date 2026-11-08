@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>window.__BASEMAP = 'https://tiles.openfreemap.org/styles/positron'; window.__DATA_BASE = 'data/';</script>
 <script>
-// visit counts (GoatCounter: no cookies, no personal data), on the public site only — never on localhost or in previews
-if (/\.github\.io$/.test(location.hostname)) {
+// visit counts (GoatCounter: no cookies, no personal data), on the public site only (github.io or electionboothatlas.org) — never on localhost or in previews
+if (/(\.github\.io|electionboothatlas\.(org|com))$/.test(location.hostname)) {
   window.__GC = true;
   const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
   s.setAttribute('data-goatcounter', 'https://electionboothatlas.goatcounter.com/count');

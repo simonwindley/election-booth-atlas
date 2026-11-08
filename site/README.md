@@ -7,7 +7,7 @@ the browser; `manifest.json` says which format is in use).
 Run locally:  `python3 -m http.server 8000` in this folder, then open http://localhost:8000/
 
 Visit counting: `build.py` adds a GoatCounter snippet (electionboothatlas.goatcounter.com) that loads only
-when the page is served from a `github.io` host, and counts one hit per tab opened — nothing on localhost
+when the page is served from `electionboothatlas.org` (or the old `github.io` address), and counts one hit per tab opened — nothing on localhost
 or in previews, no cookies. `app.html` itself carries no tracking.
 
 Deploy: push this folder to any static host (GitHub Pages, Netlify, Cloudflare Pages). No build step,
