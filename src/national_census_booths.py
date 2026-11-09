@@ -88,7 +88,7 @@ def sa1_matrix(year, st):
     for f, cols in need.items():
         with z.open(f) as raw:
             rd = csv.reader(io.TextIOWrapper(raw, encoding='utf-8-sig'))
-            head = next(rd); idx = {c: head.index(c) for c in cols}
+            head = [h.strip() for h in next(rd)]; idx = {c: head.index(c) for c in cols}
             store = {c: {} for c in cols}
             for row in rd:
                 code = row[0]; codes.add(code)

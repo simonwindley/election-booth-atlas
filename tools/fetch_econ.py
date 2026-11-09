@@ -28,16 +28,43 @@ UA = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit
       'Accept': '*/*'}
 
 
-def get(url, headers=None, tries=3):
+def _quote(url):
+    """percent-encode anything outside plain ASCII (some DataVic links carry accented characters)"""
+    return urllib.parse.quote(url, safe=':/?&=%#+~,;@!$*()\'')
+
+
+def _curl(url, timeout):
+    """fallback for sites that stall or refuse Python's own HTTP client: the Mac's curl"""
+    import subprocess, tempfile
+    with tempfile.NamedTemporaryFile(delete=False) as tmp:
+        path = tmp.name
+    try:
+        r = subprocess.run(['curl', '-L', '-sS', '--fail', '--max-time', str(timeout), '-A', UA['User-Agent'].split(' (')[0],
+                            '-H', 'Accept-Language: en-AU,en;q=0.9', '-o', path, '-w', '%{url_effective}', url], capture_output=True, text=True)
+        if r.returncode != 0:
+            raise RuntimeError(f'curl: {r.stderr.strip() or r.returncode}')
+        return open(path, 'rb').read(), r.stdout.strip() or url
+    finally:
+        os.unlink(path)
+
+
+def get(url, headers=None, tries=3, timeout=180):
+    url = _quote(url)
+    err = None
     for k in range(tries):
         try:
-            req = urllib.request.Request(url, headers={**UA, **(headers or {})})
-            with urllib.request.urlopen(req, timeout=180) as r:
+            req = urllib.request.Request(url, headers={**UA, 'Accept-Language': 'en-AU,en;q=0.9', **(headers or {})})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.read(), r.geturl()
         except Exception as e:
-            if k == tries - 1:
-                raise
+            err = e
+            if getattr(e, 'code', None) == 404:
+                break
             time.sleep(4 * (k + 1))
+    try:
+        return _curl(url, max(timeout, 300))
+    except Exception as e2:
+        raise RuntimeError(f'{err}; curl fallback: {e2}')
 
 
 def save(sub, name, blob):
@@ -69,9 +96,10 @@ def abs_api():
     for flow, key, q, name in (('CPI_Q,1.0.0', 'all', 'startPeriod=1998&', 'cpi_q.csv'),
                                ('WPI,1.2.0', 'all', 'startPeriod=1998&', 'wpi.csv'),
                                ('LF,1.0.0', 'all', 'startPeriod=1998&', 'labour_force.csv')):
-        save('abs', name, get(base.format(flow=flow, key=key, q=q))[0])
+        if not os.path.exists(os.path.join(OUT, 'abs', name)) or '--refresh' in sys.argv:
+            save('abs', name, get(base.format(flow=flow, key=key, q=q))[0])
     for m in ('HOUSES_2', 'HOUSES_3', 'HOUSES_4', 'HOUSES_5', 'INCOME_2', 'INCOME_8', 'INCOME_11', 'INCOME_17', 'INCOME_36', 'EQUIV_2', 'BUILDING_4', 'ERP_P_20'):
-        for rt in ('SA2', 'LGA'):
+        for rt in ('SA2',):  # LGA codes 404 on the ABS Data API; SA2 aggregates up
             if os.path.exists(os.path.join(OUT, 'abs', f'regional_{m}_{rt}.csv')):
                 continue
             # the LGA region-type code follows the LGA edition in the release (LGA2021 ... LGA2024): try each
@@ -92,7 +120,7 @@ def rents():
     if not found:
         print('  no rental report links found on', page); return
     for url, txt in found:
-        blob, final = get(url)
+        blob, final = get(url, timeout=300)
         name = urllib.parse.unquote(os.path.basename(urllib.parse.urlparse(final).path)) or re.sub(r'\W+', '_', txt) + '.xlsx'
         save('rents', name, blob)
 
@@ -101,9 +129,9 @@ def sales():
     urls = ['https://www.land.vic.gov.au/__data/assets/excel_doc/0033/775617/houses-by-suburb-2015-2025.xlsx',
             'https://www.land.vic.gov.au/__data/assets/excel_doc/0034/775618/units-by-suburb-2015-2025.xlsx',
             'https://www.land.vic.gov.au/__data/assets/excel_doc/0035/775619/land-by-suburb-2015-2025.xlsx',
+            'https://www.land.vic.gov.au/__data/assets/excel_doc/0032/775616/year-summary-2025.xlsx',
             'https://www.land.vic.gov.au/__data/assets/excel_doc/0029/709751/Houses-by-suburb-2013-2023.xlsx',
-            'https://www.land.vic.gov.au/__data/assets/excel_doc/0031/709753/Units-by-suburb-2013-2023.xlsx',
-            'https://www.propertyandlandtitles.vic.gov.au/__data/assets/excel_doc/0018/427032/All-statistics.xls']
+            'https://www.land.vic.gov.au/__data/assets/excel_doc/0031/709753/Units-by-suburb-2013-2023.xlsx']
     try:   # newer editions, if published since
         urls += [u for u, _ in links('https://www.land.vic.gov.au/valuations/resources-and-reports/property-sales-statistics', r'by-suburb.*\.xlsx|median-(house|unit)-.*\.xls') if u not in urls]
     except Exception as e:
@@ -121,17 +149,17 @@ def salm():
         found = [u for u, t in links(page, r'/download/') if u.rstrip('/').endswith('xlsx')]
         if not found:
             print('  no download link on', page); continue
-        save('salm', page.rstrip('/').split('/')[-1] + '.xlsx', get(found[0])[0])
+        save('salm', page.rstrip('/').split('/')[-1] + '.xlsx', get(found[0], timeout=300)[0])
 
 
 def lxrp():
     raw, _ = get('https://en.wikipedia.org/w/index.php?title=Level_Crossing_Removal_Project&action=raw')
     save('lxrp', 'level_crossing_removal_project.wikitext', raw)
     t = raw.decode('utf-8')
-    stations = sorted(set(re.findall(r'\[\[([^\]|]+? railway station)(?:\|[^\]]*)?\]\]', t)))
+    stations = sorted(set(re.findall(r'\[\[([^\]|]*railway station[^\]|]*)(?:\|[^\]]*)?\]\]', t)))
     coords = {}
     for i in range(0, len(stations), 50):
-        q = urllib.parse.urlencode({'action': 'query', 'prop': 'coordinates', 'titles': '|'.join(stations[i:i + 50]), 'format': 'json', 'redirects': 1})
+        q = urllib.parse.urlencode({'action': 'query', 'prop': 'coordinates', 'titles': '|'.join(stations[i:i + 50]), 'format': 'json', 'redirects': 1, 'colimit': 'max', 'coprimary': 'primary'})
         j = json.loads(get('https://en.wikipedia.org/w/api.php?' + q)[0])
         redir = {r['from']: r['to'] for r in j['query'].get('redirects', [])}
         norm = {r['from']: r['to'] for r in j['query'].get('normalized', [])}
@@ -146,12 +174,43 @@ def lxrp():
     print(f'  {len(coords)} of {len(stations)} stations located')
 
 
+BP4 = {   # State Capital Program (Budget Paper No. 4), as linked from https://www.dtf.vic.gov.au/<year>-state-budget
+    '2011-12': 'https://www.dtf.vic.gov.au/sites/default/files/2024-10/state-budget-state-capital-program-2011-12.doc',
+    '2012-13': 'https://www.dtf.vic.gov.au/sites/default/files/2024-10/state-budget-state-capital-program-2012-13.doc',
+    '2013-14': 'https://www.dtf.vic.gov.au/sites/default/files/2024-10/state-budget-state-capital-program-2013-14.docx',
+    '2014-15': 'https://www.dtf.vic.gov.au/sites/default/files/2024-10/state-budget-state-capital-program-2014-15.docx',
+    '2015-16': 'https://www.dtf.vic.gov.au/sites/default/files/2024-10/state-budget-state-capital-program-bp4-2015-16_0.docx',
+    '2016-17': 'https://www.dtf.vic.gov.au/sites/default/files/2024-10/state-budget-state-capital-program-bp4-2016-17.docx',
+    '2017-18': 'https://www.dtf.vic.gov.au/sites/default/files/2024-10/State-Budget-State-Capital-Program-BP4-2017-18.docx',
+    '2018-19': 'https://www.dtf.vic.gov.au/sites/default/files/2024-10/2018-19-State-Budget-State-Capital-Program.docx',
+    '2019-20': 'https://s3-ap-southeast-2.amazonaws.com/budgetfiles201920.budget.vic.gov.au/2019-20+State+Budget+-+State+Capital+Program.docx',
+    '2020-21': 'https://s3.ap-southeast-2.amazonaws.com/budgetfiles202021.budget.vic.gov.au/2020-21+State+Budget+-+State+Capital+Program.docx',
+    '2021-22': 'https://s3-ap-southeast-2.amazonaws.com/budgetfiles202122.budget.vic.gov.au/2021-22+State+Budget+-+State+Capital+Program.docx',
+    '2022-23': 'https://s3.ap-southeast-2.amazonaws.com/budgetfiles202223.budget.vic.gov.au/2022-23+State+Budget+-+State+Capital+Program.docx',
+    '2023-24': 'https://s3.ap-southeast-2.amazonaws.com/budgetfiles202324.budget.vic.gov.au/2023-24+State+Budget+-+State+Capital+Program.docx',
+    '2024-25': 'https://s3.ap-southeast-2.amazonaws.com/budgetfiles202425.budget.vic.gov.au/2024-25+State+Budget+-+State+Capital+Program.docx',
+}
+
+
 def budget():
     """Victorian State Capital Program (Budget Paper No. 4): every capital project with its location and total
-    estimated investment, one workbook per budget (2013-14 onwards), found through the DataVic catalogue"""
-    api = 'https://discover.data.vic.gov.au/api/3/action/package_search?' + urllib.parse.urlencode({'q': 'State Capital Program', 'rows': 100})
-    j = json.loads(get(api)[0])
+    estimated investment. Word editions from each year's DTF budget page (2011-12 to 2024-25; 2011-13 are old .doc),
+    plus the spreadsheets DataVic still holds (2016-17, 2017-18, 2025-26, 2026-27)."""
     n = 0
+    for yr, u in BP4.items():
+        ext = os.path.splitext(urllib.parse.urlparse(u).path)[1]
+        if os.path.exists(os.path.join(OUT, 'budget', f'bp4_{yr}{ext}')):
+            n += 1; continue
+        try:
+            save('budget', f'bp4_{yr}{ext}', get(u, tries=2)[0]); n += 1
+        except Exception as e:
+            print(f'  {yr}: failed ({e})')
+        time.sleep(0.5)
+    api = 'https://discover.data.vic.gov.au/api/3/action/package_search?' + urllib.parse.urlencode({'q': 'State Capital Program', 'rows': 100})
+    try:
+        j = json.loads(get(api)[0])
+    except Exception as e:
+        print('  DataVic search:', e); j = {'result': {'results': []}}
     for p in j['result']['results']:
         if not re.search(r'capital program', p['title'], re.I):
             continue
@@ -160,12 +219,15 @@ def budget():
             if not re.search(r'\.xlsx?$', u, re.I):
                 continue
             name = re.sub(r'[^A-Za-z0-9._-]+', '_', p['name'])[:80] + '__' + os.path.basename(urllib.parse.urlparse(u).path)
+            name = urllib.parse.unquote(name)
+            if os.path.exists(os.path.join(OUT, 'budget', name)):
+                continue
             try:
-                save('budget', urllib.parse.unquote(name), get(u)[0]); n += 1
-            except Exception as e:
-                print(f'  {u}: failed ({e})')
-            time.sleep(0.5)
-    print(f'  {n} capital program workbooks')
+                save('budget', name, get(u, tries=1)[0]); n += 1
+            except Exception:
+                pass   # most of DataVic's older links are dead; the Word editions above cover those years
+            time.sleep(0.3)
+    print(f'  {n} capital program files')
 
 
 SOURCES = {'rba': rba, 'abs': abs_api, 'rents': rents, 'sales': sales, 'salm': salm, 'lxrp': lxrp, 'budget': budget}

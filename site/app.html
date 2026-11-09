@@ -1793,7 +1793,7 @@ async function renderModel() {
   { const bt = M.swings.backtest.total; teaser('bk-pendulum', `A uniform two-party swing works in Labor v Coalition seats but cannot see the challengers who cause the surprises. Primaries plus preferences called ${bt.primaries} of ${bt.seats} past seats; the pendulum ${bt.two_party}.`); }
   teaser('bk-swings', `Step one: move each party's first-preference vote by its own rule. The Greens move by the same points everywhere, Labor loses most where it is strongest, and minor parties spread evenly.`);
   try { renderOnp(M); } catch (e) { console.error('One Nation book', e); }
-  try { renderMap(M); } catch (e) { console.error('Changing map book', e); }
+  try { renderChangingMapBook(M); } catch (e) { console.error('Changing map book', e); }
   try { renderTrivia(M); } catch (e) { console.error('Trivia book', e); }
   teaser('bk-bounds', `Our notional results sit within half a point of the published ones, and seats that change hands on paper are decided by the swing.`);
   head.append(h('h2', { class: 'dash-title' }, 'The Atlas Model'),
@@ -1902,7 +1902,7 @@ function renderOnp(M) {
         h('li', {}, 'Who has moved in. The census profile is from 2021; the 2026 Census reports in 2027, after this election.'),
         h('li', {}, 'Who stands where. One Nation\'s reach in each seat depends on its candidates, confirmed at the ballot draw.'))));
 }
-function renderMap(M) {
+function renderChangingMapBook(M) {
   const C = M.changing_map, box = el('md-map'); if (!C || !box || box.dataset.done) return; box.dataset.done = '1';
   const PN = { ALP: 'Labor', COAL: 'Coalition', GRN: 'Greens' };
   const lang = C.bivariate.state['Other language at home'].ALP, deg = C.bivariate.state['Degree'].ALP, tc = C.bivariate.federal['Trade certificate'].COAL, tcMin = tc.reduce((a, r) => r.pts < a.pts ? r : a, tc[0]);
