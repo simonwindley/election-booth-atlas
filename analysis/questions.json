@@ -432,12 +432,21 @@
    "depends_on": [
     "boundary_effects"
    ],
-   "question": "Does demographic change between censuses predict swing?",
+   "question": "How does demographic change in a seat or booth catchment move the vote, and for which groups? Separate composition (who moved in or out, aged, died) from conversion (the same kinds of people voting differently).",
    "headline": "",
    "triggers": [
     "census_2026",
     "results_2026"
-   ]
+   ],
+   "have": "Census 2006, 2011, 2016, 2021 already on 2022 district and booth-catchment geography (raw/abs/sa1_census_*.json), aligned with the 2006, 2010, 2014, 2018 and 2022 Victorian elections.",
+   "plan": "1) Panel of booth catchments: change in each party's primary between elections against change in composition between the matching censuses, with election effects (statewide mood) removed. 2) Group-level support by election from booth cross-sections (ecological inference), then decompose each seat's swing into composition x support and conversion. 3) Nowcast 2026 composition from post-census sources and feed the composition term into the 2026 seat model.",
+   "data_to_get": [
+    "ABS Estimated Resident Population by age and sex, SA2, annual 2021-2025 (Regional population by age and sex)",
+    "Victoria in Future 2023 projections by age and sex (SA2 or LGA), 2021-2026",
+    "AEC enrolment by age group by division (current), and VEC enrolment by district (growth to 2026)",
+    "ABS building approvals / new dwellings by SA2 (where growth is landing)"
+   ],
+   "caveats": "Ecological: booth-level relationships are not individual behaviour. The 2026 composition is a nowcast until the 2026 Census (mid-2027)."
   },
   {
    "id": "member_extensions",
@@ -537,7 +546,9 @@
     "htv_2026",
     "results_2026"
    ],
-   "next": "For 2026, change the run command to vic2026 once the preference distributions are published."
+   "next": "For 2026, change the run command to vic2026 once the preference distributions are published.",
+   "findings_aes": "AES 1996-2025 (vtcrdhor, self-reported, federal House vote; logit with wave effects, 2016-2025 n=8,688, unit records on the Mac only). Card-following fell from ~56% (1996) to ~30% (2016-2025). Strongest predictors, in points vs the reference: party (Liberal +9 vs Labor; Greens -14; One Nation -34; other/independent -31), strong party identification +12 (weak -3), age +2.6 per decade, decided in the last days or on the day -5, women +3, Victorians +7 vs other states. Degree (-1) and overseas-born (-2) mattered in 1996-2013 (-6, -5) but have faded. Political interest makes no difference.",
+   "next_more": "Booth-level measure from the AEC Senate formal-preference files (every ballot, by polling place, 2016-2025): share of each party's above-the-line ballots that follow its card, joined to booth census. Victorian booth-level follow rates by inference from booth 2CP and primaries."
   },
   {
    "id": "ballot_position",
@@ -616,6 +627,106 @@
     "htv_2026",
     "polls_2026"
    ]
+  },
+  {
+   "id": "onp_effect",
+   "group": "One Nation",
+   "status": "done (site book live: The One Nation effect)",
+   "priority": "next up (agreed 9 Nov 2026)",
+   "depends_on": [
+    "pref_flows",
+    "primary_swings"
+   ],
+   "question": "The One Nation Effect: where does the One Nation vote come from, where will it be strongest in Victoria, and where do preferences go when One Nation is in the count?",
+   "headline": "Flows (every state and federal count, ~8,400 exclusions): Liberal voters give One Nation 65% of their preferences against Labor (range 55-74% by election), Nationals 66%, Greens 17%, Labor voters 36% against the Liberals; One Nation voters give the Liberals 69%, the Nationals 75%, against Labor. Validated blind on SA 2026: 45/47 winners, all four One Nation wins, One Nation in the final two 32/32, its 2CP within 2.4 pts. Seat map: surges compress (SA 2022-26, QLD 2020-24: logit slope 0.67, mostly uniform growth); applied to the 2025 Senate map. Fixed a bug: the 2026 model had One Nation flat at ~22% in every seat (a meaningless 2019-22 lambda averaged in). 2026 outlook on 9 polls to 7 Nov (ALP 22.7, COAL 29.9, ONP 22.6, GRN 14.4): ALP 31, COAL 38, ONP 12, GRN 6, IND 1 (simulated median ONP 14, 80% range 7-21). Most sensitive to Coalition preference share (55%: 3 ONP seats; 75%: 22) and to how evenly the surge spreads (8-16).",
+   "done_so_far": "State results loaded (src/load_states.py -> data/national/state_results.json): QLD 2015-2024, WA 2017-2025, NSW 2019/2023, SA 2022/2026 and by-elections, ~3,800 exclusions. Raw cut: Coalition excluded with ONP and ALP standing gives ~64-66% to ONP (SA 2026 n=30, QLD 2017 n=13), implying a Liberal-to-One Nation Luce strength ~0.9-1.0 (the model's neutral default). Census propensity model for Victoria in src/onp_effect.py (R2 0.83).",
+   "next": "1) Seat-level Coalition how-to-vote cards for 2026 (htv_2026 trigger): where the Liberals or Nationals put One Nation above Labor the share rises. 2) Re-run with the declared candidates (does One Nation stand everywhere?). 3) After 2026: refit the flows and the surge compression on Victoria's own count.",
+   "inputs": [
+    "data/national/state_results.json",
+    "data/national.sqlite",
+    "data/analysis/onp_effect.json"
+   ],
+   "triggers": [
+    "htv_2026",
+    "polls_2026",
+    "census_2026"
+   ],
+   "run": [
+    "python3 -m src.onp_effect",
+    "python3 -m src.load_states",
+    "python3 -m src.onp_flows",
+    "python3 -m src.primary_swings",
+    "python3 -m src.export_model_findings"
+   ],
+   "outputs": [
+    "data/analysis/onp_effect.json",
+    "data/analysis/onp_flows.json",
+    "site/data/pref_flows.json (blend_2026.onp_adjusted)",
+    "data/analysis/primary_swings.json (outlook_2026)"
+   ],
+   "page": "Model page, book \"The One Nation effect\" (history and method only; no 2026 seat readings, by choice)"
+  },
+  {
+   "id": "weather",
+   "group": "Context",
+   "status": "planned",
+   "priority": "after onp_effect",
+   "question": "Does election-day weather (rain, heat, wind) move turnout, informal voting, the early-vote share or the vote itself, booth by booth? And do weather patterns in the lead-up (heatwaves, fires, floods, wet spring) show up in the result?",
+   "plan": "BOM daily station data (rain, max temperature) for every election day and the 4-8 weeks before, Victoria 1999-2022 state and 2004-2025 federal; each booth gets its nearest station. Compare booths on wet and dry days within the same election (within-election contrasts, so statewide mood cancels out). Outcomes: turnout, informal rate, pre-poll and postal share, swing to and from the government. Lead-up: rainfall and heat anomalies against the long-run normal by region.",
+   "needs": "BOM Climate Data Online downloads (run from Simon's Terminal, as with the AEC files). Station list and coordinates.",
+   "caveats": "Compulsory voting blunts the classic turnout effect; the likelier signals are early voting and informality. Weather is shared across neighbouring booths, so the effective sample is regions and days, not booths.",
+   "triggers": [
+    "results_2026"
+   ]
+  },
+  {
+   "id": "leader_sex",
+   "group": "Candidates",
+   "status": "done (first pass)",
+   "priority": "after onp_effect",
+   "question": "Does the sex of a party's leader affect its vote, and is the effect stronger among particular cohorts (age, sex balance, education, birthplace, religion)? Does the leader's sex change how that party's local members and candidates fare, and does it differ by the member's own sex?",
+   "plan": "Leaders' sex for every party at every Victorian state (1999-2022) and federal (2004-2025) election. Members' sex from the parliamentary records; candidates' sex from names, with ambiguous names checked by hand and left unclassified rather than guessed. Models: (1) party vote change by booth against census cohorts, with and without a female leader; (2) members' personal vote (member_effects) split by leader sex x member sex; (3) female vs male candidates of the same party in comparable seats.",
+   "needs": "Leader list (to compile and verify); parliamentary member records; census cohorts already joined to booths.",
+   "caveats": "Few leaders change sex between elections, so leader sex is almost inseparable from the particular leader, the era and the government's standing; read results as descriptive. The candidate-level comparison has far more variation and is the stronger test. 2026 is a male-female contest at the top: Labor led by Ben Carroll (who replaced Jacinta Allan) against a female Liberal leader. Until Allan's replacement, Victoria was set to elect its first female premier whoever won, which makes the switch itself a natural test case.",
+   "triggers": [
+    "results_2026",
+    "nominations_2026"
+   ],
+   "run": [
+    "python3 -m src.sex_effects"
+   ],
+   "inputs": [
+    "raw/reference/party_leaders.json",
+    "raw/reference/candidate_sex_overrides.json",
+    "site/data (candidates, votes, booths)",
+    "raw/abs/sa1_census_*.json"
+   ],
+   "outputs": [
+    "data/analysis/sex_effects.json"
+   ],
+   "requires": "pip install gender-guesser pyfixest statsmodels",
+   "headline": "Candidate sex makes no measurable difference to a major-party candidate's vote: +0.3 pts for women (95% range -0.2 to +0.8) comparing a party's female and male candidates in the same seat over time, 2,587 candidates 1999-2025. The raw gap is +1.0 because women are preselected in slightly better seats for their party. No party shows a gap. A female leader does not detectably help her party's female candidates (+0.6, -0.4 to +1.5; Greens alone +1.0, p=0.06). Within seats, female Liberal candidates do relatively better in degree-educated booths (+1.0 pts per SD); otherwise no cohort pattern. The switches to and from Gillard (2010) and to Ratnam (2018) did not shift the vote's demographic pattern beyond what other elections do. Sitting male members ran 2.5 pts behind their usual personal vote under a female leader (p=0.02), but on only 25 member-elections and confounded with those particular elections (Gillard 2010, Greens 2018-22): not to be relied on.",
+   "next": "Re-run after 2026: the first Victorian election with a female Liberal leader (Jess Wilson) adds the first within-party variation for the Coalition. Add the national files (other states, AEC 2016-2025) for more female-leader cases (e.g. state premiers)."
+  },
+  {
+   "id": "astrology",
+   "group": "Just for fun",
+   "status": "planned",
+   "priority": "fun, after the serious ones",
+   "question": "Does the sky matter? Moon phase and moon sign on election day, Mercury retrograde, planetary positions, eclipses near the election, plus other irrelevant events: daylight saving, school holidays, Melbourne Cup and Grand Final proximity, Friday the 13th in the campaign.",
+   "plan": "Compute the sky for every election date with an ephemeris (skyfield/ephem); test against swing to and from government and incumbent members. Report every test run, with a multiple-comparisons correction, as a deliberate demonstration of how easy spurious findings are.",
+   "caveats": "Twenty or so elections: anything 'significant' here is a false positive by construction. The point of the book is the method (how many things we tested, what chance alone produces).",
+   "site": "A light-hearted Model page book, e.g. 'Things that don't matter (we checked)'."
+  },
+  {
+   "id": "afl",
+   "group": "Just for fun",
+   "status": "planned",
+   "priority": "fun, after the serious ones",
+   "question": "Do footy results move the vote? The premiership side in the election year, ladder positions, and results in election week, especially in clubs' home areas.",
+   "plan": "Victorian elections are in late November (off-season), so use that year's Grand Final result and final ladder; federal elections in May use the round of election week and the live ladder. Strongest test: Geelong, with a clear geographic home (premierships 2007, 2009, 2011, 2022, and 2022 was a Victorian election year); compare Geelong-region booths' swing to the government against similar booths elsewhere. Melbourne clubs by historical heartland (Collingwood 2010, also an election year; Richmond 2017-2020; Hawthorn 2013-15) with heavy caveats.",
+   "needs": "Season results and ladders (AFL Tables or similar, fetched from Simon's Terminal).",
+   "caveats": "The US college-football study (Healy, Malhotra & Mo 2010) found a win effect on incumbents; a later re-analysis (Fowler & Montagnes 2015) argued it was probably a false positive. Treat as fun, with the same discipline as the astrology book."
   }
  ]
 }

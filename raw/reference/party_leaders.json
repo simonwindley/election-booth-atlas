@@ -1,0 +1,18 @@
+{"_about": "Party leaders at each general election in the Atlas (Victorian state and federal), with sex. Compiled by hand; 'none' where the party had no parliamentary leader. Vic Greens: Greg Barber led from the 2006 parliament; Samantha Ratnam from 2017. 2026 (state): Labor Ben Carroll (replaced Jacinta Allan), Liberal Jess Wilson.",
+ "vic1999": {"ALP": ["Steve Bracks", "M"], "LIB": ["Jeff Kennett", "M"], "NAT": ["Pat McNamara", "M"]},
+ "vic2002": {"ALP": ["Steve Bracks", "M"], "LIB": ["Robert Doyle", "M"], "NAT": ["Peter Ryan", "M"]},
+ "vic2006": {"ALP": ["Steve Bracks", "M"], "LIB": ["Ted Baillieu", "M"], "NAT": ["Peter Ryan", "M"]},
+ "vic2010": {"ALP": ["John Brumby", "M"], "LIB": ["Ted Baillieu", "M"], "NAT": ["Peter Ryan", "M"], "GRN": ["Greg Barber", "M"]},
+ "vic2014": {"ALP": ["Daniel Andrews", "M"], "LIB": ["Denis Napthine", "M"], "NAT": ["Peter Ryan", "M"], "GRN": ["Greg Barber", "M"]},
+ "vic2018": {"ALP": ["Daniel Andrews", "M"], "LIB": ["Matthew Guy", "M"], "NAT": ["Peter Walsh", "M"], "GRN": ["Samantha Ratnam", "F"]},
+ "vic2022": {"ALP": ["Daniel Andrews", "M"], "LIB": ["Matthew Guy", "M"], "NAT": ["Peter Walsh", "M"], "GRN": ["Samantha Ratnam", "F"]},
+ "vic2026": {"ALP": ["Ben Carroll", "M"], "LIB": ["Jess Wilson", "F"], "GRN": ["Ellen Sandell", "F"]},
+ "fed2004": {"ALP": ["Mark Latham", "M"], "LIB": ["John Howard", "M"], "NAT": ["John Anderson", "M"], "GRN": ["Bob Brown", "M"]},
+ "fed2007": {"ALP": ["Kevin Rudd", "M"], "LIB": ["John Howard", "M"], "NAT": ["Mark Vaile", "M"], "GRN": ["Bob Brown", "M"]},
+ "fed2010": {"ALP": ["Julia Gillard", "F"], "LIB": ["Tony Abbott", "M"], "NAT": ["Warren Truss", "M"], "GRN": ["Bob Brown", "M"]},
+ "fed2013": {"ALP": ["Kevin Rudd", "M"], "LIB": ["Tony Abbott", "M"], "NAT": ["Warren Truss", "M"], "GRN": ["Christine Milne", "F"]},
+ "fed2016": {"ALP": ["Bill Shorten", "M"], "LIB": ["Malcolm Turnbull", "M"], "NAT": ["Barnaby Joyce", "M"], "GRN": ["Richard Di Natale", "M"], "ONP": ["Pauline Hanson", "F"]},
+ "fed2019": {"ALP": ["Bill Shorten", "M"], "LIB": ["Scott Morrison", "M"], "NAT": ["Michael McCormack", "M"], "GRN": ["Richard Di Natale", "M"], "ONP": ["Pauline Hanson", "F"]},
+ "fed2022": {"ALP": ["Anthony Albanese", "M"], "LIB": ["Scott Morrison", "M"], "NAT": ["Barnaby Joyce", "M"], "GRN": ["Adam Bandt", "M"], "ONP": ["Pauline Hanson", "F"]},
+ "fed2025": {"ALP": ["Anthony Albanese", "M"], "LIB": ["Peter Dutton", "M"], "NAT": ["David Littleproud", "M"], "GRN": ["Adam Bandt", "M"], "ONP": ["Pauline Hanson", "F"]}
+}

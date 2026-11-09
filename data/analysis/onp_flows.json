@@ -1,0 +1,1992 @@
+{
+ "method": "One Nation in the preference count: how strongly each party's voters rank One Nation against the alternatives,\nmeasured from every distribution of preferences we hold outside Victoria (and Victoria's own few), for the 2026\nmodel (the onp_effect question in analysis/questions.json).",
+ "n_observations": {
+  "other_states_and_federal": 5482,
+  "victoria": 2930
+ },
+ "by_election": {
+  "fed2004": {
+   "IND": {
+    "ratio": 0.687,
+    "votes": 1425
+   },
+   "OTH": {
+    "ratio": 0.341,
+    "votes": 2570
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 0.924,
+    "votes": 1687
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 1.137,
+    "votes": 4169
+   }
+  },
+  "fed2007": {
+   "ONP>LIB/ALP": {
+    "ratio": 0.871,
+    "votes": 433
+   }
+  },
+  "fed2016-nsw": {
+   "GRN": {
+    "ratio": 0.203,
+    "votes": 12616
+   },
+   "IND": {
+    "ratio": 0.854,
+    "votes": 2839
+   },
+   "OTH": {
+    "ratio": 1.759,
+    "votes": 7020
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 0.64,
+    "votes": 25837
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 1.5,
+    "votes": 7381
+   }
+  },
+  "fed2016-qld": {
+   "GRN": {
+    "ratio": 0.288,
+    "votes": 61158
+   },
+   "ALP": {
+    "ratio": 0.856,
+    "votes": 20587
+   },
+   "IND": {
+    "ratio": 1.352,
+    "votes": 22826
+   },
+   "OTH": {
+    "ratio": 2.329,
+    "votes": 46210
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.048,
+    "votes": 173770
+   }
+  },
+  "fed2019": {
+   "GRN": {
+    "ratio": 0.141,
+    "votes": 12334
+   },
+   "IND": {
+    "ratio": 0.975,
+    "votes": 21017
+   },
+   "OTH": {
+    "ratio": 6.332,
+    "votes": 1836
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.604,
+    "votes": 37086
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 2.327,
+    "votes": 15385
+   }
+  },
+  "fed2019-nsw": {
+   "GRN": {
+    "ratio": 0.194,
+    "votes": 27609
+   },
+   "OTH": {
+    "ratio": 1.254,
+    "votes": 15985
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.367,
+    "votes": 48415
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 2.452,
+    "votes": 26919
+   }
+  },
+  "fed2019-qld": {
+   "GRN": {
+    "ratio": 0.231,
+    "votes": 113697
+   },
+   "ALP": {
+    "ratio": 0.493,
+    "votes": 17593
+   },
+   "IND": {
+    "ratio": 1.049,
+    "votes": 47043
+   },
+   "OTH": {
+    "ratio": 4.388,
+    "votes": 87791
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.033,
+    "votes": 350127
+   }
+  },
+  "fed2019-sa": {
+   "GRN": {
+    "ratio": 0.328,
+    "votes": 5948
+   },
+   "IND": {
+    "ratio": 1.361,
+    "votes": 1797
+   },
+   "OTH": {
+    "ratio": 0.561,
+    "votes": 7846
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.204,
+    "votes": 14249
+   }
+  },
+  "fed2019-tas": {
+   "NAT": {
+    "ratio": 0.494,
+    "votes": 1775
+   },
+   "GRN": {
+    "ratio": 0.094,
+    "votes": 10700
+   },
+   "IND": {
+    "ratio": 1.391,
+    "votes": 1234
+   },
+   "OTH": {
+    "ratio": 6.163,
+    "votes": 712
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.142,
+    "votes": 13299
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 1.387,
+    "votes": 7929
+   }
+  },
+  "fed2019-wa": {
+   "NAT": {
+    "ratio": 0.401,
+    "votes": 1400
+   },
+   "GRN": {
+    "ratio": 0.207,
+    "votes": 33232
+   },
+   "IND": {
+    "ratio": 0.772,
+    "votes": 7902
+   },
+   "OTH": {
+    "ratio": 1.092,
+    "votes": 60264
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.828,
+    "votes": 106234
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 2.374,
+    "votes": 19203
+   }
+  },
+  "fed2022": {
+   "NAT": {
+    "ratio": 1.335,
+    "votes": 4572
+   },
+   "GRN": {
+    "ratio": 0.109,
+    "votes": 32257
+   },
+   "IND": {
+    "ratio": 1.053,
+    "votes": 27093
+   },
+   "OTH": {
+    "ratio": 0.836,
+    "votes": 12484
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.853,
+    "votes": 172631
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 3.792,
+    "votes": 31629
+   }
+  },
+  "fed2022-act": {
+   "ONP>LIB/ALP": {
+    "ratio": 2.485,
+    "votes": 8337
+   }
+  },
+  "fed2022-nsw": {
+   "GRN": {
+    "ratio": 0.165,
+    "votes": 115309
+   },
+   "IND": {
+    "ratio": 1.068,
+    "votes": 65260
+   },
+   "OTH": {
+    "ratio": 0.902,
+    "votes": 37391
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.664,
+    "votes": 233286
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 2.411,
+    "votes": 112004
+   }
+  },
+  "fed2022-nt": {
+   "IND": {
+    "ratio": 1.231,
+    "votes": 1720
+   },
+   "OTH": {
+    "ratio": 0.592,
+    "votes": 506
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.678,
+    "votes": 8794
+   }
+  },
+  "fed2022-qld": {
+   "GRN": {
+    "ratio": 0.276,
+    "votes": 126500
+   },
+   "IND": {
+    "ratio": 1.586,
+    "votes": 50925
+   },
+   "OTH": {
+    "ratio": 3.268,
+    "votes": 45509
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.966,
+    "votes": 383282
+   }
+  },
+  "fed2022-sa": {
+   "NAT": {
+    "ratio": 6.662,
+    "votes": 2711
+   },
+   "GRN": {
+    "ratio": 0.262,
+    "votes": 31519
+   },
+   "IND": {
+    "ratio": 2.77,
+    "votes": 13732
+   },
+   "OTH": {
+    "ratio": 0.89,
+    "votes": 4976
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.631,
+    "votes": 91692
+   }
+  },
+  "fed2022-tas": {
+   "IND": {
+    "ratio": 0.572,
+    "votes": 3837
+   },
+   "OTH": {
+    "ratio": 0.303,
+    "votes": 758
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.649,
+    "votes": 18960
+   }
+  },
+  "fed2022-wa": {
+   "GRN": {
+    "ratio": 0.158,
+    "votes": 9472
+   },
+   "IND": {
+    "ratio": 1.647,
+    "votes": 7056
+   },
+   "OTH": {
+    "ratio": 1.798,
+    "votes": 91656
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.109,
+    "votes": 115378
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 5.343,
+    "votes": 11083
+   }
+  },
+  "fed2025": {
+   "GRN": {
+    "ratio": 0.144,
+    "votes": 44898
+   },
+   "ALP": {
+    "ratio": 0.648,
+    "votes": 10706
+   },
+   "IND": {
+    "ratio": 0.905,
+    "votes": 31603
+   },
+   "OTH": {
+    "ratio": 1.371,
+    "votes": 19453
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 3.352,
+    "votes": 267839
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 4.217,
+    "votes": 60730
+   }
+  },
+  "fed2025-nsw": {
+   "NAT": {
+    "ratio": 4.02,
+    "votes": 24870
+   },
+   "GRN": {
+    "ratio": 0.168,
+    "votes": 91422
+   },
+   "IND": {
+    "ratio": 0.806,
+    "votes": 117933
+   },
+   "OTH": {
+    "ratio": 1.942,
+    "votes": 26580
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 3.215,
+    "votes": 297232
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 2.965,
+    "votes": 124546
+   }
+  },
+  "fed2025-nt": {
+   "IND": {
+    "ratio": 0.903,
+    "votes": 754
+   },
+   "OTH": {
+    "ratio": 0.597,
+    "votes": 2889
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 5.774,
+    "votes": 8790
+   }
+  },
+  "fed2025-qld": {
+   "GRN": {
+    "ratio": 0.223,
+    "votes": 168649
+   },
+   "ALP": {
+    "ratio": 0.698,
+    "votes": 20567
+   },
+   "IND": {
+    "ratio": 0.742,
+    "votes": 50103
+   },
+   "OTH": {
+    "ratio": 5.579,
+    "votes": 97722
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.785,
+    "votes": 409751
+   }
+  },
+  "fed2025-sa": {
+   "NAT": {
+    "ratio": 1.74,
+    "votes": 5367
+   },
+   "GRN": {
+    "ratio": 0.334,
+    "votes": 18966
+   },
+   "IND": {
+    "ratio": 1.096,
+    "votes": 14382
+   },
+   "OTH": {
+    "ratio": 0.539,
+    "votes": 3009
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.448,
+    "votes": 113132
+   }
+  },
+  "fed2025-tas": {
+   "GRN": {
+    "ratio": 0.324,
+    "votes": 8562
+   },
+   "IND": {
+    "ratio": 1.017,
+    "votes": 14087
+   },
+   "OTH": {
+    "ratio": 1.114,
+    "votes": 1224
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.681,
+    "votes": 33335
+   }
+  },
+  "fed2025-wa": {
+   "NAT": {
+    "ratio": 1.299,
+    "votes": 4892
+   },
+   "GRN": {
+    "ratio": 0.174,
+    "votes": 56144
+   },
+   "IND": {
+    "ratio": 0.7,
+    "votes": 6091
+   },
+   "OTH": {
+    "ratio": 2.709,
+    "votes": 38624
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 3.297,
+    "votes": 165302
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 5.035,
+    "votes": 40777
+   }
+  },
+  "fedby-fadden-2023": {
+   "GRN": {
+    "ratio": 0.138,
+    "votes": 6578
+   },
+   "IND": {
+    "ratio": 0.974,
+    "votes": 4279
+   },
+   "OTH": {
+    "ratio": 0.837,
+    "votes": 2245
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.952,
+    "votes": 12598
+   }
+  },
+  "nsw2019": {
+   "GRN": {
+    "ratio": 0.081,
+    "votes": 15381
+   },
+   "IND": {
+    "ratio": 0.762,
+    "votes": 3868
+   },
+   "OTH": {
+    "ratio": 0.668,
+    "votes": 8854
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.636,
+    "votes": 18324
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 1.295,
+    "votes": 1363
+   }
+  },
+  "nsw2023": {
+   "NAT": {
+    "ratio": 1.826,
+    "votes": 1883
+   },
+   "GRN": {
+    "ratio": 0.13,
+    "votes": 27683
+   },
+   "IND": {
+    "ratio": 0.914,
+    "votes": 5810
+   },
+   "OTH": {
+    "ratio": 1.313,
+    "votes": 10395
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.851,
+    "votes": 36643
+   }
+  },
+  "qld2015": {
+   "GRN": {
+    "ratio": 0.301,
+    "votes": 4893
+   },
+   "ALP": {
+    "ratio": 1.411,
+    "votes": 6127
+   },
+   "IND": {
+    "ratio": 1.278,
+    "votes": 1275
+   },
+   "OTH": {
+    "ratio": 2.118,
+    "votes": 3513
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 0.878,
+    "votes": 10165
+   }
+  },
+  "qld2017": {
+   "LIB": {
+    "ratio": 1.745,
+    "votes": 75943
+   },
+   "GRN": {
+    "ratio": 0.235,
+    "votes": 128916
+   },
+   "ALP": {
+    "ratio": 0.541,
+    "votes": 65976
+   },
+   "IND": {
+    "ratio": 0.94,
+    "votes": 67991
+   },
+   "OTH": {
+    "ratio": 2.196,
+    "votes": 28080
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.876,
+    "votes": 228531
+   }
+  },
+  "qld2020": {
+   "LIB": {
+    "ratio": 2.813,
+    "votes": 14003
+   },
+   "GRN": {
+    "ratio": 0.243,
+    "votes": 75779
+   },
+   "IND": {
+    "ratio": 1.057,
+    "votes": 42150
+   },
+   "OTH": {
+    "ratio": 2.441,
+    "votes": 34569
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.944,
+    "votes": 238726
+   }
+  },
+  "qld2024": {
+   "GRN": {
+    "ratio": 0.335,
+    "votes": 79170
+   },
+   "ALP": {
+    "ratio": 0.742,
+    "votes": 7297
+   },
+   "IND": {
+    "ratio": 1.253,
+    "votes": 31841
+   },
+   "OTH": {
+    "ratio": 3.81,
+    "votes": 2851
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.644,
+    "votes": 303993
+   }
+  },
+  "qldby-bundamba-2020": {
+   "LIB": {
+    "ratio": 0.997,
+    "votes": 4153
+   },
+   "GRN": {
+    "ratio": 0.36,
+    "votes": 2924
+   }
+  },
+  "qldby-callide-2022": {
+   "OTH": {
+    "ratio": 3.489,
+    "votes": 3023
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 3.312,
+    "votes": 5916
+   }
+  },
+  "qldby-currumbin-2020": {
+   "ONP>LIB/ALP": {
+    "ratio": 2.032,
+    "votes": 1594
+   }
+  },
+  "qldby-hinchinbrook-2025": {
+   "GRN": {
+    "ratio": 0.172,
+    "votes": 1181
+   },
+   "ALP": {
+    "ratio": 0.248,
+    "votes": 3326
+   },
+   "IND": {
+    "ratio": 0.949,
+    "votes": 333
+   }
+  },
+  "qldby-ipswich-west-2024": {
+   "ONP>LIB/ALP": {
+    "ratio": 2.49,
+    "votes": 3206
+   }
+  },
+  "sa2026": {
+   "LIB": {
+    "ratio": 2.031,
+    "votes": 86464
+   },
+   "NAT": {
+    "ratio": 2.96,
+    "votes": 1654
+   },
+   "GRN": {
+    "ratio": 0.173,
+    "votes": 109079
+   },
+   "ALP": {
+    "ratio": 0.513,
+    "votes": 25060
+   },
+   "IND": {
+    "ratio": 0.69,
+    "votes": 37793
+   },
+   "OTH": {
+    "ratio": 1.163,
+    "votes": 18264
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.626,
+    "votes": 56511
+   }
+  },
+  "vic1999": {
+   "IND": {
+    "ratio": 0.87,
+    "votes": 4724
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.206,
+    "votes": 2381
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 0.96,
+    "votes": 5909
+   }
+  },
+  "vic2022": {
+   "GRN": {
+    "ratio": 0.108,
+    "votes": 2285
+   },
+   "IND": {
+    "ratio": 1.929,
+    "votes": 10467
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.694,
+    "votes": 9291
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 2.135,
+    "votes": 6220
+   }
+  },
+  "wa2017": {
+   "LIB": {
+    "ratio": 1.232,
+    "votes": 2925
+   },
+   "NAT": {
+    "ratio": 0.656,
+    "votes": 4354
+   },
+   "GRN": {
+    "ratio": 0.188,
+    "votes": 33043
+   },
+   "IND": {
+    "ratio": 0.851,
+    "votes": 2931
+   },
+   "OTH": {
+    "ratio": 1.136,
+    "votes": 37389
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.497,
+    "votes": 76930
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 1.805,
+    "votes": 27378
+   }
+  },
+  "wa2021": {
+   "NAT": {
+    "ratio": 0.526,
+    "votes": 350
+   },
+   "GRN": {
+    "ratio": 0.105,
+    "votes": 2040
+   },
+   "IND": {
+    "ratio": 0.719,
+    "votes": 1452
+   },
+   "OTH": {
+    "ratio": 1.433,
+    "votes": 17722
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 1.059,
+    "votes": 23146
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 1.056,
+    "votes": 7850
+   }
+  },
+  "wa2025": {
+   "NAT": {
+    "ratio": 1.92,
+    "votes": 9779
+   },
+   "GRN": {
+    "ratio": 0.265,
+    "votes": 21189
+   },
+   "IND": {
+    "ratio": 0.889,
+    "votes": 4390
+   },
+   "OTH": {
+    "ratio": 3.486,
+    "votes": 22368
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.452,
+    "votes": 90731
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 4.982,
+    "votes": 18695
+   }
+  }
+ },
+ "pooled": {
+  "OTH": {
+   "ratio": 1.598,
+   "elections": 35,
+   "votes": 802288,
+   "spread_x": 2.2,
+   "share_vs_ref": 0.615
+  },
+  "ONP>LIB/ALP": {
+   "ratio": 2.252,
+   "elections": 40,
+   "votes": 4217131,
+   "spread_x": 1.53,
+   "share_vs_ref": 0.692
+  },
+  "GRN": {
+   "ratio": 0.198,
+   "elections": 33,
+   "votes": 1491133,
+   "spread_x": 1.49,
+   "share_vs_ref": 0.165
+  },
+  "ALP": {
+   "ratio": 0.56,
+   "elections": 9,
+   "votes": 177239,
+   "spread_x": 1.56,
+   "share_vs_ref": 0.359
+  },
+  "LIB": {
+   "ratio": 1.839,
+   "elections": 5,
+   "votes": 183488,
+   "spread_x": 1.44,
+   "share_vs_ref": 0.648
+  },
+  "IND": {
+   "ratio": 0.986,
+   "elections": 35,
+   "votes": 729630,
+   "spread_x": 1.38,
+   "share_vs_ref": 0.496
+  },
+  "NAT": {
+   "ratio": 1.964,
+   "elections": 11,
+   "votes": 63257,
+   "spread_x": 2.28,
+   "share_vs_ref": 0.663
+  },
+  "ONP>NAT/ALP": {
+   "ratio": 2.99,
+   "elections": 18,
+   "votes": 529170,
+   "spread_x": 1.72,
+   "share_vs_ref": 0.749
+  }
+ },
+ "pooled_other_state_elections_only": {
+  "OTH": {
+   "ratio": 1.855,
+   "elections": 12,
+   "votes": 189273,
+   "spread_x": 1.74,
+   "share_vs_ref": 0.65
+  },
+  "ONP>LIB/ALP": {
+   "ratio": 2.152,
+   "elections": 14,
+   "votes": 1107014,
+   "spread_x": 1.41,
+   "share_vs_ref": 0.683
+  },
+  "GRN": {
+   "ratio": 0.197,
+   "elections": 13,
+   "votes": 507856,
+   "spread_x": 1.55,
+   "share_vs_ref": 0.164
+  },
+  "ALP": {
+   "ratio": 0.489,
+   "elections": 5,
+   "votes": 107786,
+   "spread_x": 1.76,
+   "share_vs_ref": 0.328
+  },
+  "LIB": {
+   "ratio": 1.839,
+   "elections": 5,
+   "votes": 183488,
+   "spread_x": 1.44,
+   "share_vs_ref": 0.648
+  },
+  "IND": {
+   "ratio": 0.906,
+   "elections": 11,
+   "votes": 203780,
+   "spread_x": 1.21,
+   "share_vs_ref": 0.475
+  },
+  "NAT": {
+   "ratio": 2.022,
+   "elections": 4,
+   "votes": 17670,
+   "spread_x": 1.74,
+   "share_vs_ref": 0.669
+  },
+  "ONP>NAT/ALP": {
+   "ratio": 2.738,
+   "elections": 4,
+   "votes": 55286,
+   "spread_x": 1.82,
+   "share_vs_ref": 0.732
+  }
+ },
+ "pooled_victoria_only": {
+  "IND": {
+   "ratio": 1.055,
+   "elections": 6,
+   "votes": 96329,
+   "spread_x": 1.37,
+   "share_vs_ref": 0.513
+  },
+  "OTH": {
+   "ratio": 1.294,
+   "elections": 4,
+   "votes": 36343,
+   "spread_x": 2.88,
+   "share_vs_ref": 0.564
+  },
+  "ONP>LIB/ALP": {
+   "ratio": 2.35,
+   "elections": 6,
+   "votes": 490915,
+   "spread_x": 1.55,
+   "share_vs_ref": 0.702
+  },
+  "ONP>NAT/ALP": {
+   "ratio": 2.906,
+   "elections": 6,
+   "votes": 124042,
+   "spread_x": 1.74,
+   "share_vs_ref": 0.744
+  },
+  "GRN": {
+   "ratio": 0.128,
+   "elections": 4,
+   "votes": 91774,
+   "spread_x": 1.14,
+   "share_vs_ref": 0.114
+  },
+  "NAT": {
+   "ratio": 1.335,
+   "elections": 1,
+   "votes": 4572,
+   "spread_x": null,
+   "share_vs_ref": 0.572
+  },
+  "ALP": {
+   "ratio": 0.648,
+   "elections": 1,
+   "votes": 10706,
+   "spread_x": null,
+   "share_vs_ref": 0.393
+  }
+ },
+ "head_to_head_2026": {
+  "LIB voters: ONP vs ALP": {
+   "before": 65.8,
+   "after": 64.8
+  },
+  "NAT voters: ONP vs ALP": {
+   "before": 38.9,
+   "after": 66.3
+  },
+  "GRN voters: ONP vs ALP": {
+   "before": 11.5,
+   "after": 16.5
+  },
+  "ALP voters: ONP vs LIB": {
+   "before": 40.2,
+   "after": 35.9
+  },
+  "IND voters: ONP vs ALP": {
+   "before": 54.3,
+   "after": 49.6
+  },
+  "OTH voters: ONP vs ALP": {
+   "before": 58.3,
+   "after": 61.5
+  },
+  "ONP voters: LIB vs ALP": {
+   "before": 75.4,
+   "after": 69.2
+  },
+  "ONP voters: NAT vs ALP": {
+   "before": 78.6,
+   "after": 74.9
+  }
+ },
+ "surges": [
+  {
+   "label": "South Australia 2022 to 2026",
+   "from": "sa2022",
+   "to": "sa2026",
+   "statewide_from": 2.7,
+   "statewide_to": 22.9,
+   "seats_both": 18,
+   "seats_stood_to": 47,
+   "seats_to": 47,
+   "lambda": 0.36,
+   "logit_slope": 0.68,
+   "rmse_uniform": 5.4,
+   "rmse_proportional": 6.5,
+   "highest": [
+    "Narungga",
+    37.5
+   ],
+   "lowest": [
+    "Bragg",
+    9.1
+   ],
+   "won": [
+    "Hammond",
+    "MacKillop",
+    "Narungga",
+    "Ngadjuri"
+   ]
+  },
+  {
+   "label": "Queensland 2015 to 2017",
+   "from": "qld2015",
+   "to": "qld2017",
+   "statewide_from": 0.9,
+   "statewide_to": 13.7,
+   "seats_both": 8,
+   "seats_stood_to": 61,
+   "seats_to": 93,
+   "lambda": -0.24,
+   "logit_slope": 0.27,
+   "rmse_uniform": 5.1,
+   "rmse_proportional": 18.8,
+   "highest": [
+    "Lockyer",
+    34.4
+   ],
+   "lowest": [
+    "Mount Ommaney",
+    7.3
+   ],
+   "won": [
+    "Mirani"
+   ]
+  },
+  {
+   "label": "Queensland 2020 to 2024",
+   "from": "qld2020",
+   "to": "qld2024",
+   "statewide_from": 7.1,
+   "statewide_to": 8.0,
+   "seats_both": 90,
+   "seats_stood_to": 93,
+   "seats_to": 93,
+   "lambda": -0.5,
+   "logit_slope": 0.67,
+   "rmse_uniform": 3.7,
+   "rmse_proportional": 3.8,
+   "highest": [
+    "Keppel",
+    25.1
+   ],
+   "lowest": [
+    "Cooper",
+    2.1
+   ],
+   "won": []
+  },
+  {
+   "label": "Western Australia 2021 to 2025",
+   "from": "wa2021",
+   "to": "wa2025",
+   "statewide_from": 1.3,
+   "statewide_to": 4.0,
+   "seats_both": 29,
+   "seats_stood_to": 41,
+   "seats_to": 59,
+   "lambda": 0.07,
+   "logit_slope": 0.59,
+   "rmse_uniform": 2.0,
+   "rmse_proportional": 2.3,
+   "highest": [
+    "Central Wheatbelt",
+    9.3
+   ],
+   "lowest": [
+    "Nedlands",
+    1.5
+   ],
+   "won": []
+  }
+ ],
+ "validation_sa2026": {
+  "districts": 47,
+  "winner_right": 45,
+  "winner_right_neutral": 44,
+  "final_two_right": 45,
+  "onp_won_real": [
+   "Hammond",
+   "MacKillop",
+   "Narungga",
+   "Ngadjuri"
+  ],
+  "onp_won_model": [
+   "Hammond",
+   "MacKillop",
+   "Narungga",
+   "Ngadjuri"
+  ],
+  "onp_won_neutral": [
+   "Hammond",
+   "MacKillop",
+   "Narungga",
+   "Ngadjuri"
+  ],
+  "onp_in_final_two_real": 32,
+  "onp_in_final_two_model": 32,
+  "onp_2cp_error_pts": 2.44,
+  "pooled_ratios_used": {
+   "OTH": {
+    "ratio": 1.629,
+    "elections": 34,
+    "votes": 784024,
+    "spread_x": 2.22,
+    "share_vs_ref": 0.62
+   },
+   "ONP>LIB/ALP": {
+    "ratio": 2.235,
+    "elections": 39,
+    "votes": 4160620,
+    "spread_x": 1.54,
+    "share_vs_ref": 0.691
+   },
+   "GRN": {
+    "ratio": 0.199,
+    "elections": 32,
+    "votes": 1382054,
+    "spread_x": 1.5,
+    "share_vs_ref": 0.166
+   },
+   "ALP": {
+    "ratio": 0.572,
+    "elections": 8,
+    "votes": 152179,
+    "spread_x": 1.59,
+    "share_vs_ref": 0.364
+   },
+   "LIB": {
+    "ratio": 1.645,
+    "elections": 4,
+    "votes": 97024,
+    "spread_x": 1.48,
+    "share_vs_ref": 0.622
+   },
+   "IND": {
+    "ratio": 1.008,
+    "elections": 34,
+    "votes": 691837,
+    "spread_x": 1.38,
+    "share_vs_ref": 0.502
+   },
+   "NAT": {
+    "ratio": 1.859,
+    "elections": 10,
+    "votes": 61603,
+    "spread_x": 2.31,
+    "share_vs_ref": 0.65
+   },
+   "ONP>NAT/ALP": {
+    "ratio": 2.99,
+    "elections": 18,
+    "votes": 529170,
+    "spread_x": 1.72,
+    "share_vs_ref": 0.749
+   }
+  }
+ },
+ "validation_sa2026_seats": [
+  {
+   "district": "Adelaide",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Badcoe",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 29.1,
+   "model_onp_2cp": 27.6
+  },
+  {
+   "district": "Black",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "IND"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 34.8,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Bragg",
+   "real_two": [
+    "LIB",
+    "ALP"
+   ],
+   "real_winner": "LIB",
+   "model_two": [
+    "LIB",
+    "ALP"
+   ],
+   "model_winner": "LIB",
+   "neutral_winner": "LIB",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Chaffey",
+   "real_two": [
+    "LIB",
+    "ONP"
+   ],
+   "real_winner": "LIB",
+   "model_two": [
+    "LIB",
+    "ONP"
+   ],
+   "model_winner": "LIB",
+   "neutral_winner": "LIB",
+   "real_onp_2cp": 44.1,
+   "model_onp_2cp": 49.3
+  },
+  {
+   "district": "Cheltenham",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 32.0,
+   "model_onp_2cp": 30.7
+  },
+  {
+   "district": "Colton",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Croydon",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 20.4,
+   "model_onp_2cp": 22.9
+  },
+  {
+   "district": "Davenport",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 33.6,
+   "model_onp_2cp": 34.3
+  },
+  {
+   "district": "Dunstan",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Elder",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Elizabeth",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 45.3,
+   "model_onp_2cp": 41.7
+  },
+  {
+   "district": "Enfield",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 31.0,
+   "model_onp_2cp": 34.6
+  },
+  {
+   "district": "Finniss",
+   "real_two": [
+    "IND",
+    "LIB"
+   ],
+   "real_winner": "IND",
+   "model_two": [
+    "LIB",
+    "ONP"
+   ],
+   "model_winner": "LIB",
+   "neutral_winner": "LIB",
+   "real_onp_2cp": null,
+   "model_onp_2cp": 47.9
+  },
+  {
+   "district": "Flinders",
+   "real_two": [
+    "LIB",
+    "ONP"
+   ],
+   "real_winner": "LIB",
+   "model_two": [
+    "LIB",
+    "ONP"
+   ],
+   "model_winner": "LIB",
+   "neutral_winner": "LIB",
+   "real_onp_2cp": 40.8,
+   "model_onp_2cp": 47.2
+  },
+  {
+   "district": "Florey",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 34.1,
+   "model_onp_2cp": 32.6
+  },
+  {
+   "district": "Gibson",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Giles",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 41.5,
+   "model_onp_2cp": 41.8
+  },
+  {
+   "district": "Hammond",
+   "real_two": [
+    "ONP",
+    "ALP"
+   ],
+   "real_winner": "ONP",
+   "model_two": [
+    "ONP",
+    "ALP"
+   ],
+   "model_winner": "ONP",
+   "neutral_winner": "ONP",
+   "real_onp_2cp": 54.9,
+   "model_onp_2cp": 52.2
+  },
+  {
+   "district": "Hartley",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Heysen",
+   "real_two": [
+    "LIB",
+    "ALP"
+   ],
+   "real_winner": "LIB",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Hurtle Vale",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 39.8,
+   "model_onp_2cp": 39.2
+  },
+  {
+   "district": "Kaurna",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 37.9,
+   "model_onp_2cp": 35.6
+  },
+  {
+   "district": "Kavel",
+   "real_two": [
+    "IND",
+    "ALP"
+   ],
+   "real_winner": "IND",
+   "model_two": [
+    "IND",
+    "ALP"
+   ],
+   "model_winner": "IND",
+   "neutral_winner": "IND",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "King",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 44.3,
+   "model_onp_2cp": 42.9
+  },
+  {
+   "district": "Lee",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 40.5,
+   "model_onp_2cp": 39.8
+  },
+  {
+   "district": "Light",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 48.8,
+   "model_onp_2cp": 47.6
+  },
+  {
+   "district": "MacKillop",
+   "real_two": [
+    "ONP",
+    "LIB"
+   ],
+   "real_winner": "ONP",
+   "model_two": [
+    "ONP",
+    "LIB"
+   ],
+   "model_winner": "ONP",
+   "neutral_winner": "ONP",
+   "real_onp_2cp": 50.9,
+   "model_onp_2cp": 55.9
+  },
+  {
+   "district": "Mawson",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 42.1,
+   "model_onp_2cp": 42.7
+  },
+  {
+   "district": "Morialta",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Morphett",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "LIB",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Mount Gambier",
+   "real_two": [
+    "IND",
+    "ONP"
+   ],
+   "real_winner": "IND",
+   "model_two": [
+    "IND",
+    "ONP"
+   ],
+   "model_winner": "IND",
+   "neutral_winner": "IND",
+   "real_onp_2cp": 40.1,
+   "model_onp_2cp": 46.8
+  },
+  {
+   "district": "Narungga",
+   "real_two": [
+    "ONP",
+    "LIB"
+   ],
+   "real_winner": "ONP",
+   "model_two": [
+    "ONP",
+    "LIB"
+   ],
+   "model_winner": "ONP",
+   "neutral_winner": "ONP",
+   "real_onp_2cp": 50.2,
+   "model_onp_2cp": 57.6
+  },
+  {
+   "district": "Newland",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 39.5,
+   "model_onp_2cp": 38.5
+  },
+  {
+   "district": "Ngadjuri",
+   "real_two": [
+    "ONP",
+    "ALP"
+   ],
+   "real_winner": "ONP",
+   "model_two": [
+    "ONP",
+    "ALP"
+   ],
+   "model_winner": "ONP",
+   "neutral_winner": "ONP",
+   "real_onp_2cp": 56.6,
+   "model_onp_2cp": 54.3
+  },
+  {
+   "district": "Playford",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 33.1,
+   "model_onp_2cp": 32.3
+  },
+  {
+   "district": "Port Adelaide",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 35.4,
+   "model_onp_2cp": 38.0
+  },
+  {
+   "district": "Ramsay",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 37.1,
+   "model_onp_2cp": 35.5
+  },
+  {
+   "district": "Reynell",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 39.2,
+   "model_onp_2cp": 36.6
+  },
+  {
+   "district": "Schubert",
+   "real_two": [
+    "LIB",
+    "ALP"
+   ],
+   "real_winner": "LIB",
+   "model_two": [
+    "LIB",
+    "ALP"
+   ],
+   "model_winner": "LIB",
+   "neutral_winner": "LIB",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Stuart",
+   "real_two": [
+    "IND",
+    "ONP"
+   ],
+   "real_winner": "IND",
+   "model_two": [
+    "IND",
+    "ONP"
+   ],
+   "model_winner": "IND",
+   "neutral_winner": "IND",
+   "real_onp_2cp": 43.3,
+   "model_onp_2cp": 39.8
+  },
+  {
+   "district": "Taylor",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 45.7,
+   "model_onp_2cp": 43.0
+  },
+  {
+   "district": "Torrens",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 34.6,
+   "model_onp_2cp": 36.5
+  },
+  {
+   "district": "Unley",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "Waite",
+   "real_two": [
+    "ALP",
+    "LIB"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "LIB"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": null,
+   "model_onp_2cp": null
+  },
+  {
+   "district": "West Torrens",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 26.3,
+   "model_onp_2cp": 26.0
+  },
+  {
+   "district": "Wright",
+   "real_two": [
+    "ALP",
+    "ONP"
+   ],
+   "real_winner": "ALP",
+   "model_two": [
+    "ALP",
+    "ONP"
+   ],
+   "model_winner": "ALP",
+   "neutral_winner": "ALP",
+   "real_onp_2cp": 37.5,
+   "model_onp_2cp": 38.6
+  }
+ ]
+}

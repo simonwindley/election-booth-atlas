@@ -339,12 +339,12 @@
  },
  "outlook_2026": {
   "polls": {
-   "ALP": 23.9,
-   "COAL": 29.4,
-   "GRN": 14.2,
-   "ONP": 22.3,
-   "IND": 3.3,
-   "OTH": 7.0
+   "ALP": 22.7,
+   "COAL": 29.9,
+   "GRN": 14.4,
+   "ONP": 22.6,
+   "IND": 3.4,
+   "OTH": 7.1
   },
   "polls_2022_baseline": {
    "ALP": 37.0,
@@ -354,8 +354,10 @@
    "IND": 5.5,
    "OTH": 11.6
   },
-  "polls_n": 7,
-  "polls_to": "2026-10-29",
+  "polls_n": 9,
+  "polls_to": "2026-11-07",
+  "flows_used": "blend_2026.onp_adjusted (src.onp_flows)",
+  "onp_compression_b": 0.67,
   "statewide_2022": {
    "IND": 4.74,
    "ALP": 36.66,
@@ -365,29 +367,29 @@
    "ONP": 0.28
   },
   "statewide_target": {
-   "ALP": 23.51,
-   "COAL": 29.5,
-   "GRN": 14.21,
-   "IND": 2.55,
-   "OTH": 7.56,
-   "ONP": 22.29
+   "ALP": 22.32,
+   "COAL": 30.09,
+   "GRN": 14.39,
+   "IND": 2.6,
+   "OTH": 7.66,
+   "ONP": 22.56
   },
   "winners": {
-   "ALP": 30,
-   "COAL": 52,
-   "GRN": 5,
+   "GRN": 6,
+   "ALP": 31,
+   "ONP": 12,
+   "COAL": 38,
    "IND": 1
   },
   "final_twos": {
-   "ALP v COAL": 46,
-   "COAL v ONP": 9,
-   "COAL v GRN": 7,
-   "ALP v ONP": 18,
-   "GRN v ONP": 3,
-   "COAL v IND": 2,
-   "ALP v IND": 1,
-   "ALP v GRN": 1,
-   "COAL v COAL": 1
+   "COAL v GRN": 8,
+   "ALP v COAL": 29,
+   "COAL v ONP": 16,
+   "ALP v ONP": 26,
+   "ALP v GRN": 6,
+   "COAL v IND": 1,
+   "IND v ONP": 1,
+   "ALP v IND": 1
   },
   "seats": [
    {
@@ -396,25 +398,26 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0074,
+    "onp_geo": 0.0178,
     "final_two": [
-     "ALP",
+     "GRN",
      "LIB"
     ],
-    "winner_share": 0.5477,
-    "winner": "ALP",
+    "winner_share": 0.5728,
+    "winner": "GRN",
     "p_win": {
-     "ALP": 0.464,
-     "GRN": 0.254,
-     "COAL": 0.19,
-     "ONP": 0.092
+     "ALP": 0.486,
+     "GRN": 0.467,
+     "COAL": 0.045,
+     "ONP": 0.001
     },
     "primaries": {
-     "ALP": 0.2428,
-     "LIB": 0.2386,
-     "GRN": 0.2289,
-     "ONP": 0.2193,
-     "IND": 0.0381,
-     "OTH": 0.0324
+     "LIB": 0.2711,
+     "GRN": 0.2556,
+     "ALP": 0.2547,
+     "ONP": 0.139,
+     "IND": 0.0427,
+     "OTH": 0.0368
     },
     "two_party_winner": "ALP"
    },
@@ -424,24 +427,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0072,
+    "onp_geo": 0.0163,
     "final_two": [
-     "LIB",
-     "ALP"
+     "ALP",
+     "LIB"
     ],
-    "winner_share": 0.5401,
-    "winner": "LIB",
+    "winner_share": 0.512,
+    "winner": "ALP",
     "p_win": {
-     "COAL": 0.647,
-     "ALP": 0.247,
-     "ONP": 0.095,
-     "GRN": 0.011
+     "ALP": 0.539,
+     "COAL": 0.431,
+     "GRN": 0.029
     },
     "primaries": {
-     "LIB": 0.3174,
-     "ALP": 0.2608,
-     "ONP": 0.2229,
-     "GRN": 0.172,
-     "OTH": 0.0269
+     "LIB": 0.3619,
+     "ALP": 0.2783,
+     "GRN": 0.1946,
+     "ONP": 0.1341,
+     "OTH": 0.0311
     },
     "two_party_winner": "COAL"
    },
@@ -451,25 +454,25 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.034,
+    "onp_geo": 0.09,
     "final_two": [
-     "LIB",
-     "ALP"
+     "ONP",
+     "LIB"
     ],
-    "winner_share": 0.6257,
-    "winner": "LIB",
+    "winner_share": 0.5124,
+    "winner": "ONP",
     "p_win": {
-     "COAL": 0.944,
-     "ONP": 0.048,
-     "ALP": 0.007,
-     "GRN": 0.001
+     "ONP": 0.605,
+     "COAL": 0.393,
+     "ALP": 0.003
     },
     "primaries": {
-     "LIB": 0.2725,
-     "ONP": 0.229,
-     "ALP": 0.1801,
-     "NAT": 0.1202,
-     "GRN": 0.1099,
-     "OTH": 0.0884
+     "ONP": 0.3485,
+     "LIB": 0.2358,
+     "ALP": 0.1401,
+     "NAT": 0.104,
+     "GRN": 0.0952,
+     "OTH": 0.0764
     },
     "two_party_winner": "COAL"
    },
@@ -479,23 +482,25 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0151,
+    "onp_geo": 0.0389,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5826,
+    "winner_share": 0.5785,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.911,
-     "ONP": 0.051,
-     "ALP": 0.037
+     "COAL": 0.924,
+     "ALP": 0.038,
+     "ONP": 0.037,
+     "GRN": 0.001
     },
     "primaries": {
-     "LIB": 0.3563,
-     "ALP": 0.2534,
-     "ONP": 0.229,
-     "GRN": 0.1038,
-     "OTH": 0.0574
+     "LIB": 0.3655,
+     "ALP": 0.2429,
+     "ONP": 0.226,
+     "GRN": 0.1066,
+     "OTH": 0.059
     },
     "two_party_winner": "COAL"
    },
@@ -505,24 +510,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0152,
+    "onp_geo": 0.0383,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5088,
+    "winner_share": 0.5052,
     "winner": "LIB",
     "p_win": {
-     "ALP": 0.468,
-     "COAL": 0.446,
+     "ALP": 0.477,
+     "COAL": 0.435,
      "ONP": 0.084,
-     "GRN": 0.003
+     "GRN": 0.004
     },
     "primaries": {
-     "ALP": 0.305,
-     "LIB": 0.287,
-     "ONP": 0.2193,
-     "GRN": 0.1457,
-     "OTH": 0.0429
+     "LIB": 0.2963,
+     "ALP": 0.2953,
+     "ONP": 0.2148,
+     "GRN": 0.1492,
+     "OTH": 0.0443
     },
     "two_party_winner": "COAL"
    },
@@ -532,21 +538,23 @@
     "member_party": "COAL",
     "member_category": "open",
     "onp_lc_2022": 0.033,
+    "onp_geo": 0.0922,
     "final_two": [
      "LIB",
      "ONP"
     ],
-    "winner_share": 0.664,
+    "winner_share": 0.5606,
     "winner": "LIB",
     "p_win": {
-     "COAL": 1.0
+     "COAL": 0.797,
+     "ONP": 0.203
     },
     "primaries": {
-     "LIB": 0.5236,
-     "ONP": 0.2298,
-     "ALP": 0.0934,
-     "GRN": 0.0801,
-     "OTH": 0.0732
+     "LIB": 0.4421,
+     "ONP": 0.3538,
+     "ALP": 0.0722,
+     "GRN": 0.0691,
+     "OTH": 0.0628
     }
    },
    {
@@ -555,23 +563,25 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0417,
+    "onp_geo": 0.0548,
     "final_two": [
      "ALP",
-     "LIB"
+     "ONP"
     ],
-    "winner_share": 0.5208,
+    "winner_share": 0.5157,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.736,
-     "COAL": 0.186,
-     "ONP": 0.078
+     "ALP": 0.524,
+     "ONP": 0.317,
+     "COAL": 0.159,
+     "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.3478,
-     "LIB": 0.2575,
-     "ONP": 0.2298,
-     "GRN": 0.1304,
-     "OTH": 0.0345
+     "ALP": 0.3152,
+     "ONP": 0.2723,
+     "LIB": 0.2523,
+     "GRN": 0.1264,
+     "OTH": 0.0339
     },
     "two_party_winner": "ALP"
    },
@@ -581,24 +591,25 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0312,
+    "onp_geo": 0.0555,
     "final_two": [
-     "LIB",
+     "ONP",
      "ALP"
     ],
-    "winner_share": 0.5033,
-    "winner": "LIB",
+    "winner_share": 0.5053,
+    "winner": "ONP",
     "p_win": {
-     "ALP": 0.519,
-     "COAL": 0.345,
-     "ONP": 0.133,
-     "GRN": 0.003
+     "ONP": 0.38,
+     "ALP": 0.344,
+     "COAL": 0.27,
+     "GRN": 0.006
     },
     "primaries": {
-     "ALP": 0.2992,
-     "LIB": 0.2669,
-     "ONP": 0.2298,
-     "GRN": 0.1494,
-     "OTH": 0.0548
+     "ONP": 0.2741,
+     "ALP": 0.2694,
+     "LIB": 0.2597,
+     "GRN": 0.1438,
+     "OTH": 0.053
     },
     "two_party_winner": "ALP"
    },
@@ -608,24 +619,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0096,
+    "onp_geo": 0.0219,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5247,
+    "winner_share": 0.5083,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.609,
-     "ALP": 0.323,
-     "ONP": 0.068,
-     "GRN": 0.001
+     "ALP": 0.526,
+     "COAL": 0.472,
+     "GRN": 0.001,
+     "ONP": 0.001
     },
     "primaries": {
-     "LIB": 0.314,
-     "ALP": 0.3078,
-     "ONP": 0.2229,
-     "GRN": 0.1343,
-     "OTH": 0.0209
+     "LIB": 0.3482,
+     "ALP": 0.3204,
+     "ONP": 0.1597,
+     "GRN": 0.1481,
+     "OTH": 0.0236
     },
     "two_party_winner": "COAL"
    },
@@ -635,24 +647,25 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0145,
+    "onp_geo": 0.0419,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.6094,
+    "winner_share": 0.6062,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.971,
-     "ALP": 0.015,
-     "ONP": 0.014,
-     "GRN": 0.001
+     "COAL": 0.969,
+     "ONP": 0.017,
+     "ALP": 0.013,
+     "GRN": 0.002
     },
     "primaries": {
-     "LIB": 0.3878,
-     "ONP": 0.2229,
-     "ALP": 0.2201,
-     "GRN": 0.1196,
-     "OTH": 0.0497
+     "LIB": 0.3918,
+     "ONP": 0.2289,
+     "ALP": 0.208,
+     "GRN": 0.1208,
+     "OTH": 0.0504
     },
     "two_party_winner": "COAL"
    },
@@ -662,24 +675,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0072,
+    "onp_geo": 0.0151,
     "final_two": [
-     "LIB",
-     "ALP"
+     "ALP",
+     "LIB"
     ],
     "winner_share": 0.5275,
-    "winner": "LIB",
+    "winner": "ALP",
     "p_win": {
-     "COAL": 0.537,
-     "ALP": 0.341,
-     "ONP": 0.109,
-     "GRN": 0.013
+     "ALP": 0.674,
+     "COAL": 0.289,
+     "GRN": 0.036,
+     "ONP": 0.001
     },
     "primaries": {
-     "LIB": 0.2976,
-     "ALP": 0.2694,
-     "ONP": 0.2229,
-     "GRN": 0.1661,
-     "OTH": 0.0441
+     "LIB": 0.342,
+     "ALP": 0.2895,
+     "GRN": 0.1893,
+     "ONP": 0.1285,
+     "OTH": 0.0507
     },
     "two_party_winner": "COAL"
    },
@@ -689,23 +703,24 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0055,
+    "onp_geo": 0.0152,
     "final_two": [
      "LIB",
      "GRN"
     ],
-    "winner_share": 0.6439,
+    "winner_share": 0.6007,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.998,
-     "ONP": 0.002,
-     "GRN": 0.001
+     "COAL": 0.997,
+     "GRN": 0.003,
+     "ALP": 0.001
     },
     "primaries": {
-     "LIB": 0.4245,
-     "ONP": 0.2229,
-     "GRN": 0.167,
-     "ALP": 0.1504,
-     "OTH": 0.0353
+     "LIB": 0.4826,
+     "GRN": 0.1894,
+     "ALP": 0.1584,
+     "ONP": 0.129,
+     "OTH": 0.0406
     },
     "two_party_winner": "COAL"
    },
@@ -715,23 +730,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0123,
+    "onp_geo": 0.0308,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.5634,
+    "winner_share": 0.5709,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.896,
-     "ONP": 0.066,
-     "COAL": 0.038
+     "ALP": 0.93,
+     "ONP": 0.037,
+     "COAL": 0.032,
+     "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.3388,
-     "ONP": 0.2193,
-     "LIB": 0.1883,
-     "OTH": 0.1383,
-     "GRN": 0.1153
+     "ALP": 0.3383,
+     "LIB": 0.2031,
+     "ONP": 0.1904,
+     "OTH": 0.1459,
+     "GRN": 0.1223
     },
     "two_party_winner": "ALP"
    },
@@ -741,21 +758,22 @@
     "member_party": "GRN",
     "member_category": "open",
     "onp_lc_2022": 0.0039,
+    "onp_geo": 0.0091,
     "final_two": [
      "GRN",
-     "ONP"
+     "ALP"
     ],
-    "winner_share": 0.6718,
+    "winner_share": 0.6637,
     "winner": "GRN",
     "p_win": {
      "GRN": 1.0
     },
     "primaries": {
-     "GRN": 0.4382,
-     "ONP": 0.229,
-     "ALP": 0.174,
-     "OTH": 0.1055,
-     "LIB": 0.0533
+     "GRN": 0.5177,
+     "ALP": 0.191,
+     "OTH": 0.1245,
+     "ONP": 0.0971,
+     "LIB": 0.0697
     }
    },
    {
@@ -764,23 +782,23 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0096,
+    "onp_geo": 0.0246,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.6326,
+    "winner_share": 0.6243,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.994,
-     "ALP": 0.004,
-     "ONP": 0.003
+     "COAL": 0.993,
+     "ALP": 0.007
     },
     "primaries": {
-     "LIB": 0.4153,
-     "ONP": 0.2229,
-     "ALP": 0.1966,
-     "GRN": 0.1281,
-     "OTH": 0.0372
+     "LIB": 0.4506,
+     "ALP": 0.1992,
+     "ONP": 0.1704,
+     "GRN": 0.139,
+     "OTH": 0.0407
     },
     "two_party_winner": "COAL"
    },
@@ -790,24 +808,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0169,
+    "onp_geo": 0.0347,
     "final_two": [
      "ALP",
      "LIB"
     ],
-    "winner_share": 0.535,
+    "winner_share": 0.5421,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.817,
-     "COAL": 0.103,
-     "ONP": 0.078,
-     "GRN": 0.002
+     "ALP": 0.842,
+     "COAL": 0.097,
+     "ONP": 0.057,
+     "GRN": 0.004
     },
     "primaries": {
-     "ALP": 0.3274,
-     "LIB": 0.2276,
-     "ONP": 0.2229,
-     "GRN": 0.1606,
-     "OTH": 0.0616
+     "ALP": 0.3219,
+     "LIB": 0.2402,
+     "ONP": 0.2067,
+     "GRN": 0.1669,
+     "OTH": 0.0643
     },
     "two_party_winner": "ALP"
    },
@@ -817,25 +836,26 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.019,
+    "onp_geo": 0.0542,
     "final_two": [
      "ALP",
-     "LIB"
+     "ONP"
     ],
-    "winner_share": 0.5158,
+    "winner_share": 0.5163,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.668,
-     "COAL": 0.25,
-     "ONP": 0.082
+     "ALP": 0.498,
+     "ONP": 0.297,
+     "COAL": 0.205
     },
     "primaries": {
-     "ALP": 0.3506,
-     "LIB": 0.2608,
-     "ONP": 0.2229,
-     "GRN": 0.106,
-     "OTH": 0.0599
+     "ALP": 0.3211,
+     "ONP": 0.2625,
+     "LIB": 0.2552,
+     "GRN": 0.103,
+     "OTH": 0.0582
     },
-    "two_party_winner": "ALP"
+    "two_party_winner": "COAL"
    },
    {
     "seat": "Caulfield",
@@ -843,24 +863,24 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0054,
+    "onp_geo": 0.0138,
     "final_two": [
      "LIB",
      "GRN"
     ],
-    "winner_share": 0.6184,
+    "winner_share": 0.572,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.984,
-     "ONP": 0.009,
-     "ALP": 0.004,
-     "GRN": 0.003
+     "COAL": 0.971,
+     "GRN": 0.015,
+     "ALP": 0.013
     },
     "primaries": {
-     "LIB": 0.4008,
-     "ONP": 0.2229,
-     "GRN": 0.1842,
-     "ALP": 0.1698,
-     "OTH": 0.0224
+     "LIB": 0.4601,
+     "GRN": 0.2106,
+     "ALP": 0.1812,
+     "ONP": 0.1218,
+     "OTH": 0.0262
     },
     "two_party_winner": "COAL"
    },
@@ -870,24 +890,27 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0149,
+    "onp_geo": 0.0307,
     "final_two": [
      "ALP",
      "LIB"
     ],
-    "winner_share": 0.5085,
+    "winner_share": 0.5214,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.591,
-     "COAL": 0.24,
-     "ONP": 0.169
+     "ALP": 0.68,
+     "COAL": 0.244,
+     "ONP": 0.074,
+     "IND": 0.001,
+     "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.3083,
-     "LIB": 0.2363,
-     "ONP": 0.2229,
-     "GRN": 0.1085,
-     "IND": 0.0637,
-     "OTH": 0.0603
+     "ALP": 0.3076,
+     "LIB": 0.2533,
+     "ONP": 0.1929,
+     "GRN": 0.1152,
+     "IND": 0.0669,
+     "OTH": 0.0641
     },
     "two_party_winner": "ALP"
    },
@@ -897,23 +920,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0253,
+    "onp_geo": 0.0606,
     "final_two": [
-     "ALP",
-     "ONP"
+     "ONP",
+     "ALP"
     ],
-    "winner_share": 0.5364,
-    "winner": "ALP",
+    "winner_share": 0.5125,
+    "winner": "ONP",
     "p_win": {
-     "ALP": 0.647,
-     "COAL": 0.179,
-     "ONP": 0.174
+     "ONP": 0.523,
+     "ALP": 0.352,
+     "COAL": 0.124
     },
     "primaries": {
-     "ALP": 0.3187,
-     "LIB": 0.2287,
-     "ONP": 0.2229,
-     "OTH": 0.1441,
-     "GRN": 0.0857
+     "ALP": 0.2846,
+     "ONP": 0.2782,
+     "LIB": 0.2195,
+     "OTH": 0.136,
+     "GRN": 0.0817
     },
     "two_party_winner": "COAL"
    },
@@ -923,24 +947,25 @@
     "member_party": "COAL",
     "member_category": "open",
     "onp_lc_2022": 0.0157,
+    "onp_geo": 0.0388,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5874,
+    "winner_share": 0.5829,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.889,
-     "ONP": 0.067,
-     "ALP": 0.043,
-     "GRN": 0.001
+     "COAL": 0.897,
+     "ONP": 0.054,
+     "ALP": 0.045,
+     "GRN": 0.004
     },
     "primaries": {
-     "LIB": 0.343,
-     "ONP": 0.2311,
-     "ALP": 0.2153,
-     "GRN": 0.1355,
-     "OTH": 0.0751
+     "LIB": 0.3516,
+     "ONP": 0.228,
+     "ALP": 0.2054,
+     "GRN": 0.1383,
+     "OTH": 0.0767
     },
     "two_party_winner": "COAL"
    },
@@ -950,23 +975,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0179,
+    "onp_geo": 0.041,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.5908,
+    "winner_share": 0.576,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.968,
-     "ONP": 0.028,
-     "COAL": 0.005
+     "ALP": 0.945,
+     "ONP": 0.052,
+     "COAL": 0.003
     },
     "primaries": {
-     "ALP": 0.3915,
-     "ONP": 0.2229,
-     "LIB": 0.1661,
-     "GRN": 0.1128,
-     "OTH": 0.1067
+     "ALP": 0.377,
+     "ONP": 0.2263,
+     "LIB": 0.1733,
+     "GRN": 0.1151,
+     "OTH": 0.1084
     },
     "two_party_winner": "ALP"
    },
@@ -976,23 +1002,23 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0283,
+    "onp_geo": 0.0708,
     "final_two": [
      "LIB",
-     "ALP"
+     "ONP"
     ],
-    "winner_share": 0.6426,
+    "winner_share": 0.5693,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.993,
-     "ONP": 0.007,
-     "ALP": 0.001
+     "COAL": 0.84,
+     "ONP": 0.16
     },
     "primaries": {
-     "LIB": 0.4106,
-     "ONP": 0.2229,
-     "ALP": 0.1691,
-     "GRN": 0.1336,
-     "OTH": 0.0638
+     "LIB": 0.3749,
+     "ONP": 0.3011,
+     "ALP": 0.1436,
+     "GRN": 0.122,
+     "OTH": 0.0584
     },
     "two_party_winner": "COAL"
    },
@@ -1002,24 +1028,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0101,
+    "onp_geo": 0.0277,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5195,
+    "winner_share": 0.508,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.505,
-     "ALP": 0.408,
-     "ONP": 0.083,
-     "GRN": 0.004
+     "ALP": 0.535,
+     "COAL": 0.442,
+     "ONP": 0.015,
+     "GRN": 0.009
     },
     "primaries": {
-     "LIB": 0.2993,
-     "ALP": 0.2909,
-     "ONP": 0.2229,
-     "GRN": 0.1585,
-     "OTH": 0.0285
+     "LIB": 0.323,
+     "ALP": 0.294,
+     "ONP": 0.1823,
+     "GRN": 0.1696,
+     "OTH": 0.0311
     },
     "two_party_winner": "COAL"
    },
@@ -1029,24 +1056,25 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.006,
+    "onp_geo": 0.0224,
     "final_two": [
-     "LIB",
-     "ALP"
+     "ALP",
+     "LIB"
     ],
-    "winner_share": 0.5153,
-    "winner": "LIB",
+    "winner_share": 0.5446,
+    "winner": "ALP",
     "p_win": {
-     "ALP": 0.425,
-     "COAL": 0.32,
-     "ONP": 0.189,
-     "GRN": 0.066
+     "ALP": 0.564,
+     "COAL": 0.262,
+     "GRN": 0.153,
+     "ONP": 0.021
     },
     "primaries": {
-     "LIB": 0.2491,
-     "ALP": 0.2405,
-     "ONP": 0.2311,
-     "GRN": 0.1837,
-     "OTH": 0.0957
+     "LIB": 0.2768,
+     "ALP": 0.2496,
+     "GRN": 0.2011,
+     "ONP": 0.1674,
+     "OTH": 0.1051
     },
     "two_party_winner": "ALP"
    },
@@ -1056,24 +1084,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0305,
+    "onp_geo": 0.0672,
     "final_two": [
-     "LIB",
+     "ONP",
      "ALP"
     ],
-    "winner_share": 0.5189,
-    "winner": "LIB",
+    "winner_share": 0.5343,
+    "winner": "ONP",
     "p_win": {
-     "COAL": 0.443,
-     "ALP": 0.388,
-     "ONP": 0.168,
+     "ONP": 0.55,
+     "COAL": 0.269,
+     "ALP": 0.18,
      "GRN": 0.002
     },
     "primaries": {
-     "ALP": 0.275,
-     "LIB": 0.2708,
-     "ONP": 0.2229,
-     "GRN": 0.1371,
-     "OTH": 0.0942
+     "ONP": 0.2934,
+     "LIB": 0.2529,
+     "ALP": 0.2396,
+     "GRN": 0.1269,
+     "OTH": 0.0872
     },
     "two_party_winner": "COAL"
    },
@@ -1083,24 +1112,24 @@
     "member_party": "COAL",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0389,
+    "onp_geo": 0.092,
     "final_two": [
      "NAT",
      "ONP"
     ],
-    "winner_share": 0.6475,
+    "winner_share": 0.5605,
     "winner": "NAT",
     "p_win": {
-     "COAL": 0.999,
-     "ONP": 0.001,
-     "ALP": 0.001
+     "COAL": 0.776,
+     "ONP": 0.224
     },
     "primaries": {
-     "NAT": 0.272,
-     "ONP": 0.2193,
-     "LIB": 0.2019,
-     "ALP": 0.1738,
-     "GRN": 0.0753,
-     "OTH": 0.0578
+     "ONP": 0.3373,
+     "NAT": 0.2332,
+     "LIB": 0.1754,
+     "ALP": 0.139,
+     "GRN": 0.0653,
+     "OTH": 0.0498
     },
     "two_party_winner": "COAL"
    },
@@ -1110,23 +1139,24 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.024,
+    "onp_geo": 0.0548,
     "final_two": [
      "LIB",
-     "ALP"
+     "ONP"
     ],
-    "winner_share": 0.6299,
+    "winner_share": 0.5989,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.984,
-     "ONP": 0.011,
-     "ALP": 0.005
+     "COAL": 0.947,
+     "ONP": 0.049,
+     "ALP": 0.004
     },
     "primaries": {
-     "LIB": 0.4048,
-     "ONP": 0.2229,
-     "ALP": 0.1979,
-     "GRN": 0.1158,
-     "OTH": 0.0587
+     "LIB": 0.3896,
+     "ONP": 0.2642,
+     "ALP": 0.1779,
+     "GRN": 0.1116,
+     "OTH": 0.0566
     },
     "two_party_winner": "COAL"
    },
@@ -1136,24 +1166,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0079,
+    "onp_geo": 0.0174,
     "final_two": [
      "ALP",
-     "ONP"
+     "GRN"
     ],
-    "winner_share": 0.6294,
+    "winner_share": 0.5122,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.737,
-     "GRN": 0.257,
-     "ONP": 0.005,
-     "COAL": 0.001
+     "ALP": 0.696,
+     "GRN": 0.303,
+     "ONP": 0.001
     },
     "primaries": {
-     "ALP": 0.2877,
-     "GRN": 0.2526,
-     "ONP": 0.2229,
-     "LIB": 0.1246,
-     "OTH": 0.1122
+     "ALP": 0.3054,
+     "GRN": 0.2829,
+     "LIB": 0.1458,
+     "ONP": 0.1396,
+     "OTH": 0.1263
     }
    },
    {
@@ -1162,24 +1192,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.017,
+    "onp_geo": 0.0554,
     "final_two": [
-     "LIB",
+     "ONP",
      "ALP"
     ],
-    "winner_share": 0.5002,
-    "winner": "LIB",
+    "winner_share": 0.5061,
+    "winner": "ONP",
     "p_win": {
-     "ALP": 0.58,
-     "COAL": 0.271,
-     "ONP": 0.141,
-     "GRN": 0.009
+     "ONP": 0.414,
+     "ALP": 0.371,
+     "COAL": 0.203,
+     "GRN": 0.011
     },
     "primaries": {
-     "ALP": 0.2794,
-     "LIB": 0.2475,
-     "ONP": 0.2229,
-     "GRN": 0.1559,
-     "OTH": 0.0943
+     "ONP": 0.2656,
+     "ALP": 0.2531,
+     "LIB": 0.2408,
+     "GRN": 0.1498,
+     "OTH": 0.0907
     },
     "two_party_winner": "COAL"
    },
@@ -1189,24 +1220,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.019,
+    "onp_geo": 0.051,
     "final_two": [
      "ALP",
-     "LIB"
+     "ONP"
     ],
-    "winner_share": 0.5377,
+    "winner_share": 0.5315,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.855,
-     "COAL": 0.086,
-     "ONP": 0.053,
-     "GRN": 0.006
+     "ALP": 0.699,
+     "ONP": 0.204,
+     "COAL": 0.081,
+     "GRN": 0.017
     },
     "primaries": {
-     "ALP": 0.3186,
-     "LIB": 0.2252,
-     "ONP": 0.2229,
-     "GRN": 0.183,
-     "OTH": 0.0503
+     "ALP": 0.2943,
+     "ONP": 0.2542,
+     "LIB": 0.2235,
+     "GRN": 0.1785,
+     "OTH": 0.0495
     },
     "two_party_winner": "ALP"
    },
@@ -1216,21 +1248,23 @@
     "member_party": "COAL",
     "member_category": "open",
     "onp_lc_2022": 0.0385,
+    "onp_geo": 0.1005,
     "final_two": [
      "NAT",
      "ONP"
     ],
-    "winner_share": 0.6935,
+    "winner_share": 0.5558,
     "winner": "NAT",
     "p_win": {
-     "COAL": 1.0
+     "COAL": 0.844,
+     "ONP": 0.156
     },
     "primaries": {
-     "NAT": 0.5264,
-     "ONP": 0.2298,
-     "GRN": 0.0865,
-     "OTH": 0.0798,
-     "ALP": 0.0775
+     "NAT": 0.4337,
+     "ONP": 0.3689,
+     "GRN": 0.0728,
+     "OTH": 0.0668,
+     "ALP": 0.0578
     },
     "two_party_winner": "COAL"
    },
@@ -1240,21 +1274,23 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0403,
+    "onp_geo": 0.0938,
     "final_two": [
      "NAT",
      "ONP"
     ],
-    "winner_share": 0.689,
+    "winner_share": 0.5835,
     "winner": "NAT",
     "p_win": {
-     "COAL": 1.0
+     "COAL": 0.88,
+     "ONP": 0.119
     },
     "primaries": {
-     "NAT": 0.4833,
-     "ONP": 0.2229,
-     "ALP": 0.1331,
-     "GRN": 0.1081,
-     "OTH": 0.0527
+     "NAT": 0.4117,
+     "ONP": 0.346,
+     "ALP": 0.1047,
+     "GRN": 0.0925,
+     "OTH": 0.0452
     },
     "two_party_winner": "COAL"
    },
@@ -1264,23 +1300,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0085,
+    "onp_geo": 0.0192,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5579,
+    "winner_share": 0.5423,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.82,
-     "ALP": 0.116,
-     "ONP": 0.065
+     "COAL": 0.769,
+     "ALP": 0.229,
+     "GRN": 0.001,
+     "ONP": 0.001
     },
     "primaries": {
-     "LIB": 0.3378,
-     "ALP": 0.2719,
-     "ONP": 0.2193,
-     "GRN": 0.1183,
-     "OTH": 0.0527
+     "LIB": 0.3786,
+     "ALP": 0.2847,
+     "ONP": 0.1453,
+     "GRN": 0.1323,
+     "OTH": 0.0591
     },
     "two_party_winner": "COAL"
    },
@@ -1290,23 +1328,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.014,
+    "onp_geo": 0.0341,
     "final_two": [
      "ALP",
-     "ONP"
+     "LIB"
     ],
-    "winner_share": 0.5378,
+    "winner_share": 0.5226,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.666,
-     "COAL": 0.18,
-     "ONP": 0.154
+     "ALP": 0.698,
+     "COAL": 0.175,
+     "ONP": 0.126,
+     "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.3124,
-     "LIB": 0.2193,
-     "ONP": 0.2193,
-     "OTH": 0.1587,
-     "GRN": 0.0902
+     "ALP": 0.3071,
+     "LIB": 0.2319,
+     "ONP": 0.2014,
+     "OTH": 0.1649,
+     "GRN": 0.0946
     },
     "two_party_winner": "COAL"
    },
@@ -1316,24 +1356,24 @@
     "member_party": "ALP",
     "member_category": "sophomore_gain",
     "onp_lc_2022": 0.0266,
+    "onp_geo": 0.0724,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5542,
+    "winner_share": 0.5626,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.799,
-     "ALP": 0.134,
-     "ONP": 0.067,
-     "GRN": 0.001
+     "COAL": 0.582,
+     "ONP": 0.355,
+     "ALP": 0.063
     },
     "primaries": {
-     "LIB": 0.3302,
-     "ALP": 0.2681,
-     "ONP": 0.2139,
-     "GRN": 0.1201,
-     "OTH": 0.0678
+     "LIB": 0.3016,
+     "ONP": 0.2922,
+     "ALP": 0.2349,
+     "GRN": 0.1094,
+     "OTH": 0.0619
     },
     "two_party_winner": "COAL"
    },
@@ -1343,22 +1383,22 @@
     "member_party": "COAL",
     "member_category": "sophomore_gain",
     "onp_lc_2022": 0.0039,
+    "onp_geo": 0.0108,
     "final_two": [
      "LIB",
      "GRN"
     ],
-    "winner_share": 0.6748,
+    "winner_share": 0.6377,
     "winner": "LIB",
     "p_win": {
-     "COAL": 1.0,
-     "ONP": 0.001
+     "COAL": 1.0
     },
     "primaries": {
-     "LIB": 0.4702,
-     "ONP": 0.2139,
-     "GRN": 0.1484,
-     "ALP": 0.1472,
-     "OTH": 0.0203
+     "LIB": 0.5424,
+     "GRN": 0.1731,
+     "ALP": 0.1596,
+     "ONP": 0.1006,
+     "OTH": 0.0243
     }
    },
    {
@@ -1367,24 +1407,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0102,
+    "onp_geo": 0.0179,
     "final_two": [
      "ALP",
      "LIB"
     ],
-    "winner_share": 0.5125,
+    "winner_share": 0.5716,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.648,
-     "COAL": 0.177,
-     "ONP": 0.093,
-     "GRN": 0.081
+     "ALP": 0.784,
+     "GRN": 0.165,
+     "COAL": 0.051,
+     "ONP": 0.001
     },
     "primaries": {
-     "ALP": 0.2821,
-     "LIB": 0.2573,
-     "ONP": 0.2229,
-     "GRN": 0.2175,
-     "OTH": 0.0202
+     "ALP": 0.2991,
+     "LIB": 0.2924,
+     "GRN": 0.2436,
+     "ONP": 0.1417,
+     "OTH": 0.0233
     },
     "two_party_winner": "ALP"
    },
@@ -1394,23 +1435,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0176,
+    "onp_geo": 0.041,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.579,
+    "winner_share": 0.565,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.938,
-     "ONP": 0.043,
-     "COAL": 0.019
+     "ALP": 0.901,
+     "ONP": 0.082,
+     "COAL": 0.017
     },
     "primaries": {
-     "ALP": 0.3907,
-     "ONP": 0.2229,
-     "LIB": 0.1855,
-     "OTH": 0.1164,
-     "GRN": 0.0845
+     "ALP": 0.3761,
+     "ONP": 0.2264,
+     "LIB": 0.1927,
+     "OTH": 0.1182,
+     "GRN": 0.0867
     },
     "two_party_winner": "ALP"
    },
@@ -1420,24 +1462,25 @@
     "member_party": "COAL",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.005,
+    "onp_geo": 0.0131,
     "final_two": [
      "LIB",
      "IND"
     ],
-    "winner_share": 0.5465,
+    "winner_share": 0.5245,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.818,
-     "IND": 0.129,
-     "ONP": 0.053
+     "COAL": 0.745,
+     "IND": 0.255,
+     "ALP": 0.001
     },
     "primaries": {
-     "LIB": 0.3659,
-     "ONP": 0.2193,
-     "IND": 0.1996,
-     "ALP": 0.112,
-     "GRN": 0.0979,
-     "OTH": 0.0053
+     "LIB": 0.4195,
+     "IND": 0.2266,
+     "ALP": 0.1181,
+     "ONP": 0.1159,
+     "GRN": 0.1131,
+     "OTH": 0.0067
     }
    },
    {
@@ -1446,23 +1489,24 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0172,
+    "onp_geo": 0.0439,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.5438,
+    "winner_share": 0.5229,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.755,
-     "ONP": 0.161,
-     "COAL": 0.084
+     "ALP": 0.638,
+     "ONP": 0.292,
+     "COAL": 0.07
     },
     "primaries": {
-     "ALP": 0.3142,
-     "ONP": 0.2193,
-     "LIB": 0.1972,
-     "OTH": 0.1736,
-     "GRN": 0.0957
+     "ALP": 0.2977,
+     "ONP": 0.2312,
+     "LIB": 0.2013,
+     "OTH": 0.1734,
+     "GRN": 0.0965
     },
     "two_party_winner": "ALP"
    },
@@ -1472,24 +1516,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0294,
+    "onp_geo": 0.071,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.5894,
+    "winner_share": 0.5196,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.973,
-     "ONP": 0.025,
+     "ALP": 0.693,
+     "ONP": 0.303,
      "COAL": 0.003,
      "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.3666,
-     "ONP": 0.2193,
-     "LIB": 0.1672,
-     "GRN": 0.1447,
-     "OTH": 0.1021
+     "ALP": 0.32,
+     "ONP": 0.2968,
+     "LIB": 0.157,
+     "GRN": 0.1326,
+     "OTH": 0.0936
     },
     "two_party_winner": "ALP"
    },
@@ -1499,24 +1544,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.012,
+    "onp_geo": 0.0244,
     "final_two": [
      "ALP",
-     "ONP"
+     "LIB"
     ],
-    "winner_share": 0.5569,
+    "winner_share": 0.5682,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.875,
-     "ONP": 0.098,
-     "COAL": 0.026,
+     "ALP": 0.958,
+     "COAL": 0.025,
+     "ONP": 0.017,
      "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.319,
-     "ONP": 0.2229,
-     "LIB": 0.1744,
-     "OTH": 0.158,
-     "GRN": 0.1257
+     "ALP": 0.3275,
+     "LIB": 0.1942,
+     "OTH": 0.1714,
+     "ONP": 0.1698,
+     "GRN": 0.137
     },
     "two_party_winner": "ALP"
    },
@@ -1526,21 +1572,23 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0391,
+    "onp_geo": 0.0812,
     "final_two": [
      "NAT",
      "ONP"
     ],
-    "winner_share": 0.7031,
+    "winner_share": 0.6158,
     "winner": "NAT",
     "p_win": {
-     "COAL": 1.0
+     "COAL": 0.965,
+     "ONP": 0.035
     },
     "primaries": {
-     "NAT": 0.533,
-     "ONP": 0.2229,
-     "ALP": 0.1034,
-     "GRN": 0.0835,
-     "OTH": 0.0573
+     "NAT": 0.4693,
+     "ONP": 0.3225,
+     "ALP": 0.0832,
+     "GRN": 0.0743,
+     "OTH": 0.0508
     },
     "two_party_winner": "COAL"
    },
@@ -1550,26 +1598,27 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0294,
+    "onp_geo": 0.0476,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5187,
+    "winner_share": 0.5224,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.438,
-     "ALP": 0.406,
-     "ONP": 0.147,
-     "GRN": 0.009
+     "COAL": 0.413,
+     "ALP": 0.295,
+     "ONP": 0.275,
+     "GRN": 0.017
     },
     "primaries": {
-     "LIB": 0.2836,
-     "ALP": 0.2747,
-     "ONP": 0.2311,
-     "GRN": 0.171,
+     "LIB": 0.2834,
+     "ONP": 0.2544,
+     "ALP": 0.2536,
+     "GRN": 0.1689,
      "OTH": 0.0396
     },
-    "two_party_winner": "ALP"
+    "two_party_winner": "COAL"
    },
    {
     "seat": "Malvern",
@@ -1577,23 +1626,23 @@
     "member_party": "COAL",
     "member_category": "open",
     "onp_lc_2022": 0.0047,
+    "onp_geo": 0.0137,
     "final_two": [
      "LIB",
      "GRN"
     ],
-    "winner_share": 0.6453,
+    "winner_share": 0.605,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.998,
-     "ONP": 0.002,
+     "COAL": 1.0,
      "GRN": 0.001
     },
     "primaries": {
-     "LIB": 0.4335,
-     "ONP": 0.2298,
-     "GRN": 0.1775,
-     "ALP": 0.1496,
-     "OTH": 0.0096
+     "LIB": 0.5015,
+     "GRN": 0.2032,
+     "ALP": 0.1588,
+     "ONP": 0.1248,
+     "OTH": 0.0117
     },
     "two_party_winner": "COAL"
    },
@@ -1603,22 +1652,22 @@
     "member_party": "GRN",
     "member_category": "veteran",
     "onp_lc_2022": 0.0042,
+    "onp_geo": 0.0138,
     "final_two": [
      "GRN",
-     "ONP"
+     "ALP"
     ],
-    "winner_share": 0.6503,
+    "winner_share": 0.6116,
     "winner": "GRN",
     "p_win": {
-     "GRN": 0.994,
-     "ONP": 0.006
+     "GRN": 1.0
     },
     "primaries": {
-     "GRN": 0.3893,
-     "ONP": 0.2229,
-     "ALP": 0.1847,
-     "LIB": 0.1197,
-     "OTH": 0.0835
+     "GRN": 0.4427,
+     "ALP": 0.1973,
+     "LIB": 0.1424,
+     "ONP": 0.1217,
+     "OTH": 0.0958
     }
    },
    {
@@ -1627,24 +1676,25 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0321,
+    "onp_geo": 0.0634,
     "final_two": [
-     "ALP",
-     "ONP"
+     "ONP",
+     "ALP"
     ],
-    "winner_share": 0.503,
-    "winner": "ALP",
+    "winner_share": 0.5514,
+    "winner": "ONP",
     "p_win": {
-     "ALP": 0.369,
-     "ONP": 0.345,
-     "COAL": 0.285,
+     "ONP": 0.696,
+     "COAL": 0.157,
+     "ALP": 0.146,
      "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.2597,
-     "ONP": 0.229,
-     "LIB": 0.2257,
-     "OTH": 0.2039,
-     "GRN": 0.0817
+     "ONP": 0.2926,
+     "ALP": 0.2254,
+     "LIB": 0.2145,
+     "OTH": 0.1902,
+     "GRN": 0.0772
     },
     "two_party_winner": "COAL"
    },
@@ -1654,24 +1704,25 @@
     "member_party": "COAL",
     "member_category": "sophomore_gain",
     "onp_lc_2022": 0.0456,
+    "onp_geo": 0.0959,
     "final_two": [
-     "NAT",
+     "ONP",
      "IND"
     ],
-    "winner_share": 0.5051,
-    "winner": "NAT",
+    "winner_share": 0.5334,
+    "winner": "ONP",
     "p_win": {
-     "IND": 0.564,
-     "COAL": 0.43,
-     "ONP": 0.005
+     "ONP": 0.617,
+     "IND": 0.231,
+     "COAL": 0.152
     },
     "primaries": {
-     "IND": 0.3119,
-     "ONP": 0.2139,
-     "NAT": 0.1892,
-     "LIB": 0.1801,
-     "OTH": 0.0628,
-     "GRN": 0.0421
+     "ONP": 0.3356,
+     "IND": 0.2582,
+     "NAT": 0.1592,
+     "LIB": 0.1579,
+     "OTH": 0.0529,
+     "GRN": 0.0361
     }
    },
    {
@@ -1680,23 +1731,24 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0232,
+    "onp_geo": 0.0543,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.5448,
+    "winner_share": 0.5039,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.728,
-     "ONP": 0.145,
-     "COAL": 0.127
+     "ALP": 0.486,
+     "ONP": 0.415,
+     "COAL": 0.099
     },
     "primaries": {
-     "ALP": 0.3266,
-     "ONP": 0.2298,
-     "LIB": 0.2174,
-     "OTH": 0.1201,
-     "GRN": 0.1061
+     "ALP": 0.296,
+     "ONP": 0.2709,
+     "LIB": 0.2139,
+     "OTH": 0.1161,
+     "GRN": 0.1032
     },
     "two_party_winner": "ALP"
    },
@@ -1706,24 +1758,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.024,
+    "onp_geo": 0.0452,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5075,
+    "winner_share": 0.5082,
     "winner": "LIB",
     "p_win": {
-     "ALP": 0.505,
-     "COAL": 0.31,
-     "ONP": 0.142,
-     "GRN": 0.042
+     "ALP": 0.42,
+     "COAL": 0.276,
+     "ONP": 0.255,
+     "GRN": 0.049
     },
     "primaries": {
-     "ALP": 0.2548,
-     "LIB": 0.2515,
-     "ONP": 0.2193,
-     "GRN": 0.1793,
-     "OTH": 0.095
+     "LIB": 0.2531,
+     "ALP": 0.2393,
+     "ONP": 0.2348,
+     "GRN": 0.1781,
+     "OTH": 0.0947
     },
     "two_party_winner": "COAL"
    },
@@ -1733,23 +1786,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0103,
+    "onp_geo": 0.0295,
     "final_two": [
-     "LIB",
-     "ALP"
+     "ALP",
+     "LIB"
     ],
-    "winner_share": 0.5046,
-    "winner": "LIB",
+    "winner_share": 0.5062,
+    "winner": "ALP",
     "p_win": {
-     "ALP": 0.506,
-     "COAL": 0.407,
-     "ONP": 0.086
+     "ALP": 0.613,
+     "COAL": 0.364,
+     "ONP": 0.022
     },
     "primaries": {
-     "ALP": 0.3176,
-     "LIB": 0.285,
-     "ONP": 0.2229,
-     "GRN": 0.137,
-     "OTH": 0.0375
+     "ALP": 0.3192,
+     "LIB": 0.3057,
+     "ONP": 0.1889,
+     "GRN": 0.1458,
+     "OTH": 0.0403
     },
     "two_party_winner": "COAL"
    },
@@ -1759,22 +1813,24 @@
     "member_party": "COAL",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0152,
+    "onp_geo": 0.039,
     "final_two": [
      "LIB",
-     "ALP"
+     "ONP"
     ],
-    "winner_share": 0.6906,
+    "winner_share": 0.6665,
     "winner": "LIB",
     "p_win": {
-     "COAL": 1.0,
+     "COAL": 0.999,
+     "ALP": 0.001,
      "ONP": 0.001
     },
     "primaries": {
-     "LIB": 0.4796,
-     "ONP": 0.2193,
-     "ALP": 0.1572,
-     "GRN": 0.1011,
-     "OTH": 0.0428
+     "LIB": 0.4873,
+     "ONP": 0.217,
+     "ALP": 0.1485,
+     "GRN": 0.1033,
+     "OTH": 0.0439
     }
    },
    {
@@ -1783,24 +1839,25 @@
     "member_party": "COAL",
     "member_category": "sophomore_gain",
     "onp_lc_2022": 0.0629,
+    "onp_geo": 0.1178,
     "final_two": [
      "NAT",
-     "ALP"
+     "ONP"
     ],
-    "winner_share": 0.6386,
+    "winner_share": 0.5137,
     "winner": "NAT",
     "p_win": {
-     "COAL": 0.977,
-     "ALP": 0.013,
-     "ONP": 0.011
+     "ONP": 0.511,
+     "COAL": 0.488,
+     "ALP": 0.001
     },
     "primaries": {
-     "NAT": 0.2157,
-     "ONP": 0.2139,
-     "ALP": 0.212,
-     "LIB": 0.1865,
-     "OTH": 0.0985,
-     "GRN": 0.0734
+     "ONP": 0.37,
+     "NAT": 0.1739,
+     "ALP": 0.1592,
+     "LIB": 0.1581,
+     "OTH": 0.0791,
+     "GRN": 0.0597
     },
     "two_party_winner": "COAL"
    },
@@ -1810,25 +1867,26 @@
     "member_party": "ALP",
     "member_category": "sophomore_byelection",
     "onp_lc_2022": 0.0154,
+    "onp_geo": 0.0336,
     "final_two": [
      "IND",
      "ALP"
     ],
-    "winner_share": 0.501,
+    "winner_share": 0.5051,
     "winner": "IND",
     "p_win": {
-     "ALP": 0.628,
-     "IND": 0.231,
-     "ONP": 0.14,
+     "ALP": 0.601,
+     "IND": 0.342,
+     "ONP": 0.057,
      "COAL": 0.002
     },
     "primaries": {
-     "ALP": 0.3375,
-     "ONP": 0.2262,
-     "IND": 0.1899,
-     "LIB": 0.1184,
-     "GRN": 0.0797,
-     "OTH": 0.0483
+     "ALP": 0.3337,
+     "ONP": 0.2063,
+     "IND": 0.1961,
+     "LIB": 0.129,
+     "GRN": 0.0842,
+     "OTH": 0.0508
     },
     "two_party_winner": "ALP"
    },
@@ -1838,22 +1896,23 @@
     "member_party": "COAL",
     "member_category": "open",
     "onp_lc_2022": 0.0482,
+    "onp_geo": 0.0974,
     "final_two": [
      "NAT",
      "ONP"
     ],
-    "winner_share": 0.6943,
+    "winner_share": 0.5745,
     "winner": "NAT",
     "p_win": {
-     "COAL": 1.0,
-     "ONP": 0.001
+     "COAL": 0.837,
+     "ONP": 0.163
     },
     "primaries": {
-     "NAT": 0.5274,
-     "ONP": 0.2311,
-     "ALP": 0.0951,
-     "OTH": 0.0816,
-     "GRN": 0.0647
+     "NAT": 0.4376,
+     "ONP": 0.3655,
+     "ALP": 0.0725,
+     "OTH": 0.069,
+     "GRN": 0.0554
     },
     "two_party_winner": "COAL"
    },
@@ -1863,21 +1922,22 @@
     "member_party": "COAL",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0197,
+    "onp_geo": 0,
     "final_two": [
      "LIB",
      "ONP"
     ],
-    "winner_share": 0.6217,
+    "winner_share": 0.5941,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.997,
-     "ONP": 0.003
+     "COAL": 0.985,
+     "ONP": 0.015
     },
     "primaries": {
-     "LIB": 0.4374,
-     "ONP": 0.2193,
-     "OTH": 0.2035,
-     "GRN": 0.1398
+     "LIB": 0.4364,
+     "ONP": 0.222,
+     "OTH": 0.2023,
+     "GRN": 0.1394
     }
    },
    {
@@ -1886,23 +1946,24 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0212,
+    "onp_geo": 0.0551,
     "final_two": [
      "ALP",
-     "LIB"
+     "ONP"
     ],
-    "winner_share": 0.5256,
+    "winner_share": 0.5129,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.754,
-     "COAL": 0.136,
-     "ONP": 0.11
+     "ALP": 0.548,
+     "ONP": 0.345,
+     "COAL": 0.106
     },
     "primaries": {
-     "ALP": 0.3392,
-     "LIB": 0.2267,
-     "ONP": 0.2193,
-     "OTH": 0.1176,
-     "GRN": 0.0971
+     "ALP": 0.3103,
+     "ONP": 0.2605,
+     "LIB": 0.2217,
+     "OTH": 0.1133,
+     "GRN": 0.0942
     },
     "two_party_winner": "COAL"
    },
@@ -1912,23 +1973,24 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0188,
+    "onp_geo": 0.0515,
     "final_two": [
-     "ALP",
-     "LIB"
+     "ONP",
+     "ALP"
     ],
-    "winner_share": 0.5007,
-    "winner": "ALP",
+    "winner_share": 0.5025,
+    "winner": "ONP",
     "p_win": {
-     "ALP": 0.562,
-     "COAL": 0.258,
-     "ONP": 0.179
+     "ONP": 0.4,
+     "ALP": 0.398,
+     "COAL": 0.203
     },
     "primaries": {
-     "ALP": 0.3133,
-     "LIB": 0.2464,
-     "ONP": 0.229,
-     "OTH": 0.1129,
-     "GRN": 0.0984
+     "ALP": 0.2869,
+     "ONP": 0.2627,
+     "LIB": 0.2437,
+     "OTH": 0.1102,
+     "GRN": 0.0966
     },
     "two_party_winner": "COAL"
    },
@@ -1938,23 +2000,24 @@
     "member_party": "COAL",
     "member_category": "sophomore_byelection",
     "onp_lc_2022": 0.0178,
+    "onp_geo": 0.0438,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.6329,
+    "winner_share": 0.6294,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.99,
-     "ONP": 0.007,
+     "COAL": 0.985,
+     "ONP": 0.012,
      "ALP": 0.003
     },
     "primaries": {
-     "LIB": 0.4098,
-     "ONP": 0.2262,
-     "ALP": 0.2004,
-     "GRN": 0.1125,
-     "OTH": 0.0511
+     "LIB": 0.4102,
+     "ONP": 0.2382,
+     "ALP": 0.1874,
+     "GRN": 0.1128,
+     "OTH": 0.0515
     },
     "two_party_winner": "COAL"
    },
@@ -1964,23 +2027,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0154,
+    "onp_geo": 0.0357,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5283,
+    "winner_share": 0.5219,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.577,
-     "ALP": 0.292,
-     "ONP": 0.132
+     "COAL": 0.593,
+     "ALP": 0.306,
+     "ONP": 0.101
     },
     "primaries": {
-     "ALP": 0.292,
-     "LIB": 0.2879,
-     "ONP": 0.2229,
-     "GRN": 0.1012,
-     "OTH": 0.096
+     "LIB": 0.3004,
+     "ALP": 0.285,
+     "ONP": 0.2098,
+     "GRN": 0.1053,
+     "OTH": 0.0994
     },
     "two_party_winner": "COAL"
    },
@@ -1990,22 +2054,23 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0052,
+    "onp_geo": 0.0128,
     "final_two": [
      "GRN",
      "ALP"
     ],
-    "winner_share": 0.5313,
+    "winner_share": 0.5428,
     "winner": "GRN",
     "p_win": {
-     "GRN": 0.831,
-     "ALP": 0.169
+     "GRN": 0.9,
+     "ALP": 0.1
     },
     "primaries": {
-     "GRN": 0.3307,
-     "ALP": 0.2706,
-     "ONP": 0.2229,
-     "OTH": 0.1084,
-     "LIB": 0.0674
+     "GRN": 0.3797,
+     "ALP": 0.2944,
+     "OTH": 0.1253,
+     "ONP": 0.1163,
+     "LIB": 0.0844
     }
    },
    {
@@ -2014,24 +2079,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0092,
+    "onp_geo": 0.0259,
     "final_two": [
      "ALP",
      "LIB"
     ],
-    "winner_share": 0.5247,
+    "winner_share": 0.5781,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.772,
-     "COAL": 0.138,
-     "ONP": 0.074,
-     "GRN": 0.017
+     "ALP": 0.873,
+     "COAL": 0.081,
+     "GRN": 0.034,
+     "ONP": 0.013
     },
     "primaries": {
-     "ALP": 0.3061,
-     "LIB": 0.2448,
-     "ONP": 0.2229,
-     "GRN": 0.1945,
-     "OTH": 0.0318
+     "ALP": 0.3123,
+     "LIB": 0.2677,
+     "GRN": 0.2095,
+     "ONP": 0.1756,
+     "OTH": 0.0349
     },
     "two_party_winner": "ALP"
    },
@@ -2041,21 +2107,23 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0355,
+    "onp_geo": 0.0829,
     "final_two": [
      "NAT",
      "ONP"
     ],
-    "winner_share": 0.6726,
+    "winner_share": 0.5662,
     "winner": "NAT",
     "p_win": {
-     "COAL": 1.0
+     "COAL": 0.882,
+     "ONP": 0.117
     },
     "primaries": {
-     "NAT": 0.446,
-     "ONP": 0.2229,
-     "OTH": 0.1168,
-     "GRN": 0.1102,
-     "ALP": 0.1041
+     "NAT": 0.3914,
+     "ONP": 0.3259,
+     "OTH": 0.1025,
+     "GRN": 0.097,
+     "ALP": 0.0832
     },
     "two_party_winner": "COAL"
    },
@@ -2065,23 +2133,24 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0368,
+    "onp_geo": 0.0716,
     "final_two": [
      "LIB",
-     "ALP"
+     "ONP"
     ],
-    "winner_share": 0.5926,
+    "winner_share": 0.5537,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.939,
-     "ONP": 0.038,
-     "ALP": 0.022
+     "COAL": 0.75,
+     "ONP": 0.241,
+     "ALP": 0.009
     },
     "primaries": {
-     "LIB": 0.3653,
-     "ALP": 0.2408,
-     "ONP": 0.2228,
-     "GRN": 0.1011,
-     "OTH": 0.07
+     "LIB": 0.3344,
+     "ONP": 0.3029,
+     "ALP": 0.206,
+     "GRN": 0.0927,
+     "OTH": 0.064
     },
     "two_party_winner": "COAL"
    },
@@ -2091,24 +2160,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0082,
+    "onp_geo": 0.0248,
     "final_two": [
      "ALP",
-     "ONP"
+     "GRN"
     ],
-    "winner_share": 0.6231,
+    "winner_share": 0.5046,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.643,
-     "GRN": 0.333,
-     "ONP": 0.015,
-     "COAL": 0.009
+     "ALP": 0.587,
+     "GRN": 0.408,
+     "COAL": 0.004,
+     "ONP": 0.002
     },
     "primaries": {
-     "ALP": 0.2749,
-     "GRN": 0.2546,
-     "ONP": 0.2193,
-     "LIB": 0.1613,
-     "OTH": 0.0899
+     "ALP": 0.28,
+     "GRN": 0.2745,
+     "LIB": 0.1793,
+     "ONP": 0.1687,
+     "OTH": 0.0975
     }
    },
    {
@@ -2117,23 +2187,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0166,
+    "onp_geo": 0.039,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.5367,
+    "winner_share": 0.5258,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.683,
-     "ONP": 0.162,
-     "COAL": 0.154
+     "ALP": 0.628,
+     "ONP": 0.224,
+     "COAL": 0.147,
+     "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.302,
-     "ONP": 0.2193,
-     "LIB": 0.2128,
-     "OTH": 0.1651,
-     "GRN": 0.1009
+     "ALP": 0.291,
+     "LIB": 0.2207,
+     "ONP": 0.2169,
+     "OTH": 0.168,
+     "GRN": 0.1035
     },
     "two_party_winner": "COAL"
    },
@@ -2143,24 +2215,25 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0199,
+    "onp_geo": 0.0529,
     "final_two": [
      "LIB",
      "GRN"
     ],
-    "winner_share": 0.5997,
+    "winner_share": 0.5922,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.933,
-     "ONP": 0.025,
-     "ALP": 0.025,
-     "GRN": 0.017
+     "COAL": 0.87,
+     "ONP": 0.103,
+     "ALP": 0.014,
+     "GRN": 0.013
     },
     "primaries": {
-     "LIB": 0.3735,
-     "ONP": 0.2229,
-     "GRN": 0.19,
-     "ALP": 0.178,
-     "OTH": 0.0356
+     "LIB": 0.3622,
+     "ONP": 0.2593,
+     "GRN": 0.1832,
+     "ALP": 0.1605,
+     "OTH": 0.0348
     },
     "two_party_winner": "COAL"
    },
@@ -2170,23 +2243,23 @@
     "member_party": "COAL",
     "member_category": "sophomore_byelection",
     "onp_lc_2022": 0.0056,
+    "onp_geo": 0.0126,
     "final_two": [
      "GRN",
      "LIB"
     ],
-    "winner_share": 0.5538,
+    "winner_share": 0.6223,
     "winner": "GRN",
     "p_win": {
-     "GRN": 0.899,
-     "COAL": 0.052,
-     "ONP": 0.049
+     "GRN": 0.997,
+     "COAL": 0.004
     },
     "primaries": {
-     "GRN": 0.3737,
-     "LIB": 0.2339,
-     "ONP": 0.2262,
-     "ALP": 0.1506,
-     "OTH": 0.0155
+     "GRN": 0.4281,
+     "LIB": 0.2755,
+     "ALP": 0.161,
+     "ONP": 0.1169,
+     "OTH": 0.0185
     }
    },
    {
@@ -2195,24 +2268,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0109,
+    "onp_geo": 0.0277,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.62,
+    "winner_share": 0.6306,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.944,
-     "GRN": 0.033,
-     "ONP": 0.018,
-     "COAL": 0.006
+     "ALP": 0.943,
+     "GRN": 0.046,
+     "ONP": 0.006,
+     "COAL": 0.004
     },
     "primaries": {
-     "ALP": 0.3048,
-     "ONP": 0.2193,
-     "GRN": 0.2015,
-     "LIB": 0.1452,
-     "OTH": 0.1292
+     "ALP": 0.3075,
+     "GRN": 0.215,
+     "ONP": 0.1793,
+     "LIB": 0.1601,
+     "OTH": 0.1381
     }
    },
    {
@@ -2221,22 +2295,22 @@
     "member_party": "GRN",
     "member_category": "sophomore_gain",
     "onp_lc_2022": 0.0034,
+    "onp_geo": 0.0094,
     "final_two": [
      "GRN",
-     "ONP"
+     "ALP"
     ],
-    "winner_share": 0.6584,
+    "winner_share": 0.6076,
     "winner": "GRN",
     "p_win": {
-     "GRN": 0.997,
-     "ONP": 0.003
+     "GRN": 1.0
     },
     "primaries": {
-     "GRN": 0.3909,
-     "ONP": 0.2139,
-     "ALP": 0.1939,
-     "LIB": 0.1257,
-     "OTH": 0.0755
+     "GRN": 0.4509,
+     "ALP": 0.2139,
+     "LIB": 0.1534,
+     "ONP": 0.0926,
+     "OTH": 0.0893
     }
    },
    {
@@ -2245,24 +2319,25 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0099,
+    "onp_geo": 0.0217,
     "final_two": [
-     "LIB",
-     "ALP"
+     "ALP",
+     "LIB"
     ],
-    "winner_share": 0.5262,
-    "winner": "LIB",
+    "winner_share": 0.5283,
+    "winner": "ALP",
     "p_win": {
-     "COAL": 0.496,
-     "ALP": 0.331,
-     "ONP": 0.142,
-     "GRN": 0.032
+     "ALP": 0.539,
+     "COAL": 0.364,
+     "GRN": 0.089,
+     "ONP": 0.007
     },
     "primaries": {
-     "LIB": 0.2805,
-     "ALP": 0.2486,
-     "ONP": 0.2228,
-     "GRN": 0.1784,
-     "OTH": 0.0698
+     "LIB": 0.3114,
+     "ALP": 0.2572,
+     "GRN": 0.1959,
+     "ONP": 0.1585,
+     "OTH": 0.077
     },
     "two_party_winner": "COAL"
    },
@@ -2272,23 +2347,24 @@
     "member_party": "ALP",
     "member_category": "sophomore_gain",
     "onp_lc_2022": 0.0346,
+    "onp_geo": 0.0823,
     "final_two": [
-     "LIB",
+     "ONP",
      "ALP"
     ],
-    "winner_share": 0.5419,
-    "winner": "LIB",
+    "winner_share": 0.5579,
+    "winner": "ONP",
     "p_win": {
-     "COAL": 0.697,
-     "ALP": 0.18,
-     "ONP": 0.123
+     "ONP": 0.554,
+     "COAL": 0.368,
+     "ALP": 0.077
     },
     "primaries": {
-     "LIB": 0.3032,
-     "ALP": 0.2845,
-     "ONP": 0.2139,
-     "OTH": 0.1142,
-     "GRN": 0.0842
+     "ONP": 0.3115,
+     "LIB": 0.2695,
+     "ALP": 0.2431,
+     "OTH": 0.1008,
+     "GRN": 0.075
     },
     "two_party_winner": "COAL"
    },
@@ -2298,23 +2374,25 @@
     "member_party": "COAL",
     "member_category": "open",
     "onp_lc_2022": 0.0129,
+    "onp_geo": 0.0341,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5978,
+    "winner_share": 0.5917,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.953,
-     "ONP": 0.029,
-     "ALP": 0.018
+     "COAL": 0.97,
+     "ALP": 0.022,
+     "ONP": 0.007,
+     "GRN": 0.001
     },
     "primaries": {
-     "LIB": 0.3753,
-     "ALP": 0.2412,
-     "ONP": 0.2311,
-     "GRN": 0.1075,
-     "OTH": 0.0449
+     "LIB": 0.3927,
+     "ALP": 0.2356,
+     "ONP": 0.2124,
+     "GRN": 0.1123,
+     "OTH": 0.047
     },
     "two_party_winner": "COAL"
    },
@@ -2324,24 +2402,24 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0067,
+    "onp_geo": 0.0187,
     "final_two": [
      "LIB",
      "GRN"
     ],
-    "winner_share": 0.6384,
+    "winner_share": 0.5942,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.995,
-     "ONP": 0.003,
+     "COAL": 0.997,
      "ALP": 0.002,
      "GRN": 0.001
     },
     "primaries": {
-     "LIB": 0.4208,
-     "ONP": 0.2229,
-     "GRN": 0.1726,
-     "ALP": 0.154,
-     "OTH": 0.0297
+     "LIB": 0.4695,
+     "GRN": 0.192,
+     "ALP": 0.1594,
+     "ONP": 0.1456,
+     "OTH": 0.0336
     },
     "two_party_winner": "COAL"
    },
@@ -2351,22 +2429,24 @@
     "member_party": "COAL",
     "member_category": "open",
     "onp_lc_2022": 0.0424,
+    "onp_geo": 0.0886,
     "final_two": [
      "NAT",
-     "LIB"
+     "ONP"
     ],
-    "winner_share": 0.5932,
+    "winner_share": 0.581,
     "winner": "NAT",
     "p_win": {
-     "COAL": 1.0
+     "COAL": 0.906,
+     "ONP": 0.093
     },
     "primaries": {
-     "NAT": 0.3842,
-     "LIB": 0.2466,
-     "ONP": 0.2228,
-     "GRN": 0.0573,
-     "OTH": 0.0561,
-     "ALP": 0.033
+     "ONP": 0.3365,
+     "NAT": 0.3299,
+     "LIB": 0.2119,
+     "GRN": 0.0503,
+     "OTH": 0.0486,
+     "ALP": 0.0229
     }
    },
    {
@@ -2375,26 +2455,27 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0135,
+    "onp_geo": 0.0375,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.5186,
+    "winner_share": 0.514,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.438,
-     "ALP": 0.399,
-     "ONP": 0.158,
-     "GRN": 0.005
+     "COAL": 0.435,
+     "ALP": 0.396,
+     "ONP": 0.155,
+     "GRN": 0.015
     },
     "primaries": {
-     "LIB": 0.2746,
-     "ALP": 0.2723,
-     "ONP": 0.229,
-     "GRN": 0.1567,
-     "OTH": 0.0675
+     "LIB": 0.2849,
+     "ALP": 0.263,
+     "ONP": 0.2217,
+     "GRN": 0.1609,
+     "OTH": 0.0696
     },
-    "two_party_winner": "ALP"
+    "two_party_winner": "COAL"
    },
    {
     "seat": "South-West Coast",
@@ -2402,22 +2483,23 @@
     "member_party": "COAL",
     "member_category": "veteran",
     "onp_lc_2022": 0.0279,
+    "onp_geo": 0.0592,
     "final_two": [
      "LIB",
      "ONP"
     ],
-    "winner_share": 0.6261,
+    "winner_share": 0.5902,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.997,
-     "ONP": 0.003
+     "COAL": 0.94,
+     "ONP": 0.06
     },
     "primaries": {
-     "LIB": 0.4321,
-     "ONP": 0.2229,
-     "ALP": 0.1355,
-     "OTH": 0.1231,
-     "GRN": 0.0864
+     "LIB": 0.4085,
+     "ONP": 0.2748,
+     "ALP": 0.1181,
+     "OTH": 0.1163,
+     "GRN": 0.0823
     },
     "two_party_winner": "COAL"
    },
@@ -2427,23 +2509,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0144,
+    "onp_geo": 0.0381,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.5316,
+    "winner_share": 0.5225,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.633,
-     "ONP": 0.192,
-     "COAL": 0.174
+     "ALP": 0.598,
+     "ONP": 0.237,
+     "COAL": 0.165
     },
     "primaries": {
-     "ALP": 0.2963,
-     "ONP": 0.2229,
-     "LIB": 0.2136,
-     "OTH": 0.1677,
-     "GRN": 0.0995
+     "ALP": 0.2861,
+     "LIB": 0.2225,
+     "ONP": 0.2174,
+     "OTH": 0.1714,
+     "GRN": 0.1025
     },
     "two_party_winner": "COAL"
    },
@@ -2453,23 +2536,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0254,
+    "onp_geo": 0.0632,
     "final_two": [
-     "LIB",
+     "ONP",
      "ALP"
     ],
-    "winner_share": 0.5204,
-    "winner": "LIB",
+    "winner_share": 0.5279,
+    "winner": "ONP",
     "p_win": {
-     "COAL": 0.484,
-     "ALP": 0.355,
-     "ONP": 0.161
+     "ONP": 0.49,
+     "COAL": 0.324,
+     "ALP": 0.186
     },
     "primaries": {
-     "ALP": 0.3002,
-     "LIB": 0.2773,
-     "ONP": 0.2229,
-     "OTH": 0.1039,
-     "GRN": 0.0957
+     "ONP": 0.2842,
+     "ALP": 0.2655,
+     "LIB": 0.2625,
+     "OTH": 0.0974,
+     "GRN": 0.0903
     },
     "two_party_winner": "COAL"
    },
@@ -2479,23 +2563,24 @@
     "member_party": "ALP",
     "member_category": "open",
     "onp_lc_2022": 0.0207,
+    "onp_geo": 0.0509,
     "final_two": [
-     "LIB",
+     "ONP",
      "ALP"
     ],
-    "winner_share": 0.5271,
-    "winner": "LIB",
+    "winner_share": 0.529,
+    "winner": "ONP",
     "p_win": {
-     "COAL": 0.402,
-     "ONP": 0.303,
-     "ALP": 0.294
+     "ONP": 0.493,
+     "COAL": 0.325,
+     "ALP": 0.182
     },
     "primaries": {
-     "ALP": 0.2669,
-     "LIB": 0.2502,
-     "ONP": 0.2311,
-     "OTH": 0.1611,
-     "GRN": 0.0906
+     "ONP": 0.2636,
+     "LIB": 0.2475,
+     "ALP": 0.2427,
+     "OTH": 0.157,
+     "GRN": 0.0892
     },
     "two_party_winner": "COAL"
    },
@@ -2505,24 +2590,25 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0173,
+    "onp_geo": 0.0453,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.553,
+    "winner_share": 0.5306,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.768,
-     "COAL": 0.126,
-     "ONP": 0.105,
+     "ALP": 0.68,
+     "ONP": 0.22,
+     "COAL": 0.1,
      "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.335,
-     "ONP": 0.2193,
-     "LIB": 0.2191,
-     "OTH": 0.1238,
-     "GRN": 0.1028
+     "ALP": 0.3166,
+     "ONP": 0.2351,
+     "LIB": 0.222,
+     "OTH": 0.1233,
+     "GRN": 0.103
     },
     "two_party_winner": "ALP"
    },
@@ -2532,23 +2618,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0149,
+    "onp_geo": 0.0411,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.5689,
+    "winner_share": 0.5543,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.903,
-     "ONP": 0.06,
-     "COAL": 0.036
+     "ALP": 0.858,
+     "ONP": 0.108,
+     "COAL": 0.034
     },
     "primaries": {
-     "ALP": 0.3644,
-     "ONP": 0.2229,
-     "LIB": 0.1924,
-     "OTH": 0.1216,
-     "GRN": 0.0988
+     "ALP": 0.3499,
+     "ONP": 0.2267,
+     "LIB": 0.1993,
+     "OTH": 0.1233,
+     "GRN": 0.1008
     },
     "two_party_winner": "ALP"
    },
@@ -2558,24 +2645,25 @@
     "member_party": "COAL",
     "member_category": "sophomore_byelection",
     "onp_lc_2022": 0.0103,
+    "onp_geo": 0.0289,
     "final_two": [
      "LIB",
      "ALP"
     ],
-    "winner_share": 0.6195,
+    "winner_share": 0.6123,
     "winner": "LIB",
     "p_win": {
-     "COAL": 0.98,
-     "ONP": 0.013,
-     "ALP": 0.006,
-     "GRN": 0.001
+     "COAL": 0.985,
+     "ALP": 0.013,
+     "GRN": 0.002,
+     "ONP": 0.001
     },
     "primaries": {
-     "LIB": 0.4013,
-     "ONP": 0.2262,
-     "ALP": 0.204,
-     "GRN": 0.1408,
-     "OTH": 0.0277
+     "LIB": 0.428,
+     "ALP": 0.2028,
+     "ONP": 0.1896,
+     "GRN": 0.1497,
+     "OTH": 0.0299
     },
     "two_party_winner": "COAL"
    },
@@ -2585,22 +2673,24 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0227,
+    "onp_geo": 0.0454,
     "final_two": [
      "ALP",
      "LIB"
     ],
-    "winner_share": 0.5161,
+    "winner_share": 0.5144,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.677,
-     "COAL": 0.213,
-     "ONP": 0.11
+     "ALP": 0.594,
+     "ONP": 0.213,
+     "COAL": 0.193,
+     "GRN": 0.001
     },
     "primaries": {
-     "ALP": 0.3258,
-     "LIB": 0.2494,
-     "ONP": 0.2229,
-     "GRN": 0.1329,
+     "ALP": 0.3072,
+     "LIB": 0.2518,
+     "ONP": 0.2392,
+     "GRN": 0.1328,
      "OTH": 0.069
     },
     "two_party_winner": "ALP"
@@ -2611,23 +2701,24 @@
     "member_party": "ALP",
     "member_category": "sophomore_byelection",
     "onp_lc_2022": 0.0217,
+    "onp_geo": 0.0552,
     "final_two": [
      "ALP",
      "ONP"
     ],
-    "winner_share": 0.5424,
+    "winner_share": 0.5011,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.708,
-     "ONP": 0.15,
-     "COAL": 0.142
+     "ALP": 0.467,
+     "ONP": 0.431,
+     "COAL": 0.102
     },
     "primaries": {
-     "ALP": 0.3222,
-     "ONP": 0.2262,
-     "LIB": 0.224,
-     "OTH": 0.1245,
-     "GRN": 0.103
+     "ALP": 0.292,
+     "ONP": 0.269,
+     "LIB": 0.2192,
+     "OTH": 0.1199,
+     "GRN": 0.0998
     },
     "two_party_winner": "ALP"
    },
@@ -2637,24 +2728,25 @@
     "member_party": "ALP",
     "member_category": "veteran",
     "onp_lc_2022": 0.0113,
+    "onp_geo": 0.0276,
     "final_two": [
      "ALP",
      "LIB"
     ],
-    "winner_share": 0.5129,
+    "winner_share": 0.5265,
     "winner": "ALP",
     "p_win": {
-     "ALP": 0.664,
-     "COAL": 0.176,
-     "ONP": 0.129,
-     "GRN": 0.031
+     "ALP": 0.735,
+     "COAL": 0.157,
+     "GRN": 0.066,
+     "ONP": 0.043
     },
     "primaries": {
-     "ALP": 0.2718,
-     "LIB": 0.2266,
-     "ONP": 0.2229,
-     "GRN": 0.1804,
-     "OTH": 0.0983
+     "ALP": 0.2741,
+     "LIB": 0.2461,
+     "GRN": 0.1927,
+     "ONP": 0.1819,
+     "OTH": 0.1053
     },
     "two_party_winner": "ALP"
    },
@@ -2664,47 +2756,48 @@
     "member_party": "ALP",
     "member_category": "sophomore_held",
     "onp_lc_2022": 0.0223,
+    "onp_geo": 0.0564,
     "final_two": [
-     "LIB",
+     "ONP",
      "ALP"
     ],
-    "winner_share": 0.5318,
-    "winner": "LIB",
+    "winner_share": 0.5245,
+    "winner": "ONP",
     "p_win": {
-     "COAL": 0.57,
-     "ALP": 0.268,
-     "ONP": 0.163
+     "COAL": 0.441,
+     "ONP": 0.386,
+     "ALP": 0.173
     },
     "primaries": {
-     "ALP": 0.2843,
-     "LIB": 0.2831,
-     "ONP": 0.2193,
-     "OTH": 0.1229,
-     "GRN": 0.0905
+     "LIB": 0.2734,
+     "ONP": 0.2638,
+     "ALP": 0.2579,
+     "OTH": 0.1176,
+     "GRN": 0.0873
     },
     "two_party_winner": "COAL"
    }
   ],
   "simulated_seats": {
    "ALP": {
-    "median": 31,
-    "lo": 19,
-    "hi": 41
+    "median": 29,
+    "lo": 18,
+    "hi": 39
    },
    "COAL": {
-    "median": 44,
-    "lo": 35,
-    "hi": 54
+    "median": 37,
+    "lo": 29,
+    "hi": 47
    },
    "GRN": {
     "median": 6,
-    "lo": 4,
-    "hi": 8
+    "lo": 5,
+    "hi": 9
    },
    "ONP": {
-    "median": 6,
-    "lo": 2,
-    "hi": 12
+    "median": 14,
+    "lo": 7,
+    "hi": 21
    },
    "IND": {
     "median": 1,
@@ -2713,41 +2806,67 @@
    }
   },
   "sensitivity_coalition_to_onp": {
-   "0.5": {
-    "ALP": 30,
-    "COAL": 52,
-    "GRN": 5,
+   "coalition_to_onp_55pct": {
+    "GRN": 6,
+    "ALP": 38,
+    "COAL": 39,
+    "ONP": 3,
+    "IND": 2
+   },
+   "coalition_to_onp_65pct": {
+    "GRN": 6,
+    "ALP": 31,
+    "ONP": 12,
+    "COAL": 38,
     "IND": 1
    },
-   "1.0": {
-    "ALP": 30,
-    "COAL": 52,
-    "GRN": 5,
-    "IND": 1
-   },
-   "2.0": {
-    "ALP": 28,
-    "COAL": 52,
-    "GRN": 5,
-    "ONP": 3
-   },
-   "4.0": {
+   "coalition_to_onp_75pct": {
+    "GRN": 6,
     "ALP": 22,
-    "COAL": 51,
-    "GRN": 5,
-    "ONP": 10
+    "ONP": 22,
+    "COAL": 37,
+    "IND": 1
+   },
+   "onp_spread_b0.5": {
+    "GRN": 6,
+    "ALP": 32,
+    "COAL": 41,
+    "ONP": 8,
+    "IND": 1
+   },
+   "onp_spread_b0.67": {
+    "GRN": 6,
+    "ALP": 33,
+    "ONP": 11,
+    "COAL": 37,
+    "IND": 1
+   },
+   "onp_spread_b0.85": {
+    "GRN": 6,
+    "ALP": 31,
+    "ONP": 15,
+    "COAL": 35,
+    "IND": 1
+   },
+   "onp_spread_b1.0": {
+    "GRN": 6,
+    "ALP": 31,
+    "ONP": 16,
+    "COAL": 34,
+    "IND": 1
    }
   },
-  "two_party_swing_from_polls_pts": -9.5,
+  "two_party_swing_from_polls_pts": -10.2,
   "two_party_seats": {
-   "ALP": 25,
-   "COAL": 48
+   "ALP": 22,
+   "COAL": 51
   },
   "assumptions": [
    "One Nation stands in every seat (check against the 2026 ballot draw)",
-   "Liberal and National voters' preferences to One Nation are not in the flow model (they were rarely excluded with One Nation still in the count); set to the neutral default",
+   "Coalition and other parties' preferences to One Nation from every state and federal count (src.onp_flows): about 65% of Liberal and National preferences go to One Nation over Labor",
+   "One Nation's seat map: its 2025 Senate vote (steadied by the census model), lifted to the poll average with the compression seen in SA 2022-26 and QLD 2020-24 (logit slope 0.67)",
    "Independents keep their 2022 vote scaled by the statewide change; new independents are not known until nominations"
   ]
  },
- "generated": "2026-11-08"
+ "generated": "2026-11-09"
 }

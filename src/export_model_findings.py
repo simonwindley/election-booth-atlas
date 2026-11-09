@@ -3,7 +3,7 @@
 Only settled, historical findings go to the site. Seat-by-seat 2026 risk tables and projected seat counts stay in the
 private analysis pages until nominations are final and the One Nation preference question is settled.
 
-Inputs  data/analysis/{member_effects,cross_level,seat_loss,primary_swings,boundary_effects,returning_challengers}.json
+Inputs  data/analysis/{member_effects,cross_level,seat_loss,primary_swings,boundary_effects,returning_challengers,onp_effect,onp_flows}.json
 Output  site/data/model_findings.json
 Usage   python3 -m src.export_model_findings
 """
@@ -42,6 +42,15 @@ def main():
                           'redistributions': [{k: r[k] for k in ('for', 'seats', 'abolished', 'created', 'median_from_namesake', 'mean_abs_shift_pts', 'notional_flips', 'flips_won_by_notional_party')} for r in be['redistributions']],
                           'flips': be['flips'], 'flips_summary': be['flips_summary'],
                           'territory': {k: be['territory'][k] for k in ('n', 'other_party_pts_per_100pct', 'other_ci', 'same_party_pts_per_100pct', 'same_ci')}}}
+    # One Nation: history and method only (no 2026 seat readings)
+    oe, of = A('onp_effect'), A('onp_flows')
+    out['onp'] = {'senate_statewide': oe['senate_statewide'], 'lc2022_statewide': oe['lc2022_statewide'], 'map_correlations': oe['map_correlations'],
+                  'level': {'venues': oe['level']['venues'], 'cv_r2': oe['level']['cv_r2'], 'coef': oe['level']['coef'][:10]},
+                  'takes_from': oe['takes_from'],
+                  'surges': of['surges'],
+                  'flows': {k: of['pooled'][k] for k in ('LIB', 'NAT', 'GRN', 'ALP', 'IND', 'OTH', 'ONP>LIB/ALP', 'ONP>NAT/ALP') if k in of['pooled']},
+                  'n_observations': of['n_observations'], 'n_elections': len(of['by_election']),
+                  'validation_sa2026': {k: v for k, v in of['validation_sa2026'].items() if k != 'pooled_ratios_used'}}
     p = os.path.join(ROOT, 'site/data/model_findings.json')
     json.dump(out, open(p, 'w'), separators=(',', ':'))
     print(f'{p}: {os.path.getsize(p) / 1024:.0f} KB')

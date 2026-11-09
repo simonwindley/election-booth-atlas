@@ -510,6 +510,9 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
         <div class="bk-sec"><h3>How well it predicts: 2022 from 2018</h3><div id="pf-val"></div></div>
         <div class="bk-sec" id="pf-cards-panel"><h3>Registered how-to-vote cards</h3><div id="pf-cards"></div></div>
       </div></details>
+      <details class="panel book" id="bk-onp"><summary><span class="bk-t">The One Nation effect</span><span class="bk-s" id="bk-onp-s"></span></summary><div class="bk-b">
+        <div id="md-onp"></div>
+      </div></details>
       <details class="panel book" id="bk-ballot"><summary><span class="bk-t">Ballot order: donkey and adjacency voting</span><span class="bk-s" id="bk-ballot-s"></span></summary><div class="bk-b">
         <div id="pf-ballot"></div>
       </div></details>
@@ -1782,13 +1785,14 @@ async function renderModel() {
   const teaser = (id, t) => { const x = el(id + '-s'); if (x) x.textContent = t; };
   teaser('bk-members', `Step two: add the sitting member's personal vote. A member who wins a seat from the other side gains about ${M.members.all.sophomore_gain.pts.toFixed(1)} points at their first re-election. When a member retires, the party loses about ${Math.abs(M.members.all.open.pts).toFixed(0)}.`);
   { const bt = M.swings.backtest.total; teaser('bk-pendulum', `A uniform two-party swing works in Labor v Coalition seats but cannot see the challengers who cause the surprises. Primaries plus preferences called ${bt.primaries} of ${bt.seats} past seats; the pendulum ${bt.two_party}.`); }
-  teaser('bk-swings', `Step one: move each party's first-preference vote by its own rule. The Greens move by the same points everywhere, Labor loses most where it is strongest, and One Nation grows where it is already strong.`);
+  teaser('bk-swings', `Step one: move each party's first-preference vote by its own rule. The Greens move by the same points everywhere, Labor loses most where it is strongest, and minor parties spread evenly.`);
+  try { renderOnp(M); } catch (e) { console.error('One Nation book', e); }
   teaser('bk-bounds', `Our notional results sit within half a point of the published ones, and seats that change hands on paper are decided by the swing.`);
   head.append(h('h2', { class: 'dash-title' }, 'The Atlas Model'),
     h('p', { class: 'hint' }, 'What the Atlas has learnt from Victorian results since 1999 (state elections and federal elections in Victoria), and how it uses it. Every figure here is measured on past elections and, where it matters, tested on elections it was not fitted on. Open any section for the detail.'),
     h('p', { style: 'margin:10px 0 0;max-width:72ch;font-size:14px' }, h('b', {}, 'How the model works. '), 'It does not apply a single two-party swing. In each seat it moves every party\'s first-preference vote by that party\'s own rule (', h('i', {}, 'swings and roundabouts'), '), adds the sitting member\'s personal vote, then runs the preference count, candidate by candidate, to find the final two and the winner. On election night the counted first preferences replace the first step. The last two sections are the checks and tools behind it.'),
     h('p', { class: 'hint', style: 'margin-top:6px' }, 'This page is history: seat-by-seat readings for 2026 follow once nominations close.'),
-    h('p', { class: 'hint', style: 'margin-top:6px' }, jump('bk-swings', 'Swings and roundabouts'), ' · ', jump('bk-members', 'The personal vote'), ' · ', jump('bk-prefs', 'Preferences'), ' · ', jump('bk-ballot', 'Ballot order'), ' · ', jump('bk-pendulum', 'The pendulum, tested'), ' · ', jump('bk-bounds', 'New boundaries')));
+    h('p', { class: 'hint', style: 'margin-top:6px' }, jump('bk-swings', 'Swings and roundabouts'), ' · ', jump('bk-members', 'The personal vote'), ' · ', jump('bk-prefs', 'Preferences'), ' · ', jump('bk-onp', 'The One Nation effect'), ' · ', jump('bk-ballot', 'Ballot order'), ' · ', jump('bk-pendulum', 'The pendulum, tested'), ' · ', jump('bk-bounds', 'New boundaries')));
   // --- members
   const Me = M.members, A = Me.all, Tn = Me.tenure, TL = M.two_levels, Ch = M.challengers;
   const mv = Me.member_value['2_terms'];
@@ -1827,7 +1831,7 @@ async function renderModel() {
     h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Party'), h('th', { class: 'num' }, 'λ'), h('th', { class: 'num' }, 'Seat error, uniform'), h('th', { class: 'num' }, 'Seat error, proportional'), h('th', {}, 'Moves'))),
       h('tbody', {}, ...['ALP', 'COAL', 'GRN', 'MINOR'].map(k => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${k === 'MINOR' ? 'var(--oth)' : partyColor(k)}` }), PNM[k])), h('td', { class: 'num' }, R_[k].lambda.toFixed(2)), h('td', { class: 'num' }, R_[k].rmse_uniform.toFixed(1) + ' pts'), h('td', { class: 'num' }, R_[k].rmse_proportional.toFixed(1) + ' pts'), h('td', {}, read(R_[k].lambda)))),
         h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: 'background:var(--onp)' }), 'One Nation (Senate, 2022→2025)')), h('td', { class: 'num' }, S.onp.lambda.toFixed(2)), h('td', { class: 'num' }, S.onp.rmse_uniform.toFixed(1) + ' pts'), h('td', { class: 'num' }, S.onp.rmse_proportional.toFixed(1) + ' pts'), h('td', {}, read(S.onp.lambda) + ', grew most where already strong')))))),
-    h('p', { class: 'hint' }, `The Greens and the Coalition move by about the same points everywhere; Labor loses more where it is strongest; minor parties spread evenly. One Nation's vote, measured at ${fmt(S.onp.venues)} polling places in the Senate, grew from ${S.onp.statewide_from.toFixed(1)}% to ${S.onp.statewide_to.toFixed(1)}% mostly where it was already strongest.`),
+    h('p', { class: 'hint' }, `The Greens and the Coalition move by about the same points everywhere; Labor loses more where it is strongest; minor parties spread evenly. One Nation's vote, measured at ${fmt(S.onp.venues)} polling places in the Senate, grew from ${S.onp.statewide_from.toFixed(1)}% to ${S.onp.statewide_to.toFixed(1)}% mostly where it was already strongest; but when it surges, as it has in other states, its vote spreads far more evenly (see `, jump('bk-onp', 'The One Nation effect'), `).`),
     h('h4', { style: 'margin-top:14px' }, 'First preferences and preferences, against the pendulum'),
     h('p', { class: 'hint' }, `Given perfect polls (the true statewide primaries for one, the true two-party swing for the other), projecting each seat's primaries by these rules and running them through the preference model below called ${BT.total.primaries} of ${BT.total.seats} seats correctly; a uniform two-party swing called ${BT.total.two_party}. The gain is in seats where the final two was not Labor v Coalition. With One Nation polling far above its past levels, this is why the Atlas projects from first preferences rather than a single two-party swing.`),
     h('div', { class: 'tablewrap', style: 'max-width:560px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', { class: 'num' }, 'Seats'), h('th', { class: 'num' }, 'Primaries + preferences'), h('th', { class: 'num' }, 'Two-party swing'))),
@@ -1847,6 +1851,48 @@ async function renderModel() {
       h('div', {}, h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'For'), h('th', { class: 'num' }, 'Seats'), h('th', { class: 'num' }, 'Abolished'), h('th', { class: 'num' }, 'Margin shift'), h('th', { class: 'num' }, 'Changed hands on paper'), h('th', { class: 'num' }, 'Won by the paper side'))),
         h('tbody', {}, ...Bd.redistributions.map(r => h('tr', {}, h('td', {}, idx.electionById.get(r.for) ? shortName(idx.electionById.get(r.for)) : r.for), h('td', { class: 'num' }, r.seats), h('td', { class: 'num', title: r.abolished.join(', ') }, r.abolished.length), h('td', { class: 'num' }, r.mean_abs_shift_pts.toFixed(1) + ' pts'), h('td', { class: 'num' }, r.notional_flips), h('td', { class: 'num' }, r.flips_won_by_notional_party)))))))),
     h('p', { class: 'hint' }, `A redistribution moves the typical seat's margin by about a point. Seats handed to the other side on paper are usually wafer-thin (median ${F.median_notional_margin_pts.toFixed(1)} pts), so the election's swing decides them, as it should. The one systematic error in any notional is the personal vote: it counts voters moved in from an opposing member as if they would vote as before, but they swing towards their new member as the old member's personal vote unwinds.`));
+}
+function renderOnp(M) {
+  const O = M.onp, box = el('md-onp'); if (!O || !box || box.dataset.done) return; box.dataset.done = '1';
+  const F = O.flows, V = O.validation_sa2026, SU = O.surges, TF = O.takes_from.per_point_of_one_nation_gain;
+  const pc = (r) => Math.round(100 * r.share_vs_ref);
+  const sa = SU.find(x => x.to === 'sa2026');
+  { const t = el('bk-onp-s'); if (t) t.textContent = `Who votes One Nation, how its vote spreads when it surges, and where its preferences go, learnt from every state where it has stood. Told nothing about South Australia, the count found all four of the seats One Nation won there in March.`; }
+  // census profile: per standard deviation, as a relative change in One Nation's share
+  const coef = O.level.coef.slice(0, 8);
+  const bars = (() => { const W = 640, rowH = 28, left = 300, right = 60, top = 6, H = top + coef.length * rowH + 4, lo = -35, hi = 55, x = v => left + (v - lo) / (hi - lo) * (W - left - right);
+    let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:460px;max-width:720px;display:block" role="img" aria-label="Census profile of One Nation's vote">`;
+    s += `<line x1="${x(0)}" x2="${x(0)}" y1="${top}" y2="${H - 2}" stroke="var(--line)" stroke-width="1.5"/>`;
+    coef.forEach((c, i) => { const v = 100 * (Math.exp(c.beta) - 1), y = top + i * rowH, col = v > 0 ? 'var(--onp)' : 'var(--fg-3)';
+      s += `<text x="0" y="${y + rowH / 2 + 4}" style="fill:var(--fg-2);font:12.5px var(--font-ui)">${c.label}</text><rect x="${Math.min(x(0), x(v))}" y="${y + 6}" width="${Math.abs(x(v) - x(0))}" height="${rowH - 12}" rx="2" fill="${col}" fill-opacity=".85"/><text x="${W - 4}" y="${y + rowH / 2 + 4}" text-anchor="end" style="fill:var(--fg-2);font:12px var(--font-mono)">${v > 0 ? '+' : '−'}${Math.abs(Math.round(v))}%</text>`; });
+    return svgEl(s + '</svg>'); })();
+  const r22 = O.map_correlations.senate2022_v_senate2025;
+  box.append(
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'Where its vote lives'),
+      h('p', { class: 'hint' }, `One Nation stands statewide only in the Senate, so its Victorian map comes from there: ${O.senate_statewide.fed2016}% in 2016, ${O.senate_statewide.fed2019}% in 2019, ${O.senate_statewide.fed2022}% in 2022 and ${O.senate_statewide.fed2025}% in 2025, at every polling place. The map is steady: polling places that were strong for it in 2022 were strong again in 2025 (correlation ${r22[0].toFixed(2)} across ${fmt(r22[1])} of them), and its ${O.lc2022_statewide}% upper-house vote in 2022 traces the same pattern.`),
+      h('div', { class: 'stats', style: 'margin:10px 0' }, stat(O.level.cv_r2.toFixed(2), `share of the variation in its 2025 vote explained by the census alone, whole districts held out`), stat(r22[0].toFixed(2), 'how closely its 2025 map follows its 2022 map'), stat(`${Math.round(-100 * TF.OTH)} / ${Math.round(-100 * TF.COAL)} / ${Math.round(-100 * TF.ALP)}`, 'points lost by minor parties / the Coalition / Labor for every 10 points One Nation gained, 2022→2025')),
+      h('div', { class: 'tablewrap' }, bars),
+      h('p', { class: 'hint' }, `Each bar: how much higher or lower One Nation's share runs for one standard step more of that group in an area, the others held fixed (${fmt(O.level.venues)} polling places, ridge regression on its 2025 Senate vote). Trade qualifications are the strongest signal, degrees and languages other than English the strongest against. With language held fixed, overseas-born residents lean towards it: in practice, English-speaking migrants. When it grew from 2022 to 2025, half its gain came from other minor parties and most of the rest from the Coalition; Labor and the Greens barely moved.`)),
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'When it surges, it spreads'),
+      h('p', { class: 'hint' }, `A small party's vote usually grows where it is already strong. One Nation's surges in other states did not work that way: its vote rose by much the same number of points almost everywhere, so its weakest seats closed the gap on its strongest. In South Australia it went from ${sa.statewide_from}% in 2022 (standing in ${sa.seats_both} seats) to ${sa.statewide_to}% across all ${sa.seats_to} in 2026, from ${sa.lowest[1]}% in ${sa.lowest[0]} to ${sa.highest[1]}% in ${sa.highest[0]}, and won ${sa.won.length} (${sa.won.join(', ')}). Victoria's 2026 model lifts One Nation's Senate map in the same compressed way, not in proportion.`),
+      h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Surge'), h('th', { class: 'num' }, 'Statewide'), h('th', { class: 'num' }, 'Seat error, uniform'), h('th', { class: 'num' }, 'Seat error, proportional'), h('th', { class: 'num', title: 'slope of the new seat map on the old, in log-odds: 1 keeps the old spread, below 1 compresses it' }, 'Spread kept'), h('th', {}, 'Range at the end'), h('th', {}, 'Won'))),
+        h('tbody', {}, ...SU.map(r => h('tr', {}, h('td', {}, r.label), h('td', { class: 'num' }, `${r.statewide_from}% → ${r.statewide_to}%`), h('td', { class: 'num' }, r.rmse_uniform.toFixed(1) + ' pts'), h('td', { class: 'num' }, r.rmse_proportional.toFixed(1) + ' pts'), h('td', { class: 'num' }, Math.round(100 * r.logit_slope) + '%'), h('td', {}, `${r.lowest[1]}% (${r.lowest[0]}) to ${r.highest[1]}% (${r.highest[0]})`), h('td', {}, r.won.length ? r.won.join(', ') : '—')))))),
+      h('p', { class: 'hint' }, 'Seat errors compare the two simple rules in the seats One Nation contested at both elections. "Spread kept" is how much of the old gap between its strong and weak seats survived the surge: about two-thirds in South Australia and Queensland, and far less in Queensland\'s 2017 breakout, when it went from a handful of seats to sixty.')),
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'Preferences, in and out'),
+      h('p', { class: 'hint' }, `Victoria has rarely seen One Nation still standing when a Liberal or National was excluded, so its preference flows are measured where it has: ${fmt(O.n_observations.other_states_and_federal + O.n_observations.victoria)} exclusions across ${O.n_elections} state, federal and by-election counts since 2015, including Victoria's own. For each pair below, the share is the head-to-head split between the two parties whenever both were still standing, pooled with recent elections weighted most.`),
+      h('div', { class: 'tablewrap', style: 'max-width:620px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Voters of'), h('th', {}, 'Choosing between'), h('th', { class: 'num' }, 'Share to the first'), h('th', { class: 'num' }, 'Elections'))),
+        h('tbody', {}, ...[['Liberal', 'One Nation or Labor', F.LIB], ['National', 'One Nation or Labor', F.NAT], ['Greens', 'One Nation or Labor', F.GRN], ['Labor', 'One Nation or Liberal', F.ALP], ['independents', 'One Nation or Labor', F.IND], ['One Nation', 'Liberal or Labor', F['ONP>LIB/ALP']], ['One Nation', 'National or Labor', F['ONP>NAT/ALP']]].filter(r => r[2]).map(([a, b, r]) => h('tr', {}, h('td', {}, a), h('td', {}, b), h('td', { class: 'num' }, pc(r) + '%'), h('td', { class: 'num' }, r.elections)))))),
+      h('div', { class: 'stats', style: 'margin:10px 0' }, stat(`${V.winner_right}/${V.districts}`, 'South Australian seats called right, 2026, blind'), stat(`${V.onp_won_model.filter(d => V.onp_won_real.includes(d)).length} of ${V.onp_won_real.length}`, 'One Nation wins found'), stat(`${V.onp_in_final_two_model} / ${V.onp_in_final_two_real}`, 'seats with One Nation in the final two, model / actual'), stat(V.onp_2cp_error_pts + ' pts', 'average error in its two-candidate share')),
+      h('p', { class: 'hint' }, `The test: South Australia's 2026 count was left out of the One Nation figures, and every South Australian pile that could have gone to One Nation was hidden from the rest of the fit. Given only the first preferences, the count found ${V.final_two_right} of ${V.districts} final pairs. Two in three Coalition preferences reaching One Nation is what turns a third-placed Liberal or National into a One Nation win; how far that holds will depend on where the Liberal and National how-to-vote cards put One Nation.`)),
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'What the Atlas cannot know yet'),
+      h('ul', { class: 'hint', style: 'margin:4px 0 0;padding-left:18px;line-height:1.6' },
+        h('li', {}, 'How-to-vote cards. The flows above include each state\'s own cards; Victorian Liberal and National cards for 2026 will move the split one way or the other, seat by seat.'),
+        h('li', {}, 'Who has moved in. The census profile is from 2021; the 2026 Census reports in 2027, after this election.'),
+        h('li', {}, 'Who stands where. One Nation\'s reach in each seat depends on its candidates, confirmed at the ballot draw.'))));
 }
 async function renderPrefs() {
   renderModel();
@@ -2516,11 +2562,12 @@ const modelParty = (p) => (PREF && PREF.parties.includes(p)) ? p : 'OTH';
 // which fitted weights describe an election: 2026 and the by-elections use the blend; a past election uses the election before it (an honest out-of-sample run)
 function prefWeights(eid) {
   if (!PREF || PREF.missing) return null;
-  if (eid === LIVE.election || eid.startsWith('vicby')) return { W: PREF.blend_2026.weights, label: 'flows fitted on the 2022 state count and the 2025 federal count (earlier elections at lower weight)' };
+  const B26 = (PREF.blend_2026.onp_adjusted && PREF.blend_2026.onp_adjusted.weights) || PREF.blend_2026.weights;   // One Nation flows measured in every state and federal count (src.onp_flows)
+  if (eid === LIVE.election || eid.startsWith('vicby')) return { W: B26, label: 'flows fitted on the 2022 state count and the 2025 federal count (earlier elections at lower weight), with One Nation\'s flows from every state and federal count since 2015' };
   if (eid === 'vic2022' && PREF.validation.weights) return { W: PREF.validation.weights, label: 'flows fitted on the 2018 state and 2019 federal counts (out of sample)' };
   const prev = PREV[eid]; const pe = prev && PREF.per_election[prev];
   if (pe) return { W: pe.weights, label: `flows fitted on the ${idx.electionById.get(prev) ? idx.electionById.get(prev).name : prev} count` };
-  return { W: PREF.blend_2026.weights, label: 'flows from the 2026 blend' };
+  return { W: B26, label: 'flows from the 2026 blend' };
 }
 // registered how-to-vote cards: data/htv_<election>.json (2022 read from the VEC register; 2026 as the cards register)
 const HTV = {}, HTV_P = {};

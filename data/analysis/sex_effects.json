@@ -1,0 +1,1353 @@
+{
+ "about": "Sex of leaders, candidates and members, and the vote (the leader_sex question in analysis/questions.json).",
+ "candidates": {
+  "n_candidates": 2658,
+  "n_unclassified": 90,
+  "female_share": {
+   "ALP": {
+    "state": 0.429,
+    "federal": 0.397
+   },
+   "LIB": {
+    "state": 0.245,
+    "federal": 0.24
+   },
+   "NAT": {
+    "state": 0.191,
+    "federal": 0.2
+   },
+   "GRN": {
+    "state": 0.397,
+    "federal": 0.441
+   }
+  },
+  "female_share_by_election": {
+   "fed2004": 0.3,
+   "fed2007": 0.291,
+   "fed2010": 0.245,
+   "fed2013": 0.312,
+   "fed2016": 0.369,
+   "fed2019": 0.417,
+   "fed2022": 0.439,
+   "fed2025": 0.458,
+   "vic1999": 0.325,
+   "vic2002": 0.323,
+   "vic2006": 0.29,
+   "vic2010": 0.314,
+   "vic2014": 0.336,
+   "vic2018": 0.39,
+   "vic2022": 0.465
+  },
+  "female_share_by_party_election": {
+   "ALP_fed2004": 0.278,
+   "ALP_fed2007": 0.324,
+   "ALP_fed2010": 0.351,
+   "ALP_fed2013": 0.378,
+   "ALP_fed2016": 0.361,
+   "ALP_fed2019": 0.474,
+   "ALP_fed2022": 0.5,
+   "ALP_fed2025": 0.5,
+   "ALP_vic1999": 0.402,
+   "ALP_vic2002": 0.391,
+   "ALP_vic2006": 0.364,
+   "ALP_vic2010": 0.364,
+   "ALP_vic2014": 0.455,
+   "ALP_vic2018": 0.466,
+   "ALP_vic2022": 0.563,
+   "GRN_fed2004": 0.389,
+   "GRN_fed2007": 0.333,
+   "GRN_fed2010": 0.265,
+   "GRN_fed2013": 0.371,
+   "GRN_fed2016": 0.514,
+   "GRN_fed2019": 0.541,
+   "GRN_fed2022": 0.543,
+   "GRN_fed2025": 0.576,
+   "GRN_vic1999": 0.45,
+   "GRN_vic2002": 0.38,
+   "GRN_vic2006": 0.415,
+   "GRN_vic2010": 0.407,
+   "GRN_vic2014": 0.275,
+   "GRN_vic2018": 0.361,
+   "GRN_vic2022": 0.531,
+   "LIB_fed2004": 0.229,
+   "LIB_fed2007": 0.229,
+   "LIB_fed2010": 0.121,
+   "LIB_fed2013": 0.194,
+   "LIB_fed2016": 0.303,
+   "LIB_fed2019": 0.25,
+   "LIB_fed2022": 0.27,
+   "LIB_fed2025": 0.324,
+   "LIB_vic1999": 0.25,
+   "LIB_vic2002": 0.226,
+   "LIB_vic2006": 0.138,
+   "LIB_vic2010": 0.187,
+   "LIB_vic2014": 0.276,
+   "LIB_vic2018": 0.346,
+   "LIB_vic2022": 0.3,
+   "NAT_fed2004": 0.333,
+   "NAT_fed2007": 0.0,
+   "NAT_fed2010": 0.0,
+   "NAT_fed2013": 0.25,
+   "NAT_fed2016": 0.0,
+   "NAT_fed2019": 0.25,
+   "NAT_fed2022": 0.5,
+   "NAT_fed2025": 0.25,
+   "NAT_vic1999": 0.083,
+   "NAT_vic2002": 0.188,
+   "NAT_vic2006": 0.105,
+   "NAT_vic2010": 0.133,
+   "NAT_vic2014": 0.25,
+   "NAT_vic2018": 0.3,
+   "NAT_vic2022": 0.4
+  },
+  "female_candidate": {
+   "pts": 0.29,
+   "lo": -0.22,
+   "hi": 0.79,
+   "p": 0.261
+  },
+  "sitting_member": {
+   "pts": 4.62,
+   "lo": 3.57,
+   "hi": 5.66,
+   "p": 0.0
+  },
+  "first_term": {
+   "pts": -0.59,
+   "lo": -1.26,
+   "hi": 0.07,
+   "p": 0.08
+  },
+  "n_model": 2589,
+  "female_candidate_no_seat_fe": {
+   "pts": 0.95,
+   "lo": 0.09,
+   "hi": 1.81,
+   "p": 0.031
+  },
+  "by_party": {
+   "ALP": {
+    "pts": 0.4,
+    "lo": -0.56,
+    "hi": 1.36,
+    "p": 0.415,
+    "n": 881,
+    "female_n": 369,
+    "raw_gap_no_seat_fe": {
+     "pts": 1.65,
+     "lo": -0.05,
+     "hi": 3.35,
+     "p": 0.058
+    }
+   },
+   "LIB": {
+    "pts": 0.66,
+    "lo": -0.25,
+    "hi": 1.56,
+    "p": 0.155,
+    "n": 815,
+    "female_n": 201,
+    "raw_gap_no_seat_fe": {
+     "pts": 0.93,
+     "lo": -0.64,
+     "hi": 2.51,
+     "p": 0.242
+    }
+   },
+   "NAT": {
+    "pts": -1.86,
+    "lo": -10.45,
+    "hi": 6.74,
+    "p": 0.661,
+    "n": 112,
+    "female_n": 22,
+    "raw_gap_no_seat_fe": {
+     "pts": -3.01,
+     "lo": -10.17,
+     "hi": 4.15,
+     "p": 0.396
+    }
+   },
+   "GRN": {
+    "pts": 0.06,
+    "lo": -0.37,
+    "hi": 0.49,
+    "p": 0.773,
+    "n": 781,
+    "female_n": 321,
+    "raw_gap_no_seat_fe": {
+     "pts": 0.8,
+     "lo": -0.22,
+     "hi": 1.81,
+     "p": 0.122
+    }
+   }
+  },
+  "by_level": {
+   "state": {
+    "pts": 0.12,
+    "lo": -0.48,
+    "hi": 0.71,
+    "p": 0.694
+   },
+   "federal": {
+    "pts": 0.63,
+    "lo": -0.32,
+    "hi": 1.58,
+    "p": 0.186
+   }
+  },
+  "non_incumbents": {
+   "pts": 0.32,
+   "lo": -0.16,
+   "hi": 0.8,
+   "p": 0.189
+  },
+  "female_candidate_x_female_leader": {
+   "pts": 0.56,
+   "lo": -0.35,
+   "hi": 1.47,
+   "p": 0.222
+  },
+  "female_candidate_male_leader": {
+   "pts": 0.23,
+   "lo": -0.31,
+   "hi": 0.76,
+   "p": 0.406
+  },
+  "by_female_leader": {
+   "ALP fed2010": {
+    "pts": 0.7,
+    "lo": -1.37,
+    "hi": 2.78,
+    "p": 0.504
+   },
+   "GRN fed2013": {
+    "pts": 0.14,
+    "lo": -1.7,
+    "hi": 1.98,
+    "p": 0.881
+   },
+   "GRN vic2018": {
+    "pts": 0.61,
+    "lo": -0.58,
+    "hi": 1.8,
+    "p": 0.314
+   },
+   "GRN vic2022": {
+    "pts": 0.47,
+    "lo": -1.1,
+    "hi": 2.03,
+    "p": 0.557
+   }
+  },
+  "greens_female_x_female_leader": {
+   "pts": 1.04,
+   "lo": -0.04,
+   "hi": 2.12,
+   "p": 0.058
+  },
+  "members": {
+   "female_leader_male_member": {
+    "pts": -2.45,
+    "lo": -4.55,
+    "hi": -0.35,
+    "p": 0.023
+   },
+   "extra_for_female_member": {
+    "pts": 0.75,
+    "lo": -1.52,
+    "hi": 3.02,
+    "p": 0.515
+   },
+   "n": 503,
+   "members_with_female_leader_obs": 25,
+   "note": "Within the same member and seat over time; election effects only (a party x election effect would absorb the leader), so the leader term mixes the leader with that party-election."
+  }
+ },
+ "booth_cohorts": {
+  "ALP": {
+   "n_booths": 17076,
+   "female_booths": 7109,
+   "female_x": {
+    "aged 65+": {
+     "pts": -0.37,
+     "lo": -0.69,
+     "hi": -0.06,
+     "p": 0.02
+    },
+    "degree": {
+     "pts": 0.15,
+     "lo": -0.43,
+     "hi": 0.72,
+     "p": 0.614
+    },
+    "other language at home": {
+     "pts": -0.06,
+     "lo": -0.45,
+     "hi": 0.32,
+     "p": 0.738
+    },
+    "Christian": {
+     "pts": 0.21,
+     "lo": -0.18,
+     "hi": 0.61,
+     "p": 0.285
+    },
+    "trades workers": {
+     "pts": 0.26,
+     "lo": -0.27,
+     "hi": 0.8,
+     "p": 0.327
+    },
+    "renting": {
+     "pts": 0.3,
+     "lo": -0.03,
+     "hi": 0.62,
+     "p": 0.073
+    }
+   }
+  },
+  "LIB": {
+   "n_booths": 15395,
+   "female_booths": 3748,
+   "female_x": {
+    "aged 65+": {
+     "pts": 0.33,
+     "lo": -0.16,
+     "hi": 0.83,
+     "p": 0.183
+    },
+    "degree": {
+     "pts": 1.05,
+     "lo": 0.26,
+     "hi": 1.84,
+     "p": 0.009
+    },
+    "other language at home": {
+     "pts": 0.18,
+     "lo": -0.26,
+     "hi": 0.62,
+     "p": 0.43
+    },
+    "Christian": {
+     "pts": -0.08,
+     "lo": -0.62,
+     "hi": 0.45,
+     "p": 0.763
+    },
+    "trades workers": {
+     "pts": 0.34,
+     "lo": -0.4,
+     "hi": 1.09,
+     "p": 0.366
+    },
+    "renting": {
+     "pts": -0.41,
+     "lo": -0.87,
+     "hi": 0.05,
+     "p": 0.078
+    }
+   }
+  },
+  "NAT": {
+   "n_booths": 3495,
+   "female_booths": 710,
+   "female_x": {
+    "aged 65+": {
+     "pts": -0.29,
+     "lo": -1.3,
+     "hi": 0.72,
+     "p": 0.573
+    },
+    "degree": {
+     "pts": -1.65,
+     "lo": -3.36,
+     "hi": 0.07,
+     "p": 0.06
+    },
+    "other language at home": {
+     "pts": 2.54,
+     "lo": 0.09,
+     "hi": 4.98,
+     "p": 0.042
+    },
+    "Christian": {
+     "pts": 1.03,
+     "lo": -0.21,
+     "hi": 2.27,
+     "p": 0.105
+    },
+    "trades workers": {
+     "pts": 0.42,
+     "lo": -1.02,
+     "hi": 1.86,
+     "p": 0.567
+    },
+    "renting": {
+     "pts": 1.04,
+     "lo": -0.07,
+     "hi": 2.15,
+     "p": 0.066
+    }
+   }
+  },
+  "GRN": {
+   "n_booths": 15397,
+   "female_booths": 6539,
+   "female_x": {
+    "aged 65+": {
+     "pts": -0.07,
+     "lo": -0.27,
+     "hi": 0.13,
+     "p": 0.51
+    },
+    "degree": {
+     "pts": 0.12,
+     "lo": -0.24,
+     "hi": 0.47,
+     "p": 0.518
+    },
+    "other language at home": {
+     "pts": 0.09,
+     "lo": -0.19,
+     "hi": 0.37,
+     "p": 0.51
+    },
+    "Christian": {
+     "pts": 0.0,
+     "lo": -0.28,
+     "hi": 0.29,
+     "p": 0.987
+    },
+    "trades workers": {
+     "pts": 0.07,
+     "lo": -0.22,
+     "hi": 0.37,
+     "p": 0.627
+    },
+    "renting": {
+     "pts": -0.0,
+     "lo": -0.23,
+     "hi": 0.23,
+     "p": 0.989
+    }
+   }
+  }
+ },
+ "leader_switch": {
+  "transitions": [
+   {
+    "party": "ALP",
+    "from": "vic1999",
+    "to": "vic2002",
+    "leaders": "Steve Bracks -> Steve Bracks",
+    "kind": "other",
+    "n_venues": 1192,
+    "mean_swing": 1.24,
+    "aged 65+": -0.37,
+    "degree": -0.24,
+    "other language at home": 1.58,
+    "Christian": 1.37,
+    "trades workers": 1.01,
+    "renting": -1.38
+   },
+   {
+    "party": "LIB",
+    "from": "vic1999",
+    "to": "vic2002",
+    "leaders": "Jeff Kennett -> Robert Doyle",
+    "kind": "other",
+    "n_venues": 1035,
+    "mean_swing": -10.17,
+    "aged 65+": 1.14,
+    "degree": -1.22,
+    "other language at home": -0.86,
+    "Christian": -0.7,
+    "trades workers": -0.73,
+    "renting": -0.23
+   },
+   {
+    "party": "NAT",
+    "from": "vic1999",
+    "to": "vic2002",
+    "leaders": "Pat McNamara -> Peter Ryan",
+    "kind": "other",
+    "n_venues": 252,
+    "mean_swing": -8.26,
+    "aged 65+": -0.72,
+    "degree": -1.15,
+    "other language at home": -0.8,
+    "Christian": -0.06,
+    "trades workers": -1.86,
+    "renting": -0.62
+   },
+   {
+    "party": "GRN",
+    "from": "vic1999",
+    "to": "vic2002",
+    "leaders": "None -> None",
+    "kind": "other",
+    "n_venues": 302,
+    "mean_swing": 6.12,
+    "aged 65+": 0.15,
+    "degree": 2.04,
+    "other language at home": -0.93,
+    "Christian": -1.55,
+    "trades workers": 0.19,
+    "renting": -0.34
+   },
+   {
+    "party": "ALP",
+    "from": "vic2002",
+    "to": "vic2006",
+    "leaders": "Steve Bracks -> Steve Bracks",
+    "kind": "other",
+    "n_venues": 1232,
+    "mean_swing": -5.01,
+    "aged 65+": -0.36,
+    "degree": 0.25,
+    "other language at home": -0.56,
+    "Christian": -0.55,
+    "trades workers": -0.04,
+    "renting": -0.23
+   },
+   {
+    "party": "LIB",
+    "from": "vic2002",
+    "to": "vic2006",
+    "leaders": "Robert Doyle -> Ted Baillieu",
+    "kind": "other",
+    "n_venues": 1232,
+    "mean_swing": 0.14,
+    "aged 65+": 0.6,
+    "degree": 0.17,
+    "other language at home": -0.38,
+    "Christian": -0.52,
+    "trades workers": -0.77,
+    "renting": -0.11
+   },
+   {
+    "party": "NAT",
+    "from": "vic2002",
+    "to": "vic2006",
+    "leaders": "Peter Ryan -> Peter Ryan",
+    "kind": "other",
+    "n_venues": 401,
+    "mean_swing": 3.31,
+    "aged 65+": 0.06,
+    "degree": -0.32,
+    "other language at home": 3.72,
+    "Christian": 2.01,
+    "trades workers": 0.04,
+    "renting": -0.18
+   },
+   {
+    "party": "GRN",
+    "from": "vic2002",
+    "to": "vic2006",
+    "leaders": "None -> None",
+    "kind": "other",
+    "n_venues": 1196,
+    "mean_swing": 0.04,
+    "aged 65+": 0.13,
+    "degree": 0.02,
+    "other language at home": 0.19,
+    "Christian": -0.03,
+    "trades workers": 0.04,
+    "renting": 0.27
+   },
+   {
+    "party": "ALP",
+    "from": "vic2006",
+    "to": "vic2010",
+    "leaders": "Steve Bracks -> John Brumby",
+    "kind": "other",
+    "n_venues": 1273,
+    "mean_swing": -6.36,
+    "aged 65+": 0.29,
+    "degree": -1.45,
+    "other language at home": -0.58,
+    "Christian": -0.07,
+    "trades workers": -1.72,
+    "renting": -0.68
+   },
+   {
+    "party": "LIB",
+    "from": "vic2006",
+    "to": "vic2010",
+    "leaders": "Ted Baillieu -> Ted Baillieu",
+    "kind": "other",
+    "n_venues": 1068,
+    "mean_swing": 5.45,
+    "aged 65+": -0.56,
+    "degree": 2.31,
+    "other language at home": 1.06,
+    "Christian": 1.24,
+    "trades workers": 1.95,
+    "renting": 0.12
+   },
+   {
+    "party": "NAT",
+    "from": "vic2006",
+    "to": "vic2010",
+    "leaders": "Peter Ryan -> Peter Ryan",
+    "kind": "other",
+    "n_venues": 330,
+    "mean_swing": 13.27,
+    "aged 65+": 4.28,
+    "degree": -1.39,
+    "other language at home": -0.99,
+    "Christian": -0.34,
+    "trades workers": -0.15,
+    "renting": -0.18
+   },
+   {
+    "party": "GRN",
+    "from": "vic2006",
+    "to": "vic2010",
+    "leaders": "None -> Greg Barber",
+    "kind": "other",
+    "n_venues": 1273,
+    "mean_swing": 0.94,
+    "aged 65+": -0.08,
+    "degree": -0.22,
+    "other language at home": 0.38,
+    "Christian": -0.13,
+    "trades workers": -0.15,
+    "renting": 0.59
+   },
+   {
+    "party": "ALP",
+    "from": "vic2010",
+    "to": "vic2014",
+    "leaders": "John Brumby -> Daniel Andrews",
+    "kind": "other",
+    "n_venues": 1334,
+    "mean_swing": 1.79,
+    "aged 65+": 0.8,
+    "degree": -0.02,
+    "other language at home": 0.26,
+    "Christian": -0.24,
+    "trades workers": 0.22,
+    "renting": -0.39
+   },
+   {
+    "party": "LIB",
+    "from": "vic2010",
+    "to": "vic2014",
+    "leaders": "Ted Baillieu -> Denis Napthine",
+    "kind": "other",
+    "n_venues": 1093,
+    "mean_swing": -2.44,
+    "aged 65+": -0.76,
+    "degree": -1.27,
+    "other language at home": -0.44,
+    "Christian": 0.21,
+    "trades workers": -1.23,
+    "renting": -0.56
+   },
+   {
+    "party": "NAT",
+    "from": "vic2010",
+    "to": "vic2014",
+    "leaders": "Peter Ryan -> Peter Ryan",
+    "kind": "other",
+    "n_venues": 296,
+    "mean_swing": -4.9,
+    "aged 65+": -2.72,
+    "degree": -0.08,
+    "other language at home": -3.38,
+    "Christian": -2.21,
+    "trades workers": 0.95,
+    "renting": 2.24
+   },
+   {
+    "party": "GRN",
+    "from": "vic2010",
+    "to": "vic2014",
+    "leaders": "Greg Barber -> Greg Barber",
+    "kind": "other",
+    "n_venues": 1334,
+    "mean_swing": 0.66,
+    "aged 65+": 0.1,
+    "degree": 0.48,
+    "other language at home": -0.98,
+    "Christian": -0.25,
+    "trades workers": -0.31,
+    "renting": 0.37
+   },
+   {
+    "party": "ALP",
+    "from": "vic2014",
+    "to": "vic2018",
+    "leaders": "Daniel Andrews -> Daniel Andrews",
+    "kind": "other",
+    "n_venues": 1370,
+    "mean_swing": 5.09,
+    "aged 65+": 0.47,
+    "degree": 3.53,
+    "other language at home": -0.49,
+    "Christian": -0.52,
+    "trades workers": 1.57,
+    "renting": -0.86
+   },
+   {
+    "party": "LIB",
+    "from": "vic2014",
+    "to": "vic2018",
+    "leaders": "Denis Napthine -> Matthew Guy",
+    "kind": "other",
+    "n_venues": 1129,
+    "mean_swing": -7.45,
+    "aged 65+": 0.94,
+    "degree": -2.42,
+    "other language at home": 1.75,
+    "Christian": -2.25,
+    "trades workers": -0.39,
+    "renting": -1.54
+   },
+   {
+    "party": "NAT",
+    "from": "vic2014",
+    "to": "vic2018",
+    "leaders": "Peter Ryan -> Peter Walsh",
+    "kind": "other",
+    "n_venues": 231,
+    "mean_swing": -2.53,
+    "aged 65+": 2.76,
+    "degree": -1.02,
+    "other language at home": -3.38,
+    "Christian": 0.12,
+    "trades workers": -3.0,
+    "renting": 0.2
+   },
+   {
+    "party": "GRN",
+    "from": "vic2014",
+    "to": "vic2018",
+    "leaders": "Greg Barber -> Samantha Ratnam",
+    "kind": "to_female",
+    "n_venues": 1370,
+    "mean_swing": -1.26,
+    "aged 65+": -0.14,
+    "degree": -0.41,
+    "other language at home": 0.56,
+    "Christian": 0.06,
+    "trades workers": 0.18,
+    "renting": 0.38
+   },
+   {
+    "party": "ALP",
+    "from": "vic2018",
+    "to": "vic2022",
+    "leaders": "Daniel Andrews -> Daniel Andrews",
+    "kind": "other",
+    "n_venues": 1315,
+    "mean_swing": -7.1,
+    "aged 65+": 0.13,
+    "degree": 0.01,
+    "other language at home": -2.05,
+    "Christian": -0.33,
+    "trades workers": -0.9,
+    "renting": -0.57
+   },
+   {
+    "party": "LIB",
+    "from": "vic2018",
+    "to": "vic2022",
+    "leaders": "Matthew Guy -> Matthew Guy",
+    "kind": "other",
+    "n_venues": 1122,
+    "mean_swing": -1.43,
+    "aged 65+": -1.05,
+    "degree": -0.8,
+    "other language at home": -0.16,
+    "Christian": 1.18,
+    "trades workers": -0.37,
+    "renting": 1.08
+   },
+   {
+    "party": "NAT",
+    "from": "vic2018",
+    "to": "vic2022",
+    "leaders": "Peter Walsh -> Peter Walsh",
+    "kind": "other",
+    "n_venues": 214,
+    "mean_swing": -1.44,
+    "aged 65+": -0.48,
+    "degree": 1.29,
+    "other language at home": 2.65,
+    "Christian": -0.72,
+    "trades workers": 2.37,
+    "renting": -0.79
+   },
+   {
+    "party": "GRN",
+    "from": "vic2018",
+    "to": "vic2022",
+    "leaders": "Samantha Ratnam -> Samantha Ratnam",
+    "kind": "female_both",
+    "n_venues": 1315,
+    "mean_swing": 2.09,
+    "aged 65+": 0.19,
+    "degree": 1.54,
+    "other language at home": -0.72,
+    "Christian": 0.12,
+    "trades workers": 0.85,
+    "renting": 0.87
+   },
+   {
+    "party": "ALP",
+    "from": "fed2004",
+    "to": "fed2007",
+    "leaders": "Mark Latham -> Kevin Rudd",
+    "kind": "other",
+    "n_venues": 903,
+    "mean_swing": 3.87,
+    "aged 65+": -0.78,
+    "degree": -0.49,
+    "other language at home": 0.86,
+    "Christian": -0.04,
+    "trades workers": 0.74,
+    "renting": -0.35
+   },
+   {
+    "party": "LIB",
+    "from": "fed2004",
+    "to": "fed2007",
+    "leaders": "John Howard -> John Howard",
+    "kind": "other",
+    "n_venues": 825,
+    "mean_swing": -4.52,
+    "aged 65+": 0.83,
+    "degree": 0.09,
+    "other language at home": -0.76,
+    "Christian": -0.69,
+    "trades workers": -1.37,
+    "renting": -0.55
+   },
+   {
+    "party": "GRN",
+    "from": "fed2004",
+    "to": "fed2007",
+    "leaders": "Bob Brown -> Bob Brown",
+    "kind": "other",
+    "n_venues": 903,
+    "mean_swing": 1.02,
+    "aged 65+": 0.14,
+    "degree": 0.15,
+    "other language at home": -0.36,
+    "Christian": -0.19,
+    "trades workers": -0.03,
+    "renting": 0.04
+   },
+   {
+    "party": "ALP",
+    "from": "fed2007",
+    "to": "fed2010",
+    "leaders": "Kevin Rudd -> Julia Gillard",
+    "kind": "to_female",
+    "n_venues": 878,
+    "mean_swing": -2.22,
+    "aged 65+": -0.0,
+    "degree": 0.37,
+    "other language at home": -0.85,
+    "Christian": 0.7,
+    "trades workers": 1.04,
+    "renting": -0.14
+   },
+   {
+    "party": "LIB",
+    "from": "fed2007",
+    "to": "fed2010",
+    "leaders": "John Howard -> Tony Abbott",
+    "kind": "other",
+    "n_venues": 803,
+    "mean_swing": -2.16,
+    "aged 65+": 0.61,
+    "degree": -0.24,
+    "other language at home": 0.98,
+    "Christian": -0.37,
+    "trades workers": -0.42,
+    "renting": -0.27
+   },
+   {
+    "party": "GRN",
+    "from": "fed2007",
+    "to": "fed2010",
+    "leaders": "Bob Brown -> Bob Brown",
+    "kind": "other",
+    "n_venues": 878,
+    "mean_swing": 3.67,
+    "aged 65+": -0.35,
+    "degree": 1.4,
+    "other language at home": 0.11,
+    "Christian": -0.07,
+    "trades workers": 0.45,
+    "renting": 0.78
+   },
+   {
+    "party": "ALP",
+    "from": "fed2010",
+    "to": "fed2013",
+    "leaders": "Julia Gillard -> Kevin Rudd",
+    "kind": "from_female",
+    "n_venues": 827,
+    "mean_swing": -7.47,
+    "aged 65+": 0.14,
+    "degree": -0.69,
+    "other language at home": 0.49,
+    "Christian": 0.27,
+    "trades workers": -1.5,
+    "renting": -0.14
+   },
+   {
+    "party": "LIB",
+    "from": "fed2010",
+    "to": "fed2013",
+    "leaders": "Tony Abbott -> Tony Abbott",
+    "kind": "other",
+    "n_venues": 764,
+    "mean_swing": 1.84,
+    "aged 65+": -0.39,
+    "degree": 1.01,
+    "other language at home": 0.54,
+    "Christian": 0.46,
+    "trades workers": 0.1,
+    "renting": -0.36
+   },
+   {
+    "party": "GRN",
+    "from": "fed2010",
+    "to": "fed2013",
+    "leaders": "Bob Brown -> Christine Milne",
+    "kind": "to_female",
+    "n_venues": 827,
+    "mean_swing": -1.53,
+    "aged 65+": 0.23,
+    "degree": 0.75,
+    "other language at home": -0.44,
+    "Christian": -0.34,
+    "trades workers": -0.08,
+    "renting": 0.27
+   },
+   {
+    "party": "ALP",
+    "from": "fed2013",
+    "to": "fed2016",
+    "leaders": "Kevin Rudd -> Bill Shorten",
+    "kind": "other",
+    "n_venues": 811,
+    "mean_swing": 0.17,
+    "aged 65+": -0.32,
+    "degree": -1.53,
+    "other language at home": 1.56,
+    "Christian": 0.85,
+    "trades workers": 0.65,
+    "renting": -0.15
+   },
+   {
+    "party": "LIB",
+    "from": "fed2013",
+    "to": "fed2016",
+    "leaders": "Tony Abbott -> Malcolm Turnbull",
+    "kind": "other",
+    "n_venues": 741,
+    "mean_swing": -3.6,
+    "aged 65+": 0.47,
+    "degree": 5.5,
+    "other language at home": 1.91,
+    "Christian": -0.89,
+    "trades workers": 3.91,
+    "renting": -0.58
+   },
+   {
+    "party": "GRN",
+    "from": "fed2013",
+    "to": "fed2016",
+    "leaders": "Christine Milne -> Richard Di Natale",
+    "kind": "from_female",
+    "n_venues": 811,
+    "mean_swing": 2.27,
+    "aged 65+": -0.58,
+    "degree": 0.14,
+    "other language at home": -0.19,
+    "Christian": 0.01,
+    "trades workers": -0.41,
+    "renting": 1.01
+   },
+   {
+    "party": "ALP",
+    "from": "fed2016",
+    "to": "fed2019",
+    "leaders": "Bill Shorten -> Bill Shorten",
+    "kind": "other",
+    "n_venues": 827,
+    "mean_swing": 1.92,
+    "aged 65+": 0.07,
+    "degree": 3.4,
+    "other language at home": -1.69,
+    "Christian": -0.65,
+    "trades workers": 0.76,
+    "renting": -0.45
+   },
+   {
+    "party": "LIB",
+    "from": "fed2016",
+    "to": "fed2019",
+    "leaders": "Malcolm Turnbull -> Scott Morrison",
+    "kind": "other",
+    "n_venues": 717,
+    "mean_swing": -2.86,
+    "aged 65+": -0.96,
+    "degree": -1.14,
+    "other language at home": 0.86,
+    "Christian": 0.78,
+    "trades workers": 0.37,
+    "renting": -0.11
+   },
+   {
+    "party": "GRN",
+    "from": "fed2016",
+    "to": "fed2019",
+    "leaders": "Richard Di Natale -> Richard Di Natale",
+    "kind": "other",
+    "n_venues": 827,
+    "mean_swing": -1.34,
+    "aged 65+": -0.13,
+    "degree": -0.21,
+    "other language at home": 0.54,
+    "Christian": 0.33,
+    "trades workers": -0.06,
+    "renting": 0.06
+   },
+   {
+    "party": "ALP",
+    "from": "fed2019",
+    "to": "fed2022",
+    "leaders": "Bill Shorten -> Anthony Albanese",
+    "kind": "other",
+    "n_venues": 780,
+    "mean_swing": -4.97,
+    "aged 65+": 0.53,
+    "degree": 1.19,
+    "other language at home": -1.38,
+    "Christian": -0.14,
+    "trades workers": 0.03,
+    "renting": -0.3
+   },
+   {
+    "party": "LIB",
+    "from": "fed2019",
+    "to": "fed2022",
+    "leaders": "Scott Morrison -> Scott Morrison",
+    "kind": "other",
+    "n_venues": 671,
+    "mean_swing": -5.69,
+    "aged 65+": 0.01,
+    "degree": -1.38,
+    "other language at home": 1.27,
+    "Christian": -0.26,
+    "trades workers": 0.05,
+    "renting": 1.11
+   },
+   {
+    "party": "GRN",
+    "from": "fed2019",
+    "to": "fed2022",
+    "leaders": "Richard Di Natale -> Adam Bandt",
+    "kind": "other",
+    "n_venues": 780,
+    "mean_swing": 1.75,
+    "aged 65+": -0.11,
+    "degree": 0.13,
+    "other language at home": 0.61,
+    "Christian": -0.17,
+    "trades workers": 1.67,
+    "renting": 0.34
+   },
+   {
+    "party": "ALP",
+    "from": "fed2022",
+    "to": "fed2025",
+    "leaders": "Anthony Albanese -> Anthony Albanese",
+    "kind": "other",
+    "n_venues": 764,
+    "mean_swing": 0.5,
+    "aged 65+": 0.0,
+    "degree": 1.16,
+    "other language at home": 0.15,
+    "Christian": 0.59,
+    "trades workers": -0.09,
+    "renting": 0.12
+   },
+   {
+    "party": "LIB",
+    "from": "fed2022",
+    "to": "fed2025",
+    "leaders": "Scott Morrison -> Peter Dutton",
+    "kind": "other",
+    "n_venues": 660,
+    "mean_swing": -2.51,
+    "aged 65+": -0.33,
+    "degree": 0.73,
+    "other language at home": -0.96,
+    "Christian": 0.69,
+    "trades workers": 0.11,
+    "renting": 0.08
+   },
+   {
+    "party": "GRN",
+    "from": "fed2022",
+    "to": "fed2025",
+    "leaders": "Adam Bandt -> Adam Bandt",
+    "kind": "other",
+    "n_venues": 764,
+    "mean_swing": 0.12,
+    "aged 65+": -0.67,
+    "degree": -2.03,
+    "other language at home": 1.09,
+    "Christian": 0.67,
+    "trades workers": -0.7,
+    "renting": 0.79
+   }
+  ],
+  "contrast": {
+   "ALP fed2007->fed2010 (Kevin Rudd -> Julia Gillard)": {
+    "aged 65+": {
+     "this": -0.0,
+     "other_mean": 0.04,
+     "other_sd": 0.47,
+     "z": -0.09
+    },
+    "degree": {
+     "this": 0.37,
+     "other_mean": 0.53,
+     "other_sd": 1.69,
+     "z": -0.09
+    },
+    "other language at home": {
+     "this": -0.85,
+     "other_mean": -0.21,
+     "other_sd": 1.23,
+     "z": -0.52
+    },
+    "Christian": {
+     "this": 0.7,
+     "other_mean": 0.02,
+     "other_sd": 0.64,
+     "z": 1.05
+    },
+    "trades workers": {
+     "this": 1.04,
+     "other_mean": 0.2,
+     "other_sd": 0.92,
+     "z": 0.91
+    },
+    "renting": {
+     "this": -0.14,
+     "other_mean": -0.48,
+     "other_sd": 0.4,
+     "z": 0.84
+    },
+    "n_other_transitions": 11
+   },
+   "ALP fed2010->fed2013 (Julia Gillard -> Kevin Rudd)": {
+    "aged 65+": {
+     "this": 0.14,
+     "other_mean": 0.04,
+     "other_sd": 0.47,
+     "z": 0.21
+    },
+    "degree": {
+     "this": -0.69,
+     "other_mean": 0.53,
+     "other_sd": 1.69,
+     "z": -0.72
+    },
+    "other language at home": {
+     "this": 0.49,
+     "other_mean": -0.21,
+     "other_sd": 1.23,
+     "z": 0.57
+    },
+    "Christian": {
+     "this": 0.27,
+     "other_mean": 0.02,
+     "other_sd": 0.64,
+     "z": 0.38
+    },
+    "trades workers": {
+     "this": -1.5,
+     "other_mean": 0.2,
+     "other_sd": 0.92,
+     "z": -1.86
+    },
+    "renting": {
+     "this": -0.14,
+     "other_mean": -0.48,
+     "other_sd": 0.4,
+     "z": 0.84
+    },
+    "n_other_transitions": 11
+   },
+   "GRN vic2014->vic2018 (Greg Barber -> Samantha Ratnam)": {
+    "aged 65+": {
+     "this": -0.14,
+     "other_mean": -0.09,
+     "other_sd": 0.27,
+     "z": -0.18
+    },
+    "degree": {
+     "this": -0.41,
+     "other_mean": 0.2,
+     "other_sd": 1.13,
+     "z": -0.53
+    },
+    "other language at home": {
+     "this": 0.56,
+     "other_mean": 0.07,
+     "other_sd": 0.7,
+     "z": 0.69
+    },
+    "Christian": {
+     "this": 0.06,
+     "other_mean": -0.15,
+     "other_sd": 0.6,
+     "z": 0.36
+    },
+    "trades workers": {
+     "this": 0.18,
+     "other_mean": 0.12,
+     "other_sd": 0.66,
+     "z": 0.09
+    },
+    "renting": {
+     "this": 0.38,
+     "other_mean": 0.32,
+     "other_sd": 0.37,
+     "z": 0.16
+    },
+    "n_other_transitions": 9
+   },
+   "GRN vic2018->vic2022 (Samantha Ratnam -> Samantha Ratnam)": {
+    "aged 65+": {
+     "this": 0.19,
+     "other_mean": -0.09,
+     "other_sd": 0.27,
+     "z": 1.03
+    },
+    "degree": {
+     "this": 1.54,
+     "other_mean": 0.2,
+     "other_sd": 1.13,
+     "z": 1.19
+    },
+    "other language at home": {
+     "this": -0.72,
+     "other_mean": 0.07,
+     "other_sd": 0.7,
+     "z": -1.13
+    },
+    "Christian": {
+     "this": 0.12,
+     "other_mean": -0.15,
+     "other_sd": 0.6,
+     "z": 0.46
+    },
+    "trades workers": {
+     "this": 0.85,
+     "other_mean": 0.12,
+     "other_sd": 0.66,
+     "z": 1.1
+    },
+    "renting": {
+     "this": 0.87,
+     "other_mean": 0.32,
+     "other_sd": 0.37,
+     "z": 1.48
+    },
+    "n_other_transitions": 9
+   },
+   "GRN fed2010->fed2013 (Bob Brown -> Christine Milne)": {
+    "aged 65+": {
+     "this": 0.23,
+     "other_mean": -0.09,
+     "other_sd": 0.27,
+     "z": 1.17
+    },
+    "degree": {
+     "this": 0.75,
+     "other_mean": 0.2,
+     "other_sd": 1.13,
+     "z": 0.49
+    },
+    "other language at home": {
+     "this": -0.44,
+     "other_mean": 0.07,
+     "other_sd": 0.7,
+     "z": -0.73
+    },
+    "Christian": {
+     "this": -0.34,
+     "other_mean": -0.15,
+     "other_sd": 0.6,
+     "z": -0.31
+    },
+    "trades workers": {
+     "this": -0.08,
+     "other_mean": 0.12,
+     "other_sd": 0.66,
+     "z": -0.31
+    },
+    "renting": {
+     "this": 0.27,
+     "other_mean": 0.32,
+     "other_sd": 0.37,
+     "z": -0.14
+    },
+    "n_other_transitions": 9
+   },
+   "GRN fed2013->fed2016 (Christine Milne -> Richard Di Natale)": {
+    "aged 65+": {
+     "this": -0.58,
+     "other_mean": -0.09,
+     "other_sd": 0.27,
+     "z": -1.78
+    },
+    "degree": {
+     "this": 0.14,
+     "other_mean": 0.2,
+     "other_sd": 1.13,
+     "z": -0.05
+    },
+    "other language at home": {
+     "this": -0.19,
+     "other_mean": 0.07,
+     "other_sd": 0.7,
+     "z": -0.37
+    },
+    "Christian": {
+     "this": 0.01,
+     "other_mean": -0.15,
+     "other_sd": 0.6,
+     "z": 0.27
+    },
+    "trades workers": {
+     "this": -0.41,
+     "other_mean": 0.12,
+     "other_sd": 0.66,
+     "z": -0.8
+    },
+    "renting": {
+     "this": 1.01,
+     "other_mean": 0.32,
+     "other_sd": 0.37,
+     "z": 1.86
+    },
+    "n_other_transitions": 9
+   }
+  }
+ }
+}

@@ -43,6 +43,9 @@ CANON = {
     'CYA': 'Country Alliance',
     'AIP': 'Indigenous-Aboriginal',
     'TNL': 'TNL',
+    'JLN': 'Jacqui Lambie Network',
+    'CEN': 'Centre Alliance',
+    'PFP': 'People First',
     'OTH': 'Other',
 }
 
@@ -82,6 +85,10 @@ _NAME_RULES = [
     (r'^ca$', 'CYA'),   # the VEC's 2010 abbreviation for Country Alliance
     (r'indigenous', 'AIP'),
     (r'^tnl', 'TNL'),
+    (r'lambie', 'JLN'),
+    (r'centre alliance', 'CEN'),
+    (r"katter", 'KAP'),
+    (r'country liberal', 'LIB'),
     (r'independent', 'IND'),
 ]
 
@@ -93,6 +100,8 @@ _AEC_AB = {
     'AJP': 'AJP', 'FFP': 'FFP', 'LDP': 'LDP', 'SFF': 'SFF', 'DLP': 'DLP', 'VNS': 'VSP',
     'REAS': 'RUA', 'SAL': 'SAP', 'LC': 'LCP', 'DHJP': 'DHJ', 'AUC': 'AUC', 'FUSN': 'FUS',
     'CYA': 'CYA', 'AIP': 'AIP', 'TNL': 'TNL', 'XXX': 'IND', 'NAFD': 'IND', 'LTP': 'LDP',
+    # other states (the national files): the Country Liberals sit with the Coalition
+    'CLP': 'LIB', 'CLR': 'LIB', 'JLN': 'JLN', 'CA': 'CEN', 'KAP': 'KAP', 'NATS': 'NAT', 'WAN': 'NAT',
 }
 
 

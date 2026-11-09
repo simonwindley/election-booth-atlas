@@ -35,3 +35,7 @@ raw/aes/
 
 # EBA Dark: private working pages, built by tools/rerun_analyses.py --pages
 analysis/dark/
+raw/national/
+
+# BOM daily station data (re-downloadable with tools/fetch_bom.py)
+raw/weather/

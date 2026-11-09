@@ -1,0 +1,973 @@
+{
+ "method": "At every Victorian polling place (venue) with a census profile (the 2021 Census for the area nearest the venue,\nsrc.load_sa1_census):\n  * One Nation's Senate share at the 2016, 2019, 2022 and 2025 federal elections (it stands statewide in the\n    Senate), and its 2022 Legislative Council share (its only statewide state vote).\n  * Level model: One Nation's 2025 Senate share (log-odds) on a dozen census indicators (ridge regression, each\n    indicator standardised). Scored out of sample: ten folds, whole districts held out together.\n  * Growth model: the change from 2022 to 2025, against the proportional rule (growth in proportion to the\n    starting share, lambda from src.primary_swings) and against the census model with the starting share.\n  * Who it takes from: at the same venues, the House first-preference change 2022 -> 2025 for Labor, the Coalition\n    and the Greens against One Nation's House change, within each division.\n  * District propensity for 2026: observed (2022 upper house, 2025 Senate, aggregated from venues) and census-\n    predicted, on the 2022 districts.",
+ "senate_statewide": {
+  "fed2016": 1.75,
+  "fed2019": 2.74,
+  "fed2022": 2.91,
+  "fed2025": 4.45
+ },
+ "lc2022_statewide": 2.09,
+ "map_correlations": {
+  "senate2022_v_senate2025": [
+   0.864,
+   1180
+  ],
+  "lc2022_v_senate2022": [
+   0.821,
+   869
+  ],
+  "lc2022_v_senate2025": [
+   0.815,
+   853
+  ],
+  "senate2019_v_senate2025": [
+   0.848,
+   996
+  ]
+ },
+ "level": {
+  "venues": 862,
+  "cv_r2": 0.826,
+  "coef": [
+   {
+    "key": "certificate",
+    "label": "Trade certificate (highest qualification)",
+    "beta": 0.389
+   },
+   {
+    "key": "born_overseas",
+    "label": "Born overseas",
+    "beta": 0.268
+   },
+   {
+    "key": "bachelor_or_higher",
+    "label": "Bachelor degree or higher",
+    "beta": -0.203
+   },
+   {
+    "key": "other_language_home",
+    "label": "Language other than English at home",
+    "beta": -0.188
+   },
+   {
+    "key": "owned_mortgage",
+    "label": "Home owned with a mortgage",
+    "beta": 0.133
+   },
+   {
+    "key": "indigenous",
+    "label": "Aboriginal and Torres Strait Islander",
+    "beta": 0.114
+   },
+   {
+    "key": "owned_outright",
+    "label": "Home owned outright",
+    "beta": 0.098
+   },
+   {
+    "key": "religion_christianity_total",
+    "label": "Christian",
+    "beta": 0.096
+   },
+   {
+    "key": "occupation_professionals",
+    "label": "Professionals",
+    "beta": -0.077
+   },
+   {
+    "key": "industry_construction",
+    "label": "Works in construction",
+    "beta": -0.077
+   },
+   {
+    "key": "separate_house",
+    "label": "Separate houses",
+    "beta": -0.066
+   },
+   {
+    "key": "industry_manufacturing",
+    "label": "Works in manufacturing",
+    "beta": -0.055
+   },
+   {
+    "key": "income_household_median",
+    "label": "Median household income",
+    "beta": -0.052
+   },
+   {
+    "key": "industry_agriculture_forestry_and_fishing",
+    "label": "Works in agriculture",
+    "beta": 0.048
+   },
+   {
+    "key": "occupation_labourers",
+    "label": "Labourers",
+    "beta": 0.047
+   },
+   {
+    "key": "occupation_technicians_and_trades_workers",
+    "label": "Technicians and trades workers",
+    "beta": 0.042
+   },
+   {
+    "key": "rented",
+    "label": "Renting",
+    "beta": 0.04
+   },
+   {
+    "key": "occupation_machinery_operators_and_drivers",
+    "label": "Machinery operators and drivers",
+    "beta": -0.021
+   },
+   {
+    "key": "religion_no_religion_so_described",
+    "label": "No religion",
+    "beta": -0.021
+   },
+   {
+    "key": "age_median",
+    "label": "Median age",
+    "beta": -0.009
+   }
+  ]
+ },
+ "growth": {
+  "venues": 762,
+  "from": 2.8,
+  "to": 4.49,
+  "lambda": 0.65,
+  "rmse_uniform": 1.647,
+  "rmse_proportional": 1.518,
+  "rmse_lambda": 1.462,
+  "rmse_census_out_of_sample": 1.25,
+  "coef": [
+   {
+    "key": "certificate",
+    "label": "Trade certificate (highest qualification)",
+    "beta_pts": 0.833
+   },
+   {
+    "key": "born_overseas",
+    "label": "Born overseas",
+    "beta_pts": 0.815
+   },
+   {
+    "key": "other_language_home",
+    "label": "Language other than English at home",
+    "beta_pts": -0.723
+   },
+   {
+    "key": "separate_house",
+    "label": "Separate houses",
+    "beta_pts": -0.405
+   },
+   {
+    "key": "start",
+    "label": "Starting share",
+    "beta_pts": -0.366
+   },
+   {
+    "key": "industry_agriculture_forestry_and_fishing",
+    "label": "Works in agriculture",
+    "beta_pts": 0.325
+   },
+   {
+    "key": "indigenous",
+    "label": "Aboriginal and Torres Strait Islander",
+    "beta_pts": 0.321
+   },
+   {
+    "key": "owned_outright",
+    "label": "Home owned outright",
+    "beta_pts": 0.282
+   },
+   {
+    "key": "occupation_machinery_operators_and_drivers",
+    "label": "Machinery operators and drivers",
+    "beta_pts": 0.265
+   },
+   {
+    "key": "bachelor_or_higher",
+    "label": "Bachelor degree or higher",
+    "beta_pts": -0.264
+   },
+   {
+    "key": "industry_construction",
+    "label": "Works in construction",
+    "beta_pts": -0.248
+   },
+   {
+    "key": "owned_mortgage",
+    "label": "Home owned with a mortgage",
+    "beta_pts": 0.247
+   },
+   {
+    "key": "occupation_labourers",
+    "label": "Labourers",
+    "beta_pts": 0.241
+   },
+   {
+    "key": "income_household_median",
+    "label": "Median household income",
+    "beta_pts": 0.226
+   },
+   {
+    "key": "industry_manufacturing",
+    "label": "Works in manufacturing",
+    "beta_pts": -0.213
+   },
+   {
+    "key": "occupation_technicians_and_trades_workers",
+    "label": "Technicians and trades workers",
+    "beta_pts": 0.207
+   },
+   {
+    "key": "occupation_professionals",
+    "label": "Professionals",
+    "beta_pts": -0.113
+   },
+   {
+    "key": "religion_no_religion_so_described",
+    "label": "No religion",
+    "beta_pts": 0.098
+   },
+   {
+    "key": "age_median",
+    "label": "Median age",
+    "beta_pts": 0.088
+   },
+   {
+    "key": "religion_christianity_total",
+    "label": "Christian",
+    "beta_pts": 0.054
+   },
+   {
+    "key": "rented",
+    "label": "Renting",
+    "beta_pts": -0.03
+   }
+  ]
+ },
+ "takes_from": {
+  "venues": 1172,
+  "per_point_of_one_nation_gain": {
+   "ALP": -0.119,
+   "COAL": -0.289,
+   "GRN": -0.095,
+   "OTH": -0.497
+  },
+  "mean_change_pts": {
+   "ALP": 0.53,
+   "COAL": -1.67,
+   "GRN": 0.35,
+   "ONP": 2.3,
+   "OTH": -1.51
+  }
+ },
+ "districts": [
+  {
+   "contest_id": "vic-morwell",
+   "seat": "Morwell",
+   "census_predicted_senate2025": 8.57,
+   "senate2025": 13.15,
+   "lc2022": 7.4,
+   "senate2022": 9.75
+  },
+  {
+   "contest_id": "vic-gippsland-east",
+   "seat": "Gippsland East",
+   "census_predicted_senate2025": 8.87,
+   "senate2025": 10.56,
+   "lc2022": 4.12,
+   "senate2022": 6.44
+  },
+  {
+   "contest_id": "vic-gippsland-south",
+   "seat": "Gippsland South",
+   "census_predicted_senate2025": 7.57,
+   "senate2025": 10.15,
+   "lc2022": 4.44,
+   "senate2022": 5.84
+  },
+  {
+   "contest_id": "vic-murray-plains",
+   "seat": "Murray Plains",
+   "census_predicted_senate2025": 9.14,
+   "senate2025": 10.0,
+   "lc2022": 5.49,
+   "senate2022": 6.5
+  },
+  {
+   "contest_id": "vic-bass",
+   "seat": "Bass",
+   "census_predicted_senate2025": 6.74,
+   "senate2025": 9.97,
+   "lc2022": 4.2,
+   "senate2022": 4.69
+  },
+  {
+   "contest_id": "vic-euroa",
+   "seat": "Euroa",
+   "census_predicted_senate2025": 7.56,
+   "senate2025": 9.9,
+   "lc2022": 4.02,
+   "senate2022": 6.49
+  },
+  {
+   "contest_id": "vic-benambra",
+   "seat": "Benambra",
+   "census_predicted_senate2025": 8.02,
+   "senate2025": 9.73,
+   "lc2022": 3.35,
+   "senate2022": 5.69
+  },
+  {
+   "contest_id": "vic-mildura",
+   "seat": "Mildura",
+   "census_predicted_senate2025": 9.47,
+   "senate2025": 9.64,
+   "lc2022": 4.67,
+   "senate2022": 5.36
+  },
+  {
+   "contest_id": "vic-shepparton",
+   "seat": "Shepparton",
+   "census_predicted_senate2025": 7.81,
+   "senate2025": 9.31,
+   "lc2022": 4.92,
+   "senate2022": 7.42
+  },
+  {
+   "contest_id": "vic-ovens-valley",
+   "seat": "Ovens Valley",
+   "census_predicted_senate2025": 7.28,
+   "senate2025": 8.73,
+   "lc2022": 4.2,
+   "senate2022": 6.45
+  },
+  {
+   "contest_id": "vic-ripon",
+   "seat": "Ripon",
+   "census_predicted_senate2025": 7.48,
+   "senate2025": 8.55,
+   "lc2022": 3.39,
+   "senate2022": 4.57
+  },
+  {
+   "contest_id": "vic-lowan",
+   "seat": "Lowan",
+   "census_predicted_senate2025": 8.28,
+   "senate2025": 8.05,
+   "lc2022": 4.14,
+   "senate2022": 4.57
+  },
+  {
+   "contest_id": "vic-pakenham",
+   "seat": "Pakenham",
+   "census_predicted_senate2025": 5.56,
+   "senate2025": 7.85,
+   "lc2022": 4.46,
+   "senate2022": 4.37
+  },
+  {
+   "contest_id": "vic-narracan",
+   "seat": "Narracan",
+   "census_predicted_senate2025": 7.51,
+   "senate2025": null,
+   "lc2022": null,
+   "senate2022": null
+  },
+  {
+   "contest_id": "vic-lara",
+   "seat": "Lara",
+   "census_predicted_senate2025": 6.4,
+   "senate2025": 7.4,
+   "lc2022": 3.01,
+   "senate2022": 4.15
+  },
+  {
+   "contest_id": "vic-eildon",
+   "seat": "Eildon",
+   "census_predicted_senate2025": 6.49,
+   "senate2025": 7.33,
+   "lc2022": 2.94,
+   "senate2022": 4.11
+  },
+  {
+   "contest_id": "vic-eureka",
+   "seat": "Eureka",
+   "census_predicted_senate2025": 5.82,
+   "senate2025": 7.11,
+   "lc2022": 3.18,
+   "senate2022": 3.54
+  },
+  {
+   "contest_id": "vic-hastings",
+   "seat": "Hastings",
+   "census_predicted_senate2025": 7.65,
+   "senate2025": 7.06,
+   "lc2022": 2.67,
+   "senate2022": 3.37
+  },
+  {
+   "contest_id": "vic-cranbourne",
+   "seat": "Cranbourne",
+   "census_predicted_senate2025": 5.4,
+   "senate2025": 6.34,
+   "lc2022": 2.57,
+   "senate2022": 2.96
+  },
+  {
+   "contest_id": "vic-melton",
+   "seat": "Melton",
+   "census_predicted_senate2025": 6.86,
+   "senate2025": 6.12,
+   "lc2022": 3.08,
+   "senate2022": 4.18
+  },
+  {
+   "contest_id": "vic-sunbury",
+   "seat": "Sunbury",
+   "census_predicted_senate2025": 6.85,
+   "senate2025": 6.09,
+   "lc2022": 2.45,
+   "senate2022": 3.82
+  },
+  {
+   "contest_id": "vic-narre-warren-north",
+   "seat": "Narre Warren North",
+   "census_predicted_senate2025": 4.77,
+   "senate2025": 5.82,
+   "lc2022": 2.15,
+   "senate2022": 2.89
+  },
+  {
+   "contest_id": "vic-bendigo-west",
+   "seat": "Bendigo West",
+   "census_predicted_senate2025": 4.99,
+   "senate2025": 5.79,
+   "lc2022": 3.54,
+   "senate2022": 4.75
+  },
+  {
+   "contest_id": "vic-frankston",
+   "seat": "Frankston",
+   "census_predicted_senate2025": 5.1,
+   "senate2025": 5.73,
+   "lc2022": 2.06,
+   "senate2022": 2.81
+  },
+  {
+   "contest_id": "vic-werribee",
+   "seat": "Werribee",
+   "census_predicted_senate2025": 5.09,
+   "senate2025": 5.7,
+   "lc2022": 2.16,
+   "senate2022": 3.55
+  },
+  {
+   "contest_id": "vic-yan-yean",
+   "seat": "Yan Yean",
+   "census_predicted_senate2025": 5.54,
+   "senate2025": 5.68,
+   "lc2022": 2.3,
+   "senate2022": 4.52
+  },
+  {
+   "contest_id": "vic-mill-park",
+   "seat": "Mill Park",
+   "census_predicted_senate2025": 4.86,
+   "senate2025": 5.67,
+   "lc2022": 2.49,
+   "senate2022": 4.23
+  },
+  {
+   "contest_id": "vic-polwarth",
+   "seat": "Polwarth",
+   "census_predicted_senate2025": 4.48,
+   "senate2025": 5.64,
+   "lc2022": 2.27,
+   "senate2022": 3.31
+  },
+  {
+   "contest_id": "vic-geelong",
+   "seat": "Geelong",
+   "census_predicted_senate2025": 4.13,
+   "senate2025": 5.51,
+   "lc2022": 2.16,
+   "senate2022": 2.76
+  },
+  {
+   "contest_id": "vic-bendigo-east",
+   "seat": "Bendigo East",
+   "census_predicted_senate2025": 5.57,
+   "senate2025": 5.44,
+   "lc2022": 4.54,
+   "senate2022": 4.43
+  },
+  {
+   "contest_id": "vic-south-west-coast",
+   "seat": "South-West Coast",
+   "census_predicted_senate2025": 7.17,
+   "senate2025": 5.38,
+   "lc2022": 2.95,
+   "senate2022": 3.78
+  },
+  {
+   "contest_id": "vic-carrum",
+   "seat": "Carrum",
+   "census_predicted_senate2025": 5.53,
+   "senate2025": 5.37,
+   "lc2022": 2.0,
+   "senate2022": 3.24
+  },
+  {
+   "contest_id": "vic-narre-warren-south",
+   "seat": "Narre Warren South",
+   "census_predicted_senate2025": 4.75,
+   "senate2025": 5.32,
+   "lc2022": 1.63,
+   "senate2022": 2.53
+  },
+  {
+   "contest_id": "vic-sydenham",
+   "seat": "Sydenham",
+   "census_predicted_senate2025": 4.96,
+   "senate2025": 5.15,
+   "lc2022": 2.05,
+   "senate2022": 3.93
+  },
+  {
+   "contest_id": "vic-macedon",
+   "seat": "Macedon",
+   "census_predicted_senate2025": 4.12,
+   "senate2025": 5.04,
+   "lc2022": 3.05,
+   "senate2022": 3.38
+  },
+  {
+   "contest_id": "vic-evelyn",
+   "seat": "Evelyn",
+   "census_predicted_senate2025": 6.52,
+   "senate2025": 5.04,
+   "lc2022": 2.84,
+   "senate2022": 3.19
+  },
+  {
+   "contest_id": "vic-tarneit",
+   "seat": "Tarneit",
+   "census_predicted_senate2025": 3.37,
+   "senate2025": 5.03,
+   "lc2022": 1.51,
+   "senate2022": 2.9
+  },
+  {
+   "contest_id": "vic-monbulk",
+   "seat": "Monbulk",
+   "census_predicted_senate2025": 4.36,
+   "senate2025": 4.59,
+   "lc2022": 2.51,
+   "senate2022": 2.78
+  },
+  {
+   "contest_id": "vic-kororoit",
+   "seat": "Kororoit",
+   "census_predicted_senate2025": 3.98,
+   "senate2025": 4.57,
+   "lc2022": 1.73,
+   "senate2022": 3.4
+  },
+  {
+   "contest_id": "vic-wendouree",
+   "seat": "Wendouree",
+   "census_predicted_senate2025": 4.78,
+   "senate2025": 4.44,
+   "lc2022": 2.43,
+   "senate2022": 2.79
+  },
+  {
+   "contest_id": "vic-point-cook",
+   "seat": "Point Cook",
+   "census_predicted_senate2025": 2.79,
+   "senate2025": 4.38,
+   "lc2022": 1.34,
+   "senate2022": 2.04
+  },
+  {
+   "contest_id": "vic-thomastown",
+   "seat": "Thomastown",
+   "census_predicted_senate2025": 3.6,
+   "senate2025": 4.33,
+   "lc2022": 1.35,
+   "senate2022": 3.69
+  },
+  {
+   "contest_id": "vic-berwick",
+   "seat": "Berwick",
+   "census_predicted_senate2025": 3.87,
+   "senate2025": 4.32,
+   "lc2022": 1.16,
+   "senate2022": 2.55
+  },
+  {
+   "contest_id": "vic-dandenong",
+   "seat": "Dandenong",
+   "census_predicted_senate2025": 3.67,
+   "senate2025": 4.28,
+   "lc2022": 1.71,
+   "senate2022": 2.7
+  },
+  {
+   "contest_id": "vic-nepean",
+   "seat": "Nepean",
+   "census_predicted_senate2025": 4.9,
+   "senate2025": 4.16,
+   "lc2022": 2.15,
+   "senate2022": 2.94
+  },
+  {
+   "contest_id": "vic-kalkallo",
+   "seat": "Kalkallo",
+   "census_predicted_senate2025": 4.17,
+   "senate2025": 4.07,
+   "lc2022": 1.56,
+   "senate2022": 2.87
+  },
+  {
+   "contest_id": "vic-st-albans",
+   "seat": "St Albans",
+   "census_predicted_senate2025": 3.8,
+   "senate2025": 3.81,
+   "lc2022": 1.49,
+   "senate2022": 2.63
+  },
+  {
+   "contest_id": "vic-mornington",
+   "seat": "Mornington",
+   "census_predicted_senate2025": 4.22,
+   "senate2025": 3.77,
+   "lc2022": 1.73,
+   "senate2022": 1.77
+  },
+  {
+   "contest_id": "vic-bayswater",
+   "seat": "Bayswater",
+   "census_predicted_senate2025": 4.3,
+   "senate2025": 3.71,
+   "lc2022": 1.7,
+   "senate2022": 2.35
+  },
+  {
+   "contest_id": "vic-south-barwon",
+   "seat": "South Barwon",
+   "census_predicted_senate2025": 3.92,
+   "senate2025": 3.68,
+   "lc2022": 1.37,
+   "senate2022": 1.89
+  },
+  {
+   "contest_id": "vic-croydon",
+   "seat": "Croydon",
+   "census_predicted_senate2025": 4.43,
+   "senate2025": 3.65,
+   "lc2022": 1.42,
+   "senate2022": 2.27
+  },
+  {
+   "contest_id": "vic-mulgrave",
+   "seat": "Mulgrave",
+   "census_predicted_senate2025": 2.98,
+   "senate2025": 3.53,
+   "lc2022": 1.73,
+   "senate2022": 2.4
+  },
+  {
+   "contest_id": "vic-bundoora",
+   "seat": "Bundoora",
+   "census_predicted_senate2025": 3.4,
+   "senate2025": 3.5,
+   "lc2022": 1.47,
+   "senate2022": 2.61
+  },
+  {
+   "contest_id": "vic-rowville",
+   "seat": "Rowville",
+   "census_predicted_senate2025": 3.51,
+   "senate2025": 3.37,
+   "lc2022": 1.34,
+   "senate2022": 1.94
+  },
+  {
+   "contest_id": "vic-niddrie",
+   "seat": "Niddrie",
+   "census_predicted_senate2025": 4.14,
+   "senate2025": 3.32,
+   "lc2022": 1.43,
+   "senate2022": 1.98
+  },
+  {
+   "contest_id": "vic-bellarine",
+   "seat": "Bellarine",
+   "census_predicted_senate2025": 5.06,
+   "senate2025": 3.31,
+   "lc2022": 1.67,
+   "senate2022": 1.74
+  },
+  {
+   "contest_id": "vic-broadmeadows",
+   "seat": "Broadmeadows",
+   "census_predicted_senate2025": 2.92,
+   "senate2025": 3.15,
+   "lc2022": 1.03,
+   "senate2022": 2.75
+  },
+  {
+   "contest_id": "vic-greenvale",
+   "seat": "Greenvale",
+   "census_predicted_senate2025": 4.08,
+   "senate2025": 3.12,
+   "lc2022": 1.18,
+   "senate2022": 2.61
+  },
+  {
+   "contest_id": "vic-warrandyte",
+   "seat": "Warrandyte",
+   "census_predicted_senate2025": 2.66,
+   "senate2025": 2.99,
+   "lc2022": 1.08,
+   "senate2022": 1.63
+  },
+  {
+   "contest_id": "vic-clarinda",
+   "seat": "Clarinda",
+   "census_predicted_senate2025": 3.38,
+   "senate2025": 2.93,
+   "lc2022": 1.43,
+   "senate2022": 1.91
+  },
+  {
+   "contest_id": "vic-oakleigh",
+   "seat": "Oakleigh",
+   "census_predicted_senate2025": 1.85,
+   "senate2025": 2.91,
+   "lc2022": 0.93,
+   "senate2022": 1.85
+  },
+  {
+   "contest_id": "vic-williamstown",
+   "seat": "Williamstown",
+   "census_predicted_senate2025": 2.45,
+   "senate2025": 2.89,
+   "lc2022": 0.96,
+   "senate2022": 1.73
+  },
+  {
+   "contest_id": "vic-mordialloc",
+   "seat": "Mordialloc",
+   "census_predicted_senate2025": 3.19,
+   "senate2025": 2.85,
+   "lc2022": 0.91,
+   "senate2022": 1.52
+  },
+  {
+   "contest_id": "vic-preston",
+   "seat": "Preston",
+   "census_predicted_senate2025": 2.83,
+   "senate2025": 2.74,
+   "lc2022": 0.95,
+   "senate2022": 1.98
+  },
+  {
+   "contest_id": "vic-pascoe-vale",
+   "seat": "Pascoe Vale",
+   "census_predicted_senate2025": 2.05,
+   "senate2025": 2.67,
+   "lc2022": 0.71,
+   "senate2022": 1.76
+  },
+  {
+   "contest_id": "vic-eltham",
+   "seat": "Eltham",
+   "census_predicted_senate2025": 3.12,
+   "senate2025": 2.62,
+   "lc2022": 0.91,
+   "senate2022": 1.37
+  },
+  {
+   "contest_id": "vic-bulleen",
+   "seat": "Bulleen",
+   "census_predicted_senate2025": 2.29,
+   "senate2025": 2.53,
+   "lc2022": 1.19,
+   "senate2022": 1.96
+  },
+  {
+   "contest_id": "vic-laverton",
+   "seat": "Laverton",
+   "census_predicted_senate2025": 2.5,
+   "senate2025": 2.42,
+   "lc2022": 1.14,
+   "senate2022": 1.86
+  },
+  {
+   "contest_id": "vic-essendon",
+   "seat": "Essendon",
+   "census_predicted_senate2025": 1.97,
+   "senate2025": 2.35,
+   "lc2022": 0.53,
+   "senate2022": 0.99
+  },
+  {
+   "contest_id": "vic-bentleigh",
+   "seat": "Bentleigh",
+   "census_predicted_senate2025": 2.16,
+   "senate2025": 2.21,
+   "lc2022": 0.88,
+   "senate2022": 1.53
+  },
+  {
+   "contest_id": "vic-ringwood",
+   "seat": "Ringwood",
+   "census_predicted_senate2025": 2.35,
+   "senate2025": 2.09,
+   "lc2022": 1.04,
+   "senate2022": 1.55
+  },
+  {
+   "contest_id": "vic-glen-waverley",
+   "seat": "Glen Waverley",
+   "census_predicted_senate2025": 1.82,
+   "senate2025": 1.96,
+   "lc2022": 1.0,
+   "senate2022": 1.27
+  },
+  {
+   "contest_id": "vic-albert-park",
+   "seat": "Albert Park",
+   "census_predicted_senate2025": 1.54,
+   "senate2025": 1.88,
+   "lc2022": 0.81,
+   "senate2022": 1.33
+  },
+  {
+   "contest_id": "vic-sandringham",
+   "seat": "Sandringham",
+   "census_predicted_senate2025": 2.13,
+   "senate2025": 1.76,
+   "lc2022": 0.72,
+   "senate2022": 1.19
+  },
+  {
+   "contest_id": "vic-ivanhoe",
+   "seat": "Ivanhoe",
+   "census_predicted_senate2025": 1.87,
+   "senate2025": 1.75,
+   "lc2022": 0.97,
+   "senate2022": 1.35
+  },
+  {
+   "contest_id": "vic-footscray",
+   "seat": "Footscray",
+   "census_predicted_senate2025": 1.75,
+   "senate2025": 1.74,
+   "lc2022": 0.64,
+   "senate2022": 1.11
+  },
+  {
+   "contest_id": "vic-ashwood",
+   "seat": "Ashwood",
+   "census_predicted_senate2025": 1.55,
+   "senate2025": 1.66,
+   "lc2022": 0.63,
+   "senate2022": 1.13
+  },
+  {
+   "contest_id": "vic-brighton",
+   "seat": "Brighton",
+   "census_predicted_senate2025": 1.46,
+   "senate2025": 1.55,
+   "lc2022": 0.5,
+   "senate2022": 0.95
+  },
+  {
+   "contest_id": "vic-melbourne",
+   "seat": "Melbourne",
+   "census_predicted_senate2025": 1.22,
+   "senate2025": 1.45,
+   "lc2022": 0.39,
+   "senate2022": 0.8
+  },
+  {
+   "contest_id": "vic-box-hill",
+   "seat": "Box Hill",
+   "census_predicted_senate2025": 1.71,
+   "senate2025": 1.43,
+   "lc2022": 0.79,
+   "senate2022": 1.16
+  },
+  {
+   "contest_id": "vic-caulfield",
+   "seat": "Caulfield",
+   "census_predicted_senate2025": 1.3,
+   "senate2025": 1.42,
+   "lc2022": 0.68,
+   "senate2022": 0.76
+  },
+  {
+   "contest_id": "vic-malvern",
+   "seat": "Malvern",
+   "census_predicted_senate2025": 1.25,
+   "senate2025": 1.42,
+   "lc2022": 0.49,
+   "senate2022": 0.75
+  },
+  {
+   "contest_id": "vic-kew",
+   "seat": "Kew",
+   "census_predicted_senate2025": 1.28,
+   "senate2025": 1.32,
+   "lc2022": 0.56,
+   "senate2022": 0.9
+  },
+  {
+   "contest_id": "vic-northcote",
+   "seat": "Northcote",
+   "census_predicted_senate2025": 1.21,
+   "senate2025": 1.31,
+   "lc2022": 0.51,
+   "senate2022": 0.98
+  },
+  {
+   "contest_id": "vic-prahran",
+   "seat": "Prahran",
+   "census_predicted_senate2025": 1.21,
+   "senate2025": 1.28,
+   "lc2022": 0.52,
+   "senate2022": 0.93
+  },
+  {
+   "contest_id": "vic-hawthorn",
+   "seat": "Hawthorn",
+   "census_predicted_senate2025": 1.12,
+   "senate2025": 1.06,
+   "lc2022": 0.46,
+   "senate2022": 0.75
+  },
+  {
+   "contest_id": "vic-richmond",
+   "seat": "Richmond",
+   "census_predicted_senate2025": 1.01,
+   "senate2025": 0.91,
+   "lc2022": 0.35,
+   "senate2022": 0.53
+  },
+  {
+   "contest_id": "vic-brunswick",
+   "seat": "Brunswick",
+   "census_predicted_senate2025": 0.98,
+   "senate2025": 0.88,
+   "lc2022": 0.23,
+   "senate2022": 0.8
+  }
+ ]
+}

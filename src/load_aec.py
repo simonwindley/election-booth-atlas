@@ -1,6 +1,7 @@
 """Load AEC House of Representatives results (Victoria only) into the common schema.
 
-Usage: python3 -m src.load_aec <event_id> <year> <raw_dir> <out_dir>
+Usage: python3 -m src.load_aec <event_id> <year> <raw_dir> <out_dir> [STATES]
+STATES defaults to VIC (the Atlas); ALL, or a comma list such as NSW,QLD, loads other states (src.load_national).
 Produces long-format CSVs in <out_dir>: contests, candidates, booths, fp_votes,
 tcp_votes, dop (distribution of preferences). All keyed on election_id.
 """
@@ -19,19 +20,20 @@ def rd(path):
     return pd.read_csv(path, skiprows=1, dtype=str)
 
 
-def load(event, year, raw, out):
+def load(event, year, raw, out, states='VIC'):
     eid = f'fed{year}'
     pp = rd(f'{raw}/GeneralPollingPlacesDownload-{event}.csv')
     for col in ('Latitude', 'Longitude', 'PremisesAddress1', 'PremisesSuburb', 'PremisesPostCode', 'PremisesNm'):
         if col not in pp.columns:   # the 2004 list has no coordinates
             pp[col] = None
-    pp = pp[pp.State == 'VIC'].copy()   # the national files (2004, 2007 as downloaded) are cut to Victoria here
+    ST = sorted(set(pp.State)) if states == 'ALL' else states.split(',')
+    pp = pp[pp.State.isin(ST)].copy()   # the national files (2004, 2007 as downloaded) are cut to Victoria here
     cand = rd(f'{raw}/HouseCandidatesDownload-{event}.csv')
-    fp = rd(f'{raw}/HouseStateFirstPrefsByPollingPlaceDownload-{event}-VIC.csv')
+    fp = pd.concat([rd(f'{raw}/HouseStateFirstPrefsByPollingPlaceDownload-{event}-{s}.csv') for s in ST if os.path.exists(f'{raw}/HouseStateFirstPrefsByPollingPlaceDownload-{event}-{s}.csv')], ignore_index=True)
     fpvt = rd(f'{raw}/HouseFirstPrefsByCandidateByVoteTypeDownload-{event}.csv')
     tcp = rd(f'{raw}/HouseTcpByCandidateByPollingPlaceDownload-{event}.csv')
     dop = rd(f'{raw}/HouseDopByDivisionDownload-{event}.csv')
-    cand, fpvt, tcp, dop = (d[d.StateAb == 'VIC'].copy() for d in (cand, fpvt, tcp, dop))
+    cand, fpvt, tcp, dop = (d[d.StateAb.isin(ST)].copy() for d in (cand, fpvt, tcp, dop))
     if 'Elected' not in fpvt.columns:   # 2004: elected members come as a separate list
         won = set(rd(f'{raw}/HouseMembersElectedDownload-{event}.csv').CandidateID)
         fpvt['Elected'] = fpvt.CandidateID.isin(won).map({True: 'Y', False: 'N'})
@@ -43,6 +45,8 @@ def load(event, year, raw, out):
     contests.insert(0, 'election_id', eid)
     contests['house'] = 'HoR'
     contests['contest_id'] = 'fed-' + contests['contest_id']
+    if states != 'VIC':
+        contests['state'] = contests.contest_id.map(dict(zip('fed-' + pp.DivisionID, pp.State)))
 
     # --- candidates (from FP by vote type file: has every candidate incl. informal row)
     c = fpvt[fpvt.Surname != 'Informal'].copy()
@@ -131,4 +135,4 @@ def load(event, year, raw, out):
 
 
 if __name__ == '__main__':
-    load(*sys.argv[1:5])
+    load(*sys.argv[1:6])

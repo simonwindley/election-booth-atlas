@@ -299,6 +299,28 @@ def polls_now():
     return e22, avg, len(rec), last.isoformat()
 
 
+ONP_COMPRESS = 0.67   # logit slope of One Nation's seat map through a surge: SA 2022->2026 0.68, QLD 2020->2024 0.67, WA 2021->2025 0.59
+
+
+def onp_geo():
+    """One Nation's 2026 starting map by district: its 2025 Senate share there, steadied by the census model
+    (src.onp_effect: 0.7 x actual + 0.3 x census-predicted)"""
+    d = json.load(open(os.path.join(ROOT, 'data/analysis/onp_effect.json')))['districts']
+    return {x['seat']: (0.7 * x['senate2025'] + 0.3 * x['census_predicted_senate2025']) / 100 for x in d if x.get('senate2025') is not None}
+
+
+def onp_seat_shares(geo, weight, target, b=ONP_COMPRESS):
+    """logit(ONP_seat) = a + b * (logit(geo_seat) - mean logit), with a set so the vote-weighted mean hits the target"""
+    from scipy.optimize import brentq
+    lg = lambda p: math.log(p / (1 - p)); il = lambda z: 1 / (1 + math.exp(-z))
+    seats = [s for s in weight if s in geo]
+    m = float(np.mean([lg(geo[s]) for s in seats]))
+    W = sum(weight[s] for s in seats)
+    f = lambda a: sum(weight[s] * il(a + b * (lg(geo[s]) - m)) for s in seats) / W - target
+    a = brentq(f, -10, 10)
+    return {s: il(a + b * (lg(geo[s]) - m)) for s in seats}
+
+
 def outlook_2026(c, lam, lam_onp, flows):
     e22, avg, npoll, last = polls_now()
     fp22 = seat_fp(c, 'vic2022'); fp22['Narracan'] = seat_fp(c, 'vic2023n').get('Narracan', fp22.get('Narracan'))
@@ -313,7 +335,11 @@ def outlook_2026(c, lam, lam_onp, flows):
     S1 = {g: max(0.0, S0[g] + (avg[g] - e22[g]) / 100) for g in ('ALP', 'COAL', 'GRN', 'IND', 'OTH')}
     S1['ONP'] = avg['ONP'] / 100
     lam7 = {'ALP': lam['ALP'], 'COAL': lam['COAL'], 'GRN': lam['GRN'], 'IND': lam['OTHERS'], 'OTH': lam['MINOR']}
-    W = flows['blend_2026']['weights']
+    W = (flows['blend_2026'].get('onp_adjusted') or {}).get('weights') or flows['blend_2026']['weights']
+    flows_used = 'blend_2026.onp_adjusted (src.onp_flows)' if flows['blend_2026'].get('onp_adjusted') else 'blend_2026'
+    geo = onp_geo()
+    seat_votes = {s: sum(d.values()) for s, d in fp22.items() if d}
+    onp_by_seat = onp_seat_shares(geo, seat_votes, S1['ONP'])
     lc_state = float(np.mean(list(onp_lc.values())))
     import csv as _csv
     cid_name = {cid: nm for cid, nm in c.execute("select contest_id, contest_name from contests where election_id = 'vic2022'")}
@@ -332,14 +358,14 @@ def outlook_2026(c, lam, lam_onp, flows):
         b_onp_lc = onp_lc.get(s, lc_state)
         b['ONP'] = 0.0
         pr = project({k: v for k, v in b.items() if k != 'ONP'}, S0, S1, lam7)
-        onp = S1['ONP'] * ((1 - lam_onp) + lam_onp * b_onp_lc / lc_state) if lam_onp is not None else S1['ONP']
+        onp = onp_by_seat.get(s, S1['ONP'])   # One Nation's map through the surge (see onp_seat_shares)
         pr = {k: v * (1 - onp) for k, v in pr.items()}; pr['ONP'] = onp
         m_ = mem.get(s)
         if m_:
             pr = member_adjust(pr, m_['party'], m_['category'], dict(eff, open=m_.get('expected_pts', eff['open'])) if m_['category'] == 'open' else eff)
         f1, f2, m = count(pr, W)
         seats.append({'seat': s, '_pr': pr, 'member': (m_ or {}).get('member'), 'member_party': (m_ or {}).get('party'), 'member_category': (m_ or {}).get('category'),
-                      'onp_lc_2022': round(b_onp_lc, 4), 'final_two': [f1, f2], 'winner_share': round(m, 4), 'winner': f1})
+                      'onp_lc_2022': round(b_onp_lc, 4), 'onp_geo': round(geo.get(s, 0), 4), 'final_two': [f1, f2], 'winner_share': round(m, 4), 'winner': f1})
     # uncertainty: statewide poll error (2.5 pts per party, independent) and seat-level scatter (the out-of-sample
     # errors above; One Nation's scales with its vote, 0.31 x its share, from its 2022->2025 Senate growth)
     rng = np.random.default_rng(26); NS = 2000
@@ -371,25 +397,34 @@ def outlook_2026(c, lam, lam_onp, flows):
         if x['seat'] in pp22:
             x['two_party_winner'] = 'ALP' if pp22[x['seat']] + sw >= 0.5 else 'COAL'
     from collections import Counter
-    # sensitivity: how Liberal and National voters rank One Nation against Labor is not in the data (strength 1 = neutral)
+    # sensitivity 1: the share of Coalition preferences going to One Nation rather than Labor (measured ~65%, range
+    # by election 55-74%, src.onp_flows); sensitivity 2: how evenly One Nation's surge spreads (logit slope b)
     sens = {}
-    for k in (0.5, 1.0, 2.0, 4.0):
+    for sh_ in (0.55, 0.65, 0.75):
         W2 = {f: dict(t) for f, t in W.items()}
         for f in ('LIB', 'NAT'):
-            W2.setdefault(f, {})['ONP'] = k
+            W2.setdefault(f, {})['ONP'] = W2[f].get('ALP', 0.5) * sh_ / (1 - sh_)
         cnt = Counter()
         for x in seats:
             f1 = count({g: v for g, v in x['primaries'].items()}, W2)[0]; cnt['COAL' if f1 in ('LIB', 'NAT') else f1] += 1
-        sens[str(k)] = dict(cnt)
-    print('   Coalition-to-One Nation preference strength (vs Labor ~0.5):', sens)
+        sens[f'coalition_to_onp_{int(100 * sh_)}pct'] = dict(cnt)
+    for b_ in (0.5, 0.67, 0.85, 1.0):
+        ob = onp_seat_shares(geo, seat_votes, S1['ONP'], b_)
+        cnt = Counter()
+        for x in seats:
+            pr = {g: v for g, v in x['primaries'].items() if g != 'ONP'}; t_ = sum(pr.values())
+            o = ob.get(x['seat'], S1['ONP']); pr = {g: v / t_ * (1 - o) for g, v in pr.items()}; pr['ONP'] = o
+            f1 = count(pr, W)[0]; cnt['COAL' if f1 in ('LIB', 'NAT') else f1] += 1
+        sens[f'onp_spread_b{b_}'] = dict(cnt)
+    print('   sensitivity:', sens)
     tally = Counter('COAL' if x['winner'] in ('LIB', 'NAT') else x['winner'] for x in seats)
     finals = Counter(tuple(sorted('COAL' if g in ('LIB', 'NAT') else g for g in x['final_two'])) for x in seats)
     print(f"2026 from primaries ({npoll} polls to {last}: " + ', '.join(f'{k} {v:.1f}' for k, v in avg.items()) + f"): winners {dict(tally)}; final twos {dict(finals)}")
     return {'polls': {k: round(v, 1) for k, v in avg.items()}, 'polls_2022_baseline': e22, 'polls_n': npoll, 'polls_to': last,
-            'statewide_2022': {k: round(100 * v, 2) for k, v in S0.items()}, 'statewide_target': {k: round(100 * v, 2) for k, v in S1.items()},
+            'flows_used': flows_used, 'onp_compression_b': ONP_COMPRESS, 'statewide_2022': {k: round(100 * v, 2) for k, v in S0.items()}, 'statewide_target': {k: round(100 * v, 2) for k, v in S1.items()},
             'winners': dict(tally), 'final_twos': {' v '.join(k): v for k, v in finals.items()}, 'seats': seats, 'simulated_seats': seat_totals, 'sensitivity_coalition_to_onp': sens,
             'two_party_swing_from_polls_pts': round(100 * sw, 1), 'two_party_seats': dict(Counter(x['two_party_winner'] for x in seats if 'two_party_winner' in x)),
-            'assumptions': ['One Nation stands in every seat (check against the 2026 ballot draw)', 'Liberal and National voters\' preferences to One Nation are not in the flow model (they were rarely excluded with One Nation still in the count); set to the neutral default',
+            'assumptions': ['One Nation stands in every seat (check against the 2026 ballot draw)', 'Coalition and other parties\' preferences to One Nation from every state and federal count (src.onp_flows): about 65% of Liberal and National preferences go to One Nation over Labor', 'One Nation\'s seat map: its 2025 Senate vote (steadied by the census model), lifted to the poll average with the compression seen in SA 2022-26 and QLD 2020-24 (logit slope 0.67)',
                             'Independents keep their 2022 vote scaled by the statewide change; new independents are not known until nominations']}
 
 
