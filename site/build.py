@@ -32,6 +32,7 @@ head_part, body_part = m.group(1), m.group(2)
 html = head + head_part + "</head>\n<body>\n" + body_part + "\n</body>\n</html>\n"
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 if PREVIEW:
-    import shutil; shutil.copy('site/logo.png', 'site/preview/logo.png')
+    import shutil
+    for f in ('logo.png', 'mark.png'): shutil.copy('site/' + f, 'site/preview/' + f)
 open(OUT, 'w').write(html)
 print(OUT, len(html), 'bytes; basemap =', basemap)
