@@ -1,0 +1,1422 @@
+{
+ "about": "Does the footy move the vote? (the afl question in analysis/questions.json)",
+ "elections": {
+  "vic2002": {
+   "premier": "Brisbane Lions",
+   "grand_final_loser": "Collingwood",
+   "in_season": false,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 9,
+     "top_four": 0
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 1,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 4,
+     "top_four": 1
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 14,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 5,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 12,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 10,
+     "top_four": 0
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 15,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 16,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 7,
+     "top_four": 0
+    }
+   }
+  },
+  "vic2006": {
+   "premier": "West Coast",
+   "grand_final_loser": "Sydney",
+   "in_season": false,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 10,
+     "top_four": 0
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 5,
+     "top_four": 0
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 9,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 15,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 8,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 11,
+     "top_four": 0
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 6,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 16,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 14,
+     "top_four": 0
+    }
+   }
+  },
+  "vic2010": {
+   "premier": "Collingwood",
+   "grand_final_loser": "St Kilda",
+   "in_season": false,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 2,
+     "top_four": 1
+    },
+    "Collingwood": {
+     "premier": 1,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 1,
+     "top_four": 1
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 15,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 14,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 4,
+     "top_four": 1
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 7,
+     "top_four": 0
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 1,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 3,
+     "top_four": 1
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 8,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 9,
+     "top_four": 0
+    }
+   }
+  },
+  "vic2014": {
+   "premier": "Hawthorn",
+   "grand_final_loser": "Sydney",
+   "in_season": false,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 3,
+     "top_four": 1
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 11,
+     "top_four": 0
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 8,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 7,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 14,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 1,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 2,
+     "top_four": 1
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 18,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 13,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 6,
+     "top_four": 0
+    }
+   }
+  },
+  "vic2018": {
+   "premier": "West Coast",
+   "grand_final_loser": "Collingwood",
+   "in_season": false,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 8,
+     "top_four": 0
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 1,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 3,
+     "top_four": 1
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 1,
+     "top_four": 1
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 11,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 13,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 4,
+     "top_four": 1
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 16,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 18,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 9,
+     "top_four": 0
+    }
+   }
+  },
+  "vic2022": {
+   "premier": "Geelong",
+   "grand_final_loser": "Sydney",
+   "in_season": false,
+   "clubs": {
+    "Geelong": {
+     "premier": 1,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 1,
+     "top_four": 1
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 4,
+     "top_four": 1
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 7,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 15,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 8,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 13,
+     "top_four": 0
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 10,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 9,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 18,
+     "top_four": 0
+    }
+   }
+  },
+  "fed2004": {
+   "premier": "Port Adelaide",
+   "grand_final_loser": "Brisbane Lions",
+   "in_season": false,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 4,
+     "top_four": 1
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 13,
+     "top_four": 0
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 16,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 8,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 14,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 15,
+     "top_four": 0
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 3,
+     "top_four": 1
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 11,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 10,
+     "top_four": 0
+    }
+   }
+  },
+  "fed2007": {
+   "premier": "Geelong",
+   "grand_final_loser": "Port Adelaide",
+   "in_season": false,
+   "clubs": {
+    "Geelong": {
+     "premier": 1,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 1,
+     "top_four": 1
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 6,
+     "top_four": 0
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 16,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 12,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 13,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 5,
+     "top_four": 0
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 9,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 15,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": false,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 4,
+     "top_four": 1
+    }
+   }
+  },
+  "fed2010": {
+   "premier": null,
+   "grand_final_loser": null,
+   "in_season": true,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "42",
+     "ladder": 2,
+     "top_four": 1
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "98",
+     "ladder": 1,
+     "top_four": 1
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-89",
+     "ladder": 15,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-98",
+     "ladder": 13,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-101",
+     "ladder": 4,
+     "top_four": 1
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "21",
+     "ladder": 8,
+     "top_four": 0
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "52",
+     "ladder": 3,
+     "top_four": 1
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-42",
+     "ladder": 6,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-52",
+     "ladder": 9,
+     "top_four": 0
+    }
+   }
+  },
+  "fed2013": {
+   "premier": null,
+   "grand_final_loser": null,
+   "in_season": true,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "1",
+     "ladder": 2,
+     "top_four": 1
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-11",
+     "ladder": 6,
+     "top_four": 0
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "39",
+     "ladder": 5,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-39",
+     "ladder": 7,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "20",
+     "ladder": 15,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "54",
+     "ladder": 1,
+     "top_four": 1
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "71",
+     "ladder": 16,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "1",
+     "ladder": 9,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "11",
+     "ladder": 10,
+     "top_four": 0
+    }
+   }
+  },
+  "fed2016": {
+   "premier": null,
+   "grand_final_loser": null,
+   "in_season": true,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-3",
+     "ladder": 3,
+     "top_four": 1
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "48",
+     "ladder": 14,
+     "top_four": 0
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-38",
+     "ladder": 12,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-78",
+     "ladder": 18,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": null,
+     "last_margin": null,
+     "ladder": 8,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "26",
+     "ladder": 1,
+     "top_four": 1
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "3",
+     "ladder": 11,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-62",
+     "ladder": 13,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-33",
+     "ladder": 5,
+     "top_four": 0
+    }
+   }
+  },
+  "fed2019": {
+   "premier": null,
+   "grand_final_loser": null,
+   "in_season": true,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "24",
+     "ladder": 1,
+     "top_four": 1
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "19",
+     "ladder": 2,
+     "top_four": 1
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "25",
+     "ladder": 7,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-5",
+     "ladder": 13,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "16",
+     "ladder": 10,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "33",
+     "ladder": 9,
+     "top_four": 0
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-18",
+     "ladder": 12,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-19",
+     "ladder": 18,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-24",
+     "ladder": 17,
+     "top_four": 0
+    }
+   }
+  },
+  "fed2022": {
+   "premier": null,
+   "grand_final_loser": null,
+   "in_season": true,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-10",
+     "ladder": 7,
+     "top_four": 0
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-48",
+     "ladder": 11,
+     "top_four": 0
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "23",
+     "ladder": 8,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-58",
+     "ladder": 16,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "48",
+     "ladder": 9,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-23",
+     "ladder": 13,
+     "top_four": 0
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "10",
+     "ladder": 6,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "15",
+     "ladder": 3,
+     "top_four": 1
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-69",
+     "ladder": 17,
+     "top_four": 0
+    }
+   }
+  },
+  "fed2025": {
+   "premier": null,
+   "grand_final_loser": null,
+   "in_season": true,
+   "clubs": {
+    "Geelong": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-18",
+     "ladder": 7,
+     "top_four": 0
+    },
+    "Collingwood": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "41",
+     "ladder": 1,
+     "top_four": 1
+    },
+    "Richmond": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-20",
+     "ladder": 16,
+     "top_four": 0
+    },
+    "Essendon": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "3",
+     "ladder": 12,
+     "top_four": 0
+    },
+    "Western Bulldogs": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "32",
+     "ladder": 8,
+     "top_four": 0
+    },
+    "Hawthorn": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "50",
+     "ladder": 4,
+     "top_four": 1
+    },
+    "St Kilda": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "61",
+     "ladder": 11,
+     "top_four": 0
+    },
+    "Carlton": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 1,
+     "last_margin": "18",
+     "ladder": 13,
+     "top_four": 0
+    },
+    "North Melbourne": {
+     "premier": 0,
+     "lost_grand_final": 0,
+     "in_season": true,
+     "won_last_game": 0,
+     "last_margin": "-3",
+     "ladder": 17,
+     "top_four": 0
+    }
+   }
+  }
+ },
+ "venue_pairs": 16790,
+ "area_venues": {
+  "Carlton": 24,
+  "Collingwood": 28,
+  "Essendon": 40,
+  "Geelong": 110,
+  "Hawthorn": 47,
+  "North Melbourne": 18,
+  "Richmond": 52,
+  "St Kilda": 47,
+  "Western Bulldogs": 32
+ },
+ "effects": {
+  "premiership": {
+   "premier": {
+    "pts": 0.19,
+    "lo": -4.96,
+    "hi": 5.35,
+    "p": 0.941
+   },
+   "lost_grand_final": {
+    "pts": -2.49,
+    "lo": -12.74,
+    "hi": 7.76,
+    "p": 0.631
+   },
+   "n": 16790
+  },
+  "top_four": {
+   "top_four": {
+    "pts": -0.63,
+    "lo": -3.38,
+    "hi": 2.13,
+    "p": 0.654
+   },
+   "n": 16790
+  },
+  "won_last_game_in_season": {
+   "won_last_game": {
+    "pts": 2.38,
+    "lo": 0.05,
+    "hi": 4.7,
+    "p": 0.046
+   },
+   "n": 1066
+  }
+ },
+ "geelong": [
+  {
+   "election": "fed2007",
+   "geelong_swing": -11.38,
+   "rest_swing": -11.0,
+   "difference": -0.39,
+   "premier": 1,
+   "lost_grand_final": 0,
+   "ladder": 1,
+   "won_last_game": null
+  },
+  {
+   "election": "fed2010",
+   "geelong_swing": 2.54,
+   "rest_swing": 0.42,
+   "difference": 2.12,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 2,
+   "won_last_game": 1
+  },
+  {
+   "election": "fed2013",
+   "geelong_swing": -10.4,
+   "rest_swing": -10.61,
+   "difference": 0.21,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 2,
+   "won_last_game": 1
+  },
+  {
+   "election": "fed2016",
+   "geelong_swing": -2.8,
+   "rest_swing": -2.14,
+   "difference": -0.66,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 3,
+   "won_last_game": 0
+  },
+  {
+   "election": "fed2019",
+   "geelong_swing": -5.12,
+   "rest_swing": -5.18,
+   "difference": 0.06,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 1,
+   "won_last_game": 1
+  },
+  {
+   "election": "fed2022",
+   "geelong_swing": -5.67,
+   "rest_swing": 0.67,
+   "difference": -6.34,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 7,
+   "won_last_game": 0
+  },
+  {
+   "election": "fed2025",
+   "geelong_swing": -0.2,
+   "rest_swing": 3.19,
+   "difference": -3.38,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 7,
+   "won_last_game": 0
+  },
+  {
+   "election": "vic2006",
+   "geelong_swing": -1.3,
+   "rest_swing": -6.57,
+   "difference": 5.27,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 10,
+   "won_last_game": null
+  },
+  {
+   "election": "vic2010",
+   "geelong_swing": -12.98,
+   "rest_swing": -11.93,
+   "difference": -1.05,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 2,
+   "won_last_game": null
+  },
+  {
+   "election": "vic2014",
+   "geelong_swing": -5.91,
+   "rest_swing": -5.54,
+   "difference": -0.37,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 3,
+   "won_last_game": null
+  },
+  {
+   "election": "vic2018",
+   "geelong_swing": 13.18,
+   "rest_swing": 12.44,
+   "difference": 0.75,
+   "premier": 0,
+   "lost_grand_final": 0,
+   "ladder": 8,
+   "won_last_game": null
+  },
+  {
+   "election": "vic2022",
+   "geelong_swing": -1.74,
+   "rest_swing": -6.66,
+   "difference": 4.92,
+   "premier": 1,
+   "lost_grand_final": 0,
+   "ladder": 1,
+   "won_last_game": null
+  }
+ ],
+ "geelong_summary": {
+  "premiership_years_mean_diff": 2.27,
+  "other_years_mean_diff": -0.34,
+  "other_years_sd": 3.07,
+  "premiership_elections": [
+   "fed2007",
+   "vic2022"
+  ]
+ },
+ "won_last_game_randomisation": {
+  "club_elections": 53,
+  "wins": 29,
+  "diff_pts": 0.91,
+  "p_permutation": 0.488,
+  "corr_with_margin": 0.086
+ }
+}

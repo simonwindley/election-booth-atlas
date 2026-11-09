@@ -1,0 +1,962 @@
+{
+ "about": "Weather and mood: does the weather on election day (or through the campaign) change WHO votes for whom?\n(the weather question in analysis/questions.json, second pass)",
+ "venue_pairs": 10976,
+ "groups": [
+  "Adults 18-34",
+  "Adults 55+",
+  "Degree",
+  "Trade certificate",
+  "Other language at home",
+  "No religion",
+  "Renting",
+  "Flats and apartments"
+ ],
+ "placebo_days": 40,
+ "results": {
+  "rain|d_lab_coal": {
+   "n": 10949,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": 0.189,
+     "t": 0.34,
+     "placebo_sd": 0.384,
+     "placebo_p": 0.75
+    },
+    "Adults 55+": {
+     "pts": 0.698,
+     "t": 1.53,
+     "placebo_sd": 0.385,
+     "placebo_p": 0.075
+    },
+    "Degree": {
+     "pts": 0.877,
+     "t": 1.09,
+     "placebo_sd": 0.329,
+     "placebo_p": 0.025
+    },
+    "Trade certificate": {
+     "pts": 0.363,
+     "t": 0.47,
+     "placebo_sd": 0.317,
+     "placebo_p": 0.25
+    },
+    "Other language at home": {
+     "pts": -0.061,
+     "t": -0.09,
+     "placebo_sd": 0.454,
+     "placebo_p": 0.85
+    },
+    "No religion": {
+     "pts": -0.155,
+     "t": -0.29,
+     "placebo_sd": 0.247,
+     "placebo_p": 0.45
+    },
+    "Renting": {
+     "pts": 0.344,
+     "t": 0.64,
+     "placebo_sd": 0.268,
+     "placebo_p": 0.2
+    },
+    "Flats and apartments": {
+     "pts": 0.37,
+     "t": 0.85,
+     "placebo_sd": 0.248,
+     "placebo_p": 0.125
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.53,
+    "placebo_max_abs_t_median": 1.66,
+    "placebo_p": 0.6
+   },
+   "overall": {
+    "pts": 0.284,
+    "placebo_p": 0.275
+   }
+  },
+  "rain|d_gov_opp": {
+   "n": 10949,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": 0.226,
+     "t": 0.4,
+     "placebo_sd": 0.386,
+     "placebo_p": 0.475
+    },
+    "Adults 55+": {
+     "pts": 0.45,
+     "t": 0.98,
+     "placebo_sd": 0.416,
+     "placebo_p": 0.275
+    },
+    "Degree": {
+     "pts": 0.959,
+     "t": 1.2,
+     "placebo_sd": 0.511,
+     "placebo_p": 0.1
+    },
+    "Trade certificate": {
+     "pts": 0.77,
+     "t": 1.0,
+     "placebo_sd": 0.436,
+     "placebo_p": 0.075
+    },
+    "Other language at home": {
+     "pts": 0.214,
+     "t": 0.31,
+     "placebo_sd": 0.364,
+     "placebo_p": 0.625
+    },
+    "No religion": {
+     "pts": -0.189,
+     "t": -0.36,
+     "placebo_sd": 0.34,
+     "placebo_p": 0.525
+    },
+    "Renting": {
+     "pts": 0.012,
+     "t": 0.02,
+     "placebo_sd": 0.239,
+     "placebo_p": 0.975
+    },
+    "Flats and apartments": {
+     "pts": 0.33,
+     "t": 0.76,
+     "placebo_sd": 0.258,
+     "placebo_p": 0.275
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.2,
+    "placebo_max_abs_t_median": 1.77,
+    "placebo_p": 0.8
+   },
+   "overall": {
+    "pts": 0.484,
+    "placebo_p": 0.025
+   }
+  },
+  "rain|d_inc": {
+   "n": 10713,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": -0.504,
+     "t": -1.15,
+     "placebo_sd": 0.242,
+     "placebo_p": 0.05
+    },
+    "Adults 55+": {
+     "pts": -0.448,
+     "t": -1.43,
+     "placebo_sd": 0.277,
+     "placebo_p": 0.15
+    },
+    "Degree": {
+     "pts": -0.098,
+     "t": -0.17,
+     "placebo_sd": 0.394,
+     "placebo_p": 0.85
+    },
+    "Trade certificate": {
+     "pts": -0.288,
+     "t": -0.47,
+     "placebo_sd": 0.343,
+     "placebo_p": 0.425
+    },
+    "Other language at home": {
+     "pts": -0.253,
+     "t": -0.6,
+     "placebo_sd": 0.322,
+     "placebo_p": 0.325
+    },
+    "No religion": {
+     "pts": 0.014,
+     "t": 0.04,
+     "placebo_sd": 0.223,
+     "placebo_p": 0.95
+    },
+    "Renting": {
+     "pts": 0.426,
+     "t": 1.22,
+     "placebo_sd": 0.155,
+     "placebo_p": 0.0
+    },
+    "Flats and apartments": {
+     "pts": 0.114,
+     "t": 0.38,
+     "placebo_sd": 0.177,
+     "placebo_p": 0.5
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.43,
+    "placebo_max_abs_t_median": 1.83,
+    "placebo_p": 0.8
+   },
+   "overall": {
+    "pts": -0.065,
+    "placebo_p": 0.65
+   }
+  },
+  "tmax_anom|d_lab_coal": {
+   "n": 10975,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": 0.25,
+     "t": 0.35,
+     "placebo_sd": 0.562,
+     "placebo_p": 0.65
+    },
+    "Adults 55+": {
+     "pts": 0.842,
+     "t": 1.42,
+     "placebo_sd": 0.629,
+     "placebo_p": 0.2
+    },
+    "Degree": {
+     "pts": -0.319,
+     "t": -0.71,
+     "placebo_sd": 0.641,
+     "placebo_p": 0.625
+    },
+    "Trade certificate": {
+     "pts": -0.538,
+     "t": -0.9,
+     "placebo_sd": 0.648,
+     "placebo_p": 0.5
+    },
+    "Other language at home": {
+     "pts": 1.364,
+     "t": 1.72,
+     "placebo_sd": 1.238,
+     "placebo_p": 0.3
+    },
+    "No religion": {
+     "pts": -0.02,
+     "t": -0.05,
+     "placebo_sd": 0.638,
+     "placebo_p": 1.0
+    },
+    "Renting": {
+     "pts": -0.796,
+     "t": -1.66,
+     "placebo_sd": 0.553,
+     "placebo_p": 0.2
+    },
+    "Flats and apartments": {
+     "pts": 0.327,
+     "t": 0.55,
+     "placebo_sd": 0.705,
+     "placebo_p": 0.65
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.72,
+    "placebo_max_abs_t_median": 1.82,
+    "placebo_p": 0.575
+   },
+   "overall": {
+    "pts": 0.217,
+    "placebo_p": 0.85
+   }
+  },
+  "tmax_anom|d_gov_opp": {
+   "n": 10975,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": 0.902,
+     "t": 1.29,
+     "placebo_sd": 0.601,
+     "placebo_p": 0.175
+    },
+    "Adults 55+": {
+     "pts": 0.213,
+     "t": 0.37,
+     "placebo_sd": 0.858,
+     "placebo_p": 0.725
+    },
+    "Degree": {
+     "pts": -0.696,
+     "t": -1.62,
+     "placebo_sd": 0.831,
+     "placebo_p": 0.425
+    },
+    "Trade certificate": {
+     "pts": -0.593,
+     "t": -0.97,
+     "placebo_sd": 0.632,
+     "placebo_p": 0.425
+    },
+    "Other language at home": {
+     "pts": -0.637,
+     "t": -0.81,
+     "placebo_sd": 1.086,
+     "placebo_p": 0.5
+    },
+    "No religion": {
+     "pts": 0.16,
+     "t": 0.35,
+     "placebo_sd": 0.671,
+     "placebo_p": 0.775
+    },
+    "Renting": {
+     "pts": -0.681,
+     "t": -1.43,
+     "placebo_sd": 0.543,
+     "placebo_p": 0.275
+    },
+    "Flats and apartments": {
+     "pts": -0.215,
+     "t": -0.34,
+     "placebo_sd": 0.711,
+     "placebo_p": 0.7
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.62,
+    "placebo_max_abs_t_median": 1.82,
+    "placebo_p": 0.675
+   },
+   "overall": {
+    "pts": 0.054,
+    "placebo_p": 1.0
+   }
+  },
+  "tmax_anom|d_inc": {
+   "n": 10735,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": -0.33,
+     "t": -0.66,
+     "placebo_sd": 0.4,
+     "placebo_p": 0.5
+    },
+    "Adults 55+": {
+     "pts": -0.789,
+     "t": -1.92,
+     "placebo_sd": 0.549,
+     "placebo_p": 0.15
+    },
+    "Degree": {
+     "pts": 0.037,
+     "t": 0.1,
+     "placebo_sd": 0.678,
+     "placebo_p": 0.925
+    },
+    "Trade certificate": {
+     "pts": -0.148,
+     "t": -0.33,
+     "placebo_sd": 0.565,
+     "placebo_p": 0.825
+    },
+    "Other language at home": {
+     "pts": -0.661,
+     "t": -1.1,
+     "placebo_sd": 1.08,
+     "placebo_p": 0.6
+    },
+    "No religion": {
+     "pts": 0.476,
+     "t": 1.35,
+     "placebo_sd": 0.434,
+     "placebo_p": 0.225
+    },
+    "Renting": {
+     "pts": 0.059,
+     "t": 0.2,
+     "placebo_sd": 0.376,
+     "placebo_p": 0.825
+    },
+    "Flats and apartments": {
+     "pts": 0.376,
+     "t": 0.88,
+     "placebo_sd": 0.506,
+     "placebo_p": 0.375
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.92,
+    "placebo_max_abs_t_median": 1.83,
+    "placebo_p": 0.475
+   },
+   "overall": {
+    "pts": 0.082,
+    "placebo_p": 0.975
+   }
+  },
+  "discomfort|d_lab_coal": {
+   "n": 10975,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": -0.167,
+     "t": -0.43,
+     "placebo_sd": 0.336,
+     "placebo_p": 0.575
+    },
+    "Adults 55+": {
+     "pts": 0.477,
+     "t": 1.34,
+     "placebo_sd": 0.488,
+     "placebo_p": 0.275
+    },
+    "Degree": {
+     "pts": -0.066,
+     "t": -0.2,
+     "placebo_sd": 0.38,
+     "placebo_p": 0.9
+    },
+    "Trade certificate": {
+     "pts": -0.249,
+     "t": -0.84,
+     "placebo_sd": 0.428,
+     "placebo_p": 0.5
+    },
+    "Other language at home": {
+     "pts": 0.629,
+     "t": 1.16,
+     "placebo_sd": 0.822,
+     "placebo_p": 0.4
+    },
+    "No religion": {
+     "pts": 0.188,
+     "t": 0.67,
+     "placebo_sd": 0.323,
+     "placebo_p": 0.625
+    },
+    "Renting": {
+     "pts": -0.184,
+     "t": -0.61,
+     "placebo_sd": 0.295,
+     "placebo_p": 0.6
+    },
+    "Flats and apartments": {
+     "pts": -0.231,
+     "t": -0.57,
+     "placebo_sd": 0.561,
+     "placebo_p": 0.7
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.34,
+    "placebo_max_abs_t_median": 1.62,
+    "placebo_p": 0.7
+   },
+   "overall": {
+    "pts": -0.403,
+    "placebo_p": 0.5
+   }
+  },
+  "discomfort|d_gov_opp": {
+   "n": 10975,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": -0.21,
+     "t": -0.51,
+     "placebo_sd": 0.427,
+     "placebo_p": 0.475
+    },
+    "Adults 55+": {
+     "pts": -0.783,
+     "t": -2.19,
+     "placebo_sd": 0.387,
+     "placebo_p": 0.075
+    },
+    "Degree": {
+     "pts": -0.644,
+     "t": -1.99,
+     "placebo_sd": 0.387,
+     "placebo_p": 0.075
+    },
+    "Trade certificate": {
+     "pts": -0.226,
+     "t": -0.78,
+     "placebo_sd": 0.476,
+     "placebo_p": 0.5
+    },
+    "Other language at home": {
+     "pts": -0.863,
+     "t": -1.59,
+     "placebo_sd": 0.714,
+     "placebo_p": 0.425
+    },
+    "No religion": {
+     "pts": 0.172,
+     "t": 0.62,
+     "placebo_sd": 0.505,
+     "placebo_p": 0.75
+    },
+    "Renting": {
+     "pts": 0.136,
+     "t": 0.45,
+     "placebo_sd": 0.266,
+     "placebo_p": 0.725
+    },
+    "Flats and apartments": {
+     "pts": -0.063,
+     "t": -0.15,
+     "placebo_sd": 0.619,
+     "placebo_p": 0.925
+    }
+   },
+   "joint": {
+    "max_abs_t": 2.19,
+    "placebo_max_abs_t_median": 1.92,
+    "placebo_p": 0.325
+   },
+   "overall": {
+    "pts": -0.537,
+    "placebo_p": 0.375
+   }
+  },
+  "discomfort|d_inc": {
+   "n": 10735,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": -0.07,
+     "t": -0.29,
+     "placebo_sd": 0.324,
+     "placebo_p": 0.825
+    },
+    "Adults 55+": {
+     "pts": -0.386,
+     "t": -1.52,
+     "placebo_sd": 0.414,
+     "placebo_p": 0.375
+    },
+    "Degree": {
+     "pts": -0.187,
+     "t": -0.72,
+     "placebo_sd": 0.582,
+     "placebo_p": 0.75
+    },
+    "Trade certificate": {
+     "pts": -0.357,
+     "t": -1.79,
+     "placebo_sd": 0.447,
+     "placebo_p": 0.3
+    },
+    "Other language at home": {
+     "pts": -0.731,
+     "t": -1.71,
+     "placebo_sd": 0.524,
+     "placebo_p": 0.2
+    },
+    "No religion": {
+     "pts": -0.139,
+     "t": -0.7,
+     "placebo_sd": 0.195,
+     "placebo_p": 0.45
+    },
+    "Renting": {
+     "pts": 0.153,
+     "t": 0.83,
+     "placebo_sd": 0.233,
+     "placebo_p": 0.475
+    },
+    "Flats and apartments": {
+     "pts": -0.098,
+     "t": -0.37,
+     "placebo_sd": 0.287,
+     "placebo_p": 0.7
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.79,
+    "placebo_max_abs_t_median": 2.06,
+    "placebo_p": 0.65
+   },
+   "overall": {
+    "pts": 0.455,
+    "placebo_p": 0.2
+   }
+  },
+  "rain_30d_ratio|d_lab_coal": {
+   "n": 10975,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": -0.301,
+     "t": -0.83,
+     "placebo_sd": 0.477,
+     "placebo_p": 0.475
+    },
+    "Adults 55+": {
+     "pts": -0.26,
+     "t": -0.77,
+     "placebo_sd": 0.375,
+     "placebo_p": 0.5
+    },
+    "Degree": {
+     "pts": 0.293,
+     "t": 0.69,
+     "placebo_sd": 0.285,
+     "placebo_p": 0.225
+    },
+    "Trade certificate": {
+     "pts": 0.046,
+     "t": 0.12,
+     "placebo_sd": 0.417,
+     "placebo_p": 0.975
+    },
+    "Other language at home": {
+     "pts": -0.294,
+     "t": -0.7,
+     "placebo_sd": 0.502,
+     "placebo_p": 0.325
+    },
+    "No religion": {
+     "pts": -0.43,
+     "t": -1.61,
+     "placebo_sd": 0.291,
+     "placebo_p": 0.175
+    },
+    "Renting": {
+     "pts": -0.049,
+     "t": -0.2,
+     "placebo_sd": 0.251,
+     "placebo_p": 0.875
+    },
+    "Flats and apartments": {
+     "pts": 0.455,
+     "t": 1.3,
+     "placebo_sd": 0.333,
+     "placebo_p": 0.2
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.61,
+    "placebo_max_abs_t_median": 1.79,
+    "placebo_p": 0.6
+   },
+   "overall": {
+    "pts": 0.422,
+    "placebo_p": 0.35
+   }
+  },
+  "rain_30d_ratio|d_gov_opp": {
+   "n": 10975,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": 0.091,
+     "t": 0.25,
+     "placebo_sd": 0.368,
+     "placebo_p": 0.725
+    },
+    "Adults 55+": {
+     "pts": 0.414,
+     "t": 1.26,
+     "placebo_sd": 0.416,
+     "placebo_p": 0.35
+    },
+    "Degree": {
+     "pts": 0.746,
+     "t": 1.76,
+     "placebo_sd": 0.251,
+     "placebo_p": 0.025
+    },
+    "Trade certificate": {
+     "pts": 0.188,
+     "t": 0.5,
+     "placebo_sd": 0.459,
+     "placebo_p": 0.85
+    },
+    "Other language at home": {
+     "pts": -0.119,
+     "t": -0.28,
+     "placebo_sd": 0.388,
+     "placebo_p": 0.775
+    },
+    "No religion": {
+     "pts": -0.404,
+     "t": -1.5,
+     "placebo_sd": 0.404,
+     "placebo_p": 0.275
+    },
+    "Renting": {
+     "pts": 0.2,
+     "t": 0.81,
+     "placebo_sd": 0.292,
+     "placebo_p": 0.525
+    },
+    "Flats and apartments": {
+     "pts": -0.049,
+     "t": -0.14,
+     "placebo_sd": 0.224,
+     "placebo_p": 0.775
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.76,
+    "placebo_max_abs_t_median": 1.9,
+    "placebo_p": 0.6
+   },
+   "overall": {
+    "pts": 0.523,
+    "placebo_p": 0.225
+   }
+  },
+  "rain_30d_ratio|d_inc": {
+   "n": 10735,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": -0.032,
+     "t": -0.1,
+     "placebo_sd": 0.273,
+     "placebo_p": 1.0
+    },
+    "Adults 55+": {
+     "pts": 0.24,
+     "t": 0.92,
+     "placebo_sd": 0.29,
+     "placebo_p": 0.7
+    },
+    "Degree": {
+     "pts": 0.474,
+     "t": 1.48,
+     "placebo_sd": 0.255,
+     "placebo_p": 0.1
+    },
+    "Trade certificate": {
+     "pts": 0.165,
+     "t": 0.62,
+     "placebo_sd": 0.278,
+     "placebo_p": 0.6
+    },
+    "Other language at home": {
+     "pts": 0.328,
+     "t": 1.01,
+     "placebo_sd": 0.333,
+     "placebo_p": 0.375
+    },
+    "No religion": {
+     "pts": -0.07,
+     "t": -0.34,
+     "placebo_sd": 0.208,
+     "placebo_p": 0.8
+    },
+    "Renting": {
+     "pts": 0.215,
+     "t": 1.11,
+     "placebo_sd": 0.142,
+     "placebo_p": 0.175
+    },
+    "Flats and apartments": {
+     "pts": -0.417,
+     "t": -1.75,
+     "placebo_sd": 0.279,
+     "placebo_p": 0.2
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.75,
+    "placebo_max_abs_t_median": 1.66,
+    "placebo_p": 0.475
+   },
+   "overall": {
+    "pts": 0.126,
+    "placebo_p": 0.65
+   }
+  },
+  "tmax_30d_anom|d_lab_coal": {
+   "n": 10975,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": 0.074,
+     "t": 0.1,
+     "placebo_sd": 0.387,
+     "placebo_p": 0.9
+    },
+    "Adults 55+": {
+     "pts": 0.223,
+     "t": 0.32,
+     "placebo_sd": 0.635,
+     "placebo_p": 0.825
+    },
+    "Degree": {
+     "pts": -0.136,
+     "t": -0.2,
+     "placebo_sd": 0.498,
+     "placebo_p": 0.85
+    },
+    "Trade certificate": {
+     "pts": -1.146,
+     "t": -1.59,
+     "placebo_sd": 0.646,
+     "placebo_p": 0.4
+    },
+    "Other language at home": {
+     "pts": 1.617,
+     "t": 1.57,
+     "placebo_sd": 1.207,
+     "placebo_p": 0.225
+    },
+    "No religion": {
+     "pts": 0.35,
+     "t": 0.63,
+     "placebo_sd": 0.471,
+     "placebo_p": 0.45
+    },
+    "Renting": {
+     "pts": -0.604,
+     "t": -1.21,
+     "placebo_sd": 0.479,
+     "placebo_p": 0.45
+    },
+    "Flats and apartments": {
+     "pts": -0.159,
+     "t": -0.22,
+     "placebo_sd": 0.479,
+     "placebo_p": 0.875
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.59,
+    "placebo_max_abs_t_median": 2.01,
+    "placebo_p": 0.675
+   },
+   "overall": {
+    "pts": 0.415,
+    "placebo_p": 0.475
+   }
+  },
+  "tmax_30d_anom|d_gov_opp": {
+   "n": 10975,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": -0.06,
+     "t": -0.08,
+     "placebo_sd": 0.585,
+     "placebo_p": 0.9
+    },
+    "Adults 55+": {
+     "pts": -1.334,
+     "t": -2.09,
+     "placebo_sd": 0.801,
+     "placebo_p": 0.075
+    },
+    "Degree": {
+     "pts": -1.083,
+     "t": -1.63,
+     "placebo_sd": 0.566,
+     "placebo_p": 0.325
+    },
+    "Trade certificate": {
+     "pts": -1.401,
+     "t": -1.99,
+     "placebo_sd": 0.709,
+     "placebo_p": 0.225
+    },
+    "Other language at home": {
+     "pts": -0.451,
+     "t": -0.45,
+     "placebo_sd": 1.179,
+     "placebo_p": 0.8
+    },
+    "No religion": {
+     "pts": 0.011,
+     "t": 0.02,
+     "placebo_sd": 0.381,
+     "placebo_p": 1.0
+    },
+    "Renting": {
+     "pts": 0.044,
+     "t": 0.09,
+     "placebo_sd": 0.482,
+     "placebo_p": 0.875
+    },
+    "Flats and apartments": {
+     "pts": 0.056,
+     "t": 0.08,
+     "placebo_sd": 0.522,
+     "placebo_p": 0.875
+    }
+   },
+   "joint": {
+    "max_abs_t": 2.09,
+    "placebo_max_abs_t_median": 1.85,
+    "placebo_p": 0.325
+   },
+   "overall": {
+    "pts": -0.256,
+    "placebo_p": 0.75
+   }
+  },
+  "tmax_30d_anom|d_inc": {
+   "n": 10735,
+   "placebo_days": 40,
+   "groups": {
+    "Adults 18-34": {
+     "pts": -0.501,
+     "t": -0.96,
+     "placebo_sd": 0.264,
+     "placebo_p": 0.075
+    },
+    "Adults 55+": {
+     "pts": -0.731,
+     "t": -1.46,
+     "placebo_sd": 0.45,
+     "placebo_p": 0.125
+    },
+    "Degree": {
+     "pts": -0.472,
+     "t": -0.97,
+     "placebo_sd": 0.58,
+     "placebo_p": 0.75
+    },
+    "Trade certificate": {
+     "pts": -0.38,
+     "t": -0.71,
+     "placebo_sd": 0.542,
+     "placebo_p": 0.575
+    },
+    "Other language at home": {
+     "pts": -0.273,
+     "t": -0.31,
+     "placebo_sd": 0.955,
+     "placebo_p": 0.8
+    },
+    "No religion": {
+     "pts": 0.481,
+     "t": 1.21,
+     "placebo_sd": 0.383,
+     "placebo_p": 0.2
+    },
+    "Renting": {
+     "pts": -0.221,
+     "t": -0.68,
+     "placebo_sd": 0.297,
+     "placebo_p": 0.475
+    },
+    "Flats and apartments": {
+     "pts": 0.399,
+     "t": 0.79,
+     "placebo_sd": 0.372,
+     "placebo_p": 0.5
+    }
+   },
+   "joint": {
+    "max_abs_t": 1.46,
+    "placebo_max_abs_t_median": 1.67,
+    "placebo_p": 0.8
+   },
+   "overall": {
+    "pts": -0.575,
+    "placebo_p": 0.325
+   }
+  }
+ }
+}

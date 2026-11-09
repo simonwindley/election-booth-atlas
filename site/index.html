@@ -532,6 +532,9 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
       <details class="panel book" id="bk-onp"><summary><span class="bk-t">The One Nation effect</span><span class="bk-s" id="bk-onp-s"></span></summary><div class="bk-b">
         <div id="md-onp"></div>
       </div></details>
+      <details class="panel book" id="bk-map"><summary><span class="bk-t">The changing map</span><span class="bk-s" id="bk-map-s"></span></summary><div class="bk-b">
+        <div id="md-map"></div>
+      </div></details>
       <details class="panel book" id="bk-ballot"><summary><span class="bk-t">Ballot order: donkey and adjacency voting</span><span class="bk-s" id="bk-ballot-s"></span></summary><div class="bk-b">
         <div id="pf-ballot"></div>
       </div></details>
@@ -540,6 +543,9 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
       </div></details>
       <details class="panel book" id="bk-bounds"><summary><span class="bk-t">New boundaries: notional results</span><span class="bk-s" id="bk-bounds-s"></span></summary><div class="bk-b">
         <div id="md-bounds"></div>
+      </div></details>
+      <details class="panel book" id="bk-trivia"><summary><span class="bk-t">Things that don’t matter (we checked)</span><span class="bk-s" id="bk-trivia-s"></span></summary><div class="bk-b">
+        <div id="md-trivia"></div>
       </div></details>
     </div></div>
   </section>
@@ -1806,12 +1812,14 @@ async function renderModel() {
   { const bt = M.swings.backtest.total; teaser('bk-pendulum', `A uniform two-party swing works in Labor v Coalition seats but cannot see the challengers who cause the surprises. Primaries plus preferences called ${bt.primaries} of ${bt.seats} past seats; the pendulum ${bt.two_party}.`); }
   teaser('bk-swings', `Step one: move each party's first-preference vote by its own rule. The Greens move by the same points everywhere, Labor loses most where it is strongest, and minor parties spread evenly.`);
   try { renderOnp(M); } catch (e) { console.error('One Nation book', e); }
+  try { renderMap(M); } catch (e) { console.error('Changing map book', e); }
+  try { renderTrivia(M); } catch (e) { console.error('Trivia book', e); }
   teaser('bk-bounds', `Our notional results sit within half a point of the published ones, and seats that change hands on paper are decided by the swing.`);
   head.append(h('h2', { class: 'dash-title' }, 'The Atlas Model'),
     h('p', { class: 'hint' }, 'What the Atlas has learnt from Victorian results since 1999 (state elections and federal elections in Victoria), and how it uses it. Every figure here is measured on past elections and, where it matters, tested on elections it was not fitted on. Open any section for the detail.'),
     h('p', { style: 'margin:10px 0 0;max-width:72ch;font-size:14px' }, h('b', {}, 'How the model works. '), 'It does not apply a single two-party swing. In each seat it moves every party\'s first-preference vote by that party\'s own rule (', h('i', {}, 'swings and roundabouts'), '), adds the sitting member\'s personal vote, then runs the preference count, candidate by candidate, to find the final two and the winner. On election night the counted first preferences replace the first step. The last two sections are the checks and tools behind it.'),
     h('p', { class: 'hint', style: 'margin-top:6px' }, 'This page is history: seat-by-seat readings for 2026 follow once nominations close.'),
-    h('p', { class: 'hint', style: 'margin-top:6px' }, jump('bk-swings', 'Swings and roundabouts'), ' · ', jump('bk-members', 'The personal vote'), ' · ', jump('bk-prefs', 'Preferences'), ' · ', jump('bk-onp', 'The One Nation effect'), ' · ', jump('bk-ballot', 'Ballot order'), ' · ', jump('bk-pendulum', 'The pendulum, tested'), ' · ', jump('bk-bounds', 'New boundaries')));
+    h('p', { class: 'hint', style: 'margin-top:6px' }, jump('bk-swings', 'Swings and roundabouts'), ' · ', jump('bk-members', 'The personal vote'), ' · ', jump('bk-prefs', 'Preferences'), ' · ', jump('bk-onp', 'The One Nation effect'), ' · ', jump('bk-map', 'The changing map'), ' · ', jump('bk-ballot', 'Ballot order'), ' · ', jump('bk-pendulum', 'The pendulum, tested'), ' · ', jump('bk-bounds', 'New boundaries'), ' · ', jump('bk-trivia', 'Things that don\'t matter')));
   // --- members
   const Me = M.members, A = Me.all, Tn = Me.tenure, TL = M.two_levels, Ch = M.challengers;
   const mv = Me.member_value['2_terms'];
@@ -1912,6 +1920,132 @@ function renderOnp(M) {
         h('li', {}, 'How-to-vote cards. The flows above include each state\'s own cards; Victorian Liberal and National cards for 2026 will move the split one way or the other, seat by seat.'),
         h('li', {}, 'Who has moved in. The census profile is from 2021; the 2026 Census reports in 2027, after this election.'),
         h('li', {}, 'Who stands where. One Nation\'s reach in each seat depends on its candidates, confirmed at the ballot draw.'))));
+}
+function renderMap(M) {
+  const C = M.changing_map, box = el('md-map'); if (!C || !box || box.dataset.done) return; box.dataset.done = '1';
+  const PN = { ALP: 'Labor', COAL: 'Coalition', GRN: 'Greens' };
+  const lang = C.bivariate.state['Other language at home'].ALP, deg = C.bivariate.state['Degree'].ALP, tc = C.bivariate.federal['Trade certificate'].COAL, tcMin = tc.reduce((a, r) => r.pts < a.pts ? r : a, tc[0]);
+  { const t = el('bk-map-s'); if (t) t.textContent = `Who votes for whom has shifted more than who lives where. Labor's lead in multilingual suburbs has nearly halved since ${lang[0].year}, it now does better where more people hold degrees, and a booth's changing population barely predicts its next swing.`; }
+  const st = { level: 'state', group: 'Other language at home' };
+  try { const s0 = JSON.parse(localStorage.getItem('eba_map') || 'null'); if (s0 && C.bivariate[s0.level] && C.bivariate[s0.level][s0.group]) Object.assign(st, s0); } catch (e) {}
+  const chart = h('div', { class: 'tablewrap' }), note = h('p', { class: 'hint' });
+  const draw = () => {
+    try { localStorage.setItem('eba_map', JSON.stringify(st)); } catch (e) {}
+    const S = C.bivariate[st.level][st.group], parties = ['ALP', 'COAL', 'GRN'];
+    const all = parties.flatMap(p => S[p]); const yrs = [...new Set(all.map(r => r.year))].sort();
+    let lo = Math.min(0, ...all.map(r => r.pts - r.se)), hi = Math.max(0, ...all.map(r => r.pts + r.se)); lo = Math.floor(lo - 0.5); hi = Math.ceil(hi + 0.5);
+    const W = 640, H = 280, L = 44, R = 96, T = 12, B = 30, x = y => L + (y - yrs[0]) / Math.max(1, yrs[yrs.length - 1] - yrs[0]) * (W - L - R), yv = v => T + (hi - v) / (hi - lo) * (H - T - B);
+    const step = (hi - lo) > 12 ? 4 : 2;
+    let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:460px;max-width:720px;display:block" role="img" aria-label="${st.group}: party lean by election">`;
+    for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) s += `<line x1="${L}" x2="${W - R}" y1="${yv(v)}" y2="${yv(v)}" stroke="var(--line)" ${v ? 'stroke-dasharray="2 3"' : 'stroke-width="1.5"'}/><text x="${L - 6}" y="${yv(v) + 4}" text-anchor="end" style="fill:var(--fg-3);font:11px var(--font-mono)">${v > 0 ? '+' : ''}${v}</text>`;
+    for (const y of yrs) s += `<text x="${x(y)}" y="${H - 8}" text-anchor="middle" style="fill:var(--fg-3);font:11px var(--font-mono)">${y}</text>`;
+    for (const p of parties) { const col = partyColor(p), pts = S[p];
+      s += `<path d="${pts.map((r, i) => (i ? 'L' : 'M') + x(r.year) + ' ' + yv(r.pts)).join(' ')}" fill="none" stroke="${col}" stroke-width="2.5"/>`;
+      for (const r of pts) s += `<line x1="${x(r.year)}" x2="${x(r.year)}" y1="${yv(r.pts - 1.64 * r.se)}" y2="${yv(r.pts + 1.64 * r.se)}" stroke="${col}" stroke-opacity=".45" stroke-width="2"/><circle cx="${x(r.year)}" cy="${yv(r.pts)}" r="4" fill="${col}"><title>${PN[p]} ${r.year}: ${r.pts > 0 ? '+' : ''}${r.pts.toFixed(1)} pts</title></circle>`;
+      const last = pts[pts.length - 1]; s += `<text x="${W - R + 8}" y="${yv(last.pts) + 4}" style="fill:${col};font:600 12px var(--font-ui)">${PN[p]} ${last.pts > 0 ? '+' : ''}${last.pts.toFixed(1)}</text>`; }
+    chart.replaceChildren(svgEl(s + '</svg>'));
+    const a = S.ALP, c = S.COAL, g = S.GRN, f = (r) => (r.pts > 0 ? '+' : '') + r.pts.toFixed(1);
+    note.textContent = `Points of each party's first-preference vote per 10 points more ${st.group.toLowerCase()} in a booth area, ${st.level} elections (every polling place, one group at a time; bars are 90% ranges). ${st.group}: Labor ${f(a[0])} in ${a[0].year} to ${f(a[a.length - 1])} in ${a[a.length - 1].year}; Coalition ${f(c[0])} to ${f(c[c.length - 1])}; Greens ${f(g[0])} to ${f(g[g.length - 1])}.`;
+  };
+  const gsel = h('select', { id: 'map-group', onchange: (e) => { st.group = e.target.value; draw(); } }, ...Object.keys(C.bivariate.state).map(k => h('option', { value: k, selected: k === st.group ? '' : null }, k)));
+  const lsel = h('select', { id: 'map-level', onchange: (e) => { st.level = e.target.value; draw(); } }, h('option', { value: 'state', selected: st.level === 'state' ? '' : null }, 'State elections'), h('option', { value: 'federal', selected: st.level === 'federal' ? '' : null }, 'Federal elections (Victoria)'));
+  gsel.value = st.group; lsel.value = st.level;
+  const CP = C.composition_2006_2022, HO = C.holdout_2018_2022, br = C.examples.Brunswick, ml = C.melton;
+  const seatRows = (p) => [...CP[p].helped.slice(0, 4), ...CP[p].hurt.slice(0, 4)].map(r => h('tr', {}, h('td', {}, mdSeatLink(r.seat)), h('td', { class: 'num' }, sp(r.composition) + ' pts'), h('td', { class: 'num' }, sp(+(r.change - r.statewide).toFixed(1)) + ' pts')));
+  box.append(
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'Which places lean which way, and how that has moved'),
+      h('p', { class: 'hint' }, `Every polling place has a census profile of the area around it (2006 to 2021 Censuses, on fixed boundaries, interpolated to each election). Across ${fmt(C.venue_elections)} polling-place results, the lines show how much higher or lower each party runs where a group is more common. A line moving is a realignment: the same kinds of places voting differently.`),
+      h('div', { class: 'row', style: 'gap:10px;flex-wrap:wrap;margin:6px 0 8px' }, h('div', { class: 'field', style: 'flex:0 1 260px' }, h('label', { for: 'map-group' }, 'Group'), gsel), h('div', { class: 'field', style: 'flex:0 1 240px' }, h('label', { for: 'map-level' }, 'Elections'), lsel)),
+      chart, note,
+      h('p', { class: 'hint' }, `The biggest movements: Labor's lead where more people speak another language at home has nearly halved (state ${lang[0].pts.toFixed(1)} to ${lang[lang.length - 1].pts.toFixed(1)} pts per 10 points), while the Coalition's deficit there has shrunk with it; Labor has moved from no lean to a modest lead where more people hold degrees (${deg[0].pts.toFixed(1)} to ${deg[deg.length - 1].pts.toFixed(1)}), as the Coalition's deficit there deepened; and federally, the Coalition's edge in trade-qualified areas shrank from ${tc[0].pts.toFixed(1)} in ${tc[0].year} to ${tcMin.pts.toFixed(1)} in ${tcMin.year}, recovering to ${tc[tc.length - 1].pts.toFixed(1)} in ${tc[tc.length - 1].year}. Age has barely moved: older areas lean to the Coalition as much as ever.`)),
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'Who moves in, or how people vote?'),
+      h('p', { class: 'hint' }, `A seat's vote can move because its people change (composition) or because the same kinds of people vote differently (conversion). The Atlas follows the same polling places through each pair of elections and measures how much a change in the local population mix moves the vote.`),
+      h('div', { class: 'stats', style: 'margin:10px 0' }, stat(Math.round(100 * Math.max(0, HO.GRN.r2, HO.ALP.r2)) + '%', `of a booth's swing in 2022 (beyond the statewide one) predicted by its population change since 2018, fitted on earlier elections`), stat(Math.round(100 * CP.GRN.share_explained) + '%', 'of the seat-to-seat spread in the Greens\' gains 2006→2022 explained by population change'), stat(Math.round(100 * CP.ALP.share_explained) + '% / ' + Math.round(100 * CP.COAL.share_explained) + '%', 'the same for Labor / the Coalition')),
+      h('p', { class: 'hint' }, `Between one election and the next, population change hardly registers: people move in a few at a time. Over sixteen years it adds up, most of all for the Greens. Brunswick's degree-holders rose ${br.Degree.toFixed(0)} points and those with no religion ${br['No religion'].toFixed(0)}: the people moving in are who the Greens do well with. For Labor, conversion swamps it. Melton's population change alone should have lifted Labor about ${ml.composition_rel.toFixed(0)} points against the state; Labor fell ${Math.abs(ml.change - ml.statewide).toFixed(0)} points further than the state instead.`),
+      h('div', { class: 'two' },
+        h('div', {}, h('h4', {}, 'Greens, 2006 → 2022'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', { class: 'num', title: 'what the change in population mix alone would have done, against the state' }, 'Population change'), h('th', { class: 'num' }, 'Actual, against the state'))), h('tbody', {}, ...seatRows('GRN'))))),
+        h('div', {}, h('h4', {}, 'Labor, 2006 → 2022'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', { class: 'num' }, 'Population change'), h('th', { class: 'num' }, 'Actual, against the state'))), h('tbody', {}, ...seatRows('ALP')))))),
+      h('p', { class: 'hint' }, `Four seats most helped and four most hurt by population change, ${fmt(C.venues_2006_2022)} polling places used at both elections, 2022 seats. Areas, not people: a seat full of new graduates voting Green does not show that each graduate did.`)),
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'What it means for the model'),
+      h('ul', { class: 'hint', style: 'margin:4px 0 0;padding-left:18px;line-height:1.6' },
+        h('li', {}, 'Population change is not projected forward to 2026: between elections it adds almost nothing a seat\'s own result does not already say.'),
+        h('li', {}, 'No momentum: how a kind of place swung last time does not predict how it swings next time, so the realignments above are history, not a trend to extend.'),
+        h('li', {}, 'Seats do partly swing back after a big move (about a quarter of a seat\'s swing against the state, at state elections), but the personal-vote effects in the model already account for it.'))));
+  draw();
+}
+function renderTrivia(M) {
+  const T = M.trivia, box = el('md-trivia'); if (!T || !box || box.dataset.done) return; box.dataset.done = '1';
+  const ordn = (n) => { const sfx = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (sfx[(v - 20) % 10] || sfx[v] || sfx[0]); };
+  const W = T.weather, S = T.sky, F = T.footy, EN = (e) => { const x = idx.electionById.get(e); return x ? shortName(x) : e; };
+  { const t = el('bk-trivia-s'); if (t) t.textContent = `Rain on election day, the moon and Mercury, and whether the footy club won on the weekend. We tested them properly. None of them moves the vote, and the ways they could have seemed to are a lesson in themselves.`; }
+  const pc = (e, k = 1) => `${sp(e.est * k, 1)} (${sp(e.lo * k, 1)} to ${sp(e.hi * k, 1)})`;
+  const wx = W.effects, dl = W.deluge, NH = W.naive_hot_day;
+  const wrows = W.statewide.slice().sort((a, b) => a.election < b.election ? -1 : 1).map(r => h('tr', {}, h('td', {}, EN(r.election)), h('td', { class: 'num' }, Math.round(100 * r.wet_share) + '%'), h('td', { class: 'num' }, r.rain_mm.toFixed(1)), h('td', { class: 'num' }, r.tmax.toFixed(0) + '°'), h('td', { class: 'num' }, sp(r.tmax_anom) + '°')));
+  const sky = S.elections.filter(r => r.gov_primary_change != null).map(r => h('tr', {}, h('td', {}, EN(r.election)), h('td', { class: 'num' }, sp(r.gov_primary_change)), h('td', {}, r.held_office ? 'held' : 'lost'), h('td', {}, r.moon_sign), h('td', { class: 'num' }, Math.round(100 * r.moon_illumination) + '%'), h('td', {}, r.mercury_retrograde ? 'retrograde' : ''), h('td', {}, (r.eclipse_within_14_days || []).join(' + ')), h('td', {}, r.friday_13th_in_campaign ? 'yes' : '')));
+  const PR = S.pseudo_replication['Mercury retrograde'], best = S.best[0];
+  const fx = F.effects, R = F.randomisation, GS = F.geelong_summary;
+  const grows = F.geelong.map(r => h('tr', { style: r.premier ? 'font-weight:600' : null }, h('td', {}, EN(r.election)), h('td', {}, r.premier ? 'Premiers' : r.ladder ? `${ordn(r.ladder)} on the ladder` : ''), h('td', { class: 'num' }, sp(r.geelong_swing)), h('td', { class: 'num' }, sp(r.rest_swing)), h('td', { class: 'num' }, sp(r.difference))));
+  const MARG = { d_lab_coal: 'Labor v Coalition', d_gov_opp: 'Government v opposition', d_inc: 'Sitting member\'s party' };
+  const PN = { ALP: 'Labor', COAL: 'Coalition', GRN: 'Greens', ONP: 'One Nation' };
+  const placeName = (r) => r.election.startsWith('vic') || r.election.startsWith('fed') ? EN(r.election) : `${r.place} ${r.election.slice(-4)}`;
+  const moonParty = () => { const MP = S.moon_by_party; if (!MP) return [];
+    const signs = Object.keys(MP.grid), never = 12 - signs.length, b = MP.best[0], bs = b.feature.replace(/^Moon in (an? )?/, '').replace(/ sign$/, '');
+    const behind = MP.elections.filter(r => b.feature.includes(' a ') ? false : r.moon_sign === bs);
+    const single = signs.filter(k => MP.grid[k].n === 1).map(k => { const r = MP.elections.find(x => x.moon_sign === k); return `${k}: ${placeName(r)}`; });
+    const cell = (v, n) => h('td', { class: 'num', style: n < 2 ? 'color:var(--fg-3)' : null }, sp(v));
+    return [h('h4', { style: 'margin-top:14px' }, 'The moon and each party'),
+      h('p', { class: 'hint' }, `Is a party luckier under one sign of the moon? The moon's sign at noon on election day, against each party's change in first preferences, over ${MP.elections.length} elections: the Victorian state elections, federal elections counted in Victoria, and the general elections of the other states the Atlas holds (Queensland, New South Wales, Western Australia, South Australia). The moon changes sign every two and a half days, so twenty election days land on ${signs.length} of the twelve signs${never ? ` (never ${['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'].filter(k => !MP.grid[k]).join(' or ')})` : ''}.`),
+      h('div', { class: 'tablewrap', style: 'max-width:620px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Moon in'), h('th', { class: 'num' }, 'Elections'), ...['ALP', 'COAL', 'GRN', 'ONP'].map(g => h('th', { class: 'num', title: 'average change in first preferences, points' }, PN[g])))),
+        h('tbody', {}, ...signs.map(k => { const g = MP.grid[k]; return h('tr', { title: MP.elections.filter(r => r.moon_sign === k).map(placeName).join(', ') }, h('td', {}, k), h('td', { class: 'num' }, g.n), cell(g.ALP, g.n), cell(g.COAL, g.n), cell(g.GRN, g.n), cell(g.ONP, g.n)); })))),
+      h('p', { class: 'hint' }, `Average change in each party's first-preference vote, in points; hover a row for its elections. ${MP.n_tests} tests (every sign with at least two elections, and each element, against the rest, for each party): chance alone would turn up about ${Math.round(MP.expected_by_chance)} at p < 0.05, and there ${MP.nominal_hits === 1 ? 'was' : 'were'} ${MP.nominal_hits || 'none'}; ${MP.surviving_holm || 'none'} survive${MP.surviving_holm === 1 ? 's' : ''} allowing for the number of tests. The nearest miss: the moon in ${bs}, ${PN[b.party]} ${sp(b.diff)} points against the other signs (p = ${b.p})${behind.length ? `, which is just ${behind.map(r => `${placeName(r)} (${sp(r[b.party])})`).join(' and ')}: one landslide is enough to colour a sign` : ''}. ${single.length ? `Signs with a single election (${single.join('; ')}) are shown in grey and not tested: one election cannot speak for a sign.` : ''}`)]; };
+  const footyClubs = () => { const AM = T.afl_mood; if (!AM || !AM.by_club) return h('span');
+    const Sv = AM.summary.victorian, Si = AM.summary.interstate, tv = AM.top_victorian[0], ti = AM.top_interstate[0];
+    const row = (c) => h('tr', {}, h('td', {}, c.club), h('td', { class: 'num' }, `${c.p_below_05} of ${c.tests}`), h('td', {}, c.strongest.group), h('td', {}, MARG[c.strongest.outcome] || c.strongest.outcome), h('td', { class: 'num' }, (c.strongest.r >= 0 ? '+' : '−') + Math.abs(c.strongest.r).toFixed(2)), h('td', { class: 'num' }, c.strongest.p < 0.001 ? '< 0.001' : c.strongest.p.toFixed(3)));
+    const vic = AM.by_club.filter(c => !c.interstate), inter = AM.by_club.filter(c => c.interstate);
+    return h('div', { class: 'bk-sec' },
+      h('h3', {}, 'The footy: club by club'),
+      h('p', { class: 'hint' }, `Supporters are spread across the state, so the first question is about moods, not places: when a club is going well, does any group lean differently? Each club's win rate up to election day is set against the swing of eight census groups (adults 18 to 34, over-55s, graduates, trades, migrants, the non-religious, renters, flat dwellers) on the three margins, across ${AM.elections.length} elections: ${vic[0].tests} tries per club, so about one "hit" each by chance alone. The interstate clubs are the control: their form cannot move Victorian voters, so whatever they "predict" is coincidence.`),
+      h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Club'), h('th', { class: 'num', title: 'group x margin correlations with p < 0.05' }, 'Hits'), h('th', {}, 'Strongest group'), h('th', {}, 'Margin'), h('th', { class: 'num', title: 'correlation between the club\'s win rate and the group\'s swing' }, 'r'), h('th', { class: 'num' }, 'p'))),
+        h('tbody', {}, ...vic.map(row), h('tr', {}, h('td', { colspan: 6, class: 'hint', style: 'padding-top:10px' }, 'Interstate clubs (the control)')), ...inter.map(row)))),
+      h('p', { class: 'hint' }, `Victorian clubs' form "predicts" some group's swing at p < 0.05 in ${Sv.p_below_05} of ${Sv.pairs} tries (${Math.round(100 * Sv.share_below_05)}%); the interstate clubs in ${Si.p_below_05} of ${Si.pairs} (${Math.round(100 * Si.share_below_05)}%). Shuffling every season together, the Victorian excess looks real (${AM.joint_shuffle.victorian.hits} against ${AM.joint_shuffle.victorian.null_mean} by chance). It is not: a November state election sees a club's whole season and a May federal election a few rounds, and state and federal swings differ. Compared like with like, the excess shrinks to chance (${AM.joint_shuffle_within_level.victorian.hits} against ${AM.joint_shuffle_within_level.victorian.null_mean}, p = ${AM.joint_shuffle_within_level.victorian.p}). Nor do the hits agree with each other: a club in form helps the government or the local member in about half of them and hurts in the other half, and no club's pattern survives allowing for the number of tests. The single strongest pair (${tv.club}'s form and ${tv.group.toLowerCase()}, r = ${tv.r.toFixed(2)}) is matched by the control, ${ti.club} (r = ${ti.r.toFixed(2)}).`)); };
+  box.append(
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'Rain, hail or shine'),
+      h('p', { class: 'hint' }, `Every polling place gets the nearest weather station's reading for voting hours (SILO, the Bureau of Meteorology's station record; median ${W.median_station_km} km away), across ${fmt(W.venue_elections)} polling-place results since 2002. Booths are compared with others in the same district at the same election that got different weather, so the statewide mood and regional swings drop out.`),
+      h('div', { class: 'stats', style: 'margin:10px 0' }, stat(pc(wx.log_votes.rain_mm, 1000) + '%', 'votes cast at the booth, per 10 mm of rain'), stat(pc(wx.informal.rain_mm, 10), 'points of informal voting, per 10 mm'), stat(pc(wx.gov_opp.rain_mm, 10), 'points of government lead over the opposition, per 10 mm'), stat(pc(wx.lab_coal.rain_mm, 10), 'points of Labor lead over the Coalition, per 10 mm')),
+      h('p', { class: 'hint' }, `With compulsory voting there is no "rain keeps voters home" effect. The test case is ${EN('vic2010')}, the one statewide deluge (${dl.vic2010.rain_mm} mm on average, heavy rain at nearly every booth): turnout ${dl.vic2010.turnout}% against ${dl.vic2006.turnout}% in 2006 and ${dl.vic2014.turnout}% in 2014, informal ${dl.vic2010.informal}% (on trend), the share voting on the day on trend.`),
+      h('div', { class: 'tablewrap', style: 'max-width:560px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election day'), h('th', { class: 'num', title: '1 mm or more during voting' }, 'Booths with rain'), h('th', { class: 'num' }, 'Rain, mm'), h('th', { class: 'num' }, 'Max'), h('th', { class: 'num', title: 'against the normal for that date' }, 'vs normal'))), h('tbody', {}, ...wrows)))),
+    (() => { const WM = T.weather_mood; if (!WM) return h('span');
+      const lab = { rain: 'Rain while voting', tmax_anom: 'Warmer than normal', discomfort: 'Further from 22°', rain_30d_ratio: 'Wet campaign month', tmax_30d_anom: 'Warm campaign month' };
+      const CON = { d_lab_coal: 'Labor v Coalition', d_gov_opp: 'Government v opposition', d_inc: 'Sitting member\'s party' };
+      const rows = Object.entries(WM).map(([k, v]) => { const [wv, y] = k.split('|'); return h('tr', {}, h('td', {}, lab[wv] || wv), h('td', {}, CON[y] || y), h('td', {}, `${v.strongest[0]} (${sp(v.strongest[1].pts, 2)})`), h('td', { class: 'num' }, v.max_abs_t.toFixed(1)), h('td', { class: 'num' }, v.placebo_median_max_t.toFixed(1)), h('td', { class: 'num', style: v.joint_p <= 0.05 ? 'font-weight:600' : null }, v.joint_p === 0 ? '< 0.03' : v.joint_p.toFixed(2))); });
+      return h('div', { class: 'bk-sec' },
+        h('h3', {}, 'Moods, not turnout: does the weather change who votes for whom?'),
+        h('p', { class: 'hint' }, `The sharper question is not whether people vote, but whether a grim day changes which way particular groups lean: older voters, renters, trades, graduates, migrants, the religious. For the weather, every polling place's swing is set against its census groups, with each district's swing and each group's statewide swing taken out, and the weather's extra pull on each group measured. Then the same model is run on the weather of 40 other Saturdays around each election: the weather on those days cannot have moved the vote, but it has the same regional patterns, so they show what chance and coincidence produce.`),
+        h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Weather'), h('th', {}, 'Margin'), h('th', {}, 'Strongest group (pts per step)'), h('th', { class: 'num', title: 'largest group effect, in standard errors' }, 'Election day'), h('th', { class: 'num' }, 'Placebo days (median)'), h('th', { class: 'num', title: 'share of placebo days with a larger strongest effect' }, 'Placebo p'))), h('tbody', {}, ...rows))),
+        h('p', { class: 'hint' }, `Each margin is one side's change minus the other's, so a third party cannot blur it: Labor against the Coalition (the "grumpy, so Coalition" question), the government against the opposition (the "wet, so punish whoever is in" question), and the party holding the seat (punishing the local member). ${Object.values(WM).filter(v => v.joint_p <= 0.05).length ? 'One passes its placebos, about what fifteen tries throw up.' : 'None of the fifteen passes its placebos: on election day, the strongest group effect is no bigger than on an ordinary Saturday.'}`)); })(),
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'Written in the sky'),
+      h('p', { class: 'hint' }, `The sky at noon in Melbourne on each election day (moon phase and sign, Mercury, Venus and Mars retrograde, the signs of Mars, Jupiter and Saturn, an eclipse within a fortnight), plus a few earthly irrelevancies (a Friday the 13th in the campaign, daylight saving, the Melbourne Cup), against the government's first-preference vote in Victoria and whether it held office (the government against the opposition, whichever side was in). ${S.n_tests} tests on ${S.elections.filter(r => r.gov_primary_change != null).length} elections: chance alone would hand over about ${Math.round(S.expected_by_chance)} "significant" result${Math.round(S.expected_by_chance) === 1 ? '' : 's'}; there ${S.nominal_hits === 1 ? 'was' : 'were'} ${S.nominal_hits || 'none'}, and ${S.surviving || 'none'} after allowing for the number of tests. The closest: ${best.feature}, ${sp(best.diff)} points to the government (p = ${best.p}).`),
+      h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', { class: 'num' }, 'Government primary'), h('th', {}, 'Office'), h('th', {}, 'Moon in'), h('th', { class: 'num' }, 'Moon lit'), h('th', {}, 'Mercury'), h('th', {}, 'Eclipse near'), h('th', {}, 'Friday 13th'))), h('tbody', {}, ...sky))),
+      h('p', { class: 'hint' }, `The 2022 federal election had the lot: Mercury retrograde, a partial solar eclipse on 30 April and a total lunar eclipse on 16 May, and a Friday the 13th in the campaign. The government lost; it also lost in 2007 and 2013 under a quiet sky.`), ...moonParty()),
+    footyClubs(),
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'Home-town advantage'),
+      h('p', { class: 'hint' }, `Then the places: each club has a heartland, where a win or a flag should land hardest if it lands anywhere. A 2010 American study found a local college football win in the days before an election lifted the incumbent's vote; a 2015 re-analysis found it was very likely a fluke. The Atlas asked the same of the AFL: polling places around each Victorian club's traditional home ground (25 km of Kardinia Park for Geelong; 4 km of the old suburban grounds for the Melbourne clubs; Melbourne itself has no heartland), every match since 1998.`),
+      h('div', { class: 'stats', style: 'margin:10px 0' }, stat(sp(fx.premiership.premier.pts) + ' pts', `government lead over the opposition in the premiers' home area (${sp(fx.premiership.premier.lo)} to ${sp(fx.premiership.premier.hi)})`), stat(sp(fx.premiership.lost_grand_final.pts) + ' pts', 'after losing the grand final'), stat(sp(R.diff_pts) + ' pts', `after a win in the last 10 days before an in-season federal election (p = ${R.p_permutation})`)),
+      h('p', { class: 'hint' }, `Geelong, the one club with a clear home region, won the flag before two elections: ${(() => { const p = F.geelong.filter(r => r.premier); return p.map(r => `${EN(r.election)}, its area's government-v-opposition margin moved ${sp(r.difference)} points against the rest of Victoria`).join('; '); })()}. In ordinary years its area wanders ${GS.other_years_sd} points either way of the state anyway. This year's premiers, Brisbane, beat Fremantle: no Victorian celebration to read anything into.`),
+      h('div', { class: 'tablewrap', style: 'max-width:620px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'The Cats'), h('th', { class: 'num', title: 'change in the government\'s lead over the opposition' }, 'Government v opposition, Geelong area'), h('th', { class: 'num' }, 'Rest of Victoria'), h('th', { class: 'num' }, 'Difference'))), h('tbody', {}, ...grows)))),
+    h('div', { class: 'bk-sec' },
+      h('h3', {}, 'How each of these could have fooled us'),
+      h('ul', { class: 'hint', style: 'margin:4px 0 0;padding-left:18px;line-height:1.6' },
+        h('li', {}, h('b', {}, 'The weather moves by region, and so do swings. '), `Compared across the state, booths on a hot election day swung ${sp(NH.election_fe_only.hot.est)} points to the government against the opposition (p = ${NH.election_fe_only.hot.p}): four in five were in northern Victoria and none in Melbourne, on days when the north was swinging its own way. Within the same district, ${sp(NH.within_district.hot.est)} (p = ${NH.within_district.hot.p}).`),
+        h('li', {}, h('b', {}, 'Every seat shares one sky. '), `Counted seat by seat (${fmt(PR.seat_elections)} seat-elections), Mercury retrograde looks worth ${sp(PR.coef)} points to the government, with a p-value of about ${PR.p_naive.toExponential(0).replace('e-', ' × 10^-')}. But there were only thirteen skies, not seven hundred.`),
+        h('li', {}, h('b', {}, 'Few groups make even the textbook fix overconfident. '), `Allowing for seats moving together within an election should cure that, and for one planet it still says p = ${S.pseudo_replication['Jupiter in a fire or air sign'].p_clustered}. With only thirteen elections the correction itself is unreliable; shuffling the elections says p = ${best.p}. The footy win did the same: p = 0.05 by the usual method, ${R.p_permutation} when shuffled.`),
+        h('li', {}, h('b', {}, 'Test enough things and something will "work". '), `Every test run is reported here, ${S.n_tests + (S.moon_by_party ? S.moon_by_party.n_tests : 0)} for the sky alone, and judged together.`))));
 }
 async function renderPrefs() {
   renderModel();

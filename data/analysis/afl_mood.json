@@ -1,0 +1,3863 @@
+{
+ "about": "Footy and mood: when a club is going well, do particular groups swing towards (or away from) the government?\n(the afl question in analysis/questions.json, second pass; supporters are spread across the state, so this works\nacross elections rather than across home areas)",
+ "elections": [
+  "fed2007",
+  "fed2010",
+  "fed2013",
+  "fed2016",
+  "fed2019",
+  "fed2022",
+  "fed2025",
+  "vic2010",
+  "vic2014",
+  "vic2018",
+  "vic2022"
+ ],
+ "groups": [
+  "Adults 18-34",
+  "Adults 55+",
+  "Degree",
+  "Trade certificate",
+  "Other language at home",
+  "No religion",
+  "Renting",
+  "Flats and apartments"
+ ],
+ "form": {
+  "fed2007": {
+   "Carlton": 0.18181818181818182,
+   "Collingwood": 0.6,
+   "Essendon": 0.45454545454545453,
+   "Geelong": 0.84,
+   "Hawthorn": 0.5833333333333334,
+   "Melbourne": 0.22727272727272727,
+   "North Melbourne": 0.6,
+   "Richmond": 0.13636363636363635,
+   "St Kilda": 0.5,
+   "Western Bulldogs": 0.4090909090909091,
+   "Adelaide": 0.5217391304347826,
+   "Brisbane Lions": 0.4090909090909091,
+   "Fremantle": 0.45454545454545453,
+   "Port Adelaide": 0.68,
+   "Sydney": 0.5217391304347826,
+   "West Coast": 0.625
+  },
+  "fed2010": {
+   "Carlton": 0.5238095238095238,
+   "Collingwood": 0.8,
+   "Essendon": 0.35,
+   "Geelong": 0.7619047619047619,
+   "Hawthorn": 0.5,
+   "Melbourne": 0.4,
+   "North Melbourne": 0.45,
+   "Richmond": 0.3,
+   "St Kilda": 0.7,
+   "Western Bulldogs": 0.65,
+   "Adelaide": 0.4,
+   "Brisbane Lions": 0.3,
+   "Fremantle": 0.6,
+   "Port Adelaide": 0.4,
+   "Sydney": 0.55,
+   "West Coast": 0.2
+  },
+  "fed2013": {
+   "Carlton": 0.5,
+   "Collingwood": 0.6363636363636364,
+   "Essendon": 0.6363636363636364,
+   "Geelong": 0.8181818181818182,
+   "Hawthorn": 0.8695652173913043,
+   "Melbourne": 0.09090909090909091,
+   "North Melbourne": 0.45454545454545453,
+   "Richmond": 0.6818181818181818,
+   "St Kilda": 0.22727272727272727,
+   "Western Bulldogs": 0.36363636363636365,
+   "Adelaide": 0.45454545454545453,
+   "Brisbane Lions": 0.45454545454545453,
+   "Fremantle": 0.7272727272727273,
+   "Port Adelaide": 0.5454545454545454,
+   "Sydney": 0.6521739130434783,
+   "West Coast": 0.4090909090909091
+  },
+  "fed2016": {
+   "Carlton": 0.46153846153846156,
+   "Collingwood": 0.38461538461538464,
+   "Essendon": 0.07142857142857142,
+   "Geelong": 0.7142857142857143,
+   "Hawthorn": 0.7857142857142857,
+   "Melbourne": 0.46153846153846156,
+   "North Melbourne": 0.7142857142857143,
+   "Richmond": 0.42857142857142855,
+   "St Kilda": 0.46153846153846156,
+   "Western Bulldogs": 0.6923076923076923,
+   "Adelaide": 0.6923076923076923,
+   "Brisbane Lions": 0.07142857142857142,
+   "Fremantle": 0.21428571428571427,
+   "Port Adelaide": 0.5,
+   "Sydney": 0.7692307692307693,
+   "West Coast": 0.6428571428571429
+  },
+  "fed2019": {
+   "Carlton": 0.125,
+   "Collingwood": 0.75,
+   "Essendon": 0.375,
+   "Geelong": 0.875,
+   "Hawthorn": 0.5,
+   "Melbourne": 0.3333333333333333,
+   "North Melbourne": 0.25,
+   "Richmond": 0.625,
+   "St Kilda": 0.5,
+   "Western Bulldogs": 0.5,
+   "Adelaide": 0.625,
+   "Brisbane Lions": 0.625,
+   "Fremantle": 0.5,
+   "Port Adelaide": 0.5,
+   "Sydney": 0.25,
+   "West Coast": 0.6666666666666666
+  },
+  "fed2022": {
+   "Carlton": 0.8,
+   "Collingwood": 0.4444444444444444,
+   "Essendon": 0.2222222222222222,
+   "Geelong": 0.5555555555555556,
+   "Hawthorn": 0.3333333333333333,
+   "Melbourne": 1.0,
+   "North Melbourne": 0.1111111111111111,
+   "Richmond": 0.5555555555555556,
+   "St Kilda": 0.6666666666666666,
+   "Western Bulldogs": 0.4444444444444444,
+   "Adelaide": 0.3333333333333333,
+   "Brisbane Lions": 0.8888888888888888,
+   "Fremantle": 0.7777777777777778,
+   "Port Adelaide": 0.4444444444444444,
+   "Sydney": 0.6,
+   "West Coast": 0.1111111111111111
+  },
+  "fed2025": {
+   "Carlton": 0.42857142857142855,
+   "Collingwood": 0.8571428571428571,
+   "Essendon": 0.5714285714285714,
+   "Geelong": 0.5714285714285714,
+   "Hawthorn": 0.7142857142857143,
+   "Melbourne": 0.2857142857142857,
+   "North Melbourne": 0.125,
+   "Richmond": 0.2857142857142857,
+   "St Kilda": 0.5,
+   "Western Bulldogs": 0.5714285714285714,
+   "Adelaide": 0.5714285714285714,
+   "Brisbane Lions": 0.8571428571428571,
+   "Fremantle": 0.5,
+   "Port Adelaide": 0.5714285714285714,
+   "Sydney": 0.2857142857142857,
+   "West Coast": 0.0
+  },
+  "vic2010": {
+   "Carlton": 0.4782608695652174,
+   "Collingwood": 0.7692307692307693,
+   "Essendon": 0.3181818181818182,
+   "Geelong": 0.72,
+   "Hawthorn": 0.5217391304347826,
+   "Melbourne": 0.36363636363636365,
+   "North Melbourne": 0.5,
+   "Richmond": 0.2727272727272727,
+   "St Kilda": 0.6538461538461539,
+   "Western Bulldogs": 0.6,
+   "Adelaide": 0.4090909090909091,
+   "Brisbane Lions": 0.3181818181818182,
+   "Fremantle": 0.5833333333333334,
+   "Port Adelaide": 0.45454545454545453,
+   "Sydney": 0.5833333333333334,
+   "West Coast": 0.18181818181818182
+  },
+  "vic2014": {
+   "Carlton": 0.3181818181818182,
+   "Collingwood": 0.5,
+   "Essendon": 0.5217391304347826,
+   "Geelong": 0.7083333333333334,
+   "Hawthorn": 0.8,
+   "Melbourne": 0.18181818181818182,
+   "North Melbourne": 0.64,
+   "Richmond": 0.5217391304347826,
+   "St Kilda": 0.18181818181818182,
+   "Western Bulldogs": 0.3181818181818182,
+   "Adelaide": 0.5,
+   "Brisbane Lions": 0.3181818181818182,
+   "Fremantle": 0.6666666666666666,
+   "Port Adelaide": 0.64,
+   "Sydney": 0.76,
+   "West Coast": 0.5
+  },
+  "vic2018": {
+   "Carlton": 0.09090909090909091,
+   "Collingwood": 0.6538461538461539,
+   "Essendon": 0.5454545454545454,
+   "Geelong": 0.5652173913043478,
+   "Hawthorn": 0.625,
+   "Melbourne": 0.64,
+   "North Melbourne": 0.5454545454545454,
+   "Richmond": 0.7916666666666666,
+   "St Kilda": 0.18181818181818182,
+   "Western Bulldogs": 0.36363636363636365,
+   "Adelaide": 0.5454545454545454,
+   "Brisbane Lions": 0.22727272727272727,
+   "Fremantle": 0.36363636363636365,
+   "Port Adelaide": 0.5454545454545454,
+   "Sydney": 0.6086956521739131,
+   "West Coast": 0.76
+  },
+  "vic2022": {
+   "Carlton": 0.5454545454545454,
+   "Collingwood": 0.68,
+   "Essendon": 0.3181818181818182,
+   "Geelong": 0.84,
+   "Hawthorn": 0.36363636363636365,
+   "Melbourne": 0.6666666666666666,
+   "North Melbourne": 0.09090909090909091,
+   "Richmond": 0.5652173913043478,
+   "St Kilda": 0.5,
+   "Western Bulldogs": 0.5217391304347826,
+   "Adelaide": 0.36363636363636365,
+   "Brisbane Lions": 0.68,
+   "Fremantle": 0.6666666666666666,
+   "Port Adelaide": 0.45454545454545453,
+   "Sydney": 0.72,
+   "West Coast": 0.09090909090909091
+  }
+ },
+ "summary": {
+  "victorian": {
+   "pairs": 240,
+   "p_below_05": 22,
+   "share_below_05": 0.092,
+   "mean_abs_r": 0.302
+  },
+  "interstate": {
+   "pairs": 144,
+   "p_below_05": 8,
+   "share_below_05": 0.056,
+   "mean_abs_r": 0.269
+  }
+ },
+ "top_victorian": [
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.87,
+   "p": 0.0006,
+   "elections": 11,
+   "q": 0.144
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.844,
+   "p": 0.002,
+   "elections": 11,
+   "q": 0.17600000000000002
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": -0.82,
+   "p": 0.0022,
+   "elections": 11,
+   "q": 0.17600000000000002
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": 0.8,
+   "p": 0.0034,
+   "elections": 11,
+   "q": 0.204
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": 0.758,
+   "p": 0.0068,
+   "elections": 11,
+   "q": 0.252
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.718,
+   "p": 0.0076,
+   "elections": 11,
+   "q": 0.252
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": -0.73,
+   "p": 0.0082,
+   "elections": 11,
+   "q": 0.252
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": -0.772,
+   "p": 0.0084,
+   "elections": 11,
+   "q": 0.252
+  }
+ ],
+ "top_interstate": [
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.81,
+   "p": 0.0018,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.694,
+   "p": 0.0136,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": 0.679,
+   "p": 0.0174,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": 0.69,
+   "p": 0.0196,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.673,
+   "p": 0.021,
+   "elections": 11
+  }
+ ],
+ "surviving_fdr": [],
+ "all": [
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": 0.269,
+   "p": 0.4172,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": 0.213,
+   "p": 0.5252,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": -0.2,
+   "p": 0.5454,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": 0.172,
+   "p": 0.608,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.019,
+   "p": 0.955,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": -0.174,
+   "p": 0.6126,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": -0.407,
+   "p": 0.2118,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": 0.232,
+   "p": 0.4904,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": -0.287,
+   "p": 0.3988,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.02,
+   "p": 0.9524,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": -0.428,
+   "p": 0.1846,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": -0.702,
+   "p": 0.0178,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": 0.139,
+   "p": 0.6902,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": 0.602,
+   "p": 0.0532,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": 0.435,
+   "p": 0.1866,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": -0.283,
+   "p": 0.402,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": 0.282,
+   "p": 0.3968,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": 0.36,
+   "p": 0.2858,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": 0.061,
+   "p": 0.8646,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": 0.107,
+   "p": 0.7574,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": -0.395,
+   "p": 0.2166,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": -0.62,
+   "p": 0.0456,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": 0.506,
+   "p": 0.1124,
+   "elections": 11
+  },
+  {
+   "club": "Carlton",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": -0.39,
+   "p": 0.2306,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.87,
+   "p": 0.0006,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": -0.404,
+   "p": 0.2208,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": 0.001,
+   "p": 0.9986,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.616,
+   "p": 0.0504,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": -0.126,
+   "p": 0.707,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.709,
+   "p": 0.0174,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.304,
+   "p": 0.3798,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.289,
+   "p": 0.3942,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": 0.729,
+   "p": 0.0158,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": 0.556,
+   "p": 0.0626,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": 0.004,
+   "p": 0.9944,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": 0.424,
+   "p": 0.1902,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": -0.249,
+   "p": 0.4612,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": -0.238,
+   "p": 0.4694,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.238,
+   "p": 0.496,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": -0.07,
+   "p": 0.8364,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": -0.488,
+   "p": 0.1304,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": 0.395,
+   "p": 0.2214,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": 0.466,
+   "p": 0.1522,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": 0.513,
+   "p": 0.1138,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": 0.154,
+   "p": 0.6648,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.266,
+   "p": 0.4274,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.123,
+   "p": 0.7104,
+   "elections": 11
+  },
+  {
+   "club": "Collingwood",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": 0.283,
+   "p": 0.3996,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.452,
+   "p": 0.1636,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": -0.084,
+   "p": 0.8134,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": 0.197,
+   "p": 0.5518,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.183,
+   "p": 0.5912,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.449,
+   "p": 0.164,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.407,
+   "p": 0.2134,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.302,
+   "p": 0.3642,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.164,
+   "p": 0.627,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": 0.244,
+   "p": 0.4796,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.084,
+   "p": 0.8138,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": 0.302,
+   "p": 0.3754,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": 0.064,
+   "p": 0.8578,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": -0.039,
+   "p": 0.911,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": -0.369,
+   "p": 0.2568,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.085,
+   "p": 0.7956,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": -0.221,
+   "p": 0.517,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": -0.118,
+   "p": 0.7398,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.266,
+   "p": 0.4448,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": -0.006,
+   "p": 0.9846,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": -0.401,
+   "p": 0.2332,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": 0.369,
+   "p": 0.2522,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.48,
+   "p": 0.1302,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.844,
+   "p": 0.002,
+   "elections": 11
+  },
+  {
+   "club": "Essendon",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": 0.628,
+   "p": 0.0392,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.178,
+   "p": 0.5898,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": -0.188,
+   "p": 0.6274,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": -0.43,
+   "p": 0.1778,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.573,
+   "p": 0.0678,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.048,
+   "p": 0.8848,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.249,
+   "p": 0.4552,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.189,
+   "p": 0.5994,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": 0.066,
+   "p": 0.845,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": 0.349,
+   "p": 0.2822,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": 0.268,
+   "p": 0.4724,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": -0.214,
+   "p": 0.5458,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": 0.228,
+   "p": 0.5054,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": 0.053,
+   "p": 0.8718,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": -0.329,
+   "p": 0.3058,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.416,
+   "p": 0.2022,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": 0.527,
+   "p": 0.0938,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": 0.18,
+   "p": 0.5954,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.28,
+   "p": 0.4042,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": 0.265,
+   "p": 0.4254,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": 0.299,
+   "p": 0.3704,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": 0.58,
+   "p": 0.0576,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.521,
+   "p": 0.0958,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.118,
+   "p": 0.734,
+   "elections": 11
+  },
+  {
+   "club": "Geelong",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": -0.264,
+   "p": 0.4228,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.061,
+   "p": 0.854,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": 0.207,
+   "p": 0.583,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": -0.257,
+   "p": 0.439,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.087,
+   "p": 0.8056,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.687,
+   "p": 0.0206,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.068,
+   "p": 0.84,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.718,
+   "p": 0.0076,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.572,
+   "p": 0.0628,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": -0.232,
+   "p": 0.4842,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.305,
+   "p": 0.3998,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": 0.35,
+   "p": 0.3002,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": -0.07,
+   "p": 0.8448,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": 0.162,
+   "p": 0.6394,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": 0.112,
+   "p": 0.7326,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.234,
+   "p": 0.5058,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": -0.108,
+   "p": 0.7546,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": -0.132,
+   "p": 0.703,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.45,
+   "p": 0.163,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": -0.599,
+   "p": 0.0444,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": -0.604,
+   "p": 0.048,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": 0.699,
+   "p": 0.011,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.158,
+   "p": 0.6306,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.404,
+   "p": 0.2188,
+   "elections": 11
+  },
+  {
+   "club": "Hawthorn",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": -0.149,
+   "p": 0.667,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": 0.363,
+   "p": 0.2766,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": -0.073,
+   "p": 0.822,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": 0.496,
+   "p": 0.1188,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": 0.464,
+   "p": 0.1392,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": -0.604,
+   "p": 0.0436,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": -0.529,
+   "p": 0.0876,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": -0.772,
+   "p": 0.0084,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": 0.595,
+   "p": 0.0548,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": -0.087,
+   "p": 0.8046,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.026,
+   "p": 0.9356,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": -0.084,
+   "p": 0.7956,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": -0.1,
+   "p": 0.7612,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": -0.086,
+   "p": 0.8042,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": 0.072,
+   "p": 0.8398,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": 0.337,
+   "p": 0.2982,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": 0.045,
+   "p": 0.9002,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": -0.003,
+   "p": 0.9928,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": 0.342,
+   "p": 0.317,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": 0.355,
+   "p": 0.277,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": 0.263,
+   "p": 0.4306,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": -0.82,
+   "p": 0.0022,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": -0.387,
+   "p": 0.2462,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": 0.568,
+   "p": 0.0606,
+   "elections": 11
+  },
+  {
+   "club": "Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": 0.113,
+   "p": 0.7358,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": 0.393,
+   "p": 0.2254,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": 0.198,
+   "p": 0.6276,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": -0.437,
+   "p": 0.1744,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": 0.325,
+   "p": 0.329,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.156,
+   "p": 0.6532,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": -0.342,
+   "p": 0.2964,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.285,
+   "p": 0.4054,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.159,
+   "p": 0.6414,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": -0.221,
+   "p": 0.5044,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.21,
+   "p": 0.6074,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": 0.355,
+   "p": 0.2716,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": 0.106,
+   "p": 0.7582,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": -0.28,
+   "p": 0.4002,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": -0.012,
+   "p": 0.9726,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.44,
+   "p": 0.1844,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": 0.317,
+   "p": 0.3466,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": 0.174,
+   "p": 0.5998,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.288,
+   "p": 0.3954,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": -0.73,
+   "p": 0.0082,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": -0.492,
+   "p": 0.1272,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": 0.328,
+   "p": 0.3398,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": -0.065,
+   "p": 0.8524,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.186,
+   "p": 0.5892,
+   "elections": 11
+  },
+  {
+   "club": "North Melbourne",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": -0.386,
+   "p": 0.2508,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.065,
+   "p": 0.8552,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": 0.035,
+   "p": 0.9348,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": 0.758,
+   "p": 0.0068,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.03,
+   "p": 0.9334,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": -0.155,
+   "p": 0.6508,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": -0.194,
+   "p": 0.5662,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": -0.229,
+   "p": 0.5036,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": 0.476,
+   "p": 0.1328,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": 0.284,
+   "p": 0.39,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.389,
+   "p": 0.2548,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": 0.07,
+   "p": 0.8406,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": 0.299,
+   "p": 0.3756,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": 0.108,
+   "p": 0.7436,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": -0.606,
+   "p": 0.055,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.188,
+   "p": 0.5928,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": 0.279,
+   "p": 0.4058,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": -0.383,
+   "p": 0.248,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.577,
+   "p": 0.0636,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": 0.369,
+   "p": 0.265,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": -0.177,
+   "p": 0.5984,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": 0.017,
+   "p": 0.9688,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.498,
+   "p": 0.1204,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.017,
+   "p": 0.9626,
+   "elections": 11
+  },
+  {
+   "club": "Richmond",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": 0.408,
+   "p": 0.2168,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.029,
+   "p": 0.9238,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": -0.184,
+   "p": 0.609,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": -0.313,
+   "p": 0.3358,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.071,
+   "p": 0.8352,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": -0.436,
+   "p": 0.183,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.105,
+   "p": 0.7568,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": -0.31,
+   "p": 0.3622,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.025,
+   "p": 0.9368,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": 0.029,
+   "p": 0.9354,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": 0.532,
+   "p": 0.078,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": -0.509,
+   "p": 0.1118,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": -0.1,
+   "p": 0.7748,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": -0.006,
+   "p": 0.9864,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": 0.429,
+   "p": 0.1814,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": 0.348,
+   "p": 0.2938,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": -0.183,
+   "p": 0.5844,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": 0.131,
+   "p": 0.6936,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": 0.715,
+   "p": 0.014,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": 0.226,
+   "p": 0.501,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": 0.581,
+   "p": 0.0622,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": -0.425,
+   "p": 0.1858,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": -0.548,
+   "p": 0.0846,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": 0.556,
+   "p": 0.077,
+   "elections": 11
+  },
+  {
+   "club": "St Kilda",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": -0.31,
+   "p": 0.3566,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.193,
+   "p": 0.5528,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": -0.2,
+   "p": 0.6104,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": -0.448,
+   "p": 0.1584,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.283,
+   "p": 0.4018,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": -0.321,
+   "p": 0.342,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.059,
+   "p": 0.8588,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.238,
+   "p": 0.5058,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.375,
+   "p": 0.2582,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": 0.152,
+   "p": 0.6506,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": 0.485,
+   "p": 0.1176,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": -0.153,
+   "p": 0.6588,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": 0.136,
+   "p": 0.6954,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": -0.127,
+   "p": 0.7052,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": 0.453,
+   "p": 0.1602,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.129,
+   "p": 0.7168,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": 0.093,
+   "p": 0.7844,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": -0.347,
+   "p": 0.297,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": 0.622,
+   "p": 0.0436,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": 0.082,
+   "p": 0.8218,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": 0.665,
+   "p": 0.0286,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": -0.037,
+   "p": 0.9226,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": -0.423,
+   "p": 0.1972,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": 0.8,
+   "p": 0.0034,
+   "elections": 11
+  },
+  {
+   "club": "Western Bulldogs",
+   "interstate": false,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": -0.67,
+   "p": 0.0238,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.157,
+   "p": 0.6242,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": -0.091,
+   "p": 0.8152,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": 0.006,
+   "p": 0.9852,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.229,
+   "p": 0.4972,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.182,
+   "p": 0.5944,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.059,
+   "p": 0.8616,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.694,
+   "p": 0.0136,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.673,
+   "p": 0.021,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": -0.114,
+   "p": 0.7262,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.042,
+   "p": 0.9076,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": 0.283,
+   "p": 0.3892,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": 0.47,
+   "p": 0.1398,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": 0.27,
+   "p": 0.4166,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": -0.041,
+   "p": 0.9074,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.186,
+   "p": 0.5926,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": 0.034,
+   "p": 0.9232,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": -0.425,
+   "p": 0.1808,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.292,
+   "p": 0.3864,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": -0.301,
+   "p": 0.36,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": -0.121,
+   "p": 0.7186,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": 0.534,
+   "p": 0.0896,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.265,
+   "p": 0.427,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.058,
+   "p": 0.86,
+   "elections": 11
+  },
+  {
+   "club": "Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": -0.066,
+   "p": 0.8528,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": -0.264,
+   "p": 0.4244,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": -0.075,
+   "p": 0.8332,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": 0.395,
+   "p": 0.234,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.206,
+   "p": 0.5262,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.089,
+   "p": 0.796,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.376,
+   "p": 0.2506,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": -0.254,
+   "p": 0.4652,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": 0.038,
+   "p": 0.917,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": -0.065,
+   "p": 0.8492,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": 0.088,
+   "p": 0.821,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": -0.398,
+   "p": 0.2258,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": -0.295,
+   "p": 0.3756,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": 0.479,
+   "p": 0.1364,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": 0.135,
+   "p": 0.679,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": 0.679,
+   "p": 0.0174,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": -0.57,
+   "p": 0.0684,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": 0.067,
+   "p": 0.8372,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": 0.172,
+   "p": 0.6124,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": 0.504,
+   "p": 0.1184,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": 0.206,
+   "p": 0.5384,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": -0.282,
+   "p": 0.3986,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.009,
+   "p": 0.9782,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.079,
+   "p": 0.8122,
+   "elections": 11
+  },
+  {
+   "club": "Brisbane Lions",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": 0.492,
+   "p": 0.1296,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": 0.023,
+   "p": 0.9442,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": 0.322,
+   "p": 0.3154,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": 0.106,
+   "p": 0.7552,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": -0.005,
+   "p": 0.9894,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.123,
+   "p": 0.7246,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.266,
+   "p": 0.433,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": -0.445,
+   "p": 0.1704,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": 0.479,
+   "p": 0.1418,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": 0.006,
+   "p": 0.986,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.215,
+   "p": 0.5172,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": -0.547,
+   "p": 0.089,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": -0.491,
+   "p": 0.1232,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": 0.122,
+   "p": 0.7134,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": -0.061,
+   "p": 0.8664,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": 0.338,
+   "p": 0.3062,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": -0.299,
+   "p": 0.376,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": 0.418,
+   "p": 0.2012,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.115,
+   "p": 0.7388,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": 0.248,
+   "p": 0.4554,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": -0.091,
+   "p": 0.8026,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": -0.256,
+   "p": 0.4458,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.035,
+   "p": 0.9144,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.212,
+   "p": 0.5332,
+   "elections": 11
+  },
+  {
+   "club": "Fremantle",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": 0.215,
+   "p": 0.5228,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": 0.158,
+   "p": 0.6416,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": 0.131,
+   "p": 0.7038,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": -0.075,
+   "p": 0.824,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": 0.163,
+   "p": 0.6262,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.643,
+   "p": 0.035,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": 0.061,
+   "p": 0.8582,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.381,
+   "p": 0.2516,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.334,
+   "p": 0.3198,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": -0.433,
+   "p": 0.1906,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.293,
+   "p": 0.3924,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": 0.406,
+   "p": 0.2172,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": -0.158,
+   "p": 0.6656,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": 0.191,
+   "p": 0.5784,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": -0.021,
+   "p": 0.9534,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": 0.082,
+   "p": 0.8226,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": -0.206,
+   "p": 0.5448,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": 0.346,
+   "p": 0.3058,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.42,
+   "p": 0.1928,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": -0.493,
+   "p": 0.1206,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": -0.609,
+   "p": 0.047,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": 0.386,
+   "p": 0.2378,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.263,
+   "p": 0.4362,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.81,
+   "p": 0.0018,
+   "elections": 11
+  },
+  {
+   "club": "Port Adelaide",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": 0.31,
+   "p": 0.353,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": 0.69,
+   "p": 0.0196,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": 0.374,
+   "p": 0.2474,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": -0.247,
+   "p": 0.4698,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": 0.504,
+   "p": 0.125,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": 0.095,
+   "p": 0.7902,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": -0.654,
+   "p": 0.0296,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": -0.252,
+   "p": 0.4484,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": 0.503,
+   "p": 0.1172,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": -0.295,
+   "p": 0.3712,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.44,
+   "p": 0.18,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": 0.259,
+   "p": 0.434,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": -0.448,
+   "p": 0.1504,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": -0.329,
+   "p": 0.3274,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": 0.129,
+   "p": 0.704,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.318,
+   "p": 0.3366,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": 0.458,
+   "p": 0.1478,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": 0.383,
+   "p": 0.243,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.212,
+   "p": 0.5334,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": -0.329,
+   "p": 0.3172,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": -0.264,
+   "p": 0.4336,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": -0.117,
+   "p": 0.7148,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": -0.215,
+   "p": 0.5168,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": 0.219,
+   "p": 0.512,
+   "elections": 11
+  },
+  {
+   "club": "Sydney",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": -0.519,
+   "p": 0.101,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 18-34",
+   "r": 0.195,
+   "p": 0.5466,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Adults 55+",
+   "r": -0.086,
+   "p": 0.8686,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Degree",
+   "r": 0.142,
+   "p": 0.6592,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Trade certificate",
+   "r": 0.121,
+   "p": 0.716,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Other language at home",
+   "r": -0.066,
+   "p": 0.8462,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "No religion",
+   "r": -0.31,
+   "p": 0.3506,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Renting",
+   "r": 0.156,
+   "p": 0.6816,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_lab_coal",
+   "group": "Flats and apartments",
+   "r": -0.02,
+   "p": 0.956,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 18-34",
+   "r": -0.013,
+   "p": 0.9656,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Adults 55+",
+   "r": -0.179,
+   "p": 0.6912,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Degree",
+   "r": 0.313,
+   "p": 0.3442,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Trade certificate",
+   "r": 0.532,
+   "p": 0.103,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Other language at home",
+   "r": 0.015,
+   "p": 0.9632,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "No religion",
+   "r": -0.478,
+   "p": 0.1336,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Renting",
+   "r": -0.337,
+   "p": 0.3354,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_gov_opp",
+   "group": "Flats and apartments",
+   "r": 0.411,
+   "p": 0.214,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 18-34",
+   "r": -0.08,
+   "p": 0.8146,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Adults 55+",
+   "r": -0.554,
+   "p": 0.0768,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Degree",
+   "r": -0.279,
+   "p": 0.4092,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Trade certificate",
+   "r": -0.389,
+   "p": 0.2348,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Other language at home",
+   "r": 0.366,
+   "p": 0.2912,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "No religion",
+   "r": 0.405,
+   "p": 0.21,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Renting",
+   "r": -0.303,
+   "p": 0.3472,
+   "elections": 11
+  },
+  {
+   "club": "West Coast",
+   "interstate": true,
+   "outcome": "d_inc",
+   "group": "Flats and apartments",
+   "r": 0.125,
+   "p": 0.7142,
+   "elections": 11
+  }
+ ],
+ "joint_shuffle": {
+  "victorian": {
+   "clubs": 10,
+   "pairs": 240,
+   "hits": 24,
+   "null_mean": 11.7,
+   "null_95th": 20,
+   "p": 0.01
+  },
+  "interstate": {
+   "clubs": 6,
+   "pairs": 144,
+   "hits": 8,
+   "null_mean": 7.1,
+   "null_95th": 14,
+   "p": 0.406
+  },
+  "r_threshold": 0.602,
+  "note": "all clubs' seasons shuffled together across elections; hits = club x group x contrast pairs with |r| above the p<0.05 threshold"
+ },
+ "joint_shuffle_within_level": {
+  "victorian": {
+   "hits": 17,
+   "null_mean": 11.9,
+   "null_95th": 19,
+   "p": 0.132
+  },
+  "interstate": {
+   "hits": 7,
+   "null_mean": 7.2,
+   "null_95th": 14,
+   "p": 0.534
+  },
+  "note": "state v federal means removed from form and swings; seasons shuffled only among elections of the same level"
+ }
+}

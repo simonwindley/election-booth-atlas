@@ -39,3 +39,12 @@ raw/national/
 
 # BOM daily station data (re-downloadable with tools/fetch_bom.py)
 raw/weather/
+
+# AFL results from the Squiggle API (re-downloadable with tools/fetch_afl.py)
+raw/afl/
+
+# economic and local data (re-downloadable with tools/fetch_econ.py)
+raw/econ/
+
+# national census-by-booth profiles (rebuild: python3 -m src.national_census_booths)
+data/national/census_booths/

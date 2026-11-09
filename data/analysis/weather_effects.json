@@ -1,0 +1,421 @@
+{
+ "about": "Election-day weather and the vote (the weather question in analysis/questions.json).",
+ "venue_elections": 21371,
+ "venues": 2747,
+ "median_station_km": 4.5,
+ "statewide": [
+  {
+   "election": "fed2004",
+   "wet_share": 0.005,
+   "heavy_share": 0.0,
+   "rain_mm": 0.0,
+   "tmax": 17.4,
+   "tmax_anom": -1.3,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 0.96,
+   "tmax_30d_anom": -1.2
+  },
+  {
+   "election": "fed2007",
+   "wet_share": 0.0,
+   "heavy_share": 0.0,
+   "rain_mm": 0.0,
+   "tmax": 23.8,
+   "tmax_anom": 0.3,
+   "hot_share": 0.097,
+   "rain_30d_ratio": 1.14,
+   "tmax_30d_anom": 1.6
+  },
+  {
+   "election": "fed2010",
+   "wet_share": 0.309,
+   "heavy_share": 0.0,
+   "rain_mm": 0.7,
+   "tmax": 13.9,
+   "tmax_anom": -1.4,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 1.6,
+   "tmax_30d_anom": -1.1
+  },
+  {
+   "election": "fed2013",
+   "wet_share": 0.06,
+   "heavy_share": 0.0,
+   "rain_mm": 0.2,
+   "tmax": 17.9,
+   "tmax_anom": 1.7,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 0.91,
+   "tmax_30d_anom": 1.4
+  },
+  {
+   "election": "fed2016",
+   "wet_share": 0.043,
+   "heavy_share": 0.0,
+   "rain_mm": 0.1,
+   "tmax": 14.9,
+   "tmax_anom": 1.7,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 1.52,
+   "tmax_30d_anom": -0.7
+  },
+  {
+   "election": "fed2019",
+   "wet_share": 0.001,
+   "heavy_share": 0.0,
+   "rain_mm": 0.0,
+   "tmax": 20.4,
+   "tmax_anom": 4.0,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 0.99,
+   "tmax_30d_anom": 0.3
+  },
+  {
+   "election": "fed2022",
+   "wet_share": 0.001,
+   "heavy_share": 0.0,
+   "rain_mm": 0.0,
+   "tmax": 16.0,
+   "tmax_anom": -0.2,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 0.87,
+   "tmax_30d_anom": -0.2
+  },
+  {
+   "election": "fed2025",
+   "wet_share": 0.009,
+   "heavy_share": 0.0,
+   "rain_mm": 0.0,
+   "tmax": 21.1,
+   "tmax_anom": 2.8,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 0.44,
+   "tmax_30d_anom": 2.7
+  },
+  {
+   "election": "vic2002",
+   "wet_share": 0.31,
+   "heavy_share": 0.028,
+   "rain_mm": 1.2,
+   "tmax": 17.4,
+   "tmax_anom": -7.2,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 0.34,
+   "tmax_30d_anom": 0.9
+  },
+  {
+   "election": "vic2006",
+   "wet_share": 0.0,
+   "heavy_share": 0.0,
+   "rain_mm": 0.0,
+   "tmax": 22.9,
+   "tmax_anom": -1.3,
+   "hot_share": 0.114,
+   "rain_30d_ratio": 0.56,
+   "tmax_30d_anom": -0.5
+  },
+  {
+   "election": "vic2010",
+   "wet_share": 0.998,
+   "heavy_share": 0.972,
+   "rain_mm": 25.9,
+   "tmax": 22.6,
+   "tmax_anom": -1.4,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 2.05,
+   "tmax_30d_anom": -0.0
+  },
+  {
+   "election": "vic2014",
+   "wet_share": 0.027,
+   "heavy_share": 0.001,
+   "rain_mm": 0.2,
+   "tmax": 27.1,
+   "tmax_anom": 3.1,
+   "hot_share": 0.115,
+   "rain_30d_ratio": 0.82,
+   "tmax_30d_anom": 1.0
+  },
+  {
+   "election": "vic2018",
+   "wet_share": 0.149,
+   "heavy_share": 0.024,
+   "rain_mm": 0.7,
+   "tmax": 17.4,
+   "tmax_anom": -6.4,
+   "hot_share": 0.0,
+   "rain_30d_ratio": 1.16,
+   "tmax_30d_anom": 0.8
+  },
+  {
+   "election": "vic2022",
+   "wet_share": 0.433,
+   "heavy_share": 0.0,
+   "rain_mm": 1.1,
+   "tmax": 26.7,
+   "tmax_anom": 4.0,
+   "hot_share": 0.026,
+   "rain_30d_ratio": 2.16,
+   "tmax_30d_anom": -2.7
+  }
+ ],
+ "within_district_sd": {
+  "rain_mm": 0.62,
+  "tmax": 0.59
+ },
+ "effects": {
+  "log_votes": {
+   "rain_mm": {
+    "est": -0.001,
+    "lo": -0.002,
+    "hi": 0.001,
+    "p": 0.339
+   },
+   "tmax": {
+    "est": -0.004,
+    "lo": -0.009,
+    "hi": 0.001,
+    "p": 0.125
+   },
+   "n": 21371
+  },
+  "informal": {
+   "rain_mm": {
+    "est": 0.004,
+    "lo": -0.006,
+    "hi": 0.013,
+    "p": 0.464
+   },
+   "tmax": {
+    "est": -0.004,
+    "lo": -0.03,
+    "hi": 0.023,
+    "p": 0.788
+   },
+   "n": 21371
+  },
+  "gov_opp": {
+   "rain_mm": {
+    "est": 0.047,
+    "lo": -0.09,
+    "hi": 0.183,
+    "p": 0.503
+   },
+   "tmax": {
+    "est": 0.095,
+    "lo": -0.487,
+    "hi": 0.676,
+    "p": 0.75
+   },
+   "n": 21371
+  },
+  "lab_coal": {
+   "rain_mm": {
+    "est": -0.033,
+    "lo": -0.098,
+    "hi": 0.032,
+    "p": 0.314
+   },
+   "tmax": {
+    "est": 0.04,
+    "lo": -0.126,
+    "hi": 0.206,
+    "p": 0.635
+   },
+   "n": 21371
+  },
+  "gov_sh": {
+   "rain_mm": {
+    "est": 0.02,
+    "lo": -0.047,
+    "hi": 0.087,
+    "p": 0.556
+   },
+   "tmax": {
+    "est": 0.013,
+    "lo": -0.279,
+    "hi": 0.305,
+    "p": 0.931
+   },
+   "n": 21371
+  },
+  "ALP_sh": {
+   "rain_mm": {
+    "est": -0.02,
+    "lo": -0.056,
+    "hi": 0.016,
+    "p": 0.284
+   },
+   "tmax": {
+    "est": -0.014,
+    "lo": -0.11,
+    "hi": 0.082,
+    "p": 0.771
+   },
+   "n": 21371
+  },
+  "COAL_sh": {
+   "rain_mm": {
+    "est": 0.013,
+    "lo": -0.034,
+    "hi": 0.06,
+    "p": 0.575
+   },
+   "tmax": {
+    "est": -0.054,
+    "lo": -0.162,
+    "hi": 0.053,
+    "p": 0.323
+   },
+   "n": 21371
+  },
+  "GRN_sh": {
+   "rain_mm": {
+    "est": 0.016,
+    "lo": -0.003,
+    "hi": 0.036,
+    "p": 0.1
+   },
+   "tmax": {
+    "est": 0.027,
+    "lo": -0.025,
+    "hi": 0.078,
+    "p": 0.313
+   },
+   "n": 21371
+  },
+  "OTH_sh": {
+   "rain_mm": {
+    "est": -0.007,
+    "lo": -0.059,
+    "hi": 0.045,
+    "p": 0.791
+   },
+   "tmax": {
+    "est": 0.061,
+    "lo": -0.056,
+    "hi": 0.179,
+    "p": 0.307
+   },
+   "n": 21371
+  }
+ },
+ "naive_election_fe_only": {
+  "log_votes": {
+   "rain_mm": {
+    "est": -0.001,
+    "lo": -0.002,
+    "hi": 0.001,
+    "p": 0.322
+   },
+   "tmax_anom": {
+    "est": -0.005,
+    "lo": -0.009,
+    "hi": -0.002,
+    "p": 0.001
+   },
+   "n": 21371
+  },
+  "informal": {
+   "rain_mm": {
+    "est": 0.009,
+    "lo": -0.005,
+    "hi": 0.022,
+    "p": 0.218
+   },
+   "tmax_anom": {
+    "est": -0.032,
+    "lo": -0.061,
+    "hi": -0.003,
+    "p": 0.033
+   },
+   "n": 21371
+  },
+  "gov_sh": {
+   "rain_mm": {
+    "est": 0.004,
+    "lo": -0.143,
+    "hi": 0.151,
+    "p": 0.955
+   },
+   "tmax_anom": {
+    "est": 0.032,
+    "lo": -0.378,
+    "hi": 0.442,
+    "p": 0.878
+   },
+   "n": 21371
+  }
+ },
+ "naive_hot_day": {
+  "election_fe_only": {
+   "hot": {
+    "est": 13.82,
+    "lo": 3.395,
+    "hi": 24.246,
+    "p": 0.009
+   },
+   "n": 21371
+  },
+  "within_district": {
+   "hot": {
+    "est": 1.547,
+    "lo": -2.954,
+    "hi": 6.048,
+    "p": 0.5
+   },
+   "n": 21371
+  },
+  "hot_booths": 974,
+  "hot_elections": [
+   "fed2007",
+   "vic2006",
+   "vic2014",
+   "vic2022"
+  ]
+ },
+ "vic2010_deluge": {
+  "vic2002": {
+   "turnout": 93.15,
+   "informal": 3.42,
+   "on_the_day": 80.6,
+   "early": 5.3,
+   "rain_mm": 1.2
+  },
+  "vic2006": {
+   "turnout": 92.73,
+   "informal": 4.56,
+   "on_the_day": 76.8,
+   "early": 9.2,
+   "rain_mm": 0.0
+  },
+  "vic2010": {
+   "turnout": 92.96,
+   "informal": 4.96,
+   "on_the_day": 68.7,
+   "early": 16.3,
+   "rain_mm": 25.9
+  },
+  "vic2014": {
+   "turnout": 93.02,
+   "informal": 5.22,
+   "on_the_day": 58.6,
+   "early": 25.8,
+   "rain_mm": 0.2
+  },
+  "vic2018": {
+   "turnout": 90.16,
+   "informal": 5.83,
+   "on_the_day": 48.3,
+   "early": 36.8,
+   "rain_mm": 0.7
+  },
+  "vic2022": {
+   "turnout": 88.14,
+   "informal": 5.53,
+   "on_the_day": 34.8,
+   "early": 49.5,
+   "rain_mm": 1.1
+  }
+ }
+}

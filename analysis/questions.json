@@ -428,12 +428,12 @@
   {
    "id": "demographic_change",
    "group": "Demography",
-   "status": "planned",
+   "status": "done (site book live: The changing map)",
    "depends_on": [
     "boundary_effects"
    ],
    "question": "How does demographic change in a seat or booth catchment move the vote, and for which groups? Separate composition (who moved in or out, aged, died) from conversion (the same kinds of people voting differently).",
-   "headline": "",
+   "headline": "Election to election, population change barely moves the vote: held out on 2018-22, the change in a booth area's population mix explains ~1% of its swing beyond the statewide one. Over 16 years it matters more: 2006-22, composition explains 30% of the seat-to-seat spread in the Greens' gains (inner-north gentrification: Brunswick +19 pts degree-holders, +30 no religion), 13% for Labor, 3% for the Coalition. The bigger story is realignment (the same kinds of places voting differently): Labor's lead in multilingual areas has nearly halved (+0.58 to +0.31 pts per pt, state 2006-22), Labor has gained in degree-educated areas (0 to +0.15), the Coalition's edge in trade-qualified areas has halved federally (+1.1 to +0.6). Melton: population change alone should have helped Labor (+4.9) yet it fell 20 pts. No momentum: a group's swing at one election does not predict its swing at the next. Swings partly reverse (seat slope about -0.25 at state elections), but the personal-vote effects already capture it: adding reversal does not improve the backtest.",
    "triggers": [
     "census_2026",
     "results_2026"
@@ -446,7 +446,16 @@
     "AEC enrolment by age group by division (current), and VEC enrolment by district (growth to 2026)",
     "ABS building approvals / new dwellings by SA2 (where growth is landing)"
    ],
-   "caveats": "Ecological: booth-level relationships are not individual behaviour. The 2026 composition is a nowcast until the 2026 Census (mid-2027)."
+   "caveats": "Ecological: booth-level relationships are not individual behaviour. The 2026 composition is a nowcast until the 2026 Census (mid-2027).",
+   "run": [
+    "python3 -m src.demog_change",
+    "python3 -m src.export_model_findings"
+   ],
+   "outputs": [
+    "data/analysis/demog_change.json"
+   ],
+   "next": "A 2026 population nowcast (ABS population estimates, Victoria in Future) would add little to seat projections; worth it only for a descriptive 'who has moved in' map. Possible Model-page book: 'The changing map' (realignment gradients over time). Re-run after the 2026 Census (mid-2027).",
+   "page": "Model page, book \"The changing map\""
   },
   {
    "id": "member_extensions",
@@ -669,7 +678,7 @@
   {
    "id": "weather",
    "group": "Context",
-   "status": "planned",
+   "status": "done (site book: Things that don\u2019t matter)",
    "priority": "after onp_effect",
    "question": "Does election-day weather (rain, heat, wind) move turnout, informal voting, the early-vote share or the vote itself, booth by booth? And do weather patterns in the lead-up (heatwaves, fires, floods, wet spring) show up in the result?",
    "plan": "BOM daily station data (rain, max temperature) for every election day and the 4-8 weeks before, Victoria 1999-2022 state and 2004-2025 federal; each booth gets its nearest station. Compare booths on wet and dry days within the same election (within-election contrasts, so statewide mood cancels out). Outcomes: turnout, informal rate, pre-poll and postal share, swing to and from the government. Lead-up: rainfall and heat anomalies against the long-run normal by region.",
@@ -677,7 +686,25 @@
    "caveats": "Compulsory voting blunts the classic turnout effect; the likelier signals are early voting and informality. Weather is shared across neighbouring booths, so the effective sample is regions and days, not booths.",
    "triggers": [
     "results_2026"
-   ]
+   ],
+   "run": [
+    "python3 tools/fetch_silo.py",
+    "python3 -m src.weather_reduce",
+    "python3 -m src.weather_placebo",
+    "python3 -m src.weather_effects",
+    "python3 -m src.weather_mood"
+   ],
+   "inputs": [
+    "raw/weather/silo/*.csv (SILO, 681 Victorian stations, 1998-2026)"
+   ],
+   "outputs": [
+    "data/weather/stations.csv",
+    "data/weather/station_elections.csv",
+    "data/analysis/weather_effects.json"
+   ],
+   "headline": "Victorian election-day weather makes no detectable difference. Comparing booths in the same district at the same election (21,371 venue-elections, nearest station median 4.5 km): per mm of voting-hours rain, votes cast -0.1% (range -0.2 to +0.1), informal +0.004 pts, party shares within +/-0.06 pts; heat likewise. The 2010 state election, the only statewide deluge (26 mm, heavy rain at 97% of booths), shows no dip: turnout 93.0% (2006 92.7, 2014 93.0), informal 5.0% (on trend), votes on the day on trend. Election days: 2002 and 2018 were 6-7 degrees colder than normal, 2014, 2019 (fed) and 2022 about 3-4 warmer. A naive comparison (election effects only) mistakes regional swings for weather (hot booths +16 pts to the government = Mallee booths), the lesson for the fun book.",
+   "next": "Lead-up weather (30 days) cannot be tested with ~14 elections; descriptive only. Fold into a 'Things that don't matter (we checked)' book with astrology and AFL.",
+   "headline_mood": "Weather x groups on three clean margins (Labor v Coalition; government v opposition; sitting member's party), 40 placebo Saturdays per election: none of 15 weather x margin families passes its placebos (best joint p 0.33). An earlier pass on the plain government share (which mixes in third parties, and equals the Coalition share when the Coalition governs) showed two hints; both vanish on the margins."
   },
   {
    "id": "leader_sex",
@@ -711,22 +738,79 @@
   {
    "id": "astrology",
    "group": "Just for fun",
-   "status": "planned",
+   "status": "done (site book: Things that don\u2019t matter)",
    "priority": "fun, after the serious ones",
    "question": "Does the sky matter? Moon phase and moon sign on election day, Mercury retrograde, planetary positions, eclipses near the election, plus other irrelevant events: daylight saving, school holidays, Melbourne Cup and Grand Final proximity, Friday the 13th in the campaign.",
    "plan": "Compute the sky for every election date with an ephemeris (skyfield/ephem); test against swing to and from government and incumbent members. Report every test run, with a multiple-comparisons correction, as a deliberate demonstration of how easy spurious findings are.",
    "caveats": "Twenty or so elections: anything 'significant' here is a false positive by construction. The point of the book is the method (how many things we tested, what chance alone produces).",
-   "site": "A light-hearted Model page book, e.g. 'Things that don't matter (we checked)'."
+   "site": "A light-hearted Model page book, e.g. 'Things that don't matter (we checked)'.",
+   "run": [
+    "python3 -m src.astrology"
+   ],
+   "outputs": [
+    "data/analysis/astrology.json"
+   ],
+   "headline": "34 tests of the sky on 13 elections (moon, Mercury/Venus/Mars retrograde, eclipses, Friday 13th, daylight saving, Melbourne Cup): no nominal hit (chance expects ~2), none after Holm. Best: Jupiter in a fire or air sign +3.7 pts to the government (p=0.12). Pseudo-replication demo: seat-level Mercury retrograde p=1e-20, clustered 0.10; Jupiter clustered 0.013 vs permutation 0.12 (few-cluster SEs overconfident)."
   },
   {
    "id": "afl",
    "group": "Just for fun",
-   "status": "planned",
+   "status": "done (site book: Things that don\u2019t matter)",
    "priority": "fun, after the serious ones",
    "question": "Do footy results move the vote? The premiership side in the election year, ladder positions, and results in election week, especially in clubs' home areas.",
    "plan": "Victorian elections are in late November (off-season), so use that year's Grand Final result and final ladder; federal elections in May use the round of election week and the live ladder. Strongest test: Geelong, with a clear geographic home (premierships 2007, 2009, 2011, 2022, and 2022 was a Victorian election year); compare Geelong-region booths' swing to the government against similar booths elsewhere. Melbourne clubs by historical heartland (Collingwood 2010, also an election year; Richmond 2017-2020; Hawthorn 2013-15) with heavy caveats.",
    "needs": "Season results and ladders (AFL Tables or similar, fetched from Simon's Terminal).",
-   "caveats": "The US college-football study (Healy, Malhotra & Mo 2010) found a win effect on incumbents; a later re-analysis (Fowler & Montagnes 2015) argued it was probably a false positive. Treat as fun, with the same discipline as the astrology book."
+   "caveats": "The US college-football study (Healy, Malhotra & Mo 2010) found a win effect on incumbents; a later re-analysis (Fowler & Montagnes 2015) argued it was probably a false positive. Treat as fun, with the same discipline as the astrology book.",
+   "run": [
+    "python3 tools/fetch_afl.py",
+    "python3 -m src.afl_effects",
+    "python3 -m src.afl_mood"
+   ],
+   "outputs": [
+    "data/analysis/afl_effects.json"
+   ],
+   "headline": "Premiership in the club's home area: +0.2 pts government-v-opposition margin (-5.0 to +5.3); lost grand final -2.5; top four -0.6. Geelong flags: 2007 -0.4 vs state, 2022 +4.9 (ordinary years wander 3.1). In-season win in the last 10 days: +2.4 by clustered SEs (p=0.05) but +0.9, p=0.49 by randomisation.",
+   "headline_mood": "Club form x group swings on three margins, 11 elections: Victorian clubs 22/240 pairs at p<0.05, interstate placebo clubs 8/144. All-season shuffle: Victorian 24 hits v 11.7 by chance (p=0.01) but this is an artifact of mixing November state elections (whole-season form) with May federal ones (a few rounds); shuffling within level with level means removed: 17 v 11.9, p=0.13. Directions random (mean r ~0; half pro-government, half anti). Nothing survives FDR."
+  },
+  {
+   "id": "economy",
+   "group": "Economy",
+   "status": "data being fetched",
+   "question": "Do economic changes over the term move the vote, and for whom? Local changes (rents, house prices, unemployment, incomes, capital spending, level crossings) and statewide shocks (interest rates, inflation, wages, the share market) crossed with each area's exposure (mortgage share and burden, renters, retirees on investment and super income, industry of employment).",
+   "design": "Open search, no mappings chosen in advance: every available series (CPI categories, rates, labour, commodity prices, exchange rates, company prices if a provider is chosen; local rents, prices, incomes, unemployment, capital spending, level crossings), each as its change over the term, 12 months and 6 months before the election, against every census group on all three margins (Labor v Coalition; government v opposition; sitting member's party). Reliability: (1) placebo series (same-volatility random walks; real series shifted to the wrong years) run through the identical search to calibrate how many hits chance gives; (2) discover on one set of elections, confirm on another (needs the national expansion: federal booths in every state 2016-25, state elections in QLD/WA/SA at their own dates); (3) shrinkage models predicting group swings from all series at once, scored only on held-out elections; FDR on anything reported.",
+   "data": [
+    "tools/fetch_econ.py: rba, abs (CPI by city/group, WPI, Labour Force, SA2/LGA regional: house prices, incomes, approvals, population), rents (DFFH), sales (Valuer-General), salm (DEWR), lxrp (Wikipedia + station coordinates), budget (State Capital Program 2013-14 on)",
+    "To add: census industry of employment and journey-to-work method on the booth catchments; share prices (needs a market-data provider; Simon to choose and keep any API key in his own terminal); federal 2019 commuter car parks and sports grants (ANAO lists); polls by age group over time"
+   ],
+   "triggers": [
+    "results_2026"
+   ],
+   "depends_on": [
+    "national_census_booths"
+   ],
+   "outcomes": [
+    "each party's first-preference change (Labor, Coalition, Greens, One Nation, independents/others)",
+    "swing to or from the government (government v opposition)",
+    "swing to or from the sitting member, split by whether that member is from the government party or not",
+    "each of these by demographic group (census-to-booth profiles), not just on average",
+    "how local swings interact with the statewide swing, so results feed the forecast model"
+   ],
+   "framing_stated": "Do economic metrics (levels and changes over the term, 12 months, 6 months; macro and local) change party primaries, swings to/from a government, and swings to/from an incumbent member (and does it differ if that member is from the government), and how do these intersect with demographics?",
+   "structure": {
+    "statewide": "the statewide (or national) swing on each margin against macro changes; few elections, so pooled across Vic, federal and the other states, judged against placebo series",
+    "deviation": "each booth's swing minus the statewide swing, against local economic change x demographics (where most of the power is)",
+    "elasticity": "each booth's sensitivity to the statewide swing (a booth that moves 1.3x the state), and whether local economy and demographics change it",
+    "model_feed": "the forecast takes a statewide swing from the polls, scales it booth by booth by the fitted elasticity, adds the local economic deviation, and rolls booths up to seats"
+   }
+  },
+  {
+   "id": "national_census_booths",
+   "group": "Infrastructure",
+   "status": "built (Victoria validated); other states run when their DataPacks and SA1 boundaries arrive",
+   "question": "Census profiles (2011, 2016, 2021) for every polling place in Australia, built the Victorian way (SA1s weighted into booth catchments), so federal elections in every state and other states' elections can be analysed like Victoria.",
+   "why": "More, independent elections: needed for any open search to replicate (economy), and for the One Nation and national expansion work.",
+   "script": "src/national_census_booths.py",
+   "validation": "Victoria, 2021 census, fed2022: catchment populations sum to the SA1 total (6,494,200 of 6,503,324 in the DataPack; the rest are SA1s with no boundary, e.g. migratory/no usual address). Against the Victorian venue profiles built on state-district-clipped catchments at 1,031 co-located venues: r = 0.99 for degree, born overseas, Islam; 0.98 for median age, household income, rented, mining; population r = 0.77 (different booth networks), median ratio 1.00."
   }
  ]
 }
