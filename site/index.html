@@ -1631,7 +1631,7 @@ function renderDash() {
   const t = live ? liveTotals() : null;
   if (live) {
     if (!LIVE.available) { const kd = (LIVE.meta && LIVE.meta.key_dates) || {}; const today = new Date(); const days = (iso) => Math.ceil((new Date(iso + 'T00:00:00') - today) / 86400000); const closed = Date.now() >= POLLS_CLOSE;
-      head.append(h('div', { style: 'margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center' }, h('span', { class: 'pre-badge' }, h('span', { class: closed ? 'pulse' : 'pulse off' }), closed ? 'Polls have closed' : 'Pre-election preview'), countdownBlock()), voteTypeTable(t)); }
+      head.append(h('div', { style: 'margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center' }, h('span', { class: 'pre-badge' }, h('span', { class: closed ? 'pulse' : 'pulse off' }), closed ? 'Polls have closed' : 'Pre-election preview'), countdownBlock()), closed ? voteTypeTable(t) : ''); }
     else head.append(h('div', { style: 'margin-top:10px' }, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${totalsText(t)} · ${t.freshB} booths and ${t.freshC} electorates changed since ${fmtTime(LIVE.seenAt)}`),
       h('span', { style: 'margin-left:10px' }, h('button', { class: 'btn', onclick: () => { LIVE.seenAt = LIVE.fetchedAt || new Date().toISOString(); try { localStorage.setItem('atlas.liveSeenAt', LIVE.seenAt); } catch (e) {} renderDash(); if (mapReady) renderMap(); renderLiveBox(); } }, 'Mark all seen'), ' ', h('button', { class: 'btn', onclick: () => pollLive(true).then(renderDash) }, 'Refresh now'))), voteTypeTable(t));
   }
