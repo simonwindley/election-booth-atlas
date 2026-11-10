@@ -1,0 +1,415 @@
+# VEC region nominations, ballot order (groups lettered; candidates in group order); name | party | locality. Captured 2026-11-10.
+@vicr-western-metropolitan
+#A. Labour DLP
+ROYAL, Mark | Labour DLP | Sunbury
+SMITH, Arlene | Labour DLP | Sunbury
+#B. Legalise Cannabis Victoria
+MENTA, Xavier | Legalise Cannabis Victoria | Avondale Heights
+BERSON, Chana | Legalise Cannabis Victoria | Balwyn North
+#C. Liberal
+CAMPBELL, Roshena | Liberal | Brunswick
+LUU, Trung | Liberal | Sunshine North
+PATEL, Satish | Liberal | Tarneit
+NARAYANAN, Shwetha | Liberal | Point Cook
+MADUOK GENG, Daniel | Liberal | Manor Lakes
+#D. Victorian Socialists
+DEMANUELE, Anneke | Victorian Socialists | Maribyrnong
+JORQUERA, Jorge | Victorian Socialists | Footscray
+SJODIN, Ella | Victorian Socialists | Footscray
+KELLY, Lucy | Victorian Socialists | Kingsville
+MALONEY, Dean | Victorian Socialists | Footscray
+#E. Australian Labor Party
+BLANDTHORN, Lizzie | Australian Labor Party | Pascoe Vale
+STITT, Ingrid | Australian Labor Party | Albion
+LAM, Cuc | Australian Labor Party | Maribyrnong
+IBRAHIM, Sara | Australian Labor Party | Tarneit
+TRAVERS, Kim | Australian Labor Party | Flowerdale
+#F. Australian Democrats
+THIERY-LAI, Chris | Australian Democrats | Yarraville
+KEENAN, Nigel | Australian Democrats | Maidstone
+#G. Affordable Housing Now – Sustainable Australia Party
+BILIC, Dennis | Affordable Housing Now – Sustainable Australia Party | Taylors Hill
+DAVIES, Susan | Affordable Housing Now – Sustainable Australia Party | Brunswick
+#H. Family First
+DEEMING, Moira | Family First | Taylors Hill
+NEIL, Chris | Family First | Gisborne
+KULKARNI, Pavitra | Family First | Tarneit
+EMERSON, Mark | Family First | Werribee
+IKIREZI, Francine | Family First | Wyndham Vale
+#I. The Greens
+HENDERSON, Brittney | The Greens | Footscray
+MCRAE MCLEOD, Isabella | The Greens | Melbourne
+HEINS, Ebony | The Greens | Footscray
+HARDEN, Niall | The Greens | Yarraville
+PATHANJALIMANOHARAR, Geetha | The Greens | Seddon
+#J. The Republican
+SAINI, Raj | The Republican | Point Cook
+SHAH, Zalak | The Republican | Tarneit
+KULKARNI, Shubhangi | The Republican | Glen Waverley
+#K. One Nation Victoria
+LOPEZ, Fiona | One Nation Victoria | Sunshine
+DOENSEN, Allan | One Nation Victoria | Williamstown
+#L. The West Party
+GARRA, Joe | The West Party | Werribee South
+RAMESH, Sahana | The West Party | Point Cook
+FARRELLY, Philip | The West Party | Wyndham Vale
+#Ungrouped
+RAIZADA, Rakesh | | Werribee
+@vicr-eastern-victoria
+#A. Victorian Socialists
+FORWARD, Max | Victorian Socialists | Warragul
+EDWARDS, Dylan | Victorian Socialists | Officer
+#B. One Nation Victoria
+ESLER, Clay | One Nation Victoria | Sale
+DAVISON, Neil | One Nation Victoria | Rye
+DE WACHT, John | One Nation Victoria | Pakenham
+#C. Liberal / The Nationals
+HEATH, Renee | Liberal | Sale
+BATH, Melina | The Nationals | Koonwarra
+GREEN, Matt | Liberal | Warragul
+BESANKO, Barry | Liberal | Mornington
+CLARK, Richard | The Nationals | Mirboo
+#D. Legalise Cannabis Victoria
+BURRIDGE, Danielle | Legalise Cannabis Victoria | Mount Evelyn
+STARBUCK, Devon | Legalise Cannabis Victoria | Cabbage Tree Creek
+#E. Labour DLP
+WHITE, Khalif | Labour DLP | Corryong
+HAMMAN, Daniel | Labour DLP | Glen Waverley
+#F. Animal Justice Party
+JEGES, Helen | Animal Justice Party | Sale
+WATERS, Philip Keith Geoffrey | Animal Justice Party | Montmorency
+#G. Australian Labor Party
+ERDOGAN, Enver | Australian Labor Party | Greenvale
+QUINTANA, Leticia | Australian Labor Party | Wonthaggi
+RYAN, Denise | Australian Labor Party | Denison
+ROGERS, Ian | Australian Labor Party | Bulleen
+MATHER, Ryan | Australian Labor Party | Lilydale
+#H. Affordable Housing Now – Sustainable Australia Party
+SMITH, Reade | Affordable Housing Now – Sustainable Australia Party | Tyabb
+MELDGAARD, Inge | Affordable Housing Now – Sustainable Australia Party | Belgrave Heights
+#I. Shooters, Fishers and Farmers Party Victoria
+BOURMAN, Jeff | Shooters, Fishers and Farmers Party Victoria | Hampton East
+MUIR, Kerrie-Anne | Shooters, Fishers and Farmers Party Victoria | Denison
+#J. Unnamed-1
+PITT, Ant | | Montrose
+COXALL, Kate | | Warragul
+#K. The Greens
+MORGAN, Mat | The Greens | Inverloch
+TURNBULL, Xero | The Greens | Dalyston
+JOBE, Oliver | The Greens | Bass
+CHAUHAN, Helen | The Greens | Red Hill South
+WATT, Phillip | The Greens | North Wonthaggi
+@vicr-north-eastern-metropolitan
+#A. Legalise Cannabis Victoria
+DEL ROSARIO-MAKRIDIS, Gianni | Legalise Cannabis Victoria | Heidelberg Heights
+FORREST, Thomas | Legalise Cannabis Victoria | Kilsyth
+#B. Victorian Socialists
+DEVIESSEUX, Lucas | Victorian Socialists | Heidelberg Heights
+MALTBY, Heather | Victorian Socialists | Box Hill
+#C. Australian Labor Party
+BATCHELOR, Ryan | Australian Labor Party | Clifton Hill
+GAN, James | Australian Labor Party | Blackburn
+JAVED, Rana | Australian Labor Party | Epping
+MACKINNON, Donna | Australian Labor Party | Ringwood North
+SIMMONS, Maree | Australian Labor Party | Croydon
+#D. Affordable Housing Now – Sustainable Australia Party
+CORCORAN, Jack | Affordable Housing Now – Sustainable Australia Party | Surrey Hills
+TILLING, Heather | Affordable Housing Now – Sustainable Australia Party | Lilydale
+CLOW, William | Affordable Housing Now – Sustainable Australia Party | Bundoora
+#E. Labour DLP
+DE WIT, Cary | Labour DLP | Mooroolbark
+VAN DER ENDE, Brenton | Labour DLP | Wonga Park
+PLAUCS, Peter | Labour DLP | Lilydale
+BERULDSEN, Ashley | Labour DLP | Bentleigh East
+HWANG, Jae Ho | Labour DLP | Noble Park
+#F. Family First
+VAN DER END, Alex | Family First | Vermont South
+NGOH, Jeremy | Family First | Wheelers Hill
+#G. One Nation Victoria
+ADAMS, Natalie | One Nation Victoria | Bulleen
+GRATTON, Maxwell | One Nation Victoria | Ivanhoe
+AFFORD, Kane | One Nation Victoria | Gowanbrae
+#H. Liberal
+WELCH, Richard | Liberal | Viewbank
+DIAMANTE, Deirdre | Liberal | Templestowe
+PYRROS, John | Liberal | Templestowe Lower
+LEIDLER, Sue | Liberal | Templestowe
+SOLLY, David | Liberal | Burwood
+#I. Libertarian (formerly Liberal Democrats)
+FORD, Matt | Libertarian (formerly Liberal Democrats) | Whittlesea
+SCHWAB, David | Libertarian (formerly Liberal Democrats) | Chirnside Park
+#J. Unnamed-1
+CHOW, Wai Man Raymond | | Donvale
+CHOW, Yeung Yee Big Lily | | Donvale
+#K. The Greens
+PUGLIELLI, Aiv | The Greens | Ivanhoe
+SUN, Sophia | The Greens | Balwyn North
+GALLAGHER, Peter | The Greens | Montmorency
+HERSI, Mohamud | The Greens | Heidelberg West
+SHNOOKAL, Liezl | The Greens | St Andrews
+#L. Australian Democrats
+GREEN, Leonie | Australian Democrats | Mitcham
+PARRIS, Ryan | Australian Democrats | Warrandyte
+@vicr-northern-metropolitan
+#A. Legalise Cannabis Victoria
+AICKIN, Riley | Legalise Cannabis Victoria | Newport
+RIVER WIND, King | Legalise Cannabis Victoria | Macleod
+#B. Unnamed-1
+PEACH, Morgan | | Coburg
+BYRNE, Peter | | Ashwood
+#C. Liberal
+MULHOLLAND, Evan | Liberal | Watsonia North
+KHOURY, Bernadette | Liberal | Bulleen
+DHAREL, Shankar | Liberal | Deanside
+GHANI, Usman | Liberal | Craigieburn
+BRIERS, Mark | Liberal | Brunswick West
+#D. The Greens
+GRAY-BARBERIO, Anasina | The Greens | Airport West
+DRUMMOND, Sam | The Greens | Brunswick East
+BURNETT, Tara | The Greens | Thornbury
+THOMAS, Hannah | The Greens | Northcote
+SHEEHAN, Tim | The Greens | Collingwood
+#E. One Nation Victoria
+NICHOLSON, Mark | One Nation Victoria | Abbotsford
+GALLUZZO, Anna Regina | One Nation Victoria | Pascoe Vale South
+#F. Affordable Housing Now – Sustainable Australia Party
+JESSUP, Bert | Affordable Housing Now – Sustainable Australia Party | Travancore
+COUCH, Beth | Affordable Housing Now – Sustainable Australia Party | Essendon North
+BUDGEON, Daryl | Affordable Housing Now – Sustainable Australia Party | Hadfield
+#G. Socialist Alliance
+LAWRENCE, Meredith | Socialist Alliance | Macleod
+BEATON, Chloe | Socialist Alliance | Brunswick West
+SAFFIN, Darren | Socialist Alliance | Brunswick West
+#H. Labour DLP
+KAVANAGH, John | Labour DLP | Essendon
+FUNG, James | Labour DLP | Blackburn South
+#I. Australian Democrats
+ROWSE, Andrew | Australian Democrats | North Melbourne
+KHALILI-NAGHADEH, Sahar | Australian Democrats | Pascoe Vale
+#J. Unnamed-2
+HAWLI, Bassima | | Mickleham
+DRAPANIOTIS, Anastasia | | Campbellfield
+DANDACH, Abir | | Clyde North
+GUNGORMUS, Selin | | Roxburgh Park
+#K. Australian Labor Party
+WATT, Sheena | Australian Labor Party | Brunswick
+MCINTOSH, Tom | Australian Labor Party | Thornbury
+SHEIKH, Sainab | Australian Labor Party | Kensington
+KOMARAGIRI, Praveen Kumar | Australian Labor Party | Glenroy
+CAIRNES, Dan | Australian Labor Party | Carlton North
+#L. Victorian Socialists
+HASSAN, Omar | Victorian Socialists | Thomastown
+BASSINI, Louisa | Victorian Socialists | Brunswick West
+ROBERTSON, Catherine | Victorian Socialists | Alphington
+GIBSON, Belle | Victorian Socialists | Coburg
+BEIRAGHI, Bella | Victorian Socialists | Brunswick
+#M. Family First
+HIRMIZ, Imad | Family First | Roxburgh Park
+DEEMING, Andrew | Family First | Taylors Hill
+#Ungrouped
+RAZOS, Peter | | Richmond
+@vicr-northern-victoria
+#A. Citizens Party
+LAHY, Chris | Citizens Party | Lake Boga
+DAVY, Jeff | Citizens Party | Numurkah
+#B. Unnamed-1
+WHITE, Kate | | Bendigo
+GREEN, Alex | | Footscray
+#C. Australian Labor Party
+SYMES, Jaclyn | Australian Labor Party | Essendon
+SARANTIS, Jana | Australian Labor Party | Swan Hill
+BRIDGES, Mitch | Australian Labor Party | Leneva
+GAYFER, Natasha | Australian Labor Party | Malmsbury
+OLSEN, Greg | Australian Labor Party | Castlemaine
+#D. Family First
+MCCORMACK, Chris | Family First | Sedgwick
+KEETELAAR, Ev | Family First | Ascot
+#E. Shooters, Fishers and Farmers Party Victoria
+CONSTANTINOU, Ethan | Shooters, Fishers and Farmers Party Victoria | Lalor
+ASHBY, Geoff | Shooters, Fishers and Farmers Party Victoria | Coburg North
+#F. Labour DLP
+VAN DORSSEN, Chae | Labour DLP | Corryong
+DE WIT, Sophie | Labour DLP | Croydon
+#G. Affordable Housing Now – Sustainable Australia Party
+READ, Paul | Affordable Housing Now – Sustainable Australia Party | Rushworth
+BLACKER, Cheryl | Affordable Housing Now – Sustainable Australia Party | Ebden
+#H. One Nation Victoria
+TYRRELL, Rikkie-Lee | One Nation Victoria | Shepparton
+THOMAS, Athol | One Nation Victoria | Tawonga
+SORENSEN, Luke | One Nation Victoria | Kerang
+#I. Animal Justice Party
+PURCELL, Georgie | Animal Justice Party | Kyneton
+LEVY, Laurie | Animal Justice Party | South Melbourne
+#J. Liberal / The Nationals
+BROOKS, Steve | Liberal | Shepparton
+BROAD, Gaelle | The Nationals | Bendigo
+MILLAR, Amanda | Liberal | Mount Macedon
+MULLER, Chad | The Nationals | West Wodonga
+HEARN, Brad | Liberal | Benalla
+#K. The Greens
+SINCLAIR, Cate | The Greens | Glenluce
+MADDOCK, Lucas | The Greens | Barkers Creek
+MIKELSONS, Wil | The Greens | Launching Place
+ROBINSON, Helen | The Greens | Beechworth
+BRIGHT, Samantha | The Greens | Benalla
+#L. Legalise Cannabis Victoria
+TAYLOR, Wayne | Legalise Cannabis Victoria | Castlemaine
+WILLIAMS, Scott | Legalise Cannabis Victoria | Mooroopna
+#M. Victorian Socialists
+LAMOND, Dorothy | Victorian Socialists | Flora Hill
+TYLER, Rohan | Victorian Socialists | Eaglehawk
+#Ungrouped
+McHUGH, Nick | | Mansfield
+@vicr-south-eastern-metropolitan
+#A. One Nation Victoria
+HARKIN, Colleen | One Nation Victoria | Brighton
+GODDARD, Geoff | One Nation Victoria | Kew
+PANETTA, Leo | One Nation Victoria | Tynong
+#B. Christian Alliance Party - Reform AU
+WILDE, Milton | Christian Alliance Party – Reform AU | Croydon
+WILDE, Leanne | Christian Alliance Party – Reform AU | Croydon
+#C. Citizens Party
+COLLIE, Gary | Citizens Party | Noble Park
+BENNETT, Russell | Citizens Party | Highett
+#D. Australian Labor Party
+TARLAMIS, Lee | Australian Labor Party | Noble Park
+GALEA, Michael | Australian Labor Party | Gembrook
+RAM, Moti | Australian Labor Party | Bentleigh East
+PAK, Soheang | Australian Labor Party | Keysborough
+TRAN, Thanh Van | Australian Labor Party | Springvale
+#E. Victorian Socialists
+CVETKOVA, Kelly | Victorian Socialists | Mulgrave
+HOPPER, Keeley | Victorian Socialists | Cranbourne North
+#F. Legalise Cannabis Victoria
+PAYNE, Rachel | Legalise Cannabis Victoria | Seaford
+DENHAM, Gregory | Legalise Cannabis Victoria | Ballarat Central
+#G. Affordable Housing Now – Sustainable Australia Party
+HOULT, Brandon | Affordable Housing Now – Sustainable Australia Party | Hampton East
+BRADY, Ann-Marie | Affordable Housing Now – Sustainable Australia Party | Frankston
+#H. The Greens
+KIRWAN, Matthew | The Greens | Noble Park
+WILLOUGHBY, Louisa | The Greens | Springvale
+VON HAGT, Samantha | The Greens | Narre Warren South
+KENT, Amelia | The Greens | Langwarrin
+HARDY, Jayden | The Greens | Dingley Village
+#I. Libertarian (formerly Liberal Democrats)
+LIMBRICK, David | Libertarian (formerly Liberal Democrats) | Mount Waverley
+VANDERMEER, Will | Libertarian (formerly Liberal Democrats) | Croydon
+#J. Australian Democrats
+MCKENZIE, Heath | Australian Democrats | Seaford
+MOREL, Jacqui | Australian Democrats | Aspendale
+#K. Liberal
+PEASE, Phillip | Liberal | Mentone
+HERMANS, Ann-Marie | Liberal | Berwick
+FENNER, Scott | Liberal | Clarinda
+FERNANDEZ, Marcus | Liberal | Clayton
+VIPINKUMAR, Salini | Liberal | Mulgrave
+#L. Labour DLP
+ZMEGAC, Andrew | Labour DLP | Wandin North
+MARSH, Scott | Labour DLP | Frankston North
+#Ungrouped
+ABEYSINGHE, Susantha | | Dandenong
+@vicr-southern-metropolitan
+#A. Australian Labor Party
+BERGER, John | Australian Labor Party | Teesdale
+CRAWFORD, Louise | Australian Labor Party | Elwood
+WILLS, Virginia | Australian Labor Party | Kensington
+DOUCH, Gavin | Australian Labor Party | Box Hill
+COLE, Philip | Australian Labor Party | Dandenong
+#B. Australian Democrats
+JACKSON, Clive | Australian Democrats | Oakleigh
+BROADBRIDGE, Philip | Australian Democrats | Balwyn
+#C. Legalise Cannabis Victoria
+PAWLACZEK, Zofia | Legalise Cannabis Victoria | Southbank
+HOWMAN, Ben | Legalise Cannabis Victoria | Camberwell
+#D. One Nation Victoria
+SANFORD, Aaron | One Nation Victoria | Bentleigh East
+KAULENAS, Kristina | One Nation Victoria | Brighton East
+#E. Family First
+FOREMAN, Jane | Family First | Narre Warren
+PATON, Tom | Family First | Caulfield North
+#F. Liberal
+DAVIS, David | Liberal | Kew
+CROZIER, Georgie | Liberal | Toorak
+BOFFA, Xavier | Liberal | Hawthorn East
+BELL, Jamie | Liberal | Armadale
+PERERA, Jasmine | Liberal | Mount Waverley
+#G. Victorian Socialists
+HOLDER, Catherine | Victorian Socialists | Malvern East
+WORSLEY, April | Victorian Socialists | Hawthorn East
+#H. Affordable Housing Now – Sustainable Australia Party
+TERRY, Bettina | Affordable Housing Now – Sustainable Australia Party | South Yarra
+BAIRD, Linda | Affordable Housing Now – Sustainable Australia Party | Mentone
+#I. Labour DLP
+ZMEGAC, Karla | Labour DLP | Wandin North
+DEAN, Paul | Labour DLP | Mooroolbark
+#J. Unnamed-1
+LOWE, Melissa | | Hawthorn
+NESS, Jess | | Blackburn North
+#K. The Greens
+COPSEY, Katherine | The Greens | Alphington
+IAMPOLSKI, Rachel | The Greens | St Kilda
+KISSUBI, Jeffrey | The Greens | Southbank
+SAMIOTIS, Kim | The Greens | Windsor
+WEAVER, Joshua | The Greens | Ripponlea
+@vicr-western-victoria
+#A. The Greens
+MANSFIELD, Sarah | The Greens | East Geelong
+COATES, Belinda | The Greens | Ballarat Central
+VEALE, Steve | The Greens | Warrnambool
+SMITH, Aleisha | The Greens | Newtown
+VAN ASPEREN, Heaven | The Greens | Dimboola
+#B. Affordable Housing Now – Sustainable Australia Party
+WEARNE, Madeleine | Affordable Housing Now – Sustainable Australia Party | Portland West
+CHIVERS, Ian | Affordable Housing Now – Sustainable Australia Party | Portland West
+#C. Australian Labor Party
+MAXFIELD, Kate | Australian Labor Party | Drouin East
+ERMACORA, Jacinta | Australian Labor Party | Warrnambool
+ANWARI, Sam | Australian Labor Party | Corio
+HANDRECK, Kaitlyn | Australian Labor Party | Miners Rest
+MACKENZIE, Fiona | Australian Labor Party | Cooriemungle
+#D. Legalise Cannabis Victoria
+MITCHELL, Peter | Legalise Cannabis Victoria | Forrest
+DAVY, Alice | Legalise Cannabis Victoria | Eynesbury
+#E. Australian Democrats
+MEDDICK, Andy | Australian Democrats | Torquay
+KELLY, Peter | Australian Democrats | Bell Park
+#F. Liberal / The Nationals
+MCARTHUR, Bev | Liberal | Bookaar
+WATT, Graham | Liberal | Harkness
+LETTS, Robert | The Nationals | Horsham
+READ, Ellie | Liberal | Warrnambool
+STEED, Melody | The Nationals | Maryborough
+#G. Victorian Socialists
+NUNQUAM, Ben | Victorian Socialists | Lucas
+HOUZET, Dominique | Victorian Socialists | Alfredton
+#H. Unnamed-1
+MORIARTY, Aleta | | Belmont
+DENTON, Timothy | | Newtown
+#I. Libertarian (formerly Liberal Democrats)
+BARKER, Paul | Libertarian (formerly Liberal Democrats) | Torquay
+SCHIEMER, Phill | Libertarian (formerly Liberal Democrats) | Napoleons
+#J. Socialist Alliance
+GOODEN, Timothy | Socialist Alliance | Manifold Heights
+BULL, Sue | Socialist Alliance | Manifold Heights
+SMITH, Ross | Socialist Alliance | Clifton Springs
+#K. One Nation Victoria
+BURSON, Chris | One Nation Victoria | Lara
+WILLIAMS, Vaughan | One Nation Victoria | North Bendigo
+OOSTHUIZEN, Jason | One Nation Victoria | Wyndham Vale
+#L. Labour DLP
+DI BIASE, Costa | Labour DLP | Dimboola
+BOWDEN, Jennifer | Labour DLP | Berwick
+#M. Shooters, Fishers and Farmers Party Victoria
+COLLYER, Ben | Shooters, Fishers and Farmers Party Victoria | Anglesea
+VICKERS, Ken | Shooters, Fishers and Farmers Party Victoria | Sunshine West
+#N. Family First
+COLBERT, Dianne | Family First | Sebastopol
+MOLONEY, Anne | Family First | Sebastopol
+VEERAPPAGOUNDER, Senthil | Family First | Winter Valley
+THOMAS, Brendan William | Family First | Avoca
+#O. The Republican
+SAMA, Sindhu | The Republican | Melton South
+KAUR, Akwinder | The Republican | Harkness
+#Ungrouped
+FISHER, Eve | | Jan Juc
