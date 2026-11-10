@@ -207,6 +207,7 @@ def main(db=os.path.join(ROOT, 'data', 'elections.sqlite'), out=os.path.join(ROO
     out_d = {'summary': summary, 'effects': res, 'effects_between_electorates': res_seat, 'electorates': int(len(seat)), 'placebo_previous_term': prevterm,
              'sd': {c: round(float(d[c].std()), 3) for c in cols}, 'mean': {c: round(float(d[c].mean()), 3) for c in cols}}
     os.makedirs(os.path.dirname(out), exist_ok=True)
+    out_d = json.loads(json.dumps(out_d).replace('NaN', 'null'))   # browsers can't parse NaN
     json.dump(out_d, open(out, 'w'), indent=1)
     print(json.dumps(summary, indent=1))
     for c in cols:
