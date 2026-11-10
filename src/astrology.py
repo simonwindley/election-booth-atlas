@@ -2,7 +2,7 @@
 (the astrology question in analysis/questions.json; the footy and the weather sit beside it)
 
 The sky on every Victorian state and federal general election day since 1999, at noon in Melbourne (PyEphem):
-moon phase, moon sign, sun sign, Mercury / Venus / Mars retrograde, signs of Mars, Jupiter and Saturn, an eclipse
+moon phase, how big the moon looks (its distance; a 'supermoon' within three days), moon sign, sun sign, Mercury / Venus / Mars retrograde, signs of Mars, Jupiter and Saturn, an eclipse
 within a fortnight; and some earthly irrelevancies: a full moon within three days, a Friday the 13th in the campaign,
 daylight saving, days since the Melbourne Cup.
 
@@ -17,6 +17,9 @@ first-preference change (Labor, Coalition, Greens, One Nation), across 20 electi
 with a previous election to compare (Queensland 2017, 2020, 2024; NSW 2023; WA 2021, 2025; SA 2026). Each sign that
 fell on at least two election days, and each element, is compared with the rest for every party (permutation p),
 then corrected for the number of tests (Holm, and the false discovery rate).
+
+Third part, the moon's phase and size by party, on the same 20 elections: waxing, more than half full, full or new
+within three days, looking bigger than average, a supermoon within three days; and how big it looked as a dial.
 
 Usage: python3 -m src.astrology  -> data/analysis/astrology.json
 """
@@ -61,6 +64,21 @@ def eclipse_near(when, days=14):
     return out
 
 
+MEAN_KM = 384400
+
+
+def moon_extra(when):
+    """how big the moon looks (distance), and whether a full moon near perigee (a 'supermoon') is within three days"""
+    m = ephem.Moon(); m.compute(when); km = m.earth_distance * ephem.meters_per_au / 1000
+    sup = False
+    for f in (ephem.previous_full_moon, ephem.next_full_moon):
+        t = f(when)
+        if abs(t - when) <= 3:
+            mm = ephem.Moon(); mm.compute(t); sup = sup or mm.earth_distance * ephem.meters_per_au / 1000 < 360000
+    new3 = min(when - ephem.previous_new_moon(when), ephem.next_new_moon(when) - when) <= 3
+    return {'moon_km': round(km), 'moon_size_vs_mean': round(MEAN_KM / km - 1, 3), 'supermoon_within_3_days': sup, 'new_moon_within_3_days': new3}
+
+
 def sky(date):
     noon = ephem.Date(dt.datetime(date.year, date.month, date.day, 1, 0, 0))   # noon in Melbourne (AEDT, UTC+11) ~ 01:00 UTC; AEST elections differ by an hour, irrelevant here
     m = ephem.Moon(); m.compute(noon)
@@ -69,7 +87,7 @@ def sky(date):
     cup = dt.date(date.year, 11, 1); cup += dt.timedelta(days=(1 - cup.weekday()) % 7)   # first Tuesday of November
     campaign = [date - dt.timedelta(days=i) for i in range(0, 33)]
     dst = (date.month >= 10 or date.month <= 3) or (date.month == 4 and date.day <= 7)
-    return {'moon_illumination': round(m.phase / 100, 3), 'moon_waxing': (noon - new_prev) < 14.77, 'moon_sign': sign(ecl_lon(ephem.Moon(), noon)),
+    return {**moon_extra(noon), 'moon_illumination': round(m.phase / 100, 3), 'moon_waxing': (noon - new_prev) < 14.77, 'moon_sign': sign(ecl_lon(ephem.Moon(), noon)),
             'sun_sign': sign(ecl_lon(ephem.Sun(), noon)), 'days_from_full_moon': round(min(noon - full_prev, full_next - noon), 1),
             'mercury_retrograde': retro(ephem.Mercury, noon), 'venus_retrograde': retro(ephem.Venus, noon), 'mars_retrograde': retro(ephem.Mars, noon),
             'mars_sign': sign(ecl_lon(ephem.Mars(), noon)), 'jupiter_sign': sign(ecl_lon(ephem.Jupiter(), noon)), 'saturn_sign': sign(ecl_lon(ephem.Saturn(), noon)),
@@ -186,6 +204,39 @@ def moon_by_party():
             'best': sorted(tests, key=lambda t: t['p'])[:5], 'signs_untested': [s for s in SIGNS if (P.moon_sign == s).sum() < 2]}
 
 
+def moon_phase_by_party():
+    """the moon's phase and size at local noon on election day against each party's first-preference change, 20 elections"""
+    P = party_changes()
+    off = {'Victoria': 'VIC', 'Federal (Victoria)': 'VIC', 'Queensland': 'QLD', 'New South Wales': 'NSW', 'Western Australia': 'WA', 'South Australia': 'SA'}
+    ex = []
+    for r in P.itertuples():
+        d = dt.date.fromisoformat(r.date); st = off[r.place]
+        t = ephem.Date(dt.datetime(d.year, d.month, d.day, 12) - dt.timedelta(hours=utc_offset(st, d)))
+        m = ephem.Moon(); m.compute(t)
+        ex.append({'moon_illumination': round(m.phase / 100, 3), 'moon_waxing': (t - ephem.previous_new_moon(t)) < 14.77,
+                   'full_moon_within_3_days': min(t - ephem.previous_full_moon(t), ephem.next_full_moon(t) - t) <= 3, **moon_extra(t)})
+    P = pd.concat([P, pd.DataFrame(ex)], axis=1)
+    feats = {'Waxing moon': P.moon_waxing, 'Moon more than half full': P.moon_illumination > 0.5, 'Full moon within 3 days': P.full_moon_within_3_days,
+             'New moon within 3 days': P.new_moon_within_3_days, 'Moon looking bigger than average (closer)': P.moon_size_vs_mean > 0, 'Supermoon within 3 days': P.supermoon_within_3_days}
+    tests = []
+    for name, x in feats.items():
+        for g in PARTIES:
+            r = perm_test(P[g].values, x.values.astype(bool), n_exact=20000)
+            if r:
+                tests.append({'feature': name, 'party': g, **r})
+    adjust(tests)
+    # size as a dial, not a switch: correlation of how big the moon looked with each party's change, permutation p
+    rng = np.random.default_rng(29); dial = {}
+    for g in PARTIES:
+        y = P[g].values; x = P.moon_size_vs_mean.values; r0 = np.corrcoef(x, y)[0, 1]
+        rs = np.array([np.corrcoef(rng.permutation(x), y)[0, 1] for _ in range(20000)]); dial[g] = {'r': round(float(r0), 3), 'p': round(float((np.abs(rs) >= abs(r0)).mean()), 3)}
+    return {'elections': P.to_dict('records'), 'counts': {k: int(v.sum()) for k, v in feats.items()}, 'tests': tests, 'n_tests': len(tests),
+            'nominal_hits': [t for t in tests if t['p'] < 0.05], 'expected_by_chance': round(0.05 * len(tests), 1),
+            'surviving_holm': [t for t in tests if t['p_holm'] < 0.05], 'surviving_fdr': [t for t in tests if t['q_fdr'] < 0.05],
+            'best': sorted(tests, key=lambda t: t['p'])[:5], 'size_dial': dial,
+            'size_range_pct': [round(100 * float(P.moon_size_vs_mean.min()), 1), round(100 * float(P.moon_size_vs_mean.max()), 1)]}
+
+
 def main():
     O = outcomes()
     rows = []
@@ -198,6 +249,8 @@ def main():
         'Full moon within 3 days': T.days_from_full_moon <= 3,
         'Moon more than half full': T.moon_illumination > 0.5,
         'Waxing moon': T.moon_waxing,
+        'Moon looking bigger than average (closer)': T.moon_size_vs_mean > 0,
+        'Supermoon within 3 days': T.supermoon_within_3_days,
         'Mercury retrograde': T.mercury_retrograde,
         'Venus retrograde': T.venus_retrograde,
         'Mars retrograde': T.mars_retrograde,
@@ -227,6 +280,7 @@ def main():
     res = {'about': __doc__.split('\n\n')[0], 'elections': D.to_dict('records'), 'tests': tests, 'n_tests': m,
            'nominal_hits': [t for t in tests if t['p'] < 0.05], 'expected_by_chance': round(0.05 * m, 1), 'surviving_correction': [t for t in tests if t['p_holm'] < 0.05]}
     res['moon_by_party'] = mb = moon_by_party()
+    res['moon_phase_by_party'] = mp = moon_phase_by_party()
     old = os.path.join(ROOT, 'data/analysis/astrology.json')
     if os.path.exists(old):   # keep pieces added by other passes (the seat-level pseudo-replication demo)
         for k, v in json.load(open(old)).items():
@@ -235,6 +289,9 @@ def main():
     print(pd.DataFrame(mb['elections']).to_string())
     print(f"moon by party: {mb['n_tests']} tests; nominal {len(mb['nominal_hits'])} (chance {mb['expected_by_chance']}); Holm {len(mb['surviving_holm'])}; FDR {len(mb['surviving_fdr'])}")
     for t in mb['best']:
+        print('  ', t)
+    print(f"moon phase and size by party: {mp['n_tests']} tests; counts {mp['counts']}; nominal {len(mp['nominal_hits'])} (chance {mp['expected_by_chance']}); Holm {len(mp['surviving_holm'])}; FDR {len(mp['surviving_fdr'])}; size dial {mp['size_dial']}; size range {mp['size_range_pct']}")
+    for t in mp['best']:
         print('  ', t)
     print(D[['election', 'gov_primary_change', 'held_office', 'moon_sign', 'moon_illumination', 'mercury_retrograde', 'eclipse_within_14_days', 'friday_13th_in_campaign']].to_string())
     print(f'{m} tests; nominal p<0.05: {len(res["nominal_hits"])} (chance alone expects {res["expected_by_chance"]}); after Holm: {len(res["surviving_correction"])}')

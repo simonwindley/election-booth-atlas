@@ -81,11 +81,14 @@ def main():
         'weather': {'venue_elections': we['venue_elections'], 'median_station_km': we['median_station_km'], 'statewide': we['statewide'],
                     'effects': {k: we['effects'][k] for k in ('log_votes', 'informal', 'gov_opp', 'lab_coal', 'gov_sh', 'ALP_sh', 'COAL_sh', 'GRN_sh')},
                     'naive_gov_heat': we['naive_election_fe_only']['gov_sh'], 'naive_hot_day': we['naive_hot_day'], 'deluge': we['vic2010_deluge']},
-        'sky': {'elections': [{k: r[k] for k in ('election', 'gov_primary_change', 'held_office', 'moon_sign', 'moon_illumination', 'mercury_retrograde', 'eclipse_within_14_days', 'friday_13th_in_campaign', 'jupiter_sign')} for r in ast['elections']],
+        'sky': {'elections': [{k: r[k] for k in ('election', 'gov_primary_change', 'held_office', 'moon_sign', 'moon_illumination', 'mercury_retrograde', 'eclipse_within_14_days', 'friday_13th_in_campaign', 'jupiter_sign', 'moon_size_vs_mean', 'moon_waxing')} for r in ast['elections']],
                 'n_tests': ast['n_tests'], 'nominal_hits': len(ast['nominal_hits']), 'expected_by_chance': ast['expected_by_chance'], 'surviving': len(ast['surviving_correction']),
                 'best': sorted(ast['tests'], key=lambda t: t['p'])[:3], 'pseudo_replication': ast['pseudo_replication'],
                 'moon_by_party': {k: ast['moon_by_party'][k] for k in ('elections', 'grid', 'n_tests', 'expected_by_chance', 'best', 'signs_untested')}
-                                 | {'nominal_hits': len(ast['moon_by_party']['nominal_hits']), 'surviving_holm': len(ast['moon_by_party']['surviving_holm']), 'surviving_fdr': len(ast['moon_by_party']['surviving_fdr'])}},
+                                 | {'nominal_hits': len(ast['moon_by_party']['nominal_hits']), 'surviving_holm': len(ast['moon_by_party']['surviving_holm']), 'surviving_fdr': len(ast['moon_by_party']['surviving_fdr'])},
+                'moon_phase_by_party': {k: ast['moon_phase_by_party'][k] for k in ('counts', 'tests', 'n_tests', 'expected_by_chance', 'best', 'size_dial', 'size_range_pct')}
+                                       | {'nominal_hits': len(ast['moon_phase_by_party']['nominal_hits']), 'surviving_holm': len(ast['moon_phase_by_party']['surviving_holm']), 'surviving_fdr': len(ast['moon_phase_by_party']['surviving_fdr']),
+                                          'elections': [{k: r[k] for k in ('election', 'place', 'date', 'moon_illumination', 'moon_waxing', 'moon_size_vs_mean', 'moon_km', 'supermoon_within_3_days')} for r in ast['moon_phase_by_party']['elections']]}},
         'weather_mood': {k: {'joint_p': v['joint']['placebo_p'], 'max_abs_t': v['joint']['max_abs_t'], 'placebo_median_max_t': v['joint']['placebo_max_abs_t_median'],
                              'strongest': max(v['groups'].items(), key=lambda kv: abs(kv[1]['t']))} for k, v in A('weather_mood')['results'].items()},
         'afl_mood': {k: v for k, v in A('afl_mood').items() if k in ('summary', 'top_victorian', 'top_interstate', 'surviving_fdr', 'elections', 'joint_shuffle', 'joint_shuffle_within_level')}
