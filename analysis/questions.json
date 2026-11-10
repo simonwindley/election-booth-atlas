@@ -53,6 +53,21 @@
  },
  "questions": [
   {
+   "id": "economy_followup",
+   "group": "Economy",
+   "status": "next (top of the pile, 2026-11-10)",
+   "depends_on": [
+    "economy"
+   ],
+   "question": "Does the unemployment x renters / born overseas / existing unemployment pattern (Coalition loses, Labor gains where local unemployment rose in the last 12 months) also move whole seats, and do exposure measures line up with it?",
+   "steps": [
+    "Between-seat version: electorate swing vs the state, against electorate-average unemployment change x group share (src/econ_groups.py, seat level, discover/confirm + wrong-term placebo)",
+    "Exposure tests: mortgage holders x interest-rate rises (RBA F5/F6, E13 payments) and renters x local rent growth (DFFH), same design",
+    "If both hold: add a small booth-level adjustment to the 2026 model using SALM to June 2026; replicate in other states with the national expansion"
+   ],
+   "bar": "held-out improvement on 2022 state + 2022/2025 federal; first pass gave -0.1 to -0.2% booth RMSE (real but tiny)"
+  },
+  {
    "id": "member_personal_vote",
    "group": "Members",
    "status": "done",
