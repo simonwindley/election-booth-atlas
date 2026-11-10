@@ -55,17 +55,32 @@
   {
    "id": "economy_followup",
    "group": "Economy",
-   "status": "next (top of the pile, 2026-11-10)",
+   "status": "done (2026-11-10)",
    "depends_on": [
     "economy"
    ],
-   "question": "Does the unemployment x renters / born overseas / existing unemployment pattern (Coalition loses, Labor gains where local unemployment rose in the last 12 months) also move whole seats, and do exposure measures line up with it?",
-   "steps": [
-    "Between-seat version: electorate swing vs the state, against electorate-average unemployment change x group share (src/econ_groups.py, seat level, discover/confirm + wrong-term placebo)",
-    "Exposure tests: mortgage holders x interest-rate rises (RBA F5/F6, E13 payments) and renters x local rent growth (DFFH), same design",
-    "If both hold: add a small booth-level adjustment to the 2026 model using SALM to June 2026; replicate in other states with the national expansion"
+   "question": "Does the unemployment x group pattern move whole seats, and do exposure measures (mortgage holders x rates, renters x rents, low-income x inflation, savers x cash rate) line up with it?",
+   "run": [
+    "python3 -m src.econ_followup"
    ],
-   "bar": "held-out improvement on 2022 state + 2022/2025 federal; first pass gave -0.1 to -0.2% booth RMSE (real but tiny)"
+   "inputs": [
+    "data/elections.sqlite",
+    "raw/econ/rba/f5-data.csv",
+    "raw/econ/rba/f1.1-data.csv",
+    "raw/econ/abs/cpi_q.csv",
+    "raw/econ/salm",
+    "raw/econ/rents"
+   ],
+   "outputs": [
+    "data/analysis/econ_followup.json",
+    "site/data/econ_followup.json"
+   ],
+   "headline": "Seats yes, booths no. Compared strictly within elections, the Coalition does worse than its statewide swing where unemployment rose in the last 12 months in seats that already had high unemployment (about -1.0 pt per point of rise at ~8.5% unemployment, +0.6 at ~4.7%); t -3.6, holds on discover and confirm, survives dropping any election, shuffle p 0.001, wrong-term t +0.2; six of seven elections the same sign (not fed2016). The earlier booth-level version does not survive the within-election test (0 of 5): it was mixing year-wide unemployment falls with that year's group swing. Exposure tests: nothing large (only seven elections of national variation).",
+   "model_decision": "Not added. Held-out seat error 4.61 -> 4.57 (1%); implied 2026 adjustments sd 0.37 pts, max 1.6 pts. Candidate for a pre-registered test against the 2026 result.",
+   "triggers": [
+    "results_2026",
+    "national_expansion"
+   ]
   },
   {
    "id": "member_personal_vote",
@@ -693,7 +708,7 @@
   {
    "id": "weather",
    "group": "Context",
-   "status": "done (site book: Things that don\u2019t matter)",
+   "status": "done (site book: Things that don’t matter)",
    "priority": "after onp_effect",
    "question": "Does election-day weather (rain, heat, wind) move turnout, informal voting, the early-vote share or the vote itself, booth by booth? And do weather patterns in the lead-up (heatwaves, fires, floods, wet spring) show up in the result?",
    "plan": "BOM daily station data (rain, max temperature) for every election day and the 4-8 weeks before, Victoria 1999-2022 state and 2004-2025 federal; each booth gets its nearest station. Compare booths on wet and dry days within the same election (within-election contrasts, so statewide mood cancels out). Outcomes: turnout, informal rate, pre-poll and postal share, swing to and from the government. Lead-up: rainfall and heat anomalies against the long-run normal by region.",
@@ -753,7 +768,7 @@
   {
    "id": "astrology",
    "group": "Just for fun",
-   "status": "done (site book: Things that don\u2019t matter)",
+   "status": "done (site book: Things that don’t matter)",
    "priority": "fun, after the serious ones",
    "question": "Does the sky matter? Moon phase and moon sign on election day, Mercury retrograde, planetary positions, eclipses near the election, plus other irrelevant events: daylight saving, school holidays, Melbourne Cup and Grand Final proximity, Friday the 13th in the campaign.",
    "plan": "Compute the sky for every election date with an ephemeris (skyfield/ephem); test against swing to and from government and incumbent members. Report every test run, with a multiple-comparisons correction, as a deliberate demonstration of how easy spurious findings are.",
@@ -770,7 +785,7 @@
   {
    "id": "afl",
    "group": "Just for fun",
-   "status": "done (site book: Things that don\u2019t matter)",
+   "status": "done (site book: Things that don’t matter)",
    "priority": "fun, after the serious ones",
    "question": "Do footy results move the vote? The premiership side in the election year, ladder positions, and results in election week, especially in clubs' home areas.",
    "plan": "Victorian elections are in late November (off-season), so use that year's Grand Final result and final ladder; federal elections in May use the round of election week and the live ladder. Strongest test: Geelong, with a clear geographic home (premierships 2007, 2009, 2011, 2022, and 2022 was a Victorian election year); compare Geelong-region booths' swing to the government against similar booths elsewhere. Melbourne clubs by historical heartland (Collingwood 2010, also an election year; Richmond 2017-2020; Hawthorn 2013-15) with heavy caveats.",

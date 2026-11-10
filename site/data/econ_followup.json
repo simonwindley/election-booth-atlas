@@ -1,0 +1,2728 @@
+{
+ "national_shocks": {
+  "vic2014": {
+   "mrate_term": -1.46,
+   "cash_term": -2.0,
+   "cpi_term": 10.27,
+   "mrate_12m": 0.0,
+   "cash_12m": 0.0,
+   "cpi_12m": 2.31,
+   "mrate_6m": 0.0,
+   "cash_6m": 0.0,
+   "cpi_6m": 0.854
+  },
+  "vic2018": {
+   "mrate_term": -0.59,
+   "cash_term": -1.0,
+   "cpi_term": 6.773,
+   "mrate_12m": 0.12,
+   "cash_12m": 0.0,
+   "cpi_12m": 1.977,
+   "mrate_6m": 0.12,
+   "cash_6m": 0.0,
+   "cpi_6m": 0.71
+  },
+  "fed2016": {
+   "mrate_term": -0.54,
+   "cash_term": -0.8,
+   "cpi_term": 5.734,
+   "mrate_12m": -0.07,
+   "cash_12m": -0.25,
+   "cpi_12m": 1.021,
+   "mrate_6m": -0.24,
+   "cash_6m": -0.25,
+   "cpi_6m": 0.462
+  },
+  "fed2019": {
+   "mrate_term": -0.02,
+   "cash_term": -0.25,
+   "cpi_term": 4.871,
+   "mrate_12m": 0.15,
+   "cash_12m": 0.0,
+   "cpi_12m": 1.242,
+   "mrate_6m": 0.03,
+   "cash_6m": 0.0,
+   "cpi_6m": 0.529
+  },
+  "vic2022": {
+   "mrate_term": 1.68,
+   "cash_term": 1.08,
+   "cpi_term": 13.128,
+   "mrate_12m": 2.5,
+   "cash_12m": 2.48,
+   "cpi_12m": 7.268,
+   "mrate_6m": 2.5,
+   "cash_6m": 2.48,
+   "cpi_6m": 3.632
+  },
+  "fed2022": {
+   "mrate_term": -0.85,
+   "cash_term": -1.4,
+   "cpi_term": 8.589,
+   "mrate_12m": 0.0,
+   "cash_12m": 0.0,
+   "cpi_12m": 5.178,
+   "mrate_6m": 0.0,
+   "cash_6m": 0.0,
+   "cpi_6m": 3.509
+  },
+  "fed2025": {
+   "mrate_term": 4.0,
+   "cash_term": 4.0,
+   "cpi_term": 13.721,
+   "mrate_12m": -0.25,
+   "cash_12m": -0.25,
+   "cpi_12m": 2.398,
+   "mrate_6m": -0.25,
+   "cash_6m": -0.25,
+   "cpi_6m": 1.294
+  }
+ },
+ "seats": {
+  "electorate_elections": 415,
+  "tests": 24,
+  "found": 4,
+  "holds": 1,
+  "placebo_found": 1,
+  "placebo_holds": 0,
+  "results": [
+   {
+    "outcome": "GOV",
+    "measure": "unemp_12m",
+    "group": "rented",
+    "discover": {
+     "b": -0.062,
+     "se": 0.539,
+     "t": -0.12,
+     "n": 245,
+     "b_main": 0.04
+    },
+    "confirm": {
+     "b": -0.71,
+     "se": 0.702,
+     "t": -1.01,
+     "n": 164,
+     "b_main": 0.549
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "GOV",
+    "measure": "unemp_12m",
+    "group": "born_overseas",
+    "discover": {
+     "b": 0.287,
+     "se": 0.315,
+     "t": 0.91,
+     "n": 245,
+     "b_main": 0.234
+    },
+    "confirm": {
+     "b": -0.349,
+     "se": 0.336,
+     "t": -1.04,
+     "n": 164,
+     "b_main": 0.448
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "GOV",
+    "measure": "unemp_12m",
+    "group": "unemployment_rate",
+    "discover": {
+     "b": 0.016,
+     "se": 0.233,
+     "t": 0.07,
+     "n": 245,
+     "b_main": -0.036
+    },
+    "confirm": {
+     "b": -0.299,
+     "se": 0.294,
+     "t": -1.01,
+     "n": 164,
+     "b_main": 0.824
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "GOV",
+    "measure": "unemp_12m",
+    "group": "owned_mortgage",
+    "discover": {
+     "b": 0.359,
+     "se": 0.46,
+     "t": 0.78,
+     "n": 245,
+     "b_main": 0.059
+    },
+    "confirm": {
+     "b": -0.231,
+     "se": 0.584,
+     "t": -0.4,
+     "n": 164,
+     "b_main": 0.712
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "GOV",
+    "measure": "unemp_6m",
+    "group": "rented",
+    "discover": {
+     "b": -0.02,
+     "se": 0.412,
+     "t": -0.05,
+     "n": 245,
+     "b_main": 0.045
+    },
+    "confirm": {
+     "b": -0.302,
+     "se": 0.47,
+     "t": -0.64,
+     "n": 164,
+     "b_main": -0.041
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "GOV",
+    "measure": "unemp_6m",
+    "group": "born_overseas",
+    "discover": {
+     "b": 0.36,
+     "se": 0.284,
+     "t": 1.27,
+     "n": 245,
+     "b_main": 0.229
+    },
+    "confirm": {
+     "b": -1.039,
+     "se": 0.25,
+     "t": -4.15,
+     "n": 164,
+     "b_main": -0.373
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "GOV",
+    "measure": "unemp_6m",
+    "group": "unemployment_rate",
+    "discover": {
+     "b": 0.374,
+     "se": 0.251,
+     "t": 1.49,
+     "n": 245,
+     "b_main": -0.246
+    },
+    "confirm": {
+     "b": -0.868,
+     "se": 0.272,
+     "t": -3.19,
+     "n": 164,
+     "b_main": 0.403
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "GOV",
+    "measure": "unemp_6m",
+    "group": "owned_mortgage",
+    "discover": {
+     "b": 0.649,
+     "se": 0.452,
+     "t": 1.44,
+     "n": 245,
+     "b_main": 0.04
+    },
+    "confirm": {
+     "b": -0.858,
+     "se": 0.391,
+     "t": -2.2,
+     "n": 164,
+     "b_main": 0.091
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "ALP",
+    "measure": "unemp_12m",
+    "group": "rented",
+    "discover": {
+     "b": -0.756,
+     "se": 0.521,
+     "t": -1.45,
+     "n": 245,
+     "b_main": 0.338
+    },
+    "confirm": {
+     "b": 0.437,
+     "se": 0.513,
+     "t": 0.85,
+     "n": 164,
+     "b_main": 1.762
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "ALP",
+    "measure": "unemp_12m",
+    "group": "born_overseas",
+    "discover": {
+     "b": 0.676,
+     "se": 0.252,
+     "t": 2.68,
+     "n": 245,
+     "b_main": 0.65
+    },
+    "confirm": {
+     "b": 0.61,
+     "se": 0.314,
+     "t": 1.95,
+     "n": 164,
+     "b_main": 1.289
+    },
+    "found": true,
+    "holds": false
+   },
+   {
+    "outcome": "ALP",
+    "measure": "unemp_12m",
+    "group": "unemployment_rate",
+    "discover": {
+     "b": 0.488,
+     "se": 0.221,
+     "t": 2.2,
+     "n": 245,
+     "b_main": -0.149
+    },
+    "confirm": {
+     "b": 0.153,
+     "se": 0.327,
+     "t": 0.47,
+     "n": 164,
+     "b_main": 1.26
+    },
+    "found": true,
+    "holds": false
+   },
+   {
+    "outcome": "ALP",
+    "measure": "unemp_12m",
+    "group": "owned_mortgage",
+    "discover": {
+     "b": 0.566,
+     "se": 0.465,
+     "t": 1.22,
+     "n": 245,
+     "b_main": 0.469
+    },
+    "confirm": {
+     "b": -0.018,
+     "se": 0.466,
+     "t": -0.04,
+     "n": 164,
+     "b_main": 1.634
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "ALP",
+    "measure": "unemp_6m",
+    "group": "rented",
+    "discover": {
+     "b": 0.236,
+     "se": 0.412,
+     "t": 0.57,
+     "n": 245,
+     "b_main": 0.331
+    },
+    "confirm": {
+     "b": 0.374,
+     "se": 0.444,
+     "t": 0.84,
+     "n": 164,
+     "b_main": 0.788
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "ALP",
+    "measure": "unemp_6m",
+    "group": "born_overseas",
+    "discover": {
+     "b": 0.909,
+     "se": 0.3,
+     "t": 3.03,
+     "n": 245,
+     "b_main": 0.774
+    },
+    "confirm": {
+     "b": -0.153,
+     "se": 0.337,
+     "t": -0.45,
+     "n": 164,
+     "b_main": 0.392
+    },
+    "found": true,
+    "holds": false
+   },
+   {
+    "outcome": "ALP",
+    "measure": "unemp_6m",
+    "group": "unemployment_rate",
+    "discover": {
+     "b": 0.5,
+     "se": 0.272,
+     "t": 1.84,
+     "n": 245,
+     "b_main": -0.028
+    },
+    "confirm": {
+     "b": -0.442,
+     "se": 0.32,
+     "t": -1.38,
+     "n": 164,
+     "b_main": 0.697
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "ALP",
+    "measure": "unemp_6m",
+    "group": "owned_mortgage",
+    "discover": {
+     "b": 0.271,
+     "se": 0.482,
+     "t": 0.56,
+     "n": 245,
+     "b_main": 0.415
+    },
+    "confirm": {
+     "b": -0.769,
+     "se": 0.386,
+     "t": -1.99,
+     "n": 164,
+     "b_main": 0.814
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "COAL",
+    "measure": "unemp_12m",
+    "group": "rented",
+    "discover": {
+     "b": -0.332,
+     "se": 0.474,
+     "t": -0.7,
+     "n": 245,
+     "b_main": -0.444
+    },
+    "confirm": {
+     "b": -0.44,
+     "se": 0.636,
+     "t": -0.69,
+     "n": 164,
+     "b_main": -1.046
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "COAL",
+    "measure": "unemp_12m",
+    "group": "born_overseas",
+    "discover": {
+     "b": -0.335,
+     "se": 0.214,
+     "t": -1.57,
+     "n": 245,
+     "b_main": -0.218
+    },
+    "confirm": {
+     "b": -1.02,
+     "se": 0.341,
+     "t": -2.99,
+     "n": 164,
+     "b_main": -1.218
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "COAL",
+    "measure": "unemp_12m",
+    "group": "unemployment_rate",
+    "discover": {
+     "b": -0.505,
+     "se": 0.183,
+     "t": -2.76,
+     "n": 245,
+     "b_main": 0.136
+    },
+    "confirm": {
+     "b": -0.838,
+     "se": 0.31,
+     "t": -2.7,
+     "n": 164,
+     "b_main": -0.504
+    },
+    "found": true,
+    "holds": true
+   },
+   {
+    "outcome": "COAL",
+    "measure": "unemp_12m",
+    "group": "owned_mortgage",
+    "discover": {
+     "b": 0.531,
+     "se": 0.279,
+     "t": 1.9,
+     "n": 245,
+     "b_main": -0.293
+    },
+    "confirm": {
+     "b": -0.816,
+     "se": 0.388,
+     "t": -2.1,
+     "n": 164,
+     "b_main": -1.112
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "COAL",
+    "measure": "unemp_6m",
+    "group": "rented",
+    "discover": {
+     "b": -0.42,
+     "se": 0.375,
+     "t": -1.12,
+     "n": 245,
+     "b_main": -0.386
+    },
+    "confirm": {
+     "b": -0.284,
+     "se": 0.581,
+     "t": -0.49,
+     "n": 164,
+     "b_main": -0.215
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "COAL",
+    "measure": "unemp_6m",
+    "group": "born_overseas",
+    "discover": {
+     "b": -0.189,
+     "se": 0.286,
+     "t": -0.66,
+     "n": 245,
+     "b_main": -0.214
+    },
+    "confirm": {
+     "b": -0.02,
+     "se": 0.389,
+     "t": -0.05,
+     "n": 164,
+     "b_main": -0.253
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "COAL",
+    "measure": "unemp_6m",
+    "group": "unemployment_rate",
+    "discover": {
+     "b": -0.186,
+     "se": 0.26,
+     "t": -0.72,
+     "n": 245,
+     "b_main": -0.025
+    },
+    "confirm": {
+     "b": -0.358,
+     "se": 0.404,
+     "t": -0.89,
+     "n": 164,
+     "b_main": -0.004
+    },
+    "found": false,
+    "holds": false
+   },
+   {
+    "outcome": "COAL",
+    "measure": "unemp_6m",
+    "group": "owned_mortgage",
+    "discover": {
+     "b": 0.55,
+     "se": 0.288,
+     "t": 1.91,
+     "n": 245,
+     "b_main": -0.218
+    },
+    "confirm": {
+     "b": 0.315,
+     "se": 0.457,
+     "t": 0.69,
+     "n": 164,
+     "b_main": -0.208
+    },
+    "found": false,
+    "holds": false
+   }
+  ],
+  "checks": [
+   {
+    "outcome": "COAL",
+    "measure": "unemp_12m",
+    "group": "unemployment_rate",
+    "all": {
+     "b": -0.559,
+     "se": 0.157,
+     "t": -3.57,
+     "n": 409,
+     "b_main": -0.111
+    },
+    "each_election": {
+     "vic2014": {
+      "b": -0.257,
+      "t": -1.0,
+      "n": 85
+     },
+     "vic2018": {
+      "b": -0.637,
+      "t": -1.91,
+      "n": 85
+     },
+     "fed2016": {
+      "b": 0.569,
+      "t": 0.99,
+      "n": 37
+     },
+     "fed2019": {
+      "b": -1.179,
+      "t": -3.68,
+      "n": 38
+     },
+     "vic2022": {
+      "b": -1.355,
+      "t": -2.83,
+      "n": 87
+     },
+     "fed2022": {
+      "b": -0.51,
+      "t": -1.53,
+      "n": 39
+     },
+     "fed2025": {
+      "b": -0.613,
+      "t": -1.17,
+      "n": 38
+     }
+    },
+    "without": {
+     "vic2014": -3.27,
+     "vic2018": -3.49,
+     "fed2016": -3.54,
+     "fed2019": -2.95,
+     "vic2022": -3.28,
+     "fed2022": -3.27,
+     "fed2025": -3.4
+    },
+    "shuffle": {
+     "p": 0.001,
+     "share_t2": 0.054
+    },
+    "wrong_term": {
+     "b": 0.042,
+     "se": 0.229,
+     "t": 0.18,
+     "n": 286,
+     "b_main": -0.538
+    },
+    "heldout": {
+     "rmse_census": 4.613,
+     "rmse_with_economy": 4.57,
+     "pred_sd": 0.42,
+     "pred_max": 2.36,
+     "corr": 0.15,
+     "n": 164
+    },
+    "size": {
+     "per_point_main": -0.133,
+     "per_point_per_rate": -41.644,
+     "rate_mean": 6.3,
+     "rate_p10": 4.7,
+     "rate_p90": 8.5,
+     "per_point_at_p10": 0.57,
+     "per_point_at_p90": -1.04,
+     "change_sd": 0.84
+    },
+    "_coef": {
+     "b_x": 0.18999571693362594,
+     "b_xg": -29.650506612771093
+    }
+   }
+  ],
+  "implied_2026": {
+   "sd": 0.37,
+   "max_abs": 1.61,
+   "n": 87,
+   "change_mean": 0.19,
+   "change_range": [
+    -1.6,
+    2.0
+   ]
+  }
+ },
+ "booth_recheck": [
+  {
+   "outcome": "COAL",
+   "measure": "unemp_12m",
+   "group": "rented",
+   "discover": {
+    "b": -0.146,
+    "se": 0.072,
+    "t": -2.02,
+    "n": 3602,
+    "b_main": 0.03
+   },
+   "confirm": {
+    "b": -0.099,
+    "se": 0.076,
+    "t": -1.29,
+    "n": 2822,
+    "b_main": -0.007
+   },
+   "holds": false
+  },
+  {
+   "outcome": "COAL",
+   "measure": "unemp_12m",
+   "group": "born_overseas",
+   "discover": {
+    "b": -0.048,
+    "se": 0.059,
+    "t": -0.81,
+    "n": 3602,
+    "b_main": 0.053
+   },
+   "confirm": {
+    "b": -0.035,
+    "se": 0.073,
+    "t": -0.48,
+    "n": 2822,
+    "b_main": 0.003
+   },
+   "holds": false
+  },
+  {
+   "outcome": "COAL",
+   "measure": "unemp_12m",
+   "group": "unemployment_rate",
+   "discover": {
+    "b": -0.124,
+    "se": 0.05,
+    "t": -2.48,
+    "n": 3602,
+    "b_main": 0.172
+   },
+   "confirm": {
+    "b": -0.018,
+    "se": 0.055,
+    "t": -0.33,
+    "n": 2822,
+    "b_main": 0.085
+   },
+   "holds": false
+  },
+  {
+   "outcome": "COAL",
+   "measure": "unemp_6m",
+   "group": "unemployment_rate",
+   "discover": {
+    "b": -0.094,
+    "se": 0.052,
+    "t": -1.79,
+    "n": 3602,
+    "b_main": 0.082
+   },
+   "confirm": {
+    "b": -0.009,
+    "se": 0.057,
+    "t": -0.16,
+    "n": 2997,
+    "b_main": 0.104
+   },
+   "holds": false
+  },
+  {
+   "outcome": "COAL",
+   "measure": "unemp_12m",
+   "group": "owned_mortgage",
+   "discover": {
+    "b": 0.168,
+    "se": 0.071,
+    "t": 2.38,
+    "n": 3602,
+    "b_main": 0.013
+   },
+   "confirm": {
+    "b": -0.023,
+    "se": 0.086,
+    "t": -0.26,
+    "n": 2822,
+    "b_main": -0.009
+   },
+   "holds": false
+  }
+ ],
+ "exposure": [
+  {
+   "test": "Mortgage rates x mortgage holders",
+   "outcome": "GOV",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": 0.428,
+     "se": 0.129,
+     "shock": -1.46,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.485,
+     "se": 0.131,
+     "shock": -0.59,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.012,
+     "se": 0.097,
+     "shock": -0.54,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.022,
+     "se": 0.128,
+     "shock": -0.02,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.221,
+     "se": 0.156,
+     "shock": 1.68,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.353,
+     "se": 0.111,
+     "shock": -0.85,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.098,
+     "se": 0.111,
+     "shock": 4.0,
+     "n": 1156
+    }
+   },
+   "slope": -0.033,
+   "p_perm": 0.653
+  },
+  {
+   "test": "Mortgage rates x mortgage holders",
+   "outcome": "ALP",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": -0.372,
+     "se": 0.123,
+     "shock": -1.46,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.485,
+     "se": 0.131,
+     "shock": -0.59,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.041,
+     "se": 0.109,
+     "shock": -0.54,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.081,
+     "se": 0.135,
+     "shock": -0.02,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.221,
+     "se": 0.156,
+     "shock": 1.68,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.307,
+     "se": 0.121,
+     "shock": -0.85,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.098,
+     "se": 0.111,
+     "shock": 4.0,
+     "n": 1156
+    }
+   },
+   "slope": -0.014,
+   "p_perm": 0.83
+  },
+  {
+   "test": "Mortgage rates x mortgage holders",
+   "outcome": "COAL",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": 0.428,
+     "se": 0.129,
+     "shock": -1.46,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.48,
+     "se": 0.157,
+     "shock": -0.59,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.012,
+     "se": 0.097,
+     "shock": -0.54,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.022,
+     "se": 0.128,
+     "shock": -0.02,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.106,
+     "se": 0.183,
+     "shock": 1.68,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.353,
+     "se": 0.111,
+     "shock": -0.85,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": 0.184,
+     "se": 0.129,
+     "shock": 4.0,
+     "n": 1156
+    }
+   },
+   "slope": 0.039,
+   "p_perm": 0.598
+  },
+  {
+   "test": "Mortgage rates x mortgage holders",
+   "outcome": "GOV",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.428,
+     "se": 0.129,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.485,
+     "se": 0.131,
+     "shock": 0.12,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.012,
+     "se": 0.097,
+     "shock": -0.07,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.022,
+     "se": 0.128,
+     "shock": 0.15,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.221,
+     "se": 0.156,
+     "shock": 2.5,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.353,
+     "se": 0.111,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.098,
+     "se": 0.111,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.095,
+   "p_perm": 0.466
+  },
+  {
+   "test": "Mortgage rates x mortgage holders",
+   "outcome": "ALP",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.372,
+     "se": 0.123,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.485,
+     "se": 0.131,
+     "shock": 0.12,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.041,
+     "se": 0.109,
+     "shock": -0.07,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.081,
+     "se": 0.135,
+     "shock": 0.15,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.221,
+     "se": 0.156,
+     "shock": 2.5,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.307,
+     "se": 0.121,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.098,
+     "se": 0.111,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.096,
+   "p_perm": 0.445
+  },
+  {
+   "test": "Mortgage rates x mortgage holders",
+   "outcome": "COAL",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.428,
+     "se": 0.129,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.48,
+     "se": 0.157,
+     "shock": 0.12,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.012,
+     "se": 0.097,
+     "shock": -0.07,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.022,
+     "se": 0.128,
+     "shock": 0.15,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.106,
+     "se": 0.183,
+     "shock": 2.5,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.353,
+     "se": 0.111,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": 0.184,
+     "se": 0.129,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.024,
+   "p_perm": 0.73
+  },
+  {
+   "test": "Mortgage rates x mortgage holders",
+   "outcome": "GOV",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.428,
+     "se": 0.129,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.485,
+     "se": 0.131,
+     "shock": 0.12,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.012,
+     "se": 0.097,
+     "shock": -0.24,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.022,
+     "se": 0.128,
+     "shock": 0.03,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.221,
+     "se": 0.156,
+     "shock": 2.5,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.353,
+     "se": 0.111,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.098,
+     "se": 0.111,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.097,
+   "p_perm": 0.458
+  },
+  {
+   "test": "Mortgage rates x mortgage holders",
+   "outcome": "ALP",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.372,
+     "se": 0.123,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.485,
+     "se": 0.131,
+     "shock": 0.12,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.041,
+     "se": 0.109,
+     "shock": -0.24,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.081,
+     "se": 0.135,
+     "shock": 0.03,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.221,
+     "se": 0.156,
+     "shock": 2.5,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.307,
+     "se": 0.121,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.098,
+     "se": 0.111,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.097,
+   "p_perm": 0.432
+  },
+  {
+   "test": "Mortgage rates x mortgage holders",
+   "outcome": "COAL",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.428,
+     "se": 0.129,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.48,
+     "se": 0.157,
+     "shock": 0.12,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.012,
+     "se": 0.097,
+     "shock": -0.24,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.022,
+     "se": 0.128,
+     "shock": 0.03,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.106,
+     "se": 0.183,
+     "shock": 2.5,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.353,
+     "se": 0.111,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": 0.184,
+     "se": 0.129,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.021,
+   "p_perm": 0.744
+  },
+  {
+   "test": "Cash rate x over-65s",
+   "outcome": "GOV",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": -0.51,
+     "se": 0.186,
+     "shock": -2.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.272,
+     "se": 0.17,
+     "shock": -1.0,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": 0.122,
+     "se": 0.078,
+     "shock": -0.8,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.165,
+     "se": 0.156,
+     "shock": -0.25,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.228,
+     "se": 0.139,
+     "shock": 1.08,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.205,
+     "se": 0.125,
+     "shock": -1.4,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": 0.183,
+     "se": 0.127,
+     "shock": 4.0,
+     "n": 1156
+    }
+   },
+   "slope": 0.046,
+   "p_perm": 0.369
+  },
+  {
+   "test": "Cash rate x over-65s",
+   "outcome": "ALP",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": 0.343,
+     "se": 0.145,
+     "shock": -2.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.272,
+     "se": 0.17,
+     "shock": -1.0,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.01,
+     "se": 0.138,
+     "shock": -0.8,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.283,
+     "se": 0.17,
+     "shock": -0.25,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.228,
+     "se": 0.139,
+     "shock": 1.08,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.033,
+     "se": 0.114,
+     "shock": -1.4,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": 0.183,
+     "se": 0.127,
+     "shock": 4.0,
+     "n": 1156
+    }
+   },
+   "slope": 0.024,
+   "p_perm": 0.627
+  },
+  {
+   "test": "Cash rate x over-65s",
+   "outcome": "COAL",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": -0.51,
+     "se": 0.186,
+     "shock": -2.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.144,
+     "se": 0.165,
+     "shock": -1.0,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": 0.122,
+     "se": 0.078,
+     "shock": -0.8,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.165,
+     "se": 0.156,
+     "shock": -0.25,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.126,
+     "se": 0.208,
+     "shock": 1.08,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.205,
+     "se": 0.125,
+     "shock": -1.4,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.253,
+     "se": 0.149,
+     "shock": 4.0,
+     "n": 1156
+    }
+   },
+   "slope": -0.051,
+   "p_perm": 0.349
+  },
+  {
+   "test": "Cash rate x over-65s",
+   "outcome": "GOV",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.51,
+     "se": 0.186,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.272,
+     "se": 0.17,
+     "shock": 0.0,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": 0.122,
+     "se": 0.078,
+     "shock": -0.25,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.165,
+     "se": 0.156,
+     "shock": 0.0,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.228,
+     "se": 0.139,
+     "shock": 2.48,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.205,
+     "se": 0.125,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": 0.183,
+     "se": 0.127,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.054,
+   "p_perm": 0.775
+  },
+  {
+   "test": "Cash rate x over-65s",
+   "outcome": "ALP",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.343,
+     "se": 0.145,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.272,
+     "se": 0.17,
+     "shock": 0.0,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.01,
+     "se": 0.138,
+     "shock": -0.25,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.283,
+     "se": 0.17,
+     "shock": 0.0,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.228,
+     "se": 0.139,
+     "shock": 2.48,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.033,
+     "se": 0.114,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": 0.183,
+     "se": 0.127,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.055,
+   "p_perm": 0.68
+  },
+  {
+   "test": "Cash rate x over-65s",
+   "outcome": "COAL",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.51,
+     "se": 0.186,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.144,
+     "se": 0.165,
+     "shock": 0.0,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": 0.122,
+     "se": 0.078,
+     "shock": -0.25,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.165,
+     "se": 0.156,
+     "shock": 0.0,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.126,
+     "se": 0.208,
+     "shock": 2.48,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.205,
+     "se": 0.125,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.253,
+     "se": 0.149,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": -0.061,
+   "p_perm": 0.792
+  },
+  {
+   "test": "Cash rate x over-65s",
+   "outcome": "GOV",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.51,
+     "se": 0.186,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.272,
+     "se": 0.17,
+     "shock": 0.0,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": 0.122,
+     "se": 0.078,
+     "shock": -0.25,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.165,
+     "se": 0.156,
+     "shock": 0.0,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.228,
+     "se": 0.139,
+     "shock": 2.48,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.205,
+     "se": 0.125,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": 0.183,
+     "se": 0.127,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.054,
+   "p_perm": 0.775
+  },
+  {
+   "test": "Cash rate x over-65s",
+   "outcome": "ALP",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.343,
+     "se": 0.145,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.272,
+     "se": 0.17,
+     "shock": 0.0,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.01,
+     "se": 0.138,
+     "shock": -0.25,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.283,
+     "se": 0.17,
+     "shock": 0.0,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": 0.228,
+     "se": 0.139,
+     "shock": 2.48,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.033,
+     "se": 0.114,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": 0.183,
+     "se": 0.127,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": 0.055,
+   "p_perm": 0.68
+  },
+  {
+   "test": "Cash rate x over-65s",
+   "outcome": "COAL",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.51,
+     "se": 0.186,
+     "shock": 0.0,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.144,
+     "se": 0.165,
+     "shock": 0.0,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": 0.122,
+     "se": 0.078,
+     "shock": -0.25,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.165,
+     "se": 0.156,
+     "shock": 0.0,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.126,
+     "se": 0.208,
+     "shock": 2.48,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.205,
+     "se": 0.125,
+     "shock": 0.0,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.253,
+     "se": 0.149,
+     "shock": -0.25,
+     "n": 1156
+    }
+   },
+   "slope": -0.061,
+   "p_perm": 0.792
+  },
+  {
+   "test": "Inflation x low-income households",
+   "outcome": "GOV",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": -0.537,
+     "se": 0.183,
+     "shock": 10.27,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.745,
+     "se": 0.154,
+     "shock": 6.773,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.193,
+     "se": 0.115,
+     "shock": 5.734,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.207,
+     "se": 0.14,
+     "shock": 4.871,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.391,
+     "se": 0.157,
+     "shock": 13.128,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.726,
+     "se": 0.143,
+     "shock": 8.589,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.159,
+     "se": 0.137,
+     "shock": 13.721,
+     "n": 1156
+    }
+   },
+   "slope": -0.021,
+   "p_perm": 0.759
+  },
+  {
+   "test": "Inflation x low-income households",
+   "outcome": "ALP",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": 0.447,
+     "se": 0.156,
+     "shock": 10.27,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.745,
+     "se": 0.154,
+     "shock": 6.773,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": 0.224,
+     "se": 0.134,
+     "shock": 5.734,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.336,
+     "se": 0.226,
+     "shock": 4.871,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.391,
+     "se": 0.157,
+     "shock": 13.128,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.753,
+     "se": 0.13,
+     "shock": 8.589,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.159,
+     "se": 0.137,
+     "shock": 13.721,
+     "n": 1156
+    }
+   },
+   "slope": 0.005,
+   "p_perm": 0.941
+  },
+  {
+   "test": "Inflation x low-income households",
+   "outcome": "COAL",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": -0.537,
+     "se": 0.183,
+     "shock": 10.27,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.683,
+     "se": 0.177,
+     "shock": 6.773,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.193,
+     "se": 0.115,
+     "shock": 5.734,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.207,
+     "se": 0.14,
+     "shock": 4.871,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.009,
+     "se": 0.209,
+     "shock": 13.128,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.726,
+     "se": 0.143,
+     "shock": 8.589,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.205,
+     "se": 0.134,
+     "shock": 13.721,
+     "n": 1156
+    }
+   },
+   "slope": -0.035,
+   "p_perm": 0.536
+  },
+  {
+   "test": "Inflation x low-income households",
+   "outcome": "GOV",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.537,
+     "se": 0.183,
+     "shock": 2.31,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.745,
+     "se": 0.154,
+     "shock": 1.977,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.193,
+     "se": 0.115,
+     "shock": 1.021,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.207,
+     "se": 0.14,
+     "shock": 1.242,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.391,
+     "se": 0.157,
+     "shock": 7.268,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.726,
+     "se": 0.143,
+     "shock": 5.178,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.159,
+     "se": 0.137,
+     "shock": 2.398,
+     "n": 1156
+    }
+   },
+   "slope": 0.041,
+   "p_perm": 0.678
+  },
+  {
+   "test": "Inflation x low-income households",
+   "outcome": "ALP",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.447,
+     "se": 0.156,
+     "shock": 2.31,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.745,
+     "se": 0.154,
+     "shock": 1.977,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": 0.224,
+     "se": 0.134,
+     "shock": 1.021,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.336,
+     "se": 0.226,
+     "shock": 1.242,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.391,
+     "se": 0.157,
+     "shock": 7.268,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.753,
+     "se": 0.13,
+     "shock": 5.178,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.159,
+     "se": 0.137,
+     "shock": 2.398,
+     "n": 1156
+    }
+   },
+   "slope": -0.102,
+   "p_perm": 0.264
+  },
+  {
+   "test": "Inflation x low-income households",
+   "outcome": "COAL",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.537,
+     "se": 0.183,
+     "shock": 2.31,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.683,
+     "se": 0.177,
+     "shock": 1.977,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.193,
+     "se": 0.115,
+     "shock": 1.021,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.207,
+     "se": 0.14,
+     "shock": 1.242,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.009,
+     "se": 0.209,
+     "shock": 7.268,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.726,
+     "se": 0.143,
+     "shock": 5.178,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.205,
+     "se": 0.134,
+     "shock": 2.398,
+     "n": 1156
+    }
+   },
+   "slope": 0.082,
+   "p_perm": 0.361
+  },
+  {
+   "test": "Inflation x low-income households",
+   "outcome": "GOV",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.537,
+     "se": 0.183,
+     "shock": 0.854,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.745,
+     "se": 0.154,
+     "shock": 0.71,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.193,
+     "se": 0.115,
+     "shock": 0.462,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.207,
+     "se": 0.14,
+     "shock": 0.529,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.391,
+     "se": 0.157,
+     "shock": 3.632,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.726,
+     "se": 0.143,
+     "shock": 3.509,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.159,
+     "se": 0.137,
+     "shock": 1.294,
+     "n": 1156
+    }
+   },
+   "slope": 0.142,
+   "p_perm": 0.384
+  },
+  {
+   "test": "Inflation x low-income households",
+   "outcome": "ALP",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.447,
+     "se": 0.156,
+     "shock": 0.854,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": -0.745,
+     "se": 0.154,
+     "shock": 0.71,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": 0.224,
+     "se": 0.134,
+     "shock": 0.462,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": -0.336,
+     "se": 0.226,
+     "shock": 0.529,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.391,
+     "se": 0.157,
+     "shock": 3.632,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": -0.753,
+     "se": 0.13,
+     "shock": 3.509,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.159,
+     "se": 0.137,
+     "shock": 1.294,
+     "n": 1156
+    }
+   },
+   "slope": -0.188,
+   "p_perm": 0.19
+  },
+  {
+   "test": "Inflation x low-income households",
+   "outcome": "COAL",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": -0.537,
+     "se": 0.183,
+     "shock": 0.854,
+     "n": 1029
+    },
+    "vic2018": {
+     "b": 0.683,
+     "se": 0.177,
+     "shock": 0.71,
+     "n": 1036
+    },
+    "fed2016": {
+     "b": -0.193,
+     "se": 0.115,
+     "shock": 0.462,
+     "n": 1196
+    },
+    "fed2019": {
+     "b": 0.207,
+     "se": 0.14,
+     "shock": 0.529,
+     "n": 1213
+    },
+    "vic2022": {
+     "b": -0.009,
+     "se": 0.209,
+     "shock": 3.632,
+     "n": 1004
+    },
+    "fed2022": {
+     "b": 0.726,
+     "se": 0.143,
+     "shock": 3.509,
+     "n": 1136
+    },
+    "fed2025": {
+     "b": -0.205,
+     "se": 0.134,
+     "shock": 1.294,
+     "n": 1156
+    }
+   },
+   "slope": 0.161,
+   "p_perm": 0.286
+  },
+  {
+   "test": "Local rent growth x renters",
+   "outcome": "GOV",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": 0.035,
+     "se": 0.153,
+     "shock": null,
+     "n": 489
+    },
+    "vic2018": {
+     "b": -0.286,
+     "se": 0.133,
+     "shock": null,
+     "n": 495
+    },
+    "fed2016": {
+     "b": -0.061,
+     "se": 0.083,
+     "shock": null,
+     "n": 595
+    },
+    "fed2019": {
+     "b": 0.152,
+     "se": 0.108,
+     "shock": null,
+     "n": 588
+    },
+    "vic2022": {
+     "b": -0.067,
+     "se": 0.171,
+     "shock": null,
+     "n": 487
+    },
+    "fed2022": {
+     "b": 0.385,
+     "se": 0.139,
+     "shock": null,
+     "n": 554
+    },
+    "fed2025": {
+     "b": -0.243,
+     "se": 0.147,
+     "shock": null,
+     "n": 552
+    }
+   },
+   "discover": {
+    "b": -0.009,
+    "se": 0.068,
+    "t": -0.13,
+    "n": 2167
+   },
+   "confirm": {
+    "b": -0.046,
+    "se": 0.087,
+    "t": -0.52,
+    "n": 1593
+   }
+  },
+  {
+   "test": "Local rent growth x renters",
+   "outcome": "ALP",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": 0.169,
+     "se": 0.125,
+     "shock": null,
+     "n": 489
+    },
+    "vic2018": {
+     "b": -0.286,
+     "se": 0.133,
+     "shock": null,
+     "n": 495
+    },
+    "fed2016": {
+     "b": 0.125,
+     "se": 0.082,
+     "shock": null,
+     "n": 595
+    },
+    "fed2019": {
+     "b": 0.105,
+     "se": 0.211,
+     "shock": null,
+     "n": 588
+    },
+    "vic2022": {
+     "b": -0.067,
+     "se": 0.171,
+     "shock": null,
+     "n": 487
+    },
+    "fed2022": {
+     "b": -0.482,
+     "se": 0.128,
+     "shock": null,
+     "n": 554
+    },
+    "fed2025": {
+     "b": -0.243,
+     "se": 0.147,
+     "shock": null,
+     "n": 552
+    }
+   },
+   "discover": {
+    "b": 0.025,
+    "se": 0.066,
+    "t": 0.38,
+    "n": 2167
+   },
+   "confirm": {
+    "b": -0.064,
+    "se": 0.096,
+    "t": -0.67,
+    "n": 1593
+   }
+  },
+  {
+   "test": "Local rent growth x renters",
+   "outcome": "COAL",
+   "window": "term",
+   "by_election": {
+    "vic2014": {
+     "b": 0.035,
+     "se": 0.153,
+     "shock": null,
+     "n": 489
+    },
+    "vic2018": {
+     "b": 0.078,
+     "se": 0.203,
+     "shock": null,
+     "n": 495
+    },
+    "fed2016": {
+     "b": -0.061,
+     "se": 0.083,
+     "shock": null,
+     "n": 595
+    },
+    "fed2019": {
+     "b": 0.152,
+     "se": 0.108,
+     "shock": null,
+     "n": 588
+    },
+    "vic2022": {
+     "b": 0.261,
+     "se": 0.208,
+     "shock": null,
+     "n": 487
+    },
+    "fed2022": {
+     "b": 0.385,
+     "se": 0.139,
+     "shock": null,
+     "n": 554
+    },
+    "fed2025": {
+     "b": 0.08,
+     "se": 0.106,
+     "shock": null,
+     "n": 552
+    }
+   },
+   "discover": {
+    "b": 0.133,
+    "se": 0.071,
+    "t": 1.87,
+    "n": 2167
+   },
+   "confirm": {
+    "b": 0.011,
+    "se": 0.081,
+    "t": 0.14,
+    "n": 1593
+   }
+  },
+  {
+   "test": "Local rent growth x renters",
+   "outcome": "GOV",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.066,
+     "se": 0.103,
+     "shock": null,
+     "n": 489
+    },
+    "vic2018": {
+     "b": -0.274,
+     "se": 0.125,
+     "shock": null,
+     "n": 495
+    },
+    "fed2016": {
+     "b": -0.209,
+     "se": 0.114,
+     "shock": null,
+     "n": 595
+    },
+    "fed2019": {
+     "b": -0.011,
+     "se": 0.109,
+     "shock": null,
+     "n": 588
+    },
+    "vic2022": {
+     "b": 0.304,
+     "se": 0.135,
+     "shock": null,
+     "n": 487
+    },
+    "fed2022": {
+     "b": 0.172,
+     "se": 0.126,
+     "shock": null,
+     "n": 554
+    },
+    "fed2025": {
+     "b": -0.062,
+     "se": 0.174,
+     "shock": null,
+     "n": 552
+    }
+   },
+   "discover": {
+    "b": -0.06,
+    "se": 0.055,
+    "t": -1.1,
+    "n": 2167
+   },
+   "confirm": {
+    "b": -0.053,
+    "se": 0.085,
+    "t": -0.62,
+    "n": 1593
+   }
+  },
+  {
+   "test": "Local rent growth x renters",
+   "outcome": "ALP",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.084,
+     "se": 0.081,
+     "shock": null,
+     "n": 489
+    },
+    "vic2018": {
+     "b": -0.274,
+     "se": 0.125,
+     "shock": null,
+     "n": 495
+    },
+    "fed2016": {
+     "b": -0.085,
+     "se": 0.142,
+     "shock": null,
+     "n": 595
+    },
+    "fed2019": {
+     "b": -0.25,
+     "se": 0.271,
+     "shock": null,
+     "n": 588
+    },
+    "vic2022": {
+     "b": 0.304,
+     "se": 0.135,
+     "shock": null,
+     "n": 487
+    },
+    "fed2022": {
+     "b": -0.52,
+     "se": 0.173,
+     "shock": null,
+     "n": 554
+    },
+    "fed2025": {
+     "b": -0.062,
+     "se": 0.174,
+     "shock": null,
+     "n": 552
+    }
+   },
+   "discover": {
+    "b": -0.115,
+    "se": 0.076,
+    "t": -1.5,
+    "n": 2167
+   },
+   "confirm": {
+    "b": -0.053,
+    "se": 0.113,
+    "t": -0.47,
+    "n": 1593
+   }
+  },
+  {
+   "test": "Local rent growth x renters",
+   "outcome": "COAL",
+   "window": "12m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.066,
+     "se": 0.103,
+     "shock": null,
+     "n": 489
+    },
+    "vic2018": {
+     "b": 0.143,
+     "se": 0.179,
+     "shock": null,
+     "n": 495
+    },
+    "fed2016": {
+     "b": -0.209,
+     "se": 0.114,
+     "shock": null,
+     "n": 595
+    },
+    "fed2019": {
+     "b": -0.011,
+     "se": 0.109,
+     "shock": null,
+     "n": 588
+    },
+    "vic2022": {
+     "b": -0.08,
+     "se": 0.129,
+     "shock": null,
+     "n": 487
+    },
+    "fed2022": {
+     "b": 0.172,
+     "se": 0.126,
+     "shock": null,
+     "n": 554
+    },
+    "fed2025": {
+     "b": -0.027,
+     "se": 0.125,
+     "shock": null,
+     "n": 552
+    }
+   },
+   "discover": {
+    "b": 0.044,
+    "se": 0.059,
+    "t": 0.74,
+    "n": 2167
+   },
+   "confirm": {
+    "b": -0.087,
+    "se": 0.079,
+    "t": -1.1,
+    "n": 1593
+   }
+  },
+  {
+   "test": "Local rent growth x renters",
+   "outcome": "GOV",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.089,
+     "se": 0.133,
+     "shock": null,
+     "n": 489
+    },
+    "vic2018": {
+     "b": -0.313,
+     "se": 0.122,
+     "shock": null,
+     "n": 495
+    },
+    "fed2016": {
+     "b": -0.153,
+     "se": 0.107,
+     "shock": null,
+     "n": 595
+    },
+    "fed2019": {
+     "b": 0.118,
+     "se": 0.124,
+     "shock": null,
+     "n": 588
+    },
+    "vic2022": {
+     "b": 0.119,
+     "se": 0.104,
+     "shock": null,
+     "n": 487
+    },
+    "fed2022": {
+     "b": -0.042,
+     "se": 0.19,
+     "shock": null,
+     "n": 554
+    },
+    "fed2025": {
+     "b": 0.135,
+     "se": 0.194,
+     "shock": null,
+     "n": 552
+    }
+   },
+   "discover": {
+    "b": -0.044,
+    "se": 0.062,
+    "t": -0.72,
+    "n": 2167
+   },
+   "confirm": {
+    "b": -0.06,
+    "se": 0.082,
+    "t": -0.73,
+    "n": 1593
+   }
+  },
+  {
+   "test": "Local rent growth x renters",
+   "outcome": "ALP",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.046,
+     "se": 0.101,
+     "shock": null,
+     "n": 489
+    },
+    "vic2018": {
+     "b": -0.313,
+     "se": 0.122,
+     "shock": null,
+     "n": 495
+    },
+    "fed2016": {
+     "b": -0.125,
+     "se": 0.139,
+     "shock": null,
+     "n": 595
+    },
+    "fed2019": {
+     "b": -0.211,
+     "se": 0.175,
+     "shock": null,
+     "n": 588
+    },
+    "vic2022": {
+     "b": 0.119,
+     "se": 0.104,
+     "shock": null,
+     "n": 487
+    },
+    "fed2022": {
+     "b": -0.242,
+     "se": 0.183,
+     "shock": null,
+     "n": 554
+    },
+    "fed2025": {
+     "b": 0.135,
+     "se": 0.194,
+     "shock": null,
+     "n": 552
+    }
+   },
+   "discover": {
+    "b": -0.17,
+    "se": 0.069,
+    "t": -2.46,
+    "n": 2167
+   },
+   "confirm": {
+    "b": 0.021,
+    "se": 0.086,
+    "t": 0.24,
+    "n": 1593
+   }
+  },
+  {
+   "test": "Local rent growth x renters",
+   "outcome": "COAL",
+   "window": "6m",
+   "by_election": {
+    "vic2014": {
+     "b": 0.089,
+     "se": 0.133,
+     "shock": null,
+     "n": 489
+    },
+    "vic2018": {
+     "b": 0.252,
+     "se": 0.191,
+     "shock": null,
+     "n": 495
+    },
+    "fed2016": {
+     "b": -0.153,
+     "se": 0.107,
+     "shock": null,
+     "n": 595
+    },
+    "fed2019": {
+     "b": 0.118,
+     "se": 0.124,
+     "shock": null,
+     "n": 588
+    },
+    "vic2022": {
+     "b": -0.036,
+     "se": 0.104,
+     "shock": null,
+     "n": 487
+    },
+    "fed2022": {
+     "b": -0.042,
+     "se": 0.19,
+     "shock": null,
+     "n": 554
+    },
+    "fed2025": {
+     "b": -0.122,
+     "se": 0.151,
+     "shock": null,
+     "n": 552
+    }
+   },
+   "discover": {
+    "b": 0.086,
+    "se": 0.072,
+    "t": 1.19,
+    "n": 2167
+   },
+   "confirm": {
+    "b": -0.092,
+    "se": 0.068,
+    "t": -1.35,
+    "n": 1593
+   }
+  }
+ ]
+}
