@@ -945,6 +945,15 @@ function divColor(party, v, lim) { const t = Math.max(-1, Math.min(1, v / lim));
 let map, mapReady = false, hovered = null, selected = null;
 const state = { election: 'vic2022', metric: 'share', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth' };
 
+// when the browser can't draw the map (WebGL switched off or blocked), say so plainly and keep the rest of the site working
+function mapUnavailable() {
+  const box = el('map-loading'); box.innerHTML = '';
+  box.append(h('div', { style: 'max-width:440px;text-align:left;line-height:1.55;padding:20px;background:var(--surface);border-radius:16px;box-shadow:var(--shadow)' },
+    h('strong', { style: 'font-size:16px;color:var(--navy)' }, 'This browser can’t draw the map'),
+    h('p', { style: 'margin:8px 0' }, 'The map needs WebGL, which is switched off here. That usually means graphics acceleration is turned off in the browser settings, or the computer is work-managed, a remote desktop or a virtual machine.'),
+    h('p', { style: 'margin:8px 0' }, 'Try turning on “Use graphics acceleration when available” (Chrome and Edge: Settings › System), then restart the browser, or open the site in another browser or on your phone.'),
+    h('p', { style: 'margin:8px 0 0' }, 'Everything else works here: ', h('a', { href: '#seat', 'data-go': 'seat' }, 'Electorates'), ', ', h('a', { href: '#dash', 'data-go': 'dash' }, 'the Dashboard'), ', ', h('a', { href: '#compare', 'data-go': 'compare' }, 'Compare'), ' and ', h('a', { href: '#demog', 'data-go': 'demog' }, 'Demographics'), '.')));
+}
 function makeMap() {
   const style = BASEMAP || { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': css('--map-bg') } }] };
   map = new maplibregl.Map({ container: 'map', style, center: [145.0, -37.82], zoom: 9.2, minZoom: 5.5, maxZoom: 16, attributionControl: false });
@@ -2875,7 +2884,7 @@ function rebuildLiveTables(latest) {
         const sur = c.name.split(',')[0].trim(), given = (c.name.split(',')[1] || '').trim();
         const full = normName(given + ' ' + sur);
         const m = regC.find(r => normName(r.name) === full) || regC.find(r => normName(r.name).split(' ').pop() === normName(sur).split(' ').pop() && grpParty(r.party) === grpParty(c.party)) || null;
-        D.candidates.push({ election_id: eid, contest_id: cid, candidate_id: `${cid}-${c.ballot_position}`, surname: sur.split(' ').map(w => w[0] + w.slice(1).toLowerCase()).join(' '), given_name: given, party: c.party, party_name: c.party_name, ballot_position: c.ballot_position, elected: 0, incumbent: m ? m.incumbent : 0, links: m ? candLinks(m) : {}, nominated: true });
+        D.candidates.push({ election_id: eid, contest_id: cid, candidate_id: `${cid}-${c.ballot_position}`, surname: sur.toLowerCase().replace(/(^|[\s\-'’])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()).replace(/\bMc(\p{L})/gu, (m, b) => 'Mc' + b.toUpperCase()), given_name: given, party: c.party, party_name: c.party_name, ballot_position: c.ballot_position, elected: 0, incumbent: m ? m.incumbent : 0, links: m ? candLinks(m) : {}, nominated: true });
       }
       if (nom.enrolment) D.contests[D.contests.length - 1].enrolment = nom.enrolment;
     } else if (lc && lc.candidates.length) {
@@ -3851,7 +3860,7 @@ async function boot() {
     setupQuery();
     if (typeof alasql !== 'undefined') for (const n of names) alasql.tables[n] = new alasql.Table({ data: D[n] });
     status(`${fmt(D.booths.filter(b => b.booth_type === 'ordinary').length)} booths · ${D.elections.length} elections`);
-    if (typeof maplibregl === 'undefined') { el('map-loading').textContent = 'The map library did not load.'; } else makeMap();
+    if (typeof maplibregl === 'undefined') { el('map-loading').textContent = 'The map library did not load.'; } else { try { makeMap(); } catch (e) { console.warn('map unavailable', e); map = null; mapUnavailable(); } }
     renderLiveBox(); if (LIVE.register) startLivePolling();
     let v = 'home'; try { v = location.hash.replace('#', '') || localStorage.getItem('atlas.view') || 'home'; } catch (e) {}
     window.addEventListener('hashchange', () => { let v = location.hash.replace('#', ''); if (v.startsWith('seat/')) { SEAT.cid = decodeURIComponent(v.slice(5)); v = 'seat'; } else if (v === 'seat') SEAT.cid = null; if (v === 'model') v = 'prefs'; if (['home', 'seat', 'dash', 'map', 'venue', 'compare', 'polls', 'demog', 'prefs', 'query', 'about'].includes(v)) showView(v); });
