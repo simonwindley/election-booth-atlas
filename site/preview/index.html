@@ -1749,7 +1749,7 @@ async function renderDashLc(eid) {
   // the chamber
   if (shown) {
     const res = LC.result.filter(r => r.election_id === shown);
-    const LCN = { ALP: 'Labor', LIB: 'Coalition', NAT: 'Coalition', GRN: 'Greens', ONP: 'One Nation' }; const lab = (r) => LCN[r.party] || niceParty(r.party_name || r.party).replace(/^Pauline Hanson's /, '').replace(/ Vic(toria)?$/, ''); const code = (r) => r.party === 'NAT' ? 'LIB' : r.party;
+    const LCN = { ALP: 'Labor', LIB: 'Coalition', NAT: 'Coalition', GRN: 'Greens', ONP: 'One Nation', DLP: 'DLP', SFF: 'Shooters, Fishers & Farmers', DHJ: "Derryn Hinch's Justice", LDP: 'Liberal Democrats', LCP: 'Legalise Cannabis', AJP: 'Animal Justice' }; const lab = (r) => LCN[r.party] || niceParty(r.party_name || r.party).replace(/^Pauline Hanson's /, '').replace(/ Vic(toria)?$/, ''); const code = (r) => r.party === 'NAT' ? 'LIB' : r.party;
     const byP = new Map(); for (const r of res) { const k = code(r); const o = byP.get(k) || byP.set(k, { n: 0, party: r.party === 'LIB' ? 'COAL' : r.party, label: lab(r) }).get(k); o.n++; }
     const order = [...byP.entries()].sort((a, b) => b[1].n - a[1].n);
     const prevE = PREV[shown], prevRes = prevE ? LC.result.filter(r => r.election_id === prevE) : [];
@@ -1760,7 +1760,7 @@ async function renderDashLc(eid) {
     if (gone.length) legend.append(h('span', { class: 'hint' }, 'No seats now: ', gone.map(k => { const r = prevRes.find(x => code(x) === k); return `${lab(r)} (−${prevBy.get(k)})`; }).join(', ')));
     box.append(h('div', { class: 'panel' }, h('h3', {}, shown === eid ? 'The Council elected' : 'The Council as elected in 2022'), seats, legend,
       h('p', { class: 'hint', style: 'margin-top:8px' }, `40 members, 5 from each region. ${shown === eid ? '' : 'Until the 2026 count is in, this is the Council elected in 2022; upper-house counts take about two weeks to finish. '}21 seats make a majority.${prevRes.length ? ` Change on ${shortName(idx.electionById.get(prevE))}.` : ''}`)));
-  } else box.append(h('div', { class: 'panel' }, h('h3', {}, `Upper house, ${e.name}`), h('p', { class: 'hint' }, 'The Atlas holds the upper-house counts for 2018 and 2022 so far.')));
+  } else box.append(h('div', { class: 'panel' }, h('h3', {}, `Upper house, ${e.name}`), h('p', { class: 'hint' }, 'There were no upper-house regions before 2006: until then it had 22 provinces of two members, and each election filled one seat in every province, half the Council at a time. The Atlas holds the counts from 2006 on.')));
   // region by region
   const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Region'), h('th', {}, shown ? `Elected ${shortName(se).replace(/\D+/g, '')}` : ''), ...(shown ? ['ALP', 'COAL', 'GRN'].map(p => h('th', { class: 'num' }, PARTY_SHORT[p])) : []), shown ? h('th', { class: 'num' }, 'Others') : '', h('th', { class: 'num' }, eid === LIVE.election ? '2026 groups' : 'Informal'))));
   const tb = h('tbody'); t.append(tb);
@@ -1774,7 +1774,7 @@ async function renderDashLc(eid) {
       ...(shown ? ['ALP', 'COAL', 'GRN'].map(p => h('td', { class: 'num' }, sh[p] ? pct(sh[p].share) : '–')) : []), shown ? h('td', { class: 'num' }, pct(oth)) : '',
       h('td', { class: 'num' }, eid === LIVE.election ? String(n26 || '–') : c ? pct(c.informal / (c.formal + c.informal)) : '–')));
   }
-  box.append(h('div', { class: 'panel' }, h('h3', {}, 'Region by region'), h('div', { class: 'tablewrap' }, t), h('p', { class: 'hint', style: 'margin-top:8px' }, `First preferences by group${shown ? ', ' + shortName(se) : ''}. Click a region for its ballot, its count and its electorates. Quota: one sixth of the formal vote plus one.`)));
+  if (shown || eid === LIVE.election) box.append(h('div', { class: 'panel' }, h('h3', {}, 'Region by region'), h('div', { class: 'tablewrap' }, t), h('p', { class: 'hint', style: 'margin-top:8px' }, `First preferences by group${shown ? ', ' + shortName(se) : ''}. Click a region for its ballot, its count and its electorates. Quota: one sixth of the formal vote plus one.`)));
 }
 function renderDash() {
   const eid = state.election, e = idx.electionById.get(eid); if (!e || !D.contests.length) return;
@@ -2813,7 +2813,7 @@ async function runSql() {
   if (typeof alasql === 'undefined') { out.append(h('div', { class: 'empty' }, 'The SQL engine did not load (it comes from a CDN). The other views still work.')); return; }
   const sql = el('sql').value;
   try {
-    for (const t of ['lc_contests', 'lc_candidates', 'lc_votes']) if (new RegExp('\\b' + t + '\\b').test(sql) && !D[t]) { status('loading ' + t + '…'); D[t] = t === 'lc_votes' ? (await Promise.all(D.elections.filter(e => e.election_id.startsWith('vic') && e.election_id !== 'vic2023n').map(e => table('lc_votes_' + e.election_id)))).flat() : await table(t); alasql.tables[t] = new alasql.Table({ data: D[t] }); status('ready'); }
+    for (const t of ['lc_contests', 'lc_candidates', 'lc_votes']) if (new RegExp('\\b' + t + '\\b').test(sql) && !D[t]) { status('loading ' + t + '…'); D[t] = t === 'lc_votes' ? (await Promise.all(D.elections.filter(e => e.election_id.startsWith('vic') && e.election_id !== 'vic2023n').map(e => table('lc_votes_' + e.election_id).catch(() => [])))).flat() : await table(t); alasql.tables[t] = new alasql.Table({ data: D[t] }); status('ready'); }
     const t0 = performance.now(); const rows = alasql(sql); const ms = Math.round(performance.now() - t0);
     if (!Array.isArray(rows)) { out.append(h('div', { class: 'empty' }, String(rows))); return; }
     el('sql-result-title').textContent = `Result · ${fmt(rows.length)} row${rows.length === 1 ? '' : 's'} in ${ms} ms${rows.length > 500 ? ' (first 500 shown)' : ''}`;
@@ -2968,7 +2968,7 @@ function renderRegionDetail(eid, cid) {
   const groups = (LC.groupsBy.get(eid + '|' + cid) || []).slice().sort((a, b) => b.total - a.total);
   root.append(h('h3', {}, 'Vote by group (above the line + below)'));
   root.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Group'), h('th', { class: 'num' }, 'Votes'), h('th', { class: 'num' }, '%'), h('th', { class: 'num' }, 'Quotas'), h('th', { class: 'num' }, 'ATL'))),
-    h('tbody', {}, ...groups.map(g => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(g.party)}` }), `${g.grp}. ${g.party_name || PARTY_NAME[g.party] || g.party}`)), h('td', { class: 'num' }, fmt(g.total)), h('td', { class: 'num' }, pct(g.total / c.formal)), h('td', { class: 'num' }, (g.total / c.quota).toFixed(2)), h('td', { class: 'num' }, g.total ? pct(g.atl / g.total, 0) : '–')))))));
+    h('tbody', {}, ...groups.map(g => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(g.party)}` }), `${g.grp}. ${g.party_name || PARTY_NAME[g.party] || g.party}`)), h('td', { class: 'num' }, fmt(g.total)), h('td', { class: 'num' }, pct(g.total / c.formal)), h('td', { class: 'num' }, (g.total / c.quota).toFixed(2)), h('td', { class: 'num' }, g.total && groups.some(x => x.atl) ? pct(g.atl / g.total, 0) : '–')))))));
   // flows: where the vote went on exclusion, aggregated by receiving party; groups with at least 0.5% of the vote
   const flows = LC.flowsBy.get(eid + '|' + cid) || [];
   const byFrom = new Map(); for (const f of flows) (byFrom.get(f.kind + '|' + f.from_name) || byFrom.set(f.kind + '|' + f.from_name, []).get(f.kind + '|' + f.from_name)).push(f);
@@ -3825,7 +3825,7 @@ function candDetail(c, x, close) {
   if (runs.length) {
     tr.append(h('p', { class: 'hint' }, `${runs.length === 1 ? 'One earlier run' : runs.length + ' earlier runs'} under this name in the elections the Atlas holds. Matched by name, so check before relying on it.`),
       h('table', { class: 'data' }, h('tbody', {}, ...runs.map(o => h('tr', {}, h('td', {}, shortName(o.e)), h('td', {}, o.c ? o.c.contest_name : o.r.contest_id, o.lc ? h('span', { class: 'hint' }, ' (upper house)') : ''), h('td', {}, o.r.party_name || PARTY_NAME[o.r.party] || o.r.party || ''), h('td', { class: 'num' }, o.share != null ? pct(o.share) : ''), h('td', {}, o.r.elected ? h('strong', {}, 'Elected') : ''))))));
-  } else tr.append(h('p', { class: 'hint' }, 'No earlier run under this name for the Victorian lower house since 1999, the upper house in 2018 or 2022, or a Victorian federal seat since 2004. Senate and council elections aren\'t checked.'));
+  } else tr.append(h('p', { class: 'hint' }, 'No earlier run under this name for the Victorian lower house since 1999, the upper house since 2006, or a Victorian federal seat since 2004. Senate and council elections aren\'t checked.'));
   body.append(tr);
   // how-to-vote
   const hv = h('div', { class: 'cblock' }, h('h4', {}, 'How-to-vote card'));
@@ -4095,12 +4095,17 @@ function drawRegion(root, rid) {
     box('lime-tint', 'A sixth of the vote', 'A candidate is elected on reaching a quota: one sixth of the formal vote, plus one (about 16.7%). Surplus votes and the votes of excluded candidates flow on by preference until all five seats are filled.'),
     box('teal-tint', 'Your preferences, not a ticket', ['Number at least 1 box above the line, or at least 5 below it. ', h('strong', {}, 'There are no group voting tickets in 2026'), ': in 2022 a single 1 above the line let the group decide where your preferences went; now they go only where you number them.'])));
   // 3 history
-  const s3 = sec('history', 3, 'Past results', 'The upper-house counts the Atlas holds: 2018 and 2022.');
-  const hist = ['vic2022', 'vic2018'].map(eid => ({ eid, e: idx.electionById.get(eid), c: LC.contestBy.get(eid + '|' + rid), res: (LC.resultBy.get(eid + '|' + rid) || []).slice().sort((a, b) => a.order_elected - b.order_elected), sh: lcShares(eid, rid) })).filter(x => x.c);
+  const s3 = sec('history', 3, 'Past results', 'Every upper-house election since regions began in 2006. Regions were redrawn in 2013 and 2021, so earlier results are for a differently shaped region of the same name.');
+  const hist = LC.contests.filter(x => x.contest_id === rid).map(x => x.election_id).sort((a, b) => idx.electionById.get(b).date.localeCompare(idx.electionById.get(a).date)).map(eid => ({ eid, e: idx.electionById.get(eid), c: LC.contestBy.get(eid + '|' + rid), res: (LC.resultBy.get(eid + '|' + rid) || []).slice().sort((a, b) => a.order_elected - b.order_elected), sh: lcShares(eid, rid) }));
   const g3 = h('div', { class: 'grid2' }); s3.append(g3);
-  for (const x of hist) g3.append(h('div', { class: 'box' }, h('h3', {}, `Elected in ${shortName(x.e).replace(/\D+/g, '')}, in order`),
+  const sur = (n) => String(n).split(',')[0].toLowerCase().replace(/(^|[\s\-'’])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()).replace(/\bMc(\p{L})/gu, (m, b) => 'Mc' + b.toUpperCase());
+  if (hist.length) { const x = hist[0]; g3.append(h('div', { class: 'box' }, h('h3', {}, `Elected in ${shortName(x.e).replace(/\D+/g, '')}, in order`),
     h('table', { class: 'data' }, h('tbody', {}, ...x.res.map(r => h('tr', {}, h('td', { class: 'num', style: 'width:24px' }, r.order_elected), h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.party)}` }), r.name)), h('td', { class: 'hint' }, niceParty(r.party_name || r.party)))))),
-    h('div', { class: 'hint', style: 'margin-top:8px' }, `${fmt(x.c.formal)} formal votes · quota ${fmt(x.c.quota)} · ${pct(x.c.informal / (x.c.formal + x.c.informal))} informal`)));
+    h('div', { class: 'hint', style: 'margin-top:8px' }, `${fmt(x.c.formal)} formal votes · quota ${fmt(x.c.quota)} · ${pct(x.c.informal / (x.c.formal + x.c.informal))} informal`))); }
+  if (hist.length > 1) g3.append(h('div', { class: 'box' }, h('h3', {}, 'This region over time'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' },
+    h('thead', {}, h('tr', {}, h('th', {}, ''), h('th', {}, 'Elected'), ...['ALP', 'COAL', 'GRN'].map(p => h('th', { class: 'num' }, PARTY_SHORT[p])))),
+    h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, shortName(x.e).replace(/\D+/g, '')), h('td', {}, ...x.res.map(r => h('span', { class: 'dot', style: `background:${partyColor(r.party)};margin-right:3px`, title: `${sur(r.name)} (${niceParty(r.party_name || r.party)})` }))), ...['ALP', 'COAL', 'GRN'].map(p => h('td', { class: 'num' }, x.sh[p] ? pct(x.sh[p].share) : '–'))))))),
+    h('div', { class: 'hint', style: 'margin-top:8px' }, 'First preferences by group. Hover a dot for the member.')));
   if (hist.length) {
     const groups22 = (LC.groupsBy.get('vic2022|' + rid) || []).slice().sort((a, b) => b.total - a.total).slice(0, 10);
     const tot22 = hist[0].c.formal;

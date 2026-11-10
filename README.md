@@ -357,6 +357,10 @@ python3 -m src.load_vec 2010 raw/vec/2010/districts.json data/vic2010
 python3 -m src.load_vec 2006 raw/vec/2006/districts.json data/vic2006   # likewise 2002, 1999 (tools/fetch_history.py writes the normalised shape directly)
 python3 -m src.load_lc 2022 raw/vec/2022/legislative_council data/vic2022
 python3 -m src.load_lc 2018 raw/vec/2018/legislative_council data/vic2018
+python3 tools/fetch_lc_history.py                                  # 2006, 2010, 2014 upper-house .xls via the Internet Archive
+python3 -m src.load_lc 2014 raw/vec/2014/legislative_council data/vic2014
+python3 -m src.load_lc_old 2010 raw/vec/2010/legislative_council data/vic2010   # likewise 2006 (region totals only; no group letters or ATL split in the 2006 files)
+python3 tools/export_lc.py data site/data                          # just the site's upper-house files (export_site does the same as part of a full export)
 # by-elections: raw/vec/by_<seat><year>.json -> data/vicby-<seat>-<year> (see src/load_vec.load)
 python3 -m src.load_2026 raw/vec/2026/wikipedia_candidates_raw_2026-10-31.json data/vic2026 2026-10-31
 python3 -m src.verify data/vic2022 && python3 -m src.verify data/vic2018

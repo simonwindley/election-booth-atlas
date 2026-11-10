@@ -51,6 +51,7 @@ CANON = {
 
 # Regex (case-insensitive) on the source party name -> canonical code. Order matters.
 _NAME_RULES = [
+    (r'labour dlp|democratic labou?r|\bd\.l\.p\b', 'DLP'),   # before 'labor': the 2006/2010 ballots spell it "D.L.P. - Democratic Labor Party"
     (r'labor', 'ALP'),
     (r'liberal democrat|libertarian', 'LDP'),
     (r'^liberal|liberal party', 'LIB'),

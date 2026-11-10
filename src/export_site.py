@@ -76,7 +76,7 @@ def main(db, out):
     sizes['dop'] = write(out, 'dop', q("""SELECT election_id, contest_id, count_no, candidate_id, transfer, progressive_total, excluded FROM dop"""))
     sizes['lc_contests'] = write(out, 'lc_contests', q('SELECT * FROM lc_contests'))
     sizes['lc_candidates'] = write(out, 'lc_candidates', q('SELECT election_id, contest_id, candidate_id, "group", party, party_name, name, is_atl FROM lc_candidates'))
-    for eid in [r[0] for r in con.execute('SELECT DISTINCT election_id FROM lc_votes')]:
+    for eid in [r[0] for r in con.execute("SELECT DISTINCT election_id FROM lc_votes WHERE booth_type <> 'region'")]:   # 2006: region totals only
         sizes['lc_votes_' + eid] = write(out, 'lc_votes_' + eid, q(f"SELECT election_id, contest_id, booth_id, booth_type, candidate_id, votes FROM lc_votes WHERE election_id = '{eid}'"))
     # upper house summaries for the region view: group totals (ATL / BTL), who was elected in what order, and preference flows
     sizes['lc_groups'] = write(out, 'lc_groups', q('''
@@ -94,9 +94,11 @@ def main(db, out):
         return cand_by.get((eid, cid, _nk(name)))
     # elected: the first count at which each candidate is flagged elected
     el = q("SELECT election_id, contest_id, MIN(count_no) AS count_no, \"column\" AS name FROM lc_dop WHERE elected = 1 GROUP BY 1, 2, 4 ORDER BY 1, 2, 3")
+    fp1 = q("SELECT election_id, contest_id, \"column\" AS name, progressive_total AS fp FROM lc_dop WHERE count_no = 1")
+    el = el.merge(fp1, how='left', on=['election_id', 'contest_id', 'name'])   # within a count, the bigger first-preference total was elected first
     rows = []
     for (eid, cid), g in el.groupby(['election_id', 'contest_id'], sort=False):
-        for order, r in enumerate(g.sort_values('count_no').itertuples(), start=1):
+        for order, r in enumerate(g.sort_values(['count_no', 'fp'], ascending=[True, False]).itertuples(), start=1):
             c = who(eid, cid, r.name)
             rows.append({'election_id': eid, 'contest_id': cid, 'name': r.name, 'party': c.party if c else 'OTH', 'party_name': c.party_name if c else '', 'grp': c.grp if c else '', 'order_elected': order, 'count_no': int(r.count_no)})
     sizes['lc_result'] = write(out, 'lc_result', pd.DataFrame(rows))
