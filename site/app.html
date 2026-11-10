@@ -454,6 +454,24 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 #dash-head .countdown { margin: 0; display: inline-flex; align-items: center; gap: 6px; padding: 4px 14px 4px 6px; border-radius: 999px; background: var(--surface); }
 #dash-head .countdown .cd { font-family: var(--font-display); font-weight: 800; font-size: 16px; background: var(--lime); color: #1B2B4B; border-radius: 999px; padding: 2px 10px; margin: 0; }
 
+.v2 .ballotgrid { display: grid; grid-template-columns: minmax(300px, 400px) minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 860px) { .v2 .ballotgrid { grid-template-columns: 1fr; } }
+.v2 .ballotgrid .cands { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.v2 .ballot { background: #FFFDF6; color: #1A1F2B; border: 1px solid #D9D3C6; border-radius: 6px; box-shadow: 0 2px 0 #E4DED2, 0 10px 24px rgba(27,43,75,.10); padding: 16px 16px 10px; transform: rotate(-.6deg); }
+.v2 .ballot-head { text-align: center; border-bottom: 2px solid #1A1F2B; padding-bottom: 10px; margin-bottom: 8px; }
+.v2 .ballot-head .k { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+.v2 .ballot-head .e { font-family: var(--font-display); font-weight: 800; font-size: 20px; margin: 2px 0; color: #1B2B4B; }
+.v2 .ballot-head .i { font-size: 12px; color: #4F4B44; }
+.v2 .brow { display: flex; gap: 12px; align-items: center; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px dashed #D9D3C6; padding: 8px 2px; cursor: pointer; font: inherit; color: inherit; min-height: 48px; }
+.v2 .brow:hover { background: #F6F1E3; }
+.v2 .brow:last-of-type { border-bottom: 0; }
+.v2 .bbox { flex: none; width: 34px; height: 34px; border: 2px solid #1A1F2B; border-radius: 3px; display: inline-flex; align-items: center; justify-content: center; font-family: "Comic Sans MS", "Bradley Hand", cursive; font-size: 20px; font-weight: 700; color: #1F4E9C; background: #FFFFFF; }
+.v2 .bname { display: flex; flex-direction: column; line-height: 1.25; }
+.v2 .bname strong { font-size: 14px; letter-spacing: .01em; }
+.v2 .bname span { font-size: 12px; color: #4F4B44; }
+.v2 .cand h3 .bpos { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; margin-right: 8px; border: 1.5px solid currentColor; border-radius: 3px; font-size: 12px; font-weight: 700; vertical-align: 3px; opacity: .7; }
+.v2 .ballot-foot { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 12px; font-size: 14px; }
+
 </style>
 
 <div class="app">
@@ -3424,7 +3442,7 @@ async function pollDaily() {
     if (!res.ok) return false;
     const j = await res.json(); if (!j || !j.captured_at) return false;
     const changed = j.captured_at !== LIVE.dailyAt; LIVE.daily = j; LIVE.dailyAt = j.captured_at;
-    if (changed) { rebuildLiveTables(LIVE.latest); buildIndexes(); refreshSql(); if (state.election === LIVE.election && mapReady) renderMap(); if (selected && selected.election === LIVE.election && selected.contest) renderContestDetail(LIVE.election, selected.contest); if (activeView() === 'dash') renderDash(); }
+    if (changed) { rebuildLiveTables(LIVE.latest); buildIndexes(); refreshSql(); if (state.election === LIVE.election && mapReady) renderMap(); if (selected && selected.election === LIVE.election && selected.contest) renderContestDetail(LIVE.election, selected.contest); if (activeView() === 'dash') renderDash(); if (activeView() === 'seat') renderSeat(); }
     return changed;
   } catch (e) { return false; }
 }
@@ -3457,6 +3475,8 @@ function linksRow(links) {
   if (links.parliament) row.append(h('a', { href: links.parliament, target: '_blank', rel: 'noopener' }, 'Parliament'));
   if (links.party) row.append(h('a', { href: links.party, target: '_blank', rel: 'noopener' }, 'Party'));
   if (links.vec) row.append(h('a', { href: links.vec, target: '_blank', rel: 'noopener' }, 'VEC'));
+  for (const [k, label] of [['website', 'Website'], ['facebook', 'Facebook'], ['instagram', 'Instagram'], ['x', 'X'], ['tiktok', 'TikTok'], ['linkedin', 'LinkedIn'], ['youtube', 'YouTube'], ['bluesky', 'Bluesky'], ['threads', 'Threads']])
+    if (links[k] && /^https:\/\//.test(links[k])) row.append(h('a', { href: links[k], target: '_blank', rel: 'noopener nofollow' }, label));
   return row;
 }
 function renderContestDetail2026(cid) {
@@ -3557,6 +3577,36 @@ function fmtDay(iso) { if (!iso) return ''; const d = new Date(iso.length > 10 ?
 
 
 /* ---------- v2: Home and Electorates ---------- */
+// curated campaign links (website, socials) for 2026 candidates, keyed "contest|surname|given": data/c2026_links.json
+let CLINKS = {};
+const linkKey = (cid, x) => `${cid}|${String(x.surname || '').toLowerCase()}|${String(x.given_name || '').toLowerCase().split(' ')[0]}`;
+function candLinksAll(cid, x) { return Object.assign({}, x.links || {}, CLINKS[linkKey(cid, x)] || {}); }
+// a practice ballot paper: the candidates in ballot order, click to number them 1..n
+function ballotPaper(c, cands) {
+  const n = cands.length, nums = new Map();
+  const paper = h('div', { class: 'ballot', role: 'group', 'aria-label': `Practice ballot paper for ${c.contest_name}` });
+  const status = h('div', { class: 'ballot-status', 'aria-live': 'polite' });
+  const rows = [];
+  const refresh = () => {
+    for (const r of rows) r.box.textContent = nums.has(r.i) ? nums.get(r.i) : '';
+    for (const r of rows) r.btn.setAttribute('aria-label', `${r.name}${nums.has(r.i) ? ', numbered ' + nums.get(r.i) : ', not numbered yet'}`);
+    status.innerHTML = '';
+    if (!nums.size) status.append(`Click the boxes in the order you'd vote, from 1 to ${n}.`);
+    else if (nums.size < n) status.append(`${nums.size} of ${n} numbered. Keep going: in the Assembly every box needs a number.`);
+    else status.append(h('strong', {}, 'That would be a formal vote.'), ' Every box is numbered once. (This is only practice: nothing is saved or sent.)');
+  };
+  paper.append(h('div', { class: 'ballot-head' }, h('div', { class: 'k' }, 'Legislative Assembly'), h('div', { class: 'e' }, `${c.contest_name} Electorate`), h('div', { class: 'i' }, `Number the boxes from 1 to ${n} in the order of your choice`)));
+  cands.forEach((x, i) => {
+    const name = `${String(x.surname).toUpperCase()}, ${x.given_name}`;
+    const box = h('span', { class: 'bbox', 'aria-hidden': 'true' });
+    const btn = h('button', { type: 'button', class: 'brow', onclick: () => { if (nums.has(i)) { const v = nums.get(i); nums.delete(i); for (const [k, w] of nums) if (w > v) nums.set(k, w - 1); } else nums.set(i, nums.size + 1); refresh(); } },
+      box, h('span', { class: 'bname' }, h('strong', {}, name), h('span', {}, x.party_name || (x.party === 'IND' ? 'Independent' : PARTY_NAME[x.party] || ''))));
+    rows.push({ i, box, btn, name }); paper.append(btn);
+  });
+  const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); refresh(); } }, 'Clear');
+  refresh();
+  return h('div', { class: 'ballot-wrap' }, paper, h('div', { class: 'ballot-foot' }, status, reset), h('div', { class: 'hint', style: 'margin-top:6px' }, 'An illustration of the ballot order, not the official ballot paper. Click a numbered box again to take its number off.'));
+}
 const SEAT = { cid: null, pending: null };
 const PREMIER = { vic1999: 'Bracks, minority', vic2002: 'Bracks', vic2006: 'Bracks', vic2010: 'Baillieu', vic2014: 'Andrews', vic2018: 'Andrews', vic2022: 'Andrews' };
 const seats26 = () => laContests(LIVE.election).slice().sort((a, b) => a.contest_name.localeCompare(b.contest_name));
@@ -3691,8 +3741,8 @@ function renderSeat() {
   const nominated = cands.some(x => x.nominated);
   const s1 = sec('ballot', 1, `Who's standing in 2026`, `${cands.length} candidates · ${nominated ? 'in ballot order, as nominated with the VEC' : 'declared so far, A to Z until the ballot draw'}. We link to each candidate's own pages and don't write about them ourselves.`);
   const grid = h('div', { class: 'cands' });
-  for (const x of cands) { const lr = linksRow(x.links); grid.append(h('div', { class: 'cand' }, h('span', { class: 'dot', style: `background:${partyColor(grpParty(x.party))}` }), h('div', { style: 'min-width:0' }, h('h3', {}, `${x.given_name} ${x.surname}`), h('div', { class: 'p' }, (x.party_name || PARTY_NAME[x.party] || x.party || 'Independent') + (x.incumbent ? ' · sitting member' : '')), lr.childNodes.length ? h('div', { class: 'links' }, ...[...lr.childNodes]) : ''))); }
-  s1.append(grid);
+  for (const x of cands) { const lr = linksRow(candLinksAll(cid, x)); grid.append(h('div', { class: 'cand' }, h('span', { class: 'dot', style: `background:${partyColor(grpParty(x.party))}` }), h('div', { style: 'min-width:0' }, h('h3', {}, x.nominated && x.ballot_position ? h('span', { class: 'bpos', title: 'Position on the ballot paper' }, x.ballot_position) : '', `${x.given_name} ${x.surname}`), h('div', { class: 'p' }, (x.party_name || PARTY_NAME[x.party] || x.party || 'Independent') + (x.incumbent ? ' · sitting member' : '')), lr.childNodes.length ? h('div', { class: 'links' }, ...[...lr.childNodes]) : ''))); }
+  s1.append(nominated ? h('div', { class: 'ballotgrid' }, ballotPaper(c, cands), grid) : grid);
   // 2 voting
   const s2 = sec('vote', 2, 'How and when to vote');
   const box = (cls, t, txt) => h('div', { style: `background:var(--${cls})` }, h('h3', {}, t), h('p', {}, ...[].concat(txt)));
@@ -3812,6 +3862,7 @@ async function boot() {
     try {
       const [c26, k26, r26] = await Promise.all(['c2026_contests', 'c2026_candidates', 'c2026_retiring'].map(table));
       let meta = {}; try { meta = await (await fetch(DATA + 'c2026_meta.json')).json(); } catch (e) {}
+      try { CLINKS = (await (await fetch(DATA + 'c2026_links.json')).json()).links || {}; } catch (e) { CLINKS = {}; }
       liveSetup({ contests: c26, candidates: k26, retiring: r26, meta });
     } catch (e) { console.warn('2026 register not loaded', e); }
     buildIndexes();
