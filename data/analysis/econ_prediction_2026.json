@@ -1,0 +1,629 @@
+{
+ "written": "2026-11-11T01:45+11:00",
+ "election": "vic2026 (28 November 2026)",
+ "claim": "The claim (src/econ_followup.py, seat level): where local unemployment rose in the year before polling day in a seat that already had high unemployment, the Coalition does worse than its statewide swing; where it fell, or unemployment was already low, better. Fitted on all seven elections (2014-2025), applied to the 87 districts (the 2022 boundaries, which 2026 keeps), with Small Area Labour Markets data to June 2026 (the latest quarter out before polling day).",
+ "test": "The test, fixed now: take each district's Coalition first-preference swing at ordinary polling places (2022 -> 2026) minus the average district's swing; regress it on the prediction and the district's 2016-census unemployment rate (the census mix gets its own slope, as in the fit). The prediction passes if its coefficient is positive with one-sided p < 0.05. We also report the plain correlation. The sha256 of the predictions is stored in the file so any later change shows. ",
+ "coefficients": {
+  "b_x": -0.05453025724175314,
+  "b_xg": -32.25729445762693,
+  "n": 409
+ },
+ "salm_latest_quarter": "2026-06-01",
+ "spread": {
+  "sd": 0.46,
+  "max_abs": 2.2,
+  "districts": 87
+ },
+ "sha256": "c4f777f4415c3942d51b81aa6e0b4c34260a31522a18e712429533e2711a1b23",
+ "predictions": [
+  {
+   "contest_id": "vic-thomastown",
+   "name": "Thomastown",
+   "unemp_change_12m": 2.0,
+   "unemployment_rate_2016": 9.4,
+   "coalition_vs_state_pts": -1.9
+  },
+  {
+   "contest_id": "vic-dandenong",
+   "name": "Dandenong",
+   "unemp_change_12m": 1.04,
+   "unemployment_rate_2016": 10.5,
+   "coalition_vs_state_pts": -1.2
+  },
+  {
+   "contest_id": "vic-benambra",
+   "name": "Benambra",
+   "unemp_change_12m": -1.23,
+   "unemployment_rate_2016": 4.4,
+   "coalition_vs_state_pts": -0.82
+  },
+  {
+   "contest_id": "vic-melton",
+   "name": "Melton",
+   "unemp_change_12m": 0.95,
+   "unemployment_rate_2016": 8.6,
+   "coalition_vs_state_pts": -0.61
+  },
+  {
+   "contest_id": "vic-preston",
+   "name": "Preston",
+   "unemp_change_12m": 0.98,
+   "unemployment_rate_2016": 8.2,
+   "coalition_vs_state_pts": -0.51
+  },
+  {
+   "contest_id": "vic-mill-park",
+   "name": "Mill Park",
+   "unemp_change_12m": 1.32,
+   "unemployment_rate_2016": 7.5,
+   "coalition_vs_state_pts": -0.5
+  },
+  {
+   "contest_id": "vic-ovens-valley",
+   "name": "Ovens Valley",
+   "unemp_change_12m": -0.56,
+   "unemployment_rate_2016": 4.5,
+   "coalition_vs_state_pts": -0.4
+  },
+  {
+   "contest_id": "vic-euroa",
+   "name": "Euroa",
+   "unemp_change_12m": -0.79,
+   "unemployment_rate_2016": 5.1,
+   "coalition_vs_state_pts": -0.35
+  },
+  {
+   "contest_id": "vic-niddrie",
+   "name": "Niddrie",
+   "unemp_change_12m": -0.54,
+   "unemployment_rate_2016": 4.9,
+   "coalition_vs_state_pts": -0.29
+  },
+  {
+   "contest_id": "vic-narre-warren-south",
+   "name": "Narre Warren South",
+   "unemp_change_12m": 0.7,
+   "unemployment_rate_2016": 7.9,
+   "coalition_vs_state_pts": -0.29
+  },
+  {
+   "contest_id": "vic-werribee",
+   "name": "Werribee",
+   "unemp_change_12m": 0.6,
+   "unemployment_rate_2016": 8.2,
+   "coalition_vs_state_pts": -0.27
+  },
+  {
+   "contest_id": "vic-laverton",
+   "name": "Laverton",
+   "unemp_change_12m": 0.35,
+   "unemployment_rate_2016": 10.8,
+   "coalition_vs_state_pts": -0.24
+  },
+  {
+   "contest_id": "vic-lara",
+   "name": "Lara",
+   "unemp_change_12m": 1.27,
+   "unemployment_rate_2016": 6.8,
+   "coalition_vs_state_pts": -0.23
+  },
+  {
+   "contest_id": "vic-hastings",
+   "name": "Hastings",
+   "unemp_change_12m": -0.23,
+   "unemployment_rate_2016": 4.7,
+   "coalition_vs_state_pts": -0.2
+  },
+  {
+   "contest_id": "vic-essendon",
+   "name": "Essendon",
+   "unemp_change_12m": -0.33,
+   "unemployment_rate_2016": 5.0,
+   "coalition_vs_state_pts": -0.2
+  },
+  {
+   "contest_id": "vic-macedon",
+   "name": "Macedon",
+   "unemp_change_12m": -0.18,
+   "unemployment_rate_2016": 4.5,
+   "coalition_vs_state_pts": -0.2
+  },
+  {
+   "contest_id": "vic-richmond",
+   "name": "Richmond",
+   "unemp_change_12m": -0.25,
+   "unemployment_rate_2016": 4.8,
+   "coalition_vs_state_pts": -0.19
+  },
+  {
+   "contest_id": "vic-prahran",
+   "name": "Prahran",
+   "unemp_change_12m": -0.34,
+   "unemployment_rate_2016": 5.1,
+   "coalition_vs_state_pts": -0.19
+  },
+  {
+   "contest_id": "vic-bundoora",
+   "name": "Bundoora",
+   "unemp_change_12m": 0.68,
+   "unemployment_rate_2016": 7.1,
+   "coalition_vs_state_pts": -0.15
+  },
+  {
+   "contest_id": "vic-mordialloc",
+   "name": "Mordialloc",
+   "unemp_change_12m": -0.08,
+   "unemployment_rate_2016": 4.5,
+   "coalition_vs_state_pts": -0.14
+  },
+  {
+   "contest_id": "vic-mornington",
+   "name": "Mornington",
+   "unemp_change_12m": 0.01,
+   "unemployment_rate_2016": 4.1,
+   "coalition_vs_state_pts": -0.12
+  },
+  {
+   "contest_id": "vic-box-hill",
+   "name": "Box Hill",
+   "unemp_change_12m": 0.64,
+   "unemployment_rate_2016": 6.9,
+   "coalition_vs_state_pts": -0.11
+  },
+  {
+   "contest_id": "vic-south-west-coast",
+   "name": "South-West Coast",
+   "unemp_change_12m": 0.02,
+   "unemployment_rate_2016": 4.4,
+   "coalition_vs_state_pts": -0.1
+  },
+  {
+   "contest_id": "vic-albert-park",
+   "name": "Albert Park",
+   "unemp_change_12m": -0.17,
+   "unemployment_rate_2016": 5.3,
+   "coalition_vs_state_pts": -0.1
+  },
+  {
+   "contest_id": "vic-narre-warren-north",
+   "name": "Narre Warren North",
+   "unemp_change_12m": 0.48,
+   "unemployment_rate_2016": 7.1,
+   "coalition_vs_state_pts": -0.09
+  },
+  {
+   "contest_id": "vic-mulgrave",
+   "name": "Mulgrave",
+   "unemp_change_12m": 0.35,
+   "unemployment_rate_2016": 7.8,
+   "coalition_vs_state_pts": -0.09
+  },
+  {
+   "contest_id": "vic-brighton",
+   "name": "Brighton",
+   "unemp_change_12m": 0.01,
+   "unemployment_rate_2016": 4.7,
+   "coalition_vs_state_pts": -0.08
+  },
+  {
+   "contest_id": "vic-sandringham",
+   "name": "Sandringham",
+   "unemp_change_12m": 0.04,
+   "unemployment_rate_2016": 4.6,
+   "coalition_vs_state_pts": -0.08
+  },
+  {
+   "contest_id": "vic-polwarth",
+   "name": "Polwarth",
+   "unemp_change_12m": 0.09,
+   "unemployment_rate_2016": 3.9,
+   "coalition_vs_state_pts": -0.07
+  },
+  {
+   "contest_id": "vic-nepean",
+   "name": "Nepean",
+   "unemp_change_12m": -0.03,
+   "unemployment_rate_2016": 5.3,
+   "coalition_vs_state_pts": -0.06
+  },
+  {
+   "contest_id": "vic-brunswick",
+   "name": "Brunswick",
+   "unemp_change_12m": -0.27,
+   "unemployment_rate_2016": 5.8,
+   "coalition_vs_state_pts": -0.06
+  },
+  {
+   "contest_id": "vic-sydenham",
+   "name": "Sydenham",
+   "unemp_change_12m": 0.31,
+   "unemployment_rate_2016": 7.5,
+   "coalition_vs_state_pts": -0.05
+  },
+  {
+   "contest_id": "vic-gippsland-south",
+   "name": "Gippsland South",
+   "unemp_change_12m": -0.13,
+   "unemployment_rate_2016": 5.7,
+   "coalition_vs_state_pts": -0.05
+  },
+  {
+   "contest_id": "vic-northcote",
+   "name": "Northcote",
+   "unemp_change_12m": -0.05,
+   "unemployment_rate_2016": 5.5,
+   "coalition_vs_state_pts": -0.05
+  },
+  {
+   "contest_id": "vic-glen-waverley",
+   "name": "Glen Waverley",
+   "unemp_change_12m": 0.39,
+   "unemployment_rate_2016": 6.8,
+   "coalition_vs_state_pts": -0.04
+  },
+  {
+   "contest_id": "vic-malvern",
+   "name": "Malvern",
+   "unemp_change_12m": 0.06,
+   "unemployment_rate_2016": 5.4,
+   "coalition_vs_state_pts": -0.03
+  },
+  {
+   "contest_id": "vic-bass",
+   "name": "Bass",
+   "unemp_change_12m": 0.05,
+   "unemployment_rate_2016": 5.5,
+   "coalition_vs_state_pts": -0.03
+  },
+  {
+   "contest_id": "vic-pakenham",
+   "name": "Pakenham",
+   "unemp_change_12m": 0.59,
+   "unemployment_rate_2016": 6.4,
+   "coalition_vs_state_pts": -0.03
+  },
+  {
+   "contest_id": "vic-oakleigh",
+   "name": "Oakleigh",
+   "unemp_change_12m": 0.23,
+   "unemployment_rate_2016": 8.0,
+   "coalition_vs_state_pts": -0.02
+  },
+  {
+   "contest_id": "vic-bulleen",
+   "name": "Bulleen",
+   "unemp_change_12m": 0.41,
+   "unemployment_rate_2016": 6.5,
+   "coalition_vs_state_pts": -0.02
+  },
+  {
+   "contest_id": "vic-carrum",
+   "name": "Carrum",
+   "unemp_change_12m": -0.13,
+   "unemployment_rate_2016": 5.9,
+   "coalition_vs_state_pts": -0.02
+  },
+  {
+   "contest_id": "vic-caulfield",
+   "name": "Caulfield",
+   "unemp_change_12m": 0.13,
+   "unemployment_rate_2016": 5.1,
+   "coalition_vs_state_pts": -0.02
+  },
+  {
+   "contest_id": "vic-ivanhoe",
+   "name": "Ivanhoe",
+   "unemp_change_12m": 0.7,
+   "unemployment_rate_2016": 6.3,
+   "coalition_vs_state_pts": -0.02
+  },
+  {
+   "contest_id": "vic-bentleigh",
+   "name": "Bentleigh",
+   "unemp_change_12m": 0.08,
+   "unemployment_rate_2016": 5.7,
+   "coalition_vs_state_pts": -0.02
+  },
+  {
+   "contest_id": "vic-bendigo-east",
+   "name": "Bendigo East",
+   "unemp_change_12m": 0.07,
+   "unemployment_rate_2016": 5.7,
+   "coalition_vs_state_pts": -0.02
+  },
+  {
+   "contest_id": "vic-bendigo-west",
+   "name": "Bendigo West",
+   "unemp_change_12m": -0.02,
+   "unemployment_rate_2016": 5.9,
+   "coalition_vs_state_pts": -0.02
+  },
+  {
+   "contest_id": "vic-mildura",
+   "name": "Mildura",
+   "unemp_change_12m": 0.34,
+   "unemployment_rate_2016": 6.3,
+   "coalition_vs_state_pts": -0.01
+  },
+  {
+   "contest_id": "vic-williamstown",
+   "name": "Williamstown",
+   "unemp_change_12m": 0.06,
+   "unemployment_rate_2016": 6.0,
+   "coalition_vs_state_pts": -0.01
+  },
+  {
+   "contest_id": "vic-gippsland-east",
+   "name": "Gippsland East",
+   "unemp_change_12m": -0.29,
+   "unemployment_rate_2016": 6.2,
+   "coalition_vs_state_pts": -0.0
+  },
+  {
+   "contest_id": "vic-point-cook",
+   "name": "Point Cook",
+   "unemp_change_12m": 0.19,
+   "unemployment_rate_2016": 7.7,
+   "coalition_vs_state_pts": 0.0
+  },
+  {
+   "contest_id": "vic-eureka",
+   "name": "Eureka",
+   "unemp_change_12m": 0.02,
+   "unemployment_rate_2016": 6.3,
+   "coalition_vs_state_pts": 0.0
+  },
+  {
+   "contest_id": "vic-ashwood",
+   "name": "Ashwood",
+   "unemp_change_12m": 0.14,
+   "unemployment_rate_2016": 6.6,
+   "coalition_vs_state_pts": 0.01
+  },
+  {
+   "contest_id": "vic-cranbourne",
+   "name": "Cranbourne",
+   "unemp_change_12m": 0.94,
+   "unemployment_rate_2016": 6.1,
+   "coalition_vs_state_pts": 0.01
+  },
+  {
+   "contest_id": "vic-kororoit",
+   "name": "Kororoit",
+   "unemp_change_12m": 0.18,
+   "unemployment_rate_2016": 8.4,
+   "coalition_vs_state_pts": 0.01
+  },
+  {
+   "contest_id": "vic-clarinda",
+   "name": "Clarinda",
+   "unemp_change_12m": 0.14,
+   "unemployment_rate_2016": 6.9,
+   "coalition_vs_state_pts": 0.01
+  },
+  {
+   "contest_id": "vic-tarneit",
+   "name": "Tarneit",
+   "unemp_change_12m": 0.17,
+   "unemployment_rate_2016": 8.6,
+   "coalition_vs_state_pts": 0.01
+  },
+  {
+   "contest_id": "vic-pascoe-vale",
+   "name": "Pascoe Vale",
+   "unemp_change_12m": -0.27,
+   "unemployment_rate_2016": 6.3,
+   "coalition_vs_state_pts": 0.02
+  },
+  {
+   "contest_id": "vic-ripon",
+   "name": "Ripon",
+   "unemp_change_12m": -0.26,
+   "unemployment_rate_2016": 6.4,
+   "coalition_vs_state_pts": 0.03
+  },
+  {
+   "contest_id": "vic-hawthorn",
+   "name": "Hawthorn",
+   "unemp_change_12m": 0.34,
+   "unemployment_rate_2016": 5.5,
+   "coalition_vs_state_pts": 0.03
+  },
+  {
+   "contest_id": "vic-lowan",
+   "name": "Lowan",
+   "unemp_change_12m": 0.26,
+   "unemployment_rate_2016": 4.6,
+   "coalition_vs_state_pts": 0.04
+  },
+  {
+   "contest_id": "vic-geelong",
+   "name": "Geelong",
+   "unemp_change_12m": 0.5,
+   "unemployment_rate_2016": 5.8,
+   "coalition_vs_state_pts": 0.04
+  },
+  {
+   "contest_id": "vic-kew",
+   "name": "Kew",
+   "unemp_change_12m": 0.42,
+   "unemployment_rate_2016": 5.6,
+   "coalition_vs_state_pts": 0.05
+  },
+  {
+   "contest_id": "vic-bellarine",
+   "name": "Bellarine",
+   "unemp_change_12m": 0.52,
+   "unemployment_rate_2016": 5.7,
+   "coalition_vs_state_pts": 0.05
+  },
+  {
+   "contest_id": "vic-bayswater",
+   "name": "Bayswater",
+   "unemp_change_12m": 0.69,
+   "unemployment_rate_2016": 5.8,
+   "coalition_vs_state_pts": 0.05
+  },
+  {
+   "contest_id": "vic-footscray",
+   "name": "Footscray",
+   "unemp_change_12m": 0.08,
+   "unemployment_rate_2016": 7.8,
+   "coalition_vs_state_pts": 0.06
+  },
+  {
+   "contest_id": "vic-wendouree",
+   "name": "Wendouree",
+   "unemp_change_12m": -0.17,
+   "unemployment_rate_2016": 6.8,
+   "coalition_vs_state_pts": 0.07
+  },
+  {
+   "contest_id": "vic-frankston",
+   "name": "Frankston",
+   "unemp_change_12m": -0.44,
+   "unemployment_rate_2016": 6.6,
+   "coalition_vs_state_pts": 0.08
+  },
+  {
+   "contest_id": "vic-berwick",
+   "name": "Berwick",
+   "unemp_change_12m": 0.56,
+   "unemployment_rate_2016": 5.5,
+   "coalition_vs_state_pts": 0.08
+  },
+  {
+   "contest_id": "vic-shepparton",
+   "name": "Shepparton",
+   "unemp_change_12m": 0.69,
+   "unemployment_rate_2016": 5.7,
+   "coalition_vs_state_pts": 0.09
+  },
+  {
+   "contest_id": "vic-ringwood",
+   "name": "Ringwood",
+   "unemp_change_12m": 0.63,
+   "unemployment_rate_2016": 5.5,
+   "coalition_vs_state_pts": 0.09
+  },
+  {
+   "contest_id": "vic-murray-plains",
+   "name": "Murray Plains",
+   "unemp_change_12m": 0.38,
+   "unemployment_rate_2016": 4.6,
+   "coalition_vs_state_pts": 0.1
+  },
+  {
+   "contest_id": "vic-warrandyte",
+   "name": "Warrandyte",
+   "unemp_change_12m": 0.52,
+   "unemployment_rate_2016": 5.2,
+   "coalition_vs_state_pts": 0.11
+  },
+  {
+   "contest_id": "vic-eildon",
+   "name": "Eildon",
+   "unemp_change_12m": 0.44,
+   "unemployment_rate_2016": 4.9,
+   "coalition_vs_state_pts": 0.11
+  },
+  {
+   "contest_id": "vic-rowville",
+   "name": "Rowville",
+   "unemp_change_12m": 0.56,
+   "unemployment_rate_2016": 5.3,
+   "coalition_vs_state_pts": 0.11
+  },
+  {
+   "contest_id": "vic-south-barwon",
+   "name": "South Barwon",
+   "unemp_change_12m": 0.51,
+   "unemployment_rate_2016": 5.0,
+   "coalition_vs_state_pts": 0.12
+  },
+  {
+   "contest_id": "vic-eltham",
+   "name": "Eltham",
+   "unemp_change_12m": 0.39,
+   "unemployment_rate_2016": 4.3,
+   "coalition_vs_state_pts": 0.13
+  },
+  {
+   "contest_id": "vic-monbulk",
+   "name": "Monbulk",
+   "unemp_change_12m": 0.49,
+   "unemployment_rate_2016": 4.7,
+   "coalition_vs_state_pts": 0.15
+  },
+  {
+   "contest_id": "vic-kalkallo",
+   "name": "Kalkallo",
+   "unemp_change_12m": -0.05,
+   "unemployment_rate_2016": 8.2,
+   "coalition_vs_state_pts": 0.15
+  },
+  {
+   "contest_id": "vic-sunbury",
+   "name": "Sunbury",
+   "unemp_change_12m": -0.7,
+   "unemployment_rate_2016": 6.7,
+   "coalition_vs_state_pts": 0.16
+  },
+  {
+   "contest_id": "vic-st-albans",
+   "name": "St Albans",
+   "unemp_change_12m": 0.06,
+   "unemployment_rate_2016": 10.5,
+   "coalition_vs_state_pts": 0.18
+  },
+  {
+   "contest_id": "vic-croydon",
+   "name": "Croydon",
+   "unemp_change_12m": 0.78,
+   "unemployment_rate_2016": 4.8,
+   "coalition_vs_state_pts": 0.27
+  },
+  {
+   "contest_id": "vic-evelyn",
+   "name": "Evelyn",
+   "unemp_change_12m": 0.94,
+   "unemployment_rate_2016": 4.4,
+   "coalition_vs_state_pts": 0.42
+  },
+  {
+   "contest_id": "vic-yan-yean",
+   "name": "Yan Yean",
+   "unemp_change_12m": 1.07,
+   "unemployment_rate_2016": 4.6,
+   "coalition_vs_state_pts": 0.44
+  },
+  {
+   "contest_id": "vic-morwell",
+   "name": "Morwell",
+   "unemp_change_12m": -0.42,
+   "unemployment_rate_2016": 9.9,
+   "coalition_vs_state_pts": 0.72
+  },
+  {
+   "contest_id": "vic-melbourne",
+   "name": "Melbourne",
+   "unemp_change_12m": -0.2,
+   "unemployment_rate_2016": 12.1,
+   "coalition_vs_state_pts": 0.73
+  },
+  {
+   "contest_id": "vic-greenvale",
+   "name": "Greenvale",
+   "unemp_change_12m": -1.6,
+   "unemployment_rate_2016": 9.6,
+   "coalition_vs_state_pts": 1.98
+  },
+  {
+   "contest_id": "vic-broadmeadows",
+   "name": "Broadmeadows",
+   "unemp_change_12m": -1.5,
+   "unemployment_rate_2016": 10.2,
+   "coalition_vs_state_pts": 2.2
+  }
+ ]
+}
