@@ -34,10 +34,7 @@ UA = 'BoothAtlas daily capture (personal research) python-urllib'
 DEFAULT_SOURCES = {
     'election_page': ['/voting/2026-state-election'],
     'roll_stats': ['/enrolment/electoral-roll-statistics'],
-    'htv_party': ['/voting/2026-state-election/how-to-vote-cards/party', '/voting/2026-state-election/how-to-vote-cards'],
-    'htv_region_party': ['/voting/2026-state-election/how-to-vote-cards/party-region'],
-    'htv_independent': ['/voting/2026-state-election/how-to-vote-cards/independent-candidates'],
-    'htv_by_date': ['/voting/2026-state-election/how-to-vote-cards/registered-date'],
+    'htv_page': ['/voting/2026-state-election/how-to-vote-cards'],
     'results_index': ['/results/state-election-results/2026-state-election-results'],
     'postal': ['/voting/2026-state-election/postal-voting'],
     'early': ['/voting/2026-state-election/voting-options', '/voting/2026-state-election/early-voting'],
@@ -163,31 +160,56 @@ def capture_enrolment(src, log):
     return {'date_extracted': extracted, 'source': target, 'districts': out}
 
 
+HTV_KIND = {'by party': 'party', 'by independent candidate': 'independent', 'by non-candidate registrations': 'non_candidate'}
+
+
+def htv_table(html):
+    """rows of one GetTable fragment: (cells, links) per body row"""
+    rows = []
+    for tr in re.findall(r'<tr\b.*?</tr>', html, flags=re.S | re.I):
+        cells = [htmlmod.unescape(re.sub(r'<[^>]+>', ' ', c)).split() for c in re.findall(r'<td\b.*?</td>', tr, flags=re.S | re.I)]
+        links = [htmlmod.unescape(h) for h in re.findall(r'href="([^"]+)"', tr)]
+        if cells:
+            rows.append(([' '.join(c) for c in cells], links))
+    return rows
+
+
 def capture_htv(src, log):
-    out, raw = [], {}
-    for key, kind in [('htv_party', 'party'), ('htv_region_party', 'party_region'), ('htv_independent', 'independent'), ('htv_by_date', 'by_date')]:
-        page, url = first_ok(src.get(key, []), log)
-        if not page:
+    """2026: one accordion page; each area x category table loads from /api/sitecore/HtvcResults/GetTable.
+    The page itself carries every area's id and a card count per category, so only non-empty tables are fetched."""
+    page, url = first_ok(src.get('htv_page', ['/voting/2026-state-election/how-to-vote-cards']), log)
+    if not page:
+        return None
+    out, raw, n_expected = [], {'url': url, 'tables': {}}, 0
+    parts = re.split(r'(?=<button[^>]*js-category-link)', page)
+    for part in parts[1:]:
+        attrs = dict(re.findall(r'data-([a-z-]+)="([^"]*)"', part[:part.index('>') + 1]))
+        cat = attrs.get('category-key', ''); area = htmlmod.unescape(attrs.get('area-name', ''))
+        m = re.search(r'Number of registered cards:\s*(\d+)', part[:3000])
+        n = int(m.group(1)) if m else 0
+        if 'registration date' in cat:
+            n_expected += n; continue
+        kind = next((k for c, k in HTV_KIND.items() if c in cat), None)
+        if not n or not kind:
             continue
-        p = OrderedParser(); p.feed(page); p.close()
-        raw[kind] = {'url': url, 'tables': p.tables, 'headings': p.table_headings}
-        for t, heading, links in zip(p.tables, p.table_headings, p.cell_links):
-            if not t or not t[0] or 'Registration' not in t[0][0]:
+        q = urllib.parse.urlencode({'areaType': attrs.get('area-type', ''), 'areaItemId': attrs.get('area-id', ''), 'category': cat})
+        frag, _ = fetch('/api/sitecore/HtvcResults/GetTable?' + q, log=log)
+        if not frag:
+            continue
+        raw['tables'][f'{area}|{cat}'] = frag
+        is_d = area.endswith('District')
+        cid = ('vic-' if is_d else 'vicr-') + slug(re.sub(r' (District|Region)$', '', area))
+        for cells, links in htv_table(frag):
+            if len(cells) < 4:
                 continue
-            for i, r in enumerate(t[1:], start=1):
-                if len(r) < 3:
-                    continue
-                by = r[1]
-                pdf = next((l for l in (links[i] if i < len(links) else []) if '.pdf' in l.lower() or 'HTVC' in l), None)
-                area = by if re.search(r'(District|Region)$', by) else ''
-                out.append({'kind': kind, 'registrant': heading if kind in ('party', 'party_region') else by, 'area': area or heading,
-                            'contest_id': ('vic-' if area.endswith('District') else 'vicr-') + slug(area.replace(' District', '').replace(' Region', '')) if area else '',
-                            'registration': r[0], 'registered': r[2], 'pdf': pdf})
-        log(f'  htv {kind}: {sum(1 for x in out if x["kind"] == kind)} cards from {url}')
-    # until the 2026 register opens (10 Nov) the VEC's how-to-vote pages still list the 2022 cards: keep only this year's
+            pdf = next((l for l in links if 'ViewCard' in l or '.pdf' in l.lower()), None)
+            out.append({'kind': kind, 'registrant': cells[0], 'area': area, 'contest_id': cid, 'house': 'LA' if is_d else 'LC',
+                        'registered': cells[1], 'registration': cells[2], 'type': cells[3] if len(cells) >= 5 else '',
+                        'pdf': (VEC + pdf) if pdf and pdf.startswith('/') else pdf})
+    by = {k: sum(1 for c in out if c['kind'] == k) for k in HTV_KIND.values()}
+    log(f'  htv: {len(out)} cards {by}; the page counts {n_expected}')
     old = [c for c in out if re.search(r'\b(19|20)\d\d\b', c['registered'] or '') and not re.search(r'\b2026\b', c['registered'])]
     if old:
-        log(f'  htv: dropped {len(old)} cards registered before 2026 (the 2022 register)')
         out = [c for c in out if c not in old]
     return {'cards': out, 'raw': raw}
 

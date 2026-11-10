@@ -776,7 +776,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div class="row" style="margin-bottom:8px"><div class="field" style="flex:0 1 220px"><label for="y26-sort">Sort by</label><select id="y26-sort"><option value="margin">Margin, closest first</option><option value="name">Seat name</option><option value="held">Held by</option></select></div>
           <div class="field" style="flex:1 1 200px"><label for="y26-filter">Filter</label><input type="search" id="y26-filter" placeholder="seat, member, candidate, party"></div></div>
         <div class="tablewrap" id="y26-table"></div>
-        <p class="hint">Held by and candidates: Wikipedia’s candidate register (declared, pre-nomination; nominations close 9 November). Margins: the final two-candidate count at the last contest in that seat — the 2022 general election, or the by-election where there has been one since. Click a seat to open it on the map.</p></div>
+        <p class="hint">Held by: the sitting member. Candidates: the VEC’s list of nominations, in ballot order, once captured (before that, Wikipedia’s register of declared candidates). Margins: the final two-candidate count at the last contest in that seat — the 2022 general election, or the by-election where there has been one since. Click a seat to open it on the map.</p></div>
       <div class="two">
         <div class="panel"><h3>Upper house tickets, by region</h3><div id="y26-lc"></div></div>
         <div><div class="panel" style="margin-bottom:16px"><h3>Not recontesting</h3><div class="tablewrap" id="y26-retiring"></div></div>
@@ -3927,8 +3927,8 @@ function renderDailyBlock(root, cid, c) {
   const mine = cards.filter(k => k.contest_id === cid || (k.kind === 'independent' && cands.some(x => normName(x.surname) === normName(k.registrant.split(',')[0]) && normName(k.registrant).includes(normName(x.given_name.split(' ')[0] || '')))));
   if (mine.length) {
     const byReg = new Map(); for (const k of mine) (byReg.get(k.registrant) || byReg.set(k.registrant, []).get(k.registrant)).push(k);
-    items.push(h('div', { style: 'margin-top:6px' }, h('div', { class: 'hint', style: 'margin-bottom:3px' }, `How-to-vote cards registered (${mine.length}): the preferences each campaign is recommending.`),
-      ...[...byReg.entries()].map(([reg, ks]) => h('div', { style: 'margin:2px 0' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(canonLabel(reg))}` }), reg), ' ', h('span', { class: 'links' }, ...ks.slice(0, 4).map((k, i) => k.pdf ? h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, ks.length > 1 ? `card ${i + 1}` : 'card') : '')), h('span', { class: 'hint' }, ` ${ks[0].registered}`)))));
+    items.push(h('div', { style: 'margin-top:6px' }, h('div', { class: 'hint', style: 'margin-bottom:3px' }, `How-to-vote cards registered (${mine.length}): the preferences each campaign is recommending. Anyone can register a card, candidate or not; the VEC lists them all.`),
+      ...[...byReg.entries()].map(([reg, ks]) => h('div', { style: 'margin:2px 0' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(canonLabel(reg))}` }), reg), ks[0].kind === 'non_candidate' ? h('span', { class: 'hint' }, ' not a candidate') : '', ' ', h('span', { class: 'links' }, ...ks.slice(0, 4).map((k, i) => k.pdf ? h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, ks.length > 1 ? `card ${i + 1}` : 'card') : '')), h('span', { class: 'hint' }, ` ${ks[0].registered}`)))));
   }
   if (!items.length) return;
   root.append(h('h3', {}, 'Before election day'), ...items, h('div', { class: 'hint', style: 'margin-top:4px' }, `VEC figures captured ${d.date}.`));
