@@ -1,0 +1,75 @@
+# source: https://vicliberal.org.au/team/<slug> (api/public/team)  checked 2026-11-10; htv = https://vicliberal.org.au<path>
+vic-albert-park|cook|andrew andrew-cook w=andrewcook.com.au f=facebook.com/AndrewCookAlbertPark i=instagram.com/AndrewCookAlbertPark htv=/Uploads/htv/htv_albert-park.pdf
+vic-ashwood|zographos|theo theo-zographos w=theozographos.com.au f=facebook.com/TheoZographosAshwood htv=/Uploads/htv/htv_ashwood.pdf
+vic-bass|halstead|rochelle rochelle-halstead w=rochellehalstead.com.au f=facebook.com/RochelleHalsteadBass htv=/Uploads/htv/htv_bass.pdf
+vic-bayswater|kitchen|david david-kitchen w=davidkitchen.com.au f=facebook.com/DavidKitchenBayswater htv=/Uploads/htv/htv_bayswater.pdf
+vic-bellarine|whitehead|callum callum-whitehead w=callumwhitehead.com.au f=facebook.com/CallumWhiteheadBellarine htv=/Uploads/htv/htv_bellarine.pdf
+vic-benambra|martin|steve steve-martin w=stevemartin.com.au f=facebook.com/SteveMartinBenambra i=instagram.com/SteveMartinBenambra htv=/Uploads/htv/htv_benambra.pdf
+vic-bentleigh|putt|tynan tynan-putt w=tynanputt.com.au f=facebook.com/TynanPuttBentleigh htv=/Uploads/htv/htv_bentleigh.pdf
+vic-berwick|battin|brad brad-battin w=bradbattin.com.au f=facebook.com/BradBattinMP i=instagram.com/BradBattinMP y=youtube.com/BradBattinMP-Berwick htv=/Uploads/htv/htv_berwick.pdf
+vic-box-hill|houguet|sally sally-houguet w=sallyhouguet.com.au f=facebook.com/SallyHouguetBoxHill htv=/Uploads/htv/htv_box-hill.pdf
+vic-brighton|newbury|james james-newbury w=jamesnewbury.com.au f=facebook.com/Newbury3186 i=instagram.com/James.Newbury.MP xx=x.com/Newbury3186 htv=/Uploads/htv/htv_brighton.pdf
+vic-broadmeadows|duzova|baris baris-duzova w=barisduzova.com.au f=facebook.com/barisduzovaforbroadmeadows htv=/Uploads/htv/htv_broadmeadows.pdf
+vic-brunswick|margelis|john john-margelis w=johnmargelis.com.au f=facebook.com/JohnMargelisBrunswick
+vic-bulleen|guy|matthew matt-guy w=matthewguy.com.au i=instagram.com/MatthewGuyMP xx=x.com/MatthewGuyMP htv=/Uploads/htv/htv_bulleen.pdf
+vic-bundoora|parr|chris chris-parr w=chrisparr.com.au f=facebook.com/ChrisParrBundoora htv=/Uploads/htv/htv_bundoora.pdf
+vic-carrum|shelley|jeff jeff-shelley w=jeff-shelley.com.au f=facebook.com/JeffShelleyCarrum i=instagram.com/JeffShelleyCarrum htv=/Uploads/htv/htv_carrum.pdf
+vic-caulfield|southwick|david david-southwick w=davidsouthwick.com.au f=facebook.com/southwickmp i=instagram.com/DavidSouthwickMP xx=x.com/SouthwickMP y=youtube.com/davidsouthwick5624 htv=/Uploads/htv/htv_caulfield.pdf
+vic-clarinda|paganis|john john-paganis w=johnpaganis.com.au f=facebook.com/JohnPaganisClarinda i=instagram.com/JohnPaganisClarinda htv=/Uploads/htv/htv_clarinda.pdf
+vic-cranbourne|tripodi|gino gino-tripodi w=ginotripodi.com.au f=facebook.com/GinoTripodiCranbourne htv=/Uploads/htv/htv_cranbourne.pdf
+vic-croydon|wooldridge|toby toby-wooldridge w=tobywooldridge.com.au f=facebook.com/TobyWooldridgeCroydon htv=/Uploads/htv/htv_croydon.pdf
+vic-dandenong|billings|william william-billings w=williambillings.com.au f=facebook.com/WilliamBillingsDandenong htv=/Uploads/htv/htv_dandenong.pdf
+vic-eildon|mcleish|cindy cindy-mcleish w=cindymcleish.com.au f=facebook.com/CindyMcLeishMP xx=x.com/CindyMcLeishMP y=youtube.com/channel/UCEsJT5udUkUrB_7z8U5kCDA htv=/Uploads/htv/htv_eildon.pdf
+vic-eltham|byrnes|paul paul-byrnes w=paul-byrnes.com.au f=facebook.com/PaulByrnesEltham htv=/Uploads/htv/htv_eltham.pdf
+vic-essendon|le deux|tommy tommy-le-deux w=tommyledeux.com.au f=facebook.com/TommyLeDeuxEssendon htv=/Uploads/htv/htv_essendon.pdf
+vic-eureka|muir|emma emma-muir w=emmamuir.com.au f=facebook.com/EmmaMuirEureka htv=/Uploads/htv/htv_eureka.pdf
+vic-evelyn|vallence|bridget bridget-vallence w=bridgetvallence.com.au f=facebook.com/BridgetVallenceMP i=instagram.com/BridgetVallence xx=x.com/BridgetVallence htv=/Uploads/htv/htv_evelyn.pdf
+vic-footscray|chang|tim tim-chang w=tim-chang.com.au f=facebook.com/TimChangFootscray htv=/Uploads/htv/htv_footscray.pdf
+vic-frankston|ambry|bree bree-ambry w=breeambry.com.au f=facebook.com/BreeAmbryFrankston htv=/Uploads/htv/htv_frankston.pdf
+vic-geelong|pobjoy|andy andy-pobjoy w=andypobjoy.com.au f=facebook.com/AndyPobjoyGeelong htv=/Uploads/htv/htv_geelong.pdf
+vic-glen-waverley|sun|jacky jacky-sun w=jacky-sun.com.au f=facebook.com/JackySunGlenWaverley htv=/Uploads/htv/htv_glen-waverley.pdf
+vic-greenvale|overend|jim jim-overend w=jimoverend.com.au f=facebook.com/JimOverendGreenvale i=instagram.com/JimOverendGreenvale htv=/Uploads/htv/htv_greenvale.pdf
+vic-hastings|schiefler|frank frank-schiefler w=frankschiefler.com.au f=facebook.com/FrankSchieflerHastings i=instagram.com/FrankSchieflerHastings htv=/Uploads/htv/htv_hastings.pdf
+vic-hawthorn|pesutto|john john-pesutto w=johnpesutto.com.au f=facebook.com/JohnPesutto i=instagram.com/johnpesutto xx=x.com/JohnPesutto htv=/Uploads/htv/htv_hawthorn.pdf
+vic-kalkallo|dadisho|eddie eddie-dadisho w=eddiedadisho.com.au f=facebook.com/EddieDadishoKalkallo htv=/Uploads/htv/htv_kalkallo.pdf
+vic-kew|wilson|jess jess-wilson w=jesswilsonkew.com.au f=facebook.com/JessWilsonMP i=instagram.com/JessWilsonMP htv=/Uploads/htv/htv_kew.pdf
+vic-kororoit|chakoma|jack jack-chakoma w=jackchakoma.com.au htv=/Uploads/htv/htv_kororoit.pdf
+vic-lara|beddoe|tim tim-beddoe w=timbeddoe.com.au f=facebook.com/TimBeddoeLara htv=/Uploads/htv/htv_lara.pdf
+vic-laverton|noune|ghada ghada-noune w=ghadanoune.com.au f=facebook.com/GhadaNouneLaverton i=instagram.com/GhadaNouneLaverton htv=/Uploads/htv/htv_laverton.pdf
+vic-macedon|kendall|kate kate-kendall w=kate-kendall.com.au f=facebook.com/KateKendallMacedon i=instagram.com/KateKendallMacedon htv=/Uploads/htv/htv_macedon.pdf
+vic-malvern|hamer|amelia amelia-hamer w=ameliahamer.com.au f=facebook.com/AmeliaHamerMalvern htv=/Uploads/htv/htv_malvern.pdf
+vic-melbourne|camillo|rafael rafael-camillo w=rafaelcamillo.com.au f=facebook.com/Rafa4Melbourne i=instagram.com/Rafa4Melbourne htv=/Uploads/htv/htv_melbourne.pdf
+vic-melton|bingham|jarrod jarrod-bingham w=jarrodbingham.com.au f=facebook.com/JarrodBinghamMelton htv=/Uploads/htv/htv_melton.pdf
+vic-mill-park|drysdale|joel joel-drysdale w=joeldrysdale.com.au f=facebook.com/JoelDrysdaleMillPark i=instagram.com/JoelDrysdaleMillPark htv=/Uploads/htv/htv_mill-park.pdf
+vic-monbulk|fitzmaurice|clare clare-fitzmaurice w=clarefitzmaurice.com.au f=facebook.com/ClareFitzmauriceMonbulk htv=/Uploads/htv/htv_monbulk.pdf
+vic-mordialloc|o'halloran|paul paul-ohalloran w=paulohalloran.com.au f=facebook.com/PaulOHalloranMordialloc htv=/Uploads/htv/htv_mordialloc.pdf
+vic-mornington|crewther|chris chris-crewther w=chriscrewther.com.au f=facebook.com/CrewtherChris i=instagram.com/ChrisCrewtherMP htv=/Uploads/htv/htv_mornington.pdf
+vic-mulgrave|tran|charles charles-tran w=charlestran.com.au f=facebook.com/CharlesTranMulgrave htv=/Uploads/htv/htv_mulgrave.pdf
+vic-narracan|farnham|wayne wayne-farnham w=waynefarnham.com.au f=facebook.com/WayneFarnhamMP i=instagram.com/WayneFarnhamMP y=youtube.com/WayneFarnhamMP htv=/Uploads/htv/htv_narracan.pdf
+vic-narre-warren-north|nathanielsz|shemane shemane-nathanielsz w=shemanenathanielsz.com.au f=facebook.com/ShemaneNathanielszNarreNorth i=instagram.com/ShemaneNathanielszNarreNorth htv=/Uploads/htv/htv_narre-warren-north.pdf
+vic-narre-warren-south|peterson|norliah norliah-peterson w=norliahpeterson.com.au f=facebook.com/NorliahPetersonNarreSouth i=instagram.com/NorliahPetersonNarreSouth htv=/Uploads/htv/htv_narre-warren-south.pdf
+vic-nepean|marsh|anthony anthony-marsh w=anthonymarsh.com.au f=facebook.com/AnthonyMarshNepean i=instagram.com/AnthonyMarshNepean xx=x.com/AnthonyMarshMP y=youtube.com/AnthonyMarshNepean htv=/Uploads/htv/htv_nepean.pdf
+vic-niddrie|byrne|samantha samantha-byrne w=samanthabyrne.com.au f=facebook.com/SamanthaByrneNiddrie htv=/Uploads/htv/htv_niddrie.pdf
+vic-northcote|awad|lynda lynda-awad w=lyndaawad.com.au f=facebook.com/LyndaAwadNorthcote i=instagram.com/LyndaAwadNorthcote htv=/Uploads/htv/htv_northcote.pdf
+vic-oakleigh|jung|martin martin-jung w=martinjung.com.au f=facebook.com/MartinJungOakleigh i=instagram.com/MartinJungOakleigh htv=/Uploads/htv/htv_oakleigh.pdf
+vic-pakenham|dyson|radmila radmila-dyson w=radmiladyson.com.au f=facebook.com/RadmilaDysonPakenham htv=/Uploads/htv/htv_pakenham.pdf
+vic-point-cook|reddy|raja raja-reddy w=rajareddy.com.au f=facebook.com/RajaReddyPointCook htv=/Uploads/htv/htv_point-cook.pdf
+vic-polwarth|riordan|richard richard-riordan w=richardriordan.com.au f=facebook.com/RichardRiordanMP i=instagram.com/richardriordanmp xx=x.com/r_riordanmp y=youtube.com/richardriordanmp7733 htv=/Uploads/htv/htv_polwarth.pdf
+vic-prahran|westaway|rachel rachel-westaway w=rachelwestaway.com.au f=facebook.com/RachelWestawayMP i=instagram.com/RachelWestawayMP htv=/Uploads/htv/htv_prahran.pdf
+vic-preston|al katranji|hamza hamza-al-katranji w=hamzaalkatranji.com.au f=facebook.com/HamzaAlKatranjiPreston htv=/Uploads/htv/htv_preston.pdf
+vic-richmond|aponso|charles charles-aponso w=charlesaponso.com.au f=facebook.com/CharlesAponsoRichmond htv=/Uploads/htv/htv_richmond.pdf
+vic-ripon|read|megan megan-read w=meganread.com.au f=facebook.com/MeganReadRipon i=instagram.com/MeganReadRipon htv=/Uploads/htv/htv_ripon.pdf
+vic-rowville|williams|max max-williams w=maxwilliams.com.au f=facebook.com/MaxWilliamsRowville htv=/Uploads/htv/htv_rowville.pdf
+vic-sandringham|rowswell|brad brad-rowswell w=bradrowswell.com.au f=facebook.com/BradRowswell i=instagram.com/bradrowswellmp xx=x.com/BradRowswell y=youtube.com/bradrowswellmp6239 htv=/Uploads/htv/htv_sandringham.pdf
+vic-south-barwon|pettit|libby libby-pettit w=libbypettit.com.au f=facebook.com/LibbyPettitSouthBarwon htv=/Uploads/htv/htv_south-barwon.pdf
+vic-south-west-coast|britnell|roma roma-britnell w=romabritnell.com.au f=facebook.com/RomaBritnellMP i=instagram.com/RomaBritnellMP y=youtube.com/romabritnellmp5722 htv=/Uploads/htv/htv_south-west-coast.pdf
+vic-st-albans|dunstan|rob robert-dunstan w=robdunstan.com.au f=facebook.com/RobDunstanStAlbans htv=/Uploads/htv/htv_st-albans.pdf
+vic-sunbury|cottom|simmone simmone-cottom w=simmonecottom.com.au f=facebook.com/SimmoneCottomSunbury htv=/Uploads/htv/htv_sunbury.pdf
+vic-sydenham|moussi|nathalie nathalie-moussi w=nathaliemoussi.com.au f=facebook.com/NathalieMoussiSydenham htv=/Uploads/htv/htv_sydenham.pdf
+vic-tarneit|upparlapalle|venkat venkat-ram-upparlapalle w=venkatramupparlapalle.com.au htv=/Uploads/htv/htv_tarneit.pdf
+vic-thomastown|stojcevski|belinda belinda-stojcevksi w=belindastojcevski.com.au f=facebook.com/BelindaStojcevskiThomastown htv=/Uploads/htv/htv_thomastown.pdf
+vic-warrandyte|werner|nicole nicole-werner w=nicolewerner.com.au f=facebook.com/NicoleWernerMP i=instagram.com/nicolewerner.mp xx=x.com/NicoleWernerMP y=youtube.com/channel/UCqCn9xkiDuNSIAivc_3dXqQ htv=/Uploads/htv/htv_warrandyte.pdf
+vic-wendouree|ronan|gav gav-ronan w=gavronan.com.au f=facebook.com/GavinRonanWendouree htv=/Uploads/htv/htv_wendouree.pdf
+vic-werribee|clark|reece reece-clark w=reececlark.com.au f=facebook.com/ReeceClarkWerribee i=instagram.com/reececlarkwerribee htv=/Uploads/htv/htv_werribee.pdf
+vic-williamstown|lindemann|paul paul-lindemann w=paullindemann.com.au f=facebook.com/PaulLindemannWilliamstown htv=/Uploads/htv/htv_williamstown.pdf
+vic-yan-yean|dow|amanda amanda-dow w=amandadow.com.au f=facebook.com/AmandaDowYanYean htv=/Uploads/htv/htv_yan-yean.pdf

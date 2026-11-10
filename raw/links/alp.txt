@@ -1,0 +1,89 @@
+# source: https://www.viclabor.org.au/our-team/<slug>  checked 2026-11-10
+vic-albert-park|taylor|nina nina-taylor w=ninataylormp.com.au f=facebook.com/NinaTaylorMP i=instagram.com/ninataylormp
+vic-ashwood|fregon|matt matt-fregon w=mattfregon.com.au f=facebook.com/MattFregonMP i=instagram.com/mattfregonmp
+vic-bass|buckingham|chris chris-buckingham f=facebook.com/chrisforbass i=instagram.com/chrisforbass
+vic-bayswater|buxton|julie julie-buxton f=facebook.com/juliebuxtonforbayswater i=instagram.com/juliebuxtonforbayswater
+vic-bellarine|marchant|alison alison-marchant f=facebook.com/alisonmarchantmp i=instagram.com/alisonmarchantmp
+vic-benambra|young|oliver ollie-young
+vic-bendigo-east|rickwood|tim tim-rickwood f=facebook.com/TimForBendigoEast i=instagram.com/TimForBendigoEast
+vic-bendigo-west|baldwin|brenton brenton-baldwin f=facebook.com/BrentonForBendigoWest i=instagram.com/BrentonForBendigoWest
+vic-bentleigh|staikos|nick nick-staikos w=nickstaikos.com.au f=facebook.com/NickforBentleigh i=instagram.com/nickstaikos
+vic-berwick|khan|rana rana-khan f=facebook.com/RanaforBerwick i=instagram.com/RanaforBerwick
+vic-box-hill|hamer|paul paul-hamer w=paulhamermp.com.au f=facebook.com/PaulHamerMP i=instagram.com/paulhamermp
+vic-brighton|mullahy|bridget bridget-mullahy f=facebook.com/BridgetForBrighton i=instagram.com/BridgetForBrighton
+vic-broadmeadows|matthews-ward|kathleen kathleen-matthews-ward f=facebook.com/kathleenmatthewsward i=instagram.com/kathleenmatthewsward
+vic-brunswick|steger|gabe gabe-steger f=facebook.com/GabeForBrunswick i=instagram.com/GabeForBrunswick
+vic-bulleen|dale|tim tim-dale
+vic-bundoora|brooks|colin colin-brooks f=facebook.com/ColinBrooksMP i=instagram.com/brooksymp
+vic-carrum|kilkenny|sonya sonya-kilkenny f=facebook.com/SonyaKilkennyMP i=instagram.com/sonyakilkennymp
+vic-caulfield|stafrace|mikaela mikaela-stafrace f=facebook.com/Mikaela4Caulfield i=instagram.com/mikaela4caulfield
+vic-clarinda|tak|meng meng-heang-tak w=mengheangtak.org.au f=facebook.com/mengheangtakmpforclarinda i=instagram.com/mengheangtakmp
+vic-cranbourne|richards|pauline pauline-richards w=paulinerichardsmp.org f=facebook.com/PaulineRichardsMP i=instagram.com/paulinerichardsmp
+vic-croydon|farr|richard richard-farr f=facebook.com/richardforcroydon i=instagram.com/richardforcroydon
+vic-dandenong|williams|gabrielle gabrielle-williams w=gabriellewilliams.com.au f=facebook.com/WilliamsforDandenong
+vic-eildon|gibson|kevin kevin-gibson
+vic-eltham|ward|vicki vicki-ward w=vickiward.com.au f=facebook.com/VickiWardMP i=instagram.com/vicki_ward_mp
+vic-essendon|theodosis|kat kat-theodosis f=facebook.com/katforessendon i=instagram.com/katforessendon
+vic-eureka|settle|michaela michaela-settle w=michaelasettle.com.au f=facebook.com/MichaelaSettleMP i=instagram.com/michaelasettle
+vic-euroa|kelly|julian julian-kelly
+vic-evelyn|sherlock|analise analise-sherlock f=facebook.com/analiseforevelyn i=instagram.com/analiseforevelyn
+vic-footscray|hall|katie katie-hall w=katiehallmp.com.au f=facebook.com/KatieHallMP i=instagram.com/katie_in_footscray
+vic-frankston|edbrooke|paul paul-edbrooke w=pauledbrooke.com f=facebook.com/PaulForFrankston i=instagram.com/pauledbrookemp
+vic-geelong|couzens|christine chris-couzens f=facebook.com/ccouzensalp i=instagram.com/chriscouzensmp
+vic-gippsland-east|stephens|sonny sonny-stephens f=facebook.com/SonnyforGippslandEast i=instagram.com/SonnyforGippslandEast
+vic-gippsland-south|barry-macaulay|amy amy-barry-macaulay f=facebook.com/amyforgippslandsouth i=instagram.com/amyforgippslandsouth
+vic-glen-waverley|mullahy|john john-mullahy w=johnmullahy.com.au f=facebook.com/JohnMullahyMP i=instagram.com/johnmullahymp
+vic-greenvale|walters|iwan iwan-walters w=iwanwaltersmp.com.au f=facebook.com/IwanWalters i=instagram.com/iwanwaltersmp
+vic-hastings|mercurio|paul paul-mercurio w=paulmercurio.com.au f=facebook.com/PaulMercurioLabor i=instagram.com/paulmercuriomp
+vic-hawthorn|crosby|clive clive-crosby f=facebook.com/CliveforHawthorn i=instagram.com/CliveforHawthorn
+vic-ivanhoe|carbines|anthony anthony-carbines w=anthonycarbines.org.au f=facebook.com/acarbinesmp i=instagram.com/anthonycarbinesmp
+vic-kalkallo|spence|ros ros-spence w=rosspence.com.au f=facebook.com/rosspenceMP i=instagram.com/rosspencemp
+vic-kew|sun|david david-sun i=instagram.com/davidforkew
+vic-kororoit|grigorovitch|luba luba-grigorovitch w=lubagrigorovitch.com.au f=facebook.com/LubagrigorovitchMP i=instagram.com/LubagrigorovitchMP
+vic-lara|george|ella ella-george f=facebook.com/EllaGeorgeMP i=instagram.com/ellageorgemp
+vic-laverton|connolly|sarah sarah-connolly w=sarahconnollymp.com.au f=facebook.com/SarahConnollyMP i=instagram.com/SarahConnollyMP
+vic-lowan|pavlovich|sue sue-pavlovich f=facebook.com/SueForLowan i=instagram.com/SueForLowan
+vic-macedon|death|annette annette-death f=facebook.com/annetteformacedon i=instagram.com/annetteformacedon
+vic-malvern|martin|peter peter-martin f=facebook.com/PeterForMalvern
+vic-melbourne|griffiths|davydd davydd-griffiths f=facebook.com/DavyddGriffithsMelbourne
+vic-melton|borg|broden broden-borg f=facebook.com/brodenformelton i=instagram.com/brodenformelton
+vic-mildura|zigouras|stella stella-zigouras f=facebook.com/StellaForMildura i=instagram.com/StellaForMildura
+vic-mill-park|nealy|elizabeth elizabeth-nealy f=facebook.com/elizabethnealymillpark i=instagram.com/elizabethnealymillpark
+vic-monbulk|de martino|daniela daniela-de-martino w=danielademartino.com.au f=facebook.com/DanielaDeMartinoMP i=instagram.com/DanielaDeMartinoMP
+vic-mordialloc|richardson|tim tim-richardson w=timrichardsonmp.com.au f=facebook.com/richardson4mordialloc i=instagram.com/timrichardsonmp
+vic-mornington|macdonald|kerry kerry-macdonald f=facebook.com/kerryformornington i=instagram.com/kerryformornington
+vic-morwell|lund|tracie tracie-lund f=facebook.com/tracieformorwell i=instagram.com/tracieformorwell
+vic-mulgrave|foster|eden eden-foster f=facebook.com/edenfostermulgrave i=instagram.com/edenfostermulgrave w=edenfoster.com.au
+vic-murray-plains|grundy|christine christine-grundy f=facebook.com/ChristineForMurrayPlains i=instagram.com/ChristineForMurrayPlains
+vic-narracan|langley|jannette jannette-langley f=facebook.com/JannetteForNarracan i=instagram.com/JannetteForNarracan
+vic-narre-warren-north|wilson|belinda belinda-wilson w=belindawilson.com.au f=facebook.com/belindawilsonvic i=instagram.com/belindawilsonvic
+vic-narre-warren-south|koomen|stefan stefan-koomen f=facebook.com/stefankoomenvic i=instagram.com/stefankoomenvic
+vic-nepean|snowball|surbhi surbhi-snowball f=facebook.com/SurbhiForNepean
+vic-niddrie|carroll|ben ben-carroll w=bencarroll.com.au f=facebook.com/BenCarrollMP i=instagram.com/bencarrollmp
+vic-northcote|theophanous|kat kat-theophanous w=kattheophanous.com.au f=facebook.com/KatTheoMP i=instagram.com/kattheomp
+vic-oakleigh|dimopoulos|steve steve-dimopoulos w=stevedimopoulos.com.au f=facebook.com/DimoforOakleigh i=instagram.com/steve_dimopoulos
+vic-ovens-valley|smith|jennifer jen-smith
+vic-pakenham|soliven|alessandra alessandra-soliven f=facebook.com/AlessandraforPakenham i=instagram.com/alessandraforpakenham
+vic-pascoe-vale|cianflone|anthony anthony-cianflone w=anthonycianflonemp.com.au f=facebook.com/AnthonyCianfloneMP i=instagram.com/anthonycianflonemp
+vic-point-cook|hilakari|mathew mathew-hilakari f=facebook.com/MathewHilakariMP i=instagram.com/mathewhilakarimp
+vic-polwarth|hussein|hutch hutch-hussein f=facebook.com/hutch4polwarth i=instagram.com/hutch4polwarth
+vic-prahran|hopper|meghan meghan-hopper f=facebook.com/meghanforprahran i=instagram.com/meghanforprahran
+vic-preston|lambert|nathan nathan-lambert f=facebook.com/NathanLambertMP i=instagram.com/nathanlambertmp
+vic-richmond|mckenzie|sarah sarah-mckenzie f=facebook.com/sarah.mckenzie.richmond i=instagram.com/sarah.mckenzie.richmond
+vic-ringwood|halse|rachel rachel-halse f=facebook.com/rachelforringwood i=instagram.com/rachelforringwood
+vic-ripon|haylett|martha martha-haylett w=marthahaylett.com.au f=facebook.com/MarthaHaylett4Ripon i=instagram.com/marthahaylettmp
+vic-rowville|shahbaz|muhammad muhammad-shahbaz f=facebook.com/muhammadforrowville i=instagram.com/muhammadforrowville
+vic-sandringham|sagris-desmond|anastasia anastasia-sagris-desmond f=facebook.com/AnastasiaforSandringham i=instagram.com/AnastasiaforSandringham
+vic-shepparton|fin|cayla cayla-fin f=facebook.com/CaylaForShepparton i=instagram.com/CaylaForShepparton
+vic-south-barwon|thistleton|rebecca rebecca-thistleton f=facebook.com/rebeccaforsouthbarwon i=instagram.com/rebeccaruns4sb
+vic-south-west-coast|govanstone|andrew andrew-govanstone f=facebook.com/AndrewForSouthWestCoast i=instagram.com/AndrewForSouthWestCoast
+vic-st-albans|suleyman|natalie natalie-suleyman w=nataliesuleyman.com.au f=facebook.com/nataliesuleymanmp i=instagram.com/nataliesuleymanmp
+vic-sunbury|bull|josh josh-bull w=joshbull.com.au f=facebook.com/JoshBullMP i=instagram.com/josh4sunbury
+vic-sydenham|rasic|uros uros-rasic f=facebook.com/urosforsydenham i=instagram.com/urosforsydenham
+vic-tarneit|wight|dylan dylan-wight w=dylanwightmp.com.au f=facebook.com/dylanwightlabor i=instagram.com/dylanwightmp
+vic-thomastown|halfpenny|bronwyn bronwyn-halfpenny w=bronwynhalfpenny.org.au f=facebook.com/bronwyn.halfpenny i=instagram.com/bronwynhalfpennymp
+vic-warrandyte|paterson|rebecca rebecca-paterson f=facebook.com/rebeccaforwarrandyte i=instagram.com/rebeccaforwarrandyte
+vic-wendouree|addison|juliana juliana-addison w=julianaaddison.com.au f=facebook.com/JulianaAddisonMP i=instagram.com/julianaaddison
+vic-werribee|lister|john john-lister w=johnlister.com.au f=facebook.com/JohnForWerribee i=instagram.com/johnforwerribee
+vic-williamstown|horne|melissa melissa-horne w=melissahornemp.com.au f=facebook.com/melissaforwilliamstown i=instagram.com/melissaforwilliamstown
+vic-yan-yean|kathage|lauren lauren-kathage w=laurenkathage.com.au f=facebook.com/laurenkathagemp i=instagram.com/laurenkathagemp

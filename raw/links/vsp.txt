@@ -1,0 +1,85 @@
+# source: https://www.victoriansocialists.org.au/candidates/<slug>  checked 2026-11-10
+# branch accounts (vs_east etc), bio references and personal-looking handles left out
+vic-albert-park|bolger|colleen colleen-bolger
+vic-ashwood|van der eynden|jacob jacob-van-der-eynden
+vic-bass|jobe|chris chris-jobe
+vic-bayswater|ferguson|alec alec-ferguson
+vic-bellarine|keogh|ronan ronan-keogh
+vic-benambra|vangalen|alex alex-vangalen
+vic-bendigo-east|norsen|denali denali-norsen
+vic-bendigo-west|shalevski|tayne tayne-shalevski i=instagram.com/tayne_vicsocialist
+vic-bentleigh|kruger|liam liam-kruger
+vic-berwick|amarasiri gunawardana|nalinda nalinda-amarasiri-gunawardana
+vic-box-hill|afaj|saravina saravina-afaj
+vic-brighton|smith|jessica jessica-smith
+vic-broadmeadows|yolbulan|mutullah mutullah-can-yolbulan i=instagram.com/mutullah4broadmeadows
+vic-brunswick|farmer|naomi naomi-farmer i=instagram.com/naomifarmer.vs
+vic-bulleen|tafidis|dimitrios dimitrios-tafidis
+vic-bundoora|sanyal|sagar sagar-sanyal
+vic-carrum|ababneh|reema reema-ababneh
+vic-caulfield|ababneh|malak malak-ababneh
+vic-clarinda|message|kit kit-message
+vic-cranbourne|yunis|reem reem-yunis
+vic-croydon|grimshaw|beth beth-grimshaw
+vic-eildon|little|dylan dylan-little
+vic-eltham|riches|maeve maeve-riches
+vic-essendon|kedem|michal michal-kedem
+vic-eureka|raven|andy andy-raven
+vic-euroa|lyle|zoe zoe-lyle
+vic-evelyn|scanlon|james james-scanlon
+vic-footscray|duff|jasmine jasmine-duff
+vic-frankston|cheeseman|andrew andrew-cheeseman
+vic-geelong|vanderpol|bree bree-vanderpol
+vic-gippsland-east|espeseth|amy amy-espeseth
+vic-glen-waverley|siow|nicholas nicholas-siow
+vic-greenvale|smelov|kirill kirill-smelov
+vic-hastings|denman|michael michael-denman
+vic-ivanhoe|milne|ben ben-milne
+vic-kalkallo|millett|courtney courtney-millett i=instagram.com/courtney.m.vs
+vic-kew|lincolne|samantha samantha-lincolne
+vic-kororoit|hassan|rayan rayan-hassan
+vic-lara|randall|oliver oliver-randall
+vic-laverton|rudd|van van-thanh-rudd i=instagram.com/van.t.rudd
+vic-lowan|downey|jos jos-downey
+vic-macedon|wilson|catherine catherine-wilson
+vic-malvern|leonard|gavin gavin-leonard
+vic-melbourne|van den lamb|jordan jordan-van-den-lamb f=facebook.com/purplepingers i=instagram.com/purplepingers xx=x.com/purplepingers t=tiktok.com/@purplepingers
+vic-melton|kelly|daire daire-kelly
+vic-mildura|nayef|renee renee-nayef
+vic-mill-park|lambourn|jesse jesse-lambourn
+vic-monbulk|briggs|noah noah-briggs
+vic-mordialloc|hossain|mahee mahee-hossain
+vic-mornington|brownlie|gene gene-brownlie
+vic-morwell|acreman|natalie natalie-acreman
+vic-mulgrave|buchanan|connor connor-buchanan
+vic-murray-plains|sanif|asyiqin asyiqin-sanif
+vic-narracan|page|moss moss-page
+vic-nepean|willcocks|seth seth-willcocks
+vic-niddrie|laws|brendan brendan-laws
+vic-northcote|larkin|kath kath-larkin f=facebook.com/KathforCooper i=instagram.com/kathlarkin.vs
+vic-oakleigh|bugter|rowdy rowdy-bugter
+vic-ovens-valley|murphy|bronwyn bronwyn-murphy
+vic-pakenham|grigg|stephanie stephanie-grigg
+vic-pascoe-vale|shamsili|yasemin yasemin-shamsili i=instagram.com/yaseminshamsili.vs
+vic-point-cook|laine|taylor taylor-laine
+vic-polwarth|tolley|lula lula-tolley
+vic-prahran|doueihi|clayton clayton-doueihi
+vic-preston|ashmore|serena serena-ashmore i=instagram.com/serena.ashmore.vs
+vic-richmond|dite|chris chris-dite
+vic-ringwood|gardner|jack jack-gardner
+vic-ripon|brennan-jones|taylah taylah-brennan-jones
+vic-rowville|hiemstra|lars lars-hiemstra
+vic-sandringham|stevenson|lauren lauren-stevenson
+vic-shepparton|hocking|karen karen-hocking
+vic-south-barwon|gorman|madilyn madilyn-gorman
+vic-south-west-coast|sheppard|hera hera-sheppard
+vic-st-albans|nguyen|leanna leanna-nguyen
+vic-sunbury|bremner|adam adam-bremner
+vic-sydenham|khan|shania shania-khan
+vic-tarneit|van keulen|leah leah-van-keulen
+vic-thomastown|reddy|priya priya-reddy
+vic-warrandyte|stanley|john john-stanley
+vic-wendouree|meagher|chris chris-meagher
+vic-werribee|munro|sue sue-munro
+vic-williamstown|martin|oskar oskar-martin
+vic-yan-yean|bell|andrew andrew-bell

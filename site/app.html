@@ -470,8 +470,62 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .v2 .bname strong { font-size: 14px; letter-spacing: .01em; }
 .v2 .bname span { font-size: 12px; color: #4F4B44; }
 .v2 .cand h3 .bpos { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; margin-right: 8px; border: 1.5px solid currentColor; border-radius: 3px; font-size: 12px; font-weight: 700; vertical-align: 3px; opacity: .7; }
+.v2 .bname em.bdrop { font-size: 12px; font-style: italic; color: #8A4B00; }
+.v2 .cand .p.drop { color: #8A4B00; font-size: 13px; margin-top: 4px; }
+.v2 .cand { cursor: pointer; position: relative; transition: box-shadow .15s, transform .15s; }
+.v2 .cand:hover { box-shadow: 0 0 0 2px var(--sky-2), var(--shadow); }
+.v2 .cand .more { flex: none; align-self: center; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); color: var(--accent); font-size: 20px; line-height: 1; cursor: pointer; }
+.v2 .cand.on { box-shadow: 0 0 0 2px var(--accent), var(--shadow); }
+.v2 .cand.on .more { background: var(--accent); color: #fff; border-color: var(--accent); }
+.v2 .cands.picked { grid-template-columns: minmax(200px, 260px) minmax(0, 1fr); gap: 8px 18px; align-items: start; }
+.v2 .cands.picked .cand { grid-column: 1; padding: 10px 14px; border-radius: 12px; gap: 10px; }
+.v2 .cands.picked .cand h3 { font-size: 15px; }
+.v2 .cands.picked .cand .p { font-size: 13px; }
+.v2 .cands.picked .cand .links, .v2 .cands.picked .cand .p.drop { display: none; }
+.v2 .cands.picked .cand .more { width: 26px; height: 26px; font-size: 16px; }
+.v2 .cdetail { grid-column: 2; grid-row: 1 / span var(--rows, 12); position: sticky; top: 72px; background: var(--surface); border-radius: 18px; box-shadow: 0 0 0 2px var(--accent), var(--shadow); padding: 20px 22px 18px; }
+.v2 .cdetail .cx { position: absolute; top: 10px; right: 12px; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); font-size: 20px; cursor: pointer; color: var(--fg-2); }
+.v2 .cdetail .ch { display: flex; gap: 12px; align-items: flex-start; padding-right: 36px; }
+.v2 .cdetail .ch .dot { width: 14px; height: 14px; margin-top: 8px; border-radius: 50%; flex: none; }
+.v2 .cdetail h3 { font-size: 24px; font-weight: 800; }
+.v2 .cdetail .cblock { border-top: 1px solid var(--line); margin-top: 14px; padding-top: 12px; }
+.v2 .cdetail h4 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-3); margin: 0 0 6px; }
+.v2 .cdetail .links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-weight: 600; }
+.v2 .cdetail table.data td { padding: 5px 8px 5px 0; }
+@media (max-width: 860px) { .v2 .cands.picked { grid-template-columns: 1fr; } .v2 .cands.picked .cand { grid-column: 1; } .v2 .cdetail { grid-column: 1; grid-row: auto; position: static; } }
+.v2 button.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 12px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--fg); min-height: 34px; }
+.v2 button.chip i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.v2 button.chip.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); background: var(--teal-tint); }
+.v2 .timing { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.v2 .timing .vtstats { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.v2 .vtstat { background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); padding: 14px 18px; display: flex; flex-direction: column; }
+.v2 .vtstat .v { font-family: var(--font-display); font-weight: 800; font-size: 34px; line-height: 1.1; }
+.v2 .vtstat .k { color: var(--fg-2); font-size: 14px; }
+.v2 .vtrows, .v2 .vtlean { display: grid; gap: 8px; margin-top: 8px; }
+.v2 .vtrow { display: grid; grid-template-columns: 110px 1fr; gap: 10px; align-items: center; font-size: 14px; }
+.v2 .vtrow.vic { border-top: 1px dashed var(--line); padding-top: 8px; }
+.v2 .vtrow .y { color: var(--fg-2); font-weight: 600; }
+.v2 .vtbar { display: flex; height: 24px; border-radius: 6px; overflow: hidden; background: var(--surface-2); }
+.v2 .vtbar span { display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #10202A; white-space: nowrap; overflow: hidden; }
+.v2 .vtbar.duo span { color: #fff; text-shadow: 0 1px 1px rgba(0,0,0,.25); }
+.v2 .vtlegend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--fg-2); }
+.v2 .vtlegend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.v2 .vtsteps { margin: 6px 0 8px; padding-left: 20px; display: grid; gap: 4px; font-size: 15px; }
+@media (max-width: 860px) { .v2 .timing { grid-template-columns: 1fr; } .v2 .timing .vtstats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; } .v2 .vtstat { padding: 10px 12px; } .v2 .vtstat .v { font-size: 24px; } .v2 .vtstat .k { font-size: 12px; } .v2 .vtrow { grid-template-columns: 84px 1fr; } }
 .v2 .ballot-foot { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 12px; font-size: 14px; }
 
+.mycard-ov { position: fixed; inset: 0; z-index: 50; background: rgba(16, 24, 40, .45); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.mycard { background: #FFFDF6; color: #1A1F2B; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,.25); padding: 22px 24px; width: min(420px, 100%); max-height: 90vh; overflow: auto; }
+.mycard .k { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: #6E695F; }
+.mycard h3 { font-size: 26px; margin: 4px 0 0; color: #1B2B4B; }
+.mycard ol { list-style: none; padding: 0; margin: 14px 0; display: grid; gap: 8px; }
+.mycard li { display: flex; gap: 12px; align-items: center; border-bottom: 1px dashed #D9D3C6; padding-bottom: 8px; }
+.mycard .bbox { flex: none; width: 34px; height: 34px; border: 2px solid #1A1F2B; border-radius: 3px; display: inline-flex; align-items: center; justify-content: center; font-family: "Comic Sans MS", "Bradley Hand", cursive; font-size: 20px; font-weight: 700; color: #1F4E9C; background: #fff; }
+.mycard .hint { color: #4F4B44; }
+.mycard .actions .btn { border: 1px solid #D9D3C6; background: #fff; border-radius: 999px; padding: 8px 16px; font: inherit; font-weight: 600; cursor: pointer; color: #1B2B4B; }
+.mycard .actions .btn.pr { background: #2B7574; color: #fff; border-color: #2B7574; }
+.mycard .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+@media print { body.print-card > *:not(.mycard-ov) { display: none !important; } body.print-card .mycard-ov { position: static; background: none; padding: 0; display: block; } body.print-card .mycard { box-shadow: none; max-height: none; } body.print-card .mycard .actions { display: none; } }
 </style>
 
 <div class="app">
@@ -3473,7 +3527,7 @@ function linksRow(links) {
   if (!links) return row;
   if (links.wikipedia) row.append(h('a', { href: links.wikipedia, target: '_blank', rel: 'noopener' }, 'Wikipedia'));
   if (links.parliament) row.append(h('a', { href: links.parliament, target: '_blank', rel: 'noopener' }, 'Parliament'));
-  if (links.party) row.append(h('a', { href: links.party, target: '_blank', rel: 'noopener' }, 'Party'));
+  if (links.party) row.append(h('a', { href: links.party, target: '_blank', rel: 'noopener' }, /\/(our-team|team|person|candidates?|[a-z]+-[a-z-]+)\/?[^/]*$/.test(new URL(links.party).pathname) && !/\/candidates\/?$/.test(links.party) ? 'Party page' : 'Party'));
   if (links.vec) row.append(h('a', { href: links.vec, target: '_blank', rel: 'noopener' }, 'VEC'));
   for (const [k, label] of [['website', 'Website'], ['facebook', 'Facebook'], ['instagram', 'Instagram'], ['x', 'X'], ['tiktok', 'TikTok'], ['linkedin', 'LinkedIn'], ['youtube', 'YouTube'], ['bluesky', 'Bluesky'], ['threads', 'Threads']])
     if (links[k] && /^https:\/\//.test(links[k])) row.append(h('a', { href: links[k], target: '_blank', rel: 'noopener nofollow' }, label));
@@ -3578,10 +3632,68 @@ function fmtDay(iso) { if (!iso) return ''; const d = new Date(iso.length > 10 ?
 
 /* ---------- v2: Home and Electorates ---------- */
 // curated campaign links (website, socials) for 2026 candidates, keyed "contest|surname|given": data/c2026_links.json
-let CLINKS = {};
+let CLINKS = {}, WD26 = [];
+// a nominated candidate their party dropped after nominations closed: they stay on the ballot under the party's name
+function dropped(c, x) { const sur = String(x.surname || '').toLowerCase(), g = String(x.given_name || '').toLowerCase().split(' ')[0]; return WD26.find(r => r.seat === c.contest_name && /disendors/i.test(r.details) && /after nominations closed/i.test(r.details) && r.candidate.toLowerCase().endsWith(' ' + sur) && r.candidate.toLowerCase().startsWith(g)); }
 const linkKey = (cid, x) => `${cid}|${String(x.surname || '').toLowerCase()}|${String(x.given_name || '').toLowerCase().split(' ')[0]}`;
 function candLinksAll(cid, x) { return Object.assign({}, x.links || {}, CLINKS[linkKey(cid, x)] || {}); }
 // a practice ballot paper: the candidates in ballot order, click to number them 1..n
+// earlier lower-house runs under the same name (state since 1999, federal Victorian divisions since 2004, by-elections)
+let RUNS = null;
+function pastRuns(x) {
+  if (!RUNS) { RUNS = new Map(); const tot = new Map(), votes = new Map();
+    for (const r of D.contest_cand) { const k = r.election_id + '|' + r.contest_id; tot.set(k, (tot.get(k) || 0) + (r.votes || 0)); votes.set(r.election_id + '|' + r.candidate_id, r.votes); }
+    for (const r of D.candidates) { if (r.election_id === LIVE.election) continue; const k = normName(r.surname) + '|' + normName(String(r.given_name || '').split(' ')[0]); const v = votes.get(r.election_id + '|' + r.candidate_id), t = tot.get(r.election_id + '|' + r.contest_id); (RUNS.get(k) || RUNS.set(k, []).get(k)).push({ r, share: v != null && t ? v / t : null }); } }
+  const runs = RUNS.get(normName(x.surname) + '|' + normName(String(x.given_name || '').split(' ')[0])) || [];
+  return runs.map(o => ({ ...o, e: idx.electionById.get(o.r.election_id), c: idx.contestById.get(o.r.election_id + '|' + o.r.contest_id) })).filter(o => o.e).sort((a, b) => b.e.date.localeCompare(a.e.date));
+}
+// registered how-to-vote cards for a candidate (party cards by party name; independents by name)
+function candHtv(cid, x) {
+  const cards = (LIVE.daily && LIVE.daily.htv && LIVE.daily.htv.cards) || [];
+  const sur = normName(x.surname), g = normName(String(x.given_name || '').split(' ')[0]);
+  return cards.filter(k => k.pdf && ((k.contest_id === cid && x.party !== 'IND' && canonLabel(k.registrant) === canonLabel(x.party_name || '') && canonLabel(k.registrant) !== 'OTH') || (k.contest_id === cid && x.party_name && normName(k.registrant) === normName(x.party_name)) || (normName(k.registrant).includes(sur) && normName(k.registrant).includes(g))));
+}
+function candDetail(c, x, close) {
+  const cid = c.contest_id, L = candLinksAll(cid, x), drop = dropped(c, x); if (drop) delete L.party;
+  const lr = linksRow(L), runs = pastRuns(x), cards = candHtv(cid, x);
+  const party = x.party_name || (x.party === 'IND' ? 'Independent' : PARTY_NAME[x.party] || x.party || 'Independent');
+  const body = h('div', { class: 'cdetail', role: 'region', 'aria-label': `${x.given_name} ${x.surname}` },
+    h('button', { type: 'button', class: 'cx', 'aria-label': 'Close', onclick: close }, '×'),
+    h('div', { class: 'ch' }, h('span', { class: 'dot', style: `background:${partyColor(grpParty(x.party))}` }), h('div', {}, h('h3', {}, `${x.given_name} ${x.surname}`), h('div', { class: 'p' }, party + (x.incumbent ? ' · sitting member for ' + c.contest_name : '')))),
+    drop ? h('p', { class: 'p drop' }, `Disendorsed by ${drop.party} on ${drop.date}, after nominations closed. The ballot paper still lists the party.`) : '');
+  // track record
+  const tr = h('div', { class: 'cblock' }, h('h4', {}, 'Run before?'));
+  if (runs.length) {
+    tr.append(h('p', { class: 'hint' }, `${runs.length === 1 ? 'One earlier run' : runs.length + ' earlier runs'} under this name in the elections the Atlas holds. Matched by name, so check before relying on it.`),
+      h('table', { class: 'data' }, h('tbody', {}, ...runs.map(o => h('tr', {}, h('td', {}, shortName(o.e)), h('td', {}, o.c ? o.c.contest_name : o.r.contest_id), h('td', {}, o.r.party_name || PARTY_NAME[o.r.party] || o.r.party || ''), h('td', { class: 'num' }, o.share != null ? pct(o.share) : ''), h('td', {}, o.r.elected ? h('strong', {}, 'Elected') : ''))))));
+  } else tr.append(h('p', { class: 'hint' }, 'No earlier run under this name for the Victorian lower house since 1999 or a Victorian federal seat since 2004. Upper-house runs aren\'t checked yet.'));
+  body.append(tr);
+  // how-to-vote
+  const hv = h('div', { class: 'cblock' }, h('h4', {}, 'How-to-vote card'));
+  if (cards.length) hv.append(h('span', { class: 'links' }, ...cards.slice(0, 4).map((k, i) => h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, cards.length > 1 ? `Card ${i + 1}` : 'Open the card'))), h('p', { class: 'hint' }, 'As registered with the VEC: the order this campaign suggests. Your vote is yours to number.'));
+  else hv.append(h('p', { class: 'hint' }, 'None registered with the VEC yet. Cards appear here once they are.'));
+  body.append(hv);
+  // links
+  const lk = h('div', { class: 'cblock' }, h('h4', {}, 'Their own pages'));
+  lk.append(lr.childNodes.length ? h('div', { class: 'links' }, ...[...lr.childNodes]) : h('p', { class: 'hint' }, 'No campaign pages found yet.'));
+  lk.append(h('p', { class: 'hint' }, 'Official campaign and party pages only. ', h('a', { href: `https://www.vec.vic.gov.au/electoral-boundaries/state-districts/${cid.slice(4)}-district/nominations`, target: '_blank', rel: 'noopener' }, 'Contact details on the VEC candidate list'), '.'));
+  body.append(lk);
+  return body;
+}
+// the reader's own order, as a card to print or copy (made in the page; nothing leaves the browser)
+function myCard(c, cands, nums) {
+  const order = [...nums.entries()].sort((a, b) => a[1] - b[1]).map(([i, v]) => ({ v, x: cands[i] }));
+  const text = `My order for ${c.contest_name} (Legislative Assembly)\n` + order.map(o => `${o.v}  ${String(o.x.surname).toUpperCase()}, ${o.x.given_name} (${o.x.party_name || 'Independent'})`).join('\n');
+  const close = () => { ov.remove(); document.body.classList.remove('print-card'); document.removeEventListener('keydown', esc); };
+  const esc = (e) => { if (e.key === 'Escape') close(); };
+  const copyBtn = h('button', { type: 'button', class: 'btn', onclick: async () => { try { await navigator.clipboard.writeText(text); copyBtn.textContent = 'Copied'; } catch (e) { copyBtn.textContent = 'Copy failed'; } } }, 'Copy as text');
+  const ov = h('div', { class: 'mycard-ov', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'My order', onclick: (e) => { if (e.target === ov) close(); } },
+    h('div', { class: 'mycard' }, h('div', { class: 'k' }, 'My order · not an official card'), h('h3', {}, c.contest_name), h('div', { class: 'hint' }, 'Legislative Assembly · number every box'),
+      h('ol', {}, ...order.map(o => h('li', {}, h('span', { class: 'bbox' }, String(o.v)), h('span', {}, h('strong', {}, `${String(o.x.surname).toUpperCase()}, ${o.x.given_name}`), h('br'), h('small', {}, o.x.party_name || 'Independent'))))),
+      h('div', { class: 'hint' }, 'Made on the Election Booth Atlas practice ballot.'),
+      h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn pr', onclick: () => { document.body.classList.add('print-card'); window.print(); } }, 'Print'), copyBtn, h('button', { type: 'button', class: 'btn', onclick: close }, 'Close'))));
+  document.body.append(ov); document.addEventListener('keydown', esc); ov.querySelector('.pr').focus();
+}
 function ballotPaper(c, cands) {
   const n = cands.length, nums = new Map();
   const paper = h('div', { class: 'ballot', role: 'group', 'aria-label': `Practice ballot paper for ${c.contest_name}` });
@@ -3593,19 +3705,20 @@ function ballotPaper(c, cands) {
     status.innerHTML = '';
     if (!nums.size) status.append(`Click the boxes in the order you'd vote, from 1 to ${n}.`);
     else if (nums.size < n) status.append(`${nums.size} of ${n} numbered. Keep going: in the Assembly every box needs a number.`);
-    else status.append(h('strong', {}, 'That would be a formal vote.'), ' Every box is numbered once. (This is only practice: nothing is saved or sent.)');
+    else status.append(h('strong', {}, 'That would be a formal vote.'), ' Every box is numbered once. (Only practice: nothing is saved or sent.) ', h('button', { type: 'button', class: 'btn', style: 'margin-top:6px', onclick: () => myCard(c, cands, nums) }, 'Keep my order'));
   };
   paper.append(h('div', { class: 'ballot-head' }, h('div', { class: 'k' }, 'Legislative Assembly'), h('div', { class: 'e' }, `${c.contest_name} Electorate`), h('div', { class: 'i' }, `Number the boxes from 1 to ${n} in the order of your choice`)));
   cands.forEach((x, i) => {
     const name = `${String(x.surname).toUpperCase()}, ${x.given_name}`;
     const box = h('span', { class: 'bbox', 'aria-hidden': 'true' });
     const btn = h('button', { type: 'button', class: 'brow', onclick: () => { if (nums.has(i)) { const v = nums.get(i); nums.delete(i); for (const [k, w] of nums) if (w > v) nums.set(k, w - 1); } else nums.set(i, nums.size + 1); refresh(); } },
-      box, h('span', { class: 'bname' }, h('strong', {}, name), h('span', {}, x.party_name || (x.party === 'IND' ? 'Independent' : PARTY_NAME[x.party] || ''))));
+      box, h('span', { class: 'bname' }, h('strong', {}, name), h('span', {}, x.party_name || (x.party === 'IND' ? 'Independent' : PARTY_NAME[x.party] || '')), dropped(c, x) ? h('em', { class: 'bdrop' }, `disendorsed by ${dropped(c, x).party} after nominations closed`) : ''));
     rows.push({ i, box, btn, name }); paper.append(btn);
   });
   const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); refresh(); } }, 'Clear');
   refresh();
-  return h('div', { class: 'ballot-wrap' }, paper, h('div', { class: 'ballot-foot' }, status, reset), h('div', { class: 'hint', style: 'margin-top:6px' }, 'An illustration of the ballot order, not the official ballot paper. Click a numbered box again to take its number off.'));
+  const c22 = contestIn('vic2022', c.contest_id, LIVE.election), inf = c22 && c22.formal ? c22.informal / (c22.formal + c22.informal) : null;
+  return h('div', { class: 'ballot-wrap' }, paper, h('div', { class: 'ballot-foot' }, status, reset), inf != null ? h('div', { class: 'hint', style: 'margin-top:8px' }, h('strong', {}, `In 2022, ${pct(inf)} of ballots here were informal`), ' and didn\'t count. The usual reasons: a box left empty, a number used twice, or ticks and crosses instead of numbers.') : '', h('div', { class: 'hint', style: 'margin-top:6px' }, 'An illustration of the ballot order, not the official ballot paper. Click a numbered box again to take its number off.'));
 }
 const SEAT = { cid: null, pending: null };
 const PREMIER = { vic1999: 'Bracks, minority', vic2002: 'Bracks', vic2006: 'Bracks', vic2010: 'Baillieu', vic2014: 'Andrews', vic2018: 'Andrews', vic2022: 'Andrews' };
@@ -3704,6 +3817,62 @@ function boothAlp(eid, bid) {
   if (!TCPB) { TCPB = new Map(); for (const r of D.tcp) { const k = r.election_id + '|' + r.booth_id; const c = idx.candById.get(r.election_id + '|' + r.candidate_id); const o = TCPB.get(k) || TCPB.set(k, {}).get(k); const p = c ? grpParty(c.party) : '?'; o[p] = (o[p] || 0) + r.votes; } }
   const o = TCPB.get(eid + '|' + bid); if (!o) return null; const tot = Object.values(o).reduce((a, b) => a + b, 0); return o.ALP != null && tot ? o.ALP / tot : null;
 }
+// a party's share of the two-candidate vote at a booth (null when it wasn't in that booth's final two)
+function boothTcpShare(eid, bid, party) { boothAlp(eid, bid); const o = TCPB.get(eid + '|' + bid); if (!o) return null; const tot = Object.values(o).reduce((a, b) => a + b, 0); return o[party] != null && tot ? o[party] / tot : null; }
+function boothPair(eid, bid) { boothAlp(eid, bid); const o = TCPB.get(eid + '|' + bid); return o ? Object.keys(o) : []; }
+// "It's all in the timing": how a seat's votes split by type (on the day, early, postal, absent and other) and how each type leaned
+const VT = [['ordinary', 'On the day', '--sky-3'], ['early', 'Early', '--accent'], ['postal', 'Postal', '--lime'], ['other', 'Absent and other', '--line']];
+const vtOf = (t) => t === 'ordinary' || t === 'early' || t === 'postal' ? t : 'other';
+let VT_STATE = null;
+function voteTypes(eid, cid) {   // {type: {formal, tcp: {party: votes}}}
+  const out = {}; for (const [k] of VT) out[k] = { formal: 0, tcp: {} };
+  for (const b of D.booths) { if (b.election_id !== eid || b.contest_id !== cid) continue; const t = vtOf(b.booth_type); const ps = partyShares(eid, b.booth_id); out[t].formal += ps.formal || 0; boothAlp(eid, b.booth_id); const o = TCPB.get(eid + '|' + b.booth_id); if (o) for (const [p, v] of Object.entries(o)) out[t].tcp[p] = (out[t].tcp[p] || 0) + v; }
+  return out;
+}
+function stateVoteTypes() {
+  if (VT_STATE) return VT_STATE; VT_STATE = {};
+  const type = new Map(D.booths.map(b => [b.election_id + '|' + b.booth_id, vtOf(b.booth_type)]));
+  for (const r of D.shares) { if (!/^vic(19|20)\d\d$/.test(r.election_id)) continue; const t = type.get(r.election_id + '|' + r.booth_id); if (!t) continue; const o = VT_STATE[r.election_id] || (VT_STATE[r.election_id] = { total: 0 }); o[t] = (o[t] || 0) + r.votes; o.total += r.votes; }
+  return VT_STATE;
+}
+function typeBar(o) { const tot = VT.reduce((a, [k]) => a + (o[k] ? o[k].formal != null ? o[k].formal : o[k] : 0), 0); return h('div', { class: 'vtbar', role: 'img', 'aria-label': VT.map(([k, lab]) => { const v = o[k] ? (o[k].formal != null ? o[k].formal : o[k]) : 0; return `${lab} ${tot ? Math.round(100 * v / tot) : 0}%`; }).join(', ') }, ...VT.map(([k, lab, col]) => { const v = o[k] ? (o[k].formal != null ? o[k].formal : o[k]) : 0; const w = tot ? 100 * v / tot : 0; return w > 0 ? h('span', { style: `width:${w}%;background:var(${col})`, title: `${lab}: ${w.toFixed(1)}%` }, w >= 9 ? Math.round(w) + '%' : '') : ''; })); }
+function timingBlock(cid, c, held) {
+  const wrap = h('div', { class: 'timing' });
+  const years = ['vic2010', 'vic2014', 'vic2018', 'vic2022'].filter(e => idx.electionById.get(e));
+  const rows = years.map(e => { const oc = contestIn(e, cid, LIVE.election); return oc ? { e, vt: voteTypes(e, oc.contest_id) } : null; }).filter(x => x && VT.some(([k]) => x.vt[k].formal));
+  const st = stateVoteTypes();
+  if (!rows.length) return null;
+  const last = rows[rows.length - 1], tot = VT.reduce((a, [k]) => a + last.vt[k].formal, 0), sh = (k) => tot ? last.vt[k].formal / tot : 0;
+  const lastE = idx.electionById.get(last.e);
+  // the headline
+  const big = VT.slice(0, 3).map(([k, lab, col]) => h('div', { class: 'vtstat' }, h('span', { class: 'v', style: `color:var(${col === '--lime' ? '--fg' : col})` }, pct(sh(k))), h('span', { class: 'k' }, `${lab === 'On the day' ? 'voted on the day' : lab === 'Early' ? 'voted early' : 'voted by post'}, ${shortName(lastE)}`)));
+  wrap.append(h('div', { class: 'vtstats' }, ...big));
+  // the shift over time, this seat and Victoria
+  const legend = h('div', { class: 'vtlegend' }, ...VT.map(([k, lab, col]) => h('span', {}, h('i', { style: `background:var(${col})` }), lab)));
+  const tbl = h('div', { class: 'vtrows' }, ...rows.map(r => h('div', { class: 'vtrow' }, h('span', { class: 'y' }, shortName(idx.electionById.get(r.e))), typeBar(r.vt))), st[last.e] ? h('div', { class: 'vtrow vic' }, h('span', { class: 'y' }, `Victoria ${shortName(lastE).replace(/\D+/g, '')}`), typeBar(st[last.e])) : '');
+  const first = rows[0], ft = VT.reduce((a, [k]) => a + first.vt[k].formal, 0);
+  const s10 = st.vic2010, s22 = st[last.e];
+  wrap.append(h('div', { class: 'box' }, h('h3', {}, 'When people here vote'), legend, tbl,
+    h('p', { class: 'hint', style: 'margin-top:8px' }, `${c.contest_name}: ${pct(ft ? first.vt.ordinary.formal / ft : 0)} of votes were cast on the day in ${shortName(idx.electionById.get(first.e))}, ${pct(sh('ordinary'))} in ${shortName(lastE)}.`, s10 && s22 ? ` Across Victoria it went from ${pct(s10.ordinary / s10.total)} to ${pct(s22.ordinary / s22.total)}${s22.early > s22.ordinary ? `, and in ${shortName(lastE).replace(/\D+/g, '')} early votes outnumbered election-day votes for the first time.` : '.'}` : '')));
+  // how each type leaned, read from the side of the party that holds the seat (switchable in the booth table below)
+  const pair = Object.keys(VT.reduce((a, [k]) => Object.assign(a, last.vt[k].tcp), {})).filter(p => p !== '?');
+  if (pair.length === 2) {
+    const side = pair.includes(held) ? held : pair[0], other = pair.find(p => p !== side);
+    const share = (k) => { const o = last.vt[k].tcp, t = (o[side] || 0) + (o[other] || 0); return t ? (o[side] || 0) / t : null; };
+    const lean = h('div', { class: 'vtlean' }, ...VT.map(([k, lab]) => { const v = share(k); if (v == null) return ''; return h('div', { class: 'vtrow' }, h('span', { class: 'y' }, lab), h('div', { class: 'vtbar duo', role: 'img', 'aria-label': `${lab}: ${PARTY_SHORT[side] || side} ${pct(v)}, ${PARTY_SHORT[other] || other} ${pct(1 - v)}` }, h('span', { style: `width:${100 * v}%;background:${partyColor(side)}` }, pct(v)), h('span', { style: `width:${100 * (1 - v)}%;background:${partyColor(other)}` }, pct(1 - v)))); }));
+    // the running count in the usual order: votes on the day, then early, then postal, then the rest
+    let a = 0, b = 0; const steps = [];
+    for (const [k, lab] of VT) { const o = last.vt[k].tcp; a += o[side] || 0; b += o[other] || 0; if (a + b) steps.push([lab, a / (a + b)]); }
+    const nm = (p) => PARTY_NAME[p] || p, lead = (v) => v >= 0.5 ? `${nm(side)} ahead by ${(200 * (v - 0.5)).toFixed(1)} points` : `${nm(other)} ahead by ${(200 * (0.5 - v)).toFixed(1)} points`;
+    const ord = share('ordinary'), post = share('postal');
+    const lines = h('ol', { class: 'vtsteps' }, ...steps.map(([lab, v], i) => h('li', {}, h('strong', {}, i === 0 ? 'Votes on the day' : '+ ' + lab.toLowerCase() + ' votes'), `: ${lead(v)}`)));
+    wrap.append(h('div', { class: 'box' }, h('h3', {}, `How each kind of vote went, ${shortName(lastE)}`), h('p', { class: 'hint', style: 'margin:0 0 8px' }, `Two-candidate vote, ${nm(side)} against ${nm(other)}.`), lean,
+      ord != null && post != null && Math.abs(post - ord) >= 0.02 ? h('p', { class: 'hint', style: 'margin-top:8px' }, `Postal votes leaned ${(100 * Math.abs(post - ord)).toFixed(1)} points further towards ${nm(post > ord ? side : other)} than votes on the day.`) : '',
+      h('h3', { style: 'margin-top:16px' }, 'What that meant for the count'), lines,
+      h('p', { class: 'hint' }, 'Votes cast on the day are counted first, in the booths from 6 pm. Early votes are added as early-voting centres report, and postal and absent votes over the following days as they arrive and are checked. So an early lead can grow or shrink as the later kinds of vote come in.')));
+  }
+  return wrap;
+}
 function renderSeat() {
   const root = el('seat-root'); if (!root) return; root.innerHTML = '';
   if (SEAT.pending) { const p = SEAT.pending; SEAT.pending = null; if (idx.contestById.get(LIVE.election + '|' + p)) SEAT.cid = p; }
@@ -3732,7 +3901,7 @@ function renderSeat() {
     h('div', { class: 'badges' }, h('span', { class: 'badge' }, h('span', { class: 'dot', style: `background:${partyColor(hc)}` }), 'Held by ' + (c.held_by || '–')),
       lc ? h('span', { class: 'badge' }, `Margin ${(100 * lc.margin).toFixed(1)} points (${shortName(lc.e)})`) : '',
       ret.length ? h('span', { class: 'badge lime' }, 'Open seat: member retiring') : sitting ? h('span', { class: 'badge' }, `${sitting.given_name} ${sitting.surname} recontesting`) : ''))));
-  const secs = [['ballot', "Who's standing"], ['vote', 'How to vote'], ['history', 'Past results'], ['people', 'Who lives here'], ['booths', 'Booth by booth']];
+  const secs = [['ballot', "Who's standing"], ['vote', 'How to vote'], ['timing', 'Timing'], ['history', 'Past results'], ['people', 'Who lives here'], ['booths', 'Booth by booth']];
   const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
   const body = h('div', { class: 'wrap', style: 'padding-bottom:56px' }); root.append(body);
@@ -3741,7 +3910,16 @@ function renderSeat() {
   const nominated = cands.some(x => x.nominated);
   const s1 = sec('ballot', 1, `Who's standing in 2026`, `${cands.length} candidates · ${nominated ? 'in ballot order, as nominated with the VEC' : 'declared so far, A to Z until the ballot draw'}. We link to each candidate's own pages and don't write about them ourselves.`);
   const grid = h('div', { class: 'cands' });
-  for (const x of cands) { const lr = linksRow(candLinksAll(cid, x)); grid.append(h('div', { class: 'cand' }, h('span', { class: 'dot', style: `background:${partyColor(grpParty(x.party))}` }), h('div', { style: 'min-width:0' }, h('h3', {}, x.nominated && x.ballot_position ? h('span', { class: 'bpos', title: 'Position on the ballot paper' }, x.ballot_position) : '', `${x.given_name} ${x.surname}`), h('div', { class: 'p' }, (x.party_name || PARTY_NAME[x.party] || x.party || 'Independent') + (x.incumbent ? ' · sitting member' : '')), lr.childNodes.length ? h('div', { class: 'links' }, ...[...lr.childNodes]) : ''))); }
+  let picked = null;
+  const pick = (i) => {
+    grid.querySelectorAll('.cdetail').forEach(n => n.remove()); grid.querySelectorAll('.cand.on').forEach(n => { n.classList.remove('on'); n.querySelector('.more').setAttribute('aria-expanded', 'false'); });
+    if (i == null || i === picked) { picked = null; grid.classList.remove('picked'); return; }
+    picked = i; grid.classList.add('picked'); const card = grid.querySelectorAll('.cand')[i]; card.classList.add('on'); card.querySelector('.more').setAttribute('aria-expanded', 'true');
+    const d = candDetail(c, cands[i], () => { pick(null); card.querySelector('.more').focus(); }); d.style.setProperty('--rows', cands.length); card.after(d);
+    if (matchMedia('(max-width: 860px)').matches) d.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  };
+  cands.forEach((x, i) => { const L = candLinksAll(cid, x); if (dropped(c, x)) delete L.party; const lr = linksRow(L);
+    grid.append(h('div', { class: 'cand', onclick: (ev) => { if (ev.target.closest('a')) return; const n = [...grid.querySelectorAll('.cand')].indexOf(ev.currentTarget); pick(n === picked ? null : n); } }, h('span', { class: 'dot', style: `background:${partyColor(grpParty(x.party))}` }), h('div', { style: 'min-width:0;flex:1' }, h('h3', {}, `${x.given_name} ${x.surname}`), h('div', { class: 'p' }, (x.party_name || PARTY_NAME[x.party] || x.party || 'Independent') + (x.incumbent ? ' · sitting member' : '')), dropped(c, x) ? h('div', { class: 'p drop' }, `Disendorsed by ${dropped(c, x).party} on ${dropped(c, x).date}, after nominations closed. The ballot paper still lists the party.`) : '', lr.childNodes.length ? h('div', { class: 'links' }, ...[...lr.childNodes]) : ''), h('button', { type: 'button', class: 'more', 'aria-expanded': 'false', 'aria-label': `More about ${x.given_name} ${x.surname}` }, '›'))); });
   s1.append(nominated ? h('div', { class: 'ballotgrid' }, ballotPaper(c, cands), grid) : grid);
   // 2 voting
   const s2 = sec('vote', 2, 'How and when to vote');
@@ -3757,8 +3935,10 @@ function renderSeat() {
   if (v.district_page) extra.append(h('div', {}, h('a', { href: v.district_page.replace('{slug}', slug(cid)), target: '_blank', rel: 'noopener' }, 'VEC electorate profile and map')));
   s2.append(extra);
   { const dbx = h('div'); renderDailyBlock(dbx, cid, c); if (dbx.childNodes.length) s2.append(h('div', { class: 'box', style: 'margin-top:16px' }, dbx)); }
-  // 3 history
-  const s3 = sec('history', 3, 'Past results', 'Every state election for a seat of this name. Boundaries move between elections, so treat long runs as a guide.');
+  // 3 timing
+  { const tb = timingBlock(cid, c, heldCode(c)); if (tb) { const st = sec('timing', 3, "It's all in the timing", 'Who votes on the day, who votes early, who posts it in, and what that does to the count on the night.'); st.append(tb); } }
+  // 4 history
+  const s3 = sec('history', 4, 'Past results', 'Every state election for a seat of this name. Boundaries move between elections, so treat long runs as a guide.');
   const hist = [];
   for (const e of D.elections.filter(e => e.election_id !== LIVE.election && (e.level === 'state' || e.level === 'state-by')).sort((a, b) => b.date.localeCompare(a.date))) { const oc = contestIn(e.election_id, cid, LIVE.election); if (!oc) continue; hist.push({ e, oc, t: contestTcp(e.election_id, oc.contest_id), w: idx.elected.get(e.election_id + '|' + oc.contest_id), ps: contestShares(e.election_id, oc.contest_id) }); }
   const g3 = h('div', { class: 'grid2' }); s3.append(g3);
@@ -3766,21 +3946,35 @@ function renderSeat() {
   if (hist.length) g3.append(h('div', { class: 'box' }, h('h3', {}, 'Results'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'Won by'), h('th', { class: 'num' }, '2CP'), ...['ALP', 'COAL', 'GRN'].map(p => h('th', { class: 'num' }, PARTY_SHORT[p])))),
     h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, shortName(x.e)), h('td', {}, x.w ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(x.w.party))}` }), x.w.surname) : '–'), h('td', { class: 'num' }, x.t && x.t.pair.length === 2 ? `${pct(x.t.pair[0].share)} ${PARTY_SHORT[grpParty(x.t.pair[0].party)] || ''}` : '–'), ...['ALP', 'COAL', 'GRN'].map(p => h('td', { class: 'num' }, x.ps[p] ? pct(x.ps[p].share) : '–')))))))));
   // 4 census
-  const s4 = sec('people', 4, 'Who lives here', 'From the Census, matched to the 2022 boundaries, compared with Victoria.');
+  const s4 = sec('people', 5, 'Who lives here', 'From the Census, matched to the 2022 boundaries, compared with Victoria.');
   const cbx = h('div', { class: 'box' }); s4.append(cbx);
   const fillCensus = () => { cbx.innerHTML = ''; const cb = censusBlock(LIVE.election, cid); if (cb) cbx.append(cb); else cbx.append(h('div', { class: 'empty' }, 'No census profile for this electorate.')); };
   if (DEMOG) fillCensus(); else { cbx.append(h('div', { class: 'empty' }, 'Loading…')); ensureDemog().then(fillCensus); }
   // 5 booths
-  const s5 = sec('booths', 5, 'Booth by booth', `Each polling place in ${c.contest_name}, and how the same venue has voted over the years.`);
+  const s5 = sec('booths', 6, 'Booth by booth', `Each polling place in ${c.contest_name}, and how the same venue has voted over the years.`);
   s5.append(h('div', { class: 'row', style: 'gap:10px;flex-wrap:wrap;margin-bottom:16px' }, h('button', { class: 'cta', style: 'height:46px;font-size:15px', onclick: () => { setUnit('booth'); setElection('vic2022'); showView('map'); const oc = contestIn('vic2022', cid, LIVE.election); if (oc) setTimeout(() => selectContest('vic2022', oc.contest_id, true), 400); } }, `Open ${c.contest_name} on the map →`)));
   const oc22 = contestIn('vic2022', cid, LIVE.election);
   const bl = oc22 ? D.booths.filter(b => b.election_id === 'vic2022' && b.contest_id === oc22.contest_id && b.booth_type === 'ordinary').sort((a, b) => a.booth_name.localeCompare(b.booth_name)) : [];
   if (bl.length) {
     const cols = ['vic2010', 'vic2014', 'vic2018', 'vic2022', 'fed2022', 'fed2025'].filter(id => idx.electionById.get(id));
-    const cell = (b, eid) => { const bs = b.venue_id ? (idx.boothsByVenue.get(b.venue_id) || []).filter(x => x.election_id === eid && x.booth_type === 'ordinary') : (eid === 'vic2022' ? [b] : []); if (!bs.length) return '–'; const v2 = boothAlp(eid, bs[0].booth_id); return v2 == null ? '–' : (100 * v2).toFixed(1); };
-    s5.append(h('div', { class: 'box' }, h('h3', {}, 'Labor share of the two-candidate vote, by polling place'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Polling place'), ...cols.map(id => h('th', { class: 'num' }, shortName(idx.electionById.get(id)))))),
-      h('tbody', {}, ...bl.map(b => h('tr', { class: 'clickable', onclick: () => { setUnit('booth'); setElection('vic2022'); showView('map'); setTimeout(() => select('vic2022', b.booth_id, true), 400); } }, h('td', {}, b.booth_name), ...cols.map(id => h('td', { class: 'num' }, cell(b, id)))))))),
-      h('div', { class: 'hint', style: 'margin-top:8px' }, 'Venues are matched across elections by premises. A dash: no booth there that year, or Labor not in the final two. Click a row to open it on the map.')));
+    const same = (b, eid) => b.venue_id ? (idx.boothsByVenue.get(b.venue_id) || []).filter(x => x.election_id === eid && x.booth_type === 'ordinary') : (eid === 'vic2022' ? [b] : []);
+    // the parties that made the final two at these booths, most often first; shown from the side of the party that holds the seat unless the reader switches
+    const freq = new Map(); for (const b of bl) for (const eid of cols) for (const x of same(b, eid)) for (const p of boothPair(eid, x.booth_id)) if (p !== '?') freq.set(p, (freq.get(p) || 0) + 1);
+    const opts = [...freq.entries()].sort((a, b) => b[1] - a[1]).map(x => x[0]).slice(0, 4);
+    const held = heldCode(c); let party = SEAT.tcpParty && opts.includes(SEAT.tcpParty) ? SEAT.tcpParty : (opts.includes(held) ? held : opts[0]);
+    const box5 = h('div', { class: 'box' }); s5.append(box5);
+    const draw = () => {
+      box5.innerHTML = '';
+      const pname = PARTY_NAME[party] || party;
+      const chips = h('div', { class: 'row', style: 'gap:6px;flex-wrap:wrap;margin:6px 0 12px', role: 'group', 'aria-label': 'Show the two-candidate share for' }, h('span', { class: 'hint', style: 'margin-right:4px' }, 'Show the share for'),
+        ...opts.map(p => h('button', { type: 'button', class: 'chip' + (p === party ? ' on' : ''), 'aria-pressed': String(p === party), onclick: () => { party = p; SEAT.tcpParty = p; draw(); } }, h('i', { style: `background:${partyColor(p)}` }), PARTY_SHORT[p] || p)));
+      const cell = (b, eid) => { const bs = same(b, eid); if (!bs.length) return '–'; const v2 = boothTcpShare(eid, bs[0].booth_id, party); return v2 == null ? '–' : (100 * v2).toFixed(1); };
+      box5.append(h('h3', {}, `${pname} share of the two-candidate vote, by polling place`), chips,
+        h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Polling place'), ...cols.map(id => h('th', { class: 'num' }, shortName(idx.electionById.get(id)))))),
+          h('tbody', {}, ...bl.map(b => h('tr', { class: 'clickable', onclick: () => { setUnit('booth'); setElection('vic2022'); showView('map'); setTimeout(() => select('vic2022', b.booth_id, true), 400); } }, h('td', {}, b.booth_name), ...cols.map(id => h('td', { class: 'num' }, cell(b, id)))))))),
+        h('div', { class: 'hint', style: 'margin-top:8px' }, `A two-candidate figure has to be read from one side; it starts from ${held && opts.includes(held) ? 'the party that holds the seat' : 'the party most often in the final two here'}, and the buttons switch it. Venues are matched across elections by premises. A dash: no booth there that year, or ${PARTY_SHORT[party] || party} not in the final two. Click a row to open it on the map.`));
+    };
+    draw();
   }
   body.append(h('div', { class: 'callout', style: 'margin-top:40px' }, h('div', {}, 'Going deeper: ', h('a', { href: '#compare', 'data-go': 'compare' }, 'compare elections venue by venue'), ' · ', h('a', { href: '#demog', 'data-go': 'demog' }, 'who votes how, seat by seat'), ' · ', h('a', { href: '#prefs', 'data-go': 'prefs' }, 'the Atlas books'))));
 }
@@ -3861,6 +4055,7 @@ async function boot() {
     // the 2026 register (declared candidates, key dates) makes 2026 an election in its own right, live-fed on the night
     try {
       const [c26, k26, r26] = await Promise.all(['c2026_contests', 'c2026_candidates', 'c2026_retiring'].map(table));
+      try { WD26 = await table('c2026_withdrawals'); } catch (e) { WD26 = []; }
       let meta = {}; try { meta = await (await fetch(DATA + 'c2026_meta.json')).json(); } catch (e) {}
       try { CLINKS = (await (await fetch(DATA + 'c2026_links.json')).json()).links || {}; } catch (e) { CLINKS = {}; }
       liveSetup({ contests: c26, candidates: k26, retiring: r26, meta });

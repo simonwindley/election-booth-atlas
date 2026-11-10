@@ -1,0 +1,81 @@
+# source: https://greens.org.au/vic/person/<slug>  checked 2026-11-10
+vic-albert-park|semmens|sonya sonya-semmens f=facebook.com/SonyaSemmensGreens i=instagram.com/sonya_semmens
+vic-ashwood|randall|tim tim-randall f=facebook.com/timrandallgreens i=instagram.com/timrandallgreens
+vic-bass|thorn|sophie sophie-thorn f=facebook.com/SophieThornGreens i=instagram.com/sophiethorn.greens
+vic-bayswater|kennedy|jess jess-kennedy i=instagram.com/jess.kennedy_vicgreens
+vic-bellarine|pope|mitch mitch-pope i=instagram.com/mitchcpope
+vic-benambra|parton|graham graham-parton i=instagram.com/grahamforbenambra
+vic-bendigo-east|tolhurst|michael michael-tolhurst f=facebook.com/michaeltolhurstgreens i=instagram.com/michaeltolhurstgreens
+vic-bendigo-west|shaw|liza liza-shaw f=facebook.com/lizashawgreens i=instagram.com/lizashawgreens
+vic-berwick|de silva|roshan roshan-de-silva f=facebook.com/RoshanDeSilvaGreens i=instagram.com/roshandesilvagreens
+vic-box-hill|qin|aaron aaron-qin
+vic-brighton|bain|ebony ebony-bain i=instagram.com/ebonybain4brighton
+vic-broadmeadows|nasim|maryam maryam-nasim i=instagram.com/maryamnasimgreens
+vic-brunswick|pulford|adam adam-pulford w=adampulford.com xx=twitter.com/adampulford f=facebook.com/adampulfordgreens i=instagram.com/adampulford
+vic-bulleen|lightbody|tomas tomas-lightbody i=instagram.com/tomaslightbody
+vic-bundoora|laitala|nina nina-laitala f=facebook.com/ninalaitalabundoora i=instagram.com/ninalaitalagreens
+vic-carrum|pegrum|zoe zoe-pegrum
+vic-clarinda|boyd-eedle|conor conor-boyd-eedle
+vic-cranbourne|mercer|annalise annalise-mercer
+vic-croydon|fernando|lini lini-fernando i=instagram.com/lini.fernando
+vic-dandenong|d'arcy|catherine catherine-darcy f=facebook.com/catherinedarcygreens i=instagram.com/catherinedarcygreens
+vic-eildon|gulpilil|talia talia-gulpilil
+vic-eltham|busbridge|rachel rachel-busbridge i=instagram.com/rachelbusbridgegreens
+vic-essendon|williams|james james-williams f=facebook.com/JamesWilliamsGreens i=instagram.com/jameswgreens
+vic-euroa|regan|alysia alysia-regan f=facebook.com/AlysiaReganGreens i=instagram.com/alysia4euroa
+vic-evelyn|henley|andrew andrew-henley
+vic-footscray|pereyra|elena elena-pereyra f=facebook.com/ElenaPereyraGreens i=instagram.com/elenapereyragreens
+vic-frankston|goulas|katie katie-goulas i=instagram.com/katiegoulasgreens
+vic-geelong|flynn|emilie emilie-flynn f=facebook.com/emilieflynn.geelong i=instagram.com/emilieflynn.geelong
+vic-gippsland-east|munro|ash ash-munro i=instagram.com/ashmunro.greens
+vic-gippsland-south|evans|zave zave-evans i=instagram.com/zave.evans.greens
+vic-glen-waverley|white|toyo toyo-white i=instagram.com/toyo.white
+vic-greenvale|mcginness|declan declan-mcginness
+vic-hastings|willoughby|isaac isaac-willoughby f=facebook.com/isaacwilloughby4hastings i=instagram.com/isaacwilloughbygreens
+vic-hawthorn|rocha|kylie kylie-rocha f=facebook.com/kylierochagreens i=instagram.com/kylierochagreens
+vic-ivanhoe|crawley|nina nina-crawley f=facebook.com/NinaCrawleyGreens i=instagram.com/ninaccrawley
+vic-kalkallo|tiwari|payal payal-tiwari
+vic-kew|carter|jackie jackie-carter
+vic-kororoit|mcdonald|joyce joyce-mcdonald i=instagram.com/joyce.mcdonaldgreens
+vic-lara|slater|theresa theresa-slater f=facebook.com/TheresaSlaterGreens i=instagram.com/theresaslatergreens
+vic-laverton|nguyen|lucy lucy-nguyen f=facebook.com/greens.lucynguyen i=instagram.com/lucynguyen.greens
+vic-lowan|moran|jeff jeff-moran
+vic-macedon|mcrae mcleod|marley marley-mcrae-mcleod f=facebook.com/MarleyMcRaeMcLeod4Macedon i=instagram.com/marleymcraemcleod
+vic-malvern|katsikis|georgia georgia-katsikis i=instagram.com/georgiakatsikisgreens
+vic-melbourne|sandell|ellen ellen-sandell w=ellensandell.com xx=twitter.com/ellensandell f=facebook.com/ellensandell.mp i=instagram.com/elleninmelbourne
+vic-melton|levchenkova|veronika veronika-levchenkova
+vic-mildura|clements|katie katie-clements
+vic-mill-park|zacharias|binoy binoy-zacharias
+vic-monbulk|blair|merran dr-merran-blair f=facebook.com/merran.blair.greens i=instagram.com/merranblairgreens
+vic-mordialloc|breskin|alex alex-breskin f=facebook.com/AlexBreskinGreens i=instagram.com/alexbreskingreens
+vic-mornington|titcher|kai kai-titcher f=facebook.com/people/Kai-Titcher-Greens-for-Mornington/61594585414050 i=instagram.com/kaititchergreens
+vic-morwell|hine|rochelle rochelle-hine f=facebook.com/RochelleHineGreens i=instagram.com/rochellehinegreens
+vic-mulgrave|schofield|paul paul-schofield i=instagram.com/pauljschofieldgreens
+vic-murray-plains|cook|zoe zoe-cook f=facebook.com/profile.php?id=61561063119355 i=instagram.com/crzoecookforcampaspe
+vic-narracan|weaver|alyssa alyssa-weaver f=facebook.com/AlyssaWeaverGreens i=instagram.com/alyssaweavergreens
+vic-narre-warren-north|perry|hayley hayley-perry f=facebook.com/HayleyPerryGreens i=instagram.com/hayleyperrygreens
+vic-narre-warren-south|nambu|jill jill-nambu f=facebook.com/JillianNambuGreens i=instagram.com/jill_nambu_greens
+vic-nepean|healy|sianan sianan-healy i=instagram.com/siananhealygreens
+vic-northcote|gome|campbell campbell-gome f=facebook.com/CampbellGomeGreens i=instagram.com/campbellgomegreens
+vic-oakleigh|hsieh|hsiang-han hsiang-han-hsieh i=instagram.com/hhhgreens
+vic-ovens-valley|gilbert|benjamin ben-gilbert i=instagram.com/bengilbertforovensvalley
+vic-pakenham|yawari|nasser nasser-yawari f=facebook.com/Nasser.For.Pakenham i=instagram.com/nasser_yawari
+vic-pascoe-vale|panopoulos|angelica angelica-panopoulos f=facebook.com/AngelicaPanopoulosGreens i=instagram.com/angelica_panopoulosgreens
+vic-point-cook|krishna pandi|ponraj ponraj-krishna-pandi f=facebook.com/PonrajKrishnaPandiGreens i=instagram.com/ponraj.krishnapandigreens
+vic-polwarth|holden|jesse jesse-holden f=facebook.com/jesseholdengreens i=instagram.com/jesseholdengreens
+vic-prahran|di camillo|angelica angelica-di-camillo f=facebook.com/AngelicaDiCamilloGreens i=instagram.com/angelicadicamillogreens
+vic-preston|sangarya|loki loki-sangarya i=instagram.com/loki.sangarya.greens
+vic-ringwood|mills|amy amy-mills f=facebook.com/AmyMillsGreens i=instagram.com/amymillsgreens
+vic-ripon|drylie|tim tim-drylie f=facebook.com/TimDrylieGreens i=instagram.com/timdrylie_greens
+vic-rowville|massey|david dave-massey
+vic-sandringham|fotakis|timon timon-fotakis i=instagram.com/timonfotakis
+vic-shepparton|verney|grace grace-verney
+vic-south-barwon|scherrer|izzy izzy-scherrer i=instagram.com/izzyscherrergreens
+vic-sunbury|granger-brown|lauren lauren-granger-brown
+vic-sydenham|jane|maggie maggie-jane
+vic-thomastown|trewella|gavin gavin-trewella
+vic-warrandyte|muradian|vanessa vanessa-muradian
+vic-wendouree|burns|ellen ellen-burns f=facebook.com/EllenBurnsGreens i=instagram.com/ellenburns_ballarat
+vic-werribee|kumar|tushar tushar-kumar f=facebook.com/TusharKumarGreens i=instagram.com/tusharkumargreens
+vic-williamstown|hocking|ben ben-hocking f=facebook.com/BenHockingGreens i=instagram.com/ben.hocking.greens
+vic-yan-yean|mohammed|gufran gufran-mohammed f=facebook.com/GufranMohammedGreens i=instagram.com/gufranmohammedgreens

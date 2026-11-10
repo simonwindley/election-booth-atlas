@@ -1,0 +1,12 @@
+# source: https://vic.nationals.org.au/our-team/  checked 2026-11-10 (slug '-' = team page)
+vic-bendigo-east|lethlean|andrew - f=facebook.com/Andrew4Bendigo i=instagram.com/andrew4bendigo
+vic-bendigo-west|hutchings|david - f=facebook.com/profile.php?id=61593083529132 i=instagram.com/davidhutchings4bendigowest
+vic-euroa|cleeland|annabelle - w=annabellecleeland.com.au f=facebook.com/Annabelle4Euroa i=instagram.com/annabelle4euroa y=youtube.com/@annabellecleelandmp
+vic-gippsland-east|rendell|gemma - f=facebook.com/profile.php?id=61590423434712 i=instagram.com/gemmarendellforgippslandeast
+vic-gippsland-south|o'brien|danny - w=dannyobrienmp.com.au f=facebook.com/dannyobrienmp i=instagram.com/dannyobrienmp xx=x.com/dannyobrienmp
+vic-lowan|kealy|emma - w=emmakealy.com f=facebook.com/emmakealyforlowan i=instagram.com/emmakealymp xx=x.com/EmmaKealyMP
+vic-mildura|benham|jade - w=jadebenham.com.au f=facebook.com/Jade4Mildura i=instagram.com/jadebenham_mp y=youtube.com/@JadeBenhamMP
+vic-morwell|cameron|martin - w=martincameron.com.au f=facebook.com/Martin4Morwell i=instagram.com/martin4morwell
+vic-murray-plains|hosking|brett - f=facebook.com/brett4murrayplains i=instagram.com/brett4murrayplains
+vic-ripon|armstrong|jo - f=facebook.com/joarmstrongforripon i=instagram.com/joarmstrongforripon
+vic-shepparton|sali|shane - f=facebook.com/ShaneSali4GS i=instagram.com/shanesali4sheppdistrict
