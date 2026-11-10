@@ -18,6 +18,7 @@ PAGE = {
     'nat': 'https://vic.nationals.org.au/our-team/',
     'vsp': 'https://www.victoriansocialists.org.au/candidates/{}',
     'onp': 'https://vic.onenation.org.au/candidate/{}',
+    'ff': 'https://www.familyfirstparty.org.au/{}',
 }
 
 
@@ -50,12 +51,23 @@ def main():
                     htv[key] = 'https://vicliberal.org.au' + v
                 elif k in KIND:
                     L[KIND[k]] = url(v)
+    # everything else, one line per candidate with full URLs: key p=<party page> w=<site> f=<facebook> ... (raw/links/more.txt)
+    more = RAW / 'more.txt'
+    if more.exists():
+        for line in more.read_text().splitlines():
+            if not line.strip() or line.startswith('#'):
+                continue
+            m = re.match(r'^(\S*\|[^|]*\|\S+)\s+(.*)$', line.strip()); key, rest = m.group(1), m.group(2).split()
+            L = links.setdefault(key if key.startswith('vic-') else 'vic-' + key, {})
+            for kv in rest:
+                k, v = kv.split('=', 1)
+                L['party' if k == 'p' else KIND[k]] = url(v)
     # AJP pages and independent campaign sites, matched by hand (see raw/links/ajp_ind.txt)
     extra = {
         'vic-benambra|fuery|mike': {'party': 'mike-fuery'}, 'vic-broadmeadows|unicomb|rachel': {'party': 'rachel-unicomb'},
-        'vic-brunswick|rose|india': {'party': 'india-rose'}, 'vic-bundoora|nicolosi|chloe': {'party': 'chloe-nicolosi'},
+        'vic-brunswick|rose|india': {'party': 'india_rose'}, 'vic-bundoora|nicolosi|chloe': {'party': 'chloe-nicolosi'},
         'vic-carrum|moore|carolyn': {'party': 'carolyn-moore'}, 'vic-eildon|bond|chloe': {'party': 'chloe-bond'},
-        'vic-eureka|morrison|wendy': {'party': 'wendy-morrison'}, 'vic-euroa|kelly|karina': {'party': 'karina-kelly'},
+        'vic-eureka|morrison|wendy': {'party': 'wendy-morrison'}, 'vic-euroa|kelly|karina': {'party': 'karina_kelly'},
         'vic-evelyn|heald|jan': {'party': 'jan-heald'}, 'vic-frankston|harman|julie': {'party': 'julie-harman'},
         'vic-greenvale|furina|rosanna': {'party': 'rosanna-furina'}, 'vic-hastings|coulson|chloe': {'party': 'chloe-coulson'},
         'vic-kororoit|kandpal|vasundhara': {'party': 'vasundhara-kandpal'}, 'vic-macedon|korinfsky|natalie': {'party': 'natalie-korinfsky'},
@@ -63,7 +75,7 @@ def main():
         'vic-mill-park|levens|eve': {'party': 'eve-levens'}, 'vic-monbulk|wormald|alyssa': {'party': 'alyssa-wormald'},
         'vic-niddrie|haselgrove|salomae': {'party': 'salomae-haselgrove'}, "vic-prahran|o'neill|g.": {'party': 'daniel-oneill'},
         'vic-tarneit|rahn|maurita': {'party': 'maurita-rahn'}, 'vic-wendouree|collins|melissa': {'party': 'Melissa-Collins'},
-        'vic-yan-yean|okatan|sinan': {'party': 'sinan-okatan'}, 'vic-murray-plains|collard|peita': {'party': 'petia-collard'},
+        'vic-yan-yean|okatan|sinan': {'party': 'sinan-okatan'}, 'vic-murray-plains|collard|peita': {'party': 'peita-collard'},
     }
     for k, v in extra.items():
         links.setdefault(k, {})['party'] = 'https://vic.animaljusticeparty.org/' + v['party']

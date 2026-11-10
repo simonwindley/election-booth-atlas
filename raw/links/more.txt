@@ -1,0 +1,71 @@
+# One line per candidate: key p=<party page> w=<campaign site> f= i= xx= t= l= y= b= th= (full URLs). Official campaign or party-published accounts only.
+# Libertarians: https://www.vic.libertarians.org.au/election26 (candidate cards, links as the party lists them; checked 2026-11-10)
+benambra|quilty|tim p=https://www.vic.libertarians.org.au/election26#timquilty f=https://www.facebook.com/TimQuilty4NorthernVic
+berwick|king|ethelyn p=https://www.vic.libertarians.org.au/election26#ethelynking f=https://www.facebook.com/ethelynkingvic
+brighton|hain|anthony p=https://www.vic.libertarians.org.au/election26#anthonyhain w=https://hain-for-brighton.netlify.app/ f=https://www.facebook.com/BrightonVicLibertarian t=https://www.tiktok.com/@anthonyhain xx=https://x.com/AnthonyHainBrig y=https://www.youtube.com/@AnthonyHainLibertarian
+carrum|smith|trevor p=https://www.vic.libertarians.org.au/election26#trevorsmith
+clarinda|roche|liam p=https://www.vic.libertarians.org.au/election26#liamroche
+cranbourne|baird|craig p=https://www.vic.libertarians.org.au/election26#craigbaird
+croydon|schwab|nathan p=https://www.vic.libertarians.org.au/election26#nathanschwab f=https://www.facebook.com/CroydonVicLibertarian i=https://www.instagram.com/croydonviclibertarian/
+dandenong|forte|jordan p=https://www.vic.libertarians.org.au/election26#jordanforte
+eltham|marasea|steven p=https://www.vic.libertarians.org.au/election26#stevenmarasea f=https://www.facebook.com/ElthamVicLibertarian
+malvern|segal|david p=https://www.vic.libertarians.org.au/election26#davidsegal
+melbourne|mccathie|rob p=https://www.vic.libertarians.org.au/election26#robmccathie
+mordialloc|versteegen|rachel p=https://www.vic.libertarians.org.au/election26#rachelversteegen
+mulgrave|theodossopoulou|fotini p=https://www.vic.libertarians.org.au/election26#fotinitheodossopoulou
+narre-warren-north|utoyo|joshua p=https://www.vic.libertarians.org.au/election26#joshutoyo f=https://www.facebook.com/JoshLibertarian i=https://www.instagram.com/joshlibertarian/ xx=https://x.com/JoshuaUtoyo
+narre-warren-south|denker|lydia p=https://www.vic.libertarians.org.au/election26#lydiadenker
+northcote|penman|jim p=https://www.vic.libertarians.org.au/election26#jimpenman
+ovens-valley|fidge|julian p=https://www.vic.libertarians.org.au/election26#julianfidge f=https://www.facebook.com/OvensValleyVicLibertarian i=https://www.instagram.com/ovensvalleyviclibertarian
+pakenham|hands|kate p=https://www.vic.libertarians.org.au/election26#katehands f=https://www.facebook.com/PakenhamVicLibertarian/ i=https://www.instagram.com/Pakenhamviclibertarian
+richmond|gray|bernadette p=https://www.vic.libertarians.org.au/election26#bernadettegray
+ripon|barry|jeff p=https://www.vic.libertarians.org.au/election26#jeffbarry f=https://www.facebook.com/profile.php?id=61574843010777
+rowville|robson|scott p=https://www.vic.libertarians.org.au/election26#scottrobson f=https://www.facebook.com/profile.php?id=61590107622947
+warrandyte|schwab|caleb p=https://www.vic.libertarians.org.au/election26#calebschwab f=https://www.facebook.com/WarrandyteVicLibertarian i=https://www.instagram.com/warrandyteviclibertarian
+yan-yean|cheers|troy p=https://www.vic.libertarians.org.au/election26#troycheers f=https://www.facebook.com/YanYeanVicLibertarian
+# The West Party: no website; the candidates' own campaign pages on Facebook, titled "<name> - The West Party for <district>" (found by search, 2026-11-10)
+kororoit|southern|donna f=https://www.facebook.com/profile.php?id=61594136393974
+point-cook|grech|mark f=https://www.facebook.com/profile.php?id=61594701028978
+st-albans|walker|luân f=https://www.facebook.com/902137766317323
+tarneit|elsbury|andrew f=https://www.facebook.com/profile.php?id=61567580094652
+williamstown|gannon|gill f=https://www.facebook.com/profile.php?id=61584646173010
+# Animal Justice: https://vic.animaljusticeparty.org/candidates (checked 2026-11-10)
+bendigo-west|tranter|debra p=https://vic.animaljusticeparty.org/debra_tranter
+eltham|brooksby|louise p=https://vic.animaljusticeparty.org/louise_brooksby
+geelong|macpherson|pippa p=https://vic.animaljusticeparty.org/pippa_macpherson
+kew|hales|juliet p=https://vic.animaljusticeparty.org/juliet_hales
+laverton|mansouri jajaee|shohre p=https://vic.animaljusticeparty.org/shohre-mansouri
+nepean|champion|tamara p=https://vic.animaljusticeparty.org/tamara-champion
+ovens-valley|litchfield|sue p=https://vic.animaljusticeparty.org/sue_litchfield
+ringwood|walker|lyndon p=https://vic.animaljusticeparty.org/lyndon_walker
+shepparton|murphy-ginger|faith p=https://vic.animaljusticeparty.org/faith_murphyginger_for_shepparton
+sunbury|mohr|rohanna p=https://vic.animaljusticeparty.org/rohanna_mohr_for_sunbury
+sydenham|poon|bruce p=https://vic.animaljusticeparty.org/bruce_poon_for_sydenham
+# Greens: https://greens.org.au/vic/person/<slug>, the party's candidate for that district on greens.org.au/vic/candidates (checked 2026-11-10; Bentleigh not listed)
+niddrie|nguyen|lana p=https://greens.org.au/vic/person/lana-nguyen
+south-west-coast|watts|silver p=https://greens.org.au/vic/person/silver-rose
+st-albans|huynh|thuc p=https://greens.org.au/vic/person/bao-huynh
+tarneit|rifai|a. p=https://greens.org.au/vic/person/rifai-raheem f=https://www.facebook.com/rifai.a.raheem i=https://www.instagram.com/rifai4communites/
+# Independents: campaign sites and pages found by search, kept only where the account is plainly the candidate's campaign (name + seat or "Vote 1") (2026-11-10)
+albert-park|king|adrian f=https://www.facebook.com/Vote1AdrianKing/
+bendigo-east|wright|liz f=https://www.facebook.com/profile.php?id=61577523035004
+croydon|vanderwolf|david w=https://www.dave4croydon.com.au/
+essendon|yildiz|oscar f=https://www.facebook.com/OscarYildiz4Essendon/
+footscray|dinh|hai w=https://haidinh.au/
+footscray|cumming|catherine f=https://www.facebook.com/CatherineCummingIndependent/
+frankston|barry|nicola xx=https://x.com/FRANKSTONCANDID
+gippsland-south|schuhmann|phillip f=https://www.facebook.com/profile.php?id=61594143065036
+hawthorn|ibuki|shima w=https://www.shimaibuki.com.au/ f=https://www.facebook.com/shima4hawthorn/
+kew|torney|sophie w=https://www.sophietorney.com.au/ f=https://www.facebook.com/SophieTorney4Kew/
+melton|faruq|m.d. f=https://www.facebook.com/melton.omorfaruq
+mornington|goffin|melissa f=https://www.facebook.com/goffinformorno
+mulgrave|cook|ian f=https://www.facebook.com/Vote1IanCook/ xx=https://x.com/Vote1IanCook
+narre-warren-south|watson|scott f=https://www.facebook.com/ourvoicevictoria/
+nepean|robbins|kim w=https://www.kimrobbins.com.au/ f=https://www.facebook.com/kimfornepean/
+ovens-valley|manning|steve w=https://www.stevemanning.org/ f=https://www.facebook.com/profile.php?id=61592824994649
+pakenham|french|raymond f=https://www.facebook.com/RaymondFrenchPakenham/
+prahran|dicks|max f=https://www.facebook.com/vote1maxdicks/
+ringwood|cutts|prue f=https://www.facebook.com/pruecutts/
+shepparton|costa|lou f=https://www.facebook.com/loucostaforshepparton/
+south-barwon|nelson|ron f=https://www.facebook.com/vote1ronnelson/
+sydenham|kerr|maria f=https://www.facebook.com/stranierikerr/
