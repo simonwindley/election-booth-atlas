@@ -775,7 +775,7 @@
   {
    "id": "economy",
    "group": "Economy",
-   "status": "data being fetched",
+   "status": "first pass done (site book live: The economy, close to home); exposure interactions, ABS income/prices and statewide shocks still to run",
    "question": "Do economic changes over the term move the vote, and for whom? Local changes (rents, house prices, unemployment, incomes, capital spending, level crossings) and statewide shocks (interest rates, inflation, wages, the share market) crossed with each area's exposure (mortgage share and burden, renters, retirees on investment and super income, industry of employment).",
    "design": "Open search, no mappings chosen in advance: every available series (CPI categories, rates, labour, commodity prices, exchange rates, company prices if a provider is chosen; local rents, prices, incomes, unemployment, capital spending, level crossings), each as its change over the term, 12 months and 6 months before the election, against every census group on all three margins (Labor v Coalition; government v opposition; sitting member's party). Reliability: (1) placebo series (same-volatility random walks; real series shifted to the wrong years) run through the identical search to calibrate how many hits chance gives; (2) discover on one set of elections, confirm on another (needs the national expansion: federal booths in every state 2016-25, state elections in QLD/WA/SA at their own dates); (3) shrinkage models predicting group swings from all series at once, scored only on held-out elections; FDR on anything reported.",
    "data": [
@@ -801,7 +801,15 @@
     "deviation": "each booth's swing minus the statewide swing, against local economic change x demographics (where most of the power is)",
     "elasticity": "each booth's sensitivity to the statewide swing (a booth that moves 1.3x the state), and whether local economy and demographics change it",
     "model_feed": "the forecast takes a statewide swing from the polls, scales it booth by booth by the fitted elasticity, adds the local economic deviation, and rolls booths up to seats"
-   }
+   },
+   "run": [
+    "python3 -m src.econ_voting"
+   ],
+   "outputs": [
+    "data/analysis/econ_effects.json",
+    "site/data/econ_effects.json"
+   ],
+   "headline": "No local effect replicates: within-electorate and between-electorate swings against the governing party show nothing beyond chance for local unemployment change (SALM SA2), rent growth (DFFH) or level crossing removals, across vic2014-22 and fed2016-25; rent growth across seats in 2022/2025 (+1 pt/SD) fails the discovery set."
   },
   {
    "id": "national_census_booths",

@@ -564,6 +564,8 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .lclegend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; }
 .lclegend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
 .lclegend small.up { color: var(--accent); font-weight: 700; } .lclegend small.down { color: #B4441B; font-weight: 700; }
+.v2 .callout.touch { margin-top: 18px; background: var(--lime-tint); }
+.touchbox { background: var(--lime-tint, #F0F7E1); border: 0; }
 </style>
 
 <div class="app">
@@ -633,7 +635,8 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
       <div class="callout"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true" style="flex:none"><circle cx="20" cy="20" r="17" fill="#CFE9F7" stroke="#1B2B4B" stroke-width="3"></circle><path d="M24 9a11 11 0 1 0 7 17a9 9 0 1 1 -7 -17z" fill="#1B2B4B"></path></svg>
         <div><strong style="color:var(--fg)">For the curious:</strong> the Atlas books. What actually moves votes, and the things that don't: rain, footy results and the moon, among others. We checked. <a href="#prefs" data-go="prefs">Open the books</a></div></div>
     </div>
-    <footer class="ft"><div class="wrap"><span class="tg">Every booth. Every election.</span><span>Results © Victorian Electoral Commission and Australian Electoral Commission. Census data © ABS, CC BY 4.0.</span></div></footer>
+    <div class="wrap"><div class="callout touch"><div><strong style="color:var(--fg)">Want to see a particular kind of analysis?</strong> A seat you care about, a question the numbers could answer, or something we got wrong: get in touch and we'll dig in. <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a></div></div></div>
+    <footer class="ft"><div class="wrap"><span class="tg">Every booth. Every election.</span><span><a href="mailto:hello@electionboothatlas.org">hello@electionboothatlas.org</a></span><span>Results © Victorian Electoral Commission and Australian Electoral Commission. Census data © ABS, CC BY 4.0.</span></div></footer>
   </section>
 
   <!-- ELECTORATES VIEW (v2) -->
@@ -831,6 +834,12 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
       <details class="panel book" id="bk-timing"><summary><span class="bk-t">It's all in the timing</span><span class="bk-s" id="bk-timing-s">Who votes on the day, who votes early, who posts it in, and the seats where the count changed its mind.</span></summary><div class="bk-b">
         <div id="md-timing"></div>
       </div></details>
+      <details class="panel book" id="bk-draw"><summary><span class="bk-t">The 2026 ballot draw</span><span class="bk-s" id="bk-draw-s">Who drew the top of the ballot, who sits next to whom, and the handful of seats where that could matter.</span></summary><div class="bk-b">
+        <div id="md-draw"></div>
+      </div></details>
+      <details class="panel book" id="bk-econ"><summary><span class="bk-t">The economy, close to home</span><span class="bk-s" id="bk-econ-s">Do places where rents jumped, jobs dried up or a level crossing went swing differently? We tested it booth by booth across seven elections.</span></summary><div class="bk-b">
+        <div id="md-econ"></div>
+      </div></details>
       <details class="panel book" id="bk-swings"><summary><span class="bk-t">Swings and roundabouts</span><span class="bk-s" id="bk-swings-s"></span></summary><div class="bk-b">
         <div id="md-swings"></div>
       </div></details>
@@ -888,6 +897,7 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
   <!-- ABOUT VIEW -->
   <section class="view" id="view-about">
     <div class="page"><div class="inner prose">
+      <div class="panel touchbox"><h2 style="margin-top:0">Get in touch</h2><p>Want to see a particular kind of analysis? A seat, a booth, a hunch you'd like tested, or a mistake you've spotted: email <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a>. We read everything, and the best questions become new pages and books.</p></div>
       <h2>What this is</h2>
       <p>Every polling place, election after election: results pinned to the place the votes were cast, so the vote can be followed by school hall and church porch rather than by electorate. Boundaries change; a school hall does not. It starts with Victoria — every state election since 1999 and every federal election in Victoria since 2004 (House, with the Senate from 2010) — and is built to take on other states and the federal map in the same way.</p>
       <h2>How to read it</h2>
@@ -2214,6 +2224,100 @@ function renderTimingBook() {
     h('p', { class: 'hint', style: 'margin-top:8px' }, 'Margins in points of the two-candidate vote. Votes cast on the day are counted first, in the booths from 6 pm; early votes are added as early-voting centres report, and postal and absent votes over the following days. Each seat page has its own breakdown, under "It\'s all in the timing".'));
   box.append(s1, s2, s3, s4);
 }
+// "The 2026 ballot draw" book: what a spot is worth, who drew what, and where the model says it could tip a seat
+async function renderDrawBook() {
+  const box = el('md-draw'); if (!box || box.dataset.done) return; box.dataset.done = '1';
+  box.append(h('div', { class: 'empty' }, 'Working through the draw…'));
+  try { await ensurePref(); await Promise.all([ensureLcx(), ensureLc()]); } catch (e) { box.innerHTML = ''; box.append(h('div', { class: 'empty' }, 'Couldn\'t load the preference model.')); return; }
+  box.innerHTML = '';
+  const eid = LIVE.election, M = BALLOT && BALLOT.model;
+  const nominated = D.candidates.some(x => x.election_id === eid && x.nominated);
+  if (!nominated || !M) { box.append(h('p', { class: 'hint' }, 'The ballot draw is not in yet.')); return; }
+  const firsts = Object.entries(BALLOT.position || {}).filter(([k]) => /^vic\d{4}$/.test(k)).map(([k, v]) => [k, v.first && v.first.dev_pts]).filter(x => x[1] != null).sort();
+  const topPts = firsts.length ? firsts.reduce((a, x) => a + x[1], 0) / firsts.length : 1.2;
+  // 1 what a spot is worth
+  box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'What a spot on the ballot is worth'),
+    h('div', { class: 'vtstats' }, h('div', { class: 'vtstat' }, h('span', { class: 'v' }, `+${topPts.toFixed(1)}`), h('span', { class: 'k' }, `points of first preferences for the name printed first (state elections ${firsts.map(x => shortName(idx.electionById.get(x[0])).replace(/\D+/g, '')).join(', ')}: ${firsts.map(x => '+' + x[1].toFixed(1)).join(', ')})`)),
+      h('div', { class: 'vtstat' }, h('span', { class: 'v' }, `${(100 * M.below).toFixed(1)}%`), h('span', { class: 'k' }, 'of an excluded candidate\'s pile goes to the name printed just below, beyond normal preferences')),
+      h('div', { class: 'vtstat' }, h('span', { class: 'v' }, `${(100 * M.above).toFixed(1)}%`), h('span', { class: 'k' }, `to the name just above, and ${(100 * M.top).toFixed(1)}% to whoever is printed first`))),
+    h('p', { class: 'hint', style: 'margin-top:8px' }, 'Most of this is donkey voting: numbering the boxes straight down the page. It is small, but it all lands on whichever of the final two is printed higher. The model applies it at every booth, scaled by how much ballot-order voting that booth\'s census profile predicts (more where voters are younger or speak a language other than English at home), so it already shapes the projections. The method is in "Ballot order: donkey and adjacency voting", further down.')));
+  // 2 who drew the top spot
+  const seats = laContests(eid); const topBy = new Map();
+  for (const c of seats) { const cs = D.candidates.filter(x => x.election_id === eid && x.contest_id === c.contest_id && x.ballot_position === 1); for (const x of cs) { const k = grpParty(x.party) === 'OTH' ? (x.party_name || 'Other') : grpParty(x.party); topBy.set(k, (topBy.get(k) || 0) + 1); } }
+  const tops = [...topBy.entries()].sort((a, b) => b[1] - a[1]);
+  box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'Who drew the top spot'), h('div', { class: 'lclegend' }, ...tops.map(([k, n]) => h('span', {}, h('i', { style: `background:${partyColor(PARTIES.includes(k) ? k : 'OTH')}` }), h('strong', {}, String(n)), ' ', PARTY_NAME[k] || k))), h('p', { class: 'hint', style: 'margin-top:6px' }, `Out of ${seats.length} lower-house ballots. The draw is random: the VEC pulls names from a box once nominations close.`)));
+  // 3 where it could tip: run the count with and without ballot order, on 2022 first preferences recast onto the 2026 ballot
+  const pw = prefWeights(eid); const rows = [];
+  for (const c of seats) {
+    const cid = c.contest_id, c22 = contestIn('vic2022', cid, eid); if (!c22) continue;
+    const last = seatLast(cid); if (!last || !last.t || last.t.pair.length !== 2) continue;
+    const pairP = last.t.pair.map(x => grpParty(x.party));
+    const cs = D.candidates.filter(x => x.election_id === eid && x.contest_id === cid && x.ballot_position);
+    const fin = pairP.map(p => cs.find(x => grpParty(x.party) === p)); if (fin.some(x => !x)) continue;
+    const share = new Map(); let tot22 = 0; for (const r of idx.contestParty.get('vic2022|' + c22.contest_id) || []) { if (r.party === 'INFORMAL') continue; share.set(r.party, (share.get(r.party) || 0) + r.votes); tot22 += r.votes; }
+    const n = new Map(); for (const x of cs) n.set(x.party, (n.get(x.party) || 0) + 1);
+    const base = cs.map(x => ({ id: x.candidate_id, party: x.party, votes: Math.max(0.01 * tot22, share.has(x.party) && x.party !== 'IND' ? share.get(x.party) / n.get(x.party) : 0.015 * tot22), cand: x }));
+    const run = (useOrder) => { const sc = adjScaleSeat(cid); let fps = base.map(f => ({ ...f }));
+      if (useOrder) { const bonus = topPts / 100 * tot22 * sc; const top = fps.find(f => f.cand.ballot_position === 1); const rest = fps.filter(f => f !== top), rt = rest.reduce((a, f) => a + f.votes, 0); if (top) { top.votes += bonus; for (const f of rest) f.votes -= bonus * f.votes / rt; } }
+      const { final } = simulateCount(fps, pw.W, new Set(fin.map(f => f.candidate_id)), { adj: useOrder ? M : null, adjScale: adjScaleSeat(cid) });
+      const a = final.get(fin[0].candidate_id) || 0, b = final.get(fin[1].candidate_id) || 0; return a / (a + b); };
+    const with_ = run(true), without = run(false), edge = (with_ - without) * 100;
+    rows.push({ c, fin, pairP, margin: 100 * last.margin, edge, n: cs.length });
+  }
+  const close = rows.filter(r => r.margin < 3).sort((a, b) => a.margin - b.margin);
+  const nm = (p) => PARTY_NAME[p] || p;
+  const cell = (r) => { const fav = r.edge >= 0 ? 0 : 1; const e = Math.abs(r.edge); return e < 0.05 ? h('span', { class: 'hint' }, 'about even') : h('span', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.pairP[fav])}` }), nm(r.pairP[fav])), ` +${e.toFixed(2)}`); };
+  box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'Where the draw could tip a seat'),
+    h('p', { class: 'hint', style: 'margin:0 0 8px' }, 'Seats won by under 3 points last time. The count is run twice on the 2026 ballot (each party\'s 2022 first preferences, the fitted preference flows), once with ballot order and once without; the difference is the draw\'s edge in points of the two-candidate vote.'),
+    h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', { class: 'num' }, 'Margin'), h('th', {}, 'Positions on the ballot'), h('th', {}, 'Edge from the draw'))),
+      h('tbody', {}, ...close.map(r => h('tr', { class: 'clickable', onclick: () => openSeat(r.c.contest_id) }, h('td', {}, r.c.contest_name), h('td', { class: 'num' }, r.margin.toFixed(1)),
+        h('td', {}, ...r.fin.map((x, i) => h('span', { style: 'margin-right:12px;white-space:nowrap' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.pairP[i])}` }), PARTY_SHORT[r.pairP[i]] || r.pairP[i]), ` ${x.ballot_position} of ${r.n}`))), h('td', {}, cell(r))))))),
+    h('p', { class: 'hint', style: 'margin-top:8px' }, `Assumes the same two parties make the final two as last time. Across all ${rows.length} seats the draw's edge averages ${(rows.reduce((a, r) => a + Math.abs(r.edge), 0) / Math.max(1, rows.length)).toFixed(2)} points and is never more than ${Math.max(...rows.map(r => Math.abs(r.edge))).toFixed(2)}: enough to matter only where a seat is already close.`)));
+  // 4 the upper house: column A
+  const lcRows = []; for (const [rid, r] of Object.entries(LCX.regions).sort((a, b) => a[1].name.localeCompare(b[1].name))) { const g = (LCX.noms && LCX.noms.regions[rid] || []).find(x => x.letter === 'A'); if (g) lcRows.push([rid, r, g]); }
+  // how column A did in 2018 and 2022: the group's share against the same party's average in the other regions
+  const lifts = []; for (const e of ['vic2018', 'vic2022']) { const by = new Map(); for (const g of LC.groups.filter(x => x.election_id === e && x.party_name)) { const c = LC.contestBy.get(e + '|' + g.contest_id); const k = String(g.party_name).toUpperCase(); (by.get(k) || by.set(k, []).get(k)).push({ rid: g.contest_id, grp: g.grp, s: g.total / c.formal }); }
+    for (const [k, arr] of by) { if (arr.length < 4 || /LABOR|LIBERAL|GREENS/.test(k)) continue; for (const a of arr) if (a.grp === 'A') { const o = arr.filter(x => x !== a); lifts.push(100 * (a.s - o.reduce((t, x) => t + x.s, 0) / o.length)); } } }
+  lifts.sort((a, b) => a - b); const med = lifts.length ? lifts[Math.floor(lifts.length / 2)] : null;
+  box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'The upper house: column A'),
+    h('p', { class: 'hint', style: 'margin:0 0 8px' }, med != null ? `On the big upper-house ballot the first column is the top spot. In 2018 and 2022 a minor party drawn in column A polled a median ${med >= 0 ? '+' : ''}${med.toFixed(1)} points above its own average in the other regions (${lifts.length} cases, from ${lifts[0].toFixed(1)} to +${lifts[lifts.length - 1].toFixed(1)}). With no group voting tickets this time, that matters most in the race for each region's fifth seat.` : ''),
+    h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Region'), h('th', {}, 'Column A'), h('th', { class: 'num' }, 'Same party here, 2022'))),
+      h('tbody', {}, ...lcRows.map(([rid, r, g]) => { const p22 = (LC.groupsBy.get('vic2022|' + rid) || []).find(x => lcParty(x.party_name) === lcParty(g.name) && niceParty(x.party_name).toLowerCase().slice(0, 8) === g.name.toLowerCase().slice(0, 8)); const c22 = LC.contestBy.get('vic2022|' + rid);
+        return h('tr', { class: 'clickable', onclick: () => openRegion(rid) }, h('td', {}, r.name), h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(lcParty(g.name))}` }), g.name)), h('td', { class: 'num' }, p22 && c22 ? pct(p22.total / c22.formal) : '–')); }))))));
+}
+// "The economy, close to home" book: local economic change against local swings (src/econ_voting.py -> data/econ_effects.json)
+async function renderEconBook() {
+  const box = el('md-econ'); if (!box || box.dataset.done) return; box.dataset.done = '1';
+  let E = null; try { E = await (await fetch(DATA + 'econ_effects.json')).json(); } catch (e) {}
+  if (!E) { box.append(h('p', { class: 'hint' }, 'No economy results file yet (site/data/econ_effects.json).')); return; }
+  const S = E.summary, lab = { unemp: 'Unemployment rate', rent: 'Rents', lxr: 'Level crossings removed nearby' }, win = { term: 'over the term', '12m': 'last 12 months', '6m': 'last 6 months' };
+  const unit = { unemp: 'points', rent: '% growth', lxr: 'removals within 1.5 km' };
+  const yl = (id) => (idx.electionById.get(id) ? (idx.electionById.get(id).level === 'federal' ? 'federal ' : 'state ') : '') + id.replace(/\D+/g, '');
+  box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'The short answer'),
+    h('p', {}, `Not that we can find. Across ${fmt(S.venues)} polling places and seven elections (${Object.keys(S.by_election).sort().map(yl).join(', ')}), local changes in unemployment, rents and level crossings do not move the governing party's vote in any way that survives a second look. Almost every effect is within a few tenths of a point, and the one that looks big in recent elections is flat or reversed in the earlier ones.`),
+    h('p', { class: 'hint' }, 'That is a finding, not a gap: what moves votes in Victoria is mostly statewide, plus the candidates and the sitting member. A place doing worse than its neighbours does not, by itself, punish the government there.')));
+  // the chart: effect per SD, discover vs confirm, at the booth and electorate level
+  const cols = Object.keys(E.effects);
+  const W = 640, rowH = 30, top = 30, lo = -1.5, hi = 1.5, X = (v) => 180 + (Math.max(lo, Math.min(hi, v)) - lo) / (hi - lo) * (W - 200);
+  const rows = []; for (const c of cols) for (const [lvl, key] of [['booths', 'effects'], ['electorates', 'effects_between_electorates']]) { const r = (E[key] || {})[c]; if (r) rows.push({ c, lvl, d: r.discover, f: r.confirm }); }
+  let svg = `<svg viewBox="0 0 ${W} ${top + rows.length * rowH + 30}" width="100%" style="max-width:720px;display:block" role="img" aria-label="Effects of local economic change on the governing party's vote, with 95% intervals">`;
+  for (const v of [-1, 0, 1]) svg += `<line x1="${X(v)}" x2="${X(v)}" y1="${top - 8}" y2="${top + rows.length * rowH}" stroke="var(--line)" ${v ? 'stroke-dasharray="2 3"' : 'stroke-width="1.5"'}/><text x="${X(v)}" y="${top + rows.length * rowH + 16}" text-anchor="middle" style="fill:var(--fg-3);font:11px var(--font-ui)">${v > 0 ? '+' : ''}${v}</text>`;
+  svg += `<text x="${X(0)}" y="14" text-anchor="middle" style="fill:var(--fg-3);font:11px var(--font-ui)">points of the governing party's vote, per standard deviation</text>`;
+  rows.forEach((r, i) => { const y = top + i * rowH + rowH / 2; const [m, w] = r.c.split('_');
+    svg += `<text x="0" y="${y + 4}" style="fill:var(--fg-2);font:12px var(--font-ui)">${lab[m]}, ${win[w]}${r.lvl === 'electorates' ? ' · seats' : ''}</text>`;
+    [[r.d, -5, 'var(--fg-3)'], [r.f, 5, 'var(--accent)']].forEach(([z, dy, col]) => { if (!z) return; svg += `<line x1="${X(z.b - 1.96 * z.se)}" x2="${X(z.b + 1.96 * z.se)}" y1="${y + dy}" y2="${y + dy}" stroke="${col}" stroke-width="2.5" stroke-linecap="round"/><circle cx="${X(z.b)}" cy="${y + dy}" r="3.5" fill="${col}"/>`; }); });
+  svg += '</svg>';
+  const chart = h('div', { class: 'tablewrap' }); chart.innerHTML = svg;
+  box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'Every test, twice'), h('div', { class: 'vtlegend' }, h('span', {}, h('i', { style: 'background:var(--fg-3)' }), 'found on 2014 and 2018 state, 2016 and 2019 federal'), h('span', {}, h('i', { style: 'background:var(--accent)' }), 'checked on 2022 state, 2022 and 2025 federal')), chart,
+    h('p', { class: 'hint', style: 'margin-top:6px' }, `Each line is a 95% interval. Booths: a polling place's swing against the rest of its electorate, so the statewide mood, the candidates and the sitting member cancel out. Seats: each electorate's swing against the statewide swing. A real effect would sit away from zero in both colours; none does. One standard deviation is ${(E.sd.unemp_term || 0).toFixed(1)} points of unemployment over a term, ${(E.sd.rent_term || 0).toFixed(0)}% rent growth, ${(E.sd.lxr_term || 0).toFixed(1)} level crossings.`)));
+  // calibration
+  const P = S.placebo_random_walk;
+  box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'How we kept ourselves honest'),
+    h('ul', {}, h('li', {}, `Fake data, same test: ${P.draws} runs on random walks with each area's real volatility. ${pct(P.share_abs_t_over_2)} of them looked "significant" by the usual rule, about what chance should give, so the test is not finding things that are not there.`),
+      h('li', {}, 'Wrong-term data: the same measure taken from the previous term, which cannot have caused this term\'s swing. Its effects are as big as the real ones, which is what you see when there is nothing to find.'),
+      h('li', {}, 'Found once, checked once: anything spotted on the older elections has to show up again on the newer ones. Rent growth across seats looked strong in 2022 and 2025 (about +1 point per standard deviation) but was flat or reversed before, so it does not count; most likely, recent rent growth happened to track parts of the state that were swinging for other reasons.')),
+    h('p', { class: 'hint' }, `Data: unemployment from the Small Area Labour Markets (SA2, quarterly since 2010), rents from the DFFH rental report (suburb groups, quarterly since 2000), level crossing removals and their completion dates. ${fmt(S.observations)} venue-elections; ${fmt(E.electorates)} electorate-elections. Still to test: what people are exposed to (mortgage holders and interest rates, renters and rents), incomes and house prices (the ABS series only start in 2019), capital spending, and the statewide economy, which needs elections from other states to say anything. The code is src/econ_voting.py.`)));
+}
 async function renderModel() {
   await ensureModelF(); const M = MODEL_F;
   const head = el('md-head'); if (!head || head.dataset.done) return; head.dataset.done = '1';
@@ -2230,6 +2334,8 @@ async function renderModel() {
   try { renderOnp(M); } catch (e) { console.error('One Nation book', e); }
   try { renderChangingMapBook(M); } catch (e) { console.error('Changing map book', e); }
   try { renderTimingBook(); } catch (e) { console.error('Timing book', e); }
+  renderDrawBook().catch(e => console.error('Draw book', e));
+  renderEconBook().catch(e => console.error('Economy book', e));
   try { renderTrivia(M); } catch (e) { console.error('Trivia book', e); }
   teaser('bk-bounds', `Our notional results sit within half a point of the published ones, and seats that change hands on paper are decided by the swing.`);
   head.append(h('h2', { class: 'dash-title' }, 'The Atlas Model'),
