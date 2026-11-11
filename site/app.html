@@ -658,7 +658,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
               <option value="share">Primary vote share</option>
               <option value="primary">Leader on primary votes</option>
               <option value="tcp" data-live="Live: share after preferences (Atlas estimate from the count so far)">Share after preferences (2CP)</option>
-              <option value="tcpwin" data-live="Live: leader after preferences (Atlas estimate from the count so far)">Winner after preferences</option>
+              <option value="tcpwin" selected data-live="Live: leader after preferences (Atlas estimate from the count so far)">Winner after preferences</option>
               <option value="swing">Primary swing since last election</option>
               <option value="tcpswing">Swing after preferences since last election</option>
               <option value="gap">Gap vs another election</option>
@@ -674,7 +674,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
             </optgroup>
           </select><p class="hint" id="metric-hint" style="margin:4px 0 0"></p></div>
         <div class="field" id="f-census" hidden><label for="sel-census">Indicator</label><select id="sel-census"></select></div>
-        <div class="field" id="f-party"><label for="sel-party">Party</label>
+        <div class="field" id="f-party" hidden><label for="sel-party">Party</label>
           <select id="sel-party">
             <option value="ALP">Labor</option><option value="COAL">Coalition</option><option value="GRN">Greens</option><option value="ONP">One Nation</option><option value="VSP">Socialists</option><option value="IND">Independents</option><option value="OTH">Others</option>
           </select></div>
@@ -1049,7 +1049,7 @@ function divColor(party, v, lim) { const t = Math.max(-1, Math.min(1, v / lim));
 
 /* ---------- map ---------- */
 let map, mapReady = false, hovered = null, selected = null;
-const state = { election: 'vic2022', metric: 'share', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth' };
+const state = { election: 'vic2022', metric: 'tcpwin', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth' };
 
 // when the browser can't draw the map (WebGL switched off or blocked), say so plainly and keep the rest of the site working
 function mapUnavailable() {
