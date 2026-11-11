@@ -261,6 +261,10 @@ def capture_nominations(src, log):
                 log(f'  CHECK: {nm} ({r[ci["party"]]}) was expected in {cid} but is not in the VEC list: withdrawn, or a parsing miss?')
     except Exception as e:
         log(f'  (sanity check skipped: {e})')
+    for cid, v in out.items():   # every district: positions 1..n once each, no repeated names, and a sane count
+        pos = [c['ballot_position'] for c in v['candidates']]; names = [c['name'].lower() for c in v['candidates']]
+        if sorted(pos) != list(range(1, len(pos) + 1)) or len(set(names)) != len(names) or not 2 <= len(pos) <= 25:
+            log(f'  CHECK: {cid} has {len(pos)} candidates, positions {pos}: look at the VEC page')
     return {'source': url, 'districts': out, 'order': 'nomination', 'declared': False}
 
 
