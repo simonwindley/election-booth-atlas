@@ -22,7 +22,7 @@ Everything captured is kept raw as well (daily.json -> "raw"), so a page the par
 yet is still saved for the next version of this script. Pages that do not exist yet are simply skipped.
 URLs are guesses from the 2022 layout until the real pages appear; add or fix them in live/daily_sources.json.
 """
-import argparse, datetime, gzip, io, json, os, re, sys, time, zipfile, html as htmlmod
+import argparse, datetime, difflib, gzip, unicodedata, io, json, os, re, sys, time, zipfile, html as htmlmod
 import urllib.request, urllib.error, urllib.parse
 import xml.etree.ElementTree as ET
 
@@ -254,8 +254,10 @@ def capture_nominations(src, log):
         ci = {c: i for i, c in enumerate(B['cols'])}
         for r in B['rows']:
             cid, nm = r[ci['contest_id']], r[ci['name']]
-            got = ' '.join(c['name'] for c in out.get(cid, {}).get('candidates', [])).lower()
-            if cid in out and nm.split()[-1].lower() not in got:
+            fold = lambda t: ''.join(ch for ch in unicodedata.normalize('NFD', t.lower()) if ch.isalpha())
+            sur = [fold(w) for c in out.get(cid, {}).get('candidates', []) for w in re.split(r"[\s,'-]+", c['name']) + [c['name'].split(',')[0]] if w]
+            want = fold(nm.split()[-1])   # spelling variants (Weatherly/WEATHERLEY, Dolejsí/DOLEJŠÍ) are not worth a warning
+            if cid in out and not any(want in x or difflib.SequenceMatcher(None, want, x).ratio() >= 0.8 for x in sur):
                 log(f'  CHECK: {nm} ({r[ci["party"]]}) was expected in {cid} but is not in the VEC list: withdrawn, or a parsing miss?')
     except Exception as e:
         log(f'  (sanity check skipped: {e})')
