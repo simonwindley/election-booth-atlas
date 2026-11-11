@@ -242,12 +242,23 @@ def capture_nominations(src, log):
         cands = []
         for m in re.finditer(r'<td>\s*([^<]+?)\s*(?:<p>([^<]*)</p>)?\s*</td>', doc):
             name = htmlmod.unescape(m.group(1)).strip(); party = htmlmod.unescape(m.group(2) or '').strip()
-            if not re.match(r"^[A-Z][A-Z' -]+,\s*\S", name):
+            sur = name.split(',', 1)[0]   # VEC writes SURNAME, Given: allow any letters and case (McCOLL, de VIETRI, DOLEJSÍ, O'BRIEN), but need a capitalised run
+            if not (re.match(r"^[^\W\d_][^\W\d_'’ .-]*(?:[ '’.-]+[^\W\d_][^\W\d_'’.-]*)*,\s*\S", name) and re.search(r'[^\W\d_a-z]{2}', sur) and sur == sur.upper().replace('MC', 'Mc') or (re.match(r"^[^\W\d_]", name) and ',' in name and sum(c.isupper() for c in sur) >= max(2, len([c for c in sur if c.isalpha()]) - 3))):
                 continue
             cands.append({'name': name, 'party_name': party or 'Independent', 'party': canon_from_name(party) if party else 'IND', 'ballot_position': len(cands) + 1})
         if cands:
             out[f'vic-{dslug}'] = {'enrolment': None, 'candidates': cands}; n += len(cands)
     log(f'  nominations: {len(out)} districts with nominations so far, {n} candidates')
+    try:   # sanity check against the pre-nomination list: a known candidate missing usually means a parsing miss, not a withdrawal
+        B = json.load(gzip.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'site', 'data', 'c2026_candidates.json.gz')))
+        ci = {c: i for i, c in enumerate(B['cols'])}
+        for r in B['rows']:
+            cid, nm = r[ci['contest_id']], r[ci['name']]
+            got = ' '.join(c['name'] for c in out.get(cid, {}).get('candidates', [])).lower()
+            if cid in out and nm.split()[-1].lower() not in got:
+                log(f'  CHECK: {nm} ({r[ci["party"]]}) was expected in {cid} but is not in the VEC list: withdrawn, or a parsing miss?')
+    except Exception as e:
+        log(f'  (sanity check skipped: {e})')
     return {'source': url, 'districts': out, 'order': 'nomination', 'declared': False}
 
 
