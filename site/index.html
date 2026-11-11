@@ -4011,11 +4011,20 @@ function myCard(c, cands, nums) {
       h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn pr', onclick: () => { document.body.classList.add('print-card'); window.print(); } }, 'Print'), copyBtn, h('button', { type: 'button', class: 'btn', onclick: close }, 'Close'))));
   document.body.append(ov); document.addEventListener('keydown', esc); ov.querySelector('.pr').focus();
 }
-// practice ballots remember their numbers on this device only (localStorage; nothing is sent anywhere).
+// practice ballots can remember their numbers on this device only (localStorage; nothing is sent anywhere).
+// Opt-in: off unless the reader ticks "Remember my numbers"; unticking forgets every saved ballot.
 // Saved by candidate name rather than position, and dropped if the ballot no longer matches.
 const BSTORE = {
   key: (k) => 'eba_ballot_v1_' + k,
+  on() { try { return localStorage.getItem('eba_ballot_remember') === '1'; } catch (e) { return false; } },
+  setOn(v) { try { if (v) localStorage.setItem('eba_ballot_remember', '1'); else { localStorage.removeItem('eba_ballot_remember'); for (const k of Object.keys(localStorage)) if (k.startsWith('eba_ballot_v1_')) localStorage.removeItem(k); } } catch (e) {} },
+  box(save) {
+    const cb = h('input', { type: 'checkbox' }); cb.checked = this.on();
+    cb.addEventListener('change', () => { this.setOn(cb.checked); if (cb.checked) save(); });
+    return h('label', { class: 'hint', style: 'display:flex;align-items:center;gap:6px;margin-top:6px;cursor:pointer' }, cb, 'Remember my numbers on this device (nothing is sent anywhere; untick to forget them)');
+  },
   load(k, names) {
+    if (!this.on()) return new Map();
     let v = null; try { v = JSON.parse(localStorage.getItem(this.key(k)) || 'null'); } catch (e) { return new Map(); }
     if (!v || typeof v !== 'object') return new Map();
     const out = new Map(), seen = new Set();
@@ -4023,7 +4032,7 @@ const BSTORE = {
     for (let k2 = 1; k2 <= out.size; k2++) if (!seen.has(k2)) return new Map();
     return out;
   },
-  save(k, names, nums) { try { if (!nums.size) localStorage.removeItem(this.key(k)); else localStorage.setItem(this.key(k), JSON.stringify(Object.fromEntries([...nums].map(([i, n]) => [names[i], n])))); } catch (e) {} },
+  save(k, names, nums) { if (!this.on()) return; try { if (!nums.size) localStorage.removeItem(this.key(k)); else localStorage.setItem(this.key(k), JSON.stringify(Object.fromEntries([...nums].map(([i, n]) => [names[i], n])))); } catch (e) {} },
 };
 function ballotPaper(c, cands) {
   const n = cands.length, skey = `${LIVE.election}|${c.contest_id}`, snames = cands.map(x => `${x.surname}|${x.given_name}`), nums = BSTORE.load(skey, snames);
@@ -4036,7 +4045,7 @@ function ballotPaper(c, cands) {
     status.innerHTML = ''; BSTORE.save(skey, snames, nums);
     if (!nums.size) status.append(`Click the boxes in the order you'd vote, from 1 to ${n}.`);
     else if (nums.size < n) status.append(`${nums.size} of ${n} numbered. Keep going: in the Assembly every box needs a number.`);
-    else status.append(h('strong', {}, 'That would be a formal vote.'), ' Every box is numbered once. (Only practice: your numbers stay on this device and are never sent.) ', h('button', { type: 'button', class: 'btn', style: 'margin-top:6px', onclick: () => myCard(c, cands, nums) }, 'Keep my order'));
+    else status.append(h('strong', {}, 'That would be a formal vote.'), ' Every box is numbered once. (Only practice: nothing is sent anywhere.) ', h('button', { type: 'button', class: 'btn', style: 'margin-top:6px', onclick: () => myCard(c, cands, nums) }, 'Keep my order'));
   };
   paper.append(h('div', { class: 'ballot-head' }, h('div', { class: 'k' }, 'Legislative Assembly'), h('div', { class: 'e' }, `${c.contest_name} Electorate`), h('div', { class: 'i' }, `Number the boxes from 1 to ${n} in the order of your choice`)));
   cands.forEach((x, i) => {
@@ -4049,7 +4058,7 @@ function ballotPaper(c, cands) {
   const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); refresh(); } }, 'Clear');
   refresh();
   const c22 = contestIn('vic2022', c.contest_id, LIVE.election), inf = c22 && c22.formal ? c22.informal / (c22.formal + c22.informal) : null;
-  return h('div', { class: 'ballot-wrap' }, paper, h('div', { class: 'ballot-foot' }, status, reset), inf != null ? h('div', { class: 'hint', style: 'margin-top:8px' }, h('strong', {}, `In 2022, ${pct(inf)} of ballots here were informal`), ' and didn\'t count. The usual reasons: a box left empty, a number used twice, or ticks and crosses instead of numbers.') : '', h('div', { class: 'hint', style: 'margin-top:6px' }, 'An illustration of the ballot order, not the official ballot paper. Click a numbered box again to take its number off. Your numbers are remembered on this device only; Clear forgets them.'));
+  return h('div', { class: 'ballot-wrap' }, paper, h('div', { class: 'ballot-foot' }, status, reset), BSTORE.box(() => BSTORE.save(skey, snames, nums)), inf != null ? h('div', { class: 'hint', style: 'margin-top:8px' }, h('strong', {}, `In 2022, ${pct(inf)} of ballots here were informal`), ' and didn\'t count. The usual reasons: a box left empty, a number used twice, or ticks and crosses instead of numbers.') : '', h('div', { class: 'hint', style: 'margin-top:6px' }, 'An illustration of the ballot order, not the official ballot paper. Click a numbered box again to take its number off.'));
 }
 const SEAT = { cid: null, pending: null };
 const PREMIER = { vic1999: 'Bracks, minority', vic2002: 'Bracks', vic2006: 'Bracks', vic2010: 'Baillieu', vic2014: 'Andrews', vic2018: 'Andrews', vic2022: 'Andrews' };
@@ -4234,7 +4243,7 @@ function lcBallot(rid, reg, noms) {
     h('div', { class: 'lcscroll' }, cols));
   const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); refresh(); } }, 'Clear');
   refresh();
-  return h('div', {}, paper, h('div', { class: 'ballot-foot' }, status, reset), h('div', { class: 'hint', style: 'margin-top:6px' }, `An illustration of the ballot order, not the official ballot paper. Suburbs as published by the VEC. Scroll sideways for all ${groups.length} groups. This practice ballot only numbers above the line, and remembers your numbers on this device only.`));
+  return h('div', {}, paper, h('div', { class: 'ballot-foot' }, status, reset), BSTORE.box(() => BSTORE.save(skey, snames, nums)), h('div', { class: 'hint', style: 'margin-top:6px' }, `An illustration of the ballot order, not the official ballot paper. Suburbs as published by the VEC. Scroll sideways for all ${groups.length} groups. This practice ballot only numbers above the line.`));
 }
 function renderRegionPage(root, rid) {
   root.append(h('div', { class: 'wrap', style: 'padding:40px 16px' }, h('div', { class: 'empty' }, 'Loading the upper house…')));
