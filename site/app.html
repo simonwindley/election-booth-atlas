@@ -4245,6 +4245,16 @@ function drawRegion(root, rid) {
   // 1 the ballot
   const s1 = sec('ballot', 1, "Who's standing in 2026", nCand ? `${nCand} candidates in ${nGrp} groups${noms.some(g => !g.letter) ? ', plus ungrouped candidates' : ''}, in the order drawn for the ballot paper (VEC, captured ${LCX.noms.captured}).` : 'Nominations not loaded yet.');
   if (nCand) s1.append(lcBallot(rid, reg, noms));
+  // registered how-to-vote cards for this region (VEC register, captured by the daily run), grouped by who registered them, A to Z
+  { const all = (LIVE.daily && LIVE.daily.htv && LIVE.daily.htv.cards) || [], cards = all.filter(k => k.contest_id === rid && k.pdf);
+    // a combined card (both houses) is registered under the electorate too: name it by that electorate
+    const distOf = new Map(all.filter(k => k.house === 'LA').map(k => [k.registrant + '|' + k.registration, String(k.area || '').replace(/ District$/, '')]));
+    const lab = (k) => distOf.get(k.registrant + '|' + k.registration) || null;
+    if (cards.length) { const by = new Map(); for (const k of cards) (by.get(k.registrant) || by.set(k.registrant, []).get(k.registrant)).push(k);
+      const names = [...by.keys()].sort((a, b) => a.localeCompare(b));
+      s1.append(h('div', { style: 'margin-top:14px' }, h('h3', {}, 'How-to-vote cards'), h('p', { class: 'hint' }, `${cards.length} registered with the VEC for this region so far, listed A to Z by who registered them. Anyone can register a card, candidate or not.`),
+        h('div', { class: 'htvlist' }, ...names.map(n => { const ks = by.get(n); return h('div', { style: 'margin:3px 0' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(canonLabel(n))}` }), n), ks[0].kind === 'non_candidate' ? h('span', { class: 'hint' }, ' not a candidate') : '', ' ', ...(() => { const links = ks.slice().sort((a, b) => String(lab(a) || '').localeCompare(String(lab(b) || ''))).map((k, i) => h('a', { href: k.pdf, target: '_blank', rel: 'noopener', style: 'margin-right:10px;white-space:nowrap' }, lab(k) ? lab(k) : (ks.length > 1 ? `card ${i + 1}` : 'card')));
+            return ks.length > 4 ? [h('details', { style: 'display:block;margin:2px 0 6px 18px' }, h('summary', { style: 'cursor:pointer' }, (() => { const u = new Set(ks.map(lab).filter(Boolean)).size; return `${ks.length} cards` + (ks.every(lab) ? (u === ks.length ? ', one per electorate' : ` across ${u} electorates`) : ''); })()), h('div', { style: 'margin-top:4px;max-width:46em;display:flex;flex-wrap:wrap;gap:2px 0;line-height:1.8' }, ...links))] : links; })(), h('span', { class: 'hint' }, ` registered ${ks[0].registered}`)); })))); } }
   // 2 how it works
   const s2 = sec('how', 2, 'How the upper house works');
   const box = (cls, t, txt) => h('div', { style: `background:var(--${cls})` }, h('h3', {}, t), h('p', {}, ...[].concat(txt)));
