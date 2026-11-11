@@ -868,6 +868,19 @@
    "why": "Explains the lopsided booth maps of strong independents, sharpens booth-level expectations for 2026 independents, and makes a good post.",
    "method": "For each independent polling 10%+ at a state or federal election in Victoria since 1999: home base taken as the booth (or locality) of peak support, then vote share against distance, fitted as a decay curve; compare urban vs regional, incumbents vs challengers.",
    "validation": "Placebo: the same curves around randomly chosen booths in the seat; held-out elections."
+  },
+  {
+   "id": "pbo_commitments",
+   "group": "Economy",
+   "status": "idea (data source found 11 Nov 2026)",
+   "question": "Do election commitments buy votes? Using the Victorian Parliamentary Budget Office's commitment trackers (2018, 2022, 2026): are commitments targeted at marginal seats, and do seats that get more (or bigger) commitments from a party swing towards it more than their demography and the statewide swing predict?",
+   "why": "The pork-barrel test the economy work already lists (federal car parks and sports grants), but with an independent, neutral, seat-tagged source covering every party at three state elections.",
+   "data": "PBO 2026 Election Commitment Tracker (weekly, Power BI: commitments by party, policy area, funding and electorate; pbo.vic.gov.au/2026_election_commitment_tracker); 2022 and 2018 trackers; 2022 budget impact statements and post-election platform reports; published election policy costings. Extraction: Power BI export if enabled, otherwise the post-election reports. Be gentle with the PBO site.",
+   "method": "Per seat and party: number and dollar value of seat-specific commitments; test (1) targeting: commitments against prior margin and held/opposition status; (2) effect: seat swing after demography and statewide swing, within-election design as the economy follow-up, with placebo (commitments shuffled between seats) and discover 2018 / confirm 2022, then a sealed test on 2026.",
+   "neutrality": "Report every party's commitments on the same footing; describe targeting, never judge a commitment's merit.",
+   "triggers": [
+    "results_2026"
+   ]
   }
  ]
 }
