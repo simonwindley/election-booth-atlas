@@ -849,6 +849,25 @@
    "why": "More, independent elections: needed for any open search to replicate (economy), and for the One Nation and national expansion work.",
    "script": "src/national_census_booths.py",
    "validation": "Victoria, 2021 census, fed2022: catchment populations sum to the SA1 total (6,494,200 of 6,503,324 in the DataPack; the rest are SA1s with no boundary, e.g. migratory/no usual address). Against the Victorian venue profiles built on state-district-clipped catchments at 1,031 co-located venues: r = 0.99 for degree, born overseas, Islam; 0.98 for median age, household income, rented, mining; population r = 0.77 (different booth networks), median ratio 1.00."
+  },
+  {
+   "id": "pref_flows_by_distance",
+   "group": "Preferences",
+   "status": "to do (after the 2026 how-to-vote cards are parsed; validate both together)",
+   "question": "Do independent and Greens voters' preferences flow differently the further a booth is from Melbourne or from its nearest regional centre? Urban community independents and regional independents are not one kind of voter, and the model currently treats them as one.",
+   "why": "The preference model's biggest misses are in seats with a strong Greens or independent vote. A distance or remoteness term for independent and Greens flows would go straight into the seat model if it improves held-out predictions.",
+   "method": "Booth-level ecological inference: in Labor-v-Coalition booths (about 1,700 a state election, 1999-2022), the gap between first preferences and the two-candidate result, with independent and Greens flow rates allowed to vary with distance to the Melbourne CBD, distance to the nearest regional centre (Geelong, Ballarat, Bendigo, Shepparton, Mildura, Wodonga, Warrnambool, Traralgon, Horsham...) and census remoteness. Separate urban/regional independent classes. Seat-level distributions of preferences as a cross-check.",
+   "validation": "As the economy work: fit on earlier elections, test on 2022 held out; shuffle placebo; the term enters the model only if held-out error falls. Report a null result if it does not.",
+   "neutrality": "Results shown by kind of candidate and region, never as who wins a seat."
+  },
+  {
+   "id": "hometown_effect",
+   "group": "Preferences",
+   "status": "to do (can run before the model work; post material)",
+   "question": "The hometown (friends-and-neighbours) effect: how fast does an independent's first-preference vote fall away with distance from their home base, and does it differ for urban and regional independents?",
+   "why": "Explains the lopsided booth maps of strong independents, sharpens booth-level expectations for 2026 independents, and makes a good post.",
+   "method": "For each independent polling 10%+ at a state or federal election in Victoria since 1999: home base taken as the booth (or locality) of peak support, then vote share against distance, fitted as a decay curve; compare urban vs regional, incumbents vs challengers.",
+   "validation": "Placebo: the same curves around randomly chosen booths in the seat; held-out elections."
   }
  ]
 }
