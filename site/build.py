@@ -12,6 +12,10 @@ head = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>window.__BASEMAP = {basemap!r}; window.__DATA_BASE = {DATA_BASE!r};</script>
 <script>
 // visit counts (GoatCounter: no cookies, no personal data), on the public site only (github.io or electionboothatlas.org) — never on localhost or in previews
@@ -33,6 +37,6 @@ html = head + head_part + "</head>\n<body>\n" + body_part + "\n</body>\n</html>\
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 if PREVIEW:
     import shutil
-    for f in ('logo.png', 'mark.png'): shutil.copy('site/' + f, 'site/preview/' + f)
+    for f in ('logo.png', 'mark.png', 'favicon.ico', 'favicon-32.png', 'favicon-192.png', 'apple-touch-icon.png'): shutil.copy('site/' + f, 'site/preview/' + f)
 open(OUT, 'w').write(html)
 print(OUT, len(html), 'bytes; basemap =', basemap)
