@@ -5,6 +5,7 @@ Standard library only. Run once a day (or whenever) on the Mac:
 
     python3 live/vec_daily.py            # writes site/data/live/daily.json (+ a dated snapshot)
     python3 live/vec_daily.py --publish  # and git commit/push it for the GitHub Pages site
+    (--full-htv re-fetches every how-to-vote table; --candidates re-reads the candidate lists, skipped once final)
 
 What it looks for, in order of when the VEC publishes it:
   enrolment      the "District statistics" spreadsheet on the electoral roll statistics page (monthly; the
@@ -174,13 +175,15 @@ def htv_table(html):
     return rows
 
 
-def capture_htv(src, log):
+def capture_htv(src, log, prev=None, full=False):
     """2026: one accordion page; each area x category table loads from /api/sitecore/HtvcResults/GetTable.
     The page itself carries every area's id and a card count per category, so only non-empty tables are fetched."""
     page, url = first_ok(src.get('htv_page', ['/voting/2026-state-election/how-to-vote-cards']), log)
     if not page:
         return None
     out, raw, n_expected = [], {'url': url, 'tables': {}}, 0
+    prev = prev or {}; prev_counts = {} if full else (prev.get('counts') or {}); prev_cards = prev.get('cards') or []
+    counts, reused, fetched = {}, 0, 0
     parts = re.split(r'(?=<button[^>]*js-category-link)', page)
     for part in parts[1:]:
         attrs = dict(re.findall(r'data-([a-z-]+)="([^"]*)"', part[:part.index('>') + 1]))
@@ -192,6 +195,12 @@ def capture_htv(src, log):
         kind = next((k for c, k in HTV_KIND.items() if c in cat), None)
         if not n or not kind:
             continue
+        counts[f'{area}|{cat}'] = n
+        if prev_counts.get(f'{area}|{cat}') == n:   # unchanged since the last run: keep those cards, spare the VEC a request
+            keep = [c for c in prev_cards if c.get('area') == area and c.get('kind') == kind]
+            if len(keep) == n:
+                out += keep; reused += 1; continue
+        fetched += 1
         q = urllib.parse.urlencode({'areaType': attrs.get('area-type', ''), 'areaItemId': attrs.get('area-id', ''), 'category': cat})
         frag, _ = fetch('/api/sitecore/HtvcResults/GetTable?' + q, log=log)
         if not frag:
@@ -207,11 +216,11 @@ def capture_htv(src, log):
                         'registered': cells[1], 'registration': cells[2], 'type': cells[3] if len(cells) >= 5 else '',
                         'pdf': (VEC + pdf) if pdf and pdf.startswith('/') else pdf})
     by = {k: sum(1 for c in out if c['kind'] == k) for k in HTV_KIND.values()}
-    log(f'  htv: {len(out)} cards {by}; the page counts {n_expected}')
+    log(f'  htv: {len(out)} cards {by}; the page counts {n_expected}; {fetched} tables fetched, {reused} unchanged and kept')
     old = [c for c in out if re.search(r'\b(19|20)\d\d\b', c['registered'] or '') and not re.search(r'\b2026\b', c['registered'])]
     if old:
         out = [c for c in out if c not in old]
-    return {'cards': out, 'raw': raw}
+    return {'cards': out, 'raw': raw, 'counts': counts}
 
 
 def capture_nominations(src, log):
@@ -287,6 +296,8 @@ def capture_pages(src, keys, log):
     raw, series = {}, {}
     for key in keys:
         for path in src.get(key, []):
+            if re.search(r'local-council|council-election', path):   # council statistics turn up in discovery: not this election
+                continue
             doc, url = fetch(path, log=log)
             if not doc or 'Page not found' in doc[:4000]:
                 continue
@@ -337,17 +348,21 @@ def run(args, log):
     if e:
         out['enrolment'] = e
     log('how-to-vote cards')
-    hv = capture_htv(src, log)
+    hv = capture_htv(src, log, prev.get('htv'), full=args.full_htv)
     if hv and hv['cards']:
-        out['htv'] = {'captured': today, 'cards': hv['cards']}
+        out['htv'] = {'captured': today, 'cards': hv['cards'], 'counts': hv.get('counts', {})}
     out['raw']['htv'] = (hv or {}).get('raw', {})
-    log('candidates (results pages)')
-    c = capture_candidates(src, log)
-    if not c or not c.get('districts'):
-        log('candidates (nominations so far)')
-        c = capture_nominations(src, log)
-    if c and c['districts']:
-        out['candidates'] = {'captured': today, **c}
+    pc = prev.get('candidates') or {}
+    if len(pc.get('districts') or {}) >= 88 and not args.candidates:
+        log('candidates: nominations are final (88 districts captured); keeping them (--candidates to re-read)')
+    else:
+        log('candidates (results pages)')
+        c = capture_candidates(src, log)
+        if not c or not c.get('districts'):
+            log('candidates (nominations so far)')
+            c = capture_nominations(src, log)
+        if c and c['districts']:
+            out['candidates'] = {'captured': today, **c}
     log('statistics pages')
     raw, series = capture_pages(src, ['stats', 'postal', 'early', 'centres'], log)
     out['raw']['pages'] = raw
@@ -355,16 +370,21 @@ def run(args, log):
         for cid, vals in ds.items():
             out['series'].setdefault(cid, {}).setdefault(today, {}).update({f'{k}': v for k, v in vals.items()})
     out['sources'] = {k: v for k, v in src.items() if v}
+    # the site loads daily.json on every visit: it carries what the pages use, not the raw VEC pages.
+    # The full capture (raw pages included) is kept as a dated snapshot outside the published site.
+    full = dict(out); pub = {k: v for k, v in out.items() if k != 'raw'}
     tmp = path + '.tmp'
-    json.dump(out, open(tmp, 'w'), separators=(',', ':')); os.replace(tmp, path)
-    os.makedirs(os.path.join(args.out, 'daily'), exist_ok=True)
-    json.dump(out, open(os.path.join(args.out, 'daily', today + '.json'), 'w'), separators=(',', ':'))
+    json.dump(pub, open(tmp, 'w'), separators=(',', ':')); os.replace(tmp, path)
+    snap = os.path.abspath(os.path.join(HERE, '..', 'data', 'live_snapshots')); os.makedirs(snap, exist_ok=True)
+    stamp = datetime.datetime.now().strftime('%Y-%m-%d_%H%M')
+    with gzip.open(os.path.join(snap, stamp + '.json.gz'), 'wt') as f:
+        json.dump(full, f, separators=(',', ':'))
     log(f'wrote {path}: enrolment {"yes" if out["enrolment"] else "no"}, htv cards {len((out["htv"] or {}).get("cards", []))}, '
         f'candidates {len((out["candidates"] or {}).get("districts", {}))} districts, district series {len(out["series"])}')
     if args.publish or args.publish_cmd:
         import subprocess
         root = os.path.abspath(os.path.join(HERE, '..'))
-        cmd = args.publish_cmd or 'git add site/data/live/daily.json site/data/live/daily && (git diff --cached --quiet || (git commit -q -m "daily capture %s" && git push -q))' % today
+        cmd = args.publish_cmd or 'git add site/data/live/daily.json data/live_snapshots && (git diff --cached --quiet || (git commit -q -m "daily capture %s" && git push -q))' % today
         r = subprocess.run(cmd, shell=True, cwd=root, capture_output=True, text=True, timeout=180)
         log('published' if r.returncode == 0 else f'publish failed ({r.returncode}): {(r.stderr or r.stdout).strip()[-300:]}')
 
@@ -374,6 +394,8 @@ def main(argv=None):
     ap.add_argument('--out', default=os.path.join(HERE, '..', 'site', 'data', 'live'))
     ap.add_argument('--publish', action='store_true')
     ap.add_argument('--publish-cmd', default='')
+    ap.add_argument('--candidates', action='store_true', help='re-read the candidate lists (skipped once all 88 districts are captured)')
+    ap.add_argument('--full-htv', action='store_true', help='re-fetch every how-to-vote table, not just those whose count changed')
     args = ap.parse_args(argv)
     args.out = os.path.abspath(args.out)
     def log(msg):
