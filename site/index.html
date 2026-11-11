@@ -555,8 +555,10 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .v2 .lccol .gn { font-size: 12px; font-weight: 700; text-align: center; min-height: 46px; padding-top: 6px; line-height: 1.25; border-bottom: 2px solid #1A1F2B; padding-bottom: 6px; }
 .v2 .lccol.ug .gn { border-top: 4px solid transparent; }
 .v2 .lccol .btl { display: grid; gap: 6px; padding-top: 8px; }
-.v2 .lccol .bc { display: flex; gap: 6px; align-items: flex-start; font-size: 12px; line-height: 1.25; }
-.v2 .lccol .bc .sq { flex: none; width: 14px; height: 14px; border: 1.5px solid #1A1F2B; margin-top: 1px; background: #fff; }
+.v2 .lccol .bc { font: inherit; display: flex; gap: 6px; align-items: flex-start; font-size: 12px; line-height: 1.25; width: 100%; background: none; border: 0; padding: 3px 2px; margin: 0; text-align: left; color: inherit; cursor: pointer; border-radius: 4px; }
+.v2 .lccol .bc:hover { background: rgba(43,117,116,.08); }
+.v2 .lccol .bc .sq { flex: none; width: 20px; height: 20px; border: 1.5px solid #1A1F2B; background: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; color: #1A1F2B; }
+.v2 .lccol .bc.on .sq { background: #FFF6D6; }
 .v2 .lccol .bc strong { display: block; font-size: 12px; }
 .v2 .lccol .bc small { display: block; color: #4F4B44; font-size: 11px; }
 .v2 .lccol .bc small.loc2 { font-style: italic; }
@@ -4226,24 +4228,41 @@ const lcParty = (name) => { const n = String(name || '').toLowerCase(); return /
 // a practice upper-house ballot: groups across the top, number at least one box above the line
 function lcBallot(rid, reg, noms) {
   const groups = noms.filter(g => g.letter), ungrouped = noms.filter(g => !g.letter);
-  const skey = `${LIVE.election}|${rid}`, snames = groups.map(g => `${g.letter}|${g.name}`), nums = BSTORE.load(skey, snames); const status = h('div', { class: 'ballot-status', 'aria-live': 'polite' }); const boxes = [];
-  const refresh = () => { for (const b of boxes) { b.box.textContent = nums.has(b.i) ? nums.get(b.i) : ''; b.btn.setAttribute('aria-label', `Group ${b.g.letter}, ${b.g.name}${nums.has(b.i) ? ', numbered ' + nums.get(b.i) : ''}`); } status.innerHTML = ''; BSTORE.save(skey, snames, nums); if (!nums.size) status.append('Above the line: number at least one box, then as many more as you like, in your order.'); else status.append(h('strong', {}, 'That would be a formal vote.'), ` ${nums.size} group${nums.size > 1 ? 's' : ''} numbered. Your vote goes to the candidates of the groups you number, in the order you number them, and stops there.`); };
+  // above the line: one box per group; below the line: one box per candidate (grouped and ungrouped), numbered separately
+  const cands = []; for (const g of noms) for (const x of g.candidates) cands.push({ g, x });
+  const skey = `${LIVE.election}|${rid}`, snames = groups.map(g => `${g.letter}|${g.name}`), nums = BSTORE.load(skey, snames);
+  const bkey = skey + '|btl', bnames = cands.map(c => `${c.g.letter || '-'}|${c.x.surname}|${c.x.given}`), bnums = BSTORE.load(bkey, bnames);
+  const status = h('div', { class: 'ballot-status', 'aria-live': 'polite' }); const boxes = [], sqs = [];
+  const toggle = (m, i) => { if (m.has(i)) { const v = m.get(i); m.delete(i); for (const [k, w] of m) if (w > v) m.set(k, w - 1); } else m.set(i, m.size + 1); refresh(); };
+  const refresh = () => {
+    for (const b of boxes) { b.box.textContent = nums.has(b.i) ? nums.get(b.i) : ''; b.btn.setAttribute('aria-label', `Group ${b.g.letter}, ${b.g.name}, above the line${nums.has(b.i) ? ', numbered ' + nums.get(b.i) : ''}`); }
+    for (const q of sqs) { q.sq.textContent = bnums.has(q.i) ? bnums.get(q.i) : ''; q.btn.setAttribute('aria-label', `${q.x.surname}, ${q.x.given}, below the line${bnums.has(q.i) ? ', numbered ' + bnums.get(q.i) : ''}`); q.btn.classList.toggle('on', bnums.has(q.i)); }
+    status.innerHTML = ''; BSTORE.save(skey, snames, nums); BSTORE.save(bkey, bnames, bnums);
+    const a = nums.size, b = bnums.size;
+    if (!a && !b) status.append('Number at least 1 box above the line, or at least 5 candidates below it, in your order.');
+    else if (b >= 5) status.append(h('strong', {}, 'That would be a formal vote, below the line.'), ` ${b} candidates numbered: your vote moves from candidate to candidate in exactly your order, and stops after your last number.${a ? ' When both are filled in, a formal vote below the line is the one that counts, so your above-the-line numbers would be set aside.' : ''}`);
+    else if (a) status.append(h('strong', {}, 'That would be a formal vote, above the line.'), ` ${a} group${a > 1 ? 's' : ''} numbered: your vote goes to each group's candidates in the group's order, group by group in your order, and stops there.${b ? ` Below the line you've numbered ${b}: it needs at least 5 to count, so as it stands your above-the-line vote is the one that counts.` : ''}`);
+    else status.append(`${b} numbered below the line. Keep going: below the line needs at least 5 numbers to count.`);
+  };
   const paper = h('div', { class: 'lcballot', role: 'group', 'aria-label': `Practice upper-house ballot for ${reg.name}` });
   const cols = h('div', { class: 'lccols' });
+  const btlRow = (g, x) => { const i = cands.findIndex(c => c.g === g && c.x === x); const sq = h('span', { class: 'sq', 'aria-hidden': 'true' });
+    const btn = h('button', { type: 'button', class: 'bc', onclick: () => toggle(bnums, i) }, sq, h('span', {}, h('strong', {}, `${x.surname}, ${x.given}`), x.party && g.letter && x.party !== g.name ? h('small', {}, x.party) : '', x.locality ? h('small', { class: 'loc2' }, x.locality) : ''));
+    sqs.push({ i, sq, btn, x }); return btn; };
   groups.forEach((g, i) => {
     const box = h('span', { class: 'bbox', 'aria-hidden': 'true' });
-    const btn = h('button', { type: 'button', class: 'atl', onclick: () => { if (nums.has(i)) { const v = nums.get(i); nums.delete(i); for (const [k, w] of nums) if (w > v) nums.set(k, w - 1); } else nums.set(i, nums.size + 1); refresh(); }, 'aria-label': `Group ${g.letter}, ${g.name}` }, box);
+    const btn = h('button', { type: 'button', class: 'atl', onclick: () => toggle(nums, i), 'aria-label': `Group ${g.letter}, ${g.name}` }, box);
     boxes.push({ i, box, btn, g });
     const named = !/^Unnamed/.test(g.name);
     cols.append(h('div', { class: 'lccol' }, h('div', { class: 'gl' }, g.letter), btn, h('div', { class: 'gn', style: `border-top:4px solid ${partyColor(lcParty(g.name))}` }, named ? g.name : 'Group ' + g.letter + ' (no party name)'),
-      h('div', { class: 'btl' }, ...g.candidates.map(x => h('div', { class: 'bc' }, h('span', { class: 'sq' }), h('span', {}, h('strong', {}, `${x.surname}, ${x.given}`), x.party && x.party !== g.name ? h('small', {}, x.party) : '', x.locality ? h('small', { class: 'loc2' }, x.locality) : ''))))));
+      h('div', { class: 'btl' }, ...g.candidates.map(x => btlRow(g, x)))));
   });
-  for (const g of ungrouped) cols.append(h('div', { class: 'lccol ug' }, h('div', { class: 'gl' }, '–'), h('div', { class: 'atl none' }), h('div', { class: 'gn' }, 'Ungrouped'), h('div', { class: 'btl' }, ...g.candidates.map(x => h('div', { class: 'bc' }, h('span', { class: 'sq' }), h('span', {}, h('strong', {}, `${x.surname}, ${x.given}`), x.locality ? h('small', { class: 'loc2' }, x.locality) : ''))))));
+  for (const g of ungrouped) cols.append(h('div', { class: 'lccol ug' }, h('div', { class: 'gl' }, '–'), h('div', { class: 'atl none' }), h('div', { class: 'gn' }, 'Ungrouped'), h('div', { class: 'btl' }, ...g.candidates.map(x => btlRow(g, x)))));
   paper.append(h('div', { class: 'ballot-head' }, h('div', { class: 'k' }, 'Legislative Council'), h('div', { class: 'e' }, `${reg.name} Region`), h('div', { class: 'i' }, 'Above the line: number at least 1 box · or below the line: number at least 5 boxes')),
     h('div', { class: 'lcscroll' }, cols));
-  const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); refresh(); } }, 'Clear');
+  const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); bnums.clear(); refresh(); } }, 'Clear');
   refresh();
-  return h('div', {}, paper, h('div', { class: 'ballot-foot' }, status, reset), BSTORE.box(() => BSTORE.save(skey, snames, nums)), h('div', { class: 'hint', style: 'margin-top:6px' }, `An illustration of the ballot order, not the official ballot paper. Suburbs as published by the VEC. Scroll sideways for all ${groups.length} groups. This practice ballot only numbers above the line.`));
+  return h('div', {}, paper, h('div', { class: 'ballot-foot' }, status, reset), BSTORE.box(() => { BSTORE.save(skey, snames, nums); BSTORE.save(bkey, bnames, bnums); }), h('div', { class: 'hint', style: 'margin-top:6px' }, `An illustration of the ballot order, not the official ballot paper. Suburbs as published by the VEC. Scroll sideways for all ${groups.length} groups. Click the big boxes to number above the line, or the small boxes beside each name to number below the line; click a number again to take it off. The VEC's instructions on the day are the final word.`));
 }
 function renderRegionPage(root, rid) {
   root.append(h('div', { class: 'wrap', style: 'padding:40px 16px' }, h('div', { class: 'empty' }, 'Loading the upper house…')));
