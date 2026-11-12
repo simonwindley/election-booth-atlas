@@ -1,0 +1,1874 @@
+{
+ "about": "The hometown (friends-and-neighbours) effect: how fast an independent's vote falls away with distance from home base.",
+ "method": "slope = OLS of ln(booth share / own seat average) on ln(1 + km from peak booth), peak excluded; more negative = steeper fall-off.",
+ "min_share": 0.1,
+ "min_booth_formal": 150,
+ "groups": {
+  "independents, all": {
+   "slopes": {
+    "n": 86,
+    "median_slope": -0.259,
+    "iqr": [
+     -0.417,
+     -0.123
+    ]
+   },
+   "placebo": {
+    "n": 86,
+    "median_slope": -0.043,
+    "iqr": [
+     -0.249,
+     0.031
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 125,
+     "median_rel": 1.102
+    },
+    {
+     "bin": "2-5 km",
+     "n": 320,
+     "median_rel": 0.999
+    },
+    {
+     "bin": "5-10 km",
+     "n": 238,
+     "median_rel": 1.05
+    },
+    {
+     "bin": "10-20 km",
+     "n": 313,
+     "median_rel": 1.029
+    },
+    {
+     "bin": "20-40 km",
+     "n": 444,
+     "median_rel": 0.977
+    },
+    {
+     "bin": "40-80 km",
+     "n": 536,
+     "median_rel": 0.926
+    },
+    {
+     "bin": "80-400 km",
+     "n": 542,
+     "median_rel": 0.767
+    }
+   ]
+  },
+  "independents, urban": {
+   "slopes": {
+    "n": 26,
+    "median_slope": -0.178,
+    "iqr": [
+     -0.511,
+     -0.037
+    ]
+   },
+   "placebo": {
+    "n": 26,
+    "median_slope": -0.019,
+    "iqr": [
+     -0.288,
+     0.063
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 99,
+     "median_rel": 1.064
+    },
+    {
+     "bin": "2-5 km",
+     "n": 252,
+     "median_rel": 0.94
+    },
+    {
+     "bin": "5-10 km",
+     "n": 105,
+     "median_rel": 0.891
+    },
+    {
+     "bin": "10-20 km",
+     "n": 11,
+     "median_rel": null
+    },
+    {
+     "bin": "20-40 km",
+     "n": 0,
+     "median_rel": null
+    },
+    {
+     "bin": "40-80 km",
+     "n": 0,
+     "median_rel": null
+    },
+    {
+     "bin": "80-400 km",
+     "n": 0,
+     "median_rel": null
+    }
+   ]
+  },
+  "independents, regional": {
+   "slopes": {
+    "n": 60,
+    "median_slope": -0.269,
+    "iqr": [
+     -0.413,
+     -0.147
+    ]
+   },
+   "placebo": {
+    "n": 60,
+    "median_slope": -0.053,
+    "iqr": [
+     -0.192,
+     0.027
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 26,
+     "median_rel": 1.306
+    },
+    {
+     "bin": "2-5 km",
+     "n": 68,
+     "median_rel": 1.232
+    },
+    {
+     "bin": "5-10 km",
+     "n": 133,
+     "median_rel": 1.171
+    },
+    {
+     "bin": "10-20 km",
+     "n": 302,
+     "median_rel": 1.03
+    },
+    {
+     "bin": "20-40 km",
+     "n": 444,
+     "median_rel": 0.977
+    },
+    {
+     "bin": "40-80 km",
+     "n": 536,
+     "median_rel": 0.926
+    },
+    {
+     "bin": "80-400 km",
+     "n": 542,
+     "median_rel": 0.767
+    }
+   ]
+  },
+  "independents, incumbent": {
+   "slopes": {
+    "n": 19,
+    "median_slope": -0.24,
+    "iqr": [
+     -0.289,
+     -0.113
+    ]
+   },
+   "placebo": {
+    "n": 19,
+    "median_slope": -0.062,
+    "iqr": [
+     -0.139,
+     -0.008
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 16,
+     "median_rel": null
+    },
+    {
+     "bin": "2-5 km",
+     "n": 54,
+     "median_rel": 0.996
+    },
+    {
+     "bin": "5-10 km",
+     "n": 62,
+     "median_rel": 1.075
+    },
+    {
+     "bin": "10-20 km",
+     "n": 85,
+     "median_rel": 1.047
+    },
+    {
+     "bin": "20-40 km",
+     "n": 130,
+     "median_rel": 1.0
+    },
+    {
+     "bin": "40-80 km",
+     "n": 171,
+     "median_rel": 1.035
+    },
+    {
+     "bin": "80-400 km",
+     "n": 152,
+     "median_rel": 0.879
+    }
+   ]
+  },
+  "independents, challenger": {
+   "slopes": {
+    "n": 67,
+    "median_slope": -0.286,
+    "iqr": [
+     -0.478,
+     -0.126
+    ]
+   },
+   "placebo": {
+    "n": 67,
+    "median_slope": -0.021,
+    "iqr": [
+     -0.284,
+     0.048
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 109,
+     "median_rel": 1.111
+    },
+    {
+     "bin": "2-5 km",
+     "n": 266,
+     "median_rel": 1.003
+    },
+    {
+     "bin": "5-10 km",
+     "n": 176,
+     "median_rel": 1.043
+    },
+    {
+     "bin": "10-20 km",
+     "n": 228,
+     "median_rel": 1.026
+    },
+    {
+     "bin": "20-40 km",
+     "n": 314,
+     "median_rel": 0.965
+    },
+    {
+     "bin": "40-80 km",
+     "n": 365,
+     "median_rel": 0.883
+    },
+    {
+     "bin": "80-400 km",
+     "n": 390,
+     "median_rel": 0.707
+    }
+   ]
+  },
+  "independents, won": {
+   "slopes": {
+    "n": 18,
+    "median_slope": -0.248,
+    "iqr": [
+     -0.39,
+     -0.136
+    ]
+   },
+   "placebo": {
+    "n": 18,
+    "median_slope": -0.094,
+    "iqr": [
+     -0.175,
+     0.007
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 22,
+     "median_rel": 1.071
+    },
+    {
+     "bin": "2-5 km",
+     "n": 69,
+     "median_rel": 0.995
+    },
+    {
+     "bin": "5-10 km",
+     "n": 39,
+     "median_rel": 1.072
+    },
+    {
+     "bin": "10-20 km",
+     "n": 76,
+     "median_rel": 1.098
+    },
+    {
+     "bin": "20-40 km",
+     "n": 130,
+     "median_rel": 1.034
+    },
+    {
+     "bin": "40-80 km",
+     "n": 166,
+     "median_rel": 1.032
+    },
+    {
+     "bin": "80-400 km",
+     "n": 180,
+     "median_rel": 0.786
+    }
+   ]
+  },
+  "independents, 20%+": {
+   "slopes": {
+    "n": 36,
+    "median_slope": -0.235,
+    "iqr": [
+     -0.368,
+     -0.06
+    ]
+   },
+   "placebo": {
+    "n": 36,
+    "median_slope": -0.043,
+    "iqr": [
+     -0.155,
+     0.016
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 46,
+     "median_rel": 1.082
+    },
+    {
+     "bin": "2-5 km",
+     "n": 124,
+     "median_rel": 0.995
+    },
+    {
+     "bin": "5-10 km",
+     "n": 106,
+     "median_rel": 1.057
+    },
+    {
+     "bin": "10-20 km",
+     "n": 131,
+     "median_rel": 1.084
+    },
+    {
+     "bin": "20-40 km",
+     "n": 207,
+     "median_rel": 1.022
+    },
+    {
+     "bin": "40-80 km",
+     "n": 290,
+     "median_rel": 0.987
+    },
+    {
+     "bin": "80-400 km",
+     "n": 306,
+     "median_rel": 0.805
+    }
+   ]
+  },
+  "GRN, all": {
+   "slopes": {
+    "n": 846,
+    "median_slope": -0.239,
+    "iqr": [
+     -0.439,
+     -0.069
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 1977,
+     "median_rel": 1.156
+    },
+    {
+     "bin": "2-5 km",
+     "n": 4908,
+     "median_rel": 0.987
+    },
+    {
+     "bin": "5-10 km",
+     "n": 4163,
+     "median_rel": 0.912
+    },
+    {
+     "bin": "10-20 km",
+     "n": 2794,
+     "median_rel": 0.924
+    },
+    {
+     "bin": "20-40 km",
+     "n": 2351,
+     "median_rel": 0.899
+    },
+    {
+     "bin": "40-80 km",
+     "n": 2692,
+     "median_rel": 0.804
+    },
+    {
+     "bin": "80-400 km",
+     "n": 2953,
+     "median_rel": 0.819
+    }
+   ]
+  },
+  "GRN, urban": {
+   "slopes": {
+    "n": 489,
+    "median_slope": -0.219,
+    "iqr": [
+     -0.426,
+     -0.052
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 1681,
+     "median_rel": 1.149
+    },
+    {
+     "bin": "2-5 km",
+     "n": 3955,
+     "median_rel": 0.973
+    },
+    {
+     "bin": "5-10 km",
+     "n": 3055,
+     "median_rel": 0.894
+    },
+    {
+     "bin": "10-20 km",
+     "n": 1131,
+     "median_rel": 0.882
+    },
+    {
+     "bin": "20-40 km",
+     "n": 100,
+     "median_rel": 0.873
+    },
+    {
+     "bin": "40-80 km",
+     "n": 57,
+     "median_rel": 0.907
+    },
+    {
+     "bin": "80-400 km",
+     "n": 0,
+     "median_rel": null
+    }
+   ]
+  },
+  "GRN, regional": {
+   "slopes": {
+    "n": 357,
+    "median_slope": -0.261,
+    "iqr": [
+     -0.46,
+     -0.083
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 296,
+     "median_rel": 1.217
+    },
+    {
+     "bin": "2-5 km",
+     "n": 953,
+     "median_rel": 1.072
+    },
+    {
+     "bin": "5-10 km",
+     "n": 1108,
+     "median_rel": 0.977
+    },
+    {
+     "bin": "10-20 km",
+     "n": 1663,
+     "median_rel": 0.961
+    },
+    {
+     "bin": "20-40 km",
+     "n": 2251,
+     "median_rel": 0.901
+    },
+    {
+     "bin": "40-80 km",
+     "n": 2635,
+     "median_rel": 0.799
+    },
+    {
+     "bin": "80-400 km",
+     "n": 2953,
+     "median_rel": 0.819
+    }
+   ]
+  },
+  "COAL, all": {
+   "slopes": {
+    "n": 984,
+    "median_slope": -0.107,
+    "iqr": [
+     -0.246,
+     -0.018
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 1761,
+     "median_rel": 1.07
+    },
+    {
+     "bin": "2-5 km",
+     "n": 5144,
+     "median_rel": 0.978
+    },
+    {
+     "bin": "5-10 km",
+     "n": 4672,
+     "median_rel": 0.956
+    },
+    {
+     "bin": "10-20 km",
+     "n": 3215,
+     "median_rel": 1.011
+    },
+    {
+     "bin": "20-40 km",
+     "n": 3281,
+     "median_rel": 1.036
+    },
+    {
+     "bin": "40-80 km",
+     "n": 3995,
+     "median_rel": 1.013
+    },
+    {
+     "bin": "80-400 km",
+     "n": 3264,
+     "median_rel": 0.99
+    }
+   ]
+  },
+  "COAL, urban": {
+   "slopes": {
+    "n": 528,
+    "median_slope": -0.127,
+    "iqr": [
+     -0.254,
+     -0.024
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 1579,
+     "median_rel": 1.067
+    },
+    {
+     "bin": "2-5 km",
+     "n": 4523,
+     "median_rel": 0.974
+    },
+    {
+     "bin": "5-10 km",
+     "n": 3231,
+     "median_rel": 0.946
+    },
+    {
+     "bin": "10-20 km",
+     "n": 934,
+     "median_rel": 0.958
+    },
+    {
+     "bin": "20-40 km",
+     "n": 91,
+     "median_rel": 0.951
+    },
+    {
+     "bin": "40-80 km",
+     "n": 58,
+     "median_rel": 1.073
+    },
+    {
+     "bin": "80-400 km",
+     "n": 0,
+     "median_rel": null
+    }
+   ]
+  },
+  "COAL, regional": {
+   "slopes": {
+    "n": 456,
+    "median_slope": -0.093,
+    "iqr": [
+     -0.244,
+     -0.012
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 182,
+     "median_rel": 1.111
+    },
+    {
+     "bin": "2-5 km",
+     "n": 621,
+     "median_rel": 1.023
+    },
+    {
+     "bin": "5-10 km",
+     "n": 1441,
+     "median_rel": 0.983
+    },
+    {
+     "bin": "10-20 km",
+     "n": 2281,
+     "median_rel": 1.036
+    },
+    {
+     "bin": "20-40 km",
+     "n": 3190,
+     "median_rel": 1.041
+    },
+    {
+     "bin": "40-80 km",
+     "n": 3937,
+     "median_rel": 1.012
+    },
+    {
+     "bin": "80-400 km",
+     "n": 3264,
+     "median_rel": 0.99
+    }
+   ]
+  },
+  "ALP, all": {
+   "slopes": {
+    "n": 911,
+    "median_slope": -0.102,
+    "iqr": [
+     -0.189,
+     -0.039
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 2216,
+     "median_rel": 1.062
+    },
+    {
+     "bin": "2-5 km",
+     "n": 5842,
+     "median_rel": 1.004
+    },
+    {
+     "bin": "5-10 km",
+     "n": 4487,
+     "median_rel": 0.97
+    },
+    {
+     "bin": "10-20 km",
+     "n": 2576,
+     "median_rel": 0.943
+    },
+    {
+     "bin": "20-40 km",
+     "n": 2225,
+     "median_rel": 0.933
+    },
+    {
+     "bin": "40-80 km",
+     "n": 2441,
+     "median_rel": 0.881
+    },
+    {
+     "bin": "80-400 km",
+     "n": 3035,
+     "median_rel": 0.818
+    }
+   ]
+  },
+  "ALP, urban": {
+   "slopes": {
+    "n": 531,
+    "median_slope": -0.098,
+    "iqr": [
+     -0.186,
+     -0.032
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 1779,
+     "median_rel": 1.052
+    },
+    {
+     "bin": "2-5 km",
+     "n": 4660,
+     "median_rel": 0.996
+    },
+    {
+     "bin": "5-10 km",
+     "n": 2992,
+     "median_rel": 0.966
+    },
+    {
+     "bin": "10-20 km",
+     "n": 893,
+     "median_rel": 0.927
+    },
+    {
+     "bin": "20-40 km",
+     "n": 126,
+     "median_rel": 0.926
+    },
+    {
+     "bin": "40-80 km",
+     "n": 11,
+     "median_rel": null
+    },
+    {
+     "bin": "80-400 km",
+     "n": 0,
+     "median_rel": null
+    }
+   ]
+  },
+  "ALP, regional": {
+   "slopes": {
+    "n": 380,
+    "median_slope": -0.106,
+    "iqr": [
+     -0.198,
+     -0.046
+    ]
+   },
+   "curve": [
+    {
+     "bin": "0-2 km",
+     "n": 437,
+     "median_rel": 1.117
+    },
+    {
+     "bin": "2-5 km",
+     "n": 1182,
+     "median_rel": 1.036
+    },
+    {
+     "bin": "5-10 km",
+     "n": 1495,
+     "median_rel": 0.982
+    },
+    {
+     "bin": "10-20 km",
+     "n": 1683,
+     "median_rel": 0.954
+    },
+    {
+     "bin": "20-40 km",
+     "n": 2099,
+     "median_rel": 0.935
+    },
+    {
+     "bin": "40-80 km",
+     "n": 2430,
+     "median_rel": 0.881
+    },
+    {
+     "bin": "80-400 km",
+     "n": 3035,
+     "median_rel": 0.818
+    }
+   ]
+  }
+ },
+ "candidates": [
+  {
+   "election": "vic2010",
+   "contest": "vic-seymour",
+   "name": "Jan Beer",
+   "share": 0.1025,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -1.385,
+   "placebo_slope": 0.131,
+   "peak_rel": 3.53
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-williamstown",
+   "name": "Peter Hemphill",
+   "share": 0.1016,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -1.259,
+   "placebo_slope": 0.61,
+   "peak_rel": 1.76
+  },
+  {
+   "election": "vic2014",
+   "contest": "vic-bass",
+   "name": "Clare Le Serve",
+   "share": 0.108,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -1.196,
+   "placebo_slope": -0.512,
+   "peak_rel": 3.16
+  },
+  {
+   "election": "vic2014",
+   "contest": "vic-preston",
+   "name": "Gaetano Greco",
+   "share": 0.1128,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -1.06,
+   "placebo_slope": 0.397,
+   "peak_rel": 1.7
+  },
+  {
+   "election": "vic2010",
+   "contest": "vic-south-west-coast",
+   "name": "James Purcell",
+   "share": 0.1153,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.973,
+   "placebo_slope": -0.271,
+   "peak_rel": 2.13
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-altona",
+   "name": "Tony Hooper",
+   "share": 0.125,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.917,
+   "placebo_slope": -0.423,
+   "peak_rel": 1.64
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-melton",
+   "name": "Ian Birchall",
+   "share": 0.1047,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.893,
+   "placebo_slope": -0.893,
+   "peak_rel": 2.56
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-polwarth",
+   "name": "Brian Crook",
+   "share": 0.148,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.882,
+   "placebo_slope": -0.462,
+   "peak_rel": 1.88
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-preston",
+   "name": "Gaetano Greco",
+   "share": 0.1373,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.763,
+   "placebo_slope": -0.01,
+   "peak_rel": 1.73
+  },
+  {
+   "election": "vic2014",
+   "contest": "vic-mildura",
+   "name": "Ali Cupper",
+   "share": 0.2128,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.724,
+   "placebo_slope": 0.022,
+   "peak_rel": 1.5
+  },
+  {
+   "election": "vic2014",
+   "contest": "vic-sandringham",
+   "name": "Clarke Martin",
+   "share": 0.1028,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.692,
+   "placebo_slope": -0.521,
+   "peak_rel": 1.66
+  },
+  {
+   "election": "fed2019",
+   "contest": "fed-211",
+   "name": "Julia Banks",
+   "share": 0.1379,
+   "elected": false,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.583,
+   "placebo_slope": 0.021,
+   "peak_rel": 2.29
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-benambra",
+   "name": "Jenny O'Connor",
+   "share": 0.131,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.581,
+   "placebo_slope": -0.293,
+   "peak_rel": 3.53
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-south-west-coast",
+   "name": "Carol Altmann",
+   "share": 0.1443,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.558,
+   "placebo_slope": -0.651,
+   "peak_rel": 1.78
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-203",
+   "name": "Joseph Youhana",
+   "share": 0.1072,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.537,
+   "placebo_slope": -0.577,
+   "peak_rel": 2.8
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-pascoe-vale",
+   "name": "Oscar Yildiz",
+   "share": 0.2351,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.502,
+   "placebo_slope": -0.299,
+   "peak_rel": 1.28
+  },
+  {
+   "election": "vic2023n",
+   "contest": "vic-narracan",
+   "name": "Tony Wolfe",
+   "share": 0.1105,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.479,
+   "placebo_slope": -0.414,
+   "peak_rel": 1.92
+  },
+  {
+   "election": "vic2014",
+   "contest": "vic-shepparton",
+   "name": "Suzanna Sheed",
+   "share": 0.3272,
+   "elected": true,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.478,
+   "placebo_slope": -0.363,
+   "peak_rel": 1.5
+  },
+  {
+   "election": "vic2010",
+   "contest": "vic-mildura",
+   "name": "Doug Tonge",
+   "share": 0.1444,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.44,
+   "placebo_slope": -0.446,
+   "peak_rel": 1.57
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-gippsland-south",
+   "name": "Mal Sayers",
+   "share": 0.1473,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.439,
+   "placebo_slope": 0.162,
+   "peak_rel": 3.46
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-gisborne",
+   "name": "Deb Dunn",
+   "share": 0.1009,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.428,
+   "placebo_slope": -0.246,
+   "peak_rel": 2.17
+  },
+  {
+   "election": "vic2010",
+   "contest": "vic-mildura",
+   "name": "Glenn Milne",
+   "share": 0.1602,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.413,
+   "placebo_slope": -0.283,
+   "peak_rel": 1.82
+  },
+  {
+   "election": "vic2014",
+   "contest": "vic-lowan",
+   "name": "Katrina Rainsford",
+   "share": 0.1419,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.413,
+   "placebo_slope": -0.142,
+   "peak_rel": 1.83
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-mildura",
+   "name": "Ali Cupper",
+   "share": 0.3274,
+   "elected": true,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.409,
+   "placebo_slope": -0.351,
+   "peak_rel": 1.25
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-kew",
+   "name": "Sophie Torney",
+   "share": 0.211,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.403,
+   "placebo_slope": 0.267,
+   "peak_rel": 1.46
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-gippsland-east",
+   "name": "Craig Ingram",
+   "share": 0.2479,
+   "elected": true,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.4,
+   "placebo_slope": 0.016,
+   "peak_rel": 2.13
+  },
+  {
+   "election": "vic2002",
+   "contest": "vic-gippsland-east",
+   "name": "Craig Ingram",
+   "share": 0.4133,
+   "elected": true,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.396,
+   "placebo_slope": -0.141,
+   "peak_rel": 1.48
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-morwell",
+   "name": "Russell Northe",
+   "share": 0.1956,
+   "elected": true,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.388,
+   "placebo_slope": 0.064,
+   "peak_rel": 1.52
+  },
+  {
+   "election": "fed2013",
+   "contest": "fed-218",
+   "name": "Cathy Mcgowan",
+   "share": 0.3118,
+   "elected": true,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.385,
+   "placebo_slope": -0.348,
+   "peak_rel": 1.72
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-benambra",
+   "name": "Jacqui Hawkins",
+   "share": 0.317,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.372,
+   "placebo_slope": -0.118,
+   "peak_rel": 1.51
+  },
+  {
+   "election": "vicby-nepean-2026",
+   "contest": "vic-nepean",
+   "name": "Tracee Hutchison",
+   "share": 0.2105,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.354,
+   "placebo_slope": 0.224,
+   "peak_rel": 1.82
+  },
+  {
+   "election": "vic2010",
+   "contest": "vic-gippsland-east",
+   "name": "Craig Ingram",
+   "share": 0.2531,
+   "elected": false,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.334,
+   "placebo_slope": -0.139,
+   "peak_rel": 1.51
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-gippsland-west",
+   "name": "Susan Davies",
+   "share": 0.3571,
+   "elected": true,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.333,
+   "placebo_slope": -0.026,
+   "peak_rel": 1.32
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-rowville",
+   "name": "Nicole Seymour",
+   "share": 0.1206,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.328,
+   "placebo_slope": -0.178,
+   "peak_rel": 1.26
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-204",
+   "name": "Claire Ferres Miles",
+   "share": 0.1048,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.319,
+   "placebo_slope": 0.121,
+   "peak_rel": 1.91
+  },
+  {
+   "election": "fed2022",
+   "contest": "fed-233",
+   "name": "Alex Dyson",
+   "share": 0.1929,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.301,
+   "placebo_slope": -0.095,
+   "peak_rel": 1.9
+  },
+  {
+   "election": "vic2014",
+   "contest": "vic-frankston",
+   "name": "Geoff Shaw",
+   "share": 0.129,
+   "elected": false,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.289,
+   "placebo_slope": -0.031,
+   "peak_rel": 1.47
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-portland",
+   "name": "Patrick Kempton",
+   "share": 0.2624,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.287,
+   "placebo_slope": -0.258,
+   "peak_rel": 1.75
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-richmond",
+   "name": "Stephen Jolly",
+   "share": 0.1202,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.286,
+   "placebo_slope": -0.284,
+   "peak_rel": 1.21
+  },
+  {
+   "election": "vic2006",
+   "contest": "vic-gippsland-east",
+   "name": "Craig Ingram",
+   "share": 0.3842,
+   "elected": true,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.27,
+   "placebo_slope": -0.117,
+   "peak_rel": 1.24
+  },
+  {
+   "election": "fed2019",
+   "contest": "fed-233",
+   "name": "Alex Dyson",
+   "share": 0.1039,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.268,
+   "placebo_slope": 0.111,
+   "peak_rel": 1.91
+  },
+  {
+   "election": "fed2022",
+   "contest": "fed-324",
+   "name": "Rob Priestly",
+   "share": 0.2551,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.268,
+   "placebo_slope": -0.168,
+   "peak_rel": 1.63
+  },
+  {
+   "election": "fed2022",
+   "contest": "fed-323",
+   "name": "Deb Leonard",
+   "share": 0.1072,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.263,
+   "placebo_slope": 0.028,
+   "peak_rel": 2.46
+  },
+  {
+   "election": "fed2007",
+   "contest": "fed-208",
+   "name": "Gavan O'Connor",
+   "share": 0.1268,
+   "elected": false,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.254,
+   "placebo_slope": -0.04,
+   "peak_rel": 1.55
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-shepparton",
+   "name": "Suzanna Sheed",
+   "share": 0.384,
+   "elected": true,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.254,
+   "placebo_slope": -0.156,
+   "peak_rel": 1.35
+  },
+  {
+   "election": "vicby-werribee-2025",
+   "contest": "vic-werribee",
+   "name": "Paul Hopper",
+   "share": 0.1456,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.251,
+   "placebo_slope": -0.267,
+   "peak_rel": 1.2
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-221",
+   "name": "Monique Ryan",
+   "share": 0.3391,
+   "elected": true,
+   "incumbent": true,
+   "urban": true,
+   "slope": -0.242,
+   "placebo_slope": -0.154,
+   "peak_rel": 1.25
+  },
+  {
+   "election": "vic2002",
+   "contest": "vic-bass",
+   "name": "Susan Davies",
+   "share": 0.218,
+   "elected": false,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.24,
+   "placebo_slope": 0.178,
+   "peak_rel": 1.73
+  },
+  {
+   "election": "fed2019",
+   "contest": "fed-218",
+   "name": "Helen Haines",
+   "share": 0.3235,
+   "elected": true,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.231,
+   "placebo_slope": -0.193,
+   "peak_rel": 1.8
+  },
+  {
+   "election": "fed2022",
+   "contest": "fed-218",
+   "name": "Helen Haines",
+   "share": 0.4068,
+   "elected": true,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.225,
+   "placebo_slope": -0.07,
+   "peak_rel": 1.6
+  },
+  {
+   "election": "fed2016",
+   "contest": "fed-218",
+   "name": "Cathy Mcgowan",
+   "share": 0.3476,
+   "elected": true,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.208,
+   "placebo_slope": -0.169,
+   "peak_rel": 1.58
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-ovens-valley",
+   "name": "Tammy Atkins",
+   "share": 0.1916,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.193,
+   "placebo_slope": -0.19,
+   "peak_rel": 1.42
+  },
+  {
+   "election": "vic2002",
+   "contest": "vic-morwell",
+   "name": "Brad Platschinda",
+   "share": 0.1454,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.191,
+   "placebo_slope": 0.077,
+   "peak_rel": 1.35
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-swan-hill",
+   "name": "Carl Ditterich",
+   "share": 0.2262,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.183,
+   "placebo_slope": 0.029,
+   "peak_rel": 1.88
+  },
+  {
+   "election": "vic2006",
+   "contest": "vic-footscray",
+   "name": "Catherine Cumming",
+   "share": 0.149,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.181,
+   "placebo_slope": -0.181,
+   "peak_rel": 1.49
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-mulgrave",
+   "name": "Ian Cook",
+   "share": 0.1801,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.176,
+   "placebo_slope": 0.013,
+   "peak_rel": 1.24
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-323",
+   "name": "Deb Leonard",
+   "share": 0.171,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.175,
+   "placebo_slope": 0.111,
+   "peak_rel": 2.12
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-323",
+   "name": "Russell Broadbent",
+   "share": 0.1019,
+   "elected": false,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.161,
+   "placebo_slope": -0.062,
+   "peak_rel": 1.96
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-benambra",
+   "name": "Jacqui Hawkins",
+   "share": 0.1614,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.156,
+   "placebo_slope": -0.065,
+   "peak_rel": 1.56
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-werribee",
+   "name": "Joe Garra",
+   "share": 0.199,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.153,
+   "placebo_slope": 0.147,
+   "peak_rel": 2.16
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-218",
+   "name": "Helen Haines",
+   "share": 0.4229,
+   "elected": true,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.144,
+   "placebo_slope": -0.071,
+   "peak_rel": 1.56
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-203",
+   "name": "Carly Moore",
+   "share": 0.1195,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.14,
+   "placebo_slope": 0.183,
+   "peak_rel": 2.01
+  },
+  {
+   "election": "vic2014",
+   "contest": "vic-morwell",
+   "name": "Tracie Lund",
+   "share": 0.1091,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.138,
+   "placebo_slope": 0.072,
+   "peak_rel": 1.53
+  },
+  {
+   "election": "fed2022",
+   "contest": "fed-224",
+   "name": "Sophie Baldwin",
+   "share": 0.1003,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.128,
+   "placebo_slope": 0.086,
+   "peak_rel": 4.94
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-hawthorn",
+   "name": "Melissa Lowe",
+   "share": 0.1998,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.126,
+   "placebo_slope": 0.107,
+   "peak_rel": 1.19
+  },
+  {
+   "election": "vic2002",
+   "contest": "vic-mildura",
+   "name": "Russell Savage",
+   "share": 0.5168,
+   "elected": true,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.113,
+   "placebo_slope": -0.045,
+   "peak_rel": 1.31
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-233",
+   "name": "Alex Dyson",
+   "share": 0.3138,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.102,
+   "placebo_slope": 0.021,
+   "peak_rel": 1.63
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-211",
+   "name": "Ben Smith",
+   "share": 0.2124,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.082,
+   "placebo_slope": -0.002,
+   "peak_rel": 1.67
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-sunshine",
+   "name": "Ian Baker",
+   "share": 0.1418,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.081,
+   "placebo_slope": -0.239,
+   "peak_rel": 1.48
+  },
+  {
+   "election": "fed2022",
+   "contest": "fed-221",
+   "name": "Monique Ryan",
+   "share": 0.4029,
+   "elected": true,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.067,
+   "placebo_slope": 0.008,
+   "peak_rel": 1.22
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-shepparton",
+   "name": "Chris Hazelman",
+   "share": 0.3544,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.058,
+   "placebo_slope": -0.014,
+   "peak_rel": 1.38
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-geelong",
+   "name": "Darryn Lyons",
+   "share": 0.2467,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.058,
+   "placebo_slope": -0.009,
+   "peak_rel": 1.25
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-brighton",
+   "name": "Alex Del Porto",
+   "share": 0.1935,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.042,
+   "placebo_slope": 0.038,
+   "peak_rel": 1.21
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-shepparton",
+   "name": "Suzanna Sheed",
+   "share": 0.2941,
+   "elected": false,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.038,
+   "placebo_slope": -0.041,
+   "peak_rel": 1.38
+  },
+  {
+   "election": "vic2018",
+   "contest": "vic-south-west-coast",
+   "name": "James Purcell",
+   "share": 0.1647,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.025,
+   "placebo_slope": 0.067,
+   "peak_rel": 2.14
+  },
+  {
+   "election": "vicby-prahran-2025",
+   "contest": "vic-prahran",
+   "name": "Tony Lupton",
+   "share": 0.1272,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.021,
+   "placebo_slope": -0.021,
+   "peak_rel": 1.07
+  },
+  {
+   "election": "vic2002",
+   "contest": "vic-footscray",
+   "name": "Catherine Cumming",
+   "share": 0.1039,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": -0.02,
+   "placebo_slope": -0.017,
+   "peak_rel": 1.35
+  },
+  {
+   "election": "vic2002",
+   "contest": "vic-shepparton",
+   "name": "Chris Hazelman",
+   "share": 0.1595,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": -0.009,
+   "placebo_slope": -0.003,
+   "peak_rel": 1.73
+  },
+  {
+   "election": "vic2006",
+   "contest": "vic-mildura",
+   "name": "Russell Savage",
+   "share": 0.3399,
+   "elected": false,
+   "incumbent": true,
+   "urban": false,
+   "slope": -0.002,
+   "placebo_slope": -0.008,
+   "peak_rel": 1.29
+  },
+  {
+   "election": "vic2010",
+   "contest": "vic-brunswick",
+   "name": "Phil Cleary",
+   "share": 0.1074,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": 0.019,
+   "placebo_slope": -0.397,
+   "peak_rel": 1.31
+  },
+  {
+   "election": "fed2025",
+   "contest": "fed-214",
+   "name": "Zoe Daniel",
+   "share": 0.3072,
+   "elected": false,
+   "incumbent": true,
+   "urban": true,
+   "slope": 0.062,
+   "placebo_slope": 0.016,
+   "peak_rel": 1.43
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-mornington",
+   "name": "Kate Lardner",
+   "share": 0.2242,
+   "elected": false,
+   "incumbent": false,
+   "urban": false,
+   "slope": 0.062,
+   "placebo_slope": 0.042,
+   "peak_rel": 1.19
+  },
+  {
+   "election": "fed2022",
+   "contest": "fed-214",
+   "name": "Zoe Daniel",
+   "share": 0.3447,
+   "elected": true,
+   "incumbent": false,
+   "urban": true,
+   "slope": 0.069,
+   "placebo_slope": 0.048,
+   "peak_rel": 1.36
+  },
+  {
+   "election": "vic1999",
+   "contest": "vic-mildura",
+   "name": "Russell Savage",
+   "share": 0.4439,
+   "elected": true,
+   "incumbent": false,
+   "urban": false,
+   "slope": 0.071,
+   "placebo_slope": 0.006,
+   "peak_rel": 1.22
+  },
+  {
+   "election": "vicby-mulgrave-2023",
+   "contest": "vic-mulgrave",
+   "name": "Ian Cook",
+   "share": 0.1881,
+   "elected": false,
+   "incumbent": false,
+   "urban": true,
+   "slope": 0.125,
+   "placebo_slope": -0.463,
+   "peak_rel": 1.34
+  },
+  {
+   "election": "vic2022",
+   "contest": "vic-mildura",
+   "name": "Ali Cupper",
+   "share": 0.3386,
+   "elected": false,
+   "incumbent": true,
+   "urban": false,
+   "slope": 0.363,
+   "placebo_slope": -0.136,
+   "peak_rel": 1.47
+  }
+ ],
+ "findings": [
+  "Independents' votes fall away with distance about two and a half times as fast as Labor's or the Coalition's: 20 km from their best booth, a typical independent keeps about 54% of the share they get 1 km away, against about 79% for Labor and 78% for the Coalition (Greens: 57%).",
+  "It is real, not an artefact of picking the best booth: the same measure around a randomly chosen booth gives almost nothing (median slope -0.04 against -0.26), and the major-party candidates, measured the same way, show the background clustering every candidate has.",
+  "Regional independents fade faster than urban ones (about 53% left at 20 km against 66%), though urban seats are small and rarely stretch that far.",
+  "A strong independent's vote spreads out as they become established: of 17 independents measured at more than one election, 12 had a flatter profile at their last run than their first (median change +0.09).",
+  "Bigger votes are flatter (correlation 0.38 between share and slope): the 30%+ independents are the whole seat's candidate, the 10-15% ones are mostly a local phenomenon.",
+  "Independents look like the Greens on this measure, but for a different reason: the Greens' vote clusters by who lives where, an independent's by where the candidate comes from. Untangling the two (demographics vs distance) is the next step, alongside the preference-flow work."
+ ],
+ "headline": {
+  "kept_at_20km_vs_1km": {
+   "independents, all": 0.54,
+   "independents, regional": 0.53,
+   "independents, urban": 0.66,
+   "GRN, all": 0.57,
+   "ALP, all": 0.79,
+   "COAL, all": 0.78
+  },
+  "repeat_candidates": {
+   "n": 17,
+   "flatter": 12,
+   "median_change": 0.088
+  },
+  "share_slope_corr": 0.38
+ }
+}

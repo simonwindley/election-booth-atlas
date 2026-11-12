@@ -863,11 +863,18 @@
   {
    "id": "hometown_effect",
    "group": "Preferences",
-   "status": "to do (can run before the model work; post material)",
+   "status": "first pass done (2026-11-12)",
    "question": "The hometown (friends-and-neighbours) effect: how fast does an independent's first-preference vote fall away with distance from their home base, and does it differ for urban and regional independents?",
    "why": "Explains the lopsided booth maps of strong independents, sharpens booth-level expectations for 2026 independents, and makes a good post.",
    "method": "For each independent polling 10%+ at a state or federal election in Victoria since 1999: home base taken as the booth (or locality) of peak support, then vote share against distance, fitted as a decay curve; compare urban vs regional, incumbents vs challengers.",
-   "validation": "Placebo: the same curves around randomly chosen booths in the seat; held-out elections."
+   "validation": "Placebo: the same curves around randomly chosen booths in the seat; held-out elections.",
+   "script": "src/hometown_effect.py",
+   "outputs": [
+    "data/analysis/hometown_effect.json",
+    "data/analysis/hometown_effect.png"
+   ],
+   "result": "Independents' votes fall away with distance about two and a half times as fast as Labor's or the Coalition's: 20 km from their best booth, a typical independent keeps about 54% of the share they get 1 km away, against about 79% for Labor and 78% for the Coalition (Greens: 57%). A strong independent's vote spreads out as they become established: of 17 independents measured at more than one election, 12 had a flatter profile at their last run than their first (median change +0.09).",
+   "next": "Separate distance from demography (does the gradient survive census controls?); feed a distance term into pref_flows_by_distance; check 2026 independents against their first-run profiles."
   },
   {
    "id": "pbo_commitments",
