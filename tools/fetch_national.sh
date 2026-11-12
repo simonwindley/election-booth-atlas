@@ -13,8 +13,9 @@ get() {   # get <event> <path under Website/>
   if curl -fsSL --retry 3 --retry-delay 2 -o "$out.part" "$BASE/$e/Website/$p"; then mv "$out.part" "$out"; echo "  got  $out ($(wc -c < "$out" | tr -d ' ') bytes)"
   else rm -f "$out.part"; echo "  MISSING $e/$p"; fi
 }
-# federal elections: 2025, 2022, 2019, 2016
-for e in 31496 27966 24310 20499; do
+# federal elections: 2025, 2022, 2019, 2016, and 2013, 2010, 2007, 2004 (the earliest the AEC's tally files go back;
+# 1998 and 2001 state totals are in raw/national/tpp_by_state_1998_2001.json)
+for e in 31496 27966 24310 20499 17496 15508 13745 12246; do
   echo "event $e"
   for f in HouseCandidatesDownload HouseFirstPrefsByCandidateByVoteTypeDownload HouseTcpByCandidateByPollingPlaceDownload \
            HouseTppByPollingPlaceDownload HouseDopByDivisionDownload HouseTcpFlowByDivisionDownload GeneralPollingPlacesDownload \

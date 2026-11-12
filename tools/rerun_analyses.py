@@ -120,7 +120,7 @@ def main():
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import findings_report
         ok = [i for i in seq if by[i].get('run') and all(codes.get(c) == 0 for c in by[i]['run'])]
-        v = findings_report.snapshot(a.trigger or 'rerun: ' + ', '.join(ok), ok)
+        v = findings_report.snapshot(a.trigger or 'rerun: ' + ', '.join(ok), ok) if ok else None
         if v: print(f"vitals recorded for {len(v)} question(s); report: python3 tools/findings_report.py")
     except Exception as e:
         print(f'(vitals not recorded: {e})')

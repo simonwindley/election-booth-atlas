@@ -132,5 +132,94 @@
     }
    }
   }
+ },
+ {
+  "at": "2026-11-12T17:31:20",
+  "why": "baseline 2026-11-12 (open seats; state-gov at federal with 1998-2001)",
+  "values": {
+   "state_government_at_federal": {
+    "Labor state government, federal Labor swing (pts per unit) [all states, pooled]": {
+     "value": 0.47,
+     "lo": null,
+     "hi": null
+    },
+    "Labor state government, federal Labor swing (pts per unit) [within states]": {
+     "value": 0.52,
+     "lo": null,
+     "hi": null
+    }
+   }
+  }
+ },
+ {
+  "at": "2026-11-12T17:31:35",
+  "why": "baseline 2026-11-12 (open seats)",
+  "values": {
+   "open_seat_penalty": {
+    "Open seat: party first preferences v veteran (pts) [state]": {
+     "value": -2.25,
+     "lo": -3.43,
+     "hi": -1.22
+    },
+    "Open seat: two-party v veteran (pts) [state]": {
+     "value": -0.81,
+     "lo": -1.61,
+     "hi": 0.09
+    },
+    "Open seat: party first preferences v veteran (pts) [federal]": {
+     "value": -3.61,
+     "lo": -5.16,
+     "hi": -2.13
+    },
+    "Open seat: two-party v veteran (pts) [federal]": {
+     "value": -1.72,
+     "lo": -2.45,
+     "hi": -0.97
+    },
+    "Open seat: minor-party first preferences v veteran (pts)": {
+     "value": 2.55,
+     "lo": 1.39,
+     "hi": 3.69
+    }
+   }
+  }
+ },
+ {
+  "at": "2026-11-12T18:28:23",
+  "why": "rerun: state_government_at_federal (2004-2013 added)",
+  "values": {
+   "state_government_at_federal": {
+    "Labor state government, federal Labor swing (pts per unit) [all states, pooled]": {
+     "value": -0.19,
+     "lo": null,
+     "hi": null
+    },
+    "Labor state government, federal Labor swing (pts per unit) [within states]": {
+     "value": -0.28,
+     "lo": null,
+     "hi": null
+    }
+   }
+  }
+ },
+ {
+  "at": "2026-11-12T18:28:48",
+  "why": "rerun: state_government_at_federal (negligible threshold set)",
+  "values": {
+   "state_government_at_federal": {
+    "Labor state government, federal Labor swing (pts per unit) [all states, pooled]": {
+     "value": -0.19,
+     "lo": null,
+     "hi": null,
+     "negligible": 0.5
+    },
+    "Labor state government, federal Labor swing (pts per unit) [within states]": {
+     "value": -0.28,
+     "lo": null,
+     "hi": null,
+     "negligible": 0.5
+    }
+   }
+  }
  }
 ]

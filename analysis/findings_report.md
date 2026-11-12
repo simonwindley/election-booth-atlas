@@ -1,6 +1,6 @@
 # What held, what faded
 
-Generated 2026-11-12 16:08. 2 snapshot(s) on record.
+Generated 2026-11-12 18:28. 6 snapshot(s) on record.
 
 ## member_personal_vote
 
@@ -29,8 +29,8 @@ The reverse: do Victorians punish the state government at federal elections?
 
 | Vital | First | Previous | Latest | Since previous | Since first |
 |---|---|---|---|---|---|
-| Labor state government, federal Labor swing (pts per unit) [all states, pooled] | 0.46 | 0.46 | 0.46 | held | held |
-| Labor state government, federal Labor swing (pts per unit) [within states] | 0.39 | 0.39 | 0.39 | held | held |
+| Labor state government, federal Labor swing (pts per unit) [all states, pooled] | 0.46 | -0.19 | -0.19 | still negligible | still negligible |
+| Labor state government, federal Labor swing (pts per unit) [within states] | 0.39 | -0.28 | -0.28 | still negligible | still negligible |
 
 ## seat_swing_deviation
 
@@ -44,6 +44,18 @@ What makes a seat swing more or less than the state? The continuous version of s
 | Regression to the mean (pts per pt of margin) | -0.073 [-0.098, -0.05] | – | -0.073 [-0.098, -0.05] | baseline | baseline |
 | Sophomore surge (pts) [Victoria, federal] | 1.08 [0.158, 1.91] | – | 1.08 [0.158, 1.91] | baseline | baseline |
 | Sophomore surge (pts) [Victoria, state] | 2.38 [1.69, 3.03] | – | 2.38 [1.69, 3.03] | baseline | baseline |
+
+## open_seat_penalty
+
+Why does a retiring member cost their party ~2.6 points of first preferences but much less on the two-party count? Where does the vote go, and is it just regression to the mean?
+
+| Vital | First | Previous | Latest | Since previous | Since first |
+|---|---|---|---|---|---|
+| Open seat: minor-party first preferences v veteran (pts) | 2.55 [1.39, 3.69] | – | 2.55 [1.39, 3.69] | baseline | baseline |
+| Open seat: party first preferences v veteran (pts) [federal] | -3.61 [-5.16, -2.13] | – | -3.61 [-5.16, -2.13] | baseline | baseline |
+| Open seat: party first preferences v veteran (pts) [state] | -2.25 [-3.43, -1.22] | – | -2.25 [-3.43, -1.22] | baseline | baseline |
+| Open seat: two-party v veteran (pts) [federal] | -1.72 [-2.45, -0.97] | – | -1.72 [-2.45, -0.97] | baseline | baseline |
+| Open seat: two-party v veteran (pts) [state] | -0.81 [-1.61, 0.09] | – | -0.81 [-1.61, 0.09] | baseline | baseline |
 
 ## hometown_effect
 

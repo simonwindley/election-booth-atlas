@@ -1,0 +1,40 @@
+{
+ "about": "Labor's share of the two-party-preferred vote by state and territory, federal elections 1998 and 2001 (before the AEC's downloadable tally files, which start in 2004). Computed from the vote counts on Wikipedia's 'Results of the YEAR Australian federal election (House of Representatives)' pages, read 12 Nov 2026; each value checked against the page's stated swing (the pages' percentage labels are swapped or stale in places: 2001 NSW, Qld and SA). Replace with AEC figures if a better source turns up. 2004 added as a fallback because the AEC's 2004 tally files did not download (event 12246); ACT 2004 left out because the page's stated figure and swing disagree. AEC files take precedence wherever present.",
+ "source": [
+  "https://en.wikipedia.org/wiki/Results_of_the_1998_Australian_federal_election_(House_of_Representatives)",
+  "https://en.wikipedia.org/wiki/Results_of_the_2001_Australian_federal_election_(House_of_Representatives)",
+  "https://en.wikipedia.org/wiki/Results_of_the_2004_Australian_federal_election_(House_of_Representatives)"
+ ],
+ "1998": {
+  "AUS": 50.98,
+  "NSW": 51.54,
+  "VIC": 53.53,
+  "QLD": 46.95,
+  "WA": 49.46,
+  "SA": 46.89,
+  "TAS": 57.32,
+  "ACT": 62.44,
+  "NT": 50.57
+ },
+ "2001": {
+  "AUS": 49.05,
+  "NSW": 47.86,
+  "VIC": 52.14,
+  "QLD": 45.3,
+  "WA": 48.38,
+  "SA": 45.92,
+  "TAS": 57.73,
+  "ACT": 61.08,
+  "NT": 52.49
+ },
+ "2004": {
+  "AUS": 47.26,
+  "NSW": 48.07,
+  "VIC": 49.0,
+  "QLD": 42.91,
+  "WA": 44.6,
+  "SA": 45.64,
+  "TAS": 54.19,
+  "NT": 52.15
+ }
+}

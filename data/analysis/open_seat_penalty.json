@@ -1,0 +1,248 @@
+{
+ "method": "member_effects measures the open-seat penalty on the party's first-preference share; seat_swing_deviation measures seats on\nthe two-party-preferred count with the last margin held constant, and finds a much smaller effect. This decomposes the gap.\nFor every seat whose member's party was Labor or the Coalition, the change in each quantity is measured against the same\nparty's seats with a veteran member standing again at the same election (election x party baseline, as in member_effects):",
+ "all": {
+  "fp_party": {
+   "open_minus_veteran": -2.67,
+   "lo": -3.55,
+   "hi": -1.77,
+   "n_open": 100
+  },
+  "fp_other_major": {
+   "open_minus_veteran": 0.12,
+   "lo": -0.68,
+   "hi": 0.89,
+   "n_open": 100
+  },
+  "fp_minor": {
+   "open_minus_veteran": 2.55,
+   "lo": 1.39,
+   "hi": 3.69,
+   "n_open": 100
+  },
+  "n_candidates": {
+   "open_minus_veteran": 0.65,
+   "lo": 0.25,
+   "hi": 1.03,
+   "n_open": 100
+  },
+  "tpp_party": {
+   "open_minus_veteran": -1.07,
+   "lo": -1.72,
+   "hi": -0.43,
+   "n_open": 83
+  }
+ },
+ "state": {
+  "fp_party": {
+   "open_minus_veteran": -2.25,
+   "lo": -3.43,
+   "hi": -1.22,
+   "n_open": 69
+  },
+  "fp_other_major": {
+   "open_minus_veteran": -0.24,
+   "lo": -1.28,
+   "hi": 0.75,
+   "n_open": 69
+  },
+  "fp_minor": {
+   "open_minus_veteran": 2.5,
+   "lo": 1.09,
+   "hi": 3.94,
+   "n_open": 69
+  },
+  "n_candidates": {
+   "open_minus_veteran": 0.5,
+   "lo": 0.12,
+   "hi": 0.89,
+   "n_open": 69
+  },
+  "tpp_party": {
+   "open_minus_veteran": -0.81,
+   "lo": -1.61,
+   "hi": 0.09,
+   "n_open": 59
+  }
+ },
+ "federal": {
+  "fp_party": {
+   "open_minus_veteran": -3.61,
+   "lo": -5.16,
+   "hi": -2.13,
+   "n_open": 31
+  },
+  "fp_other_major": {
+   "open_minus_veteran": 0.93,
+   "lo": -0.31,
+   "hi": 2.24,
+   "n_open": 31
+  },
+  "fp_minor": {
+   "open_minus_veteran": 2.68,
+   "lo": 0.58,
+   "hi": 4.78,
+   "n_open": 31
+  },
+  "n_candidates": {
+   "open_minus_veteran": 0.98,
+   "lo": 0.15,
+   "hi": 1.83,
+   "n_open": 31
+  },
+  "tpp_party": {
+   "open_minus_veteran": -1.72,
+   "lo": -2.45,
+   "hi": -0.97,
+   "n_open": 24
+  }
+ },
+ "labor_seats": {
+  "fp_party": {
+   "open_minus_veteran": -2.5,
+   "lo": -3.69,
+   "hi": -1.46,
+   "n_open": 63
+  },
+  "fp_other_major": {
+   "open_minus_veteran": 0.13,
+   "lo": -0.84,
+   "hi": 1.09,
+   "n_open": 63
+  },
+  "fp_minor": {
+   "open_minus_veteran": 2.37,
+   "lo": 1.03,
+   "hi": 3.84,
+   "n_open": 63
+  },
+  "n_candidates": {
+   "open_minus_veteran": 0.41,
+   "lo": -0.05,
+   "hi": 0.89,
+   "n_open": 63
+  },
+  "tpp_party": {
+   "open_minus_veteran": -0.69,
+   "lo": -1.57,
+   "hi": 0.18,
+   "n_open": 53
+  }
+ },
+ "coalition_seats": {
+  "fp_party": {
+   "open_minus_veteran": -2.98,
+   "lo": -4.31,
+   "hi": -1.58,
+   "n_open": 37
+  },
+  "fp_other_major": {
+   "open_minus_veteran": 0.11,
+   "lo": -1.02,
+   "hi": 1.25,
+   "n_open": 37
+  },
+  "fp_minor": {
+   "open_minus_veteran": 2.87,
+   "lo": 1.14,
+   "hi": 4.78,
+   "n_open": 37
+  },
+  "n_candidates": {
+   "open_minus_veteran": 1.05,
+   "lo": 0.45,
+   "hi": 1.61,
+   "n_open": 37
+  },
+  "tpp_party": {
+   "open_minus_veteran": -1.75,
+   "lo": -2.61,
+   "hi": -0.93,
+   "n_open": 30
+  }
+ },
+ "long_serving": {
+  "fp_party": {
+   "open_minus_veteran": -3.39,
+   "lo": -4.61,
+   "hi": -2.14,
+   "n_open": 65
+  },
+  "fp_other_major": {
+   "open_minus_veteran": 0.76,
+   "lo": -0.31,
+   "hi": 1.74,
+   "n_open": 65
+  },
+  "fp_minor": {
+   "open_minus_veteran": 2.64,
+   "lo": 1.24,
+   "hi": 3.99,
+   "n_open": 65
+  },
+  "n_candidates": {
+   "open_minus_veteran": 0.61,
+   "lo": 0.08,
+   "hi": 1.14,
+   "n_open": 65
+  },
+  "tpp_party": {
+   "open_minus_veteran": -1.4,
+   "lo": -2.26,
+   "hi": -0.53,
+   "n_open": 56
+  }
+ },
+ "short_serving": {
+  "fp_party": {
+   "open_minus_veteran": -1.42,
+   "lo": -2.53,
+   "hi": -0.33,
+   "n_open": 35
+  },
+  "fp_other_major": {
+   "open_minus_veteran": -0.93,
+   "lo": -2.02,
+   "hi": 0.12,
+   "n_open": 35
+  },
+  "fp_minor": {
+   "open_minus_veteran": 2.35,
+   "lo": 0.75,
+   "hi": 3.99,
+   "n_open": 35
+  },
+  "n_candidates": {
+   "open_minus_veteran": 0.74,
+   "lo": 0.25,
+   "hi": 1.27,
+   "n_open": 35
+  },
+  "tpp_party": {
+   "open_minus_veteran": -0.34,
+   "lo": -1.29,
+   "hi": 0.64,
+   "n_open": 27
+  }
+ },
+ "tpp_with_margin": {
+  "open": [
+   -1.06,
+   -1.71,
+   -0.42
+  ],
+  "per_pt_margin": -0.072,
+  "mean_margin_open": 11.2,
+  "mean_margin_veteran": 10.9,
+  "n": 392
+ },
+ "findings": [
+  "When a Labor or Coalition member retires, their party's first-preference vote falls about 2.7 points relative to the same party's seats where a veteran stands again (state 2.3, federal 3.6).",
+  "Almost none of it goes to the other major party (+0.1). It goes to the Greens, independents and minor parties (+2.6), and open seats draw more candidates (+0.65 on average).",
+  "Because much of that vote flows back on preferences, the two-party cost is smaller: about 1.1 points (state 0.8, federal 1.7).",
+  "It is not regression to the mean: retiring members' seats had about the same margins as veterans' (11.2 v 10.9 points), and holding the margin constant leaves the penalty at 1.1.",
+  "The earlier gap was a baseline difference: seat_swing_deviation measured open seats against all seats, and veterans themselves run about 0.4 ahead of that. Measured against veterans, the two analyses agree (about 1 point on the two-party count).",
+  "Longer careers leave bigger holes: retirements after three or more terms cost about 3.4 points of first preferences (1.4 two-party), after one or two terms about 1.4 (0.3).",
+  "Coalition retirements cost more on the two-party count than Labor ones (about 1.8 v 0.7), with the first-preference loss similar (3.0 v 2.5)."
+ ],
+ "headline": "A retiring member costs ~2.7 pts of first preferences, nearly all to minors and independents; ~1.1 pts survives to the two-party count. Not regression to the mean."
+}

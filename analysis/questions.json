@@ -387,9 +387,9 @@
   {
    "id": "state_government_at_federal",
    "group": "Two levels",
-   "status": "first pass done (2026-11-12, federal 2016-2025 only)",
+   "status": "done (2026-11-12): federal 1998-2025, every state and territory",
    "question": "The reverse: do Victorians punish the state government at federal elections?",
-   "headline": "No sign of punishment: states with a Labor government swung slightly more to federal Labor (+0.9 pts, not significant), unlike the federal headwind at state elections.",
+   "headline": "No sign voters punish their state government at federal elections: -0.4 pts (p=0.58) across 69 state-elections, 1998-2025.",
    "needs": "National federal results to measure Victoria against.",
    "triggers": [
     "national_results",
@@ -399,7 +399,8 @@
     "python3 -m src.state_government_at_federal"
    ],
    "inputs": [
-    "raw/national/aec"
+    "raw/national/aec",
+    "raw/national/tpp_by_state_1998_2001.json"
    ],
    "outputs": [
     "data/analysis/state_government_at_federal.json"
@@ -411,13 +412,15 @@
      "label": "Labor state government, federal Labor swing (pts per unit)",
      "file": "data/analysis/state_government_at_federal.json",
      "path": "pooled.per_labor_state_gov_pts",
-     "scope": "all states, pooled"
+     "scope": "all states, pooled",
+     "negligible": 0.5
     },
     {
      "label": "Labor state government, federal Labor swing (pts per unit)",
      "file": "data/analysis/state_government_at_federal.json",
      "path": "within.per_labor_state_gov_pts",
-     "scope": "within states"
+     "scope": "within states",
+     "negligible": 0.5
     }
    ]
   },
@@ -541,7 +544,7 @@
    "outputs": [
     "data/analysis/seat_swing_deviation.json"
    ],
-   "result": "Most of a seat's deviation from the statewide swing is unpredictable: seats scatter about 3.4 points either side of uniform swing, and the best model cuts that to about 3.2 out of sample. Uniform swing with a handful of adjustments is about as good as it gets. The sophomore surge is the clearest effect: a first-term member standing again runs about 2.0 points better than the statewide swing (2.4 at state elections, 1.1 federally). Regression to the mean: for every point of margin a seat starts with, it gives back about 0.07 points (a 10-point seat swings back about 0.7 points against the tide). Regional seats swing less: they move about 78% of the statewide swing (0.22 points less per point of statewide swing), and over 1999-2025 they drifted about 1.2 points towards the Coalition relative to Melbourne. Much of that regional effect is demographic (it shrinks when census measures are added).",
+   "result": "Most of a seat's deviation from the statewide swing is unpredictable: seats scatter about 3.4 points either side of uniform swing, and the best model cuts that to about 3.2 out of sample. Uniform swing with a handful of adjustments is about as good as it gets. The sophomore surge is the clearest effect: a first-term member standing again runs about 2.0 points better than the statewide swing (2.4 at state elections, 1.1 federally). Regression to the mean: for every point of margin a seat starts with, it gives back about 0.07 points (a 10-point seat swings back about 0.7 points against the tide). Regional seats swing less: they move about 78% of the statewide swing (0.22 points less per point of statewide swing), and over 1999-2025 they drifted about 1.2 points towards the Coalition relative to Melbourne. Much of that regional effect is demographic (it shrinks when census measures are added). Open seats: measured against veterans, the two-party penalty is about 1 point (see open_seat_penalty).",
    "next": "Feed the sophomore, regression and regional-dampening terms into the 2026 seat projections (primary_swings / seat model); retest after 2026.",
    "vitals": [
     {
@@ -585,6 +588,75 @@
      "label": "Out-of-sample error (pts)",
      "file": "data/analysis/seat_swing_deviation.json",
      "path": "core_all.loeo_rmse"
+    }
+   ]
+  },
+  {
+   "id": "open_seat_penalty",
+   "group": "Members",
+   "status": "done (2026-11-12)",
+   "depends_on": [
+    "member_personal_vote",
+    "seat_swing_deviation"
+   ],
+   "question": "Why does a retiring member cost their party ~2.6 points of first preferences but much less on the two-party count? Where does the vote go, and is it just regression to the mean?",
+   "run": [
+    "python3 -m src.open_seat_penalty"
+   ],
+   "inputs": [
+    "data/elections.sqlite",
+    "data/analysis/member_history.csv",
+    "data/analysis/notionals.json"
+   ],
+   "outputs": [
+    "data/analysis/open_seat_penalty.json"
+   ],
+   "headline": "A retiring member costs ~2.7 pts of first preferences, nearly all to minors and independents; ~1.1 pts survives to the two-party count. Not regression to the mean.",
+   "result": "When a Labor or Coalition member retires, their party's first-preference vote falls about 2.7 points relative to the same party's seats where a veteran stands again (state 2.3, federal 3.6). Almost none of it goes to the other major party (+0.1). It goes to the Greens, independents and minor parties (+2.6), and open seats draw more candidates (+0.65 on average). Because much of that vote flows back on preferences, the two-party cost is smaller: about 1.1 points (state 0.8, federal 1.7). It is not regression to the mean: retiring members' seats had about the same margins as veterans' (11.2 v 10.9 points), and holding the margin constant leaves the penalty at 1.1. The earlier gap was a baseline difference: seat_swing_deviation measured open seats against all seats, and veterans themselves run about 0.4 ahead of that. Measured against veterans, the two analyses agree (about 1 point on the two-party count).",
+   "triggers": [
+    "results_2026",
+    "federal_next"
+   ],
+   "next": "Use the two-party penalty (by tenure and party) in the 2026 seat projections for retiring members; split the minor-party gain into Greens and independents; check whether it lasts into the next election.",
+   "vitals": [
+    {
+     "label": "Open seat: party first preferences v veteran (pts)",
+     "file": "data/analysis/open_seat_penalty.json",
+     "path": "state.fp_party.open_minus_veteran",
+     "lo": "state.fp_party.lo",
+     "hi": "state.fp_party.hi",
+     "scope": "state"
+    },
+    {
+     "label": "Open seat: two-party v veteran (pts)",
+     "file": "data/analysis/open_seat_penalty.json",
+     "path": "state.tpp_party.open_minus_veteran",
+     "lo": "state.tpp_party.lo",
+     "hi": "state.tpp_party.hi",
+     "scope": "state"
+    },
+    {
+     "label": "Open seat: party first preferences v veteran (pts)",
+     "file": "data/analysis/open_seat_penalty.json",
+     "path": "federal.fp_party.open_minus_veteran",
+     "lo": "federal.fp_party.lo",
+     "hi": "federal.fp_party.hi",
+     "scope": "federal"
+    },
+    {
+     "label": "Open seat: two-party v veteran (pts)",
+     "file": "data/analysis/open_seat_penalty.json",
+     "path": "federal.tpp_party.open_minus_veteran",
+     "lo": "federal.tpp_party.lo",
+     "hi": "federal.tpp_party.hi",
+     "scope": "federal"
+    },
+    {
+     "label": "Open seat: minor-party first preferences v veteran (pts)",
+     "file": "data/analysis/open_seat_penalty.json",
+     "path": "all.fp_minor.open_minus_veteran",
+     "lo": "all.fp_minor.lo",
+     "hi": "all.fp_minor.hi"
     }
    ]
   },

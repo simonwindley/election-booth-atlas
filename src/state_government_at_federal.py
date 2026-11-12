@@ -21,18 +21,27 @@ import os, csv, io, json, glob, math
 import numpy as np
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-EVENTS = {'2016': '20499', '2019': '24310', '2022': '27966', '2025': '31496'}
+EVENTS = {'2004': '12246', '2007': '13745', '2010': '15508', '2013': '17496', '2016': '20499', '2019': '24310', '2022': '27966', '2025': '31496'}
+EARLY = os.path.join(ROOT, 'raw/national/tpp_by_state_1998_2001.json')   # 1998 and 2001, before the AEC tally files
 # party governing each state/territory on federal polling day
-STATE_GOV = {
+STATE_GOV = {   # ACT 2001 left out: Labor won the ACT election on 20 Oct 2001 but the change of Chief Minister fell around federal polling day
+    '1998': {'NSW': 'ALP', 'VIC': 'COAL', 'QLD': 'ALP', 'WA': 'COAL', 'SA': 'COAL', 'TAS': 'ALP', 'ACT': 'COAL', 'NT': 'COAL'},
+    '2001': {'NSW': 'ALP', 'VIC': 'ALP', 'QLD': 'ALP', 'WA': 'ALP', 'SA': 'COAL', 'TAS': 'ALP', 'ACT': None, 'NT': 'ALP'},
+    '2004': {'NSW': 'ALP', 'VIC': 'ALP', 'QLD': 'ALP', 'WA': 'ALP', 'SA': 'ALP', 'TAS': 'ALP', 'ACT': 'ALP', 'NT': 'ALP'},
+    '2007': {'NSW': 'ALP', 'VIC': 'ALP', 'QLD': 'ALP', 'WA': 'ALP', 'SA': 'ALP', 'TAS': 'ALP', 'ACT': 'ALP', 'NT': 'ALP'},
+    '2010': {'NSW': 'ALP', 'VIC': 'ALP', 'QLD': 'ALP', 'WA': 'COAL', 'SA': 'ALP', 'TAS': 'ALP', 'ACT': 'ALP', 'NT': 'ALP'},
+    '2013': {'NSW': 'COAL', 'VIC': 'COAL', 'QLD': 'COAL', 'WA': 'COAL', 'SA': 'ALP', 'TAS': 'ALP', 'ACT': 'ALP', 'NT': 'COAL'},
     '2016': {'NSW': 'COAL', 'VIC': 'ALP', 'QLD': 'ALP', 'WA': 'COAL', 'SA': 'ALP', 'TAS': 'COAL', 'ACT': 'ALP', 'NT': 'COAL'},
     '2019': {'NSW': 'COAL', 'VIC': 'ALP', 'QLD': 'ALP', 'WA': 'ALP', 'SA': 'COAL', 'TAS': 'COAL', 'ACT': 'ALP', 'NT': 'ALP'},
     '2022': {'NSW': 'COAL', 'VIC': 'ALP', 'QLD': 'ALP', 'WA': 'ALP', 'SA': 'ALP', 'TAS': 'COAL', 'ACT': 'ALP', 'NT': 'ALP'},
     '2025': {'NSW': 'ALP', 'VIC': 'ALP', 'QLD': 'COAL', 'WA': 'ALP', 'SA': 'ALP', 'TAS': 'COAL', 'ACT': 'ALP', 'NT': 'COAL'}}
-FED_GOV = {'2019': 'COAL', '2022': 'COAL', '2025': 'ALP'}   # federal government going into each election
+FED_GOV = {'2001': 'COAL', '2004': 'COAL', '2007': 'COAL', '2010': 'ALP', '2013': 'ALP', '2016': 'COAL', '2019': 'COAL', '2022': 'COAL', '2025': 'ALP'}   # federal government going into each election
 
 
 def tpp_by_state(ev):
-    f = glob.glob(os.path.join(ROOT, f'raw/national/aec/{ev}/HouseTppByDivisionDownload-{ev}.csv'))[0]
+    g = glob.glob(os.path.join(ROOT, f'raw/national/aec/{ev}/HouseTppByDivisionDownload-{ev}.csv'))
+    if not g: return None
+    f = g[0]
     lines = open(f, encoding='utf-8-sig').read().splitlines()[1:]
     alp, tot = {}, {}
     for r in csv.DictReader(io.StringIO('\n'.join(lines))):
@@ -47,12 +56,21 @@ def ols(X, y):
 
 def main():
     T = {y: tpp_by_state(ev) for y, ev in EVENTS.items()}
+    early = json.load(open(EARLY))
+    for y in ('1998', '2001', '2004'):
+        if y in early and not T.get(y):      # AEC files take precedence; the Wikipedia figures fill 1998-2001 (and 2004 if its download failed)
+            T[y] = ({s: v / 100 for s, v in early[y].items() if s != 'AUS'}, early[y]['AUS'] / 100)
+    T = {y: v for y, v in T.items() if v}
+    allyears = sorted(set(EVENTS) | {'1998', '2001'}); missing = [y for y in allyears if y not in T]
+    if missing: print(f'not loaded yet: {missing} (run tools/fetch_national.sh in your own Terminal)')
     years = sorted(T); rows = []
-    for a, b in zip(years, years[1:]):
+    pairs = [(a, b) for a, b in zip(allyears, allyears[1:]) if a in T and b in T]
+    for a, b in pairs:
         (s0, n0), (s1, n1) = T[a], T[b]
         for s in s1:
+            if s not in s0 or STATE_GOV[b].get(s) is None: continue
             rows.append(dict(year=b, state=s, swing=100 * (s1[s] - s0[s]), national=100 * (n1 - n0), dev=100 * ((s1[s] - s0[s]) - (n1 - n0)),
-                             gov=1 if STATE_GOV[b][s] == 'ALP' else -1, changed=int(STATE_GOV[b][s] != STATE_GOV[a][s]),
+                             gov=1 if STATE_GOV[b][s] == 'ALP' else -1, changed=int(STATE_GOV[a].get(s) is not None and STATE_GOV[b][s] != STATE_GOV[a][s]),
                              same_as_federal=int(STATE_GOV[b][s] == FED_GOV[b])))
     y = np.array([r['dev'] for r in rows]); g = np.array([r['gov'] for r in rows], float)
     # pooled
@@ -74,7 +92,7 @@ def main():
         permp.append(ols(np.column_stack([np.ones(len(y)), rng.permutation(g)]), y)[1])
     p_pooled = float(np.mean(np.abs(permp) >= abs(bp[1])))
     res = dict(method=__doc__.split('\n\n')[1].strip(), elections=years,
-               national_swing_to_alp={b: round(100 * (T[b][1] - T[a][1]), 2) for a, b in zip(years, years[1:])},
+               national_swing_to_alp={b: round(100 * (T[b][1] - T[a][1]), 2) for a, b in pairs}, not_loaded=missing,
                pooled=dict(per_labor_state_gov_pts=round(float(bp[1]), 2), note='deviation per +1 (Labor state government) vs -1 (Coalition); the gap between the two is twice this', p_perm=round(p_pooled, 3), n=len(rows)),
                within=dict(per_labor_state_gov_pts=round(float(bw[0]), 2), p_perm=round(p_within, 3), changes_of_government=sum(r['changed'] for r in rows)),
                victoria=[dict(year=r['year'], deviation_pts=round(r['dev'], 2), state_gov=STATE_GOV[r['year']]['VIC']) for r in rows if r['state'] == 'VIC'],
@@ -85,11 +103,11 @@ def main():
     res['same_party_both_levels'] = dict(per_unit_pts=round(float(bs[1]), 2), note='+1 when Labor governs both state and federation, -1 when the Coalition does')
     gap = 2 * bp[1]
     res['findings'] = [
-        f"Pooled across every state and territory (federal elections 2019, 2022, 2025): where Labor governed the state, federal Labor's swing there was {gap:+.1f} points relative to the national swing compared with states under the Coalition (permutation p = {p_pooled:.2f}): no sign that voters punish their state government at federal elections, and if anything the opposite.",
+        f"Pooled across every state and territory (federal elections {', '.join(b for a, b in pairs)}): where Labor governed the state, federal Labor's swing there was {gap:+.1f} points relative to the national swing compared with states under the Coalition (permutation p = {p_pooled:.2f}): " + ("no sign that voters punish their state government at federal elections." if p_pooled > 0.1 else ("voters appear to punish their state government's party federally." if bp[1] < 0 else "states with a Labor government swing more to federal Labor.")),
         f"Within each state (when the state government changed party between federal elections): {2 * bw[0]:+.1f} points (p = {p_within:.2f}), from {res['within']['changes_of_government']} changes of government.",
-        "Victoria: Labor governed the state at all three, so Victoria cannot answer this on its own; its deviations from the national swing were " + ', '.join(f"{v['year']} {v['deviation_pts']:+.1f}" for v in res['victoria']) + " points.",
+        "Victoria (state government " + ', '.join(f"{v['year']} {v['state_gov']}" for v in res['victoria']) + "); its deviations from the national swing were " + ', '.join(f"{v['year']} {v['deviation_pts']:+.1f}" for v in res['victoria']) + " points.",
         f"Same party at both levels: {res['same_party_both_levels']['per_unit_pts']:+.2f} points per unit (positive would mean a state government of the federal government's party helps it federally).",
-        "Small sample (8 jurisdictions x 3 elections); adding 2004-2013 from the AEC files would more than double it."]
+        f"{len(rows)} state-elections." + (f" Still to load: {', '.join(missing)}." if missing else '')]
     json.dump(res, open(os.path.join(ROOT, 'data/analysis/state_government_at_federal.json'), 'w'), indent=1)
     print(json.dumps({k: res[k] for k in ('national_swing_to_alp', 'pooled', 'within', 'victoria')}, indent=1)); print('\n'.join(res['findings']))
     for r in rows: print(r['year'], r['state'], f"dev {r['dev']:+.2f}", 'ALP gov' if r['gov'] > 0 else 'COAL gov', 'changed' if r['changed'] else '')

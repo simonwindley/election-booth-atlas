@@ -12,6 +12,7 @@ with the previous one and with the first, and sorts every vital into:
   strengthened  same sign, at least a third bigger
   faded         same sign, at least a third smaller, or its interval now includes zero
   flipped       changed sign
+  still negligible  both values below the vital's 'negligible' size (set it for effects that hover around zero)
 and lists questions that have no vitals yet.
 
 usage: python3 tools/findings_report.py --snapshot "why"   record the current values (tools/rerun_analyses.py does this after each run)
@@ -41,7 +42,7 @@ def read_vitals(q):
         key = v['label'] + (f" [{v['scope']}]" if v.get('scope') else '')
         val = dig(d, v['path'])
         if isinstance(val, (int, float)):
-            out[key] = {'value': val, 'lo': dig(d, v['lo']) if v.get('lo') else None, 'hi': dig(d, v['hi']) if v.get('hi') else None}
+            out[key] = {'value': val, 'lo': dig(d, v['lo']) if v.get('lo') else None, 'hi': dig(d, v['hi']) if v.get('hi') else None, 'negligible': v.get('negligible', 0)}
     return out
 
 
@@ -55,8 +56,9 @@ def snapshot(why, ids=None):
     return vals
 
 
-def classify(old, new):
+def classify(old, new, negligible=0):
     a, b = old['value'], new['value']
+    if abs(a) < negligible and abs(b) < negligible: return 'still negligible'
     if a == 0 or b == 0: return 'held' if a == b else ('faded' if b == 0 else 'strengthened')
     if (a > 0) != (b > 0): return 'flipped'
     if new.get('lo') is not None and new.get('hi') is not None and new['lo'] <= 0 <= new['hi'] and not (old.get('lo') is not None and old['lo'] <= 0 <= old['hi']):
@@ -82,7 +84,7 @@ def report():
         for k, s in sorted(rows):
             f = lambda v: f"{v['value']:.3g}" + (f" [{v['lo']:.3g}, {v['hi']:.3g}]" if v.get('lo') is not None and v.get('hi') is not None else '')
             first, prev, last = s[0][2], (s[-2][2] if len(s) > 1 else None), s[-1][2]
-            lines.append(f"| {k} | {f(first)} | {f(prev) if prev else '–'} | {f(last)} | {classify(prev, last) if prev else 'baseline'} | {classify(first, last) if len(s) > 1 else 'baseline'} |")
+            lines.append(f"| {k} | {f(first)} | {f(prev) if prev else '–'} | {f(last)} | {classify(prev, last, last.get('negligible', 0)) if prev else 'baseline'} | {classify(first, last, last.get('negligible', 0)) if len(s) > 1 else 'baseline'} |")
         lines.append('')
     missing = [q['id'] for q in reg['questions'] if q.get('run') and not q.get('vitals')]
     lines += ['## Not tracked yet', '', 'Questions that run but have no vitals listed: ' + (', '.join(missing) or 'none') + '.', '']
