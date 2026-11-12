@@ -33,6 +33,7 @@ if (/(\.github\.io|electionboothatlas\.(org|com))$/.test(location.hostname)) {
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://electionboothatlas.org/">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Election Booth Atlas","url":"https://electionboothatlas.org/","logo":"https://electionboothatlas.org/logo.png","email":"hello@electionboothatlas.org","sameAs":["https://bsky.app/profile/electionboothatlas.org","https://www.facebook.com/profile.php?id=61596254050248","https://www.instagram.com/electionboothatlas/","https://x.com/BoothAtlas"]}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,600&display=swap">
 <style>
@@ -435,6 +436,8 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .v2 .callout { display: flex; gap: 18px; align-items: center; background: var(--surface); border: 2px dashed var(--sky-3); border-radius: 20px; padding: 20px 24px; font-size: 16px; line-height: 1.55; color: var(--fg-2); }
 .v2 footer.ft { background: #1B2B4B; color: #DCE1EA; margin-top: 56px; }
 .v2 footer.ft .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; gap: 12px 40px; justify-content: space-between; font-size: 14px; }
+.v2 footer.ft a { color: #CFE9F7; text-underline-offset: 3px; }
+.v2 footer.ft a:hover { color: #fff; }
 .v2 footer.ft .tg { font-family: var(--font-display); font-style: italic; font-weight: 600; color: var(--lime); }
 /* electorates */
 .v2 .shead { background: var(--sky); position: relative; overflow: hidden; }
@@ -667,8 +670,8 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
       <div class="callout"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true" style="flex:none"><circle cx="20" cy="20" r="17" fill="#CFE9F7" stroke="#1B2B4B" stroke-width="3"></circle><path d="M24 9a11 11 0 1 0 7 17a9 9 0 1 1 -7 -17z" fill="#1B2B4B"></path></svg>
         <div><strong style="color:var(--fg)">For the curious:</strong> the Atlas books. What actually moves votes, and the things that don't: rain, footy results and the moon, among others. We checked. <a href="#prefs" data-go="prefs">Open the books</a></div></div>
     </div>
-    <div class="wrap"><div class="callout touch"><div><strong style="color:var(--fg)">Want to see a particular kind of analysis?</strong> A seat you care about, a question the numbers could answer, or something we got wrong: get in touch and we'll dig in. <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a></div></div></div>
-    <footer class="ft"><div class="wrap"><span class="tg">Every booth. Every election.</span><span><a href="mailto:hello@electionboothatlas.org">hello@electionboothatlas.org</a></span><span>Results © Victorian Electoral Commission and Australian Electoral Commission. Census data © ABS, CC BY 4.0.</span></div></footer>
+    <div class="wrap"><div class="callout touch"><div><strong style="color:var(--fg)">Want to see a particular kind of analysis?</strong> A seat you care about, a question the numbers could answer, or something we got wrong: get in touch and we'll dig in. Email <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a>, or message us on <a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener">Bluesky</a>, <a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener">Facebook</a>, <a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener">Instagram</a> or <a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener">X</a>.</div></div></div>
+    <footer class="ft"><div class="wrap"><span class="tg">Every booth. Every election.</span><span><a href="mailto:hello@electionboothatlas.org">hello@electionboothatlas.org</a></span><span class="soc">Follow along: <a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener">Bluesky</a> · <a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener">Facebook</a> · <a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener">Instagram</a> · <a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener">X</a></span><span>Results © Victorian Electoral Commission and Australian Electoral Commission. Census data © ABS, CC BY 4.0.</span></div></footer>
   </section>
 
   <!-- ELECTORATES VIEW (v2) -->
@@ -929,7 +932,7 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
   <!-- ABOUT VIEW -->
   <section class="view" id="view-about">
     <div class="page"><div class="inner prose">
-      <div class="panel touchbox"><h2 style="margin-top:0">Get in touch</h2><p>Want to see a particular kind of analysis? A seat, a booth, a hunch you'd like tested, or a mistake you've spotted: email <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a>. We read everything, and the best questions become new pages and books.</p></div>
+      <div class="panel touchbox"><h2 style="margin-top:0">Get in touch</h2><p>Want to see a particular kind of analysis? A seat, a booth, a hunch you'd like tested, or a mistake you've spotted: email <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a> or message us on <a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener">Bluesky</a>, <a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener">Facebook</a>, <a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener">Instagram</a> or <a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener">X</a>. We read everything, and the best questions become new pages and books.</p></div>
       <h2>What this is</h2>
       <p>Every polling place, election after election: results pinned to the place the votes were cast, so the vote can be followed by school hall and church porch rather than by electorate. Boundaries change; a school hall does not. It starts with Victoria — every state election since 1999 and every federal election in Victoria since 2004 (House, with the Senate from 2010) — and is built to take on other states and the federal map in the same way.</p>
       <h2>How to read it</h2>
