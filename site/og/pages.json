@@ -1,0 +1,770 @@
+[
+ {
+  "kind": "seat",
+  "slug": "albert-park",
+  "cid": "vic-albert-park",
+  "name": "Albert Park",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "ashwood",
+  "cid": "vic-ashwood",
+  "name": "Ashwood",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "bass",
+  "cid": "vic-bass",
+  "name": "Bass",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "bayswater",
+  "cid": "vic-bayswater",
+  "name": "Bayswater",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "bellarine",
+  "cid": "vic-bellarine",
+  "name": "Bellarine",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "benambra",
+  "cid": "vic-benambra",
+  "name": "Benambra",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "bendigo-east",
+  "cid": "vic-bendigo-east",
+  "name": "Bendigo East",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "bendigo-west",
+  "cid": "vic-bendigo-west",
+  "name": "Bendigo West",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "bentleigh",
+  "cid": "vic-bentleigh",
+  "name": "Bentleigh",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "berwick",
+  "cid": "vic-berwick",
+  "name": "Berwick",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "box-hill",
+  "cid": "vic-box-hill",
+  "name": "Box Hill",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "brighton",
+  "cid": "vic-brighton",
+  "name": "Brighton",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "broadmeadows",
+  "cid": "vic-broadmeadows",
+  "name": "Broadmeadows",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "brunswick",
+  "cid": "vic-brunswick",
+  "name": "Brunswick",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "bulleen",
+  "cid": "vic-bulleen",
+  "name": "Bulleen",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "bundoora",
+  "cid": "vic-bundoora",
+  "name": "Bundoora",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "carrum",
+  "cid": "vic-carrum",
+  "name": "Carrum",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "caulfield",
+  "cid": "vic-caulfield",
+  "name": "Caulfield",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "clarinda",
+  "cid": "vic-clarinda",
+  "name": "Clarinda",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "cranbourne",
+  "cid": "vic-cranbourne",
+  "name": "Cranbourne",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "croydon",
+  "cid": "vic-croydon",
+  "name": "Croydon",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "dandenong",
+  "cid": "vic-dandenong",
+  "name": "Dandenong",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "eildon",
+  "cid": "vic-eildon",
+  "name": "Eildon",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "eltham",
+  "cid": "vic-eltham",
+  "name": "Eltham",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "essendon",
+  "cid": "vic-essendon",
+  "name": "Essendon",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "eureka",
+  "cid": "vic-eureka",
+  "name": "Eureka",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "euroa",
+  "cid": "vic-euroa",
+  "name": "Euroa",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "evelyn",
+  "cid": "vic-evelyn",
+  "name": "Evelyn",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "footscray",
+  "cid": "vic-footscray",
+  "name": "Footscray",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "frankston",
+  "cid": "vic-frankston",
+  "name": "Frankston",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "geelong",
+  "cid": "vic-geelong",
+  "name": "Geelong",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "gippsland-east",
+  "cid": "vic-gippsland-east",
+  "name": "Gippsland East",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "gippsland-south",
+  "cid": "vic-gippsland-south",
+  "name": "Gippsland South",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "glen-waverley",
+  "cid": "vic-glen-waverley",
+  "name": "Glen Waverley",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "greenvale",
+  "cid": "vic-greenvale",
+  "name": "Greenvale",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "hastings",
+  "cid": "vic-hastings",
+  "name": "Hastings",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "hawthorn",
+  "cid": "vic-hawthorn",
+  "name": "Hawthorn",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "ivanhoe",
+  "cid": "vic-ivanhoe",
+  "name": "Ivanhoe",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "kalkallo",
+  "cid": "vic-kalkallo",
+  "name": "Kalkallo",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "kew",
+  "cid": "vic-kew",
+  "name": "Kew",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "kororoit",
+  "cid": "vic-kororoit",
+  "name": "Kororoit",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "lara",
+  "cid": "vic-lara",
+  "name": "Lara",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "laverton",
+  "cid": "vic-laverton",
+  "name": "Laverton",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "lowan",
+  "cid": "vic-lowan",
+  "name": "Lowan",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "macedon",
+  "cid": "vic-macedon",
+  "name": "Macedon",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "malvern",
+  "cid": "vic-malvern",
+  "name": "Malvern",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "melbourne",
+  "cid": "vic-melbourne",
+  "name": "Melbourne",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "melton",
+  "cid": "vic-melton",
+  "name": "Melton",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "mildura",
+  "cid": "vic-mildura",
+  "name": "Mildura",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "mill-park",
+  "cid": "vic-mill-park",
+  "name": "Mill Park",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "monbulk",
+  "cid": "vic-monbulk",
+  "name": "Monbulk",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "mordialloc",
+  "cid": "vic-mordialloc",
+  "name": "Mordialloc",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "mornington",
+  "cid": "vic-mornington",
+  "name": "Mornington",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "morwell",
+  "cid": "vic-morwell",
+  "name": "Morwell",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "mulgrave",
+  "cid": "vic-mulgrave",
+  "name": "Mulgrave",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "murray-plains",
+  "cid": "vic-murray-plains",
+  "name": "Murray Plains",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "narracan",
+  "cid": "vic-narracan",
+  "name": "Narracan",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "narre-warren-north",
+  "cid": "vic-narre-warren-north",
+  "name": "Narre Warren North",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "narre-warren-south",
+  "cid": "vic-narre-warren-south",
+  "name": "Narre Warren South",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "nepean",
+  "cid": "vic-nepean",
+  "name": "Nepean",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "niddrie",
+  "cid": "vic-niddrie",
+  "name": "Niddrie",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "northcote",
+  "cid": "vic-northcote",
+  "name": "Northcote",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "oakleigh",
+  "cid": "vic-oakleigh",
+  "name": "Oakleigh",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "ovens-valley",
+  "cid": "vic-ovens-valley",
+  "name": "Ovens Valley",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "pakenham",
+  "cid": "vic-pakenham",
+  "name": "Pakenham",
+  "region": "Eastern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "pascoe-vale",
+  "cid": "vic-pascoe-vale",
+  "name": "Pascoe Vale",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "point-cook",
+  "cid": "vic-point-cook",
+  "name": "Point Cook",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "polwarth",
+  "cid": "vic-polwarth",
+  "name": "Polwarth",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "prahran",
+  "cid": "vic-prahran",
+  "name": "Prahran",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "preston",
+  "cid": "vic-preston",
+  "name": "Preston",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "richmond",
+  "cid": "vic-richmond",
+  "name": "Richmond",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "ringwood",
+  "cid": "vic-ringwood",
+  "name": "Ringwood",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "ripon",
+  "cid": "vic-ripon",
+  "name": "Ripon",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "rowville",
+  "cid": "vic-rowville",
+  "name": "Rowville",
+  "region": "South-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "sandringham",
+  "cid": "vic-sandringham",
+  "name": "Sandringham",
+  "region": "Southern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "shepparton",
+  "cid": "vic-shepparton",
+  "name": "Shepparton",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "south-barwon",
+  "cid": "vic-south-barwon",
+  "name": "South Barwon",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "south-west-coast",
+  "cid": "vic-south-west-coast",
+  "name": "South-West Coast",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "st-albans",
+  "cid": "vic-st-albans",
+  "name": "St Albans",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "sunbury",
+  "cid": "vic-sunbury",
+  "name": "Sunbury",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "sydenham",
+  "cid": "vic-sydenham",
+  "name": "Sydenham",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "tarneit",
+  "cid": "vic-tarneit",
+  "name": "Tarneit",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "thomastown",
+  "cid": "vic-thomastown",
+  "name": "Thomastown",
+  "region": "Northern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "warrandyte",
+  "cid": "vic-warrandyte",
+  "name": "Warrandyte",
+  "region": "North-Eastern Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "wendouree",
+  "cid": "vic-wendouree",
+  "name": "Wendouree",
+  "region": "Western Victoria"
+ },
+ {
+  "kind": "seat",
+  "slug": "werribee",
+  "cid": "vic-werribee",
+  "name": "Werribee",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "williamstown",
+  "cid": "vic-williamstown",
+  "name": "Williamstown",
+  "region": "Western Metropolitan"
+ },
+ {
+  "kind": "seat",
+  "slug": "yan-yean",
+  "cid": "vic-yan-yean",
+  "name": "Yan Yean",
+  "region": "Northern Victoria"
+ },
+ {
+  "kind": "region",
+  "slug": "eastern-victoria",
+  "cid": "vicr-eastern-victoria",
+  "name": "Eastern Victoria",
+  "districts": [
+   "Bass",
+   "Evelyn",
+   "Gippsland East",
+   "Gippsland South",
+   "Hastings",
+   "Monbulk",
+   "Mornington",
+   "Morwell",
+   "Narracan",
+   "Nepean",
+   "Pakenham"
+  ]
+ },
+ {
+  "kind": "region",
+  "slug": "north-eastern-metropolitan",
+  "cid": "vicr-north-eastern-metropolitan",
+  "name": "North-Eastern Metropolitan",
+  "districts": [
+   "Bayswater",
+   "Box Hill",
+   "Bulleen",
+   "Bundoora",
+   "Croydon",
+   "Eltham",
+   "Glen Waverley",
+   "Ivanhoe",
+   "Mill Park",
+   "Ringwood",
+   "Warrandyte"
+  ]
+ },
+ {
+  "kind": "region",
+  "slug": "northern-metropolitan",
+  "cid": "vicr-northern-metropolitan",
+  "name": "Northern Metropolitan",
+  "districts": [
+   "Broadmeadows",
+   "Brunswick",
+   "Essendon",
+   "Greenvale",
+   "Kalkallo",
+   "Melbourne",
+   "Northcote",
+   "Pascoe Vale",
+   "Preston",
+   "Richmond",
+   "Thomastown"
+  ]
+ },
+ {
+  "kind": "region",
+  "slug": "northern-victoria",
+  "cid": "vicr-northern-victoria",
+  "name": "Northern Victoria",
+  "districts": [
+   "Benambra",
+   "Bendigo East",
+   "Bendigo West",
+   "Eildon",
+   "Euroa",
+   "Macedon",
+   "Mildura",
+   "Murray Plains",
+   "Ovens Valley",
+   "Shepparton",
+   "Yan Yean"
+  ]
+ },
+ {
+  "kind": "region",
+  "slug": "south-eastern-metropolitan",
+  "cid": "vicr-south-eastern-metropolitan",
+  "name": "South-Eastern Metropolitan",
+  "districts": [
+   "Berwick",
+   "Carrum",
+   "Clarinda",
+   "Cranbourne",
+   "Dandenong",
+   "Frankston",
+   "Mordialloc",
+   "Mulgrave",
+   "Narre Warren North",
+   "Narre Warren South",
+   "Rowville"
+  ]
+ },
+ {
+  "kind": "region",
+  "slug": "southern-metropolitan",
+  "cid": "vicr-southern-metropolitan",
+  "name": "Southern Metropolitan",
+  "districts": [
+   "Albert Park",
+   "Ashwood",
+   "Bentleigh",
+   "Brighton",
+   "Caulfield",
+   "Hawthorn",
+   "Kew",
+   "Malvern",
+   "Oakleigh",
+   "Prahran",
+   "Sandringham"
+  ]
+ },
+ {
+  "kind": "region",
+  "slug": "western-metropolitan",
+  "cid": "vicr-western-metropolitan",
+  "name": "Western Metropolitan",
+  "districts": [
+   "Footscray",
+   "Kororoit",
+   "Laverton",
+   "Niddrie",
+   "Point Cook",
+   "St Albans",
+   "Sunbury",
+   "Sydenham",
+   "Tarneit",
+   "Werribee",
+   "Williamstown"
+  ]
+ },
+ {
+  "kind": "region",
+  "slug": "western-victoria",
+  "cid": "vicr-western-victoria",
+  "name": "Western Victoria",
+  "districts": [
+   "Bellarine",
+   "Eureka",
+   "Geelong",
+   "Lara",
+   "Lowan",
+   "Melton",
+   "Polwarth",
+   "Ripon",
+   "South Barwon",
+   "South-West Coast",
+   "Wendouree"
+  ]
+ }
+]

@@ -40,3 +40,5 @@ if PREVIEW:
     for f in ('logo.png', 'mark.png', 'favicon.ico', 'favicon-32.png', 'favicon-192.png', 'apple-touch-icon.png'): shutil.copy('site/' + f, 'site/preview/' + f)
 open(OUT, 'w').write(html)
 print(OUT, len(html), 'bytes; basemap =', basemap)
+if not PREVIEW:   # the per-electorate addresses (/seat/richmond), 404 and sitemap, from the index.html just written
+    import subprocess; subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tools', 'build_pages.py')], check=True)

@@ -52,3 +52,9 @@ data/national/census_booths/
 # social media images and clips (kept out of the repo)
 social/
 Claude outputs/
+
+# built on every deploy by tools/build_pages.py (also run by site/build.py)
+site/seat/
+site/region/
+site/404.html
+site/sitemap.xml
