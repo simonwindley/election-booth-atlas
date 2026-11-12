@@ -96,5 +96,12 @@
    "python3 -m src.export_model_findings"
   ],
   "trigger": null
+ },
+ "state_government_at_federal": {
+  "at": "2026-11-12T16:08:37",
+  "commands": [
+   "python3 -m src.state_government_at_federal"
+  ],
+  "trigger": null
  }
 }

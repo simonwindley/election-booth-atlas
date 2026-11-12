@@ -1,0 +1,394 @@
+{
+ "method": "The outcome is each seat's deviation from the statewide two-party swing: the change in Labor's share of the final two at\nthe seat, minus the statewide swing (src.seat_loss.tpp_swing). Seats that were Labor v Coalition both times only; where the\nboundaries changed, the starting point is the notional Labor two-party share on the new boundaries (src.notional). The\ncontinuous version of seat_loss: every seat counts, not just the ones that change hands.",
+ "swing_by_pair": {
+  "vic1999->vic2002": 7.55,
+  "vic2002->vic2006": -3.39,
+  "vic2006->vic2010": -6.41,
+  "vic2010->vic2014": 3.06,
+  "vic2014->vic2018": 5.4,
+  "vic2018->vic2022": -2.79,
+  "fed2004->fed2007": 5.28,
+  "fed2007->fed2010": 0.87,
+  "fed2010->fed2013": -5.46,
+  "fed2013->fed2016": 1.77,
+  "fed2016->fed2019": 0.9,
+  "fed2019->fed2022": 1.29,
+  "fed2022->fed2025": 1.64
+ },
+ "core_all": {
+  "n": 697,
+  "coef": {
+   "sophomore": [
+    2.002,
+    1.402,
+    2.563
+   ],
+   "open": [
+    0.629,
+    -0.02,
+    1.287
+   ],
+   "veteran": [
+    0.372,
+    0.064,
+    0.701
+   ],
+   "margin": [
+    -0.073,
+    -0.098,
+    -0.05
+   ],
+   "regional": [
+    -1.186,
+    -1.677,
+    -0.66
+   ],
+   "regional_x_swing": [
+    -0.224,
+    -0.322,
+    -0.104
+   ]
+  },
+  "intercept": 0.633,
+  "r2": 0.117,
+  "loeo_rmse": 3.24,
+  "uniform_rmse": 3.354
+ },
+ "core_state": {
+  "n": 472,
+  "coef": {
+   "sophomore": [
+    2.376,
+    1.691,
+    3.033
+   ],
+   "open": [
+    0.423,
+    -0.408,
+    1.374
+   ],
+   "veteran": [
+    0.309,
+    -0.125,
+    0.761
+   ],
+   "margin": [
+    -0.08,
+    -0.111,
+    -0.052
+   ],
+   "regional": [
+    -1.291,
+    -1.917,
+    -0.647
+   ],
+   "regional_x_swing": [
+    -0.231,
+    -0.345,
+    -0.125
+   ]
+  },
+  "intercept": 0.637,
+  "r2": 0.143,
+  "loeo_rmse": 3.42,
+  "uniform_rmse": 3.509
+ },
+ "core_federal": {
+  "n": 225,
+  "coef": {
+   "sophomore": [
+    1.078,
+    0.158,
+    1.911
+   ],
+   "open": [
+    1.107,
+    0.43,
+    1.902
+   ],
+   "veteran": [
+    0.352,
+    -0.24,
+    0.842
+   ],
+   "margin": [
+    -0.049,
+    -0.085,
+    -0.001
+   ],
+   "regional": [
+    -0.962,
+    -1.739,
+    -0.012
+   ],
+   "regional_x_swing": [
+    -0.185,
+    -0.328,
+    -0.033
+   ]
+  },
+  "intercept": 0.587,
+  "r2": 0.069,
+  "loeo_rmse": 3.018,
+  "uniform_rmse": 3.005
+ },
+ "with_momentum": {
+  "n": 298,
+  "coef": {
+   "sophomore": [
+    2.353,
+    1.578,
+    3.043
+   ],
+   "open": [
+    0.514,
+    -0.315,
+    1.428
+   ],
+   "veteran": [
+    0.925,
+    0.466,
+    1.425
+   ],
+   "margin": [
+    -0.106,
+    -0.148,
+    -0.061
+   ],
+   "regional": [
+    0.054,
+    -0.629,
+    0.764
+   ],
+   "regional_x_swing": [
+    -0.079,
+    -0.265,
+    0.077
+   ],
+   "momentum": [
+    -0.08,
+    -0.199,
+    0.018
+   ]
+  },
+  "intercept": 0.212,
+  "r2": 0.172,
+  "loeo_rmse": 3.023,
+  "uniform_rmse": 3.132
+ },
+ "with_demography": {
+  "n": 565,
+  "coef": {
+   "sophomore": [
+    2.335,
+    1.764,
+    2.92
+   ],
+   "open": [
+    0.733,
+    0.065,
+    1.494
+   ],
+   "veteran": [
+    0.197,
+    -0.292,
+    0.608
+   ],
+   "margin": [
+    -0.074,
+    -0.113,
+    -0.039
+   ],
+   "regional": [
+    -0.391,
+    -1.183,
+    0.463
+   ],
+   "regional_x_swing": [
+    -0.092,
+    -0.23,
+    0.037
+   ],
+   "z_bachelor_or_higher": [
+    0.02,
+    -0.358,
+    0.421
+   ],
+   "z_rented": [
+    0.137,
+    -0.157,
+    0.489
+   ],
+   "z_age_65_plus": [
+    -0.243,
+    -0.516,
+    0.046
+   ],
+   "z_born_overseas": [
+    0.45,
+    0.01,
+    0.895
+   ],
+   "z_unemployment_rate": [
+    -0.343,
+    -0.904,
+    0.142
+   ],
+   "el_bachelor_or_higher": [
+    0.001,
+    -0.07,
+    0.082
+   ],
+   "el_rented": [
+    -0.012,
+    -0.079,
+    0.039
+   ],
+   "el_age_65_plus": [
+    -0.03,
+    -0.081,
+    0.027
+   ],
+   "el_born_overseas": [
+    0.092,
+    0.01,
+    0.166
+   ],
+   "el_unemployment_rate": [
+    -0.014,
+    -0.106,
+    0.081
+   ]
+  },
+  "intercept": 0.437,
+  "r2": 0.156,
+  "loeo_rmse": 3.553,
+  "uniform_rmse": 3.527
+ },
+ "demography_only_rows_baseline": {
+  "n": 565,
+  "coef": {
+   "sophomore": [
+    2.283,
+    1.704,
+    2.883
+   ],
+   "open": [
+    0.591,
+    -0.045,
+    1.286
+   ],
+   "veteran": [
+    0.179,
+    -0.259,
+    0.583
+   ],
+   "margin": [
+    -0.076,
+    -0.103,
+    -0.048
+   ],
+   "regional": [
+    -1.354,
+    -1.892,
+    -0.777
+   ],
+   "regional_x_swing": [
+    -0.223,
+    -0.337,
+    -0.119
+   ]
+  },
+  "intercept": 0.719,
+  "r2": 0.135,
+  "loeo_rmse": 3.401,
+  "uniform_rmse": 3.527
+ },
+ "largest_deviations": [
+  {
+   "seat": "Greenvale",
+   "election": "vic2022",
+   "dev_pts": -13.6
+  },
+  {
+   "seat": "Benalla",
+   "election": "vic2006",
+   "dev_pts": -12.1
+  },
+  {
+   "seat": "Melton",
+   "election": "vic2018",
+   "dev_pts": -11.7
+  },
+  {
+   "seat": "Morwell",
+   "election": "vic2002",
+   "dev_pts": -11.6
+  },
+  {
+   "seat": "Bendigo",
+   "election": "fed2025",
+   "dev_pts": -11.3
+  },
+  {
+   "seat": "Mill Park",
+   "election": "vic2022",
+   "dev_pts": -10.7
+  },
+  {
+   "seat": "St Albans",
+   "election": "vic2022",
+   "dev_pts": -9.9
+  },
+  {
+   "seat": "Rodney",
+   "election": "vic2002",
+   "dev_pts": -9.6
+  },
+  {
+   "seat": "Gippsland South",
+   "election": "vic2002",
+   "dev_pts": -9.5
+  },
+  {
+   "seat": "Morwell",
+   "election": "vic2014",
+   "dev_pts": 9.3
+  },
+  {
+   "seat": "Swan Hill",
+   "election": "vic2002",
+   "dev_pts": -9.2
+  },
+  {
+   "seat": "Murray Valley",
+   "election": "vic2010",
+   "dev_pts": 9.1
+  },
+  {
+   "seat": "Yan Yean",
+   "election": "vic2022",
+   "dev_pts": -8.9
+  },
+  {
+   "seat": "Bruce",
+   "election": "fed2025",
+   "dev_pts": 8.9
+  },
+  {
+   "seat": "Gippsland East",
+   "election": "vic2014",
+   "dev_pts": 8.8
+  }
+ ],
+ "findings": [
+  "Most of a seat's deviation from the statewide swing is unpredictable: seats scatter about 3.4 points either side of uniform swing, and the best model cuts that to about 3.2 out of sample. Uniform swing with a handful of adjustments is about as good as it gets.",
+  "The sophomore surge is the clearest effect: a first-term member standing again runs about 2.0 points better than the statewide swing (2.4 at state elections, 1.1 federally).",
+  "Regression to the mean: for every point of margin a seat starts with, it gives back about 0.07 points (a 10-point seat swings back about 0.7 points against the tide).",
+  "Regional seats swing less: they move about 78% of the statewide swing (0.22 points less per point of statewide swing), and over 1999-2025 they drifted about 1.2 points towards the Coalition relative to Melbourne. Much of that regional effect is demographic (it shrinks when census measures are added).",
+  "Open seats: a retiring member costs their party about 0.6 points on average at state elections (not significant on its own), more federally (about 1.1).",
+  "No momentum: a seat that over-swung last time is no more likely to keep going (if anything it swings back slightly).",
+  "Census measures add nothing out of sample once the member and regional effects are in. The one that holds in-sample is the overseas-born share: such seats drift slightly to Labor and amplify the statewide swing (about 9% more swing per standard deviation)."
+ ],
+ "headline": "Seats scatter ~3.4 pts around uniform swing; sophomores run +2.0 pts ahead, margins regress ~0.07 per point, regional seats move ~78% of the state swing."
+}

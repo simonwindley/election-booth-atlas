@@ -1,0 +1,136 @@
+[
+ {
+  "at": "2026-11-12T16:08:25",
+  "why": "baseline 2026-11-12 (before 2026 results)",
+  "values": {
+   "member_personal_vote": {
+    "Sophomore gain (pts) [state]": {
+     "value": 4.2,
+     "lo": 2.83,
+     "hi": 5.57
+    },
+    "Sophomore gain (pts) [federal]": {
+     "value": 1.0,
+     "lo": -1.11,
+     "hi": 3.39
+    },
+    "Open-seat penalty (pts) [state]": {
+     "value": -2.56,
+     "lo": -3.78,
+     "hi": -1.36
+    },
+    "Open-seat penalty (pts) [federal]": {
+     "value": -3.44,
+     "lo": -5.02,
+     "hi": -1.92
+    }
+   },
+   "seat_loss": {
+    "Seat spread around uniform swing (pts)": {
+     "value": 3.25,
+     "lo": null,
+     "hi": null
+    },
+    "Members beat uniform swing by (pts)": {
+     "value": 1.07,
+     "lo": null,
+     "hi": null
+    },
+    "Out-of-sample AUC": {
+     "value": 0.943,
+     "lo": null,
+     "hi": null
+    }
+   },
+   "state_government_at_federal": {
+    "Labor state government, federal Labor swing (pts per unit) [all states, pooled]": {
+     "value": 0.46,
+     "lo": null,
+     "hi": null
+    },
+    "Labor state government, federal Labor swing (pts per unit) [within states]": {
+     "value": 0.39,
+     "lo": null,
+     "hi": null
+    }
+   },
+   "seat_swing_deviation": {
+    "Sophomore surge (pts) [Victoria, state]": {
+     "value": 2.376,
+     "lo": 1.691,
+     "hi": 3.033
+    },
+    "Sophomore surge (pts) [Victoria, federal]": {
+     "value": 1.078,
+     "lo": 0.158,
+     "hi": 1.911
+    },
+    "Regression to the mean (pts per pt of margin)": {
+     "value": -0.073,
+     "lo": -0.098,
+     "hi": -0.05
+    },
+    "Regional dampening (pts per pt of state swing)": {
+     "value": -0.224,
+     "lo": -0.322,
+     "hi": -0.104
+    },
+    "Open seat effect (pts)": {
+     "value": 0.629,
+     "lo": -0.02,
+     "hi": 1.287
+    },
+    "Out-of-sample error (pts)": {
+     "value": 3.24,
+     "lo": null,
+     "hi": null
+    }
+   },
+   "hometown_effect": {
+    "Independents: share kept at 20 km vs 1 km [all]": {
+     "value": 0.54,
+     "lo": null,
+     "hi": null
+    },
+    "Independents: share kept at 20 km vs 1 km [urban]": {
+     "value": 0.66,
+     "lo": null,
+     "hi": null
+    },
+    "Independents: share kept at 20 km vs 1 km [regional]": {
+     "value": 0.53,
+     "lo": null,
+     "hi": null
+    },
+    "Labor: share kept at 20 km vs 1 km": {
+     "value": 0.79,
+     "lo": null,
+     "hi": null
+    },
+    "Independent decay slope (median)": {
+     "value": -0.259,
+     "lo": -0.417,
+     "hi": -0.123
+    }
+   }
+  }
+ },
+ {
+  "at": "2026-11-12T16:08:37",
+  "why": "rerun: state_government_at_federal",
+  "values": {
+   "state_government_at_federal": {
+    "Labor state government, federal Labor swing (pts per unit) [all states, pooled]": {
+     "value": 0.46,
+     "lo": null,
+     "hi": null
+    },
+    "Labor state government, federal Labor swing (pts per unit) [within states]": {
+     "value": 0.39,
+     "lo": null,
+     "hi": null
+    }
+   }
+  }
+ }
+]

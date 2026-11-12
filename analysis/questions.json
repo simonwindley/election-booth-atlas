@@ -109,6 +109,40 @@
     "results_2026",
     "federal_next",
     "state_byelection"
+   ],
+   "vitals": [
+    {
+     "label": "Sophomore gain (pts)",
+     "file": "data/analysis/member_effects.json",
+     "path": "state.sophomore_gain.pts",
+     "lo": "state.sophomore_gain.lo",
+     "hi": "state.sophomore_gain.hi",
+     "scope": "state"
+    },
+    {
+     "label": "Sophomore gain (pts)",
+     "file": "data/analysis/member_effects.json",
+     "path": "federal.sophomore_gain.pts",
+     "lo": "federal.sophomore_gain.lo",
+     "hi": "federal.sophomore_gain.hi",
+     "scope": "federal"
+    },
+    {
+     "label": "Open-seat penalty (pts)",
+     "file": "data/analysis/member_effects.json",
+     "path": "state.open.pts",
+     "lo": "state.open.lo",
+     "hi": "state.open.hi",
+     "scope": "state"
+    },
+    {
+     "label": "Open-seat penalty (pts)",
+     "file": "data/analysis/member_effects.json",
+     "path": "federal.open.pts",
+     "lo": "federal.open.lo",
+     "hi": "federal.open.hi",
+     "scope": "federal"
+    }
    ]
   },
   {
@@ -265,7 +299,24 @@
     "polls_2026",
     "nominations_2026"
    ],
-   "next": "Fill the candidate count from the 2026 ballot draw; add a challenger-strength measure. (Notional margins now used for redrawn seats.)"
+   "next": "Fill the candidate count from the 2026 ballot draw; add a challenger-strength measure. (Notional margins now used for redrawn seats.)",
+   "vitals": [
+    {
+     "label": "Seat spread around uniform swing (pts)",
+     "file": "data/analysis/seat_loss.json",
+     "path": "base.seat_sd_pts"
+    },
+    {
+     "label": "Members beat uniform swing by (pts)",
+     "file": "data/analysis/seat_loss.json",
+     "path": "base.members_beat_uniform_by_pts"
+    },
+    {
+     "label": "Out-of-sample AUC",
+     "file": "data/analysis/seat_loss.json",
+     "path": "base.loeo_auc"
+    }
+   ]
   },
   {
    "id": "two_levels_members",
@@ -336,13 +387,38 @@
   {
    "id": "state_government_at_federal",
    "group": "Two levels",
-   "status": "planned",
+   "status": "first pass done (2026-11-12, federal 2016-2025 only)",
    "question": "The reverse: do Victorians punish the state government at federal elections?",
-   "headline": "",
+   "headline": "No sign of punishment: states with a Labor government swung slightly more to federal Labor (+0.9 pts, not significant), unlike the federal headwind at state elections.",
    "needs": "National federal results to measure Victoria against.",
    "triggers": [
     "national_results",
     "federal_next"
+   ],
+   "run": [
+    "python3 -m src.state_government_at_federal"
+   ],
+   "inputs": [
+    "raw/national/aec"
+   ],
+   "outputs": [
+    "data/analysis/state_government_at_federal.json"
+   ],
+   "result": "Pooled across every state and territory (federal elections 2019, 2022, 2025): where Labor governed the state, federal Labor's swing there was +0.9 points relative to the national swing compared with states under the Coalition (permutation p = 0.47): no sign that voters punish their state government at federal elections, and if anything the opposite. Within each state (when the state government changed party between federal elections): +0.8 points (p = 0.42), from 7 changes of government. Victoria: Labor governed the state at all three, so Victoria cannot answer this on its own; its deviations from the national swing were 2019 +2.5, 2022 -2.0, 2025 -1.6 points.",
+   "next": "Add the 2004-2013 AEC files (tools/fetch_national.sh) to double the sample; add time-in-office of the state government.",
+   "vitals": [
+    {
+     "label": "Labor state government, federal Labor swing (pts per unit)",
+     "file": "data/analysis/state_government_at_federal.json",
+     "path": "pooled.per_labor_state_gov_pts",
+     "scope": "all states, pooled"
+    },
+    {
+     "label": "Labor state government, federal Labor swing (pts per unit)",
+     "file": "data/analysis/state_government_at_federal.json",
+     "path": "within.per_labor_state_gov_pts",
+     "scope": "within states"
+    }
    ]
   },
   {
@@ -443,16 +519,73 @@
   {
    "id": "seat_swing_deviation",
    "group": "Seats",
-   "status": "planned",
+   "status": "first pass done (2026-11-12)",
    "depends_on": [
     "seat_loss",
     "boundary_effects"
    ],
    "question": "What makes a seat swing more or less than the state? The continuous version of seat_loss, with far more statistical power.",
-   "headline": "Seat-level spread around uniform swing is about 3.4 pts (from seat_loss).",
+   "headline": "Seats scatter ~3.4 pts around uniform swing; sophomores run +2.0 pts ahead, margins regress ~0.07 per point, regional seats move ~78% of the state swing.",
    "triggers": [
     "results_2026",
     "census_2026"
+   ],
+   "run": [
+    "python3 -m src.seat_swing_deviation"
+   ],
+   "inputs": [
+    "data/elections.sqlite",
+    "data/analysis/member_history.csv",
+    "data/analysis/notionals.json"
+   ],
+   "outputs": [
+    "data/analysis/seat_swing_deviation.json"
+   ],
+   "result": "Most of a seat's deviation from the statewide swing is unpredictable: seats scatter about 3.4 points either side of uniform swing, and the best model cuts that to about 3.2 out of sample. Uniform swing with a handful of adjustments is about as good as it gets. The sophomore surge is the clearest effect: a first-term member standing again runs about 2.0 points better than the statewide swing (2.4 at state elections, 1.1 federally). Regression to the mean: for every point of margin a seat starts with, it gives back about 0.07 points (a 10-point seat swings back about 0.7 points against the tide). Regional seats swing less: they move about 78% of the statewide swing (0.22 points less per point of statewide swing), and over 1999-2025 they drifted about 1.2 points towards the Coalition relative to Melbourne. Much of that regional effect is demographic (it shrinks when census measures are added).",
+   "next": "Feed the sophomore, regression and regional-dampening terms into the 2026 seat projections (primary_swings / seat model); retest after 2026.",
+   "vitals": [
+    {
+     "label": "Sophomore surge (pts)",
+     "file": "data/analysis/seat_swing_deviation.json",
+     "path": "core_state.coef.sophomore.0",
+     "lo": "core_state.coef.sophomore.1",
+     "hi": "core_state.coef.sophomore.2",
+     "scope": "Victoria, state"
+    },
+    {
+     "label": "Sophomore surge (pts)",
+     "file": "data/analysis/seat_swing_deviation.json",
+     "path": "core_federal.coef.sophomore.0",
+     "lo": "core_federal.coef.sophomore.1",
+     "hi": "core_federal.coef.sophomore.2",
+     "scope": "Victoria, federal"
+    },
+    {
+     "label": "Regression to the mean (pts per pt of margin)",
+     "file": "data/analysis/seat_swing_deviation.json",
+     "path": "core_all.coef.margin.0",
+     "lo": "core_all.coef.margin.1",
+     "hi": "core_all.coef.margin.2"
+    },
+    {
+     "label": "Regional dampening (pts per pt of state swing)",
+     "file": "data/analysis/seat_swing_deviation.json",
+     "path": "core_all.coef.regional_x_swing.0",
+     "lo": "core_all.coef.regional_x_swing.1",
+     "hi": "core_all.coef.regional_x_swing.2"
+    },
+    {
+     "label": "Open seat effect (pts)",
+     "file": "data/analysis/seat_swing_deviation.json",
+     "path": "core_all.coef.open.0",
+     "lo": "core_all.coef.open.1",
+     "hi": "core_all.coef.open.2"
+    },
+    {
+     "label": "Out-of-sample error (pts)",
+     "file": "data/analysis/seat_swing_deviation.json",
+     "path": "core_all.loeo_rmse"
+    }
    ]
   },
   {
@@ -883,7 +1016,39 @@
    "triggers": [
     "results_2026"
    ],
-   "headline": "Independents keep about 54% of their vote 20 km from their best booth (Labor 79%, Coalition 78%); established independents spread out."
+   "headline": "Independents keep about 54% of their vote 20 km from their best booth (Labor 79%, Coalition 78%); established independents spread out.",
+   "vitals": [
+    {
+     "label": "Independents: share kept at 20 km vs 1 km",
+     "file": "data/analysis/hometown_effect.json",
+     "path": "headline.kept_at_20km_vs_1km.independents, all",
+     "scope": "all"
+    },
+    {
+     "label": "Independents: share kept at 20 km vs 1 km",
+     "file": "data/analysis/hometown_effect.json",
+     "path": "headline.kept_at_20km_vs_1km.independents, urban",
+     "scope": "urban"
+    },
+    {
+     "label": "Independents: share kept at 20 km vs 1 km",
+     "file": "data/analysis/hometown_effect.json",
+     "path": "headline.kept_at_20km_vs_1km.independents, regional",
+     "scope": "regional"
+    },
+    {
+     "label": "Labor: share kept at 20 km vs 1 km",
+     "file": "data/analysis/hometown_effect.json",
+     "path": "headline.kept_at_20km_vs_1km.ALP, all"
+    },
+    {
+     "label": "Independent decay slope (median)",
+     "file": "data/analysis/hometown_effect.json",
+     "path": "groups.independents, all.slopes.median_slope",
+     "lo": "groups.independents, all.slopes.iqr.0",
+     "hi": "groups.independents, all.slopes.iqr.1"
+    }
+   ]
   },
   {
    "id": "pbo_commitments",

@@ -8,7 +8,8 @@
   add --dry-run to print the commands without running them, --pages to rebuild the EBA Dark pages afterwards
 
 Commands run from the project root in dependency order, each once even when several questions share it. Each run is
-logged in analysis/runs.json (time, commands, exit codes), so the registry itself only changes when we edit it.
+logged in analysis/runs.json (time, commands, exit codes), so the registry itself only changes when we edit it, and the
+key numbers of each question that ran are added to analysis/vitals_history.json (see tools/findings_report.py).
 """
 import os, sys, json, subprocess, datetime as dt, argparse
 
@@ -114,6 +115,15 @@ def main():
         if mine and all(codes.get(c) == 0 for c in mine):
             runs[i] = {'at': now, 'commands': mine, 'trigger': a.trigger}
     json.dump(runs, open(LOG, 'w'), indent=1)
+    # record the key numbers of what just ran, so tools/findings_report.py can say what held and what faded
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import findings_report
+        ok = [i for i in seq if by[i].get('run') and all(codes.get(c) == 0 for c in by[i]['run'])]
+        v = findings_report.snapshot(a.trigger or 'rerun: ' + ', '.join(ok), ok)
+        if v: print(f"vitals recorded for {len(v)} question(s); report: python3 tools/findings_report.py")
+    except Exception as e:
+        print(f'(vitals not recorded: {e})')
     if a.pages:
         build_pages(qs, seq)
 

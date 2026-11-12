@@ -1,0 +1,295 @@
+{
+ "method": "For each state and territory at each federal election, the swing in Labor's two-party-preferred vote there minus the\nnational swing (AEC House TPP by division, summed by state; raw/national/aec). The predictor is the party governing the\nstate on polling day: +1 Labor, -1 Liberal/National/CLP. If voters take it out on the state government, the coefficient is\nnegative: a Labor state government costs federal Labor in that state.",
+ "elections": [
+  "2016",
+  "2019",
+  "2022",
+  "2025"
+ ],
+ "national_swing_to_alp": {
+  "2019": -1.17,
+  "2022": 3.66,
+  "2025": 3.08
+ },
+ "pooled": {
+  "per_labor_state_gov_pts": 0.46,
+  "note": "deviation per +1 (Labor state government) vs -1 (Coalition); the gap between the two is twice this",
+  "p_perm": 0.471,
+  "n": 24
+ },
+ "within": {
+  "per_labor_state_gov_pts": 0.39,
+  "p_perm": 0.415,
+  "changes_of_government": 7
+ },
+ "victoria": [
+  {
+   "year": "2019",
+   "deviation_pts": 2.48,
+   "state_gov": "ALP"
+  },
+  {
+   "year": "2022",
+   "deviation_pts": -1.97,
+   "state_gov": "ALP"
+  },
+  {
+   "year": "2025",
+   "deviation_pts": -1.56,
+   "state_gov": "ALP"
+  }
+ ],
+ "rows": [
+  {
+   "year": "2019",
+   "state": "SA",
+   "swing": -1.57,
+   "national": -1.17,
+   "dev": -0.39,
+   "gov": -1,
+   "changed": 1,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2019",
+   "state": "VIC",
+   "swing": 1.3,
+   "national": -1.17,
+   "dev": 2.48,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2019",
+   "state": "NSW",
+   "swing": -1.26,
+   "national": -1.17,
+   "dev": -0.09,
+   "gov": -1,
+   "changed": 0,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2019",
+   "state": "TAS",
+   "swing": -1.4,
+   "national": -1.17,
+   "dev": -0.23,
+   "gov": -1,
+   "changed": 0,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2019",
+   "state": "ACT",
+   "swing": 0.49,
+   "national": -1.17,
+   "dev": 1.66,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2019",
+   "state": "QLD",
+   "swing": -4.34,
+   "national": -1.17,
+   "dev": -3.17,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2019",
+   "state": "WA",
+   "swing": -0.9,
+   "national": -1.17,
+   "dev": 0.28,
+   "gov": 1,
+   "changed": 1,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2019",
+   "state": "NT",
+   "swing": -2.87,
+   "national": -1.17,
+   "dev": -1.69,
+   "gov": 1,
+   "changed": 1,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2022",
+   "state": "SA",
+   "swing": 3.27,
+   "national": 3.66,
+   "dev": -0.4,
+   "gov": 1,
+   "changed": 1,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2022",
+   "state": "VIC",
+   "swing": 1.69,
+   "national": 3.66,
+   "dev": -1.97,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2022",
+   "state": "NSW",
+   "swing": 3.2,
+   "national": 3.66,
+   "dev": -0.46,
+   "gov": -1,
+   "changed": 0,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2022",
+   "state": "TAS",
+   "swing": -1.63,
+   "national": 3.66,
+   "dev": -5.3,
+   "gov": -1,
+   "changed": 0,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2022",
+   "state": "ACT",
+   "swing": 5.34,
+   "national": 3.66,
+   "dev": 1.67,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2022",
+   "state": "QLD",
+   "swing": 4.39,
+   "national": 3.66,
+   "dev": 0.73,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2022",
+   "state": "WA",
+   "swing": 10.55,
+   "national": 3.66,
+   "dev": 6.89,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2022",
+   "state": "NT",
+   "swing": 1.35,
+   "national": 3.66,
+   "dev": -2.31,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2025",
+   "state": "SA",
+   "swing": 5.22,
+   "national": 3.08,
+   "dev": 2.14,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2025",
+   "state": "VIC",
+   "swing": 1.52,
+   "national": 3.08,
+   "dev": -1.56,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2025",
+   "state": "NSW",
+   "swing": 3.86,
+   "national": 3.08,
+   "dev": 0.77,
+   "gov": 1,
+   "changed": 1,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2025",
+   "state": "TAS",
+   "swing": 9.01,
+   "national": 3.08,
+   "dev": 5.93,
+   "gov": -1,
+   "changed": 0,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2025",
+   "state": "ACT",
+   "swing": 5.54,
+   "national": 3.08,
+   "dev": 2.45,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2025",
+   "state": "QLD",
+   "swing": 3.47,
+   "national": 3.08,
+   "dev": 0.38,
+   "gov": -1,
+   "changed": 1,
+   "same_as_federal": 0
+  },
+  {
+   "year": "2025",
+   "state": "WA",
+   "swing": 0.85,
+   "national": 3.08,
+   "dev": -2.24,
+   "gov": 1,
+   "changed": 0,
+   "same_as_federal": 1
+  },
+  {
+   "year": "2025",
+   "state": "NT",
+   "swing": -1.29,
+   "national": 3.08,
+   "dev": -4.38,
+   "gov": -1,
+   "changed": 1,
+   "same_as_federal": 0
+  }
+ ],
+ "same_party_both_levels": {
+  "per_unit_pts": 0.8,
+  "note": "+1 when Labor governs both state and federation, -1 when the Coalition does"
+ },
+ "findings": [
+  "Pooled across every state and territory (federal elections 2019, 2022, 2025): where Labor governed the state, federal Labor's swing there was +0.9 points relative to the national swing compared with states under the Coalition (permutation p = 0.47): no sign that voters punish their state government at federal elections, and if anything the opposite.",
+  "Within each state (when the state government changed party between federal elections): +0.8 points (p = 0.42), from 7 changes of government.",
+  "Victoria: Labor governed the state at all three, so Victoria cannot answer this on its own; its deviations from the national swing were 2019 +2.5, 2022 -2.0, 2025 -1.6 points.",
+  "Same party at both levels: +0.80 points per unit (positive would mean a state government of the federal government's party helps it federally).",
+  "Small sample (8 jurisdictions x 3 elections); adding 2004-2013 from the AEC files would more than double it."
+ ]
+}
