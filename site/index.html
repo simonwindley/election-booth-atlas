@@ -452,6 +452,9 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .v2 .shead h1 { font-size: clamp(46px, 7vw, 84px); line-height: 1; letter-spacing: -.02em; font-weight: 800; margin-top: 16px; }
 .v2 .shead .lead { margin: 14px 0 20px; color: var(--fg-2); }
 .v2 .shead .loc { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); width: 34%; max-width: 380px; opacity: .55; }
+.v2 .shead .loc.go { cursor: pointer; transition: opacity .15s; z-index: 2; }
+.v2 .shead .loc.go:hover, .v2 .shead .loc.go:focus-visible { opacity: .9; }
+.v2 .shead .mapcta { display: inline-flex; align-items: center; gap: 8px; height: 44px; font-size: 15px; margin-top: 18px; }
 @media (min-width: 761px) { .v2 .shead .wrap > :not(.loc) { max-width: 60%; position: relative; z-index: 1; } }
 @media (max-width: 760px) { .v2 .shead .wrap { display: flex; flex-direction: column; } .v2 .shead .loc { position: static; transform: none; width: 100%; max-width: 320px; margin-top: 16px; order: 9; } }
 .v2 .crumbs { font-size: 14px; color: var(--fg-2); }
@@ -4290,13 +4293,14 @@ function drawRegion(root, rid) {
   const reg = LCX.regions[rid]; if (!reg) { SEAT.cid = null; return renderSeat(); }
   const noms = LCX.noms && LCX.noms.regions[rid] || [];
   const res22 = (LC.resultBy.get('vic2022|' + rid) || []).slice().sort((a, b) => a.order_elected - b.order_elected);
-  const loc = h('div', { class: 'loc' }); locatorSvg(reg.districts).then(svg => { loc.innerHTML = svg; }).catch(() => {});
+  const loc = h('div', { class: 'loc go', role: 'button', tabindex: '0', title: `See every booth in ${reg.name} Region on the map`, onclick: () => regionOnMap(rid), onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); regionOnMap(rid); } } }); locatorSvg(reg.districts).then(svg => { loc.innerHTML = svg; }).catch(() => {});
   const nCand = noms.reduce((a, g) => a + g.candidates.length, 0), nGrp = noms.filter(g => g.letter).length;
   root.append(h('div', { class: 'shead' }, h('div', { class: 'wrap' }, loc,
     h('div', { class: 'crumbs' }, h('button', { onclick: () => { SEAT.cid = null; try { history.replaceState(null, '', '#seat'); } catch (e) {} renderSeat(); } }, 'Electorates'), ' › Upper house › ', reg.name),
     h('h1', {}, reg.name + ' Region'),
     h('p', { class: 'lead', style: 'max-width:32em' }, `One of the eight Legislative Council regions. Voters across its ${reg.districts.length} electorates elect 5 of the Council's 40 members, on the larger, wider ballot paper.`),
-    h('div', { class: 'badges' }, res22.length ? h('span', { class: 'badge' }, 'Elected in 2022: ', ...res22.map(r => h('span', { class: 'dot', style: `background:${partyColor(r.party)};margin-left:4px`, title: `${r.name} (${niceParty(r.party_name || r.party)})` }))) : '', nCand ? h('span', { class: 'badge' }, `${nCand} candidates in ${nGrp} groups for 2026`) : ''))));
+    h('div', { class: 'badges' }, res22.length ? h('span', { class: 'badge' }, 'Elected in 2022: ', ...res22.map(r => h('span', { class: 'dot', style: `background:${partyColor(r.party)};margin-left:4px`, title: `${r.name} (${niceParty(r.party_name || r.party)})` }))) : '', nCand ? h('span', { class: 'badge' }, `${nCand} candidates in ${nGrp} groups for 2026`) : ''),
+    mapCta('See every booth and the count on the map', () => regionOnMap(rid)))));
   const secs = [['ballot', "Who's standing"], ['how', 'How it works'], ['history', 'Past results'], ['seats', 'Electorates']];
   const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
@@ -4355,6 +4359,10 @@ function twoHouses(cid, c) {
       h('div', { class: 'th' }, h('span', { class: 'tag up' }, 'Upper house'), h('div', {}, h('strong', {}, h('a', { href: '#region/' + rid.replace(/^vicr-/, ''), onclick: (ev) => { ev.preventDefault(); openRegion(rid); } }, `Legislative Council: ${reg.name} Region →`)), h('div', { class: 'hint' }, `The larger ballot paper. Five members for the region this electorate sits in, along with ${reg.districts.length - 1} others.`)))); }).catch(() => {});
   return box;
 }
+// one tap from an electorate or region page to its booths on the map (2022, after preferences), zoomed to fit
+function seatOnMap(cid) { setUnit('booth'); setElection('vic2022'); if (state.metric !== 'tcpwin') { el('sel-metric').value = 'tcpwin'; el('sel-metric').dispatchEvent(new Event('change')); } showView('map'); const oc = contestIn('vic2022', cid, LIVE.election); if (oc) setTimeout(() => selectContest('vic2022', oc.contest_id, true), 400); }
+function regionOnMap(rid) { setUnit('lc'); setElection('vic2022'); showView('map'); setTimeout(() => selectRegion('vic2022', rid, true), 500); }
+const mapCta = (label, go) => { const ic = h('span', { 'aria-hidden': 'true', style: 'display:inline-flex' }); ic.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 3 3 5.5v15.5l6-2.5 6 2.5 6-2.5V3l-6 2.5L9 3zm0 2.2 6 2.5v11.1l-6-2.5V5.2z" fill="currentColor"/></svg>'; return h('button', { class: 'cta mapcta', onclick: go }, ic, label); };
 function renderSeat() {
   const root = el('seat-root'); if (!root) return; root.innerHTML = '';
   if (SEAT.pending) { const p = SEAT.pending; SEAT.pending = null; if (idx.contestById.get(LIVE.election + '|' + p) || p.startsWith('vicr-')) SEAT.cid = p; }
@@ -4378,7 +4386,7 @@ function renderSeat() {
   const cands = D.candidates.filter(x => x.election_id === LIVE.election && x.contest_id === cid).sort((a, b) => (a.ballot_position || 99) - (b.ballot_position || 99) || a.surname.localeCompare(b.surname));
   const sitting = cands.find(x => x.incumbent);
   // header
-  const loc = h('div', { class: 'loc' }); locatorSvg(cid).then(svg => { loc.innerHTML = svg; }).catch(() => {});
+  const loc = h('div', { class: 'loc go', role: 'button', tabindex: '0', title: `See every booth in ${c.contest_name} on the map`, onclick: () => seatOnMap(cid), onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); seatOnMap(cid); } } }); locatorSvg(cid).then(svg => { loc.innerHTML = svg; }).catch(() => {});
   const c22 = idx.contestById.get('vic2022|' + cid);
   root.append(h('div', { class: 'shead' }, h('div', { class: 'wrap' }, loc,
     h('div', { class: 'crumbs' }, h('button', { onclick: () => { SEAT.cid = null; renderSeat(); } }, 'Electorates'), ' › ', c.contest_name),
@@ -4386,7 +4394,8 @@ function renderSeat() {
     h('p', { class: 'lead', style: 'max-width:30em' }, `Legislative Assembly electorate. ${c22 && c22.enrolment ? fmt(c22.enrolment) + ' electors were enrolled in 2022.' : ''}`),
     h('div', { class: 'badges' }, h('span', { class: 'badge' }, h('span', { class: 'dot', style: `background:${partyColor(hc)}` }), 'Held by ' + (c.held_by || '–')),
       lc ? h('span', { class: 'badge' }, `Margin ${(100 * lc.margin).toFixed(1)} points (${shortName(lc.e)})`) : '',
-      ret.length ? h('span', { class: 'badge lime' }, 'Open seat: member retiring') : sitting ? h('span', { class: 'badge' }, `${sitting.given_name} ${sitting.surname} recontesting`) : ''))));
+      ret.length ? h('span', { class: 'badge lime' }, 'Open seat: member retiring') : sitting ? h('span', { class: 'badge' }, `${sitting.given_name} ${sitting.surname} recontesting`) : ''),
+    mapCta('See every booth on the map', () => seatOnMap(cid)))));
   const secs = [['ballot', "Who's standing"], ['vote', 'How to vote'], ['history', 'Past results'], ['booths', 'Booth by booth'], ['timing', 'Timing'], ['people', 'Who lives here']];
   const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', 'data-id': id, class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
@@ -4439,7 +4448,7 @@ function renderSeat() {
   if (DEMOG) fillCensus(); else { cbx.append(h('div', { class: 'empty' }, 'Loading…')); ensureDemog().then(fillCensus); }
   // 5 booths
   const s5 = sec('booths', 6, 'Booth by booth', `Each polling place in ${c.contest_name}, and how the same venue has voted over the years.`);
-  s5.append(h('div', { class: 'row', style: 'gap:10px;flex-wrap:wrap;margin-bottom:16px' }, h('button', { class: 'cta', style: 'height:46px;font-size:15px', onclick: () => { setUnit('booth'); setElection('vic2022'); showView('map'); const oc = contestIn('vic2022', cid, LIVE.election); if (oc) setTimeout(() => selectContest('vic2022', oc.contest_id, true), 400); } }, `Open ${c.contest_name} on the map →`)));
+  s5.append(h('div', { class: 'row', style: 'gap:10px;flex-wrap:wrap;margin-bottom:16px' }, h('button', { class: 'cta', style: 'height:46px;font-size:15px', onclick: () => seatOnMap(cid) }, `Open ${c.contest_name} on the map →`)));
   const oc22 = contestIn('vic2022', cid, LIVE.election);
   const bl = oc22 ? D.booths.filter(b => b.election_id === 'vic2022' && b.contest_id === oc22.contest_id && b.booth_type === 'ordinary').sort((a, b) => a.booth_name.localeCompare(b.booth_name)) : [];
   if (bl.length) {
