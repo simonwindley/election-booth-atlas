@@ -24,7 +24,7 @@ if (/(\\.github\\.io|electionboothatlas\\.(org|com))$/.test(location.hostname)) 
   const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
   s.setAttribute('data-goatcounter', 'https://electionboothatlas.goatcounter.com/count');
   s.setAttribute('data-goatcounter-settings', '{{"no_onload": true}}');
-  s.onload = () => {{ const v = document.querySelector('.view.active'); if (window.goatcounter && v) window.goatcounter.count({{ path: '/' + v.id.replace('view-', ''), title: document.title }}); }};
+  s.onload = () => {{ const v = document.querySelector('.view.active'); if (window.goatcounter && v) window.goatcounter.count({{ path: window.gcPath ? gcPath(v.id.replace('view-', '')) : '/' + v.id.replace('view-', ''), title: document.title }}); }};
   document.head.append(s);
 }}
 </script>

@@ -15,7 +15,7 @@ if (/(\.github\.io|electionboothatlas\.(org|com))$/.test(location.hostname)) {
   const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
   s.setAttribute('data-goatcounter', 'https://electionboothatlas.goatcounter.com/count');
   s.setAttribute('data-goatcounter-settings', '{"no_onload": true}');
-  s.onload = () => { const v = document.querySelector('.view.active'); if (window.goatcounter && v) window.goatcounter.count({ path: '/' + v.id.replace('view-', ''), title: document.title }); };
+  s.onload = () => { const v = document.querySelector('.view.active'); if (window.goatcounter && v) window.goatcounter.count({ path: window.gcPath ? gcPath(v.id.replace('view-', '')) : '/' + v.id.replace('view-', ''), title: document.title }); };
   document.head.append(s);
 }
 </script>
@@ -4222,7 +4222,7 @@ function ensureLcx() {
     .then(([rg, nm]) => { LCX.regions = rg.regions; LCX.noms = nm; LCX.regionOf = new Map(); for (const [rid, r] of Object.entries(rg.regions)) for (const d of r.districts) LCX.regionOf.set(d, rid); return LCX; });
   return LCX.p;
 }
-function openRegion(rid) { SEAT.cid = rid; try { history.replaceState(null, '', '#region/' + rid.replace(/^vicr-/, '')); } catch (e) {} if (activeView() !== 'seat') showView('seat'); else renderSeat(); window.scrollTo(0, 0); }
+function openRegion(rid) { SEAT.cid = rid; try { history.replaceState(null, '', '#region/' + rid.replace(/^vicr-/, '')); } catch (e) {} if (activeView() !== 'seat') showView('seat'); else { renderSeat(); gcCount('seat'); } window.scrollTo(0, 0); }
 const niceParty = (n) => { n = String(n || ''); if (/[a-z]/.test(n)) return n.replace(/ - Victorian Branch$/, ''); return n.toLowerCase().replace(/\b\w/g, m => m.toUpperCase()).replace(/'S\b/g, "'s").replace(/\b(Dlp|Aus|Vic)\b/g, m => m.toUpperCase()).replace(/ - Victorian Branch$/, ''); };
 const lcParty = (name) => { const n = String(name || '').toLowerCase(); return /labor party/.test(n) ? 'ALP' : /liberal|national/.test(n) && !/libertarian|democrats/.test(n) ? 'COAL' : /greens/.test(n) ? 'GRN' : /one nation/.test(n) ? 'ONP' : /victorian socialists/.test(n) ? 'VSP' : 'OTH'; };
 // a practice upper-house ballot: groups across the top, number at least one box above the line
@@ -4465,8 +4465,11 @@ function showView(name) {
   if (name === 'home') renderHome();
   if (name === 'seat') renderSeat();
   try { localStorage.setItem('atlas.view', name); } catch (e) {}
-  if (window.__GC && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: '/' + name, title: document.title });   // one count per tab opened; nothing else is sent
+  gcCount(name);
 }
+// visit counts: one per tab opened, and per electorate or region page (e.g. /seat/richmond); nothing else is sent
+function gcPath(name) { const m = name === 'seat' && location.hash.match(/^#(seat|region)\/([a-z0-9-]+)/i); return m ? `/${m[1]}/${decodeURIComponent(m[2]).replace(/^vicr?-/, '')}` : '/' + name; }
+function gcCount(name) { if (window.__GC && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: gcPath(name), title: document.title }); }
 function fillCensusSelect() {
   const cs = el('sel-census'), set = demogSet(state.election); if (!set) return;
   if (!cs.dataset.wired) { cs.dataset.wired = '1'; cs.addEventListener('change', (ev) => { state.census = ev.target.value; renderMap(); }); }
