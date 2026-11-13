@@ -1402,6 +1402,19 @@ function expectBlock(eid, b) {
   if (!b22) return h('div', { class: 'hint' }, 'A new booth: nothing from 2022 to go on.');
   const here = partyShares('vic2022', b22.booth_id); if (!here.formal) return null;
   const dist = contestShares('vic2022', b22.contest_id);
+  if (!LIVE.available) {   // before election night: what happened here, no model and nothing projected
+    const c22 = idx.contestById.get('vic2022|' + b22.contest_id); const cname = c22 ? c22.contest_name : 'the electorate';
+    const b18 = (idx.boothsByVenue.get(b.venue_id) || []).find(x => x.election_id === 'vic2018' && x.booth_type === 'ordinary'); const was = b18 ? partyShares('vic2018', b18.booth_id) : null; const has18 = !!(was && was.formal);
+    const sp = (d) => (d >= 0 ? '+' : '−') + (100 * Math.abs(d)).toFixed(1);
+    const ps = PARTIES.filter(p => here[p] && here[p].share >= 0.02);
+    const box = h('div', { style: 'margin:6px 0 10px' }, h('h3', {}, 'This booth last time (2022)'));
+    box.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Party'), h('th', { class: 'num' }, 'Primary here'), h('th', { class: 'num', title: `this booth against ${cname} as a whole in 2022` }, `vs ${cname}`), has18 ? h('th', { class: 'num', title: 'change in the party\'s share at this venue since 2018' }, 'Since 2018') : '')),
+      h('tbody', {}, ...ps.map(p => { const d = here[p].share - (dist[p] ? dist[p].share : 0); const s18 = has18 && was[p] && was[p].share > 0 ? here[p].share - was[p].share : null;
+        return h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p])), h('td', { class: 'num' }, pct(here[p].share)), h('td', { class: 'num', style: Math.abs(d) >= 0.05 ? 'font-weight:600' : '' }, sp(d)), has18 ? h('td', { class: 'num', title: s18 == null ? 'no candidate here in 2018' : '' }, s18 == null ? 'new' : sp(s18)) : ''); })))));
+    const t22 = tcpShares('vic2022', b22.booth_id); const top = t22 ? [...t22].sort((x, y) => y.share - x.share)[0] : null;
+    box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, `${fmt(here.formal)} formal votes here in 2022${top ? `; after preferences ${top.cand ? top.cand.surname : PARTY_NAME[top.party] || top.party} ${pct(top.share)}` : ''}. Points above or below ${cname} as a whole${has18 ? ', and the change at this venue since 2018' : ''}. This year's figures appear here from 6 pm on 28 November.`));
+    return box;
+  }
   // the projection engine's swing estimate for this booth (electorate's counted booths, nearest counted booths, the state, the booth's census profile)
   const P = LIVE.available ? projectBooth(b.contest_id, b) : null;
   const use = P && P.swing && P.swing.n && P.swing.n.state ? { sw: P.swing.sw, what: P.swing.basis } : null;
