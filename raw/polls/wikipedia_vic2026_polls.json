@@ -1,7 +1,7 @@
 {
 "meta": {
-"retrieved": "2026-11-12T02:03:54.389897+00:00",
-"last_edited": "This page was last edited on 11 November 2026, at 10:20\u00a0(UTC).",
+"retrieved": "2026-11-13T12:41:38.478512+00:00",
+"last_edited": "This page was last edited on 13 November 2026, at 12:34\u00a0(UTC).",
 "url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Victorian_state_election"
 },
 "tables": [
@@ -58,6 +58,21 @@
 ""
 ],
 [
+"13 Nov",
+"Lighthouse/Growth Intelligence Centre",
+"Herald Sun",
+"1,351",
+"21%",
+"32%",
+"14%",
+"23%",
+"10%",
+"<",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a"
+],
+[
 "3\u201310 Nov",
 "RedBridge/Accent",
 "Australian Financial Review",
@@ -82,7 +97,7 @@
 "^",
 "^",
 "^",
-"^",
+"<",
 "55%",
 "\u2014N/a",
 "45%"
@@ -1886,7 +1901,6 @@
 "35%",
 "15%",
 "29%",
-"^",
 "14%"
 ],
 [
@@ -2620,6 +2634,42 @@
 "Neg.",
 "DK",
 "Net"
+],
+[
+"13 Nov 2026",
+"Lighthouse/Growth Intelligence Centre",
+"Herald Sun",
+"1,358",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a",
+"\u221219%",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a",
+"+17%",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a"
+],
+[
+"3 \u2013 10 Nov 2026",
+"RedBridge/Accent",
+"Australian Financial Review",
+"1,008",
+"19%",
+"47%",
+"34%",
+"\u221228%",
+"35%",
+"28%",
+"37%",
+"+7%",
+"17%",
+"25%",
+"36%",
+"\u22128%"
 ],
 [
 "2 \u2013 7 Nov 2026",
