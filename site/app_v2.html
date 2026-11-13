@@ -4296,9 +4296,16 @@ function drawRegion(root, rid) {
     h('div', { class: 'badges' }, res22.length ? h('span', { class: 'badge' }, 'Elected in 2022: ', ...res22.map(r => h('span', { class: 'dot', style: `background:${partyColor(r.party)};margin-left:4px`, title: `${r.name} (${niceParty(r.party_name || r.party)})` }))) : '', nCand ? h('span', { class: 'badge' }, `${nCand} candidates in ${nGrp} groups for 2026`) : ''),
     mapCta('See every booth and the count on the map', () => regionOnMap(rid)))));
   const secs = [['ballot', "Who's standing"], ['how', 'How it works'], ['history', 'Past results'], ['seats', 'Electorates']];
-  const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
+  const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', 'data-id': id, class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
   const body = h('div', { class: 'wrap', style: 'padding-bottom:56px' }); root.append(body);
+  // keep the "On this page" bar in step with the reader: the section under the bar is the one highlighted
+  { const spy = () => { if (!nav.isConnected) return; const navB = nav.getBoundingClientRect().bottom; let cur = secs[0][0];
+      for (const [id] of secs) { const s2 = root.querySelector('#s-' + id); if (s2 && s2.getBoundingClientRect().top <= navB + 48) cur = id; }
+      for (const a of nav.querySelectorAll('a')) { const on = a.dataset.id === cur; if (on !== a.classList.contains('on')) { a.classList.toggle('on', on); if (on) { const w = nav.firstChild; if (w && w.scrollWidth > w.clientWidth) w.scrollLeft = Math.max(0, a.offsetLeft - 16); } } } };
+    const key = (root.closest('.view') || {}).id || 'page'; if (SEAT_SPY[key]) SEAT_SPY[key].el.removeEventListener('scroll', SEAT_SPY[key].fn);
+    const vw = root.closest('.view'); const el = vw && getComputedStyle(vw).overflowY !== 'visible' ? vw : window; const fn = () => requestAnimationFrame(spy);
+    el.addEventListener('scroll', fn, { passive: true }); SEAT_SPY[key] = { el, fn }; }
   const sec = (id, n, title, sub) => { const s = h('section', { class: 'sec', id: 's-' + id }, h('h2', {}, h('span', { class: 'bnum r' + ((n % 3) + 1), style: 'width:40px;height:40px;font-size:20px' }, String(n)), title), sub ? h('p', { class: 'sub' }, sub) : ''); body.append(s); return s; };
   // 1 the ballot
   const s1 = sec('ballot', 1, "Who's standing in 2026", nCand ? `${nCand} candidates in ${nGrp} groups${noms.some(g => !g.letter) ? ', plus ungrouped candidates' : ''}, in the order drawn for the ballot paper (VEC, captured ${LCX.noms.captured}).` : 'Nominations not loaded yet.');
@@ -4394,6 +4401,13 @@ function renderSeat() {
   const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', 'data-id': id, class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
   const body = h('div', { class: 'wrap', style: 'padding-bottom:56px' }); root.append(body);
+  // keep the "On this page" bar in step with the reader: the section under the bar is the one highlighted
+  { const spy = () => { if (!nav.isConnected) return; const navB = nav.getBoundingClientRect().bottom; let cur = secs[0][0];
+      for (const [id] of secs) { const s2 = root.querySelector('#s-' + id); if (s2 && s2.getBoundingClientRect().top <= navB + 48) cur = id; }
+      for (const a of nav.querySelectorAll('a')) { const on = a.dataset.id === cur; if (on !== a.classList.contains('on')) { a.classList.toggle('on', on); if (on) { const w = nav.firstChild; if (w && w.scrollWidth > w.clientWidth) w.scrollLeft = Math.max(0, a.offsetLeft - 16); } } } };
+    const key = (root.closest('.view') || {}).id || 'page'; if (SEAT_SPY[key]) SEAT_SPY[key].el.removeEventListener('scroll', SEAT_SPY[key].fn);
+    const vw = root.closest('.view'); const el = vw && getComputedStyle(vw).overflowY !== 'visible' ? vw : window; const fn = () => requestAnimationFrame(spy);
+    el.addEventListener('scroll', fn, { passive: true }); SEAT_SPY[key] = { el, fn }; }
   const sec = (id, n, title, sub) => { const s = h('section', { class: 'sec', id: 's-' + id }, h('h2', {}, h('span', { class: 'bnum r' + ((n % 3) + 1), style: 'width:40px;height:40px;font-size:20px' }, String(n)), title), sub ? h('p', { class: 'sub' }, sub) : ''); body.append(s); return s; };
   body.append(twoHouses(cid, c));
   // 1 candidates
@@ -4473,6 +4487,7 @@ function renderSeat() {
 }
 
 /* ---------- wiring ---------- */
+const SEAT_SPY = {};   // each page's scroll listener for its section bar, one per view
 function showView(name) {
   for (const s of document.querySelectorAll('.view')) s.classList.toggle('active', s.id === 'view-' + name);
   for (const b of document.querySelectorAll('nav.views button')) { if (b.dataset.view === name) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); }
