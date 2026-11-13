@@ -2255,17 +2255,17 @@ function renderTimingBook() {
   const s1 = h('div', { class: 'bk-sec v2' }, h('h3', {}, 'The rise of the early vote'), h('div', { class: 'vtlegend' }, ...VT.map(([k, lab, col]) => h('span', {}, h('i', { style: `background:var(${col})` }), lab))),
     h('div', { class: 'vtrows' }, ...years.filter(e => st[e]).map(e => h('div', { class: 'vtrow' }, h('span', { class: 'y' }, 'Victoria ' + yl(e)), typeBar(st[e])))));
   const a = st[years[0]], z = st[years[years.length - 1]];
-  if (a && z) s1.append(h('p', { class: 'hint', style: 'margin-top:8px' }, `Votes cast on election day fell from ${pct(a.ordinary / a.total)} of the total in ${yl(years[0])} to ${pct(z.ordinary / z.total)} in ${yl(years[years.length - 1])}, and early votes rose from ${pct(a.early / a.total)} to ${pct(z.early / z.total)}. The most counted on election night is now a minority of the vote.`));
+  if (a && z) s1.append(h('p', { class: 'hint', style: 'margin-top:8px' }, `Votes cast on election day at booths in the voter's own electorate fell from ${pct(a.ordinary / a.total)} of the total in ${yl(years[0])} to ${pct(z.ordinary / z.total)} in ${yl(years[years.length - 1])}; counting absent votes (cast on the day outside the voter's own electorate), all election-day voting fell from ${pct((a.ordinary + a.absent) / a.total)} to ${pct((z.ordinary + z.absent) / z.total)}. Early votes rose from ${pct(a.early / a.total)} to ${pct(z.early / z.total)}. The vote counted in the booths on election night is now a minority of the total.`));
   // seats by election-day share, last election
   const last = years[years.length - 1], tbc = timingByContest(last);
   const rows = []; for (const [cid, o] of tbc) { const c = idx.contestById.get(last + '|' + cid); if (!c || c.house === 'LC') continue; const t = VT.reduce((s, [k]) => s + o[k].formal, 0); if (t) rows.push({ c, o, t, day: o.ordinary.formal / t, early: o.early.formal / t, post: o.postal.formal / t }); }
   const list = (arr, f) => h('ol', { class: 'vtsteps' }, ...arr.map(r => h('li', {}, h('a', { href: '#', onclick: (ev) => { ev.preventDefault(); const c26 = contestIn(LIVE.election, r.c.contest_id, last); if (c26) openSeat(c26.contest_id); } }, r.c.contest_name), ': ', f(r))));
   const byDay = rows.slice().sort((x, y) => y.day - x.day), byPost = rows.slice().sort((x, y) => y.post - x.post);
   const s2 = h('div', { class: 'bk-sec v2' }, h('h3', {}, `Who votes when, ${yl(last)}`), h('div', { class: 'grid2' },
-    h('div', {}, h('strong', {}, 'Most votes cast on the day'), list(byDay.slice(0, 5), r => pct(r.day))),
+    h('div', {}, h('strong', {}, 'Most votes cast at local booths on the day'), list(byDay.slice(0, 5), r => pct(r.day))),
     h('div', {}, h('strong', {}, 'Most votes cast early'), list(rows.slice().sort((x, y) => y.early - x.early).slice(0, 5), r => pct(r.early))),
     h('div', {}, h('strong', {}, 'Most postal votes'), list(byPost.slice(0, 5), r => pct(r.post))),
-    h('div', {}, h('strong', {}, 'Fewest votes cast on the day'), list(byDay.slice(-5).reverse(), r => pct(r.day)))));
+    h('div', {}, h('strong', {}, 'Fewest votes cast at local booths on the day'), list(byDay.slice(-5).reverse(), r => pct(r.day)))));
   // how each type leaned, Labor v Coalition seats, both sides shown
   const sum = {}; for (const [k] of VT) sum[k] = { ALP: 0, COAL: 0 };
   let nLC = 0; for (const r of rows) { const pair = Object.keys(VT.reduce((acc, [k]) => Object.assign(acc, r.o[k].tcp), {})); if (!(pair.length === 2 && pair.includes('ALP') && pair.includes('COAL'))) continue; nLC++; for (const [k] of VT) { sum[k].ALP += r.o[k].tcp.ALP || 0; sum[k].COAL += r.o[k].tcp.COAL || 0; } }
@@ -4201,7 +4201,7 @@ function boothAlp(eid, bid) {
 function boothTcpShare(eid, bid, party) { boothAlp(eid, bid); const o = TCPB.get(eid + '|' + bid); if (!o) return null; const tot = Object.values(o).reduce((a, b) => a + b, 0); return o[party] != null && tot ? o[party] / tot : null; }
 function boothPair(eid, bid) { boothAlp(eid, bid); const o = TCPB.get(eid + '|' + bid); return o ? Object.keys(o) : []; }
 // "It's all in the timing": how a seat's votes split by type (on the day, early, postal, absent and other) and how each type leaned
-const VT = [['ordinary', 'On the day', '--sky-3'], ['early', 'Early', '--accent'], ['postal', 'Postal', '--lime'], ['other', 'Absent and other', '--line']];
+const VT = [['ordinary', 'On the day, local booths', '--sky-3'], ['early', 'Early', '--accent'], ['postal', 'Postal', '--lime'], ['other', 'Absent (on the day, elsewhere) and other', '--line']];
 const vtOf = (t) => t === 'ordinary' || t === 'early' || t === 'postal' ? t : 'other';
 let VT_STATE = null;
 function voteTypes(eid, cid) {   // {type: {formal, tcp: {party: votes}}}
@@ -4211,8 +4211,8 @@ function voteTypes(eid, cid) {   // {type: {formal, tcp: {party: votes}}}
 }
 function stateVoteTypes() {
   if (VT_STATE) return VT_STATE; VT_STATE = {};
-  const type = new Map(D.booths.map(b => [b.election_id + '|' + b.booth_id, vtOf(b.booth_type)]));
-  for (const r of D.shares) { if (!/^vic(19|20)\d\d$/.test(r.election_id)) continue; const t = type.get(r.election_id + '|' + r.booth_id); if (!t) continue; const o = VT_STATE[r.election_id] || (VT_STATE[r.election_id] = { total: 0 }); o[t] = (o[t] || 0) + r.votes; o.total += r.votes; }
+  const raw = new Map(D.booths.map(b => [b.election_id + '|' + b.booth_id, b.booth_type]));
+  for (const r of D.shares) { if (!/^vic(19|20)\d\d$/.test(r.election_id)) continue; const bt = raw.get(r.election_id + '|' + r.booth_id); if (!bt) continue; const t = vtOf(bt); const o = VT_STATE[r.election_id] || (VT_STATE[r.election_id] = { total: 0, absent: 0 }); o[t] = (o[t] || 0) + r.votes; o.total += r.votes; if (bt === 'absent') o.absent += r.votes; }   // absent votes are election-day votes cast outside the voter's own electorate
   return VT_STATE;
 }
 function typeBar(o) { const tot = VT.reduce((a, [k]) => a + (o[k] ? o[k].formal != null ? o[k].formal : o[k] : 0), 0); return h('div', { class: 'vtbar', role: 'img', 'aria-label': VT.map(([k, lab]) => { const v = o[k] ? (o[k].formal != null ? o[k].formal : o[k]) : 0; return `${lab} ${tot ? Math.round(100 * v / tot) : 0}%`; }).join(', ') }, ...VT.map(([k, lab, col]) => { const v = o[k] ? (o[k].formal != null ? o[k].formal : o[k]) : 0; const w = tot ? 100 * v / tot : 0; return w > 0 ? h('span', { style: `width:${w}%;background:var(${col})`, title: `${lab}: ${w.toFixed(1)}%` }, w >= 9 ? Math.round(w) + '%' : '') : ''; })); }
@@ -4225,7 +4225,7 @@ function timingBlock(cid, c, held) {
   const last = rows[rows.length - 1], tot = VT.reduce((a, [k]) => a + last.vt[k].formal, 0), sh = (k) => tot ? last.vt[k].formal / tot : 0;
   const lastE = idx.electionById.get(last.e);
   // the headline
-  const big = VT.slice(0, 3).map(([k, lab, col]) => h('div', { class: 'vtstat' }, h('span', { class: 'v', style: `color:var(${col === '--lime' ? '--fg' : col})` }, pct(sh(k))), h('span', { class: 'k' }, `${lab === 'On the day' ? 'voted on the day' : lab === 'Early' ? 'voted early' : 'voted by post'}, ${shortName(lastE)}`)));
+  const big = VT.slice(0, 3).map(([k, lab, col]) => h('div', { class: 'vtstat' }, h('span', { class: 'v', style: `color:var(${col === '--lime' ? '--fg' : col})` }, pct(sh(k))), h('span', { class: 'k' }, `${k === 'ordinary' ? 'voted at a local booth on the day' : k === 'early' ? 'voted early' : 'voted by post'}, ${shortName(lastE)}`)));
   wrap.append(h('div', { class: 'vtstats' }, ...big));
   // the shift over time, this seat and Victoria
   const legend = h('div', { class: 'vtlegend' }, ...VT.map(([k, lab, col]) => h('span', {}, h('i', { style: `background:var(${col})` }), lab)));
@@ -4233,7 +4233,7 @@ function timingBlock(cid, c, held) {
   const first = rows[0], ft = VT.reduce((a, [k]) => a + first.vt[k].formal, 0);
   const s10 = st.vic2010, s22 = st[last.e];
   wrap.append(h('div', { class: 'box' }, h('h3', {}, 'When people here vote'), legend, tbl,
-    h('p', { class: 'hint', style: 'margin-top:8px' }, `${c.contest_name}: ${pct(ft ? first.vt.ordinary.formal / ft : 0)} of votes were cast on the day in ${shortName(idx.electionById.get(first.e))}, ${pct(sh('ordinary'))} in ${shortName(lastE)}.`, s10 && s22 ? ` Across Victoria it went from ${pct(s10.ordinary / s10.total)} to ${pct(s22.ordinary / s22.total)}${s22.early > s22.ordinary ? `, and in ${shortName(lastE).replace(/\D+/g, '')} early votes outnumbered election-day votes for the first time.` : '.'}` : '')));
+    h('p', { class: 'hint', style: 'margin-top:8px' }, `${c.contest_name}: ${pct(ft ? first.vt.ordinary.formal / ft : 0)} of votes were cast at the electorate's own booths on the day in ${shortName(idx.electionById.get(first.e))}, ${pct(sh('ordinary'))} in ${shortName(lastE)}.`, s10 && s22 ? ` Across Victoria it went from ${pct(s10.ordinary / s10.total)} to ${pct(s22.ordinary / s22.total)}${s22.early > s22.ordinary ? `, and in ${shortName(lastE).replace(/\D+/g, '')} early votes outnumbered election-day votes for the first time.` : '.'}` : '')));
   // how each type leaned, read from the side of the party that holds the seat (switchable in the booth table below)
   const pair = Object.keys(VT.reduce((a, [k]) => Object.assign(a, last.vt[k].tcp), {})).filter(p => p !== '?');
   if (pair.length === 2) {
