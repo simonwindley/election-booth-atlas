@@ -4240,11 +4240,12 @@ function ensureLcx() {
 function openRegion(rid) { SEAT.cid = rid; try { history.replaceState(null, '', '#region/' + rid.replace(/^vicr-/, '')); } catch (e) {} if (activeView() !== 'seat') showView('seat'); else { renderSeat(); gcCount('seat'); } window.scrollTo(0, 0); }
 const niceParty = (n) => { n = String(n || ''); if (/[a-z]/.test(n)) return n.replace(/ - Victorian Branch$/, ''); return n.toLowerCase().replace(/\b\w/g, m => m.toUpperCase()).replace(/'S\b/g, "'s").replace(/\b(Dlp|Aus|Vic)\b/g, m => m.toUpperCase()).replace(/ - Victorian Branch$/, ''); };
 const lcParty = (name) => { const n = String(name || '').toLowerCase(); return /labor party/.test(n) ? 'ALP' : /liberal|national/.test(n) && !/libertarian|democrats/.test(n) ? 'COAL' : /greens/.test(n) ? 'GRN' : /one nation/.test(n) ? 'ONP' : /victorian socialists/.test(n) ? 'VSP' : 'OTH'; };
-// a practice upper-house ballot: groups across the top, number at least one box above the line
+// a practice upper-house ballot: groups across the top; 2026 rules (no group voting tickets): number at least 5 boxes above the line, or at least 5 below it, not both
 function lcBallot(rid, reg, noms) {
   const groups = noms.filter(g => g.letter), ungrouped = noms.filter(g => !g.letter);
   // above the line: one box per group; below the line: one box per candidate (grouped and ungrouped), numbered separately
   const cands = []; for (const g of noms) for (const x of g.candidates) cands.push({ g, x });
+  const NA = Math.min(5, groups.length), NB = Math.min(5, cands.length);   // VEC, 2026: at least 5 boxes above the line, or at least 5 below
   const skey = `${LIVE.election}|${rid}`, snames = groups.map(g => `${g.letter}|${g.name}`), nums = BSTORE.load(skey, snames);
   const bkey = skey + '|btl', bnames = cands.map(c => `${c.g.letter || '-'}|${c.x.surname}|${c.x.given}`), bnums = BSTORE.load(bkey, bnames);
   const status = h('div', { class: 'ballot-status', 'aria-live': 'polite' }); const boxes = [], sqs = [];
@@ -4254,10 +4255,12 @@ function lcBallot(rid, reg, noms) {
     for (const q of sqs) { q.sq.textContent = bnums.has(q.i) ? bnums.get(q.i) : ''; q.btn.setAttribute('aria-label', `${q.x.surname}, ${q.x.given}, below the line${bnums.has(q.i) ? ', numbered ' + bnums.get(q.i) : ''}`); q.btn.classList.toggle('on', bnums.has(q.i)); }
     status.innerHTML = ''; BSTORE.save(skey, snames, nums); BSTORE.save(bkey, bnames, bnums);
     const a = nums.size, b = bnums.size;
-    if (!a && !b) status.append('Number at least 1 box above the line, or at least 5 candidates below it, in your order.');
-    else if (b >= 5) status.append(h('strong', {}, 'That would be a formal vote, below the line.'), ` ${b} candidates numbered: your vote moves from candidate to candidate in exactly your order, and stops after your last number.${a ? ' When both are filled in, a formal vote below the line is the one that counts, so your above-the-line numbers would be set aside.' : ''}`);
-    else if (a) status.append(h('strong', {}, 'That would be a formal vote, above the line.'), ` ${a} group${a > 1 ? 's' : ''} numbered: your vote goes to each group's candidates in the group's order, group by group in your order, and stops there.${b ? ` Below the line you've numbered ${b}: it needs at least 5 to count, so as it stands your above-the-line vote is the one that counts.` : ''}`);
-    else status.append(`${b} numbered below the line. Keep going: below the line needs at least 5 numbers to count.`);
+    if (!a && !b) status.append(`Number at least ${NA} boxes above the line, or at least ${NB} boxes below it, in the order of your choice.`);
+    else if (a && b) status.append(h('strong', {}, 'Vote above the line or below it, not both.'), ` You\'ve numbered ${a} above the line and ${b} below. The ballot paper asks for one or the other: take the numbers off one side.`);
+    else if (b >= NB) status.append(h('strong', {}, 'That would be a formal vote, below the line.'), ` ${b} candidates numbered: your vote moves from candidate to candidate in exactly your order, and stops after your last number.`);
+    else if (b) status.append(h('strong', {}, 'Not enough boxes yet.'), ` ${b} numbered below the line. Keep going: number at least ${NB} boxes below the line for your vote to count.`);
+    else if (a >= NA) status.append(h('strong', {}, 'That would be a formal vote, above the line.'), ` ${a} groups numbered: your vote goes to each group\'s candidates in the order printed, group by group in your order, and stops after your last number.`);
+    else status.append(h('strong', {}, 'Not enough boxes yet.'), ` ${a} numbered above the line. Keep going: number at least ${NA} boxes above the line for your vote to count.`);
   };
   const paper = h('div', { class: 'lcballot', role: 'group', 'aria-label': `Practice upper-house ballot for ${reg.name}` });
   const cols = h('div', { class: 'lccols' });
@@ -4273,7 +4276,7 @@ function lcBallot(rid, reg, noms) {
       h('div', { class: 'btl' }, ...g.candidates.map(x => btlRow(g, x)))));
   });
   for (const g of ungrouped) cols.append(h('div', { class: 'lccol ug' }, h('div', { class: 'gl' }, '–'), h('div', { class: 'atl none' }), h('div', { class: 'gn' }, 'Ungrouped'), h('div', { class: 'btl' }, ...g.candidates.map(x => btlRow(g, x)))));
-  paper.append(h('div', { class: 'ballot-head' }, h('div', { class: 'k' }, 'Legislative Council'), h('div', { class: 'e' }, `${reg.name} Region`), h('div', { class: 'i' }, 'Above the line: number at least 1 box · or below the line: number at least 5 boxes')),
+  paper.append(h('div', { class: 'ballot-head' }, h('div', { class: 'k' }, 'Legislative Council'), h('div', { class: 'e' }, `${reg.name} Region`), h('div', { class: 'i' }, `Number at least ${NA} boxes above the line · or at least ${NB} boxes below the line`)),
     h('div', { class: 'lcscroll' }, cols));
   const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); bnums.clear(); refresh(); } }, 'Clear');
   refresh();
@@ -4326,7 +4329,7 @@ function drawRegion(root, rid) {
   s2.append(h('div', { class: 'vote3' },
     box('sky', 'Five members each', 'The Legislative Council has 40 members: 5 from each of 8 regions, all elected at once for four years. It reviews and can block the laws the Assembly passes.'),
     box('lime-tint', 'A sixth of the vote', 'A candidate is elected on reaching a quota: one sixth of the formal vote, plus one (about 16.7%). Surplus votes and the votes of excluded candidates flow on by preference until all five seats are filled.'),
-    box('teal-tint', 'Your preferences, not a ticket', ['Number at least 1 box above the line, or at least 5 below it. ', h('strong', {}, 'There are no group voting tickets in 2026'), ': in 2022 a single 1 above the line let the group decide where your preferences went; now they go only where you number them.'])));
+    box('teal-tint', 'Your preferences, not a ticket', ['Number at least 5 boxes above the line, or at least 5 below it. ', h('strong', {}, 'There are no group voting tickets in 2026'), ': in 2022 a single 1 above the line let the group decide where your preferences went; now they go only where you number them.'])));
   // 3 history
   const s3 = sec('history', 3, 'Past results', 'Every upper-house election since regions began in 2006. Regions were redrawn in 2013 and 2021, so earlier results are for a differently shaped region of the same name.');
   const hist = LC.contests.filter(x => x.contest_id === rid).map(x => x.election_id).sort((a, b) => idx.electionById.get(b).date.localeCompare(idx.electionById.get(a).date)).map(eid => ({ eid, e: idx.electionById.get(eid), c: LC.contestBy.get(eid + '|' + rid), res: (LC.resultBy.get(eid + '|' + rid) || []).slice().sort((a, b) => a.order_elected - b.order_elected), sh: lcShares(eid, rid) }));
@@ -4431,7 +4434,7 @@ function renderSeat() {
   s2.append(h('div', { class: 'vote3' },
     v.early ? box('sky', 'Vote early', [`${fmtDay(v.early.open)} to ${fmtDay(v.early.close)}, ${v.early.hours}. `, h('a', { href: v.early.url, target: '_blank', rel: 'noopener' }, 'Voting options (VEC)')]) : '',
     box('lime-tint', 'Or on election day', `${fmtDay(kd.election_day || '2026-11-28')}, ${v.election_day ? v.election_day.hours + ', ' + v.election_day.note : '8 am to 6 pm'}.`),
-    box('teal-tint', 'Number the boxes', 'Lower house: number every box. Upper house: 1 above the line, or at least 1 to 5 below it.')));
+    box('teal-tint', 'Number the boxes', 'Lower house: number every box. Upper house: at least 5 boxes above the line, or at least 5 below it.')));
   const extra = h('div', { class: 'hint', style: 'margin-top:14px;font-size:14px;display:grid;gap:4px' });
   if (v.postal) extra.append(h('div', {}, `Postal votes: apply by ${fmtDay(v.postal.applications_close)}. `, h('a', { href: v.postal.url, target: '_blank', rel: 'noopener' }, 'Apply (VEC)')));
   if (v.low_sensory) extra.append(h('div', {}, `Low-sensory voting: ${fmtDay(v.low_sensory.date)}, ${v.low_sensory.note}.`));

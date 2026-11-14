@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>window.__BASEMAP = 'https://tiles.openfreemap.org/styles/positron'; window.__DATA_BASE = '../data/';</script>
 <script>
 // visit counts (GoatCounter: no cookies, no personal data), on the public site only (github.io or electionboothatlas.org) — never on localhost or in previews
@@ -11,7 +15,7 @@ if (/(\.github\.io|electionboothatlas\.(org|com))$/.test(location.hostname)) {
   const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
   s.setAttribute('data-goatcounter', 'https://electionboothatlas.goatcounter.com/count');
   s.setAttribute('data-goatcounter-settings', '{"no_onload": true}');
-  s.onload = () => { const v = document.querySelector('.view.active'); if (window.goatcounter && v) window.goatcounter.count({ path: '/' + v.id.replace('view-', ''), title: document.title }); };
+  s.onload = () => { const v = document.querySelector('.view.active'); if (window.goatcounter && v) window.goatcounter.count({ path: window.gcPath ? gcPath(v.id.replace('view-', '')) : '/' + v.id.replace('view-', ''), title: document.title }); };
   document.head.append(s);
 }
 </script>
@@ -21,7 +25,15 @@ if (/(\.github\.io|electionboothatlas\.(org|com))$/.test(location.hostname)) {
 <meta property="og:description" content="Every booth. Every election. Victorian results polling place by polling place, 1999 to 2026.">
 <meta property="og:url" content="https://electionboothatlas.org/">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+<meta property="og:site_name" content="Election Booth Atlas">
+<meta property="og:image" content="https://electionboothatlas.org/og/atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Map of Victoria with every polling booth marked">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://electionboothatlas.org/">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Election Booth Atlas","url":"https://electionboothatlas.org/","logo":"https://electionboothatlas.org/logo.png","email":"hello@electionboothatlas.org","sameAs":["https://bsky.app/profile/electionboothatlas.org","https://www.facebook.com/profile.php?id=61596254050248","https://www.instagram.com/electionboothatlas/","https://x.com/BoothAtlas"]}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,600&display=swap">
 <style>
@@ -329,6 +341,13 @@ body { font-variant-numeric: tabular-nums; }
 nav.views { gap: 4px; }
 nav.views button { border-radius: 999px; padding: 8px 14px; font-weight: 600; color: var(--navy); font-size: 14px; }
 nav.views button[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
+nav.socials { display: flex; gap: 2px; align-items: center; }
+nav.socials a { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 999px; color: var(--navy); opacity: .8; }
+nav.socials a:hover, nav.socials a:focus-visible { background: var(--surface-2); opacity: 1; }
+nav.socials svg { width: 17px; height: 17px; fill: currentColor; }
+@media (max-width: 640px) { nav.socials { order: 9; } }
+@media (min-width: 641px) and (max-width: 1320px) { .top .status { display: none; } }
+@media (min-width: 641px) and (max-width: 1200px) { nav.views button { padding-inline: 10px; } }
 .field label { text-transform: none; letter-spacing: 0; font-size: 12px; font-weight: 600; color: var(--fg-2); }
 select, input[type=text], input[type=search], textarea { background: var(--surface); border: 2px solid var(--sky-2); border-radius: var(--radius); padding: 7px 10px; }
 .seg { border: 0; border-radius: 999px; background: var(--surface-2); padding: 3px; gap: 3px; }
@@ -424,6 +443,8 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .v2 .callout { display: flex; gap: 18px; align-items: center; background: var(--surface); border: 2px dashed var(--sky-3); border-radius: 20px; padding: 20px 24px; font-size: 16px; line-height: 1.55; color: var(--fg-2); }
 .v2 footer.ft { background: #1B2B4B; color: #DCE1EA; margin-top: 56px; }
 .v2 footer.ft .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; gap: 12px 40px; justify-content: space-between; font-size: 14px; }
+.v2 footer.ft a { color: #CFE9F7; text-underline-offset: 3px; }
+.v2 footer.ft a:hover { color: #fff; }
 .v2 footer.ft .tg { font-family: var(--font-display); font-style: italic; font-weight: 600; color: var(--lime); }
 /* electorates */
 .v2 .shead { background: var(--sky); position: relative; overflow: hidden; }
@@ -431,6 +452,9 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .v2 .shead h1 { font-size: clamp(46px, 7vw, 84px); line-height: 1; letter-spacing: -.02em; font-weight: 800; margin-top: 16px; }
 .v2 .shead .lead { margin: 14px 0 20px; color: var(--fg-2); }
 .v2 .shead .loc { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); width: 34%; max-width: 380px; opacity: .55; }
+.v2 .shead .loc.go { cursor: pointer; transition: opacity .15s; z-index: 2; }
+.v2 .shead .loc.go:hover, .v2 .shead .loc.go:focus-visible { opacity: .9; }
+.v2 .shead .mapcta { display: inline-flex; align-items: center; gap: 8px; height: 44px; font-size: 15px; margin-top: 18px; }
 @media (min-width: 761px) { .v2 .shead .wrap > :not(.loc) { max-width: 60%; position: relative; z-index: 1; } }
 @media (max-width: 760px) { .v2 .shead .wrap { display: flex; flex-direction: column; } .v2 .shead .loc { position: static; transform: none; width: 100%; max-width: 320px; margin-top: 16px; order: 9; } }
 .v2 .crumbs { font-size: 14px; color: var(--fg-2); }
@@ -551,8 +575,10 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .v2 .lccol .gn { font-size: 12px; font-weight: 700; text-align: center; min-height: 46px; padding-top: 6px; line-height: 1.25; border-bottom: 2px solid #1A1F2B; padding-bottom: 6px; }
 .v2 .lccol.ug .gn { border-top: 4px solid transparent; }
 .v2 .lccol .btl { display: grid; gap: 6px; padding-top: 8px; }
-.v2 .lccol .bc { display: flex; gap: 6px; align-items: flex-start; font-size: 12px; line-height: 1.25; }
-.v2 .lccol .bc .sq { flex: none; width: 14px; height: 14px; border: 1.5px solid #1A1F2B; margin-top: 1px; background: #fff; }
+.v2 .lccol .bc { font: inherit; display: flex; gap: 6px; align-items: flex-start; font-size: 12px; line-height: 1.25; width: 100%; background: none; border: 0; padding: 3px 2px; margin: 0; text-align: left; color: inherit; cursor: pointer; border-radius: 4px; }
+.v2 .lccol .bc:hover { background: rgba(43,117,116,.08); }
+.v2 .lccol .bc .sq { flex: none; width: 20px; height: 20px; border: 1.5px solid #1A1F2B; background: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; color: #1A1F2B; }
+.v2 .lccol .bc.on .sq { background: #FFF6D6; }
 .v2 .lccol .bc strong { display: block; font-size: 12px; }
 .v2 .lccol .bc small { display: block; color: #4F4B44; font-size: 11px; }
 .v2 .lccol .bc small.loc2 { font-style: italic; }
@@ -600,6 +626,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
       <button data-view="prefs">Model</button>
       <button data-view="about">About</button>
     </nav>
+    <nav class="socials" aria-label="Follow the Atlas"><a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener" aria-label="The Atlas on Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg></a><a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener" aria-label="The Atlas on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a><a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener" aria-label="The Atlas on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a><a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener" aria-label="The Atlas on X" title="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a></nav>
     <div class="status" id="status">loading…</div>
   </header>
 
@@ -654,8 +681,8 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
       <div class="callout"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true" style="flex:none"><circle cx="20" cy="20" r="17" fill="#CFE9F7" stroke="#1B2B4B" stroke-width="3"></circle><path d="M24 9a11 11 0 1 0 7 17a9 9 0 1 1 -7 -17z" fill="#1B2B4B"></path></svg>
         <div><strong style="color:var(--fg)">For the curious:</strong> the Atlas books. What actually moves votes, and the things that don't: rain, footy results and the moon, among others. We checked. <a href="#prefs" data-go="prefs">Open the books</a></div></div>
     </div>
-    <div class="wrap"><div class="callout touch"><div><strong style="color:var(--fg)">Want to see a particular kind of analysis?</strong> A seat you care about, a question the numbers could answer, or something we got wrong: get in touch and we'll dig in. <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a></div></div></div>
-    <footer class="ft"><div class="wrap"><span class="tg">Every booth. Every election.</span><span><a href="mailto:hello@electionboothatlas.org">hello@electionboothatlas.org</a></span><span>Results © Victorian Electoral Commission and Australian Electoral Commission. Census data © ABS, CC BY 4.0.</span></div></footer>
+    <div class="wrap"><div class="callout touch"><div><strong style="color:var(--fg)">Want to see a particular kind of analysis?</strong> A seat you care about, a question the numbers could answer, or something we got wrong: get in touch and we'll dig in. Email <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a>, or message us on <a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener">Bluesky</a>, <a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener">Facebook</a>, <a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener">Instagram</a> or <a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener">X</a>.</div></div></div>
+    <footer class="ft"><div class="wrap"><span class="tg">Every booth. Every election.</span><span><a href="mailto:hello@electionboothatlas.org">hello@electionboothatlas.org</a></span><span class="soc">Follow along: <a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener">Bluesky</a> · <a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener">Facebook</a> · <a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener">Instagram</a> · <a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener">X</a></span><span>Results © Victorian Electoral Commission and Australian Electoral Commission. Census data © ABS, CC BY 4.0.</span></div></footer>
   </section>
 
   <!-- ELECTORATES VIEW (v2) -->
@@ -675,7 +702,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
               <option value="share">Primary vote share</option>
               <option value="primary">Leader on primary votes</option>
               <option value="tcp" data-live="Live: share after preferences (Atlas estimate from the count so far)">Share after preferences (2CP)</option>
-              <option value="tcpwin" data-live="Live: leader after preferences (Atlas estimate from the count so far)">Winner after preferences</option>
+              <option value="tcpwin" selected data-live="Live: leader after preferences (Atlas estimate from the count so far)">Winner after preferences</option>
               <option value="swing">Primary swing since last election</option>
               <option value="tcpswing">Swing after preferences since last election</option>
               <option value="gap">Gap vs another election</option>
@@ -691,7 +718,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
             </optgroup>
           </select><p class="hint" id="metric-hint" style="margin:4px 0 0"></p></div>
         <div class="field" id="f-census" hidden><label for="sel-census">Indicator</label><select id="sel-census"></select></div>
-        <div class="field" id="f-party"><label for="sel-party">Party</label>
+        <div class="field" id="f-party" hidden><label for="sel-party">Party</label>
           <select id="sel-party">
             <option value="ALP">Labor</option><option value="COAL">Coalition</option><option value="GRN">Greens</option><option value="ONP">One Nation</option><option value="VSP">Socialists</option><option value="IND">Independents</option><option value="OTH">Others</option>
           </select></div>
@@ -776,7 +803,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div class="row" style="margin-bottom:8px"><div class="field" style="flex:0 1 220px"><label for="y26-sort">Sort by</label><select id="y26-sort"><option value="margin">Margin, closest first</option><option value="name">Seat name</option><option value="held">Held by</option></select></div>
           <div class="field" style="flex:1 1 200px"><label for="y26-filter">Filter</label><input type="search" id="y26-filter" placeholder="seat, member, candidate, party"></div></div>
         <div class="tablewrap" id="y26-table"></div>
-        <p class="hint">Held by and candidates: Wikipedia’s candidate register (declared, pre-nomination; nominations close 9 November). Margins: the final two-candidate count at the last contest in that seat — the 2022 general election, or the by-election where there has been one since. Click a seat to open it on the map.</p></div>
+        <p class="hint">Held by: the sitting member. Candidates: the VEC’s list of nominations, in ballot order, once captured (before that, Wikipedia’s register of declared candidates). Margins: the final two-candidate count at the last contest in that seat — the 2022 general election, or the by-election where there has been one since. Click a seat to open it on the map.</p></div>
       <div class="two">
         <div class="panel"><h3>Upper house tickets, by region</h3><div id="y26-lc"></div></div>
         <div><div class="panel" style="margin-bottom:16px"><h3>Not recontesting</h3><div class="tablewrap" id="y26-retiring"></div></div>
@@ -856,7 +883,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
       <details class="panel book" id="bk-draw"><summary><span class="bk-t">The 2026 ballot draw</span><span class="bk-s" id="bk-draw-s">Who drew the top of the ballot, who sits next to whom, and the handful of seats where that could matter.</span></summary><div class="bk-b">
         <div id="md-draw"></div>
       </div></details>
-      <details class="panel book" id="bk-econ"><summary><span class="bk-t">It&rsquo;s <em>not</em> (just) the economy, stupid</span><span class="bk-s" id="bk-econ-s">Do places where rents jumped, jobs dried up or a level crossing went swing differently? We tested it booth by booth across seven elections.</span></summary><div class="bk-b">
+      <details class="panel book" id="bk-econ"><summary><span class="bk-t">It&rsquo;s <em>not</em> (just) the economy, stupid</span><span class="bk-s" id="bk-econ-s">Do places where rents jumped, jobs dried up or a level crossing went swing differently? Mostly not, with one exception: rising unemployment in seats that already have a lot of it.</span></summary><div class="bk-b">
         <div id="md-econ"></div>
       </div></details>
       <details class="panel book" id="bk-swings"><summary><span class="bk-t">Swings and roundabouts</span><span class="bk-s" id="bk-swings-s"></span></summary><div class="bk-b">
@@ -916,7 +943,7 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
   <!-- ABOUT VIEW -->
   <section class="view" id="view-about">
     <div class="page"><div class="inner prose">
-      <div class="panel touchbox"><h2 style="margin-top:0">Get in touch</h2><p>Want to see a particular kind of analysis? A seat, a booth, a hunch you'd like tested, or a mistake you've spotted: email <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a>. We read everything, and the best questions become new pages and books.</p></div>
+      <div class="panel touchbox"><h2 style="margin-top:0">Get in touch</h2><p>Want to see a particular kind of analysis? A seat, a booth, a hunch you'd like tested, or a mistake you've spotted: email <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a> or message us on <a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener">Bluesky</a>, <a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener">Facebook</a>, <a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener">Instagram</a> or <a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener">X</a>. We read everything, and the best questions become new pages and books.</p></div>
       <h2>What this is</h2>
       <p>Every polling place, election after election: results pinned to the place the votes were cast, so the vote can be followed by school hall and church porch rather than by electorate. Boundaries change; a school hall does not. It starts with Victoria — every state election since 1999 and every federal election in Victoria since 2004 (House, with the Senate from 2010) — and is built to take on other states and the federal map in the same way.</p>
       <h2>How to read it</h2>
@@ -1066,7 +1093,7 @@ function divColor(party, v, lim) { const t = Math.max(-1, Math.min(1, v / lim));
 
 /* ---------- map ---------- */
 let map, mapReady = false, hovered = null, selected = null;
-const state = { election: 'vic2022', metric: 'share', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth' };
+const state = { election: 'vic2022', metric: 'tcpwin', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth' };
 
 // when the browser can't draw the map (WebGL switched off or blocked), say so plainly and keep the rest of the site working
 function mapUnavailable() {
@@ -1137,6 +1164,7 @@ function tipForContest(cid) {
 }
 function metricValueContest(cid) {
   const eid = state.election, p = state.party, ps = contestShares(eid, cid);
+  if (eid === LIVE.election && !LIVE.available && !['census', 'senate'].includes(state.metric)) return { v: null, cat: null, label: 'Before the count', text: 'counting starts at 6 pm on 28 November' };   // 2026 before election night: nothing to show, and nothing projected
   if (state.metric === 'senate') { const ss = senateDivShares(eid, cid); return ss && ss.formal ? { v: ss[p] ? ss[p].share : 0, label: `${PARTY_NAME[p]} Senate primary`, text: pct(ss[p] ? ss[p].share : 0) } : { v: null, label: 'Senate', text: 'federal elections only' }; }
   if (state.metric === 'census') { const set = demogSet(eid), xid = demogId(state.census, set), xi = set && xid && set.ind.get(xid), d = demogFor(eid, cid); return xi && d && d[xid] != null ? { v: d[xid], label: xi.label, text: fmtInd(xi.kind, d[xid]) } : { v: null, label: 'Census', text: set ? 'no figure for this seat' : 'no census file for these boundaries' }; }
   if (state.metric === 'called') { if (eid !== LIVE.election) return { v: null, cat: null, label: 'Called', text: '2026 only' }; if (!PREF || !DEMOG_BOOTH || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined) { if (!modelLoadKicked) { modelLoadKicked = true; Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE), ensureDemogBooth()]).then(() => renderMap()); } } const r = seatStatus(eid, cid); const sure = r.status === 'called' || r.status === 'declared'; const gain = sure && r.changed; return { cat: sure ? r.wparty : null, strength: 1, label: sure ? (r.status === 'declared' ? 'Declared' : 'Called') : 'Not called', text: sure ? `${candName(r.winner.cand)} (${PARTY_NAME[r.winner.party] || r.winner.party})${gain ? `, ${PARTY_NAME[r.wparty]} gain from ${PARTY_NAME[r.held]}` : r.held ? ', held' : ''} · ${r.status === 'declared' ? 'declared by the VEC' : r.basis === 'projection' ? `projected ${pct(r.share)}, ${Math.round(100 * (r.countedShare || 0))}% in` : `VEC pair ${pct(r.share)} (model still loading)`}` : (r.status === 'nocount' ? 'no count yet' : `${STATUS_LABEL[r.status]}${r.winner ? ': ' + candName(r.winner.cand) + ' ' + pct(r.share) : ''}${r.disagree ? ' · ' + r.disagree.join('; ') : ''}`), called: sure, gain, from: gain ? r.held : null }; }
@@ -1163,6 +1191,8 @@ function metricValueContest(cid) {
 // the value the map colours by, for one booth of the current election
 function metricValue(bid) {
   const eid = state.election, p = state.party, ps = partyShares(eid, bid);
+  if (eid === LIVE.election && !LIVE.available && !['census', 'senate'].includes(state.metric)) return { v: null, cat: null, label: 'Before the count', text: 'counting starts at 6 pm on 28 November' };   // 2026 before election night: nothing to show, and nothing projected
+  if (eid === LIVE.election && ['share', 'primary', 'swing', 'gap'].includes(state.metric)) { const bb = idx.boothsByKey.get(eid + '|' + bid); if (bb && !bb.reported) return { v: null, cat: null, label: 'Not counted yet', text: 'no figures from this booth yet' }; }   // an uncounted 2026 booth is not a 0% booth
   if (state.metric === 'senate') { const ss = senateShares(eid, bid); return ss && ss.formal ? { v: ss[p] ? ss[p].share : 0, label: `${PARTY_NAME[p]} Senate primary`, text: pct(ss[p] ? ss[p].share : 0) } : { v: null, label: 'Senate', text: eid.startsWith('fed') ? 'no Senate count at this booth' : 'federal elections only' }; }
   if (state.metric === 'census') { const b = idx.boothsByKey.get(eid + '|' + bid) || {}; const B = DEMOG_BOOTH; const xi = B && B.ind.get(state.census); const d = demogBooth(b.venue_id); const v = d && xi ? d[state.census] : null; return { v: v == null ? null : v, label: xi ? xi.label : 'Census', text: !B ? 'loading' : !xi ? 'not available by booth' : v == null ? (b.booth_type !== 'ordinary' ? 'not an election-day booth' : 'no catchment for this venue') : fmtInd(xi.kind, v) }; }
   if (state.metric === 'share') return { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
@@ -1372,6 +1402,19 @@ function expectBlock(eid, b) {
   if (!b22) return h('div', { class: 'hint' }, 'A new booth: nothing from 2022 to go on.');
   const here = partyShares('vic2022', b22.booth_id); if (!here.formal) return null;
   const dist = contestShares('vic2022', b22.contest_id);
+  if (!LIVE.available) {   // before election night: what happened here, no model and nothing projected
+    const c22 = idx.contestById.get('vic2022|' + b22.contest_id); const cname = c22 ? c22.contest_name : 'the electorate';
+    const b18 = (idx.boothsByVenue.get(b.venue_id) || []).find(x => x.election_id === 'vic2018' && x.booth_type === 'ordinary'); const was = b18 ? partyShares('vic2018', b18.booth_id) : null; const has18 = !!(was && was.formal);
+    const sp = (d) => (d >= 0 ? '+' : '−') + (100 * Math.abs(d)).toFixed(1);
+    const ps = PARTIES.filter(p => here[p] && here[p].share >= 0.02);
+    const box = h('div', { style: 'margin:6px 0 10px' }, h('h3', {}, 'This booth last time (2022)'));
+    box.append(h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Party'), h('th', { class: 'num' }, 'Primary here'), h('th', { class: 'num', title: `this booth against ${cname} as a whole in 2022` }, `vs ${cname}`), has18 ? h('th', { class: 'num', title: 'change in the party\'s share at this venue since 2018' }, 'Since 2018') : '')),
+      h('tbody', {}, ...ps.map(p => { const d = here[p].share - (dist[p] ? dist[p].share : 0); const s18 = has18 && was[p] && was[p].share > 0 ? here[p].share - was[p].share : null;
+        return h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p])), h('td', { class: 'num' }, pct(here[p].share)), h('td', { class: 'num', style: Math.abs(d) >= 0.05 ? 'font-weight:600' : '' }, sp(d)), has18 ? h('td', { class: 'num', title: s18 == null ? 'no candidate here in 2018' : '' }, s18 == null ? 'new' : sp(s18)) : ''); })))));
+    const t22 = tcpShares('vic2022', b22.booth_id); const top = t22 ? [...t22].sort((x, y) => y.share - x.share)[0] : null;
+    box.append(h('div', { class: 'hint', style: 'margin-top:4px' }, `${fmt(here.formal)} formal votes here in 2022${top ? `; after preferences ${top.cand ? top.cand.surname : PARTY_NAME[top.party] || top.party} ${pct(top.share)}` : ''}. Points above or below ${cname} as a whole${has18 ? ', and the change at this venue since 2018' : ''}. This year's figures appear here from 6 pm on 28 November.`));
+    return box;
+  }
   // the projection engine's swing estimate for this booth (electorate's counted booths, nearest counted booths, the state, the booth's census profile)
   const P = LIVE.available ? projectBooth(b.contest_id, b) : null;
   const use = P && P.swing && P.swing.n && P.swing.n.state ? { sw: P.swing.sw, what: P.swing.basis } : null;
@@ -1919,12 +1962,12 @@ function renderStrip(rows, eid) {
     strip.append(h('div', { class: 'maj', style: `left:calc(${100 * majority / total}% - 1px)` }, h('span', { style: 'left:-24px' }, `majority ${majority}`)));
   }
   el('strip-note').textContent = dash.strip === 'proj'
-    ? `One box per seat, coloured by the party the Atlas projection has winning, deeper the larger its projected two-candidate share: the counted pools as they stand, the uncounted booths and vote types projected from 2022 plus the swing coming in (electorate, nearby, state, by vote type), all through the preference model. The fill is the projected share; the border is the call: plain for called or declared, dashed for leaning, dotted for in doubt (not enough counted for the margin, or the count so far or the VEC's pair reads differently), hollow and dashed where nothing is counted yet. Hover for the projected pair and how much of the expected vote is in.`
+    ? `One box per seat, coloured by the party the Atlas projection has winning; the deeper the colour, the larger its projected two-candidate share: the counted pools as they stand, the uncounted booths and vote types projected from 2022 plus the swing coming in (electorate, nearby, state, by vote type), all through the preference model. The fill is the projected share; the border is the call: plain for called or declared, dashed for leaning, dotted for in doubt (not enough counted for the margin, or the count so far or the VEC's pair reads differently), hollow and dashed where nothing is counted yet. Hover for the projected pair and how much of the expected vote is in.`
     : dash.strip === 'model'
-    ? `One box per seat, coloured by the party the preference-flow model puts ahead, from first preferences alone (every candidate excluded in turn, their votes split by the fitted flow for their party and the registered how-to-vote cards; see the Preferences tab), deeper the larger its modelled two-candidate share. It needs no VEC two-candidate count, so it works for any final pair${live ? ' and updates with every booth through the night. Dashed: no first preferences yet' : ''}. Hover for the pair and whether it matches the ${live ? 'VEC\'s' : 'actual'} final two.`
+    ? `One box per seat, coloured by the party the preference-flow model puts ahead, from first preferences alone (every candidate excluded in turn, their votes split by the fitted flow for their party and the registered how-to-vote cards; see the Preferences tab); the deeper the colour, the larger its modelled two-candidate share. It needs no VEC two-candidate count, so it works for any final pair${live ? ' and updates with every booth through the night. Dashed: no first preferences yet' : ''}. Hover for the pair and whether it matches the ${live ? 'VEC\'s' : 'actual'} final two.`
     : dash.strip === 'tcp'
-    ? `One box per seat, coloured by the party ahead after preferences, deeper the larger its two-candidate share (50% to 75%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no two-candidate count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`
-    : `One box per seat, coloured by the party leading on primary votes, deeper the larger its share (25% to 55%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`;
+    ? `One box per seat, coloured by the party ahead after preferences; the deeper the colour, the larger its two-candidate share (50% to 75%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no two-candidate count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`
+    : `One box per seat, coloured by the party leading on primary votes; the deeper the colour, the larger its share (25% to 55%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`;
 }
 function renderDashTable(rows, eid) {
   rows = rows || dashRows(eid || state.election); eid = eid || state.election;
@@ -2212,17 +2255,17 @@ function renderTimingBook() {
   const s1 = h('div', { class: 'bk-sec v2' }, h('h3', {}, 'The rise of the early vote'), h('div', { class: 'vtlegend' }, ...VT.map(([k, lab, col]) => h('span', {}, h('i', { style: `background:var(${col})` }), lab))),
     h('div', { class: 'vtrows' }, ...years.filter(e => st[e]).map(e => h('div', { class: 'vtrow' }, h('span', { class: 'y' }, 'Victoria ' + yl(e)), typeBar(st[e])))));
   const a = st[years[0]], z = st[years[years.length - 1]];
-  if (a && z) s1.append(h('p', { class: 'hint', style: 'margin-top:8px' }, `Votes cast on election day fell from ${pct(a.ordinary / a.total)} of the total in ${yl(years[0])} to ${pct(z.ordinary / z.total)} in ${yl(years[years.length - 1])}, and early votes rose from ${pct(a.early / a.total)} to ${pct(z.early / z.total)}. The most counted on election night is now a minority of the vote.`));
+  if (a && z) s1.append(h('p', { class: 'hint', style: 'margin-top:8px' }, `Votes cast on election day at booths in the voter's own electorate fell from ${pct(a.ordinary / a.total)} of the total in ${yl(years[0])} to ${pct(z.ordinary / z.total)} in ${yl(years[years.length - 1])}; counting absent votes (cast on the day outside the voter's own electorate), all election-day voting fell from ${pct((a.ordinary + a.absent) / a.total)} to ${pct((z.ordinary + z.absent) / z.total)}. Early votes rose from ${pct(a.early / a.total)} to ${pct(z.early / z.total)}. The vote counted in the booths on election night is now a minority of the total.`));
   // seats by election-day share, last election
   const last = years[years.length - 1], tbc = timingByContest(last);
   const rows = []; for (const [cid, o] of tbc) { const c = idx.contestById.get(last + '|' + cid); if (!c || c.house === 'LC') continue; const t = VT.reduce((s, [k]) => s + o[k].formal, 0); if (t) rows.push({ c, o, t, day: o.ordinary.formal / t, early: o.early.formal / t, post: o.postal.formal / t }); }
   const list = (arr, f) => h('ol', { class: 'vtsteps' }, ...arr.map(r => h('li', {}, h('a', { href: '#', onclick: (ev) => { ev.preventDefault(); const c26 = contestIn(LIVE.election, r.c.contest_id, last); if (c26) openSeat(c26.contest_id); } }, r.c.contest_name), ': ', f(r))));
   const byDay = rows.slice().sort((x, y) => y.day - x.day), byPost = rows.slice().sort((x, y) => y.post - x.post);
   const s2 = h('div', { class: 'bk-sec v2' }, h('h3', {}, `Who votes when, ${yl(last)}`), h('div', { class: 'grid2' },
-    h('div', {}, h('strong', {}, 'Most votes cast on the day'), list(byDay.slice(0, 5), r => pct(r.day))),
+    h('div', {}, h('strong', {}, 'Most votes cast at local booths on the day'), list(byDay.slice(0, 5), r => pct(r.day))),
     h('div', {}, h('strong', {}, 'Most votes cast early'), list(rows.slice().sort((x, y) => y.early - x.early).slice(0, 5), r => pct(r.early))),
     h('div', {}, h('strong', {}, 'Most postal votes'), list(byPost.slice(0, 5), r => pct(r.post))),
-    h('div', {}, h('strong', {}, 'Fewest votes cast on the day'), list(byDay.slice(-5).reverse(), r => pct(r.day)))));
+    h('div', {}, h('strong', {}, 'Fewest votes cast at local booths on the day'), list(byDay.slice(-5).reverse(), r => pct(r.day)))));
   // how each type leaned, Labor v Coalition seats, both sides shown
   const sum = {}; for (const [k] of VT) sum[k] = { ALP: 0, COAL: 0 };
   let nLC = 0; for (const r of rows) { const pair = Object.keys(VT.reduce((acc, [k]) => Object.assign(acc, r.o[k].tcp), {})); if (!(pair.length === 2 && pair.includes('ALP') && pair.includes('COAL'))) continue; nLC++; for (const [k] of VT) { sum[k].ALP += r.o[k].tcp.ALP || 0; sum[k].COAL += r.o[k].tcp.COAL || 0; } }
@@ -2313,8 +2356,8 @@ async function renderEconBook() {
   const unit = { unemp: 'points', rent: '% growth', lxr: 'removals within 1.5 km' };
   const yl = (id) => (idx.electionById.get(id) ? (idx.electionById.get(id).level === 'federal' ? 'federal ' : 'state ') : '') + id.replace(/\D+/g, '');
   box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'The short answer'),
-    h('p', {}, `On its own, not that we can find. Across ${fmt(S.venues)} polling places and seven elections (${Object.keys(S.by_election).sort().map(yl).join(', ')}), local changes in unemployment, rents and level crossings do not move the governing party's vote in any way that survives a second look. Almost every effect is within a few tenths of a point, and the one that looks big in recent elections is flat or reversed in the earlier ones.`),
-    h('p', { class: 'hint' }, 'That is a finding, not a gap: what moves votes in Victoria is mostly statewide, plus the candidates and the sitting member. A place doing worse than its neighbours does not, by itself, punish the government there. Where it does matter is in who lives there: see "By party, and by who lives there" below.')));
+    h('p', {}, `Mostly not. Across ${fmt(S.venues)} polling places and seven elections (${Object.keys(S.by_election).sort().map(yl).join(', ')}), local changes in unemployment, rents and level crossings do not move the governing party's vote in any way that survives a second look. Almost every effect is within a few tenths of a point, and the one that looks big in recent elections is flat or reversed in the earlier ones. One thing does survive every check: rising unemployment in a seat that already has a lot of it costs the Coalition ground there, whether it is in government or not.`),
+    h('p', { class: 'hint' }, 'That is a finding, not a gap: what moves votes in Victoria is mostly statewide, plus the candidates and the sitting member. A place doing worse than its neighbours does not, by itself, punish the government there.')));
   // the chart: effect per SD, discover vs confirm, at the booth and electorate level
   const cols = Object.keys(E.effects);
   const W = 640, rowH = 30, top = 30, lo = -1.5, hi = 1.5, X = (v) => 180 + (Math.max(lo, Math.min(hi, v)) - lo) / (hi - lo) * (W - 200);
@@ -2329,21 +2372,42 @@ async function renderEconBook() {
   const chart = h('div', { class: 'tablewrap' }); chart.innerHTML = svg;
   box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'Every test, twice'), h('div', { class: 'vtlegend' }, h('span', {}, h('i', { style: 'background:var(--fg-3)' }), 'found on 2014 and 2018 state, 2016 and 2019 federal'), h('span', {}, h('i', { style: 'background:var(--accent)' }), 'checked on 2022 state, 2022 and 2025 federal')), chart,
     h('p', { class: 'hint', style: 'margin-top:6px' }, `Each line is a 95% interval. Booths: a polling place's swing against the rest of its electorate, so the statewide mood, the candidates and the sitting member cancel out. Seats: each electorate's swing against the statewide swing. A real effect would sit away from zero in both colours; none does. One standard deviation is ${(E.sd.unemp_term || 0).toFixed(1)} points of unemployment over a term, ${(E.sd.rent_term || 0).toFixed(0)}% rent growth, ${(E.sd.lxr_term || 0).toFixed(1)} level crossings.`)));
-  // by party and by group (src/econ_groups.py -> data/econ_groups.json)
-  let G = null; try { G = await (await fetch(DATA + 'econ_groups.json')).json(); } catch (e) {}
-  if (G) {
-    const PN = { GOV: 'Governing party', ALP: 'Labor', COAL: 'Coalition', GRN: 'Greens', ONP: 'One Nation', OTH: 'Everyone else' };
-    const GN = { rented: 'renters', owned_mortgage: 'mortgage holders', age_65_plus: 'over-65s', adults_18_34: '18 to 34 year olds', bachelor_or_higher: 'degree holders', born_overseas: 'people born overseas', income_household_under_1000: 'low-income households', unemployment_rate: 'unemployment already' };
-    const R = G.real, Pl = G.placebo_previous_term;
-    const mains = G.results.filter(r => r.group == null), nMain = mains.length;
-    const strong = G.results.filter(r => r.group && r.found && r.confirm && Math.sign(r.confirm.b) === Math.sign(r.discover.b) && Math.abs(r.confirm.t) >= 1.6).sort((a, b) => (b.holds - a.holds) || Math.abs(b.confirm.t) - Math.abs(a.confirm.t));
-    const f = (q) => q ? `${q.b >= 0 ? '+' : ''}${q.b.toFixed(2)} (t ${q.t >= 0 ? '+' : ''}${q.t.toFixed(1)})` : '–';
+  // by party and by group (src/econ_groups.py -> econ_groups.json), rechecked within elections and between seats (src/econ_followup.py -> econ_followup.json)
+  let G = null, F = null; try { G = await (await fetch(DATA + 'econ_groups.json')).json(); } catch (e) {}
+  try { F = await (await fetch(DATA + 'econ_followup.json')).json(); } catch (e) {}
+  const sg = (v, d = 2) => (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(d);
+  if (G && F && F.seats && F.seats.checks && F.seats.checks.length) {
+    const C = F.seats.checks[0], Z = C.size, CONFIRM_E = ['vic2022', 'fed2022', 'fed2025'];
+    const nMain = G.results.filter(r => r.group == null).length;
+    const GN = { rented: 'renters', owned_mortgage: 'mortgage holders', born_overseas: 'people born overseas', unemployment_rate: 'unemployment already' };
+    const ee = Object.entries(C.each_election).sort((x, y) => x[0].replace(/\D/g, '') - y[0].replace(/\D/g, '') || x[0].localeCompare(y[0]));
+    // per-election dots: the pattern in each election on its own
+    const W = 640, top = 26, rowH = 26, lo = -2, hi = 1.5, X = (v) => 150 + (Math.max(lo, Math.min(hi, v)) - lo) / (hi - lo) * (W - 170);
+    let svg = `<svg viewBox="0 0 ${W} ${top + ee.length * rowH + 26}" width="100%" style="max-width:720px;display:block" role="img" aria-label="The unemployment pattern in each election on its own">`;
+    for (const v of [-2, -1, 0, 1]) svg += `<line x1="${X(v)}" x2="${X(v)}" y1="${top - 8}" y2="${top + ee.length * rowH}" stroke="var(--line)" ${v ? 'stroke-dasharray="2 3"' : 'stroke-width="1.5"'}/><text x="${X(v)}" y="${top + ee.length * rowH + 16}" text-anchor="middle" style="fill:var(--fg-3);font:11px var(--font-ui)">${v > 0 ? '+' : ''}${v}</text>`;
+    svg += `<text x="${X(0)}" y="12" text-anchor="middle" style="fill:var(--fg-3);font:11px var(--font-ui)">Coalition points, per standard deviation of both</text>`;
+    ee.forEach(([eid, r], i) => { const y = top + i * rowH + rowH / 2, se = Math.abs(r.b / (r.t || 1e-9)), col = CONFIRM_E.includes(eid) ? 'var(--accent)' : 'var(--fg-3)';
+      svg += `<text x="0" y="${y + 4}" style="fill:var(--fg-2);font:12px var(--font-ui)">${yl(eid)}</text><line x1="${X(r.b - 1.96 * se)}" x2="${X(r.b + 1.96 * se)}" y1="${y}" y2="${y}" stroke="${col}" stroke-width="2.5" stroke-linecap="round"/><circle cx="${X(r.b)}" cy="${y}" r="3.5" fill="${col}"/>`; });
+    svg += '</svg>'; const chart = h('div', { class: 'tablewrap' }); chart.innerHTML = svg;
     box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'By party, and by who lives there'),
-      h('p', {}, `Party by party, nothing: none of the ${nMain} tests of a party's vote against a local measure stood out on the older elections. But who lives in a place does change how it responds. Of ${R.tests - nMain} searches crossing each measure with a census group, ${R.found} stood out on the older elections, against ${Pl.found} when the identical search is run on numbers that cannot matter; ${R.holds} then held on the newer elections, against ${Pl.holds} for the fake ones.`),
-      h('p', {}, h('strong', {}, 'The pattern: '), 'when local unemployment rises in the year before an election, the Coalition loses ground in neighbourhoods with more renters, more people born overseas and more unemployment already, and holds up better where more households have a mortgage. Labor moves the other way in the same places, a little less reliably. It happens whichever party is in government, so it looks less like voters punishing the government and more like hard times pulling poorer, renting suburbs further from the Coalition.'),
-      h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Vote of'), h('th', {}, 'Local change'), h('th', {}, 'Where there are more'), h('th', { class: 'num' }, 'Older elections'), h('th', { class: 'num' }, 'Newer elections'), h('th', {}, ''))),
-        h('tbody', {}, ...strong.map(r => { const [m, w] = r.measure.split('_'); return h('tr', {}, h('td', {}, PN[r.outcome] || r.outcome), h('td', {}, `${lab[m]}, ${win[w]}`), h('td', {}, GN[r.group] || r.group), h('td', { class: 'num' }, f(r.discover)), h('td', { class: 'num' }, f(r.confirm)), h('td', {}, r.holds ? h('strong', {}, 'holds') : h('span', { class: 'hint' }, 'nearly'))); })))),
-      h('p', { class: 'hint', style: 'margin-top:6px' }, `Figures: points of that party's vote for each standard deviation of local change, per standard deviation of the group's share (2016 census, apportioned to each polling place). Small, about a third of a point where both are high, but it turned up on its own in the older elections and again in the newer ones. "Holds" means |t| of 2.5 or more on the older elections and 2 or more, same direction, on the newer; "nearly" misses the second bar. ${fmt(G.with_census)} venue-elections with a census profile. The code is src/econ_groups.py.`)));
+      h('p', {}, `Party by party, local change on its own does nothing: none of the ${nMain} tests of a party's vote against a local measure stood out. What does matter is where the change lands. Across ${fmt(F.seats.electorate_elections)} electorate-elections, one pattern turned up on the older elections and again on the newer ones:`),
+      h('p', {}, h('strong', {}, 'When unemployment rises in a seat that already has a lot of it, the Coalition loses ground there. '), `For each point that local unemployment rose in the year before polling day, the Coalition did about ${Math.abs(Z.per_point_at_p90).toFixed(1)} points worse than its statewide swing in seats where unemployment was already high (around ${Z.rate_p90.toFixed(1)}%), and about ${Z.per_point_at_p10.toFixed(1)} points better in seats where it was low (around ${Z.rate_p10.toFixed(1)}%). It shows up whether the Coalition was in government or in opposition, so it looks less like punishing the government and more like hard times pulling struggling areas away from the Coalition.`),
+      h('div', { class: 'vtlegend' }, h('span', {}, h('i', { style: 'background:var(--fg-3)' }), 'older elections (where it was found)'), h('span', {}, h('i', { style: 'background:var(--accent)' }), 'newer elections (where it was checked)')), chart,
+      h('p', { class: 'hint', style: 'margin-top:6px' }, `Each line is one election on its own, with a 95% interval: six of the seven point the same way; federal 2016 does not. Taking out any one election, the pattern still holds (t between ${sg(Math.max(...Object.values(C.without)), 1)} and ${sg(Math.min(...Object.values(C.without)), 1)}). Shuffling the unemployment changes between seats gives a result this strong ${C.shuffle.p < 0.01 ? 'fewer than 1 time in 100' : Math.round(C.shuffle.p * 100) + ' times in 100'}, and the same seats' unemployment from the previous term shows nothing (t ${sg(C.wrong_term.t, 1)}).`),
+      h('p', {}, `This is a pattern between whole seats. Run the same way booth by booth, comparing polling places within an electorate, it does not hold up: neighbouring polling places share much the same change in unemployment, and the small-area figures are noisy. It plays out across seats and regions, not from one street to the next.`),
+      h('p', { class: 'hint' }, `Figures: each electorate's swing against the statewide swing, compared only within an election, with the census mix allowed its own effect in every election. Unemployment from the Small Area Labour Markets, weighted by each polling place's votes; the census mix is 2016, apportioned to polling places. ${F.seats.tests} searches (three outcomes, two time windows, four census groups): ${F.seats.found} stood out on the older elections and ${F.seats.holds} held; run on the wrong term's numbers, ${F.seats.placebo_found} stood out and ${F.seats.placebo_holds} held. The code is src/econ_followup.py.`)));
+    // exposure tests
+    const ex = F.exposure || [], best = (lab) => ex.filter(r => r.test.startsWith(lab) && r.p_perm != null).reduce((a, r) => (a == null || r.p_perm < a.p_perm ? r : a), null);
+    const rent = ex.filter(r => r.test.startsWith('Local rent')), rentHold = rent.filter(r => r.discover && r.confirm && Math.abs(r.discover.t) >= 2 && Math.abs(r.confirm.t) >= 2 && Math.sign(r.discover.b) === Math.sign(r.confirm.b)).length;
+    const N = F.national_shocks || {}, rr = Object.entries(N).map(([e, v]) => v.mrate_term).filter(v => v != null);
+    const row = (t, what, res) => h('tr', {}, h('td', {}, t), h('td', {}, what), h('td', {}, res));
+    const pp = (r) => r ? `nothing (best of nine tries: p ${r.p_perm.toFixed(2)})` : '–';
+    box.append(h('div', { class: 'bk-sec v2' }, h('h3', {}, 'Who is exposed, not just where'),
+      h('p', {}, 'Some changes hit everyone in the state at once but land harder on some households: a rate rise on mortgage holders, inflation on low-income households, rate cuts on retirees living off savings. We tested whether the groups most exposed swung more in the elections where the change was bigger.'),
+      h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Change'), h('th', {}, 'Who it lands on'), h('th', {}, 'What we found'))),
+        h('tbody', {}, row('Home loan rates', 'mortgage holders', pp(best('Mortgage'))), row('Cash rate', 'over-65s (savers)', pp(best('Cash'))), row('Inflation', 'low-income households', pp(best('Inflation'))),
+          row('Local rent growth', 'renters', `${rentHold} of ${rent.length} held (found once, never again)`)))),
+      h('p', { class: 'hint', style: 'margin-top:6px' }, `For the national changes there are only seven elections, so each test is really seven points: how much more the exposed group swung, against how big the change was (home loan rates moved between ${sg(Math.min(...rr), 1)} and ${sg(Math.max(...rr), 1)} points across a term). That can find a big effect but not a subtle one; "nothing" here means nothing large. Rates from the RBA (F5, F1.1), CPI from the ABS; the p values compare each slope with 5,000 shuffles of the same changes.`)));
   }
   // calibration
   const P = S.placebo_random_walk;
@@ -2351,7 +2415,7 @@ async function renderEconBook() {
     h('ul', {}, h('li', {}, `Fake data, same test: ${P.draws} runs on random walks with each area's real volatility. ${pct(P.share_abs_t_over_2)} of them looked "significant" by the usual rule, about what chance should give, so the test is not finding things that are not there.`),
       h('li', {}, 'Wrong-term data: the same measure taken from the previous term, which cannot have caused this term\'s swing. Its effects are as big as the real ones, which is what you see when there is nothing to find.'),
       h('li', {}, 'Found once, checked once: anything spotted on the older elections has to show up again on the newer ones. Rent growth across seats looked strong in 2022 and 2025 (about +1 point per standard deviation) but was flat or reversed before, so it does not count; most likely, recent rent growth happened to track parts of the state that were swinging for other reasons.')),
-    h('p', { class: 'hint' }, `Data: unemployment from the Small Area Labour Markets (SA2, quarterly since 2010), rents from the DFFH rental report (suburb groups, quarterly since 2000), level crossing removals and their completion dates. ${fmt(S.observations)} venue-elections; ${fmt(E.electorates)} electorate-elections. Still to test: what people are exposed to (mortgage holders and interest rates, renters and rents), incomes and house prices (the ABS series only start in 2019), capital spending, and the statewide economy, which needs elections from other states to say anything. The code is src/econ_voting.py.`)));
+    h('p', { class: 'hint' }, `Data: unemployment from the Small Area Labour Markets (SA2, quarterly since 2010), rents from the DFFH rental report (suburb groups, quarterly since 2000), level crossing removals and their completion dates. ${fmt(S.observations)} venue-elections; ${fmt(E.electorates)} electorate-elections. Still to test: incomes and house prices (the ABS series only start in 2019), capital spending, and the statewide economy, which needs elections from other states to say anything. The code is src/econ_voting.py.`)));
 }
 async function renderModel() {
   await ensureModelF(); const M = MODEL_F;
@@ -2538,11 +2602,11 @@ function renderTrivia(M) {
   const T = M.trivia, box = el('md-trivia'); if (!T || !box || box.dataset.done) return; box.dataset.done = '1';
   const ordn = (n) => { const sfx = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (sfx[(v - 20) % 10] || sfx[v] || sfx[0]); };
   const W = T.weather, S = T.sky, F = T.footy, EN = (e) => { const x = idx.electionById.get(e); return x ? shortName(x) : e; };
-  { const t = el('bk-trivia-s'); if (t) t.textContent = `Rain on election day, the moon and Mercury, and whether the footy club won on the weekend. We tested them properly. None of them moves the vote, and the ways they could have seemed to are a lesson in themselves.`; }
+  { const t = el('bk-trivia-s'); if (t) t.textContent = `Rain on election day, the moon (its sign, its phase, even how big it looks) and Mercury, and whether the footy club won on the weekend. We tested them properly. None of them moves the vote, and the ways they could have seemed to are a lesson in themselves.`; }
   const pc = (e, k = 1) => `${sp(e.est * k, 1)} (${sp(e.lo * k, 1)} to ${sp(e.hi * k, 1)})`;
   const wx = W.effects, dl = W.deluge, NH = W.naive_hot_day;
   const wrows = W.statewide.slice().sort((a, b) => a.election < b.election ? -1 : 1).map(r => h('tr', {}, h('td', {}, EN(r.election)), h('td', { class: 'num' }, Math.round(100 * r.wet_share) + '%'), h('td', { class: 'num' }, r.rain_mm.toFixed(1)), h('td', { class: 'num' }, r.tmax.toFixed(0) + '°'), h('td', { class: 'num' }, sp(r.tmax_anom) + '°')));
-  const sky = S.elections.filter(r => r.gov_primary_change != null).map(r => h('tr', {}, h('td', {}, EN(r.election)), h('td', { class: 'num' }, sp(r.gov_primary_change)), h('td', {}, r.held_office ? 'held' : 'lost'), h('td', {}, r.moon_sign), h('td', { class: 'num' }, Math.round(100 * r.moon_illumination) + '%'), h('td', {}, r.mercury_retrograde ? 'retrograde' : ''), h('td', {}, (r.eclipse_within_14_days || []).join(' + ')), h('td', {}, r.friday_13th_in_campaign ? 'yes' : '')));
+  const sky = S.elections.filter(r => r.gov_primary_change != null).map(r => h('tr', {}, h('td', {}, EN(r.election)), h('td', { class: 'num' }, sp(r.gov_primary_change)), h('td', {}, r.held_office ? 'held' : 'lost'), h('td', {}, r.moon_sign), h('td', { class: 'num' }, Math.round(100 * r.moon_illumination) + '%' + (r.moon_waxing == null ? '' : r.moon_waxing ? ' ↑' : ' ↓')), h('td', { class: 'num' }, r.moon_size_vs_mean == null ? '–' : sp(100 * r.moon_size_vs_mean, 0) + '%'), h('td', {}, r.mercury_retrograde ? 'retrograde' : ''), h('td', {}, (r.eclipse_within_14_days || []).join(' + ')), h('td', {}, r.friday_13th_in_campaign ? 'yes' : '')));
   const PR = S.pseudo_replication['Mercury retrograde'], best = S.best[0];
   const fx = F.effects, R = F.randomisation, GS = F.geelong_summary;
   const grows = F.geelong.map(r => h('tr', { style: r.premier ? 'font-weight:600' : null }, h('td', {}, EN(r.election)), h('td', {}, r.premier ? 'Premiers' : r.ladder ? `${ordn(r.ladder)} on the ladder` : ''), h('td', { class: 'num' }, sp(r.geelong_swing)), h('td', { class: 'num' }, sp(r.rest_swing)), h('td', { class: 'num' }, sp(r.difference))));
@@ -2559,6 +2623,17 @@ function renderTrivia(M) {
       h('div', { class: 'tablewrap', style: 'max-width:620px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Moon in'), h('th', { class: 'num' }, 'Elections'), ...['ALP', 'COAL', 'GRN', 'ONP'].map(g => h('th', { class: 'num', title: 'average change in first preferences, points' }, PN[g])))),
         h('tbody', {}, ...signs.map(k => { const g = MP.grid[k]; return h('tr', { title: MP.elections.filter(r => r.moon_sign === k).map(placeName).join(', ') }, h('td', {}, k), h('td', { class: 'num' }, g.n), cell(g.ALP, g.n), cell(g.COAL, g.n), cell(g.GRN, g.n), cell(g.ONP, g.n)); })))),
       h('p', { class: 'hint' }, `Average change in each party's first-preference vote, in points; hover a row for its elections. ${MP.n_tests} tests (every sign with at least two elections, and each element, against the rest, for each party): chance alone would turn up about ${Math.round(MP.expected_by_chance)} at p < 0.05, and there ${MP.nominal_hits === 1 ? 'was' : 'were'} ${MP.nominal_hits || 'none'}; ${MP.surviving_holm || 'none'} survive${MP.surviving_holm === 1 ? 's' : ''} allowing for the number of tests. The nearest miss: the moon in ${bs}, ${PN[b.party]} ${sp(b.diff)} points against the other signs (p = ${b.p})${behind.length ? `, which is just ${behind.map(r => `${placeName(r)} (${sp(r[b.party])})`).join(' and ')}: one landslide is enough to colour a sign` : ''}. ${single.length ? `Signs with a single election (${single.join('; ')}) are shown in grey and not tested: one election cannot speak for a sign.` : ''}`)]; };
+  const moonFace = () => { const MF = S.moon_phase_by_party; if (!MF) return [];
+    const feats = [...new Set(MF.tests.map(t => t.feature))], cellT = (f, g) => { const t = MF.tests.find(x => x.feature === f && x.party === g); return h('td', { class: 'num', title: t ? `p = ${t.p}` : '' }, t ? sp(t.diff) : '–'); };
+    const nice = { 'Waxing moon': 'Waxing (growing)', 'Moon more than half full': 'More than half full', 'Full moon within 3 days': 'Full moon within 3 days', 'New moon within 3 days': 'New moon within 3 days', 'Moon looking bigger than average (closer)': 'Looking bigger than average', 'Supermoon within 3 days': 'A supermoon within 3 days' };
+    const sup = MF.elections.filter(r => r.supermoon_within_3_days).map(placeName), big = MF.elections.slice().sort((a, b) => b.moon_size_vs_mean - a.moon_size_vs_mean)[0];
+    const dial = Object.entries(MF.size_dial).map(([g, d]) => `${PN[g]} r = ${sp(d.r, 2)}`).join(', ');
+    return [h('h4', { style: 'margin-top:14px' }, 'Waxing, waning, full: the moon\'s face and each party'),
+      h('p', { class: 'hint' }, `The same ${MF.elections.length} elections, by the moon's phase and how big it looked at noon on the day. Each figure is how much more (or less) a party's first-preference vote changed at the elections with that moon than at the rest, in points; hover for the p value.`),
+      h('div', { class: 'tablewrap', style: 'max-width:620px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'The moon'), h('th', { class: 'num' }, 'Elections'), ...['ALP', 'COAL', 'GRN', 'ONP'].map(g => h('th', { class: 'num' }, PN[g])))),
+        h('tbody', {}, ...feats.map(f => h('tr', {}, h('td', {}, nice[f] || f), h('td', { class: 'num' }, MF.counts[f]), ...['ALP', 'COAL', 'GRN', 'ONP'].map(g => cellT(f, g))))))),
+      h('p', { class: 'hint' }, `${MF.n_tests} tests: chance alone would turn up about ${Math.round(MF.expected_by_chance)} at p < 0.05, and there ${MF.nominal_hits === 1 ? 'was' : 'were'} ${MF.nominal_hits || 'none'}. As a dial rather than a switch (the moon ranged from ${sp(MF.size_range_pct[0], 1)}% to ${sp(MF.size_range_pct[1], 1)}% of its average size), how big it looked tracks nobody's vote: ${dial}, none of them distinguishable from chance. Only one election fell within three days of a supermoon (${sup.join(', ') || 'none'}), so that row is one election against the rest and could never prove anything${big && big.supermoon_within_3_days ? '; it was also the biggest moon of the lot' : `. The biggest moon was over ${placeName(big)}`}. The moon looks bigger or smaller because its orbit brings it closer and further away, by about 7% either side of average.`),
+      h('p', { class: 'hint' }, 'And 28 November 2026? A waning moon, about 84% lit, four days after a full moon near its closest approach (some will call it a supermoon), so it will still look about 6% bigger than average. On this evidence, that tells you nothing about the result.')]; };
   const footyClubs = () => { const AM = T.afl_mood; if (!AM || !AM.by_club) return h('span');
     const Sv = AM.summary.victorian, Si = AM.summary.interstate, tv = AM.top_victorian[0], ti = AM.top_interstate[0];
     const row = (c) => h('tr', {}, h('td', {}, c.club), h('td', { class: 'num' }, `${c.p_below_05} of ${c.tests}`), h('td', {}, c.strongest.group), h('td', {}, MARG[c.strongest.outcome] || c.strongest.outcome), h('td', { class: 'num' }, (c.strongest.r >= 0 ? '+' : '−') + Math.abs(c.strongest.r).toFixed(2)), h('td', { class: 'num' }, c.strongest.p < 0.001 ? '< 0.001' : c.strongest.p.toFixed(3)));
@@ -2587,9 +2662,9 @@ function renderTrivia(M) {
         h('p', { class: 'hint' }, `Each margin is one side's change minus the other's, so a third party cannot blur it: Labor against the Coalition (the "grumpy, so Coalition" question), the government against the opposition (the "wet, so punish whoever is in" question), and the party holding the seat (punishing the local member). ${Object.values(WM).filter(v => v.joint_p <= 0.05).length ? 'One passes its placebos, about what fifteen tries throw up.' : 'None of the fifteen passes its placebos: on election day, the strongest group effect is no bigger than on an ordinary Saturday.'}`)); })(),
     h('div', { class: 'bk-sec' },
       h('h3', {}, 'Written in the sky'),
-      h('p', { class: 'hint' }, `The sky at noon in Melbourne on each election day (moon phase and sign, Mercury, Venus and Mars retrograde, the signs of Mars, Jupiter and Saturn, an eclipse within a fortnight), plus a few earthly irrelevancies (a Friday the 13th in the campaign, daylight saving, the Melbourne Cup), against the government's first-preference vote in Victoria and whether it held office (the government against the opposition, whichever side was in). ${S.n_tests} tests on ${S.elections.filter(r => r.gov_primary_change != null).length} elections: chance alone would hand over about ${Math.round(S.expected_by_chance)} "significant" result${Math.round(S.expected_by_chance) === 1 ? '' : 's'}; there ${S.nominal_hits === 1 ? 'was' : 'were'} ${S.nominal_hits || 'none'}, and ${S.surviving || 'none'} after allowing for the number of tests. The closest: ${best.feature}, ${sp(best.diff)} points to the government (p = ${best.p}).`),
-      h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', { class: 'num' }, 'Government primary'), h('th', {}, 'Office'), h('th', {}, 'Moon in'), h('th', { class: 'num' }, 'Moon lit'), h('th', {}, 'Mercury'), h('th', {}, 'Eclipse near'), h('th', {}, 'Friday 13th'))), h('tbody', {}, ...sky))),
-      h('p', { class: 'hint' }, `The 2022 federal election had the lot: Mercury retrograde, a partial solar eclipse on 30 April and a total lunar eclipse on 16 May, and a Friday the 13th in the campaign. The government lost; it also lost in 2007 and 2013 under a quiet sky.`), ...moonParty()),
+      h('p', { class: 'hint' }, `The sky at noon in Melbourne on each election day (the moon's phase, sign and size, Mercury, Venus and Mars retrograde, the signs of Mars, Jupiter and Saturn, an eclipse within a fortnight), plus a few earthly irrelevancies (a Friday the 13th in the campaign, daylight saving, the Melbourne Cup), against the government's first-preference vote in Victoria and whether it held office (the government against the opposition, whichever side was in). ${S.n_tests} tests on ${S.elections.filter(r => r.gov_primary_change != null).length} elections: chance alone would hand over about ${Math.round(S.expected_by_chance)} "significant" result${Math.round(S.expected_by_chance) === 1 ? '' : 's'}; there ${S.nominal_hits === 1 ? 'was' : 'were'} ${S.nominal_hits || 'none'}, and ${S.surviving || 'none'} after allowing for the number of tests. The closest: ${best.feature}, ${sp(best.diff)} points to the government (p = ${best.p}).`),
+      h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', { class: 'num' }, 'Government primary'), h('th', {}, 'Office'), h('th', {}, 'Moon in'), h('th', { class: 'num', title: 'share of the face lit; ↑ waxing, ↓ waning' }, 'Moon lit'), h('th', { class: 'num', title: 'how big the moon looked against its average size (it is closer at some times than others)' }, 'Moon size'), h('th', {}, 'Mercury'), h('th', {}, 'Eclipse near'), h('th', {}, 'Friday 13th'))), h('tbody', {}, ...sky))),
+      h('p', { class: 'hint' }, `The 2022 federal election had the lot: Mercury retrograde, a partial solar eclipse on 30 April and a total lunar eclipse on 16 May, and a Friday the 13th in the campaign. The government lost; it also lost in 2007 and 2013 under a quiet sky.`), ...moonParty(), ...moonFace()),
     footyClubs(),
     h('div', { class: 'bk-sec' },
       h('h3', {}, 'Home-town advantage'),
@@ -3785,6 +3860,7 @@ async function pollLive(manual) {
     if (!j || !j.contests) throw new Error('unexpected feed format');
     const changed = j.fetched_at !== LIVE.fetchedAt;
     LIVE.latest = j; LIVE.fetchedAt = j.fetched_at; LIVE.available = true; LIVE.error = null; projReset();
+    if (state.election === LIVE.election) syncModelOptions();   // the election-night layers appear once there is a count
     if (!LIVE.nightDefault) { LIVE.nightDefault = true; if (!LIVE.userTouched && !selected) { state.election = LIVE.election; state.metric = 'called'; el('sel-election').value = state.election; el('sel-metric').value = 'called'; syncModelOptions(); el('f-party').hidden = true; if (state.unit !== 'contest') setUnit('contest'); else if (mapReady) renderMap(); } }
     if (changed) {
       rebuildLiveTables(j); buildIndexes(); refreshSql(); venueRows = null;
@@ -3895,8 +3971,8 @@ function renderDailyBlock(root, cid, c) {
   const mine = cards.filter(k => k.contest_id === cid || (k.kind === 'independent' && cands.some(x => normName(x.surname) === normName(k.registrant.split(',')[0]) && normName(k.registrant).includes(normName(x.given_name.split(' ')[0] || '')))));
   if (mine.length) {
     const byReg = new Map(); for (const k of mine) (byReg.get(k.registrant) || byReg.set(k.registrant, []).get(k.registrant)).push(k);
-    items.push(h('div', { style: 'margin-top:6px' }, h('div', { class: 'hint', style: 'margin-bottom:3px' }, `How-to-vote cards registered (${mine.length}): the preferences each campaign is recommending.`),
-      ...[...byReg.entries()].map(([reg, ks]) => h('div', { style: 'margin:2px 0' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(canonLabel(reg))}` }), reg), ' ', h('span', { class: 'links' }, ...ks.slice(0, 4).map((k, i) => k.pdf ? h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, ks.length > 1 ? `card ${i + 1}` : 'card') : '')), h('span', { class: 'hint' }, ` ${ks[0].registered}`)))));
+    items.push(h('div', { style: 'margin-top:6px' }, h('div', { class: 'hint', style: 'margin-bottom:3px' }, `How-to-vote cards registered (${mine.length}): the preferences each campaign is recommending. Anyone can register a card, candidate or not; the VEC lists them all.`),
+      ...[...byReg.entries()].map(([reg, ks]) => h('div', { style: 'margin:2px 0' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(canonLabel(reg))}` }), reg), ks[0].kind === 'non_candidate' ? h('span', { class: 'hint' }, ' not a candidate') : '', ' ', h('span', { class: 'links' }, ...ks.slice(0, 4).map((k, i) => k.pdf ? h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, ks.length > 1 ? `card ${i + 1}` : 'card') : '')), h('span', { class: 'hint' }, ` ${ks[0].registered}`)))));
   }
   if (!items.length) return;
   root.append(h('h3', {}, 'Before election day'), ...items, h('div', { class: 'hint', style: 'margin-top:4px' }, `VEC figures captured ${d.date}.`));
@@ -3975,18 +4051,41 @@ function myCard(c, cands, nums) {
       h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn pr', onclick: () => { document.body.classList.add('print-card'); window.print(); } }, 'Print'), copyBtn, h('button', { type: 'button', class: 'btn', onclick: close }, 'Close'))));
   document.body.append(ov); document.addEventListener('keydown', esc); ov.querySelector('.pr').focus();
 }
+// practice ballots can remember their numbers on this device only (localStorage; nothing is sent anywhere).
+// Opt-in: off unless the reader ticks "Remember my numbers"; unticking forgets every saved ballot.
+// Saved by candidate name rather than position, and dropped if the ballot no longer matches.
+const BSTORE = {
+  key: (k) => 'eba_ballot_v1_' + k,
+  on() { try { return localStorage.getItem('eba_ballot_remember') === '1'; } catch (e) { return false; } },
+  setOn(v) { try { if (v) localStorage.setItem('eba_ballot_remember', '1'); else { localStorage.removeItem('eba_ballot_remember'); for (const k of Object.keys(localStorage)) if (k.startsWith('eba_ballot_v1_')) localStorage.removeItem(k); } } catch (e) {} },
+  box(save) {
+    const cb = h('input', { type: 'checkbox' }); cb.checked = this.on();
+    cb.addEventListener('change', () => { this.setOn(cb.checked); if (cb.checked) save(); });
+    return h('label', { class: 'hint', style: 'display:flex;align-items:center;gap:6px;margin-top:6px;cursor:pointer' }, cb, 'Remember my numbers on this device (nothing is sent anywhere; untick to forget them)');
+  },
+  load(k, names) {
+    if (!this.on()) return new Map();
+    let v = null; try { v = JSON.parse(localStorage.getItem(this.key(k)) || 'null'); } catch (e) { return new Map(); }
+    if (!v || typeof v !== 'object') return new Map();
+    const out = new Map(), seen = new Set();
+    for (const [nm, num] of Object.entries(v)) { const i = names.indexOf(nm); if (i < 0 || !Number.isInteger(num) || num < 1 || seen.has(num)) return new Map(); out.set(i, num); seen.add(num); }
+    for (let k2 = 1; k2 <= out.size; k2++) if (!seen.has(k2)) return new Map();
+    return out;
+  },
+  save(k, names, nums) { if (!this.on()) return; try { if (!nums.size) localStorage.removeItem(this.key(k)); else localStorage.setItem(this.key(k), JSON.stringify(Object.fromEntries([...nums].map(([i, n]) => [names[i], n])))); } catch (e) {} },
+};
 function ballotPaper(c, cands) {
-  const n = cands.length, nums = new Map();
+  const n = cands.length, skey = `${LIVE.election}|${c.contest_id}`, snames = cands.map(x => `${x.surname}|${x.given_name}`), nums = BSTORE.load(skey, snames);
   const paper = h('div', { class: 'ballot', role: 'group', 'aria-label': `Practice ballot paper for ${c.contest_name}` });
   const status = h('div', { class: 'ballot-status', 'aria-live': 'polite' });
   const rows = [];
   const refresh = () => {
     for (const r of rows) r.box.textContent = nums.has(r.i) ? nums.get(r.i) : '';
     for (const r of rows) r.btn.setAttribute('aria-label', `${r.name}${nums.has(r.i) ? ', numbered ' + nums.get(r.i) : ', not numbered yet'}`);
-    status.innerHTML = '';
+    status.innerHTML = ''; BSTORE.save(skey, snames, nums);
     if (!nums.size) status.append(`Click the boxes in the order you'd vote, from 1 to ${n}.`);
     else if (nums.size < n) status.append(`${nums.size} of ${n} numbered. Keep going: in the Assembly every box needs a number.`);
-    else status.append(h('strong', {}, 'That would be a formal vote.'), ' Every box is numbered once. (Only practice: nothing is saved or sent.) ', h('button', { type: 'button', class: 'btn', style: 'margin-top:6px', onclick: () => myCard(c, cands, nums) }, 'Keep my order'));
+    else status.append(h('strong', {}, 'That would be a formal vote.'), ' Every box is numbered once. (Only practice: nothing is sent anywhere.) ', h('button', { type: 'button', class: 'btn', style: 'margin-top:6px', onclick: () => myCard(c, cands, nums) }, 'Keep my order'));
   };
   paper.append(h('div', { class: 'ballot-head' }, h('div', { class: 'k' }, 'Legislative Assembly'), h('div', { class: 'e' }, `${c.contest_name} Electorate`), h('div', { class: 'i' }, `Number the boxes from 1 to ${n} in the order of your choice`)));
   cands.forEach((x, i) => {
@@ -3999,7 +4098,7 @@ function ballotPaper(c, cands) {
   const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); refresh(); } }, 'Clear');
   refresh();
   const c22 = contestIn('vic2022', c.contest_id, LIVE.election), inf = c22 && c22.formal ? c22.informal / (c22.formal + c22.informal) : null;
-  return h('div', { class: 'ballot-wrap' }, paper, h('div', { class: 'ballot-foot' }, status, reset), inf != null ? h('div', { class: 'hint', style: 'margin-top:8px' }, h('strong', {}, `In 2022, ${pct(inf)} of ballots here were informal`), ' and didn\'t count. The usual reasons: a box left empty, a number used twice, or ticks and crosses instead of numbers.') : '', h('div', { class: 'hint', style: 'margin-top:6px' }, 'An illustration of the ballot order, not the official ballot paper. Click a numbered box again to take its number off.'));
+  return h('div', { class: 'ballot-wrap' }, paper, h('div', { class: 'ballot-foot' }, status, reset), BSTORE.box(() => BSTORE.save(skey, snames, nums)), inf != null ? h('div', { class: 'hint', style: 'margin-top:8px' }, h('strong', {}, `In 2022, ${pct(inf)} of ballots here were informal`), ' and didn\'t count. The usual reasons: a box left empty, a number used twice, or ticks and crosses instead of numbers.') : '', h('div', { class: 'hint', style: 'margin-top:6px' }, 'An illustration of the ballot order, not the official ballot paper. Click a numbered box again to take its number off.'));
 }
 const SEAT = { cid: null, pending: null };
 const PREMIER = { vic1999: 'Bracks, minority', vic2002: 'Bracks', vic2006: 'Bracks', vic2010: 'Baillieu', vic2014: 'Andrews', vic2018: 'Andrews', vic2022: 'Andrews' };
@@ -4102,7 +4201,7 @@ function boothAlp(eid, bid) {
 function boothTcpShare(eid, bid, party) { boothAlp(eid, bid); const o = TCPB.get(eid + '|' + bid); if (!o) return null; const tot = Object.values(o).reduce((a, b) => a + b, 0); return o[party] != null && tot ? o[party] / tot : null; }
 function boothPair(eid, bid) { boothAlp(eid, bid); const o = TCPB.get(eid + '|' + bid); return o ? Object.keys(o) : []; }
 // "It's all in the timing": how a seat's votes split by type (on the day, early, postal, absent and other) and how each type leaned
-const VT = [['ordinary', 'On the day', '--sky-3'], ['early', 'Early', '--accent'], ['postal', 'Postal', '--lime'], ['other', 'Absent and other', '--line']];
+const VT = [['ordinary', 'On the day, local booths', '--sky-3'], ['early', 'Early', '--accent'], ['postal', 'Postal', '--lime'], ['other', 'Absent (on the day, elsewhere) and other', '--line']];
 const vtOf = (t) => t === 'ordinary' || t === 'early' || t === 'postal' ? t : 'other';
 let VT_STATE = null;
 function voteTypes(eid, cid) {   // {type: {formal, tcp: {party: votes}}}
@@ -4112,8 +4211,8 @@ function voteTypes(eid, cid) {   // {type: {formal, tcp: {party: votes}}}
 }
 function stateVoteTypes() {
   if (VT_STATE) return VT_STATE; VT_STATE = {};
-  const type = new Map(D.booths.map(b => [b.election_id + '|' + b.booth_id, vtOf(b.booth_type)]));
-  for (const r of D.shares) { if (!/^vic(19|20)\d\d$/.test(r.election_id)) continue; const t = type.get(r.election_id + '|' + r.booth_id); if (!t) continue; const o = VT_STATE[r.election_id] || (VT_STATE[r.election_id] = { total: 0 }); o[t] = (o[t] || 0) + r.votes; o.total += r.votes; }
+  const raw = new Map(D.booths.map(b => [b.election_id + '|' + b.booth_id, b.booth_type]));
+  for (const r of D.shares) { if (!/^vic(19|20)\d\d$/.test(r.election_id)) continue; const bt = raw.get(r.election_id + '|' + r.booth_id); if (!bt) continue; const t = vtOf(bt); const o = VT_STATE[r.election_id] || (VT_STATE[r.election_id] = { total: 0, absent: 0 }); o[t] = (o[t] || 0) + r.votes; o.total += r.votes; if (bt === 'absent') o.absent += r.votes; }   // absent votes are election-day votes cast outside the voter's own electorate
   return VT_STATE;
 }
 function typeBar(o) { const tot = VT.reduce((a, [k]) => a + (o[k] ? o[k].formal != null ? o[k].formal : o[k] : 0), 0); return h('div', { class: 'vtbar', role: 'img', 'aria-label': VT.map(([k, lab]) => { const v = o[k] ? (o[k].formal != null ? o[k].formal : o[k]) : 0; return `${lab} ${tot ? Math.round(100 * v / tot) : 0}%`; }).join(', ') }, ...VT.map(([k, lab, col]) => { const v = o[k] ? (o[k].formal != null ? o[k].formal : o[k]) : 0; const w = tot ? 100 * v / tot : 0; return w > 0 ? h('span', { style: `width:${w}%;background:var(${col})`, title: `${lab}: ${w.toFixed(1)}%` }, w >= 9 ? Math.round(w) + '%' : '') : ''; })); }
@@ -4126,7 +4225,7 @@ function timingBlock(cid, c, held) {
   const last = rows[rows.length - 1], tot = VT.reduce((a, [k]) => a + last.vt[k].formal, 0), sh = (k) => tot ? last.vt[k].formal / tot : 0;
   const lastE = idx.electionById.get(last.e);
   // the headline
-  const big = VT.slice(0, 3).map(([k, lab, col]) => h('div', { class: 'vtstat' }, h('span', { class: 'v', style: `color:var(${col === '--lime' ? '--fg' : col})` }, pct(sh(k))), h('span', { class: 'k' }, `${lab === 'On the day' ? 'voted on the day' : lab === 'Early' ? 'voted early' : 'voted by post'}, ${shortName(lastE)}`)));
+  const big = VT.slice(0, 3).map(([k, lab, col]) => h('div', { class: 'vtstat' }, h('span', { class: 'v', style: `color:var(${col === '--lime' ? '--fg' : col})` }, pct(sh(k))), h('span', { class: 'k' }, `${k === 'ordinary' ? 'voted at a local booth on the day' : k === 'early' ? 'voted early' : 'voted by post'}, ${shortName(lastE)}`)));
   wrap.append(h('div', { class: 'vtstats' }, ...big));
   // the shift over time, this seat and Victoria
   const legend = h('div', { class: 'vtlegend' }, ...VT.map(([k, lab, col]) => h('span', {}, h('i', { style: `background:var(${col})` }), lab)));
@@ -4134,7 +4233,7 @@ function timingBlock(cid, c, held) {
   const first = rows[0], ft = VT.reduce((a, [k]) => a + first.vt[k].formal, 0);
   const s10 = st.vic2010, s22 = st[last.e];
   wrap.append(h('div', { class: 'box' }, h('h3', {}, 'When people here vote'), legend, tbl,
-    h('p', { class: 'hint', style: 'margin-top:8px' }, `${c.contest_name}: ${pct(ft ? first.vt.ordinary.formal / ft : 0)} of votes were cast on the day in ${shortName(idx.electionById.get(first.e))}, ${pct(sh('ordinary'))} in ${shortName(lastE)}.`, s10 && s22 ? ` Across Victoria it went from ${pct(s10.ordinary / s10.total)} to ${pct(s22.ordinary / s22.total)}${s22.early > s22.ordinary ? `, and in ${shortName(lastE).replace(/\D+/g, '')} early votes outnumbered election-day votes for the first time.` : '.'}` : '')));
+    h('p', { class: 'hint', style: 'margin-top:8px' }, `${c.contest_name}: ${pct(ft ? first.vt.ordinary.formal / ft : 0)} of votes were cast at the electorate's own booths on the day in ${shortName(idx.electionById.get(first.e))}, ${pct(sh('ordinary'))} in ${shortName(lastE)}.`, s10 && s22 ? ` Across Victoria it went from ${pct(s10.ordinary / s10.total)} to ${pct(s22.ordinary / s22.total)}${s22.early > s22.ordinary ? `, and in ${shortName(lastE).replace(/\D+/g, '')} early votes outnumbered election-day votes for the first time.` : '.'}` : '')));
   // how each type leaned, read from the side of the party that holds the seat (switchable in the booth table below)
   const pair = Object.keys(VT.reduce((a, [k]) => Object.assign(a, last.vt[k].tcp), {})).filter(p => p !== '?');
   if (pair.length === 2) {
@@ -4161,30 +4260,50 @@ function ensureLcx() {
     .then(([rg, nm]) => { LCX.regions = rg.regions; LCX.noms = nm; LCX.regionOf = new Map(); for (const [rid, r] of Object.entries(rg.regions)) for (const d of r.districts) LCX.regionOf.set(d, rid); return LCX; });
   return LCX.p;
 }
-function openRegion(rid) { SEAT.cid = rid; try { history.replaceState(null, '', '#region/' + rid.replace(/^vicr-/, '')); } catch (e) {} if (activeView() !== 'seat') showView('seat'); else renderSeat(); window.scrollTo(0, 0); }
+function openRegion(rid) { SEAT.cid = rid; try { history.replaceState(null, '', '#region/' + rid.replace(/^vicr-/, '')); } catch (e) {} if (activeView() !== 'seat') showView('seat'); else { renderSeat(); gcCount('seat'); } window.scrollTo(0, 0); }
 const niceParty = (n) => { n = String(n || ''); if (/[a-z]/.test(n)) return n.replace(/ - Victorian Branch$/, ''); return n.toLowerCase().replace(/\b\w/g, m => m.toUpperCase()).replace(/'S\b/g, "'s").replace(/\b(Dlp|Aus|Vic)\b/g, m => m.toUpperCase()).replace(/ - Victorian Branch$/, ''); };
 const lcParty = (name) => { const n = String(name || '').toLowerCase(); return /labor party/.test(n) ? 'ALP' : /liberal|national/.test(n) && !/libertarian|democrats/.test(n) ? 'COAL' : /greens/.test(n) ? 'GRN' : /one nation/.test(n) ? 'ONP' : /victorian socialists/.test(n) ? 'VSP' : 'OTH'; };
-// a practice upper-house ballot: groups across the top, number at least one box above the line
+// a practice upper-house ballot: groups across the top; 2026 rules (no group voting tickets): number at least 5 boxes above the line, or at least 5 below it, not both
 function lcBallot(rid, reg, noms) {
   const groups = noms.filter(g => g.letter), ungrouped = noms.filter(g => !g.letter);
-  const nums = new Map(); const status = h('div', { class: 'ballot-status', 'aria-live': 'polite' }); const boxes = [];
-  const refresh = () => { for (const b of boxes) b.box.textContent = nums.has(b.i) ? nums.get(b.i) : ''; status.innerHTML = ''; if (!nums.size) status.append('Above the line: number at least one box, then as many more as you like, in your order.'); else status.append(h('strong', {}, 'That would be a formal vote.'), ` ${nums.size} group${nums.size > 1 ? 's' : ''} numbered. Your vote goes to the candidates of the groups you number, in the order you number them, and stops there.`); };
+  // above the line: one box per group; below the line: one box per candidate (grouped and ungrouped), numbered separately
+  const cands = []; for (const g of noms) for (const x of g.candidates) cands.push({ g, x });
+  const NA = Math.min(5, groups.length), NB = Math.min(5, cands.length);   // VEC, 2026: at least 5 boxes above the line, or at least 5 below
+  const skey = `${LIVE.election}|${rid}`, snames = groups.map(g => `${g.letter}|${g.name}`), nums = BSTORE.load(skey, snames);
+  const bkey = skey + '|btl', bnames = cands.map(c => `${c.g.letter || '-'}|${c.x.surname}|${c.x.given}`), bnums = BSTORE.load(bkey, bnames);
+  const status = h('div', { class: 'ballot-status', 'aria-live': 'polite' }); const boxes = [], sqs = [];
+  const toggle = (m, i) => { if (m.has(i)) { const v = m.get(i); m.delete(i); for (const [k, w] of m) if (w > v) m.set(k, w - 1); } else m.set(i, m.size + 1); refresh(); };
+  const refresh = () => {
+    for (const b of boxes) { b.box.textContent = nums.has(b.i) ? nums.get(b.i) : ''; b.btn.setAttribute('aria-label', `Group ${b.g.letter}, ${b.g.name}, above the line${nums.has(b.i) ? ', numbered ' + nums.get(b.i) : ''}`); }
+    for (const q of sqs) { q.sq.textContent = bnums.has(q.i) ? bnums.get(q.i) : ''; q.btn.setAttribute('aria-label', `${q.x.surname}, ${q.x.given}, below the line${bnums.has(q.i) ? ', numbered ' + bnums.get(q.i) : ''}`); q.btn.classList.toggle('on', bnums.has(q.i)); }
+    status.innerHTML = ''; BSTORE.save(skey, snames, nums); BSTORE.save(bkey, bnames, bnums);
+    const a = nums.size, b = bnums.size;
+    if (!a && !b) status.append(`Number at least ${NA} boxes above the line, or at least ${NB} boxes below it, in the order of your choice.`);
+    else if (a && b) status.append(h('strong', {}, 'Vote above the line or below it, not both.'), ` You\'ve numbered ${a} above the line and ${b} below. The ballot paper asks for one or the other: take the numbers off one side.`);
+    else if (b >= NB) status.append(h('strong', {}, 'That would be a formal vote, below the line.'), ` ${b} candidates numbered: your vote moves from candidate to candidate in exactly your order, and stops after your last number.`);
+    else if (b) status.append(h('strong', {}, 'Not enough boxes yet.'), ` ${b} numbered below the line. Keep going: number at least ${NB} boxes below the line for your vote to count.`);
+    else if (a >= NA) status.append(h('strong', {}, 'That would be a formal vote, above the line.'), ` ${a} groups numbered: your vote goes to each group\'s candidates in the order printed, group by group in your order, and stops after your last number.`);
+    else status.append(h('strong', {}, 'Not enough boxes yet.'), ` ${a} numbered above the line. Keep going: number at least ${NA} boxes above the line for your vote to count.`);
+  };
   const paper = h('div', { class: 'lcballot', role: 'group', 'aria-label': `Practice upper-house ballot for ${reg.name}` });
   const cols = h('div', { class: 'lccols' });
+  const btlRow = (g, x) => { const i = cands.findIndex(c => c.g === g && c.x === x); const sq = h('span', { class: 'sq', 'aria-hidden': 'true' });
+    const btn = h('button', { type: 'button', class: 'bc', onclick: () => toggle(bnums, i) }, sq, h('span', {}, h('strong', {}, `${x.surname}, ${x.given}`), x.party && g.letter && x.party !== g.name ? h('small', {}, x.party) : '', x.locality ? h('small', { class: 'loc2' }, x.locality) : ''));
+    sqs.push({ i, sq, btn, x }); return btn; };
   groups.forEach((g, i) => {
     const box = h('span', { class: 'bbox', 'aria-hidden': 'true' });
-    const btn = h('button', { type: 'button', class: 'atl', onclick: () => { if (nums.has(i)) { const v = nums.get(i); nums.delete(i); for (const [k, w] of nums) if (w > v) nums.set(k, w - 1); } else nums.set(i, nums.size + 1); refresh(); btn.setAttribute('aria-label', `Group ${g.letter}, ${g.name}${nums.has(i) ? ', numbered ' + nums.get(i) : ''}`); }, 'aria-label': `Group ${g.letter}, ${g.name}` }, box);
-    boxes.push({ i, box });
+    const btn = h('button', { type: 'button', class: 'atl', onclick: () => toggle(nums, i), 'aria-label': `Group ${g.letter}, ${g.name}` }, box);
+    boxes.push({ i, box, btn, g });
     const named = !/^Unnamed/.test(g.name);
     cols.append(h('div', { class: 'lccol' }, h('div', { class: 'gl' }, g.letter), btn, h('div', { class: 'gn', style: `border-top:4px solid ${partyColor(lcParty(g.name))}` }, named ? g.name : 'Group ' + g.letter + ' (no party name)'),
-      h('div', { class: 'btl' }, ...g.candidates.map(x => h('div', { class: 'bc' }, h('span', { class: 'sq' }), h('span', {}, h('strong', {}, `${x.surname}, ${x.given}`), x.party && x.party !== g.name ? h('small', {}, x.party) : '', x.locality ? h('small', { class: 'loc2' }, x.locality) : ''))))));
+      h('div', { class: 'btl' }, ...g.candidates.map(x => btlRow(g, x)))));
   });
-  for (const g of ungrouped) cols.append(h('div', { class: 'lccol ug' }, h('div', { class: 'gl' }, '–'), h('div', { class: 'atl none' }), h('div', { class: 'gn' }, 'Ungrouped'), h('div', { class: 'btl' }, ...g.candidates.map(x => h('div', { class: 'bc' }, h('span', { class: 'sq' }), h('span', {}, h('strong', {}, `${x.surname}, ${x.given}`), x.locality ? h('small', { class: 'loc2' }, x.locality) : ''))))));
-  paper.append(h('div', { class: 'ballot-head' }, h('div', { class: 'k' }, 'Legislative Council'), h('div', { class: 'e' }, `${reg.name} Region`), h('div', { class: 'i' }, 'Above the line: number at least 1 box · or below the line: number at least 5 boxes')),
+  for (const g of ungrouped) cols.append(h('div', { class: 'lccol ug' }, h('div', { class: 'gl' }, '–'), h('div', { class: 'atl none' }), h('div', { class: 'gn' }, 'Ungrouped'), h('div', { class: 'btl' }, ...g.candidates.map(x => btlRow(g, x)))));
+  paper.append(h('div', { class: 'ballot-head' }, h('div', { class: 'k' }, 'Legislative Council'), h('div', { class: 'e' }, `${reg.name} Region`), h('div', { class: 'i' }, `Number at least ${NA} boxes above the line · or at least ${NB} boxes below the line`)),
     h('div', { class: 'lcscroll' }, cols));
-  const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); refresh(); } }, 'Clear');
+  const reset = h('button', { type: 'button', class: 'btn', onclick: () => { nums.clear(); bnums.clear(); refresh(); } }, 'Clear');
   refresh();
-  return h('div', {}, paper, h('div', { class: 'ballot-foot' }, status, reset), h('div', { class: 'hint', style: 'margin-top:6px' }, `An illustration of the ballot order, not the official ballot paper. Suburbs as published by the VEC. Scroll sideways for all ${groups.length} groups. This practice ballot only numbers above the line.`));
+  return h('div', {}, paper, h('div', { class: 'ballot-foot' }, status, reset), BSTORE.box(() => { BSTORE.save(skey, snames, nums); BSTORE.save(bkey, bnames, bnums); }), h('div', { class: 'hint', style: 'margin-top:6px' }, `An illustration of the ballot order, not the official ballot paper. Suburbs as published by the VEC. Scroll sideways for all ${groups.length} groups. Click the big boxes to number above the line, or the small boxes beside each name to number below the line; click a number again to take it off. The VEC's instructions on the day are the final word.`));
 }
 function renderRegionPage(root, rid) {
   root.append(h('div', { class: 'wrap', style: 'padding:40px 16px' }, h('div', { class: 'empty' }, 'Loading the upper house…')));
@@ -4194,28 +4313,46 @@ function drawRegion(root, rid) {
   const reg = LCX.regions[rid]; if (!reg) { SEAT.cid = null; return renderSeat(); }
   const noms = LCX.noms && LCX.noms.regions[rid] || [];
   const res22 = (LC.resultBy.get('vic2022|' + rid) || []).slice().sort((a, b) => a.order_elected - b.order_elected);
-  const loc = h('div', { class: 'loc' }); locatorSvg(reg.districts).then(svg => { loc.innerHTML = svg; }).catch(() => {});
+  const loc = h('div', { class: 'loc go', role: 'button', tabindex: '0', title: `See every booth in ${reg.name} Region on the map`, onclick: () => regionOnMap(rid), onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); regionOnMap(rid); } } }); locatorSvg(reg.districts).then(svg => { loc.innerHTML = svg; }).catch(() => {});
   const nCand = noms.reduce((a, g) => a + g.candidates.length, 0), nGrp = noms.filter(g => g.letter).length;
   root.append(h('div', { class: 'shead' }, h('div', { class: 'wrap' }, loc,
     h('div', { class: 'crumbs' }, h('button', { onclick: () => { SEAT.cid = null; try { history.replaceState(null, '', '#seat'); } catch (e) {} renderSeat(); } }, 'Electorates'), ' › Upper house › ', reg.name),
     h('h1', {}, reg.name + ' Region'),
     h('p', { class: 'lead', style: 'max-width:32em' }, `One of the eight Legislative Council regions. Voters across its ${reg.districts.length} electorates elect 5 of the Council's 40 members, on the larger, wider ballot paper.`),
-    h('div', { class: 'badges' }, res22.length ? h('span', { class: 'badge' }, 'Elected in 2022: ', ...res22.map(r => h('span', { class: 'dot', style: `background:${partyColor(r.party)};margin-left:4px`, title: `${r.name} (${niceParty(r.party_name || r.party)})` }))) : '', nCand ? h('span', { class: 'badge' }, `${nCand} candidates in ${nGrp} groups for 2026`) : ''))));
+    h('div', { class: 'badges' }, res22.length ? h('span', { class: 'badge' }, 'Elected in 2022: ', ...res22.map(r => h('span', { class: 'dot', style: `background:${partyColor(r.party)};margin-left:4px`, title: `${r.name} (${niceParty(r.party_name || r.party)})` }))) : '', nCand ? h('span', { class: 'badge' }, `${nCand} candidates in ${nGrp} groups for 2026`) : ''),
+    mapCta('See every booth and the count on the map', () => regionOnMap(rid)))));
   const secs = [['ballot', "Who's standing"], ['how', 'How it works'], ['history', 'Past results'], ['seats', 'Electorates']];
-  const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
+  const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', 'data-id': id, class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
   const body = h('div', { class: 'wrap', style: 'padding-bottom:56px' }); root.append(body);
+  // keep the "On this page" bar in step with the reader: the section under the bar is the one highlighted
+  { const spy = () => { if (!nav.isConnected) return; const navB = nav.getBoundingClientRect().bottom; let cur = secs[0][0];
+      for (const [id] of secs) { const s2 = root.querySelector('#s-' + id); if (s2 && s2.getBoundingClientRect().top <= navB + 48) cur = id; }
+      for (const a of nav.querySelectorAll('a')) { const on = a.dataset.id === cur; if (on !== a.classList.contains('on')) { a.classList.toggle('on', on); if (on) { const w = nav.firstChild; if (w && w.scrollWidth > w.clientWidth) w.scrollLeft = Math.max(0, a.offsetLeft - 16); } } } };
+    const key = (root.closest('.view') || {}).id || 'page'; if (SEAT_SPY[key]) SEAT_SPY[key].el.removeEventListener('scroll', SEAT_SPY[key].fn);
+    const vw = root.closest('.view'); const el = vw && getComputedStyle(vw).overflowY !== 'visible' ? vw : window; const fn = () => requestAnimationFrame(spy);
+    el.addEventListener('scroll', fn, { passive: true }); SEAT_SPY[key] = { el, fn }; }
   const sec = (id, n, title, sub) => { const s = h('section', { class: 'sec', id: 's-' + id }, h('h2', {}, h('span', { class: 'bnum r' + ((n % 3) + 1), style: 'width:40px;height:40px;font-size:20px' }, String(n)), title), sub ? h('p', { class: 'sub' }, sub) : ''); body.append(s); return s; };
   // 1 the ballot
   const s1 = sec('ballot', 1, "Who's standing in 2026", nCand ? `${nCand} candidates in ${nGrp} groups${noms.some(g => !g.letter) ? ', plus ungrouped candidates' : ''}, in the order drawn for the ballot paper (VEC, captured ${LCX.noms.captured}).` : 'Nominations not loaded yet.');
   if (nCand) s1.append(lcBallot(rid, reg, noms));
+  // registered how-to-vote cards for this region (VEC register, captured by the daily run), grouped by who registered them, A to Z
+  { const all = (LIVE.daily && LIVE.daily.htv && LIVE.daily.htv.cards) || [], cards = all.filter(k => k.contest_id === rid && k.pdf);
+    // a combined card (both houses) is registered under the electorate too: name it by that electorate
+    const distOf = new Map(all.filter(k => k.house === 'LA').map(k => [k.registrant + '|' + k.registration, String(k.area || '').replace(/ District$/, '')]));
+    const lab = (k) => distOf.get(k.registrant + '|' + k.registration) || null;
+    if (cards.length) { const by = new Map(); for (const k of cards) (by.get(k.registrant) || by.set(k.registrant, []).get(k.registrant)).push(k);
+      const names = [...by.keys()].sort((a, b) => a.localeCompare(b));
+      s1.append(h('div', { style: 'margin-top:14px' }, h('h3', {}, 'How-to-vote cards'), h('p', { class: 'hint' }, `${cards.length} registered with the VEC for this region so far, listed A to Z by who registered them. Anyone can register a card, candidate or not.`),
+        h('div', { class: 'htvlist' }, ...names.map(n => { const ks = by.get(n); return h('div', { style: 'margin:3px 0' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(canonLabel(n))}` }), n), ks[0].kind === 'non_candidate' ? h('span', { class: 'hint' }, ' not a candidate') : '', ' ', ...(() => { const links = ks.slice().sort((a, b) => String(lab(a) || '').localeCompare(String(lab(b) || ''))).map((k, i) => h('a', { href: k.pdf, target: '_blank', rel: 'noopener', style: 'margin-right:10px;white-space:nowrap' }, lab(k) ? lab(k) : (ks.length > 1 ? `card ${i + 1}` : 'card')));
+            return ks.length > 4 ? [h('details', { style: 'display:block;margin:2px 0 6px 18px' }, h('summary', { style: 'cursor:pointer' }, (() => { const u = new Set(ks.map(lab).filter(Boolean)).size; return `${ks.length} cards` + (ks.every(lab) ? (u === ks.length ? ', one per electorate' : ` across ${u} electorates`) : ''); })()), h('div', { style: 'margin-top:4px;max-width:46em;display:flex;flex-wrap:wrap;gap:2px 0;line-height:1.8' }, ...links))] : links; })(), h('span', { class: 'hint' }, ` registered ${ks[0].registered}`)); })))); } }
   // 2 how it works
   const s2 = sec('how', 2, 'How the upper house works');
   const box = (cls, t, txt) => h('div', { style: `background:var(--${cls})` }, h('h3', {}, t), h('p', {}, ...[].concat(txt)));
   s2.append(h('div', { class: 'vote3' },
     box('sky', 'Five members each', 'The Legislative Council has 40 members: 5 from each of 8 regions, all elected at once for four years. It reviews and can block the laws the Assembly passes.'),
     box('lime-tint', 'A sixth of the vote', 'A candidate is elected on reaching a quota: one sixth of the formal vote, plus one (about 16.7%). Surplus votes and the votes of excluded candidates flow on by preference until all five seats are filled.'),
-    box('teal-tint', 'Your preferences, not a ticket', ['Number at least 1 box above the line, or at least 5 below it. ', h('strong', {}, 'There are no group voting tickets in 2026'), ': in 2022 a single 1 above the line let the group decide where your preferences went; now they go only where you number them.'])));
+    box('teal-tint', 'Your preferences, not a ticket', ['Number at least 5 boxes above the line, or at least 5 below it. ', h('strong', {}, 'There are no group voting tickets in 2026'), ': in 2022 a single 1 above the line let the group decide where your preferences went; now they go only where you number them.'])));
   // 3 history
   const s3 = sec('history', 3, 'Past results', 'Every upper-house election since regions began in 2006. Regions were redrawn in 2013 and 2021, so earlier results are for a differently shaped region of the same name.');
   const hist = LC.contests.filter(x => x.contest_id === rid).map(x => x.election_id).sort((a, b) => idx.electionById.get(b).date.localeCompare(idx.electionById.get(a).date)).map(eid => ({ eid, e: idx.electionById.get(eid), c: LC.contestBy.get(eid + '|' + rid), res: (LC.resultBy.get(eid + '|' + rid) || []).slice().sort((a, b) => a.order_elected - b.order_elected), sh: lcShares(eid, rid) }));
@@ -4249,6 +4386,10 @@ function twoHouses(cid, c) {
       h('div', { class: 'th' }, h('span', { class: 'tag up' }, 'Upper house'), h('div', {}, h('strong', {}, h('a', { href: '#region/' + rid.replace(/^vicr-/, ''), onclick: (ev) => { ev.preventDefault(); openRegion(rid); } }, `Legislative Council: ${reg.name} Region →`)), h('div', { class: 'hint' }, `The larger ballot paper. Five members for the region this electorate sits in, along with ${reg.districts.length - 1} others.`)))); }).catch(() => {});
   return box;
 }
+// one tap from an electorate or region page to its booths on the map (2022, after preferences), zoomed to fit
+function seatOnMap(cid) { setUnit('booth'); setElection('vic2022'); if (state.metric !== 'tcpwin') { el('sel-metric').value = 'tcpwin'; el('sel-metric').dispatchEvent(new Event('change')); } showView('map'); const oc = contestIn('vic2022', cid, LIVE.election); if (oc) setTimeout(() => selectContest('vic2022', oc.contest_id, true), 400); }
+function regionOnMap(rid) { setUnit('lc'); setElection('vic2022'); showView('map'); setTimeout(() => selectRegion('vic2022', rid, true), 500); }
+const mapCta = (label, go) => { const ic = h('span', { 'aria-hidden': 'true', style: 'display:inline-flex' }); ic.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 3 3 5.5v15.5l6-2.5 6 2.5 6-2.5V3l-6 2.5L9 3zm0 2.2 6 2.5v11.1l-6-2.5V5.2z" fill="currentColor"/></svg>'; return h('button', { class: 'cta mapcta', onclick: go }, ic, label); };
 function renderSeat() {
   const root = el('seat-root'); if (!root) return; root.innerHTML = '';
   if (SEAT.pending) { const p = SEAT.pending; SEAT.pending = null; if (idx.contestById.get(LIVE.election + '|' + p) || p.startsWith('vicr-')) SEAT.cid = p; }
@@ -4272,7 +4413,7 @@ function renderSeat() {
   const cands = D.candidates.filter(x => x.election_id === LIVE.election && x.contest_id === cid).sort((a, b) => (a.ballot_position || 99) - (b.ballot_position || 99) || a.surname.localeCompare(b.surname));
   const sitting = cands.find(x => x.incumbent);
   // header
-  const loc = h('div', { class: 'loc' }); locatorSvg(cid).then(svg => { loc.innerHTML = svg; }).catch(() => {});
+  const loc = h('div', { class: 'loc go', role: 'button', tabindex: '0', title: `See every booth in ${c.contest_name} on the map`, onclick: () => seatOnMap(cid), onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); seatOnMap(cid); } } }); locatorSvg(cid).then(svg => { loc.innerHTML = svg; }).catch(() => {});
   const c22 = idx.contestById.get('vic2022|' + cid);
   root.append(h('div', { class: 'shead' }, h('div', { class: 'wrap' }, loc,
     h('div', { class: 'crumbs' }, h('button', { onclick: () => { SEAT.cid = null; renderSeat(); } }, 'Electorates'), ' › ', c.contest_name),
@@ -4280,11 +4421,19 @@ function renderSeat() {
     h('p', { class: 'lead', style: 'max-width:30em' }, `Legislative Assembly electorate. ${c22 && c22.enrolment ? fmt(c22.enrolment) + ' electors were enrolled in 2022.' : ''}`),
     h('div', { class: 'badges' }, h('span', { class: 'badge' }, h('span', { class: 'dot', style: `background:${partyColor(hc)}` }), 'Held by ' + (c.held_by || '–')),
       lc ? h('span', { class: 'badge' }, `Margin ${(100 * lc.margin).toFixed(1)} points (${shortName(lc.e)})`) : '',
-      ret.length ? h('span', { class: 'badge lime' }, 'Open seat: member retiring') : sitting ? h('span', { class: 'badge' }, `${sitting.given_name} ${sitting.surname} recontesting`) : ''))));
+      ret.length ? h('span', { class: 'badge lime' }, 'Open seat: member retiring') : sitting ? h('span', { class: 'badge' }, `${sitting.given_name} ${sitting.surname} recontesting`) : ''),
+    mapCta('See every booth on the map', () => seatOnMap(cid)))));
   const secs = [['ballot', "Who's standing"], ['vote', 'How to vote'], ['history', 'Past results'], ['booths', 'Booth by booth'], ['timing', 'Timing'], ['people', 'Who lives here']];
   const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', 'data-id': id, class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
   const body = h('div', { class: 'wrap', style: 'padding-bottom:56px' }); root.append(body);
+  // keep the "On this page" bar in step with the reader: the section under the bar is the one highlighted
+  { const spy = () => { if (!nav.isConnected) return; const navB = nav.getBoundingClientRect().bottom; let cur = secs[0][0];
+      for (const [id] of secs) { const s2 = root.querySelector('#s-' + id); if (s2 && s2.getBoundingClientRect().top <= navB + 48) cur = id; }
+      for (const a of nav.querySelectorAll('a')) { const on = a.dataset.id === cur; if (on !== a.classList.contains('on')) { a.classList.toggle('on', on); if (on) { const w = nav.firstChild; if (w && w.scrollWidth > w.clientWidth) w.scrollLeft = Math.max(0, a.offsetLeft - 16); } } } };
+    const key = (root.closest('.view') || {}).id || 'page'; if (SEAT_SPY[key]) SEAT_SPY[key].el.removeEventListener('scroll', SEAT_SPY[key].fn);
+    const vw = root.closest('.view'); const el = vw && getComputedStyle(vw).overflowY !== 'visible' ? vw : window; const fn = () => requestAnimationFrame(spy);
+    el.addEventListener('scroll', fn, { passive: true }); SEAT_SPY[key] = { el, fn }; }
   const sec = (id, n, title, sub) => { const s = h('section', { class: 'sec', id: 's-' + id }, h('h2', {}, h('span', { class: 'bnum r' + ((n % 3) + 1), style: 'width:40px;height:40px;font-size:20px' }, String(n)), title), sub ? h('p', { class: 'sub' }, sub) : ''); body.append(s); return s; };
   body.append(twoHouses(cid, c));
   // 1 candidates
@@ -4308,7 +4457,7 @@ function renderSeat() {
   s2.append(h('div', { class: 'vote3' },
     v.early ? box('sky', 'Vote early', [`${fmtDay(v.early.open)} to ${fmtDay(v.early.close)}, ${v.early.hours}. `, h('a', { href: v.early.url, target: '_blank', rel: 'noopener' }, 'Voting options (VEC)')]) : '',
     box('lime-tint', 'Or on election day', `${fmtDay(kd.election_day || '2026-11-28')}, ${v.election_day ? v.election_day.hours + ', ' + v.election_day.note : '8 am to 6 pm'}.`),
-    box('teal-tint', 'Number the boxes', 'Lower house: number every box. Upper house: 1 above the line, or at least 1 to 5 below it.')));
+    box('teal-tint', 'Number the boxes', 'Lower house: number every box. Upper house: at least 5 boxes above the line, or at least 5 below it.')));
   const extra = h('div', { class: 'hint', style: 'margin-top:14px;font-size:14px;display:grid;gap:4px' });
   if (v.postal) extra.append(h('div', {}, `Postal votes: apply by ${fmtDay(v.postal.applications_close)}. `, h('a', { href: v.postal.url, target: '_blank', rel: 'noopener' }, 'Apply (VEC)')));
   if (v.low_sensory) extra.append(h('div', {}, `Low-sensory voting: ${fmtDay(v.low_sensory.date)}, ${v.low_sensory.note}.`));
@@ -4333,7 +4482,7 @@ function renderSeat() {
   if (DEMOG) fillCensus(); else { cbx.append(h('div', { class: 'empty' }, 'Loading…')); ensureDemog().then(fillCensus); }
   // 5 booths
   const s5 = sec('booths', 6, 'Booth by booth', `Each polling place in ${c.contest_name}, and how the same venue has voted over the years.`);
-  s5.append(h('div', { class: 'row', style: 'gap:10px;flex-wrap:wrap;margin-bottom:16px' }, h('button', { class: 'cta', style: 'height:46px;font-size:15px', onclick: () => { setUnit('booth'); setElection('vic2022'); showView('map'); const oc = contestIn('vic2022', cid, LIVE.election); if (oc) setTimeout(() => selectContest('vic2022', oc.contest_id, true), 400); } }, `Open ${c.contest_name} on the map →`)));
+  s5.append(h('div', { class: 'row', style: 'gap:10px;flex-wrap:wrap;margin-bottom:16px' }, h('button', { class: 'cta', style: 'height:46px;font-size:15px', onclick: () => seatOnMap(cid) }, `Open ${c.contest_name} on the map →`)));
   const oc22 = contestIn('vic2022', cid, LIVE.election);
   const bl = oc22 ? D.booths.filter(b => b.election_id === 'vic2022' && b.contest_id === oc22.contest_id && b.booth_type === 'ordinary').sort((a, b) => a.booth_name.localeCompare(b.booth_name)) : [];
   if (bl.length) {
@@ -4364,6 +4513,7 @@ function renderSeat() {
 }
 
 /* ---------- wiring ---------- */
+const SEAT_SPY = {};   // each page's scroll listener for its section bar, one per view
 function showView(name) {
   for (const s of document.querySelectorAll('.view')) s.classList.toggle('active', s.id === 'view-' + name);
   for (const b of document.querySelectorAll('nav.views button')) { if (b.dataset.view === name) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); }
@@ -4377,8 +4527,11 @@ function showView(name) {
   if (name === 'home') renderHome();
   if (name === 'seat') renderSeat();
   try { localStorage.setItem('atlas.view', name); } catch (e) {}
-  if (window.__GC && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: '/' + name, title: document.title });   // one count per tab opened; nothing else is sent
+  gcCount(name);
 }
+// visit counts: one per tab opened, and per electorate or region page (e.g. /seat/richmond); nothing else is sent
+function gcPath(name) { const m = name === 'seat' && location.hash.match(/^#(seat|region)\/([a-z0-9-]+)/i); return m ? `/${m[1]}/${decodeURIComponent(m[2]).replace(/^vicr?-/, '')}` : '/' + name; }
+function gcCount(name) { if (window.__GC && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: gcPath(name), title: document.title }); }
 function fillCensusSelect() {
   const cs = el('sel-census'), set = demogSet(state.election); if (!set) return;
   if (!cs.dataset.wired) { cs.dataset.wired = '1'; cs.addEventListener('change', (ev) => { state.census = ev.target.value; renderMap(); }); }
@@ -4397,7 +4550,7 @@ const METRIC_HINT = {
   live_tcp: 'Atlas estimate: the first preferences counted so far, run through the preference model, for the final two. Changes as booths come in.', live_tcpwin: 'Atlas estimate: who is ahead once the votes counted so far are run through the preference model. Changes as booths come in.',
   projwin: 'Atlas projection: what the finished count looks like, from what is counted plus what is expected from the booths and votes still to come. Changes as the night goes on.', proj: 'Atlas projection of each party\'s final share after preferences.', called: 'Only seats the Atlas projection has called or the VEC has declared are coloured; striped where a seat has changed hands. The most cautious view of the night.' };
 function metricHint() { const live = state.election === LIVE.election; const k = live && (state.metric === 'tcp' || state.metric === 'tcpwin') ? 'live_' + state.metric : state.metric; const t = METRIC_HINT[k] || ''; const box = el('metric-hint'); box.innerHTML = ''; box.append(t, /Atlas/.test(t) ? h('span', {}, ' ', h('a', { href: '#prefs', onclick: (ev) => { ev.preventDefault(); showView('prefs'); } }, 'How the Atlas model works')) : ''); }
-function syncModelOptions() { const live = state.election === LIVE.election; el('og-live').hidden = !live; for (const o of el('sel-metric').options) { if (['projwin', 'proj', 'called'].includes(o.value)) o.hidden = !live; if (o.dataset.live) { if (!o.dataset.base) o.dataset.base = o.textContent; o.textContent = live ? o.dataset.live : o.dataset.base; } } if (!live && ['projwin', 'proj', 'called'].includes(state.metric)) { state.metric = 'share'; el('sel-metric').value = 'share'; el('f-party').hidden = false; } metricHint(); }
+function syncModelOptions() { const live = state.election === LIVE.election, night = live && LIVE.available; el('og-live').hidden = !night; for (const o of el('sel-metric').options) { if (['projwin', 'proj', 'called'].includes(o.value)) o.hidden = !night; if (o.dataset.live) { if (!o.dataset.base) o.dataset.base = o.textContent; o.textContent = live ? o.dataset.live : o.dataset.base; } } if (!night && ['projwin', 'proj', 'called'].includes(state.metric)) { state.metric = 'share'; el('sel-metric').value = 'share'; el('f-party').hidden = false; } metricHint(); }
 // v2: the election picker on the dashboard — State / Federal / By-elections, then a button per election (4 x 2)
 const YP = { kind: null };
 function yearPicker(eid) {
