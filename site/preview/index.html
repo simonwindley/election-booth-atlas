@@ -641,8 +641,8 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
           <div class="tag" style="font-size:22px" id="home-tag">Every booth. Every election. Starting with yours.</div>
           <p class="lead" style="margin:4px 0 10px">Type your suburb or electorate. We'll show you who's standing and where to find them, and how your area has voted, booth by booth, since 1999.</p>
           <div class="search">
-            <label for="home-q" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Suburb or electorate</label>
-            <input id="home-q" type="search" placeholder="e.g. Melton, Kew, Ballarat" autocomplete="off">
+            <label for="home-q" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Suburb, postcode or electorate</label>
+            <input id="home-q" type="search" placeholder="e.g. Melton, 3550, Kew" autocomplete="off">
             <button class="cta" id="home-go" type="button">Find my electorate</button>
             <div class="hits" id="home-hits" role="listbox"></div>
           </div>
@@ -682,7 +682,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div><strong style="color:var(--fg)">For the curious:</strong> the Atlas books. What actually moves votes, and the things that don't: rain, footy results and the moon, among others. We checked. <a href="#prefs" data-go="prefs">Open the books</a></div></div>
     </div>
     <div class="wrap"><div class="callout touch"><div><strong style="color:var(--fg)">Want to see a particular kind of analysis?</strong> A seat you care about, a question the numbers could answer, or something we got wrong: get in touch and we'll dig in. Email <a href="mailto:hello@electionboothatlas.org?subject=Election%20Booth%20Atlas">hello@electionboothatlas.org</a>, or message us on <a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener">Bluesky</a>, <a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener">Facebook</a>, <a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener">Instagram</a> or <a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener">X</a>.</div></div></div>
-    <footer class="ft"><div class="wrap"><span class="tg">Every booth. Every election.</span><span><a href="mailto:hello@electionboothatlas.org">hello@electionboothatlas.org</a></span><span class="soc">Follow along: <a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener">Bluesky</a> · <a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener">Facebook</a> · <a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener">Instagram</a> · <a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener">X</a></span><span>Results © Victorian Electoral Commission and Australian Electoral Commission. Census data © ABS, CC BY 4.0.</span></div></footer>
+    <footer class="ft"><div class="wrap"><span class="tg">Every booth. Every election.</span><span><a href="mailto:hello@electionboothatlas.org">hello@electionboothatlas.org</a></span><span class="soc">Follow along: <a href="https://bsky.app/profile/electionboothatlas.org" target="_blank" rel="me noopener">Bluesky</a> · <a href="https://www.facebook.com/profile.php?id=61596254050248" target="_blank" rel="me noopener">Facebook</a> · <a href="https://www.instagram.com/electionboothatlas/" target="_blank" rel="me noopener">Instagram</a> · <a href="https://x.com/BoothAtlas" target="_blank" rel="me noopener">X</a></span><span>Results © Victorian Electoral Commission and Australian Electoral Commission. Census data, suburb and postcode boundaries © ABS, CC BY 4.0.</span></div></footer>
   </section>
 
   <!-- ELECTORATES VIEW (v2) -->
@@ -4116,11 +4116,28 @@ function openSeat(cid) {
   SEAT.cid = cid; try { localStorage.setItem('atlas.seat', cid); history.replaceState(null, '', '#seat/' + encodeURIComponent(cid)); } catch (e) {}
   showView('seat'); const v = el('view-seat'); if (v) v.scrollTop = 0;
 }
-// a district search: names first, then suburbs (from polling-place venues) mapped to the district that held their 2022 booth
+// every Victorian suburb and postcode, mapped to the district or districts that cover it (ABS suburb and postal-area boundaries over the 2022 districts); loaded on first use
+let PLACES = null, PLACES_P = null;
+function ensurePlaces() {
+  if (!PLACES_P) PLACES_P = fetch(DATA + 'localities.json').then(r => r.ok ? r.json() : null).then(j => {
+    if (!j) return null;
+    const rows = (s) => s.split('|').map(x => { const i = x.lastIndexOf(':'); return { nm: x.slice(0, i), key: x.slice(0, i).toLowerCase(), cids: x.slice(i + 1).split(',').map(n => 'vic-' + j.d[+n]) }; });
+    return (PLACES = { subs: rows(j.s), pcs: rows(j.p) });
+  }).catch(() => null);
+  return PLACES_P;
+}
+function placeSearch(q) {
+  const out = [], rank = (k) => k === q ? 0 : k.startsWith(q) ? 1 : 2;
+  const hits = /^\d+$/.test(q) ? PLACES.pcs.filter(p => p.key.startsWith(q)) : PLACES.subs.filter(s => s.key.includes(q)).sort((a, b) => (rank(a.key) - rank(b.key)) || a.key.localeCompare(b.key));
+  for (const x of hits) { if (out.length >= 8) break; for (const cid of x.cids) { const c = idx.contestById.get(LIVE.election + '|' + cid) || idx.contestById.get('vic2022|' + cid); if (c) out.push({ cid, label: x.nm, note: c.contest_name + (x.cids.length > 1 ? ' (part)' : '') }); } }
+  return out;
+}
+// a district search: names first, then suburbs and postcodes. Until the suburb list has loaded, suburbs come from polling-place venues, mapped to the district that held their 2022 booth
 function seatSearch(q) {
   q = q.trim().toLowerCase(); if (q.length < 2) return [];
   const out = [], seen = new Set();
   for (const c of seats26()) if (c.contest_name.toLowerCase().includes(q)) { out.push({ cid: c.contest_id, label: c.contest_name, note: 'electorate' }); seen.add(c.contest_id); }
+  if (PLACES) return out.concat(placeSearch(q)).slice(0, 8);
   const sub = new Map();
   for (const b of D.booths) { if (b.election_id !== 'vic2022' || b.booth_type !== 'ordinary') continue; const v = b.venue_id && idx.venueById.get(b.venue_id); const nm = (v && v.suburb) || b.booth_name; if (!nm || !nm.toLowerCase().includes(q)) continue; const key = nm.toLowerCase(); const cid = (b.contest_id || '').replace('vic2023n', ''); if (!sub.has(key)) sub.set(key, { nm, cids: new Set() }); sub.get(key).cids.add(b.contest_id); }
   for (const { nm, cids } of sub.values()) for (const cid of cids) { const c = idx.contestById.get(LIVE.election + '|' + cid) || idx.contestById.get('vic2022|' + cid); if (!c) continue; out.push({ cid, label: titleCase(nm), note: c.contest_name }); }
@@ -4129,7 +4146,9 @@ function seatSearch(q) {
 const titleCase = (x) => String(x).toLowerCase().replace(/\b\w/g, m => m.toUpperCase());
 function wireSearch(inp, box, go) {
   const run = () => { const hits = seatSearch(inp.value); box.innerHTML = ''; box.classList.toggle('on', hits.length > 0); for (const x of hits) box.append(h('button', { type: 'button', role: 'option', onclick: () => { box.classList.remove('on'); openSeat(x.cid); } }, h('span', {}, x.label), h('small', {}, x.note))); return hits; };
-  inp.addEventListener('input', run);
+  const load = () => { if (!PLACES) ensurePlaces().then(() => { if (PLACES && inp.value.trim().length >= 2 && document.activeElement === inp) run(); }); };
+  inp.addEventListener('focus', load);
+  inp.addEventListener('input', () => { run(); load(); });
   inp.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') { const hits = run(); if (hits[0]) openSeat(hits[0].cid); } if (ev.key === 'Escape') box.classList.remove('on'); });
   if (go) go.addEventListener('click', () => { const hits = run(); if (hits[0]) openSeat(hits[0].cid); else inp.focus(); });
 }
@@ -4397,7 +4416,7 @@ function renderSeat() {
   const all = seats26();
   if (!SEAT.cid) {   // the index
     const head = h('div', { class: 'shead' }, h('div', { class: 'wrap', style: 'min-height:0;padding-bottom:32px' }, h('h1', { style: 'margin-top:0' }, 'Electorates'), h('p', { class: 'lead' }, `All ${all.length} Legislative Assembly electorates for the 2026 election. Find yours by name or suburb.`),
-      h('div', { class: 'search', style: 'max-width:640px' }, h('input', { type: 'search', id: 'seat-q', placeholder: 'Electorate or suburb', 'aria-label': 'Electorate or suburb', autocomplete: 'off' }), h('div', { class: 'hits', id: 'seat-hits' }))));
+      h('div', { class: 'search', style: 'max-width:640px' }, h('input', { type: 'search', id: 'seat-q', placeholder: 'Electorate, suburb or postcode', 'aria-label': 'Electorate, suburb or postcode', autocomplete: 'off' }), h('div', { class: 'hits', id: 'seat-hits' }))));
     const grid = h('div', { class: 'seatgrid' });
     for (const c of all) { const lc = seatLast(c.contest_id); grid.append(h('button', { class: 'seatbtn', onclick: () => openSeat(c.contest_id) }, h('span', { class: 'dot', style: `background:${partyColor(heldCode(c))}` }), c.contest_name, h('span', { class: 'm' }, lc ? (100 * lc.margin).toFixed(1) : ''))); }
     const up = h('div', { class: 'seatgrid' });
