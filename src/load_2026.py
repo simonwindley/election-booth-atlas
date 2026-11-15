@@ -103,6 +103,10 @@ def main(raw_path, out, retrieved):
         cells = [c['text'] for c in row if c['text'] != '']
         if len(cells) >= 4:
             wd.append({'election_id': EID, 'date': cells[0], 'party': cells[1], 'candidate': cells[2], 'seat': cells[3], 'details': cells[4] if len(cells) > 4 else ''})
+    # dropped after nominations closed, added after the 10 Nov capture (Wikipedia has since listed it; this is skipped if the table already has him)
+    for extra in [{'election_id': EID, 'date': '11 November 2026', 'party': 'Liberal', 'candidate': 'Paul Lindemann', 'seat': 'Williamstown',
+                   'details': 'Disendorsed over controversial social media posts about Indigenous Australians, after nominations closed; the ballot paper still lists him as Liberal'}]:
+        if not any(w['candidate'] == extra['candidate'] for w in wd): wd.append(extra)
     # ---- links: Wikipedia article (captured with the register), Parliament of Victoria profile for sitting members
     links = d.get('links', {})
     slugs = {}
