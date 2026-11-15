@@ -3949,7 +3949,7 @@ function renderDailyBlock(root, cid, c) {
   if (mine.length) {
     const byReg = new Map(); for (const k of mine) (byReg.get(k.registrant) || byReg.set(k.registrant, []).get(k.registrant)).push(k);
     items.push(h('div', { style: 'margin-top:6px' }, h('div', { class: 'hint', style: 'margin-bottom:3px' }, `How-to-vote cards registered (${mine.length}): the preferences each campaign is recommending. Anyone can register a card, candidate or not; the VEC lists them all.`),
-      ...[...byReg.entries()].map(([reg, ks]) => h('div', { style: 'margin:2px 0' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(canonLabel(reg))}` }), reg), ks[0].kind === 'non_candidate' ? h('span', { class: 'hint' }, ' not a candidate') : '', ' ', h('span', { class: 'links' }, ...ks.slice(0, 4).map((k, i) => k.pdf ? h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, ks.length > 1 ? `card ${i + 1}` : 'card') : '')), h('span', { class: 'hint' }, ` ${ks[0].registered}`)))));
+      ...[...byReg.entries()].map(([reg, ks]) => h('div', { style: 'margin:2px 0' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(canonLabel(reg))}` }), reg), ks[0].kind === 'non_candidate' ? h('span', { class: 'hint' }, ' not a candidate') : '', ' ', h('span', { class: 'links', style: ks.length > 4 ? 'display:flex;flex-wrap:wrap;row-gap:5px;margin:3px 0 2px 16px' : '' }, ...ks.map((k, i) => k.pdf ? h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, ks.length > 1 ? `card ${i + 1}` : 'card') : '')), h('span', { class: 'hint' }, ` ${ks[0].registered}`)))));
   }
   if (!items.length) return;
   root.append(h('h3', {}, 'Before election day'), ...items, h('div', { class: 'hint', style: 'margin-top:4px' }, `VEC figures captured ${d.date}.`));
@@ -4004,7 +4004,7 @@ function candDetail(c, x, close) {
   body.append(tr);
   // how-to-vote
   const hv = h('div', { class: 'cblock' }, h('h4', {}, 'How-to-vote card'));
-  if (cards.length) hv.append(h('span', { class: 'links' }, ...cards.slice(0, 4).map((k, i) => h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, cards.length > 1 ? `Card ${i + 1}` : 'Open the card'))), h('p', { class: 'hint' }, 'As registered with the VEC: the order this campaign suggests. Your vote is yours to number.'));
+  if (cards.length) hv.append(h('span', { class: 'links', style: 'flex-wrap:wrap' }, ...cards.map((k, i) => h('a', { href: k.pdf, target: '_blank', rel: 'noopener' }, cards.length > 1 ? `Card ${i + 1}` : 'Open the card'))), h('p', { class: 'hint' }, 'As registered with the VEC: the order this campaign suggests. Your vote is yours to number.'));
   else hv.append(h('p', { class: 'hint' }, 'None registered with the VEC yet. Cards appear here once they are.'));
   body.append(hv);
   // links
