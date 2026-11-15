@@ -3796,7 +3796,7 @@ function renderLiveBox() {
   box.hidden = false; box.innerHTML = '';
   const t = liveTotals();
   if (!LIVE.available) {
-    box.append(h('div', {}, h('span', { class: 'pulse off' }), h('strong', {}, 'Pre-election preview')), h('div', { class: 'hint', style: 'margin-top:4px' }, LIVE.error && LIVE.error !== 'no feed yet' ? `Live feed error: ${LIVE.error}` : 'Declared candidates and the 2022 booths. Counting starts 6 pm Saturday 28 November; run live/vec_live.py on the night and this box fills in.'), h('div', { style: 'margin-top:6px' }, h('button', { class: 'btn', onclick: () => pollLive(true) }, 'Check for a feed')));
+    box.append(h('div', {}, h('span', { class: 'pulse off' }), h('strong', {}, 'Pre-election preview')), h('div', { class: 'hint', style: 'margin-top:4px' }, LIVE.error && LIVE.error !== 'no feed yet' ? 'The live count isn\'t available just now. Try again in a minute.' : 'Declared candidates and the 2022 booths for now. Counting starts at 6 pm on Saturday 28 November, and this box fills in as booths report.'), h('div', { style: 'margin-top:6px' }, h('button', { class: 'btn', onclick: () => pollLive(true) }, 'Check for results')));
     return;
   }
   box.append(h('div', {}, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${fmt(t.reported)}/${fmt(t.booths)} booths · ${t.districts} electorates counting`)));
@@ -3855,7 +3855,7 @@ function linksRow(links) {
   if (!links) return row;
   if (links.wikipedia) row.append(h('a', { href: links.wikipedia, target: '_blank', rel: 'noopener' }, 'Wikipedia'));
   if (links.parliament) row.append(h('a', { href: links.parliament, target: '_blank', rel: 'noopener' }, 'Parliament'));
-  if (links.party) row.append(h('a', { href: links.party, target: '_blank', rel: 'noopener' }, /\/(our-team|team|person|candidates?|[a-z]+-[a-z-]+)\/?[^/]*$/.test(new URL(links.party).pathname) && !/\/candidates\/?$/.test(links.party) ? 'Party page' : 'Party'));
+  if (links.party) row.append(h('a', { href: links.party, target: '_blank', rel: 'noopener' }, /\/(our-team|team|person|candidates?|[a-z]+-[a-z-]+)\/?[^/]*$/.test(new URL(links.party).pathname) && !/\/candidates\/?$/.test(links.party) ? 'Party page' : 'Party page'));
   if (links.vec) row.append(h('a', { href: links.vec, target: '_blank', rel: 'noopener' }, 'VEC'));
   for (const [k, label] of [['website', 'Website'], ['facebook', 'Facebook'], ['instagram', 'Instagram'], ['x', 'X'], ['tiktok', 'TikTok'], ['linkedin', 'LinkedIn'], ['youtube', 'YouTube'], ['bluesky', 'Bluesky'], ['threads', 'Threads']])
     if (links[k] && /^https:\/\//.test(links[k])) row.append(h('a', { href: links[k], target: '_blank', rel: 'noopener nofollow' }, label));
