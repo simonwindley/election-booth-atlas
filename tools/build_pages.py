@@ -42,6 +42,84 @@ def first_script(hash_):
             'try { history.replaceState(null, \'\', root + location.search + h); } catch (e) { location.replace(root + location.search + h); } })();</script>\n')
 
 
+# ---- a plain-HTML summary of each page, written into the page itself ----
+# Search engines and slow phones see this before the atlas loads; the atlas then replaces it with the full view.
+import gzip, collections
+def table(name):
+    d = json.load(gzip.open(os.path.join(ROOT, 'data', name)))
+    return [dict(zip(d['cols'], r)) for r in d['rows']]
+DAILY = json.load(open(os.path.join(ROOT, 'data', 'live', 'daily.json')))
+HELD = {r['contest_id']: r['held_by'] for r in table('c2026_contests.json.gz')}
+CANDS = {(r['election_id'], r['contest_id'], r['candidate_id']): r for r in table('candidates.json.gz')}
+TCP = collections.defaultdict(list)
+for r in table('contest_tcp.json.gz'): TCP[(r['election_id'], r['contest_id'])].append(r)
+VENUES, BOOTHS_BY = collections.defaultdict(set), collections.defaultdict(set)
+for r in table('booths.json.gz'):
+    if r['booth_type'] != 'ordinary' or not r['election_id'].startswith('vic'): continue
+    VENUES[r['contest_id']].add(r['venue_id'] or r['booth_name'])
+    BOOTHS_BY[(r['election_id'], r['contest_id'])].add(r['booth_name'])
+HTV = collections.Counter(c['contest_id'] for c in DAILY['htv']['cards'] if c.get('pdf'))
+BY_REGION = collections.defaultdict(list)
+for q in pages:
+    if q['kind'] == 'seat': BY_REGION[q['region']].append(q)
+link = lambda q: f'<a href="/{q["kind"]}/{q["slug"]}/">{esc(q["name"])}{" Region" if q["kind"] == "region" else ""}</a>'
+REGION_PAGE = {q['name']: q for q in pages if q['kind'] == 'region'}
+HELD_AS = {'Labor': 'Labor', 'Liberal': 'the Liberals', 'National': 'the Nationals', 'Greens': 'the Greens', 'Independent': 'an independent'}
+def pname(r):
+    if r.get('party') == 'IND' or (r.get('party_name') or '').strip().upper() in ('IND', 'INDEPENDENT', ''): return 'independent'
+    return re.sub(r'\s*[-–(]\s*Victorian (Branch|Division)\)?$', '', r['party_name']).strip()
+nm = lambda r: f"{r['given_name']} {r['surname'].title() if r['surname'].isupper() else r['surname']}"
+plural = lambda n, w: f'{n:,} {w}{"" if n == 1 else "s"}'
+
+def summary(p):
+    out = ['<div class="static-summary" style="max-width:760px;margin:0 auto;padding:28px 20px;line-height:1.55">']
+    if p['kind'] == 'seat':
+        cid = p['cid']; reg = REGION_PAGE.get(p['region'])
+        out.append(f'<h1>{esc(p["name"])}</h1>')
+        held = HELD.get(cid)
+        out.append(f'<p>{esc(p["name"])} is a Victorian Legislative Assembly electorate in the {link(reg) if reg else esc(p["region"]) + " Region"}'
+                   + (f', held by {esc(HELD_AS.get(held, held))} going into the 2026 state election' if held else '') + '. Polling day is Saturday 28 November 2026.</p>')
+        last_el = 'vic2022'
+        for el, label in (('vic2023n', 'At the 2023 supplementary election'), ('vic2022', 'At the 2022 state election')):
+            t = TCP.get((el, cid))
+            if t and len(t) == 2:
+                tot = sum(r['votes'] for r in t); t = sorted(t, key=lambda r: -r['votes'])
+                w, l = (CANDS.get((el, cid, r['candidate_id'])) for r in t)
+                if w and l:
+                    out.append(f'<p>{label}, {esc(nm(w))} ({esc(pname(w))}) won with {100 * t[0]["votes"] / tot:.1f}% of the '
+                               f'two-candidate-preferred vote against {esc(nm(l))} ({esc(pname(l))}).</p>')
+                    last_el = el
+                break
+        cands = DAILY['candidates']['districts'].get(cid, {}).get('candidates', [])
+        if cands:
+            out.append(f'<h2>2026 candidates, in ballot order</h2><ol>' + ''.join(f'<li>{esc(c["name"])} ({esc(pname(c))})</li>' for c in sorted(cands, key=lambda c: c.get('ballot_position') or 99)) + '</ol>')
+        if HTV.get(cid): out.append(f'<p>All {plural(HTV[cid], "how-to-vote card")} registered with the VEC for {esc(p["name"])} so far are linked in the atlas, whoever registered them.</p>')
+        b = sorted(BOOTHS_BY.get((last_el, cid), ()))
+        if b: out.append(f'<h2>Election-day polling places in {"2023" if last_el == "vic2023n" else "2022"}</h2><p>{esc(", ".join(b))}.</p>')
+        if VENUES.get(cid): out.append(f'<p>The atlas maps results for {plural(len(VENUES[cid]), "polling place")} used in {esc(p["name"])} at Victorian state elections since 1999, with census profiles of each one\'s neighbourhood.</p>')
+        others = [q for q in BY_REGION[p['region']] if q['slug'] != p['slug']]
+        if others: out.append(f'<p>Other electorates in the {esc(p["region"])} Region: ' + ', '.join(link(q) for q in others) + '.</p>')
+    else:
+        out.append(f'<h1>{esc(p["name"])} Region</h1>')
+        seats = BY_REGION[p['name']]
+        out.append(f'<p>{esc(p["name"])} Region elects five members to Victoria\'s Legislative Council, the upper house. It covers {len(seats)} Legislative Assembly electorates: '
+                   + ', '.join(link(q) for q in seats) + '. Polling day is Saturday 28 November 2026.</p>')
+        rcid = 'vicr-' + p['slug']
+        if HTV.get(rcid): out.append(f'<p>All {plural(HTV[rcid], "how-to-vote card")} registered with the VEC for the region\'s upper-house ballot so far are linked in the atlas.</p>')
+        out.append('<p>Other regions: ' + ', '.join(link(q) for q in pages if q['kind'] == 'region' and q['slug'] != p['slug']) + '.</p>')
+    out.append('<p><a href="/">The Election Booth Atlas</a>: every booth, every election, mapped from official VEC and AEC results since 1999.</p></div>')
+    return ''.join(out)
+
+def with_summary(doc, p):
+    # show the electorate view (with the summary in it) instead of the map until the atlas takes over
+    for a, b in (('<section class="view v2" id="view-seat"><div id="seat-root" style="width:100%"></div></section>',
+                  f'<section class="view v2 active" id="view-seat"><div id="seat-root" style="width:100%">{summary(p)}</div></section>'),
+                 ('<section class="view active" id="view-map">', '<section class="view" id="view-map">')):
+        if doc.count(a) != 1: raise SystemExit(f'build_pages: {a[:50]!r} not found once in site/index.html')
+        doc = doc.replace(a, b)
+    return doc
+
+
 for kind in ('seat', 'region'):
     shutil.rmtree(os.path.join(ROOT, kind), ignore_errors=True)
 for p in pages:
@@ -59,6 +137,7 @@ for p in pages:
         hash_ = f"#region/{p['slug']}"
     doc = meta(base, title, desc, url, image, f"Map of the polling booths in {p['name']}" + (' Region' if p['kind'] == 'region' else ''))
     doc = re.sub(r'(<meta charset="utf-8">\n)', lambda m: m.group(1) + first_script(hash_), doc, count=1)
+    doc = with_summary(doc, p)
     d = os.path.join(ROOT, p['kind'], p['slug']); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w').write(doc)
 
