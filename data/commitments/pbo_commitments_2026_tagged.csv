@@ -1,0 +1,466 @@
+date,party,commitment,amount,places,districts
+11/11/26,ALP,Upgrade and protect the Shrine of Remembrance,29000000.0,,{}
+11/11/26,COAL,Duplicate the Vineyard Road overpass between Sunbury and Diggers Rest,166000000.0,sunbury,"{""vic-sunbury"": 1.0}"
+10/11/26,ALP,Ban convicted family violence or sexual offenders from using dating apps,,,{}
+10/11/26,ALP,Ban smart glasses in sensitive settings,,,{}
+10/11/26,ALP,Fund more family violence workers and early intervention programs,16000000.0,,{}
+10/11/26,ALP,Give coroners the power to appoint an alternative next of kin,,,{}
+10/11/26,ALP,Introduce Clare’s Law to establish a domestic violence disclosure scheme,,,{}
+10/11/26,ALP,Upgrade St Patrick’s Cathedral,20000000.0,,{}
+10/11/26,COAL,Boost Victoria's 24 hour economy,,,{}
+10/11/26,GRN,Establish an Affordable Ticket Scheme,50.0,,{}
+09/11/26,ALP,Expand City Futures program for southeast students,1200000.0,,{}
+09/11/26,ALP,Introduce Aidan's Law,,,{}
+09/11/26,ALP,Recruit another 200 more police reservists,70000000.0,,{}
+09/11/26,COAL,Introduce Aidan's Law,,,{}
+08/11/26,ALP,Expand The Huddle at North Melbourne Football Club,2900000.0,north melbourne,"{""vic-melbourne"": 1.0}"
+08/11/26,ALP,Help more women and girls get into sport,600000.0,,{}
+08/11/26,ALP,Introduce youth rehabilitation detention,204000000.0,,{}
+08/11/26,COAL,Establish a Major Events Attraction Fund,40000000.0,,{}
+08/11/26,COAL,Retain Infrastructure Victoria,,,{}
+08/11/26,COAL,Upgrade the pavilion at Bruce Park in Frankston,3000000.0,frankston,"{""vic-frankston"": 1.0}"
+07/11/26,ALP,Increase bus services in Melbourne's west,400000000.0,werribee,"{""vic-werribee"": 1.0}"
+07/11/26,COAL,Crack down on illicit tobacco industry,,,{}
+06/11/26,ALP,Double carparks at West Tarneit train station,25000000.0,tarneit,"{""vic-tarneit"": 1.0}"
+06/11/26,ALP,"Require train, tram and bus procurement to meet minimum local content target",,,{}
+06/11/26,COAL,Expand firefighters' presumptive rights legislation,,,{}
+06/11/26,COAL,Modernise Fire Rescue Victoria's ageing fleet,160000000.0,,{}
+06/11/26,COAL,Sell government-owned land,1300000000.0,,{}
+05/11/26,ALP,Build and upgrade TAFE campuses,70000000.0,kalkallo; dandenong,"{""vic-kalkallo"": 0.5, ""vic-dandenong"": 0.5}"
+05/11/26,COAL,Invest in Victoria's medical research sector,100000000.0,,{}
+05/11/26,GRN,Double funding for small to medium arts and screen organisations,90000000.0,,{}
+04/11/26,ALP,Appoint a Land Use Commissioner,,,{}
+04/11/26,ALP,Establish the Make It Here Fund,350000000.0,,{}
+04/11/26,COAL,Support charities delivering food relief programs,2000000.0,,{}
+02/11/26,ALP,Establish a Temple and Gurdwara Safety Fund,11000000.0,,{}
+02/11/26,ALP,Expand opening hours for 10 existing public dental clinics,26900000.0,,{}
+02/11/26,ALP,Plan and deliver a new pedestrian crossing at Keilor Village,3000000.0,keilor,"{""vic-niddrie"": 0.5, ""vic-sunbury"": 0.5}"
+02/11/26,ALP,Upgrade Winchelsea Primary School,9110000.0,winchelsea,"{""vic-polwarth"": 1.0}"
+02/11/26,COAL,Deliver Airport Rail project as designed,,,{}
+02/11/26,COAL,"Deliver new fire trucks, better fire stations and more volunteers for the CFA",200000000.0,,{}
+02/11/26,COAL,Upgrade the Naring Road and Tocumwal Road intersection in Numurkah,5000000.0,naring; numurkah,"{""vic-ovens-valley"": 0.5, ""vic-shepparton"": 0.5}"
+02/11/26,GRN,Deliver a comprehensive response to bird flu,,,{}
+01/11/26,COAL,"Strengthen, expand and fast-track Workplace Protection Orders",50000.0,,{}
+31/10/26,ALP,Open 20 free public dental clinics,12900000.0,,{}
+31/10/26,COAL,Establish a new public radiation therapy facility in Werribee,24400000.0,werribee,"{""vic-werribee"": 1.0}"
+30/10/26,ALP,Upgrade 50 local roads,3600000000.0,,{}
+29/10/26,ALP,Support Hampton Park Uniting Church's food relief and community support programs,100000.0,hampton park,"{""vic-narre-warren-south"": 0.5, ""vic-narre-warren-north"": 0.5}"
+29/10/26,COAL,Build Stage 1 of the Bellarine Link,335100000.0,bellarine; geelong,"{""vic-bellarine"": 0.625, ""vic-geelong"": 0.125, ""vic-lara"": 0.125, ""vic-south-barwon"": 0.125}"
+29/10/26,GRN,Make the Birrarung Yarra swimmable by 2036,70000000.0,,{}
+28/10/26,ALP,Install new Keep Clear zone markings at intersections in Reservoir,150000.0,,{}
+28/10/26,ALP,Strip Ambulance Victoria membership from patients who abuse or threaten ambulance workers,,,{}
+28/10/26,ALP,Upgrade Clarinda Primary School,3260000.0,clarinda,"{""vic-clarinda"": 1.0}"
+28/10/26,COAL,Deliver an expanded bushfire detection camera network,4410000.0,,{}
+28/10/26,COAL,Duplicate Dyson Drive between Remembrance Drive and Ballarat-Carngham Road,115100000.0,ballarat; carngham,"{""vic-wendouree"": 0.25, ""vic-eureka"": 0.25, ""vic-ripon"": 0.5}"
+28/10/26,COAL,Establish a new Forest Management Program,,,{}
+28/10/26,COAL,Maintain the Victorian Racing Industry Fund,72000000.0,,{}
+28/10/26,GRN,Free up hospital beds,,,{}
+28/10/26,GRN,Support the hospital workforce,,,{}
+27/10/26,ALP,Expand Workplace Protection Orders scheme to hospitals,,,{}
+27/10/26,ALP,Make hospitals safer places to work,30000000.0,,{}
+27/10/26,ALP,Upgrade Wendouree Primary School,6220000.0,wendouree,"{""vic-wendouree"": 1.0}"
+27/10/26,ALP,Waive stamp duty for businesses transitioning from discretionary trusts,,,{}
+27/10/26,COAL,Upgrade the Western Freeway,1000000000.0,,{}
+26/10/26,ALP,Ban owners corporation managers from taking kickbacks,,,{}
+26/10/26,ALP,Bring public school cleaning services in-house,,,{}
+26/10/26,ALP,Hire more graduate nurses and midwives and train more nurse prescribers,132000000.0,,{}
+26/10/26,ALP,Upgrade facilities at Westmeadows War Memorial,200000.0,westmeadows,"{""vic-greenvale"": 0.333, ""vic-sunbury"": 0.333, ""vic-broadmeadows"": 0.333}"
+26/10/26,COAL,Expand bans on speech that amounts to incitement to violence,,,{}
+26/10/26,GRN,Fund local transport,3000000000.0,,{}
+26/10/26,GRN,Replace ageing fire trucks,200000000.0,,{}
+25/10/26,ALP,Slash emergency department wait times,1500000000.0,,{}
+23/10/26,ALP,Upgrade Carrum Primary School,3240000.0,,{}
+23/10/26,ALP,Upgrade Eltham North Primary School,24740000.0,eltham north,"{""vic-eltham"": 1.0}"
+23/10/26,ALP,Upgrade Kilberry Valley Primary School,7940000.0,,{}
+23/10/26,ALP,Upgrade the pavilion at Laurimar Reserve in Doreen,6000000.0,doreen,"{""vic-yan-yean"": 1.0}"
+23/10/26,COAL,Sell the Melbourne Wholesale Fruit and Vegetable Market,578000000.0,,{}
+22/10/26,ALP,Plan traffic signals at Johnstone Street and Broadmeadows Road intersection in Westmeadows,3000000.0,broadmeadows,"{""vic-broadmeadows"": 1.0}"
+21/10/26,ALP,"Build 25,600 homes for first home buyers",,,{}
+21/10/26,ALP,Extend the adult ban on smart glasses to non-government schools,,,{}
+21/10/26,ALP,Plan traffic signals at Mickleham Road and Broadmeadows Road roundabout in Westmeadows,2500000.0,broadmeadows,"{""vic-broadmeadows"": 1.0}"
+21/10/26,COAL,Expand the Urgent Care Pathways initiative,52000000.0,,{}
+21/10/26,COAL,Give the Victorian Men's Shed Association a say in decisions about Men's Sheds,,,{}
+21/10/26,GRN,Legislate a climate change Duty of Care,,,{}
+19/10/26,ALP,Cap public transport fares at $30 a week,206000000.0,,{}
+19/10/26,ALP,Upgrade parks across Sydenham district,1000000.0,sydenham,"{""vic-sydenham"": 1.0}"
+19/10/26,ALP,Upgrade sports facilities at Copperfield College’s Sydenham campus,19100000.0,sydenham,"{""vic-sydenham"": 1.0}"
+19/10/26,COAL,Return passenger train services to Mildura and Dimboola,51200000.0,mildura,"{""vic-mildura"": 1.0}"
+18/10/26,ALP,Cap tolls at $30 a week,191000000.0,,{}
+17/10/26,ALP,Support construction of an undercover riding arena at the RDA in Pakenham,250000.0,pakenham,"{""vic-pakenham"": 1.0}"
+17/10/26,ALP,Upgrade pavilion and change rooms at Coventry Oval in Diamond Creek,3000000.0,diamond creek,"{""vic-eltham"": 1.0}"
+17/10/26,COAL,Improve bushfire preparedness,,,{}
+16/10/26,ALP,Make recreational prospecting and fossicking free,,,{}
+16/10/26,ALP,Upgrade Mandurang CFA,3950000.0,mandurang,"{""vic-bendigo-east"": 1.0}"
+16/10/26,COAL,Commission an independent review into Victoria's child protection system,,,{}
+16/10/26,COAL,Upgrade the Urgent Care Centre at Daylesford Hospital,12000000.0,daylesford,"{""vic-macedon"": 1.0}"
+15/10/26,ALP,Build a Park and Ride facility near Casey Fields,15890000.0,,{}
+15/10/26,ALP,Create more shade and green space in Carrum Downs,200000.0,carrum downs,"{""vic-carrum"": 1.0}"
+15/10/26,ALP,Increase staff and student representation on university councils and enhance university governance,,,{}
+15/10/26,ALP,Make abortion free and extend access,,,{}
+15/10/26,ALP,Upgrade Goddard Street Reserve in Tarneit,250000.0,tarneit,"{""vic-tarneit"": 1.0}"
+15/10/26,ALP,Upgrade Maiden Gully Primary School,7900000.0,maiden gully,"{""vic-bendigo-west"": 1.0}"
+15/10/26,COAL,Cover out-of-pocket costs for abortion care,,,{}
+15/10/26,GRN,Bring Preston Market into public ownership,,preston,"{""vic-preston"": 1.0}"
+15/10/26,GRN,Implement a seven-point plan for a better Docklands,,docklands,"{""vic-melbourne"": 0.5, ""vic-albert-park"": 0.5}"
+14/10/26,ALP,Establish a Growth Area Entrepreneur Club for small businesses in Melbourne’s north,100000.0,,{}
+14/10/26,ALP,Establish an antimony processing facility,20000000.0,,{}
+14/10/26,ALP,Review property charges,,,{}
+13/10/26,ALP,Expand the Victorian Patient Transport Assistance Scheme,53600000.0,,{}
+13/10/26,ALP,Support expansion of the Victorian Indigenous Nursery Co-Op,2000000.0,,{}
+13/10/26,ALP,Upgrade Strathmore Secondary College,10000000.0,strathmore,"{""vic-essendon"": 1.0}"
+13/10/26,ALP,Upgrade the rugby field at Narre Warren South P-12 College,530000.0,narre warren south,"{""vic-narre-warren-south"": 1.0}"
+13/10/26,COAL,Build a roundabout at intersection of Murray Valley and Kiewa Valley Highways near Wodonga,20000000.0,kiewa; wodonga,"{""vic-benambra"": 1.0}"
+13/10/26,COAL,Cover half the off-the-job training costs for apprentices,115000000.0,,{}
+12/10/26,COAL,Redevelop the pavilion and club rooms at Orrong Romanis Reserve in Prahran,6000000.0,prahran,"{""vic-prahran"": 1.0}"
+11/10/26,ALP,Establish Royalties for the Regions,,,{}
+11/10/26,ALP,Introduce a buffer between waste-to-energy projects and homes,,,{}
+11/10/26,COAL,Establish 10 new technical colleges,222000000.0,,{}
+10/10/26,ALP,Modernise and expand Eltham Men’s Shed,100000.0,eltham,"{""vic-eltham"": 1.0}"
+10/10/26,ALP,Redevelop two netball courts at Mossfiel Reserve in Hoppers Crossing,700000.0,hoppers crossing,"{""vic-tarneit"": 0.5, ""vic-laverton"": 0.5}"
+10/10/26,COAL,Contribute $20 million towards building a new indoor basketball and netball facility at Essendon Fields,20000000.0,essendon fields,"{""vic-essendon"": 1.0}"
+09/10/26,ALP,Build a new pavilion at Canning Reserve in Avondale Heights,3000000.0,avondale heights,"{""vic-niddrie"": 1.0}"
+09/10/26,ALP,Upgrade Buckley Park Bowls Club,5000000.0,essendon,"{""vic-essendon"": 1.0}"
+09/10/26,ALP,Upgrade Dandenong Primary School,6410000.0,dandenong,"{""vic-dandenong"": 1.0}"
+09/10/26,ALP,Upgrade St Albans North Primary School,9180000.0,st albans,"{""vic-st-albans"": 1.0}"
+09/10/26,ALP,Upgrade Viewbank College,26770000.0,viewbank,"{""vic-ivanhoe"": 1.0}"
+09/10/26,COAL,Develop a business case for redeveloping Market Square Quarter in Central Geelong,,geelong,"{""vic-geelong"": 0.25, ""vic-lara"": 0.25, ""vic-bellarine"": 0.25, ""vic-south-barwon"": 0.25}"
+09/10/26,COAL,Move the Moorabool Street bus interchange from the Geelong CBD,800000.0,geelong,"{""vic-geelong"": 0.25, ""vic-lara"": 0.25, ""vic-bellarine"": 0.25, ""vic-south-barwon"": 0.25}"
+08/10/26,ALP,Deliver 150 new fire trucks,167000000.0,,{}
+08/10/26,ALP,Extend Langwarrin Men’s Shed,100000.0,langwarrin,"{""vic-hastings"": 1.0}"
+08/10/26,ALP,Rebuild the pavilion at Kelynack Reserve in Mill Park,5000000.0,mill park,"{""vic-mill-park"": 1.0}"
+08/10/26,ALP,Upgrade Hillsview Recreation Reserve in South Morang,250000.0,south morang,"{""vic-mill-park"": 0.5, ""vic-yan-yean"": 0.5}"
+08/10/26,COAL,Bring Proton Beam therapy to Peter MacCallum Cancer Centre,,,{}
+07/10/26,ALP,Build a new pedestrian crossing across Nepean Highway in Chelsea,5000000.0,nepean,"{""vic-nepean"": 1.0}"
+07/10/26,ALP,Build stage 2 of the Spotswood Primary School masterplan,4000000.0,spotswood,"{""vic-williamstown"": 1.0}"
+07/10/26,ALP,Put more social services organisations on four-year funding agreements,,,{}
+07/10/26,ALP,Support the community legal sector,28500000.0,,{}
+07/10/26,ALP,Upgrade Dalyston Recreation Reserve with a new scoreboard and solar,120000.0,dalyston,"{""vic-bass"": 1.0}"
+07/10/26,ALP,Upgrade HE Parker Reserve in Heathmont with ball-catch nets and a new scoreboard,150000.0,heathmont,"{""vic-ringwood"": 1.0}"
+07/10/26,ALP,Upgrade the hard court at Keilor Views Primary School,410000.0,keilor,"{""vic-niddrie"": 0.5, ""vic-sunbury"": 0.5}"
+07/10/26,COAL,Build Stage 2 of the Goulburn Valley Health Integrated Cancer Centre,95000000.0,,{}
+07/10/26,GRN,Invest $1 billion into community safety,1000000000.0,,{}
+07/10/26,GRN,Trial publicly-owned supermarkets,350000000.0,,{}
+07/10/26,LCV,Evaluate medicinal cannabis to treat veteran and first responder work-related injuries,,,{}
+06/10/26,ALP,Redevelop Somerville Recreation Reserve,5000000.0,somerville,"{""vic-hastings"": 1.0}"
+06/10/26,ALP,Support Wildlife Victoria’s travelling vet response service,900000.0,nunawading,"{""vic-ringwood"": 1.0}"
+06/10/26,ALP,Upgrade buildings at Cockatoo Primary School,14370000.0,cockatoo,"{""vic-monbulk"": 1.0}"
+06/10/26,ALP,Upgrade Greenvale Primary School,10760000.0,greenvale,"{""vic-greenvale"": 1.0}"
+06/10/26,ALP,Upgrade Hoppers Crossing CFA,30000.0,hoppers crossing,"{""vic-tarneit"": 0.5, ""vic-laverton"": 0.5}"
+06/10/26,ALP,Upgrade Ivanhoe Sporting Precinct,1000000.0,ivanhoe,"{""vic-ivanhoe"": 1.0}"
+06/10/26,ALP,Upgrade Sunshine North Primary School,1900000.0,sunshine north,"{""vic-st-albans"": 1.0}"
+06/10/26,COAL,Masterplan a new standalone youth mental health facility in Parkville,5000000.0,parkville,"{""vic-melbourne"": 1.0}"
+06/10/26,COAL,Open a new Youth Mental Health Centre of Excellence,,,{}
+06/10/26,COAL,Redevelop Somerville Recreation Reserve,6000000.0,somerville,"{""vic-hastings"": 1.0}"
+06/10/26,COAL,Reset Victoria's mental health system,50000000.0,parkville,"{""vic-melbourne"": 1.0}"
+05/10/26,ALP,Plan future upgrades at Edithvale Primary School,500000.0,edithvale,"{""vic-mordialloc"": 1.0}"
+05/10/26,ALP,Turn Keilor Downs College's gymnasium into a new performing arts centre,10730000.0,keilor downs,"{""vic-st-albans"": 1.0}"
+05/10/26,ALP,Upgrade main building block at The Grange P-12 College in Hoppers Crossing,19740000.0,hoppers crossing,"{""vic-tarneit"": 0.5, ""vic-laverton"": 0.5}"
+05/10/26,COAL,Open up to 10 new or expanded patient transit lounges,99000000.0,,{}
+04/10/26,ALP,Consolidate government car fleet,70000000.0,,{}
+04/10/26,ALP,Cut land tax,230000000.0,,{}
+04/10/26,ALP,Upgrade media facilities at Springside Recreation Reserve in Caroline Springs,200000.0,caroline springs,"{""vic-kororoit"": 0.5, ""vic-sydenham"": 0.5}"
+04/10/26,COAL,Establish SurgerySooner program to deliver public patient elective surgeries at private hospitals,,,{}
+03/10/26,ALP,Build a new ambulance branch in Smythesdale,7100000.0,smythesdale,"{""vic-ripon"": 1.0}"
+03/10/26,ALP,Redevelop Alphington Bowls Club pavilion,1850000.0,alphington,"{""vic-northcote"": 1.0}"
+02/10/26,ALP,Build a new indoor basketball and netball court facility in Essendon Fields,15000000.0,essendon fields,"{""vic-essendon"": 1.0}"
+02/10/26,ALP,Plan upgrades at Keilor Road–Hoffmans Road intersection and along Keilor Park Drive,1000000.0,keilor; keilor park,"{""vic-niddrie"": 0.75, ""vic-sunbury"": 0.25}"
+01/10/26,ALP,Build a new fire station for Keysborough Fire Brigade,10000000.0,keysborough,"{""vic-mordialloc"": 0.333, ""vic-dandenong"": 0.333, ""vic-clarinda"": 0.333}"
+01/10/26,ALP,Deliver a Youth Hub in the City of Whittlesea,2200000.0,whittlesea,"{""vic-yan-yean"": 1.0}"
+01/10/26,ALP,Redevelop the pavilion in Ligar Street Reserve in Clunes,5000000.0,clunes,"{""vic-ripon"": 1.0}"
+01/10/26,ALP,Renew and increase the Victorian Racing Industry Fund,80000000.0,,{}
+01/10/26,ALP,Upgrade pavilion and ground at Edithvale Common,2500000.0,edithvale,"{""vic-mordialloc"": 1.0}"
+30/09/26,ALP,Build a new SES unit for Maryborough,9790000.0,maryborough,"{""vic-ripon"": 1.0}"
+30/09/26,ALP,Build Melbourne Airport Rail Stage 2 including new train station in Keilor East,12000000000.0,melbourne airport; keilor east; albion,"{""vic-sunbury"": 0.333, ""vic-niddrie"": 0.333, ""vic-laverton"": 0.167, ""vic-st-albans"": 0.167}"
+30/09/26,ALP,Upgrade Skipton Recreation Reserve in Skipton with new changerooms,2350000.0,skipton,"{""vic-ripon"": 1.0}"
+30/09/26,GRN,"Reclassify feral deer as a pest, instead of a protected species",,,{}
+29/09/26,ALP,Remediate main building at Old Beaufort School site and reopen it for community use,3690000.0,beaufort,"{""vic-ripon"": 1.0}"
+29/09/26,ALP,Upgrade local roads across the Dandenong Ranges,5000000.0,dandenong,"{""vic-dandenong"": 1.0}"
+29/09/26,COAL,Redevelop Nunawading Basketball Centre into new Nunawading Indoor Sports Centre,25000000.0,nunawading,"{""vic-ringwood"": 1.0}"
+28/09/26,ALP,Start the duplication of the Upfield line and delay level crossing removals,686000000.0,,{}
+28/09/26,GRN,Enable victims of climate disasters to sue major emitters of greenhouse gases,,,{}
+27/09/26,ALP,Upgrade Jubilee Park in Ringwood,200000.0,ringwood,"{""vic-ringwood"": 1.0}"
+27/09/26,ALP,Upgrade Keilor Park Recreation Reserve,200000.0,keilor park,"{""vic-niddrie"": 1.0}"
+27/09/26,COAL,Abolish Emergency Management Days for prisoners,,,{}
+25/09/26,COAL,Build two new netball courts at Walker Park in Nunawading,2000000.0,nunawading,"{""vic-ringwood"": 1.0}"
+25/09/26,COAL,"Introduce Right to Ask, Right to Know (Clare's Law) disclosure scheme",,,{}
+24/09/26,ALP,Change rules for pubs and local venues,,,{}
+24/09/26,ALP,"Donate $500,000 to My Room Children’s Cancer Charity",500000.0,,{}
+24/09/26,ALP,Fund new ultrasound equipment and training for Sexual and Reproductive Health Hubs,480000.0,,{}
+24/09/26,COAL,Review Victoria's foster and kinship care system and create a new Carer and Volunteer Workforce Strategy,,,{}
+23/09/26,ALP,Support local live music,,,{}
+23/09/26,COAL,Introduce Jack’s Law,,,{}
+23/09/26,GRN,End subsidies and tax exemptions for fossil fuel projects,,,{}
+23/09/26,GRN,Ensure Yallourn’s four coal-burning units close as planned in 2028,,yallourn; loy yang,"{""vic-morwell"": 1.0}"
+23/09/26,GRN,Establish a $1 billion climate adaptation and mitigation seed fund,1000000000.0,,{}
+23/09/26,GRN,Fast-track planning approvals for wind farms and transmission lines,,,{}
+23/09/26,GRN,Fully implement the recommendations of the Yoorrook Commission,50000000.0,,{}
+23/09/26,GRN,Invest in publicly-owned renewables and establish a public energy retailer,2000000000.0,,{}
+23/09/26,GRN,Make AI data centre companies compensate affected residents,,,{}
+23/09/26,GRN,Make big polluters fund climate disaster clean-up,,,{}
+22/09/26,COAL,Provide more funding for neighbourhood houses,10000000.0,,{}
+22/09/26,LCV,Halt approvals of new AI data centres,,,{}
+21/09/26,ALP,Redevelop cohealth Collingwood,,collingwood,"{""vic-richmond"": 1.0}"
+21/09/26,ALP,"Support breweries, festivals and live music in regional Victoria",4000000.0,,{}
+21/09/26,COAL,Contribute an additional $100 million to upgrade Albury Hospital,558000000.0,wodonga,"{""vic-benambra"": 1.0}"
+21/09/26,GRN,Conduct an inquiry into bringing road maintenance and VicRoads back into public hands,,,{}
+20/09/26,ALP,Introduce tougher penalties for rapists and sex offenders,,,{}
+20/09/26,COAL,Provide more select-entry high schools,,,{}
+19/09/26,COAL,Build stage one of the Cardinia Life Sports and Aquatic Centre in Pakenham,20000000.0,pakenham,"{""vic-pakenham"": 1.0}"
+18/09/26,COAL,Deliver a new STEAM centre at Koonung Secondary College in Mont Albert North,,mont albert north,"{""vic-box-hill"": 1.0}"
+18/09/26,GRN,Increase funding for TAFE,,,{}
+16/09/26,ALP,Introduce Jack's Law,,,{}
+16/09/26,ALP,Invest $10 million in BlueHub to support police mental health,10000000.0,,{}
+15/09/26,ALP,Order an independent assessment of Western Renewables Link costs,,,{}
+14/09/26,GRN,"Ban advertising of junk food, alcohol and gambling",,,{}
+14/09/26,GRN,Create a public dental system,3000000000.0,,{}
+14/09/26,GRN,Develop a regional and rural health workforce strategy,,,{}
+14/09/26,GRN,Establish a parliamentary inquiry into rural and regional healthcare,,,{}
+14/09/26,GRN,Free and universal access to abortion,,,{}
+14/09/26,GRN,Spend 3% of existing health and health infrastructure budget on community health services,,,{}
+14/09/26,GRN,"Spend 5% of existing health budget on health promotion, including funding VicHealth",,,{}
+13/09/26,ALP,"Hire 1,500 more police officers",,,{}
+13/09/26,COAL,Upgrade and extend Thompsons Road between Berwick-Cranbourne Road and Cardinia Road,607000000.0,berwick; cranbourne,"{""vic-berwick"": 0.5, ""vic-cranbourne"": 0.5}"
+12/09/26,ALP,Implement the Motorcycle Safety Action Plan,,,{}
+12/09/26,COAL,Wind up the Breakthrough Victoria component of Innovation Victoria,1270000000.0,,{}
+10/09/26,LCV,Whole-of-system reform to address family violence,,,{}
+08/09/26,LCV,Retain Infrastructure Victoria,,,{}
+07/09/26,ALP,Upgrade the Hogans Road and Derrimut Road intersection in Hoppers Crossing/Tarneit,90000000.0,tarneit,"{""vic-tarneit"": 1.0}"
+06/09/26,COAL,Incorporate accommodation for health workers into new regional hospital developments,,mildura,"{""vic-mildura"": 1.0}"
+06/09/26,COAL,Invest $40 million to establish a Victorian Rural Health Workforce Incentive Scheme,40000000.0,,{}
+06/09/26,LCV,Update the Environment Reference Standard to explicitly cover plastics and microplastics,,,{}
+05/09/26,COAL,No change to abortion laws,,,{}
+04/09/26,ALP,Upgrade the pavilion at Bruce Park Reserve in Frankston,3000000.0,frankston,"{""vic-frankston"": 1.0}"
+04/09/26,COAL,Invest $288 million in a new Country Roads and Bridges program,288000000.0,,{}
+04/09/26,COAL,No change to age of criminal responsibility,,,{}
+02/09/26,COAL,Return 25 three-car V/Line trains from the city to regional Victoria,,,{}
+02/09/26,COAL,Support Victorian businesses,,,{}
+02/09/26,GRN,Implement the recommendations of the inquiry into climate resilience,,,{}
+01/09/26,COAL,Deliver 25 new hybrid electric trains for Melton and Wyndham Vale lines,1700000000.0,melton,"{""vic-melton"": 1.0}"
+01/09/26,COAL,Establish a new and independent Public Transport Victoria (PTV) board,,,{}
+01/09/26,GRN,Double registration fees for 'Truckzilla' vehicles with bonnets over 120cm,,,{}
+01/09/26,GRN,Free and frequent public transport,270000000.0,,{}
+01/09/26,GRN,Improve transport planning,,,{}
+01/09/26,GRN,More bike lanes and better coordinated bike and scooter hire schemes,,,{}
+31/08/26,ALP,Take responsibility for the safety of our roads,,,{}
+27/08/26,GRN,Ban gambling companies giving gifts to politicians,,,{}
+26/08/26,COAL,Retract fines given to farmers for blocking renewable energy contractors from accessing their land,,,{}
+24/08/26,COAL,Expand the SACStat database to give the public access to sentencing information,,,{}
+24/08/26,COAL,Strengthen the Sentencing Advisory Council to independently initiate reviews of sentencing practices,,,{}
+23/08/26,COAL,Invest $20 million to create a new park at the old Box Hill Brickworks site,20000000.0,box hill,"{""vic-box-hill"": 1.0}"
+23/08/26,COAL,Split Victoria's Court of Appeal into separate Court of Criminal Appeal and Court of Civil Appeal,,,{}
+20/08/26,COAL,Restore move-on laws and re-establish exclusion orders for repeat offenders,,,{}
+17/08/26,COAL,$2.8 million for the Indian Film Festival of Melbourne,2800000.0,,{}
+16/08/26,COAL,Fund a CCTV network on Pakington Street in Geelong,50000.0,geelong,"{""vic-geelong"": 0.25, ""vic-lara"": 0.25, ""vic-bellarine"": 0.25, ""vic-south-barwon"": 0.25}"
+16/08/26,COAL,Introduce a $50 per week toll cap for road users,50.0,,{}
+13/08/26,ALP,$600K to fund the Indian Film Festival of Melbourne for two more years,600000.0,,{}
+12/08/26,COAL,Reverse ban on replacing gas appliances and gas connections in new estates,,,{}
+12/08/26,GRN,A living wage for artists,,,{}
+12/08/26,GRN,Address Victoria’s specialist teacher shortage,,,{}
+12/08/26,GRN,Advocate for fair treatment for migrant workers,,,{}
+12/08/26,GRN,Ban big corporate donations to politicians,,,{}
+12/08/26,GRN,Ban gambling advertising,,,{}
+12/08/26,GRN,Ban more single-use plastic,,,{}
+12/08/26,GRN,Ban the use of sniffer dogs for drug detection,,,{}
+12/08/26,GRN,Ban waste-to-energy incinerators,,,{}
+12/08/26,GRN,Better support for carers,,,{}
+12/08/26,GRN,Bring back paid sick leave for casual workers,100000000.0,,{}
+12/08/26,GRN,Cap election campaign spending and donations to local government campaigns,,,{}
+12/08/26,GRN,Cap vice-chancellor salaries,,,{}
+12/08/26,GRN,Celebrate Pride and fund LGBTQIA+ events,,,{}
+12/08/26,GRN,Continue the roll out of free mental health care,,,{}
+12/08/26,GRN,Decriminalise personal use and possession of small quantities of drugs,,,{}
+12/08/26,GRN,Deliver promised housing support for people with complex mental health challenges,40000000.0,,{}
+12/08/26,GRN,Develop a plan to address early learning deserts,,,{}
+12/08/26,GRN,Embed First Nations perspectives in early childhood education,,,{}
+12/08/26,GRN,End contracts and state support for weapons companies supplying the US and Israel,,,{}
+12/08/26,GRN,End government sponsorship and support for weapons expos,,,{}
+12/08/26,GRN,Equal access to education for children with disabilities,,,{}
+12/08/26,GRN,Establish a $2 billion seed fund to fund nature protection properly,2000000000.0,,{}
+12/08/26,GRN,Establish an independent school building authority and properly maintain schools,,,{}
+12/08/26,GRN,Establish an Office of Research Integrity,,,{}
+12/08/26,GRN,Expand access to overdose prevention services,,,{}
+12/08/26,GRN,Expand pill testing,,,{}
+12/08/26,GRN,Expand the Container Deposit Scheme and increase the refund on bottles and cans,,,{}
+12/08/26,GRN,Fully fund schools,,,{}
+12/08/26,GRN,Fund local government properly and abolish rate capping,,,{}
+12/08/26,GRN,Fund more LGBTQIA+ community services,,,{}
+12/08/26,GRN,Fund the Victorian Early Childhood Regulatory Authority appropriately,,,{}
+12/08/26,GRN,Get weapons out of education,,,{}
+12/08/26,GRN,Halt approval of new AI data centres,,,{}
+12/08/26,GRN,Increase funding for Operational Infrastructure Support to support research institutes,,,{}
+12/08/26,GRN,"Introduce a comprehensive AI Act to protect workers, artists, and our data",,,{}
+12/08/26,GRN,Introduce legislation to stop public services being sold off,,,{}
+12/08/26,GRN,Introduce Truth in Political Advertising laws,,,{}
+12/08/26,GRN,Investigate embedding anti-racism education in schools,,,{}
+12/08/26,GRN,Investigate how to get a soft plastics recycling scheme up and running again,,,{}
+12/08/26,GRN,Keep live music alive,,,{}
+12/08/26,GRN,Legalise cannabis,,,{}
+12/08/26,GRN,Less government spending on executives and consultants,,,{}
+12/08/26,GRN,Make it easier to reuse,,,{}
+12/08/26,GRN,More accessible tram stops,,,{}
+12/08/26,GRN,More funding for community and not-for-profit early childhood education and care,,,{}
+12/08/26,GRN,More funding for libraries,,,{}
+12/08/26,GRN,"More support for foster, kinship and permanent carers of children",,,{}
+12/08/26,GRN,No more pokies,,,{}
+12/08/26,GRN,Protect artists from censorship and AI,,,{}
+12/08/26,GRN,Protect native forests and close loopholes that allow under-the-radar logging,,highlands,"{""vic-eildon"": 0.5, ""vic-euroa"": 0.5}"
+12/08/26,GRN,Protect our art spaces,,,{}
+12/08/26,GRN,Protect the NDIS,,,{}
+12/08/26,GRN,Provide better funding for neighbourhood houses,,,{}
+12/08/26,GRN,Reform freedom of information laws,,,{}
+12/08/26,GRN,Reform the City of Melbourne voting system,,,{}
+12/08/26,GRN,Reform Victoria's prison and criminal justice system,,,{}
+12/08/26,GRN,Remove barriers to gender affirming care,,,{}
+12/08/26,GRN,Require police to improve data collection on the people police interact with,,,{}
+12/08/26,GRN,Require public sector organisations to collect data on workforce racial diversity,,,{}
+12/08/26,GRN,Restructure environment department to put nature and First Nations knowledge first,,,{}
+12/08/26,GRN,Review university governance,,,{}
+12/08/26,GRN,Rewrite planning rules for liveable cities and towns,,,{}
+12/08/26,GRN,Scale up public rehabilitation beds and addiction support,,,{}
+12/08/26,GRN,Stop fossil fuel and mining projects,,ballarat; fosterville,"{""vic-wendouree"": 0.25, ""vic-eureka"": 0.25, ""vic-bendigo-east"": 0.5}"
+12/08/26,GRN,Stop private schools from getting more than their fair share,,,{}
+12/08/26,GRN,Stop the spread of anti-LGBTQIA+ hate online and in public spaces,,,{}
+12/08/26,GRN,Strengthen disability employment practices in the public sector,,,{}
+12/08/26,GRN,Strengthen protections for family violence victims' life insurance,,,{}
+12/08/26,GRN,Strict environmental and water standards for AI data centres,,,{}
+12/08/26,GRN,Stronger regulation of alcohol and gambling to reduce family violence harm,,,{}
+12/08/26,GRN,Support early and mid-career researchers,,,{}
+12/08/26,GRN,Support for small to medium arts and screen organisations,,,{}
+12/08/26,GRN,Support older Victorians in retirement villages and residential parks,,,{}
+12/08/26,GRN,Support people targeted by racism,,,{}
+12/08/26,GRN,Support working from home and a four day work week,,,{}
+12/08/26,GRN,Transform WorkCover to truly support workers,,,{}
+12/08/26,LCV,Free bus travel,,,{}
+11/08/26,COAL,Restore effective wild dog control,,,{}
+10/08/26,COAL,Apply the council rates cap to council waste charges,,,{}
+10/08/26,COAL,Require councils to provide a weekly general rubbish collection,,,{}
+10/08/26,COAL,Review the rate of the landfill levy,,,{}
+10/08/26,LCV,Extend the Alexis-Family Violence Response Model,,,{}
+09/08/26,COAL,Deploy PSOs to major hospitals,,,{}
+08/08/26,LCV,Hold a cannabis legalisation plebiscite,,,{}
+30/07/26,GRN,Abolish street auctions,,,{}
+30/07/26,GRN,Ban duck shooting,,,{}
+30/07/26,GRN,Ban greyhound racing,,,{}
+30/07/26,GRN,Ban old mines from using river and ground water,,,{}
+30/07/26,GRN,Defund horse racing and ban jumps racing,,,{}
+30/07/26,GRN,Develop a Victorian Food Sovereignty Plan,,,{}
+30/07/26,GRN,Establish a Victorian Centre for Regenerative Agriculture,,,{}
+30/07/26,GRN,Establish an independent authority to protect the rights of animals,,,{}
+30/07/26,GRN,Expand IBAC's powers,,,{}
+30/07/26,GRN,Fix Victoria's wildlife laws,,,{}
+30/07/26,GRN,Phase out intensive animal farming,,,{}
+30/07/26,GRN,Protect Victoria’s rivers and waterways,,,{}
+30/07/26,GRN,Support small scale farming,,,{}
+26/07/26,COAL,Boost recycling,,,{}
+26/07/26,COAL,Bring back 2km buffer zones for wind turbines,,,{}
+26/07/26,COAL,Build new ambulance stations,,armstrong creek; mansfield; donnybrook,"{""vic-south-barwon"": 0.333, ""vic-eildon"": 0.333, ""vic-yan-yean"": 0.333}"
+26/07/26,COAL,Conduct audits of Victoria’s agricultural land,,,{}
+26/07/26,COAL,Create a Victorian Nighttime Economy Strategy,,,{}
+26/07/26,COAL,Criminalise coercive control,,,{}
+26/07/26,COAL,Energy Security Requirement,,,{}
+26/07/26,COAL,Expand the Capital City Zone,,,{}
+26/07/26,COAL,Fund additional hospital inpatient beds,,,{}
+26/07/26,COAL,Improve ambulance dispatch decisions and response times,,,{}
+26/07/26,COAL,Invest $132 million in a Mental Health Early Access Plan,132000000.0,,{}
+26/07/26,COAL,Invest $15 million to establish a Nursery & Garden Industry Victoria Horticulture Centre of Excellence,15000000.0,,{}
+26/07/26,COAL,No new or increased taxes,,,{}
+26/07/26,COAL,Prioritise the core maintenance functions of Parks Victoria,,,{}
+26/07/26,COAL,Publish real time emergency department waiting and capacity information,,,{}
+26/07/26,COAL,Repeal compulsory land acquisition laws,,,{}
+26/07/26,COAL,Restore landholders' right to appeal major planning and infrastructure decisions to VCAT,,,{}
+26/07/26,COAL,Scrap high-rise activity centres,,,{}
+26/07/26,COAL,Support major events,,,{}
+24/07/26,COAL,Keep Victoria’s council rate cap,,,{}
+23/07/26,COAL,Build new West Gippsland Hospital,850000000.0,drouin east,"{""vic-narracan"": 1.0}"
+23/07/26,COAL,Develop a long term plan for Victoria's racing industry,,,{}
+22/07/26,GRN,Abolish property investor subsidies,,,{}
+22/07/26,GRN,Close loophole that requires councillors to stand down,,hepburn,"{""vic-macedon"": 1.0}"
+22/07/26,GRN,End homelessness within 10 years,,,{}
+22/07/26,GRN,Make developers provide affordable housing,,,{}
+22/07/26,GRN,Make housing a human right,,,{}
+21/07/26,COAL,Upgrade Wonthaggi Hospital,350000000.0,wonthaggi,"{""vic-bass"": 1.0}"
+21/07/26,COAL,Wipe COVID-19 fines,,,{}
+21/07/26,GRN,Extend truck bans in Melbourne's west,,kensington; north melbourne; west melbourne,"{""vic-melbourne"": 1.0}"
+21/07/26,GRN,Promote the benefits of switching from gas to electrical projects,,,{}
+20/07/26,ALP,Introduce new workplace surveillance protection laws,,,{}
+20/07/26,COAL,Literacy and Numeracy Guarantee,,,{}
+19/07/26,ALP,Give VCAT new powers to make demasking orders,,,{}
+19/07/26,ALP,Make it easier to sue social media and AI providers over child harm,,,{}
+19/07/26,COAL,Invest $100 million into youth crime prevention initiatives,100000000.0,,{}
+17/07/26,COAL,Repeal the fourth bin mandate and review Victoria's Container Deposit Scheme,,,{}
+17/07/26,COAL,Upgrade Brighton Primary School,,brighton,"{""vic-brighton"": 1.0}"
+16/07/26,COAL,$500K for frontline support centre on the Mornington Peninsula,500000.0,mornington peninsula,"{""vic-nepean"": 0.333, ""vic-mornington"": 0.333, ""vic-hastings"": 0.333}"
+16/07/26,COAL,Rebuild Rosebud Hospital,340000000.0,rosebud,"{""vic-nepean"": 1.0}"
+16/07/26,GRN,"Mandate domestic, family and sexual violence education for year 10-12 students",,,{}
+15/07/26,COAL,Limit MP travel allowance to domestic travel,,,{}
+14/07/26,COAL,Build a new secondary school in Mount Duneed,,south barwon,"{""vic-south-barwon"": 1.0}"
+14/07/26,COAL,Increase the speed limit on Princes freeway and highway,,colac,"{""vic-polwarth"": 1.0}"
+13/07/26,COAL,Repair and rebuild Victoria's roads,5000000000.0,,{}
+13/07/26,COAL,Upgrade Hamilton Base Hospital,45000000.0,hamilton,"{""vic-lowan"": 1.0}"
+12/07/26,COAL,Open Victoria for new gas exploration,,,{}
+11/07/26,COAL,Pause and review the Suburban Rail Loop project,,,{}
+09/07/26,GRN,Cut stamp duty,1600000.0,,{}
+09/07/26,GRN,Increase land tax for investors owning more than $5 million in residential properties,6400000000.0,,{}
+09/07/26,GRN,"Stop the demolition, build more public homes, and maintain and upgrade existing public housing",4000000000.0,,{}
+08/07/26,COAL,Exempt Victorian government projects from Commonwealth powers to preference employers with enterprise agreements for federally-funded projects,,,{}
+08/07/26,COAL,Stop Wodonga Golf Course from being rezoned for housing development,,benambra,"{""vic-benambra"": 1.0}"
+07/07/26,COAL,Upgrade the Maroondah Highway and Killara Road intersection,,coldstream,"{""vic-evelyn"": 1.0}"
+06/07/26,COAL,Upgrade Rochester Recreation Reserve,4000000.0,rochester,"{""vic-murray-plains"": 1.0}"
+05/07/26,COAL,Duplicate Donnybrook Road and remove level crossing at Donnybrook train station,,kalkallo,"{""vic-kalkallo"": 1.0}"
+01/07/26,GRN,Establish an independent rental industry regulator,50000000.0,,{}
+29/06/26,LCV,Implement the What Can Be Done model,,,{}
+26/06/26,COAL,Expand and upgrade Mildura Base Public Hospital,180000000.0,mildura,"{""vic-mildura"": 1.0}"
+18/06/26,COAL,Limit the scope of suppression orders,,,{}
+16/06/26,COAL,Close loophole in sentencing offenders convicted of assaulting emergency workers,,,{}
+10/06/26,COAL,Successful School Starters,156000000.0,,{}
+09/06/26,GRN,Fast-track planning regulations for plug-in 'balcony solar' systems,,,{}
+09/06/26,GRN,Introduce a Green Power Voucher scheme,500000000.0,,{}
+04/06/26,GRN,Abolish lease break fees,,,{}
+03/06/26,GRN,Build upgraded Collingwood health facility with co-located community housing,,collingwood,"{""vic-richmond"": 1.0}"
+23/05/26,COAL,Fair Share Guarantee,,,{}
+23/05/26,GRN,Bank levy of 0.1% on the five biggest banks,,,{}
+23/05/26,GRN,Double existing royalties on coal and gas,80000000.0,,{}
+23/05/26,GRN,Double the tax on casino table games,,,{}
+23/05/26,GRN,Increase the tax on online gambling to 25%,,,{}
+23/05/26,GRN,Increase the tax on property developers' windfall profits to 75%,400000000.0,,{}
+21/05/26,COAL,Scrap Labor's 70/30 new homes target,,,{}
+21/05/26,GRN,Increase the tax on pokies up to 75%,,,{}
+21/05/26,GRN,Require data centres to use renewable energy and contribute to renewable energy projects,,,{}
+17/05/26,COAL,We will never waste your money on statues of ourselves,,,{}
+14/05/26,COAL,"Recruit 3,000 additional police officers",,,{}
+12/05/26,COAL,Introduce a VPS executive salary cap,20000000.0,,{}
+12/05/26,LCV,Enshrine Victoria Police’s cannabis cautioning program into legislation,,,{}
+11/05/26,GRN,Redevelop the Haymarket roundabout,,,{}
+08/05/26,COAL,Abolish the GP tax,1000000.0,,{}
+08/05/26,COAL,Abolish the payroll tax on non-government schools,,,{}
+08/05/26,COAL,Abolish the short stay levy,1000000.0,,{}
+08/05/26,COAL,"Adult Crime, Adult Time",,,{}
+08/05/26,COAL,Ban bikies and organised crime from major construction projects,,,{}
+08/05/26,COAL,Create a Charter of Budget Honesty,,,{}
+08/05/26,COAL,Create a real-time government expenditure tracker,,,{}
+08/05/26,COAL,Deliver an Intergenerational Report,,,{}
+08/05/26,COAL,Essential Services Guarantee,,,{}
+08/05/26,COAL,Establish a Royal Commission into crime and corruption on Victorian Government construction projects,,,{}
+08/05/26,COAL,Establish new construction sector watchdog Construction Enforcement Victoria,,,{}
+08/05/26,COAL,Establish new taskforce to recover stolen money and seize assets born from corrupt and fraudulent activity,,,{}
+08/05/26,COAL,Exempt first home buyers from stamp duty up to $1 million,1000000.0,,{}
+08/05/26,COAL,Give IBAC new powers to trace corruption and require its reports to be released sooner,,,{}
+08/05/26,COAL,Implement a hiring freeze for back-office public sector roles,22000000000.0,,{}
+08/05/26,COAL,Introduce new racketeering laws,,,{}
+08/05/26,COAL,Land tax relief,300000.0,,{}
+08/05/26,COAL,More PSOs,,,{}
+08/05/26,COAL,Payroll tax relief,1200000.0,,{}
+08/05/26,COAL,Precinct Structure Plans for timely delivery,,,{}
+08/05/26,COAL,Re-invest Growth Area Infrastructure Contributions (GAIC) into communities from which they are raised,,,{}
+08/05/26,COAL,Reopen police stations,,,{}
+08/05/26,COAL,Repeal the Treaty process and First Peoples' Assembly,1000000000.0,,{}
+08/05/26,COAL,Stronger pursuit laws for police,,,{}
+07/05/26,ALP,Co-fund feasibility study to expand renewable diesel blend processing at Geelong refinery,,geelong,"{""vic-geelong"": 0.25, ""vic-lara"": 0.25, ""vic-bellarine"": 0.25, ""vic-south-barwon"": 0.25}"
+07/05/26,COAL,"Cancel VNI West, pause Western Renewables Link, review Victorian Transmission Plan",,,{}
+07/05/26,COAL,Establish new Urban Solar Parks,,,{}
+05/05/26,COAL,"Break Bail, Face Jail",,,{}
+05/05/26,COAL,Remove the emergency services levy,,,{}
+05/05/26,COAL,Review the impact of major projects on residential construction costs,,,{}
+05/05/26,GRN,Cap rent increases,,,{}
+05/05/26,GRN,Close property investor loopholes,,,{}
+05/05/26,GRN,Tax empty homes and shops,,,{}

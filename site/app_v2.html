@@ -3822,7 +3822,7 @@ async function pollDaily() {
     const res = await fetch(`${DATA}live/daily.json?t=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) return false;
     const j = await res.json(); if (!j || !j.captured_at) return false;
-    const changed = j.captured_at !== LIVE.dailyAt; LIVE.daily = j; LIVE.dailyAt = j.captured_at;
+    const changed = j.captured_at !== LIVE.dailyAt; if (j.htv && j.htv.cards) j.htv.cards.forEach(k => { if (!(k.registrant || '').trim()) k.registrant = 'Registrant not named by the VEC'; }); LIVE.daily = j; LIVE.dailyAt = j.captured_at;
     if (changed) { rebuildLiveTables(LIVE.latest); buildIndexes(); refreshSql(); if (state.election === LIVE.election && mapReady) renderMap(); if (selected && selected.election === LIVE.election && selected.contest) renderContestDetail(LIVE.election, selected.contest); if (activeView() === 'dash') renderDash(); if (activeView() === 'seat') renderSeat(); }
     return changed;
   } catch (e) { return false; }
