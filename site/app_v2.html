@@ -1808,6 +1808,8 @@ async function renderDashLc(eid) {
   if (shown || eid === LIVE.election) box.append(h('div', { class: 'panel' }, h('h3', {}, 'Region by region'), h('div', { class: 'tablewrap' }, t), h('p', { class: 'hint', style: 'margin-top:8px' }, `First preferences by group${shown ? ', ' + shortName(se) : ''}. Click a region for its ballot, its count and its electorates. Quota: one sixth of the formal vote plus one.`)));
 }
 function renderDash() {
+  // once early voting is under way, the dashboard opens on this election (also when the daily figures arrive after the page); the map gets its own default back when you leave
+  if (activeView() === 'dash' && !LIVE.userTouched && !LIVE.dashAuto && state.election !== LIVE.election && LIVE.daily && LIVE.daily.early_voting && idx.electionById.get(LIVE.election)) { LIVE.dashAuto = state.election; setElection(LIVE.election); return; }
   const eid = state.election, e = idx.electionById.get(eid); if (!e || !D.contests.length) return;
   const sel = el('dash-election'); if (sel.value !== eid) sel.value = eid; sel.hidden = false;
   const live = eid === LIVE.election, prevEid = PREV[eid], prevE = prevEid ? idx.electionById.get(prevEid) : null;
@@ -1843,8 +1845,8 @@ function renderDash() {
     stat(fmt(cur.formal), live ? 'formal votes counted' : 'formal votes'), cur.formal ? stat(pct(cur.informal / (cur.formal + cur.informal)), 'informal') : '',
     live && cur.enrolment && cur.formal ? stat(pct((cur.formal + cur.informal) / cur.enrolment), 'of enrolment counted') : '',
     live ? stat(`${fmt(t.reported)} / ${fmt(t.booths)}`, 'election-day booths reported') : '',
-    live ? (t.earlyListed > 88 ? stat(`${t.earlyRep} / ${t.earlyListed}`, 'early voting centres in') : stat(fmt(t.earlyVotes), `early votes counted${t.base.early ? ' (2022: ' + fmt(t.base.early) + ')' : ''}`)) : '',
-    live ? stat(fmt(t.byType.postal), `postal votes counted${t.postalReg ? ' of ' + fmt(t.postalReg) + ' applications' : t.base.postal ? ' (2022: ' + fmt(t.base.postal) + ')' : ''}`) : '',
+    live ? (t.earlyListed > 88 ? stat(`${t.earlyRep} / ${t.earlyListed}`, 'early voting centres in') : stat(fmt(t.earlyVotes), `early votes counted${t.earlyReg ? ' of ' + fmt(t.earlyReg) + ' cast so far' : ''}${t.base.early ? ' (2022: ' + fmt(t.base.early) + ')' : ''}`)) : '',
+    live ? stat(fmt(t.byType.postal), `postal votes counted${t.postalRet ? ' · ' + fmt(t.postalRet) + ' returned' : ''}${t.postalReg ? ' of ' + fmt(t.postalReg) + ' applications' : t.base.postal ? ' (2022: ' + fmt(t.base.postal) + ')' : ''}`) : '',
     live ? stat(fmt(D.candidates.filter(x => x.election_id === eid && x.contest_id.startsWith('vic-')).length), (LIVE.daily && LIVE.daily.candidates && LIVE.daily.candidates.districts ? 'nominated' : 'declared') + ' lower-house candidates') : ''));
   // ---- statewide
   const st = el('dash-state'); st.innerHTML = '';
@@ -3783,11 +3785,13 @@ function liveTotals() {
   let earlyRep = 0, earlyListed = 0, earlyVotes = 0, tcpBooths = 0, votes = 0, votes22 = 0, tcpDistricts = 0;
   const byType = { ordinary: 0, early: 0, postal: 0, absent: 0, provisional: 0 }, base = { ordinary: 0, early: 0, postal: 0, absent: 0, provisional: 0 }; let postalReg = 0, earlyReg = 0;
   if (LIVE.latest) for (const [cid, c] of Object.entries(LIVE.latest.contests)) { const g = countProgress(cid); if (!g) continue; earlyRep += g.earlyReported; earlyListed += g.earlyListed; earlyVotes += g.earlyVotes; tcpBooths += g.tcpOrd; votes += g.votes; if (g.anyTcp || g.tcpBooths) tcpDistricts++; for (const k in byType) byType[k] += g[k === 'early' ? 'earlyVotes' : k] || 0; postalReg += g.postalReg || 0; earlyReg += g.earlyReg || 0; }
+  { const ev = LIVE.daily && LIVE.daily.early_voting; if (ev && ev.totals) { if (!earlyReg) earlyReg = ev.totals.early || 0; if (!postalReg) postalReg = ev.totals.pva || 0; } }
+  const postalRet = (LIVE.daily && LIVE.daily.early_voting && LIVE.daily.early_voting.totals && LIVE.daily.early_voting.totals.postal) || 0;
   for (const c of laContests('vic2022')) { const p22 = contestShares('vic2022', c.contest_id); votes22 += p22.formal ? p22.formal + (p22.informal || 0) : 0; const t = types22(c.contest_id); for (const k in base) base[k] += t[k] || 0; }   // the whole 2022 vote, so the share measures the night's progress
   // reporting pace: booths whose figures changed in the last 10 and 30 minutes, and the latest change
   const now = LIVE.fetchedAt ? new Date(LIVE.fetchedAt).getTime() : Date.now(); let last = null, in10 = 0, in30 = 0;
   for (const b of booths) if (b.updated_at) { const t = new Date(b.updated_at).getTime(); if (!last || t > last) last = t; if (now - t <= 600000) in10++; if (now - t <= 1800000) in30++; }
-  return { booths: booths.length, reported: rep, districts, freshB, freshC, earlyRep, earlyListed, earlyVotes, tcpBooths, tcpDistricts, votes, pct22: votes22 ? votes / votes22 : null, byType, base, postalReg, earlyReg, pace10: in10, pace30: in30, lastChange: last };
+  return { booths: booths.length, reported: rep, districts, freshB, freshC, earlyRep, earlyListed, earlyVotes, tcpBooths, tcpDistricts, votes, pct22: votes22 ? votes / votes22 : null, byType, base, postalReg, earlyReg, postalRet, pace10: in10, pace30: in30, lastChange: last };
 }
 // the dashboard's count-by-vote-type table: each type is a separate pool (election-day booths, early voting, postal, absent, provisional) against its 2022 size
 function voteTypeTable(t) {
@@ -4540,6 +4544,8 @@ function showView(name) {
   if (name === 'map' && map) setTimeout(() => map.resize(), 30);
   if (name === 'venue') buildVenueSearch();
   if (name === 'compare') renderCompare();
+  // once early voting is under way, the dashboard opens on this election; the map goes back to its own default when you leave
+  if (name !== 'dash' && LIVE.dashAuto && !LIVE.userTouched) { const back = LIVE.dashAuto; LIVE.dashAuto = null; if (state.election === LIVE.election) setElection(back); }
   if (name === 'dash') renderDash();
   if (name === 'polls') renderPolls();
   if (name === 'prefs') renderPrefs();
