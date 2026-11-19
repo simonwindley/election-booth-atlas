@@ -1643,6 +1643,7 @@ async function render2026() {
     stat(fmt(laC.length), 'declared lower-house candidates'), stat(`${seatsWith('ONP')} / 88`, 'seats with a One Nation candidate'), stat(`${seatsWith('VSP')} / 88`, 'seats with a Socialist candidate'), stat(fmt(retiring.length), 'members not recontesting')));
   head.append(h('div', { class: 'hint', style: 'margin-top:10px' }, 'Seats going in: ' + Object.entries(held).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(' · ') + ' (as held now, after by-elections and party changes).'));
   if (LIVE.daily) { const d = LIVE.daily; const tot = d.enrolment ? Object.values(d.enrolment.districts).reduce((a, x) => a + x.electors, 0) : 0; head.append(h('div', { class: 'hint', style: 'margin-top:8px' }, h('strong', {}, 'VEC figures, captured ' + d.date + ': '), tot ? `${fmt(tot)} electors on the roll (${d.enrolment.date_extracted})` : '', d.htv && d.htv.cards ? ` · ${fmt(d.htv.cards.length)} how-to-vote cards registered` : '', d.candidates ? ` · nominations published for ${Object.keys(d.candidates.districts).length} electorates` : '')); }
+  { const el2 = earlyLines(null); if (el2.length) head.append(h('div', { style: 'margin-top:8px' }, ...el2)); }
   const vt = meta.voting || {};
   if (vt.postal || vt.early) head.append(h('div', { class: 'hint', style: 'margin-top:8px' },
     vt.postal ? h('div', {}, h('strong', {}, 'Postal votes: '), `applications open ${fmtDay(vt.postal.applications_open)}, close ${fmtDay(vt.postal.applications_close)}; packs posted from ${fmtDay(vt.postal.packs_posted_from)}. `, h('a', { href: vt.postal.url, target: '_blank', rel: 'noopener' }, 'Apply on the VEC site')) : '',
@@ -1853,7 +1854,7 @@ function renderDash() {
   const t = live ? liveTotals() : null;
   if (live) {
     if (!LIVE.available) { const kd = (LIVE.meta && LIVE.meta.key_dates) || {}; const today = new Date(); const days = (iso) => Math.ceil((new Date(iso + 'T00:00:00') - today) / 86400000); const closed = Date.now() >= POLLS_CLOSE;
-      head.append(h('div', { style: 'margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center' }, h('span', { class: 'pre-badge' }, h('span', { class: closed ? 'pulse' : 'pulse off' }), closed ? 'Polls have closed' : 'Pre-election preview'), countdownBlock()), closed ? voteTypeTable(t) : ''); }
+      head.append(h('div', { style: 'margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center' }, h('span', { class: 'pre-badge' }, h('span', { class: closed ? 'pulse' : 'pulse off' }), closed ? 'Polls have closed' : 'Pre-election preview'), countdownBlock()), closed ? voteTypeTable(t) : ''); { const el2 = earlyLines(null); if (el2.length && !closed) head.append(h('div', { class: 'early-now', style: 'margin-top:10px' }, ...el2)); } }
     else head.append(h('div', { style: 'margin-top:10px' }, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${totalsText(t)} · ${t.freshB} booths and ${t.freshC} electorates changed since ${fmtTime(LIVE.seenAt)}`),
       h('span', { style: 'margin-left:10px' }, h('button', { class: 'btn', onclick: () => { LIVE.seenAt = LIVE.fetchedAt || new Date().toISOString(); try { localStorage.setItem('atlas.liveSeenAt', LIVE.seenAt); } catch (e) {} renderDash(); if (mapReady) renderMap(); renderLiveBox(); } }, 'Mark all seen'), ' ', h('button', { class: 'btn', onclick: () => pollLive(true).then(renderDash) }, 'Refresh now'))), voteTypeTable(t));
   }
@@ -3644,7 +3645,7 @@ function projectSeat(cid) {
   // the other pools: 2022 size and shares for this electorate, shifted by the electorate's swing; the counted pool takes over as it comes in
   const c22 = contestIn('vic2022', cid, eid); const cid22 = c22 ? c22.contest_id : cid; const enrolRatio = projEnrolRatio(cid);
   const seatSwing = projSwing(cid, null);
-  const reg = (LIVE.daily && LIVE.daily.early_voting && LIVE.daily.early_voting[cid]) || {};
+  const reg = earlyReg(cid);
   for (const [type, label] of [['early', 'Early votes'], ['postal', 'Postal votes'], ['absent', 'Absent votes'], ['provisional', 'Provisional votes']]) {
     const rows22 = D.booths.filter(x => x.election_id === 'vic2022' && x.contest_id === cid22 && x.booth_type === type); let was = { formal: 0 }; for (const g of PROJ_GROUPS) was[g] = 0;
     for (const r of rows22) { const q = projSharesOf('vic2022', r.booth_id); if (!q.formal) continue; for (const g of PROJ_GROUPS) was[g] = (was[g] * was.formal + q[g] * q.formal) / (was.formal + q.formal); was.formal += q.formal; }
@@ -3744,6 +3745,27 @@ function liveContestMetric(cid, p) {
 // how far a seat's count has got: election-day booths, early voting, 2CP, share of the 2022 vote
 // the 2022 vote by type for an electorate (election day, early, postal, absent, provisional): the denominator for the night's progress
 const TYPES22 = {};
+// the VEC's early / postal statistics (captured daily) for one district: {early, postal_returned, postal_applications, postal_cancelled, days}
+function earlyReg(cid) { const ev = LIVE.daily && LIVE.daily.early_voting; return (ev && ev.districts && ev.districts[cid]) || {}; }
+// 2022 formal early and postal votes across the state (the denominators for the running totals)
+let TYPES22_STATE = null;
+function types22State() { if (TYPES22_STATE) return TYPES22_STATE; const out = {}; for (const b of D.booths) if (b.election_id === 'vic2022' && b.contest_id.startsWith('vic-')) { const q = partyShares('vic2022', b.booth_id); if (q.formal) out[b.booth_type] = (out[b.booth_type] || 0) + q.formal; } return (TYPES22_STATE = out); }
+// "217,873 early votes so far · 11% of the 1,894,911 formal early votes in 2022" (whole state when cid is null)
+function earlyLines(cid) {
+  const ev = LIVE.daily && LIVE.daily.early_voting; if (!ev) return [];
+  const r = cid ? earlyReg(cid) : { early: ev.totals.early, postal_returned: ev.totals.postal, postal_applications: ev.totals.pva };
+  if (r.early == null) return [];
+  // 2022 counts, informal included where the capture has them (the VEC's running totals include informal votes too); formal-only otherwise
+  const bz = ev.base_2022 || {}; const all22 = cid ? bz[cid] : (Object.keys(bz).length ? Object.values(bz).reduce((a, x) => ({ early: a.early + x.early, postal: a.postal + x.postal }), { early: 0, postal: 0 }) : null);
+  const t = all22 || (cid ? types22(cid) : types22State()); const kind = all22 ? '' : 'formal '; const here = cid ? 'here' : 'across the state';
+  const pc = (a, b) => !b ? '' : (a && a / b < 0.001 ? '<0.1' : a / b < 0.1 && a ? (100 * a / b).toFixed(1) : Math.round(100 * a / b)) + '%';
+  const days = (cid ? Object.entries(r.days || {}).map(([date, x]) => ({ date, early: x.early })) : ev.days).filter(x => x.early > 0);
+  return [
+    h('div', {}, h('strong', {}, fmt(r.early)), r.early === 1 ? ' early vote so far' : ' early votes so far', t.early ? h('span', { class: 'hint' }, ` · ${pc(r.early, t.early)} of the ${fmt(t.early)} ${kind}early votes ${here} in 2022`) : ''),
+    h('div', {}, h('strong', {}, fmt(r.postal_returned)), ` postal vote${r.postal_returned === 1 ? '' : 's'} returned, of ${fmt(r.postal_applications)} applications (${pc(r.postal_returned, r.postal_applications)})`, t.postal ? h('span', { class: 'hint' }, ` · ${fmt(t.postal)} ${kind}postal votes ${here} in 2022`) : ''),
+    days.length ? h('div', { class: 'hint' }, 'Early votes by day: ' + days.map(x => `${fmtDay(x.date)} ${fmt(x.early)}`).join(' · ') + (ev.as_at ? `. VEC statistics as at ${ev.as_at}.` : '.')) : ''
+  ];
+}
 function types22(cid) {
   if (TYPES22[cid]) return TYPES22[cid];
   const out = {};
@@ -3758,7 +3780,7 @@ function countProgress(cid) {
   const tcpBooths = bs.filter(b => b.tcp && Object.keys(b.tcp).length).length, tcpOrd = ord.filter(b => b.tcp && Object.keys(b.tcp).length).length;
   const votes = lc.total_votes || Object.values(by).reduce((a, v) => a + (v || 0), 0);
   const p22 = contestShares('vic2022', cid); const tot22 = p22.formal ? p22.formal + (p22.informal || 0) : null;
-  const t22 = types22(cid); const reg = (LIVE.daily && LIVE.daily.early_voting && LIVE.daily.early_voting[cid]) || {};   // once the VEC's early-voting statistics are captured: {early, postal_applications}
+  const t22 = types22(cid); const reg = earlyReg(cid);   // once the VEC's early-voting statistics are captured: {early, postal_applications}
   return { boothsReported: lc.counted.booths_reported || 0, boothsListed: lc.counted.booths_listed || ord.length, earlyListed: early.length, earlyReported: earlyRep, earlyVotes: by.early || 0,
     postal: by.postal || 0, absent: by.absent || 0, provisional: by.provisional || 0, ordinary: by.ordinary || 0, t22, postalReg: reg.postal_applications || null, earlyReg: reg.early || null,
     tcpBooths, tcpOrd, votes, pctEnrol: lc.counted.pct_enrolment, pct22: tot22 ? votes / tot22 : null, stage: lc.stage || null, anyTcp: !!(lc.tcp_total && lc.tcp_total.length) };
@@ -3958,6 +3980,8 @@ function renderDailyBlock(root, cid, c) {
   const en = d.enrolment && d.enrolment.districts && d.enrolment.districts[cid];
   const c22 = idx.contestById.get('vic2022|' + cid);
   if (en) items.push(h('div', {}, h('strong', {}, fmt(en.electors)), ` electors on the roll at ${d.enrolment.date_extracted || 'the latest extract'}`, c22 && c22.enrolment ? h('span', { class: 'hint' }, ` · ${pts((en.electors - c22.enrolment) / c22.enrolment)}% on the 2022 roll (${fmt(c22.enrolment)})`) : ''));
+  // the VEC's running early / postal totals, against 2022
+  { const el2 = earlyLines(cid); if (el2.length) items.push(h('div', { style: 'margin-top:4px' }, ...el2)); }
   // daily per-district figures the capture found (early votes, postal applications, ...), newest first
   const ser = d.series && d.series[cid];
   if (ser) {

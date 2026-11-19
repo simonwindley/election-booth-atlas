@@ -22,7 +22,7 @@ Everything captured is kept raw as well (daily.json -> "raw"), so a page the par
 yet is still saved for the next version of this script. Pages that do not exist yet are simply skipped.
 URLs are guesses from the 2022 layout until the real pages appear; add or fix them in live/daily_sources.json.
 """
-import argparse, datetime, difflib, gzip, unicodedata, io, json, os, re, sys, time, zipfile, html as htmlmod
+import argparse, csv, datetime, difflib, gzip, unicodedata, io, json, os, re, sys, time, zipfile, html as htmlmod
 import urllib.request, urllib.error, urllib.parse
 import xml.etree.ElementTree as ET
 
@@ -40,7 +40,7 @@ DEFAULT_SOURCES = {
     'postal': ['/voting/2026-state-election/postal-voting'],
     'early': ['/voting/2026-state-election/voting-options', '/voting/2026-state-election/early-voting'],
     # discovered from the election page by link text; listed here only so they can be pinned once known
-    'stats': [],
+    'stats': ['/voting/2026-state-election/voting-statistics'],
     'centres': [],
 }
 DISCOVER = {  # link text / href patterns -> source key
@@ -121,6 +121,9 @@ def xlsx_rows(data):
         cells = []
         for c in row.findall('m:c', ns):
             v = c.find('m:v', ns); t = c.get('t')
+            if t == 'inlineStr':
+                is_ = c.find('m:is', ns)
+                cells.append(''.join(x.text or '' for x in is_.iter('{%s}t' % ns['m'])) if is_ is not None else None); continue
             if v is None:
                 cells.append(None); continue
             if t == 's':
@@ -288,6 +291,87 @@ def capture_candidates(src, log):
     return {'source': url, 'districts': out}
 
 
+def parse_early_stats(rows):
+    """The VEC's 'Postal and early voting summary' workbook -> totals, a statewide row per day and per-district running totals.
+    Layout: a header row starting 'Date', then for each day a row (date, statewide figures) followed by one row per district,
+    columns: postal applications processed (day, running), cancelled (day, running), postal votes returned (day, running),
+    early votes (day, running). A final 'Total' row."""
+    keys = ['pva', 'pva_total', 'cancelled', 'cancelled_total', 'postal', 'postal_total', 'early', 'early_total']
+    clean = lambda r: [x for x in r if x not in (None, '')]
+    out = {'as_at': None, 'gpv': None, 'date_range': None, 'days': [], 'totals': {}, 'districts': {}}
+    day = None
+    for r in rows:
+        r = clean(r)
+        if not r:
+            continue
+        head = str(r[0]).strip()
+        m = re.match(r'As at\s+(.+)', head)
+        if m: out['as_at'] = m.group(1).strip(); continue
+        m = re.match(r'Date range:\s*(.+)', head)
+        if m: out['date_range'] = m.group(1).strip(); continue
+        m = re.search(r'GPV\)? count:\s*([\d,]+)', head)
+        if m: out['gpv'] = int(m.group(1).replace(',', '')); continue
+        nums = [x for x in r[1:] if isinstance(x, (int, float))]
+        if len(nums) != 8:
+            continue
+        vals = dict(zip(keys, (int(x) for x in nums)))
+        m = re.match(r'(\d{2})/(\d{2})/(\d{4})$', head)
+        if m:
+            day = f'{m.group(3)}-{m.group(2)}-{m.group(1)}'
+            out['days'].append({'date': day, **{k: vals[k] for k in ('pva', 'cancelled', 'postal', 'early')}}); continue
+        if head.lower() == 'total':
+            out['totals'] = {k: vals[k] for k in ('pva', 'cancelled', 'postal', 'early')}; continue
+        if day is None:
+            continue
+        cid = f'vic-{slug(head)}'
+        d = out['districts'].setdefault(cid, {'days': {}})
+        d['days'][day] = {k: vals[k] for k in ('pva', 'postal', 'early')}
+        # running totals: the last day's row carries them
+        d.update(early=vals['early_total'], postal_returned=vals['postal_total'], postal_applications=vals['pva_total'], postal_cancelled=vals['cancelled_total'])
+    return out
+
+
+def base_2022():
+    """2022 early and postal votes per district, informal included (the VEC's running counts include them too)."""
+    d = os.path.abspath(os.path.join(HERE, '..', 'data', 'vic2022'))
+    try:
+        bt = {r['booth_id']: (r['contest_id'], r['booth_type']) for r in csv.DictReader(open(os.path.join(d, 'booths.csv')))}
+        out = {}
+        for r in csv.DictReader(open(os.path.join(d, 'fp_votes.csv'))):
+            cid, t = bt.get(r['booth_id'], (None, None))
+            if t in ('early', 'postal') and cid:
+                o = out.setdefault(cid, {'early': 0, 'postal': 0}); o[t] += int(r['votes'])
+        return out
+    except OSError:
+        return {}
+
+
+def capture_early_stats(src, log):
+    """Find the 'early and postal vote statistics' workbook on the statistics page(s) and parse it."""
+    for path in src.get('stats', []):
+        if 'voting-statistics' not in path:
+            continue
+        doc, final = fetch(path, log=log)
+        if not doc:
+            continue
+        links = re.findall(r'href="([^"]+\.xlsx[^"]*)"[^>]*>([^<]*)', doc)
+        link = next((h for h, t in links if re.search(r'early|postal', t, re.I)), links[0][0] if links else None)
+        if not link:
+            log('  early stats: no workbook link on ' + path); continue
+        data, _ = fetch(link, binary=True, log=log)
+        if not data:
+            continue
+        try:
+            st = parse_early_stats(xlsx_rows(data))
+        except Exception as e:  # noqa: BLE001
+            log(f'  early stats: could not read the workbook ({e})'); continue
+        st['source'] = link
+        st['base_2022'] = base_2022()
+        log(f"  early stats: {len(st['districts'])} districts, {len(st['days'])} days, early {st['totals'].get('early')}, as at {st['as_at']}")
+        return st
+    return None
+
+
 def district_series(tables):
     """Tables with a District column and numeric columns -> {district_id: {column: value}}."""
     out = {}
@@ -380,6 +464,9 @@ def run(args, log):
             c = capture_nominations(src, log)
         if c and c['districts']:
             out['candidates'] = {'captured': today, **c}
+    log('early and postal vote statistics')
+    ev = capture_early_stats(src, log)
+    out['early_voting'] = {'captured': today, **ev} if ev and ev.get('districts') else prev.get('early_voting')
     log('statistics pages')
     raw, series = capture_pages(src, ['stats', 'postal', 'early', 'centres'], log)
     out['raw']['pages'] = raw
@@ -397,7 +484,8 @@ def run(args, log):
     with gzip.open(os.path.join(snap, stamp + '.json.gz'), 'wt') as f:
         json.dump(full, f, separators=(',', ':'))
     log(f'wrote {path}: enrolment {"yes" if out["enrolment"] else "no"}, htv cards {len((out["htv"] or {}).get("cards", []))}, '
-        f'candidates {len((out["candidates"] or {}).get("districts", {}))} districts, district series {len(out["series"])}')
+        f'candidates {len((out["candidates"] or {}).get("districts", {}))} districts, district series {len(out["series"])}, '
+        f'early-vote districts {len((out.get("early_voting") or {}).get("districts", {}))}')
     if args.publish or args.publish_cmd:
         import subprocess
         root = os.path.abspath(os.path.join(HERE, '..'))

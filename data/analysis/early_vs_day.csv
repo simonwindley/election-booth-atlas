@@ -1,0 +1,427 @@
+election,seat,winner,runner,winner_all,official_winner_trails_booth_sum,winner_day,winner_early,winner_postal,share_day,share_early,share_postal,flipped
+2006,Albert Park,Thwaites (ALP),Smith (LIB),59.22,False,61.09,56.45,51.34,70.7,12.6,7.3,False
+2006,Altona,Kosky (ALP),Soylemez (LIB),70.21,False,71.02,66.63,65.27,80.1,8.6,3.4,False
+2006,Ballarat East,Howard (ALP),Hayes (LIB),56.81,False,56.83,53.93,52.07,80.2,7.0,6.1,False
+2006,Ballarat West,Overington (ALP),Brennan (LIB),56.56,False,56.96,54.19,52.62,75.0,14.0,5.6,False
+2006,Bass,Smith (LIB),Anderson (ALP),55.52,False,55.4,53.85,61.65,74.6,8.7,8.5,False
+2006,Bayswater,Victoria (LIB),Lockwood (ALP),52.83,False,52.51,53.21,57.88,77.5,7.5,8.3,False
+2006,Bellarine,Neville (ALP),Gibson (LIB),57.96,False,58.49,59.08,49.48,77.8,15.1,7.0,False
+2006,Benalla,Sykes (NAT),Mitchell (ALP),67.54,False,67.72,71.86,65.1,76.9,10.5,6.3,False
+2006,Benambra,Tilley (LIB),Mahood (ALP),57.77,False,57.28,59.69,62.77,74.9,14.9,7.1,False
+2006,Bendigo East,Allan (ALP),Gibbins (LIB),55.35,False,55.29,55.9,52.1,78.0,11.9,6.2,False
+2006,Bendigo West,Cameron (ALP),Mcclure (LIB),60.56,False,60.96,59.66,56.05,80.0,7.1,6.9,False
+2006,Bentleigh,Hudson (ALP),Gobbo (LIB),56.2,False,57.22,50.49,49.73,80.1,6.7,8.2,False
+2006,Box Hill,Clark (LIB),Chong (ALP),55.22,False,54.91,51.01,61.53,75.5,6.4,9.7,False
+2006,Brighton,Asher (LIB),Shelton (ALP),60.93,False,60.78,63.19,70.31,75.4,7.9,8.6,False
+2006,Broadmeadows,Brumby (ALP),Parsons (LIB),81.89,False,82.73,77.41,71.61,86.2,4.0,4.0,False
+2006,Brunswick,Carli (ALP),Dawes (GRN),53.65,False,54.31,51.02,58.26,79.4,7.3,4.6,False
+2006,Bulleen,Kotsiras (LIB),Campbell (ALP),58.43,False,57.46,60.39,68.76,78.8,9.0,6.7,False
+2006,Bundoora,Brooks (ALP),Afford (LIB),65.12,False,65.64,62.7,62.96,79.3,9.0,5.5,False
+2006,Burwood,Stensholt (ALP),Bailey (LIB),53.73,False,54.37,51.47,48.22,74.9,8.7,8.9,False
+2006,Carrum,Lindell (ALP),Shelley (LIB),56.69,False,57.53,52.01,54.17,78.1,10.3,6.4,False
+2006,Caulfield,Shardey (LIB),Cusworth (ALP),57.63,False,53.4,64.64,74.83,64.0,14.9,14.0,False
+2006,Clayton,Lim (ALP),Carty (LIB),70.27,False,71.69,66.31,62.58,79.6,8.4,5.2,False
+2006,Cranbourne,Perera (ALP),Martin (LIB),61.29,False,62.33,54.11,56.59,79.4,6.4,7.4,False
+2006,Dandenong,Pandazopoulos (ALP),Nicholls (LIB),68.67,False,69.14,66.98,63.77,79.8,7.9,6.4,False
+2006,Derrimut,Languiller (ALP),Tran (LIB),74.3,False,74.83,70.52,69.3,77.3,11.7,3.9,False
+2006,Doncaster,Wooldridge (LIB),Argondizzo (ALP),58.12,False,56.68,63.48,66.04,76.6,9.2,8.0,False
+2006,Eltham,Herbert (ALP),Ondarchie (LIB),56.41,False,56.72,56.79,49.46,78.3,9.5,7.1,False
+2006,Essendon,Maddigan (ALP),D'Souza (LIB),61.7,False,61.97,60.7,61.2,79.3,9.5,5.3,False
+2006,Evelyn,Fyffe (LIB),Mctaggart (ALP),52.8,False,52.3,52.99,59.79,77.0,8.3,7.7,False
+2006,Ferntree Gully,Wakeling (LIB),Eckstein (ALP),49.96,True,49.7,50.24,55.92,79.6,8.4,7.0,True
+2006,Footscray,Thomson (ALP),Nation (LIB),74.67,False,75.72,72.07,68.21,76.6,11.7,5.2,False
+2006,Forest Hill,Marshall (ALP),Angus (LIB),50.82,False,51.41,48.25,44.83,79.1,7.4,7.3,False
+2006,Frankston,Harkness (ALP),Mcarthur (LIB),52.71,False,53.45,49.02,47.98,76.9,9.2,7.9,False
+2006,Geelong,Trezise (ALP),Dixon (LIB),58.33,False,59.01,54.13,53.46,76.9,7.9,7.3,False
+2006,Gembrook,Lobato (ALP),Wildes (LIB),50.6,False,51.31,47.29,45.18,76.4,7.7,7.9,False
+2006,Gippsland East,Ingram (IND),Nixon (NAT),58.47,False,57.73,61.27,61.36,79.6,8.5,4.8,False
+2006,Gippsland South,Ryan (NAT),Boyce (ALP),65.73,False,66.5,64.61,64.29,81.2,6.5,4.4,False
+2006,Hastings,Burgess (LIB),Buchanan (ALP),50.99,False,51.1,48.45,56.73,77.3,8.0,7.1,False
+2006,Hawthorn,Baillieu (LIB),Mcnally (ALP),62.26,False,61.99,62.1,69.91,74.4,9.3,7.5,False
+2006,Ivanhoe,Langdon (ALP),Gratton (LIB),58.87,False,57.37,65.97,55.8,73.5,16.3,6.5,False
+2006,Keilor,Seitz (ALP),Clifford (LIB),69.41,False,70.02,67.22,60.93,82.2,8.1,3.8,False
+2006,Kew,Mcintosh (LIB),Williams (ALP),59.56,False,58.48,62.58,69.48,77.4,6.9,7.4,False
+2006,Kilsyth,Hodgett (LIB),Beard (ALP),50.27,False,49.43,53.06,56.21,77.4,7.5,8.7,True
+2006,Kororoit,Haermeyer (ALP),Alexander (LIB),75.56,False,76.61,71.69,69.93,76.9,12.5,4.0,False
+2006,Lara,Eren (ALP),Kakouros (LIB),67.93,False,68.36,65.14,63.09,88.3,3.9,6.0,False
+2006,Lowan,Delahunty (NAT),Battista (ALP),72.08,False,71.94,72.67,76.88,73.9,16.1,5.5,False
+2006,Lyndhurst,Holding (ALP),Anderton (LIB),71.48,False,72.7,64.97,65.4,79.8,7.3,6.2,False
+2006,Macedon,Duncan (ALP),Head (LIB),58.17,False,58.69,56.27,54.91,72.5,16.3,6.3,False
+2006,Malvern,O'Brien (LIB),Vout (ALP),61.32,False,60.5,63.84,71.01,77.2,6.5,7.0,False
+2006,Melbourne,Pike (ALP),Di Natale (GRN),51.88,False,52.34,49.92,59.79,62.9,18.9,6.1,False
+2006,Melton,Nardella (ALP),Hooper (LIB),63.54,False,64.58,55.96,66.34,77.0,11.4,3.0,False
+2006,Mildura,Crisp (NAT),Savage (IND),55.8,False,57.17,51.75,51.08,77.7,16.0,3.2,False
+2006,Mill Park,D'Ambrosio (ALP),Papaevangelou (LIB),70.79,False,71.2,67.07,70.36,84.4,6.1,3.9,False
+2006,Mitcham,Robinson (ALP),Daw (LIB),51.87,False,52.6,49.17,45.95,78.0,7.3,9.1,False
+2006,Monbulk,Merlino (ALP),Larkman (LIB),56.53,False,57.49,53.26,46.97,78.8,6.2,7.2,False
+2006,Mordialloc,Munt (ALP),Hartney (LIB),53.62,False,54.21,50.0,46.84,79.6,6.2,7.2,False
+2006,Mornington,Morris (LIB),Puls (ALP),61.85,False,61.1,64.0,70.2,76.4,10.3,7.2,False
+2006,Morwell,Northe (NAT),Jenkins (ALP),52.12,False,53.57,46.36,50.71,75.5,15.1,4.5,False
+2006,Mount Waverley,Morand (ALP),Gidley (LIB),50.36,False,50.81,49.98,46.37,77.0,8.6,9.5,False
+2006,Mulgrave,Andrews (ALP),Ashokkumar (LIB),65.77,False,66.22,61.57,64.22,86.4,6.7,6.7,False
+2006,Murray Valley,Jasper (NAT),O'Neill (ALP),71.76,False,72.06,71.59,72.54,72.5,19.5,3.1,False
+2006,Narracan,Blackwood (LIB),Maxfield (ALP),52.8,False,51.34,59.5,55.29,71.9,17.4,6.4,False
+2006,Narre Warren North,Donnellan (ALP),Morland (LIB),59.23,False,60.28,57.26,52.65,80.8,6.1,7.4,False
+2006,Narre Warren South,Graley (ALP),Shepherdson (LIB),60.94,False,62.01,58.31,54.62,77.2,9.6,7.7,False
+2006,Nepean,Dixon (LIB),Marshall (ALP),59.38,False,58.5,59.81,66.73,66.9,14.7,11.5,False
+2006,Niddrie,Hulls (ALP),Buonopane (LIB),61.22,False,61.82,56.35,59.17,83.5,6.4,5.6,False
+2006,Northcote,Richardson (ALP),Bhathal (GRN),58.52,False,59.31,52.19,69.55,76.8,9.1,5.9,False
+2006,Oakleigh,Barker (ALP),Dixon (LIB),62.37,False,63.22,59.83,55.78,79.3,5.8,8.2,False
+2006,Pascoe Vale,Campbell (ALP),Tomisich (LIB),72.78,False,73.68,68.69,64.68,81.5,5.8,5.1,False
+2006,Polwarth,Mulder (LIB),Cheeseman (ALP),60.69,False,60.64,66.57,65.45,80.6,6.6,5.9,False
+2006,Prahran,Lupton (ALP),Newton-Brown (LIB),53.53,False,54.98,51.18,46.93,72.2,8.9,7.7,False
+2006,Preston,Scott (ALP),Hammond (LIB),75.3,False,76.48,67.24,68.18,81.6,6.8,5.1,False
+2006,Richmond,Wynne (ALP),Sekhon (GRN),54.88,False,55.74,53.9,62.96,75.9,9.5,5.1,False
+2006,Ripon,Helper (ALP),Dunn (LIB),54.35,False,53.83,58.95,54.51,76.6,11.4,5.5,False
+2006,Rodney,Weller (NAT),Repacholi (LIB),54.2,False,53.93,56.7,57.49,81.5,6.4,4.0,False
+2006,Sandringham,Thompson (LIB),Pullen (ALP),58.68,False,58.47,58.17,65.46,77.6,7.2,8.7,False
+2006,Scoresby,Wells (LIB),Raleigh (ALP),61.17,False,60.44,64.97,68.37,77.2,9.1,8.1,False
+2006,Seymour,Hardman (ALP),Dalmau (LIB),56.82,False,56.84,59.24,52.41,78.7,6.5,8.0,False
+2006,Shepparton,Powell (NAT),Merrylees (LIB),66.67,False,67.45,64.62,64.91,79.4,13.6,2.8,False
+2006,South Barwon,Crutchfield (ALP),King (LIB),52.4,False,53.29,48.43,44.76,76.6,9.0,7.2,False
+2006,South-West Coast,Napthine (LIB),Reekie (ALP),54.01,False,54.11,50.89,63.24,70.4,19.6,5.3,False
+2006,Swan Hill,Walsh (NAT),Morrison (ALP),73.4,False,73.95,73.84,75.84,80.6,8.9,4.0,False
+2006,Tarneit,Pallas (ALP),Rose (LIB),62.47,False,62.93,57.38,62.46,80.0,8.7,5.0,False
+2006,Thomastown,Batchelor (ALP),Coles (LIB),81.07,False,82.14,75.59,71.81,86.5,4.1,3.6,False
+2006,Warrandyte,Smith (LIB),Panther (ALP),58.99,False,58.68,60.9,64.56,77.1,8.5,7.9,False
+2006,Williamstown,Bracks (ALP),Evers-Buckland (LIB),74.25,False,75.19,68.34,68.66,81.8,3.2,5.6,False
+2006,Yan Yean,Green (ALP),Ivanovski (LIB),57.99,False,58.73,52.95,55.38,77.5,7.8,6.4,False
+2006,Yuroke,Beattie (ALP),Finn (LIB),70.19,False,70.61,65.07,69.58,82.9,5.2,4.6,False
+2010,Albert Park,Foley (ALP),Lopez (LIB),52.04,False,53.33,50.22,45.9,61.6,16.4,8.6,False
+2010,Altona,Hennessy (ALP),Rose (LIB),61.96,False,62.42,61.07,57.31,69.6,16.3,7.7,False
+2010,Ballarat East,Howard (ALP),Taylor (LIB),51.41,False,51.49,48.55,48.86,71.1,13.1,7.5,False
+2010,Ballarat West,Knight (ALP),Coltman (LIB),51.07,False,51.9,47.58,50.11,63.2,23.7,6.8,False
+2010,Bass,Smith (LIB),Lonergan (ALP),62.58,False,62.51,61.85,70.31,57.2,27.7,7.7,False
+2010,Bayswater,Victoria (LIB),Lockwood (ALP),60.57,False,60.3,60.88,65.57,68.4,16.9,7.8,False
+2010,Bellarine,Neville (ALP),Reiter (LIB),51.44,False,52.2,48.2,46.42,67.7,18.6,7.7,False
+2010,Benalla,Sykes (NAT),Allen (ALP),73.06,False,73.51,74.13,72.03,68.8,18.3,5.1,False
+2010,Benambra,Tilley (LIB),Williams (ALP),66.48,False,65.97,66.39,74.48,62.3,27.7,6.3,False
+2010,Bendigo East,Allan (ALP),Langdon (LIB),53.82,False,54.59,50.37,52.04,64.2,22.7,7.3,False
+2010,Bendigo West,Edwards (ALP),Donlon (LIB),57.99,False,58.44,55.67,52.44,73.7,12.9,6.3,False
+2010,Bentleigh,Miller (LIB),Hudson (ALP),50.63,False,49.89,52.96,54.7,72.6,11.4,9.5,True
+2010,Box Hill,Clark (LIB),Chandler (ALP),63.8,False,63.34,64.74,70.61,69.0,13.2,9.6,False
+2010,Brighton,Asher (LIB),Daley (ALP),67.56,False,67.13,69.29,76.94,69.1,14.2,8.7,False
+2010,Broadmeadows,Brumby (ALP),Ozturk (LIB),70.98,False,71.48,68.44,66.28,74.9,9.8,6.2,False
+2010,Brunswick,Garrett (ALP),Dawes (GRN),53.52,False,55.87,48.03,60.14,67.4,6.1,6.8,False
+2010,Bulleen,Kotsiras (LIB),Reid (ALP),64.68,False,63.84,67.87,72.32,72.7,11.3,8.6,False
+2010,Bundoora,Brooks (ALP),Brar (LIB),57.69,False,57.96,58.4,51.11,68.5,18.1,6.2,False
+2010,Burwood,Watt (LIB),Stensholt (ALP),55.86,False,55.79,54.59,58.87,68.5,15.7,10.0,False
+2010,Carrum,Bauer (LIB),Lindell (ALP),52.21,False,52.32,52.48,52.43,68.4,15.8,9.0,False
+2010,Caulfield,Southwick (LIB),Abramson (ALP),61.53,False,58.67,66.1,74.3,56.7,20.1,14.3,False
+2010,Clayton,Lim (ALP),Scott (LIB),65.31,False,66.4,59.15,63.61,70.3,6.4,9.5,False
+2010,Cranbourne,Perera (ALP),Ablett (LIB),51.84,False,52.49,47.89,52.54,68.0,15.3,9.3,False
+2010,Dandenong,Pandazopoulos (ALP),Key (LIB),63.87,False,64.14,61.3,63.0,68.5,14.8,9.3,False
+2010,Derrimut,Languiller (ALP),Tseng (LIB),64.35,False,65.11,64.2,58.55,66.2,22.2,5.0,False
+2010,Doncaster,Wooldridge (LIB),Pick (ALP),67.61,False,65.93,71.59,74.56,67.7,18.0,9.4,False
+2010,Eltham,Herbert (ALP),Hart (LIB),50.8,False,50.83,50.45,46.59,68.1,17.8,7.6,False
+2010,Essendon,Madden (ALP),Gauci (LIB),51.66,False,51.61,51.6,46.0,68.8,19.5,6.4,False
+2010,Evelyn,Fyffe (LIB),Harris (ALP),63.48,False,63.06,64.28,69.35,68.6,17.0,8.5,False
+2010,Ferntree Gully,Wakeling (LIB),Cullinan (ALP),62.0,False,61.82,63.09,66.69,73.5,14.0,6.9,False
+2010,Footscray,Thomson (ALP),Betts (LIB),66.26,False,66.81,66.87,60.64,61.6,22.5,7.5,False
+2010,Forest Hill,Angus (LIB),Marshall (ALP),53.17,False,52.74,56.22,55.3,71.4,13.1,9.4,False
+2010,Frankston,Shaw (LIB),Harkness (ALP),51.71,False,52.15,51.36,54.98,66.6,16.4,9.5,False
+2010,Geelong,Trezise (ALP),Thomson (LIB),51.98,False,52.57,50.44,46.72,67.7,16.2,8.6,False
+2010,Gembrook,Battin (LIB),Lobato (ALP),56.75,False,55.62,62.42,61.91,70.9,13.6,8.6,False
+2010,Gippsland East,Bull (NAT),Ingram (IND),62.06,False,63.14,59.12,61.31,68.4,21.4,5.6,False
+2010,Gippsland South,Ryan (NAT),Boyce (ALP),72.59,False,73.15,72.29,70.97,73.5,17.2,3.2,False
+2010,Hastings,Burgess (LIB),Hosking (ALP),60.78,False,60.9,59.87,66.88,69.5,17.0,7.5,False
+2010,Hawthorn,Baillieu (LIB),Mcnally (ALP),66.74,False,66.79,66.05,73.61,69.5,9.3,8.2,False
+2010,Ivanhoe,Carbines (ALP),Ziebell (LIB),51.68,False,52.25,47.7,50.19,68.1,18.4,7.8,False
+2010,Keilor,Hutchins (ALP),Ryder (LIB),60.33,False,61.9,56.35,54.72,68.2,20.6,4.9,False
+2010,Kew,Mcintosh (LIB),Jackson (ALP),65.19,False,64.37,67.86,72.97,70.4,11.5,8.5,False
+2010,Kilsyth,Hodgett (LIB),Setches (ALP),60.4,False,60.35,60.72,62.49,69.3,15.1,9.7,False
+2010,Kororoit,Kairouz (ALP),Kesic (LIB),68.58,False,69.94,66.99,62.06,67.0,19.5,5.8,False
+2010,Lara,Eren (ALP),Eyton (LIB),65.4,False,65.38,66.63,58.95,70.4,17.3,5.8,False
+2010,Lowan,Delahunty (NAT),Kirsopp (ALP),72.08,False,72.25,72.08,75.56,66.5,24.3,4.5,False
+2010,Lyndhurst,Holding (ALP),Holland (LIB),63.91,False,65.54,59.75,59.28,70.0,13.6,9.4,False
+2010,Macedon,Duncan (ALP),Weston (LIB),51.27,False,51.21,50.03,48.43,71.1,15.6,7.2,False
+2010,Malvern,O'Brien (LIB),Voulanas (ALP),70.44,False,69.56,72.77,75.76,67.6,17.6,9.3,False
+2010,Melbourne,Pike (ALP),Walters (GRN),55.76,False,57.42,54.08,61.18,60.8,17.1,8.8,False
+2010,Melton,Nardella (ALP),Kean (LIB),62.78,False,62.57,63.61,59.61,68.7,18.8,6.6,False
+2010,Mildura,Crisp (NAT),Milne (IND),59.19,False,60.06,56.35,67.72,63.3,31.1,3.1,False
+2010,Mill Park,D'Ambrosio (ALP),Chugha (LIB),69.45,False,70.44,64.41,67.13,72.3,9.4,7.4,False
+2010,Mitcham,Ryall (LIB),Robinson (ALP),52.9,False,52.2,56.41,56.28,71.0,13.2,9.7,False
+2010,Monbulk,Merlino (ALP),Mills (LIB),52.08,False,52.34,51.01,46.44,71.6,13.8,7.9,False
+2010,Mordialloc,Wreford (LIB),Munt (ALP),51.96,False,51.88,55.21,52.74,71.8,11.9,8.8,False
+2010,Mornington,Morris (LIB),Dooley (ALP),66.03,False,65.59,67.31,73.33,67.3,17.7,9.0,False
+2010,Morwell,Northe (NAT),Middlemiss (ALP),66.26,False,68.7,61.75,64.29,62.6,30.4,2.7,False
+2010,Mount Waverley,Gidley (LIB),Morand (ALP),57.45,False,56.77,60.47,61.45,69.5,14.0,10.5,False
+2010,Mulgrave,Andrews (ALP),Mann (LIB),58.48,False,58.89,54.75,57.53,73.4,10.6,8.2,False
+2010,Murray Valley,Mccurdy (NAT),Enshaw (ALP),69.04,False,70.55,68.07,69.64,58.6,33.3,3.2,False
+2010,Narracan,Blackwood (LIB),Flynn (ALP),62.39,False,61.39,66.1,66.07,66.7,23.0,6.0,False
+2010,Narre Warren North,Donnellan (ALP),Frazer (LIB),53.01,False,52.19,56.12,50.49,63.6,20.7,9.2,False
+2010,Narre Warren South,Graley (ALP),Rowe (LIB),56.74,False,57.88,52.46,55.5,66.9,15.0,10.7,False
+2010,Nepean,Dixon (LIB),Lannan (ALP),64.31,False,63.24,64.92,70.89,58.7,24.8,10.5,False
+2010,Niddrie,Hulls (ALP),Bauch (LIB),56.95,False,57.11,56.66,50.5,70.7,16.9,6.7,False
+2010,Northcote,Richardson (ALP),Martinelli (GRN),61.23,False,62.73,56.7,70.43,72.0,8.2,8.1,False
+2010,Oakleigh,Barker (ALP),Zographos (LIB),54.82,False,54.74,56.4,51.13,69.9,13.8,9.0,False
+2010,Pascoe Vale,Campbell (ALP),Tomisich (LIB),67.8,False,68.29,68.19,61.04,72.9,15.1,6.5,False
+2010,Polwarth,Mulder (LIB),Crook (ALP),63.29,False,63.65,64.25,67.73,72.4,13.5,6.3,False
+2010,Prahran,Newton-Brown (LIB),Lupton (ALP),54.8,False,54.15,55.54,58.39,56.9,20.5,10.5,False
+2010,Preston,Scott (ALP),Mcgarvie (LIB),70.38,False,71.19,67.07,64.58,71.0,10.6,7.6,False
+2010,Richmond,Wynne (ALP),Maltzahn (GRN),56.46,False,59.19,57.15,60.23,65.8,6.9,6.4,False
+2010,Ripon,Helper (ALP),Dunn (LIB),52.72,False,52.71,53.62,48.69,75.9,9.4,7.9,False
+2010,Rodney,Weller (NAT),Langford (ALP),76.16,False,77.05,77.98,76.32,73.9,15.4,3.9,False
+2010,Sandringham,Thompson (LIB),Nyaguy (ALP),65.93,False,65.8,67.53,70.82,71.6,13.6,8.3,False
+2010,Scoresby,Wells (LIB),Nightingale (ALP),64.14,False,63.81,65.63,72.21,71.5,15.1,7.2,False
+2010,Seymour,Mcleish (LIB),Hardman (ALP),51.25,False,51.76,49.75,54.63,72.7,10.4,8.8,False
+2010,Shepparton,Powell (NAT),Fullarton (ALP),75.97,False,76.25,77.35,76.55,71.1,21.8,1.9,False
+2010,South Barwon,Katos (LIB),Crutchfield (ALP),53.94,False,53.71,55.24,57.77,69.2,16.8,7.7,False
+2010,South-West Coast,Napthine (LIB),Herbertson (ALP),61.9,False,61.92,60.97,68.77,63.8,27.1,4.3,False
+2010,Swan Hill,Walsh (NAT),Garrick (ALP),79.33,False,79.54,81.49,80.11,76.0,13.1,4.4,False
+2010,Tarneit,Pallas (ALP),Goodfellow (LIB),61.13,False,62.17,57.92,56.74,67.7,20.1,6.2,False
+2010,Thomastown,Halfpenny (ALP),Burge (LIB),70.19,False,71.24,68.01,66.53,77.3,9.5,5.6,False
+2010,Warrandyte,Smith (LIB),Hopper (ALP),63.87,False,63.63,64.53,70.94,69.2,16.9,7.9,False
+2010,Williamstown,Noonan (ALP),Mcconnell (LIB),61.84,False,62.46,61.61,54.77,72.3,14.8,6.2,False
+2010,Yan Yean,Green (ALP),Gange (LIB),54.07,False,54.2,55.46,51.3,72.1,6.0,8.2,False
+2010,Yuroke,Beattie (ALP),Cutler (LIB),65.29,False,66.28,61.63,56.62,75.4,11.1,5.7,False
+2014,Albert Park,Foley (ALP),Eeles (LIB),53.01,False,55.03,50.66,45.08,58.4,20.5,9.5,False
+2014,Altona,Hennessy (ALP),Samara (LIB),62.56,False,62.87,61.73,62.99,62.3,25.6,5.6,False
+2014,Bass,Paynter (LIB),Nathan (ALP),54.71,False,54.31,54.45,64.98,47.4,39.3,6.6,False
+2014,Bayswater,Victoria (LIB),Dib (ALP),54.62,False,53.79,55.37,62.04,57.1,26.4,9.8,False
+2014,Bellarine,Neville (ALP),Nelson (LIB),55.52,False,56.74,55.3,47.46,55.5,26.4,11.9,False
+2014,Benambra,Tilley (LIB),Podesta (ALP),59.67,False,59.16,60.6,66.17,57.4,30.2,6.6,False
+2014,Bendigo East,Allan (ALP),Bickley (LIB),55.0,False,56.17,53.03,52.38,50.6,37.7,6.4,False
+2014,Bendigo West,Edwards (ALP),Langdon (LIB),62.18,False,63.38,58.57,62.34,62.5,24.5,6.6,False
+2014,Bentleigh,Staikos (ALP),Miller (LIB),50.64,False,52.07,49.82,42.7,64.1,19.6,11.5,False
+2014,Box Hill,Clark (LIB),Perri (ALP),55.69,False,55.08,55.34,62.71,60.7,20.1,12.6,False
+2014,Brighton,Asher (LIB),Crawford (ALP),59.77,False,58.7,61.88,69.26,58.7,21.5,10.4,False
+2014,Broadmeadows,Mcguire (ALP),Onder (LIB),77.83,False,78.9,77.36,73.04,67.2,17.0,4.6,False
+2014,Brunswick,Garrett (ALP),Read (GRN),51.96,False,53.11,51.68,60.57,55.3,28.6,6.4,False
+2014,Bulleen,Guy (LIB),Rundell (ALP),60.55,False,58.78,63.17,67.64,61.0,20.6,12.1,False
+2014,Bundoora,Brooks (ALP),Gill (LIB),62.23,False,62.84,61.29,61.66,58.0,25.9,8.1,False
+2014,Buninyong,Howard (ALP),Taylor (LIB),56.36,False,56.76,55.04,52.93,60.5,24.9,6.3,False
+2014,Burwood,Watt (LIB),Ryan (ALP),53.17,False,52.65,54.66,57.67,60.6,18.5,12.4,False
+2014,Carrum,Kilkenny (ALP),Bauer (LIB),50.71,False,52.81,47.67,43.84,57.5,21.8,12.6,False
+2014,Caulfield,Southwick (LIB),Burns (ALP),54.88,False,50.78,57.36,71.95,52.8,21.9,15.8,False
+2014,Clarinda,Lim (ALP),Bevinakoppa (LIB),65.85,False,66.63,65.12,61.42,64.6,19.6,8.6,False
+2014,Cranbourne,Perera (ALP),Ablett (LIB),52.44,False,54.6,47.54,50.05,54.3,27.4,10.8,False
+2014,Croydon,Hodgett (LIB),Fielding (ALP),59.29,False,58.33,61.65,64.18,55.4,26.3,11.5,False
+2014,Dandenong,Williams (ALP),Palatsides (LIB),62.88,False,63.76,61.14,60.03,62.3,22.3,8.5,False
+2014,Eildon,Mcleish (LIB),Brennan (ALP),53.75,False,53.29,53.09,62.26,69.0,10.7,12.6,False
+2014,Eltham,Ward (ALP),Briffa (LIB),52.65,False,54.07,51.19,46.42,57.4,28.3,10.2,False
+2014,Essendon,Pearson (ALP),Ackerman (LIB),58.66,False,59.58,55.49,57.71,58.4,27.6,6.4,False
+2014,Euroa,Ryan (NAT),Malcolm (ALP),64.31,False,65.3,62.24,64.88,66.1,19.3,8.6,False
+2014,Evelyn,Fyffe (LIB),Harris (ALP),59.59,False,58.77,59.85,67.8,56.6,25.9,10.6,False
+2014,Ferntree Gully,Wakeling (LIB),Posetti (ALP),57.74,False,56.55,60.17,64.11,58.5,26.9,9.0,False
+2014,Footscray,Thomson (ALP),Vu (LIB),64.46,False,65.32,62.44,64.12,56.2,29.7,7.2,False
+2014,Forest Hill,Angus (LIB),Richards (ALP),54.82,False,53.26,57.17,60.45,61.5,19.6,13.4,False
+2014,Frankston,Edbrooke (ALP),Armistead (LIB),50.48,False,52.32,48.44,43.22,58.4,22.4,12.3,False
+2014,Geelong,Couzens (ALP),Kontelj (LIB),56.12,False,58.21,52.97,49.92,56.0,26.7,10.8,False
+2014,Gembrook,Battin (LIB),Ross (ALP),58.95,False,58.07,61.0,65.79,54.8,26.1,11.0,False
+2014,Gippsland East,Bull (NAT),Maxfield (ALP),67.91,False,67.69,69.82,67.09,62.7,29.3,3.5,False
+2014,Gippsland South,Ryan (NAT),Psaila (ALP),65.67,False,66.11,66.69,64.03,63.7,27.5,3.2,False
+2014,Hastings,Burgess (LIB),Hosking (ALP),57.65,False,57.11,58.41,63.85,60.8,22.0,9.9,False
+2014,Hawthorn,Pesutto (LIB),Mcnally (ALP),58.59,False,57.81,59.75,64.85,59.7,19.2,10.7,False
+2014,Ivanhoe,Carbines (ALP),Ziebell (LIB),52.89,False,54.0,52.09,51.85,59.8,28.0,8.1,False
+2014,Kew,Smith (LIB),Gaffey (ALP),60.64,False,59.26,61.79,69.2,62.4,18.7,11.6,False
+2014,Keysborough,Pakula (ALP),Fleming (LIB),61.9,False,65.52,55.6,59.02,56.2,29.1,8.9,False
+2014,Kororoit,Kairouz (ALP),Kesic (LIB),69.98,False,70.83,69.59,66.14,53.6,35.9,3.9,False
+2014,Lara,Eren (ALP),Mcmanus (LIB),67.11,False,68.28,66.36,59.23,60.0,28.9,5.0,False
+2014,Lowan,Kealy (NAT),Scates (ALP),71.26,False,72.18,70.72,70.21,58.4,33.5,4.0,False
+2014,Macedon,Thomas (ALP),Petrovich (LIB),53.78,False,54.77,50.59,48.47,62.5,20.1,10.1,False
+2014,Malvern,O'Brien (LIB),Tarczon (ALP),66.25,False,65.4,68.74,72.31,55.5,23.9,10.7,False
+2014,Melbourne,Sandell (GRN),Kanis (ALP),52.36,False,51.7,53.69,42.78,54.1,23.2,7.8,False
+2014,Melton,Nardella (ALP),Lang (LIB),61.22,False,61.63,60.07,59.09,55.9,33.2,5.5,False
+2014,Mildura,Crisp (NAT),Cupper (IND),58.04,False,58.99,55.43,67.36,54.4,39.1,3.0,False
+2014,Mill Park,D'Ambrosio (ALP),Varughese (LIB),69.85,False,71.14,67.89,66.16,57.1,27.2,7.5,False
+2014,Monbulk,Merlino (ALP),Verschuur (LIB),54.97,False,56.27,53.64,47.11,65.3,17.0,10.3,False
+2014,Mordialloc,Richardson (ALP),Wreford (LIB),52.04,False,53.92,49.13,44.43,60.2,18.1,10.8,False
+2014,Mornington,Morris (LIB),Wright (ALP),62.61,False,61.58,62.28,69.68,53.3,24.9,12.0,False
+2014,Morwell,Northe (NAT),Mintern (ALP),51.68,False,51.49,51.8,57.47,58.0,34.8,2.7,False
+2014,Mount Waverley,Gidley (LIB),Yang (ALP),54.59,False,53.08,57.63,57.35,56.6,26.7,12.6,False
+2014,Mulgrave,Andrews (ALP),Davies (LIB),54.43,False,54.9,52.81,52.11,65.7,17.0,10.9,False
+2014,Murray Plains,Walsh (NAT),Williams (ALP),72.37,False,73.9,71.55,74.23,60.2,32.0,3.0,False
+2014,Narracan,Blackwood (LIB),Marten (ALP),61.29,False,59.91,64.06,67.33,57.8,29.4,8.0,False
+2014,Narre Warren North,Donnellan (ALP),Stapledon (LIB),54.27,False,55.51,52.54,49.93,61.2,20.2,11.5,False
+2014,Narre Warren South,Graley (ALP),Serey (LIB),55.91,False,56.11,57.09,51.85,54.2,26.0,10.9,False
+2014,Nepean,Dixon (LIB),Gleixner (ALP),57.63,False,55.99,58.67,65.71,50.4,29.3,9.9,False
+2014,Niddrie,Carroll (ALP),Gauci Maurici (LIB),57.76,False,56.71,58.96,57.09,51.4,34.5,8.8,False
+2014,Northcote,Richardson (ALP),Mccarthy (GRN),56.09,False,57.62,54.37,68.5,61.6,17.9,5.3,False
+2014,Oakleigh,Dimopoulos (ALP),Zographos (LIB),58.01,False,59.09,57.86,48.87,61.9,21.9,9.4,False
+2014,Ovens Valley,Mccurdy (NAT),Cholosznecki (ALP),66.57,False,66.81,67.34,69.27,46.8,44.1,3.0,False
+2014,Pascoe Vale,Blandthorn (ALP),Khoo (LIB),66.77,False,67.13,66.98,58.58,64.1,23.7,5.4,False
+2014,Polwarth,Mulder (LIB),Coker (ALP),60.64,False,60.78,61.08,65.71,66.8,19.6,7.0,False
+2014,Preston,Scott (ALP),Forster (LIB),74.65,False,75.96,72.1,70.95,63.0,23.1,6.3,False
+2014,Richmond,Wynne (ALP),Maltzahn (GRN),51.86,False,52.4,54.81,58.52,57.5,22.7,6.4,False
+2014,Ringwood,Ryall (LIB),Clark (ALP),55.07,False,54.51,55.3,61.69,58.9,21.5,11.9,False
+2014,Ripon,Staley (LIB),Mcglone (ALP),51.0,False,51.3,50.31,54.2,68.7,14.1,10.4,False
+2014,Rowville,Wells (LIB),Hicks (ALP),58.41,False,57.24,60.42,65.82,63.9,21.8,8.2,False
+2014,Sandringham,Thompson (LIB),Zigouras (ALP),57.33,False,56.51,58.12,66.15,62.2,22.4,8.2,False
+2014,Shepparton,Sheed (IND),Barr (NAT),52.52,False,53.85,51.68,39.6,64.1,28.3,2.2,False
+2014,South Barwon,Katos (LIB),Richards (ALP),52.83,False,50.62,55.56,60.0,51.3,32.7,9.7,False
+2014,South-West Coast,Napthine (LIB),Reekie (ALP),60.97,False,62.5,59.11,70.02,47.4,44.9,4.5,False
+2014,St Albans,Suleyman (ALP),Deeming (LIB),67.5,False,67.17,68.8,60.19,53.4,36.3,4.3,False
+2014,Sunbury,Bull (ALP),Hagan (LIB),54.23,False,55.94,50.83,54.04,53.7,33.5,6.9,False
+2014,Sydenham,Hutchins (ALP),Varano (LIB),66.26,False,66.52,66.9,62.6,54.1,33.0,6.0,False
+2014,Tarneit,Languiller (ALP),Gourisetty (LIB),64.58,False,65.47,63.45,58.33,55.3,32.8,3.9,False
+2014,Thomastown,Halfpenny (ALP),Gursahani (LIB),78.43,False,79.27,77.55,78.14,67.7,19.0,6.2,False
+2014,Warrandyte,Smith (LIB),Kent (ALP),61.6,False,61.19,62.46,67.28,60.0,17.4,10.7,False
+2014,Wendouree,Knight (ALP),Coltman (LIB),55.91,False,57.71,52.72,51.04,52.4,34.9,6.9,False
+2014,Werribee,Pallas (ALP),Singh (LIB),65.66,False,67.96,61.66,61.58,54.8,34.3,5.0,False
+2014,Williamstown,Noonan (ALP),Shea (LIB),66.46,False,67.84,63.67,63.0,64.5,22.8,7.7,False
+2014,Yan Yean,Green (ALP),Ozturk (LIB),53.33,False,53.21,54.04,49.49,57.9,23.0,11.4,False
+2014,Yuroke,Spence (ALP),Grewal (LIB),68.52,False,69.33,67.07,65.89,63.7,26.0,3.7,False
+2018,Albert Park,Foley (ALP),Bond (LIB),63.1,False,67.09,61.76,53.31,40.5,40.1,10.7,False
+2018,Altona,Hennessy (ALP),Martinu (LIB),64.57,False,66.49,62.69,61.58,46.4,41.1,6.7,False
+2018,Bass,Crugnale (ALP),Paynter (LIB),51.82,False,55.42,49.48,43.21,37.6,49.4,6.3,False
+2018,Bayswater,Taylor (ALP),Victoria (LIB),50.34,False,52.72,47.49,42.77,50.1,34.2,8.0,False
+2018,Bellarine,Neville (ALP),Mckiterick (LIB),61.45,False,63.99,58.03,54.26,51.7,33.7,7.8,False
+2018,Benambra,Tilley (LIB),Tait (ALP),58.91,False,57.05,61.26,67.35,45.9,42.7,5.4,False
+2018,Bendigo East,Allan (ALP),Ellis (LIB),62.11,False,64.26,58.57,57.94,47.8,33.5,4.3,False
+2018,Bendigo West,Edwards (ALP),Finn (LIB),68.55,False,71.32,64.93,63.25,51.6,33.1,5.0,False
+2018,Bentleigh,Staikos (ALP),Judah (LIB),61.92,False,64.63,60.11,52.95,52.3,31.1,10.4,False
+2018,Box Hill,Hamer (ALP),Clark (LIB),51.93,False,54.5,51.49,41.06,50.8,27.8,13.8,False
+2018,Brighton,Newbury (LIB),Martin (ALP),51.14,False,48.49,53.53,62.37,48.0,31.5,11.8,True
+2018,Broadmeadows,Mcguire (ALP),Dow (LIB),80.28,False,82.29,76.95,77.66,58.1,27.2,6.6,False
+2018,Brunswick,Read (GRN),O'Connor (ALP),50.6,False,49.95,51.05,46.37,46.3,38.6,6.5,True
+2018,Bulleen,Guy (LIB),Mackenzie (ALP),55.77,False,54.24,57.65,61.68,50.5,32.7,10.2,False
+2018,Bundoora,Brooks (ALP),Mulholland (LIB),67.42,False,70.0,64.68,64.1,47.9,38.0,6.7,False
+2018,Buninyong,Settle (ALP),Kilmartin (LIB),62.24,False,63.05,61.1,55.75,48.9,37.5,5.6,False
+2018,Burwood,Fowles (ALP),Watt (LIB),53.28,False,55.63,49.31,48.13,51.2,33.0,7.2,False
+2018,Carrum,Kilkenny (ALP),Bauer (LIB),61.95,False,65.08,59.74,55.11,44.3,26.7,9.5,False
+2018,Caulfield,Southwick (LIB),Grasso (ALP),50.54,False,43.82,55.3,70.0,38.3,32.2,13.8,True
+2018,Clarinda,Tak (ALP),Bevinakoppa (LIB),67.42,False,69.68,65.34,63.64,52.5,32.5,7.1,False
+2018,Cranbourne,Richards (ALP),Hermans (LIB),60.98,False,64.29,57.59,57.33,43.5,41.7,7.4,False
+2018,Croydon,Hodgett (LIB),Cusack (ALP),52.23,False,49.12,55.05,60.18,45.9,37.5,9.7,True
+2018,Dandenong,Williams (ALP),Perera (LIB),73.93,False,74.88,74.05,67.65,49.0,36.3,7.2,False
+2018,Eildon,Mcleish (LIB),Brennan (ALP),52.44,False,51.65,48.84,64.43,60.6,19.6,12.9,False
+2018,Eltham,Ward (ALP),Mcgowan (LIB),57.16,False,61.6,52.59,50.22,47.6,39.6,7.3,False
+2018,Essendon,Pearson (ALP),Potenza (LIB),65.8,False,69.1,60.91,64.61,42.1,41.1,7.1,False
+2018,Euroa,Ryan (NAT),Deppeler-Morton (ALP),65.44,False,66.16,65.51,64.98,60.0,25.2,7.4,False
+2018,Evelyn,Vallence (LIB),Ritchie (ALP),52.67,False,50.8,56.04,58.86,51.5,32.1,8.5,False
+2018,Ferntree Gully,Wakeling (LIB),Buxton (ALP),51.66,False,48.14,55.93,56.88,47.2,39.5,7.9,True
+2018,Footscray,Hall (ALP),Joesika (LIB),78.11,False,81.04,77.38,69.46,36.4,47.9,7.6,False
+2018,Forest Hill,Angus (LIB),Kumar (ALP),51.11,False,48.92,54.17,58.37,52.1,31.1,11.1,True
+2018,Frankston,Edbrooke (ALP),Lamb (LIB),59.74,False,62.95,56.66,53.18,49.9,33.6,9.6,False
+2018,Geelong,Couzens (ALP),Lyons (IND),56.23,False,58.98,51.52,55.64,49.9,36.2,6.7,False
+2018,Gembrook,Battin (LIB),Galea (ALP),50.92,False,49.68,52.11,60.75,43.5,34.6,11.5,True
+2018,Gippsland East,Bull (NAT),Reeves (ALP),67.59,False,66.79,69.47,66.06,53.1,38.3,4.9,False
+2018,Gippsland South,O'Brien (NAT),Ryan (ALP),65.33,False,64.52,67.51,63.58,50.3,41.6,3.5,False
+2018,Hastings,Burgess (LIB),Meyer (ALP),51.06,False,50.27,53.19,55.19,50.9,34.0,7.2,False
+2018,Hawthorn,Kennedy (ALP),Pesutto (LIB),50.22,False,53.01,45.96,42.93,52.2,29.8,9.7,False
+2018,Ivanhoe,Carbines (ALP),Clark (LIB),62.41,False,64.67,59.55,57.04,49.8,38.1,6.4,False
+2018,Kew,Smith (LIB),D'Arcy (ALP),54.78,False,52.54,57.37,60.07,48.4,34.4,10.3,False
+2018,Keysborough,Pakula (ALP),Taylor (LIB),64.85,False,67.75,61.32,62.14,49.1,36.0,8.6,False
+2018,Kororoit,Kairouz (ALP),Haque (LIB),75.65,False,77.28,74.77,71.18,39.0,47.8,6.1,False
+2018,Lara,Eren (ALP),Di Pasquale (LIB),69.14,False,71.5,66.91,63.16,50.7,31.9,5.7,False
+2018,Lowan,Kealy (NAT),Billi (ALP),73.48,False,73.34,75.27,76.77,53.1,36.0,4.4,False
+2018,Macedon,Thomas (ALP),Millar (LIB),63.18,False,66.08,60.16,52.2,54.5,27.8,10.6,False
+2018,Malvern,O'Brien (LIB),Squires (ALP),56.1,False,54.14,59.19,62.43,47.0,35.8,8.1,False
+2018,Melbourne,Sandell (GRN),Kanis (ALP),51.64,False,50.35,53.17,49.51,42.9,38.7,8.3,False
+2018,Melton,Mcghie (ALP),Farrow (LIB),54.92,False,57.0,50.98,56.02,48.0,39.7,6.9,False
+2018,Mildura,Cupper (IND),Crisp (NAT),50.32,False,49.53,52.78,42.43,50.6,43.2,3.0,True
+2018,Mill Park,D'Ambrosio (ALP),Singh (LIB),74.89,False,76.54,74.01,73.18,42.6,43.6,5.8,False
+2018,Monbulk,Merlino (ALP),Schurink (LIB),58.56,False,60.36,56.63,50.52,58.8,25.2,8.9,False
+2018,Mordialloc,Richardson (ALP),Gledhill (LIB),62.9,False,65.06,61.07,56.24,48.6,38.6,7.5,False
+2018,Mornington,Morris (LIB),White (ALP),54.99,False,51.0,58.07,62.8,39.9,46.3,8.1,False
+2018,Morwell,Northe (IND),Richards (ALP),51.75,False,48.38,55.76,53.99,47.0,45.0,4.3,True
+2018,Mount Waverley,Fregon (ALP),Gidley (LIB),51.53,False,54.43,48.18,43.49,51.1,33.1,10.1,False
+2018,Mulgrave,Andrews (ALP),Davenport (LIB),62.71,False,64.55,59.4,59.51,52.5,31.8,9.1,False
+2018,Murray Plains,Walsh (NAT),Williams (ALP),73.95,False,75.32,73.47,73.81,55.9,35.3,3.5,False
+2018,Narracan,Blackwood (LIB),Maxfield (ALP),57.26,False,54.48,61.49,59.4,51.9,38.3,5.4,False
+2018,Narre Warren North,Donnellan (ALP),Fitzgerald (LIB),59.76,False,61.68,57.76,51.43,52.5,31.2,9.3,False
+2018,Narre Warren South,Maas (ALP),Serey (LIB),56.9,False,59.03,56.09,48.86,42.7,34.6,8.9,False
+2018,Nepean,Brayne (ALP),Joseph (LIB),50.95,False,55.34,47.52,42.94,42.4,44.3,7.5,False
+2018,Niddrie,Carroll (ALP),Reeson (LIB),62.59,False,63.4,61.86,60.49,48.9,38.2,7.1,False
+2018,Northcote,Theophanous (ALP),Thorpe (GRN),51.65,False,52.5,51.17,56.49,52.3,34.2,6.1,False
+2018,Oakleigh,Dimopoulos (ALP),Edmonds (LIB),65.78,False,67.43,65.11,58.47,47.8,33.3,10.1,False
+2018,Ovens Valley,Mccurdy (NAT),Doyle (ALP),62.62,False,62.51,63.38,63.88,39.4,52.8,3.5,False
+2018,Pascoe Vale,Blandthorn (ALP),Yildiz (IND),58.48,False,60.29,54.46,55.18,47.1,38.8,7.2,False
+2018,Polwarth,Riordan (LIB),Johnston (ALP),55.4,False,54.78,58.12,58.52,60.3,28.0,5.6,False
+2018,Prahran,Hibbins (GRN),Allen (LIB),57.24,False,62.87,55.25,43.06,39.5,38.1,11.8,False
+2018,Preston,Scott (ALP),Newton (GRN),70.7,False,72.06,70.27,74.14,50.9,35.7,6.6,False
+2018,Richmond,Wynne (ALP),Maltzahn (GRN),55.47,False,57.59,54.98,56.13,46.7,35.3,7.5,False
+2018,Ringwood,Halse (ALP),Ryall (LIB),52.85,False,55.59,49.95,44.75,51.3,31.2,9.6,False
+2018,Ripon,Staley (LIB),De Santis (ALP),50.1,False,48.49,50.02,58.36,59.7,20.7,12.4,True
+2018,Rowville,Wells (LIB),Shahbaz (ALP),55.69,False,52.23,59.95,64.71,47.8,38.1,7.0,False
+2018,Sandringham,Rowswell (LIB),Horvath (ALP),50.68,False,47.52,53.59,59.12,47.6,35.1,10.7,True
+2018,Shepparton,Sheed (IND),Hammer (LIB),55.31,False,53.83,57.61,55.51,53.3,37.1,5.7,False
+2018,South Barwon,Cheeseman (ALP),Katos (LIB),54.53,False,56.84,53.3,44.71,40.7,45.6,7.5,False
+2018,South-West Coast,Britnell (LIB),Gaston (ALP),52.35,False,52.45,52.32,58.04,40.3,53.3,3.1,False
+2018,St Albans,Suleyman (ALP),Luu (LIB),71.54,False,72.62,71.09,70.18,33.5,54.8,5.4,False
+2018,Sunbury,Bull (ALP),Marr (LIB),64.33,False,66.9,62.38,58.07,45.8,42.1,6.4,False
+2018,Sydenham,Hutchins (ALP),Kerr (LIB),67.86,False,68.55,66.66,62.44,43.7,45.1,5.1,False
+2018,Tarneit,Connolly (ALP),Goodfellow (LIB),68.02,False,70.55,65.97,62.54,45.1,42.0,5.7,False
+2018,Thomastown,Halfpenny (ALP),Singh (LIB),77.19,False,78.91,73.83,79.7,56.1,30.7,6.3,False
+2018,Warrandyte,Smith (LIB),Mcgrath (ALP),53.88,False,52.22,56.51,58.54,51.4,33.6,8.2,False
+2018,Wendouree,Addison (ALP),Johnson (LIB),60.26,False,63.39,57.61,56.13,42.7,48.7,4.5,False
+2018,Werribee,Pallas (ALP),Murphy (LIB),62.55,False,65.77,58.79,62.66,41.0,48.9,4.8,False
+2018,Williamstown,Horne (ALP),Joshi (LIB),72.07,False,72.54,71.92,65.65,55.7,30.2,7.3,False
+2018,Yan Yean,Green (ALP),Klein (LIB),67.03,False,69.06,65.28,61.18,49.5,34.6,8.0,False
+2018,Yuroke,Spence (ALP),Overend (LIB),70.26,False,71.27,68.87,68.39,50.0,37.1,5.8,False
+2022,Albert Park,Taylor (ALP),Sherson (LIB),60.88,False,63.16,61.21,54.62,35.8,42.9,13.9,False
+2022,Ashwood,Fregon (ALP),Judah (LIB),56.46,False,57.61,57.14,49.87,36.4,44.0,14.4,False
+2022,Bass,Crugnale (ALP),Brown (LIB),50.25,False,49.69,51.29,45.27,32.9,51.2,10.6,True
+2022,Bayswater,Taylor (ALP),Wakeling (LIB),54.13,False,56.97,53.01,48.6,35.1,48.9,11.1,False
+2022,Bellarine,Marchant (ALP),Grigau (LIB),56.94,False,60.16,55.66,54.53,38.0,45.7,12.4,False
+2022,Bendigo East,Allan (ALP),Schade (LIB),60.91,False,61.29,60.62,58.93,34.5,54.9,6.7,False
+2022,Bendigo West,Edwards (ALP),Price (LIB),64.35,False,65.62,63.84,62.91,33.3,54.9,7.1,False
+2022,Bentleigh,Staikos (ALP),Taylor-Haynes (LIB),57.96,False,60.82,57.44,51.6,38.1,43.6,13.9,False
+2022,Berwick,Battin (LIB),Zaveer (ALP),54.71,False,51.95,55.81,57.62,29.4,51.9,13.3,False
+2022,Box Hill,Hamer (ALP),Werner (LIB),56.79,False,58.35,57.12,51.31,36.6,42.5,15.6,False
+2022,Brighton,Newbury (LIB),Crawford (ALP),54.21,False,51.24,54.76,61.34,31.4,50.7,12.1,False
+2022,Broadmeadows,Matthews-Ward (ALP),Duzova (LIB),65.45,False,65.94,65.01,66.69,36.2,44.9,11.4,False
+2022,Bulleen,Guy (LIB),Rogers (ALP),55.94,False,55.43,56.4,57.23,33.5,46.3,15.6,False
+2022,Bundoora,Brooks (ALP),Tomar (LIB),62.74,False,64.66,61.31,63.69,32.8,51.2,10.4,False
+2022,Carrum,Kilkenny (ALP),Buchanan (LIB),59.94,False,61.31,58.97,60.86,32.0,52.9,9.7,False
+2022,Caulfield,Southwick (LIB),Harel (ALP),52.1,False,44.03,53.15,67.76,29.0,46.7,17.3,True
+2022,Clarinda,Tak (ALP),Richardson (LIB),60.37,False,60.21,60.22,61.42,36.7,45.2,11.6,False
+2022,Cranbourne,Richards (ALP),Singh (LIB),59.0,False,61.21,57.38,61.99,29.9,54.8,10.2,False
+2022,Croydon,Hodgett (LIB),Grasso (ALP),51.33,False,47.74,52.0,59.45,33.9,47.2,13.3,True
+2022,Dandenong,Williams (ALP),Broadley (LIB),69.11,False,69.68,69.61,66.4,30.5,53.6,10.1,False
+2022,Eildon,Mcleish (LIB),Judd (ALP),57.08,False,55.06,58.26,63.12,46.8,34.9,13.0,False
+2022,Eltham,Ward (ALP),Mcclintock (LIB),58.68,False,62.7,58.18,51.06,36.3,47.8,12.1,False
+2022,Essendon,Pearson (ALP),Baronessa (LIB),62.98,False,64.19,62.4,62.05,32.5,51.0,11.4,False
+2022,Eureka,Settle (ALP),Tatchell (LIB),56.94,False,57.16,56.58,57.82,36.7,51.0,8.8,False
+2022,Euroa,Cleeland (NAT),Tough (ALP),59.91,False,60.83,60.75,56.61,38.6,45.8,10.0,False
+2022,Evelyn,Vallence (LIB),Dent (ALP),55.21,False,53.57,55.94,59.2,34.2,48.0,12.0,False
+2022,Frankston,Edbrooke (ALP),O'Reilly (LIB),58.65,False,59.94,57.3,59.74,36.1,47.6,10.9,False
+2022,Geelong,Couzens (ALP),Bennett-Hullin (LIB),63.8,False,66.27,62.93,62.79,35.5,49.4,9.4,False
+2022,Gippsland East,Bull (NAT),Richardson (ALP),73.92,False,74.33,74.34,71.19,41.1,49.0,6.9,False
+2022,Gippsland South,O'Brien (NAT),Ryan (ALP),65.25,False,64.58,67.26,61.46,43.4,45.8,6.5,False
+2022,Glen Waverley,Mullahy (ALP),Angus (LIB),53.3,False,55.25,52.91,47.71,36.4,43.4,15.0,False
+2022,Greenvale,Walters (ALP),Ghani (LIB),56.92,False,57.84,55.9,61.37,24.1,59.6,10.8,False
+2022,Hastings,Mercurio (ALP),Hutton (LIB),51.2,False,53.03,49.81,50.57,32.0,54.7,9.1,False
+2022,Hawthorn,Pesutto (LIB),Lowe (IND),51.46,False,47.2,52.41,58.95,34.6,48.0,11.6,True
+2022,Ivanhoe,Carbines (ALP),Khoury (LIB),62.75,False,64.83,61.11,61.88,36.9,49.8,8.7,False
+2022,Kalkallo,Spence (ALP),Singh (LIB),66.43,False,67.7,65.84,67.45,29.2,51.8,12.6,False
+2022,Kew,Wilson (LIB),Torney (IND),53.73,False,50.14,55.39,58.47,37.7,44.6,12.7,False
+2022,Kororoit,Grigorovitch (ALP),Fletcher (LIB),64.25,False,63.64,64.99,63.05,29.6,54.6,10.3,False
+2022,Lara,George (ALP),Krein (LIB),66.15,False,67.7,65.48,64.61,36.9,48.3,9.2,False
+2022,Laverton,Connolly (ALP),Reddy (LIB),68.01,False,68.15,68.08,69.18,25.2,57.0,10.8,False
+2022,Lowan,Kealy (NAT),Monaghan (ALP),71.61,False,71.43,72.24,71.74,46.7,43.3,7.6,False
+2022,Macedon,Thomas (ALP),Bonanno (LIB),59.51,False,61.9,57.74,56.18,41.9,42.8,11.5,False
+2022,Malvern,O'Brien (LIB),Natale (ALP),58.28,False,54.9,60.2,63.86,34.4,46.5,12.7,False
+2022,Melton,Mcghie (ALP),Watt (LIB),54.39,False,55.5,53.46,57.0,25.0,61.3,9.5,False
+2022,Mill Park,D'Ambrosio (ALP),Yap (LIB),61.43,False,61.15,61.41,62.04,32.0,53.8,9.3,False
+2022,Monbulk,De Martino (ALP),Ward (LIB),57.56,False,60.41,55.86,52.43,44.2,37.4,11.9,False
+2022,Mordialloc,Richardson (ALP),Pease (LIB),57.97,False,59.58,56.51,57.46,35.3,50.6,9.5,False
+2022,Morwell,Cameron (NAT),Maxfield (ALP),54.65,False,52.82,56.26,51.15,34.1,57.1,6.2,False
+2022,Mulgrave,Andrews (ALP),Piastrino (LIB),60.2,False,59.28,60.33,62.3,34.8,47.9,12.3,False
+2022,Murray Plains,Walsh (NAT),Hurrell (ALP),72.89,False,75.54,71.6,71.0,41.0,49.6,6.0,False
+2022,Narre Warren North,Wilson (ALP),Dragan (LIB),59.16,False,60.5,58.57,57.05,38.8,45.0,11.3,False
+2022,Narre Warren South,Maas (ALP),Samuel (LIB),58.5,False,59.25,57.85,58.35,32.9,50.8,10.2,False
+2022,Nepean,Groth (LIB),Brayne (ALP),56.68,False,52.81,56.85,64.66,24.4,58.9,12.1,False
+2022,Niddrie,Carroll (ALP),Youhana (LIB),57.1,False,56.37,57.66,55.97,27.5,56.3,11.6,False
+2022,Oakleigh,Dimopoulos (ALP),Grivokostopoulos (LIB),63.45,False,66.08,62.47,58.4,35.6,43.6,14.2,False
+2022,Ovens Valley,Mccurdy (NAT),Leschen (ALP),67.97,False,67.35,69.24,64.46,38.3,51.9,6.2,False
+2022,Pakenham,Vulin (ALP),Farrelly (LIB),49.88,True,52.91,47.76,51.03,32.3,53.3,10.3,False
+2022,Point Cook,Hilakari (ALP),Newhouse (LIB),58.36,False,59.08,58.0,59.48,32.9,51.5,10.5,False
+2022,Polwarth,Riordan (LIB),Hussein (ALP),51.82,False,53.78,50.89,51.76,38.7,49.2,7.4,False
+2022,Ringwood,Fowles (ALP),Watson (LIB),58.34,False,61.26,58.36,50.11,36.7,45.1,13.4,False
+2022,Ripon,Haylett (ALP),Staley (LIB),52.96,False,52.82,56.04,43.66,42.3,41.1,12.8,False
+2022,Rowville,Wells (LIB),Verma (ALP),53.72,False,51.43,55.02,57.99,38.8,46.0,11.2,False
+2022,Sandringham,Rowswell (LIB),Prescott (ALP),55.15,False,51.5,57.1,60.05,32.8,51.1,11.7,False
+2022,South Barwon,Cheeseman (ALP),Katos (LIB),59.81,False,62.33,59.84,51.88,32.9,49.3,12.1,False
+2022,South-West Coast,Britnell (LIB),Gaston (ALP),58.0,False,58.7,56.9,64.79,38.3,52.7,6.5,False
+2022,St Albans,Suleyman (ALP),Kerr (LIB),59.43,False,57.35,60.11,61.88,23.0,62.1,10.4,False
+2022,Sunbury,Bull (ALP),Cottom (LIB),56.37,False,57.57,55.62,55.62,33.2,54.8,9.1,False
+2022,Sydenham,Hutchins (ALP),Cullia (LIB),58.73,False,58.33,58.95,58.53,28.0,56.6,10.9,False
+2022,Tarneit,Wight (ALP),Singh (LIB),62.58,False,62.34,62.43,64.12,33.2,53.5,8.7,False
+2022,Thomastown,Halfpenny (ALP),Singh (LIB),66.0,False,65.87,66.28,68.66,36.8,48.3,10.1,False
+2022,Warrandyte,Smith (LIB),Oakley (ALP),54.15,False,52.28,54.46,59.6,35.1,46.0,13.6,False
+2022,Wendouree,Addison (ALP),Mcintosh (LIB),63.46,False,64.33,63.01,62.99,34.6,54.8,6.9,False
+2022,Werribee,Pallas (ALP),Shaw (LIB),60.5,False,62.31,58.9,63.11,30.0,57.6,8.4,False
+2022,Williamstown,Horne (ALP),Kellander (LIB),62.61,False,64.53,61.57,60.76,35.1,52.0,9.2,False
+2022,Yan Yean,Kathage (ALP),Welch (LIB),54.45,False,54.48,54.53,53.44,33.5,46.7,12.8,False
