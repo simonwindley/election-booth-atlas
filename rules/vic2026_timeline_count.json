@@ -1,0 +1,50 @@
+{
+ "election": "vic2026",
+ "verified": "2026-11-22",
+ "sources": [
+  "https://www.vec.vic.gov.au/voting/2026-state-election",
+  "https://www.vec.vic.gov.au/voting/2026-state-election/how-votes-are-counted"
+ ],
+ "timeline": {
+  "low_sensory_voting": "Tuesday 17 November, 10 am to 4 pm",
+  "early_voting_opened": "Wednesday 18 November",
+  "postal_applications_close": "6 pm Wednesday 25 November",
+  "early_voting_closes": "6 pm Friday 27 November",
+  "election_day": "Saturday 28 November, voting open 8 am to 6 pm",
+  "postal_votes_by_mail_admitted_until": "6 pm Friday 4 December (the Friday after election day)",
+  "lower_house_declarations_expected": "between 9 and 15 December",
+  "upper_house_declarations": "between 16 and 18 December",
+  "return_of_writs": "on or before Saturday 19 December"
+ },
+ "count_lower_house": {
+  "stages": [
+   "First preference (primary) count",
+   "2-candidate-preferred (2CP) count of the 2 candidates the Electoral Commissioner pre-selected",
+   "Recheck (then 2CP again)",
+   "Distribution of preferences"
+  ],
+  "election_night": [
+   "From 6 pm at election-day voting centres: primary and 2CP counts of ordinary votes",
+   "From 6 pm at election hubs: primary and 2CP counts of own-district early votes",
+   "From 6 pm at the central site: primary and 2CP counts of postal votes extracted on election day"
+  ],
+  "later": [
+   "Sunday: early own-district counts continue; other-district early votes and declaration votes go to the central site (vote exchange)",
+   "Monday onward: rechecks; postal votes keep arriving until 6 pm Friday 4 December",
+   "Primary count of all parcels can take more than a week"
+  ],
+  "notes": [
+   "The 2CP count is an indication only and has no effect on the official result; if the pre-selected pair looks wrong the VEC may remove that district's 2CP figures",
+   "New in 2026: 2CP uses rechecked figures; full distribution of preferences in every district, even where someone has a majority on first preferences; results by early voting centre published",
+   "Counting is by hand"
+  ]
+ },
+ "count_upper_house": {
+  "notes": [
+   "Each region elects 5 members; quota = formal ballot papers / (5+1), plus 1",
+   "Some primary counts on election night, but all region ballot papers are counted at the central site; preferences data-entered twice",
+   "Primary count of all parcels can take over 10 days",
+   "Group voting tickets have been removed"
+  ]
+ }
+}

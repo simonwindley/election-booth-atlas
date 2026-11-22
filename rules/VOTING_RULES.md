@@ -19,3 +19,6 @@ Source: https://www.vec.vic.gov.au/voting/learn-to-vote/how-to-fill-out-state-ba
 ## History
 
 - 22 Nov 2026: the democracy sausage card (s03) went out saying "at least 1 above the line" (the 2022 rule). Corrected card: s03b. This file exists so that doesn't happen again.
+
+## Timeline and counting (vic2026)
+Verified 22 Nov 2026 against the VEC's 2026 state election pages. See `vic2026_timeline_count.json` for dates (postal applications close 6 pm Wed 25 Nov; early voting closes 6 pm Fri 27 Nov; election day 8 am to 6 pm Sat 28 Nov; postal votes by mail admitted until 6 pm Fri 4 Dec) and the four counting stages. Use that file, not memory, for any post about deadlines or the count.

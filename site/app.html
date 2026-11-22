@@ -18,6 +18,29 @@
 <style>
 /* Layout: a full-height workbench. Top rail (name + views), then a three-column map bench:
    controls | map | detail. Charts and tables live in the detail column and the other views. */
+.cbc-cols{--cbc-h:200px;--cbc-base:58px;position:relative;display:flex;align-items:flex-end;gap:8px;height:calc(var(--cbc-h) + var(--cbc-base) + 22px);padding:0 2px;border-bottom:0}
+.cbc-col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;transition:opacity .45s ease,flex-grow .6s ease,margin .6s ease}
+.cbc-cnum{font-size:11.5px;margin-bottom:3px;white-space:nowrap;transition:font-size .6s ease}.cbc-cols.many .cbc-cnum{font-size:10px}.cbc-cols.few .cbc-cnum{font-size:15px;font-weight:600}.cbc-cols.few .cbc-cname{font-size:13.5px}
+.cbc-stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1.5px solid var(--fg-3)}.cbc-stack i{display:block;width:100%}
+.cbc-cbase{border-radius:3px 3px 0 0}.cbc-cadd{opacity:.65;border-radius:3px 3px 0 0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.4) 0 3px,transparent 3px 6px)}
+.cbc-cname{height:var(--cbc-base);width:100%;font-size:11.5px;display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:5px;overflow:hidden;text-align:center;line-height:1.15}.cbc-cname span{display:block;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cbc-cname i{display:block;width:8px;height:8px;border-radius:50%;flex:none}
+.cbc-cols.many{--cbc-base:84px}.cbc-cols.many .cbc-cname span{writing-mode:vertical-rl;max-height:70px;max-width:none;font-size:11px}
+.cbc-col.going .cbc-cnum{color:#b5452e;font-weight:600}.cbc-col.going .cbc-cname{text-decoration:line-through;color:var(--fg-3)}
+.cbc-col.gone{opacity:0;flex-grow:0.0001;margin:0 -4px}
+.cbc-cneed{position:absolute;left:0;right:0;border-top:1.5px dashed var(--fg-2);pointer-events:none;z-index:2}.cbc-cneed span{position:absolute;right:0;top:-16px;font-size:11px;color:var(--fg-2);background:var(--surface);padding:0 4px}
+.cbc-flows{margin-top:14px;border-top:1px solid var(--line);padding-top:8px}.cbc-flows>summary{cursor:pointer;font-size:14px;font-weight:600;padding:4px 0;list-style-position:inside}.cbc-flows[open]>summary{margin-bottom:6px}.cbc-fbar{display:flex;height:10px;border-radius:3px;overflow:hidden;background:var(--surface-2);min-width:120px}.cbc-fbar b{display:block;height:100%}
+.cbc-frow{cursor:pointer}.cbc-frow:hover td{background:var(--surface-2)}.cbc-frow.cur td{background:color-mix(in srgb,var(--accent) 12%,transparent)}.cbc-frow.cur td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+.cbc-tabs{display:flex;gap:6px;margin:2px 0 8px;flex-wrap:wrap}.cbc-tab.cbc-anim{margin-left:auto}.cbc-tab{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg-2);cursor:pointer}.cbc-tab.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.cbc-ctl{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.cbc-btn{font:inherit;font-size:13px;min-width:30px;padding:4px 9px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--fg);cursor:pointer}.cbc-btn:disabled{opacity:.4;cursor:default}
+.cbc-range{flex:1;min-width:90px;accent-color:var(--accent)}.cbc-k{font-size:12px;color:var(--fg-2);white-space:nowrap}
+.cbc-cap{margin:8px 0 6px;font-size:13.5px;line-height:1.4;min-height:2.8em}
+.cbc-rows{--cbc-name:118px;--cbc-num:86px;position:relative;padding-top:16px}.cbc-row{display:grid;grid-template-columns:var(--cbc-name) 1fr var(--cbc-num);align-items:center;gap:6px;margin:3px 0;font-size:12.5px}
+.cbc-name{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.cbc-name .hint{display:none}.cbc-track{position:relative;height:14px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.cbc-track i{position:absolute;top:0;bottom:0;left:0}.cbc-num b{font-weight:500}.cbc-row.leaving .cbc-num{color:#b5452e}.cbc-base.out{opacity:.35}.cbc-add{opacity:.6;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.35) 0 3px,transparent 3px 6px)}
+.cbc-num{font-family:var(--font-mono);font-size:12px;text-align:right;white-space:nowrap}.cbc-num small{color:var(--fg-2)}.cbc-num.muted{color:var(--fg-3);font-family:var(--font-ui)}.cbc-num.neg{color:#b5452e}
+.cbc-row.gone .cbc-name{color:var(--fg-3);text-decoration:line-through}.cbc-row.leaving .cbc-name{font-weight:600}
+.cbc-need{position:absolute;top:0;bottom:0;border-left:1.5px dashed var(--fg-2);pointer-events:none}.cbc-need span{position:absolute;top:0;left:4px;font-size:11px;color:var(--fg-2);white-space:nowrap}
 :root {
   --bg: #f4f3ee;          /* paper */
   --surface: #fbfaf7;     /* panels */
@@ -1361,7 +1384,8 @@ function renderContestDetail(eid, cid) {
   // how this seat has voted: every election held under this name
   const series = contestSeries(eid, cid);
   if (series.length > 1) { root.append(h('h3', {}, 'How this seat has voted'), seriesChart(series, 340, 200), h('div', { class: 'hint' }, `Primary vote by party at every election with a seat of this name: ${series.length} contests, ${series[0].election.date.slice(0, 4)}–${series[series.length - 1].election.date.slice(0, 4)}. Boundaries move between redistributions.`)); }
-  { const flows = prefFlows(eid, cid); const fl = capture(r => renderFlows(r, eid, cid)); if (fl) root.append(fold('flows', 'Where preferences went', `${flows.length} ${flows.length === 1 ? 'exclusion' : 'exclusions'}`, fl)); }
+  { const cb = countByCount(eid, cid); if (cb) root.append(fold('countby', 'Count by count', cb.dataset.summary, cb));
+ }
   { const cb = cardsBlock(eid, cid, () => renderContestDetail(eid, cid)); if (cb) { const hv = HTV[eid]; const n = hv && hv.cards && hv.cards[cid] ? new Set(hv.cards[cid].map(x => x.owner)).size : 0; root.append(fold('cards', 'How-to-vote cards', n ? `${n} registered` : '', cb)); } }
   // vote types
   const types = D.booths.filter(b => b.election_id === eid && b.contest_id === cid).reduce((acc, b) => { const q = partyShares(eid, b.booth_id); if (q.formal) acc[b.booth_type] = (acc[b.booth_type] || 0) + q.formal; return acc; }, {});
@@ -3425,6 +3449,186 @@ function ladderBlock(m, eid) {
       h('div', { class: 'hint', style: 'margin-left:14px' }, dest.map(([id, v], i) => { const c = m.fp.find(f => f.id === id); return `${i ? ' · ' : '→ '}${candName(c.cand)} ${(100 * v / tot).toFixed(0)}%`; }).join('') + (step.pick ? ` · card says ${candName((m.fp.find(f => f.id === step.pick) || {}).cand)} (follow ${(100 * step.f).toFixed(0)}%)` : ''))); });
   return h('details', { class: 'ladder' }, h('summary', {}, `How the model got there: ${m.ladder.length} exclusion${m.ladder.length === 1 ? '' : 's'}`), ...rows, h('div', { class: 'hint', style: 'margin-top:4px' }, `Each excluded candidate's pile is split by the fitted flow for their party among those still standing (${m.label})${m.cardsUsed ? `; where the candidate had a registered how-to-vote card (${m.cardsUsed} of them here), that party's follow rate of the pile goes to the card's next name and the rest follows the flow` : ''}${m.ladder.some(s => s.adj) && BALLOT ? `; ballot order adds ${(100 * BALLOT.model.below).toFixed(1)}% of each pile to the next name below on the ballot, ${(100 * BALLOT.model.above).toFixed(1)}% to the next above and ${(100 * BALLOT.model.top).toFixed(1)}% to the top${BALLOT_B && m.cid && Math.abs(adjScaleSeat(m.cid) - 1) > 0.05 ? `, scaled ×${adjScaleSeat(m.cid).toFixed(2)} for this electorate's booth profile` : ''}` : ''}. Shares are of the pile, not of the seat.`));
 }
+/* ---------- count by count: the distribution of preferences, one exclusion at a time ----------
+   Official: the VEC's distribution (D.dop holds every past count, and the live feed adds 2026 districts once the VEC publishes them).
+   Modelled: the preference-flow model run through the same exclusions from the first preferences (the counted-so-far first preferences on election night).
+   Once the VEC count is in, only that is shown. The step the reader was on is remembered per seat while the page is open. */
+const CBC_STATE = new Map();
+function cbcCand(eid, cid, id) {
+  const c = idx.candById.get(eid + '|' + id); if (c) return c;
+  const lc = eid === LIVE.election && LIVE.latest && LIVE.latest.contests && LIVE.latest.contests[cid]; const x = lc && (lc.candidates || []).find(y => y.candidate_id === id);
+  return x ? { surname: x.surname || x.name || id, given_name: x.given_name || '', party: x.party || 'OTH', party_name: x.party_name } : { surname: id, party: 'OTH' };
+}
+function officialCounts(eid, cid) {
+  const rows = D.dop.filter(d => d.election_id === eid && d.contest_id === cid); if (!rows.length) return null;
+  const nos = [...new Set(rows.map(r => r.count_no))].sort((a, b) => a - b); if (nos[0] !== 0 || nos.length < 2) return null;
+  const c0 = rows.filter(r => r.count_no === 0); const ids = c0.map(r => r.candidate_id);
+  let tot = Object.fromEntries(c0.map(r => [r.candidate_id, r.progressive_total || 0]));
+  const counts = [{ n: 0, totals: { ...tot }, out: null, moved: 0, to: {} }]; const gone = new Set();
+  for (const n of nos.slice(1)) {
+    const rs = rows.filter(r => r.count_no === n); const ex = rs.find(r => r.excluded) || rs.find(r => r.transfer < 0); if (!ex) continue;
+    const moved = -ex.transfer; const to = {};
+    for (const r of rs) if (r.candidate_id !== ex.candidate_id && r.transfer > 0) to[r.candidate_id] = r.transfer;
+    gone.add(ex.candidate_id); const next = {};
+    for (const id of ids) { if (gone.has(id)) { next[id] = 0; continue; } const r = rs.find(q => q.candidate_id === id); next[id] = r && r.progressive_total != null ? r.progressive_total : tot[id] + (to[id] || 0); }
+    tot = next; counts.push({ n, totals: { ...tot }, out: ex.candidate_id, moved, to });
+  }
+  return counts.length > 1 ? { ids, counts, source: 'official' } : null;
+}
+function modelledCounts(eid, cid) {
+  const m = modelledTcp(eid, cid); if (!m || !m.ladder.length) return null;
+  const ids = m.fp.map(f => f.id); let tot = Object.fromEntries(m.fp.map(f => [f.id, f.votes]));
+  const counts = [{ n: 0, totals: { ...tot }, out: null, moved: 0, to: {} }];
+  m.ladder.forEach((s, i) => { const next = { ...tot }; next[s.id] = 0; for (const [id, v] of Object.entries(s.to)) next[id] = (next[id] || 0) + v; tot = next; counts.push({ n: i + 1, totals: { ...tot }, out: s.id, moved: s.votes, to: s.to }); });
+  return { ids, counts, source: 'modelled', label: m.label, cardsUsed: m.cardsUsed };
+}
+function countByCount(eid, cid) {
+  // a confirmed count is shown on its own; the model only fills in until the VEC publishes its distribution
+  const off = officialCounts(eid, cid); const mod = !off && PREF && !PREF.missing ? modelledCounts(eid, cid) : null;
+  const D_ = off || mod; if (!D_) return null;
+  const key = eid + '|' + cid; const st = CBC_STATE.get(key) || { k: 0, view: CBC_STATE.get('view') || 'rows' };
+  const live = eid === LIVE.election, N = D_.counts.length - 1;
+  const wrap = h('div', { class: 'cbc' }); let timer = null, anim = null;
+  const stopAll = () => { if (timer) { clearInterval(timer); timer = null; } if (anim) { cancelAnimationFrame(anim); anim = null; } };
+  const P0 = D_.counts[0], formal = Object.values(P0.totals).reduce((a, v) => a + v, 0), need = Math.floor(formal / 2) + 1;
+  const scale = Math.max(need * 1.06, ...D_.counts.flatMap(x => Object.values(x.totals)));
+  const order = [...D_.ids].sort((a, b) => P0.totals[b] - P0.totals[a]);
+  const outAt = {}; D_.counts.forEach(x => { if (x.out) outAt[x.out] = x.n; });
+  const cand = (id) => cbcCand(eid, cid, id), pcol = (id) => partyColor(cand(id).party);
+  const pname = (id) => { const c = cand(id); if (c.party && c.party !== 'OTH' && PARTY_NAME[c.party]) return PARTY_NAME[c.party]; const n = String(c.party_name || PARTY_NAME[c.party] || c.party || '').replace(/\s*-\s*Victoria(n Branch)?$/i, ''); return n === n.toUpperCase() ? n.toLowerCase().replace(/\b([a-z])/g, (m) => m.toUpperCase()) : n; };
+  const caption = (k) => {
+    const C = D_.counts[k];
+    if (k === 0) { const lead = order[0]; return `First preferences: ${cand(lead).surname} (${pname(lead)}) leads with ${pct(P0.totals[lead] / formal)}. ${order.length} candidates, ${fmt(need)} votes to win.`; }
+    const dest = Object.entries(C.to).sort((a, b) => b[1] - a[1]); const moved = C.moved || dest.reduce((a, [, v]) => a + v, 0);
+    let cap = `${cand(C.out).surname} (${pname(C.out)}) is out. ${fmt(Math.round(moved))} votes move: ` + dest.slice(0, 3).map(([id, v]) => `${pct(v / moved, 0)} to ${cand(id).surname}`).join(', ') + (dest.length > 3 ? ', the rest spread' : '') + '.';
+    if (k === N) { const fin = order.filter(id => C.totals[id] > 0).sort((a, b) => C.totals[b] - C.totals[a]); const ft = fin.reduce((a, id) => a + C.totals[id], 0);
+      cap += ` ${off ? 'Final two' : 'Modelled final two'}: ${fin.map(id => `${cand(id).surname} ${pct(C.totals[id] / ft)}`).join(', ')}.`; }
+    return cap;
+  };
+  // columns: one per candidate still standing at count k; at count k the bar shows what they had (solid) and what just arrived (striped)
+  const colsChart = (k) => {
+    const C = D_.counts[k], prev = k ? D_.counts[k - 1] : null;
+    const ids = order.filter(id => !(outAt[id] != null && outAt[id] <= k));
+    const box = h('div', { class: 'cbc-cols' + (ids.length > 7 ? ' many' : ids.length <= 4 ? ' few' : '') });
+    box.append(h('div', { class: 'cbc-cneed', style: `bottom:calc(var(--cbc-base) + var(--cbc-h) * ${(need / scale).toFixed(4)})` }, h('span', {}, `${fmt(need)} to win`)));
+    for (const id of ids) {
+      const base = prev ? prev.totals[id] : C.totals[id], add = k ? (C.to[id] || 0) : 0;
+      box.append(h('div', { class: 'cbc-col', 'data-id': id },
+        h('div', { class: 'cbc-cnum mono' }, fmt(Math.round(base + add))),
+        h('div', { class: 'cbc-stack' },
+          h('i', { class: 'cbc-cadd', style: `height:calc(var(--cbc-h) * ${(add / scale).toFixed(4)});background:${k ? pcol(C.out) : 'transparent'}` }),
+          h('i', { class: 'cbc-cbase', style: `height:calc(var(--cbc-h) * ${(base / scale).toFixed(4)});background:${pcol(id)}` })),
+        h('div', { class: 'cbc-cname', title: `${cand(id).surname} · ${pname(id)}` }, h('i', { style: `background:${pcol(id)}` }), h('span', {}, cand(id).surname))));
+    }
+    return box;
+  };
+  // the move from count k-1 to count k, as in the videos: the excluded pile counts down while the others count up, then it drops out
+  const animateTo = (k) => {
+    const C = D_.counts[k], prev = D_.counts[k - 1];
+    const chart = colsChart(k - 1); chartSlot.replaceChildren(chart);
+    const cols = new Map([...chart.querySelectorAll('.cbc-col')].map(n => [n.dataset.id, n]));
+    const outCol = cols.get(C.out); if (outCol) outCol.classList.add('going');
+    // restart each receiving bar from its total before this count, with an empty striped segment in the excluded candidate's colour
+    for (const [id, n] of cols) { const b = n.querySelector('.cbc-cbase'), a = n.querySelector('.cbc-cadd'); b.style.height = `calc(var(--cbc-h) * ${(prev.totals[id] / scale).toFixed(4)})`; a.style.height = '0px'; a.style.background = pcol(C.out); n.querySelector('.cbc-cnum').textContent = fmt(Math.round(prev.totals[id])); }
+    capSlot.textContent = caption(k); setCtl(k);
+    const T = Math.min(2200, 900 + 120 * Object.keys(C.to).length), t0 = performance.now(), moved = prev.totals[C.out];
+    const ease = (x) => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    const frame = (now) => {
+      const t = Math.min(1, (now - t0) / T), e = ease(t);
+      for (const [id, n] of cols) {
+        if (id === C.out) { n.querySelector('.cbc-cbase').style.height = `calc(var(--cbc-h) * ${((moved * (1 - e)) / scale).toFixed(4)})`; n.querySelector('.cbc-cnum').textContent = fmt(Math.round(moved * (1 - e))); continue; }
+        const add = (C.to[id] || 0) * e; n.querySelector('.cbc-cadd').style.height = `calc(var(--cbc-h) * ${(add / scale).toFixed(4)})`;
+        n.querySelector('.cbc-cnum').textContent = fmt(Math.round(prev.totals[id] + add));
+      }
+      if (t < 1) { anim = requestAnimationFrame(frame); return; }
+      anim = null; if (outCol) outCol.classList.add('gone');
+      setTimeout(() => { if (wrap.isConnected && st.k === k && !anim) chartSlot.replaceChildren(colsChart(k)); }, 450);
+    };
+    anim = requestAnimationFrame(frame);
+  };
+  // rows: every candidate stays listed; those already out are greyed with the count they went out at.
+  // merged: show count k's totals as one solid bar (the starting point of the move to count k+1)
+  const rowsChart = (k, merged) => {
+    const C = D_.counts[k], prev = k && !merged ? D_.counts[k - 1] : null;
+    const rows = h('div', { class: 'cbc-rows' });
+    rows.append(h('div', { class: 'cbc-need', style: `left:calc(var(--cbc-name) + (100% - var(--cbc-name) - var(--cbc-num)) * ${(need / scale).toFixed(4)})` }, h('span', {}, `${fmt(need)} to win`)));
+    for (const id of order) {
+      const isOut = !merged && C.out === id, wasOut = outAt[id] != null && (merged ? outAt[id] <= k : outAt[id] < k);
+      const base = wasOut || isOut ? 0 : (prev ? prev.totals[id] : C.totals[id]), add = !wasOut && !isOut && prev ? (C.to[id] || 0) : 0;
+      const track = h('div', { class: 'cbc-track' },
+        h('i', { class: 'cbc-base', style: `width:${(100 * base / scale).toFixed(2)}%;background:${pcol(id)}` }),
+        h('i', { class: 'cbc-add', style: `left:${(100 * base / scale).toFixed(2)}%;width:${(100 * add / scale).toFixed(2)}%;background:${prev && C.out ? pcol(C.out) : 'transparent'}` }));
+      const num = wasOut ? h('span', { class: 'cbc-num muted' }, `out, count ${outAt[id]}`)
+        : isOut ? h('span', { class: 'cbc-num neg' }, `−${fmt(Math.round(prev ? prev.totals[id] : 0))} · out`)
+        : h('span', { class: 'cbc-num' }, h('b', {}, fmt(Math.round(base + add))), h('small', {}, add > 0 ? ` +${fmt(Math.round(add))}` : ''));
+      rows.append(h('div', { class: 'cbc-row' + (wasOut ? ' gone' : '') + (isOut ? ' leaving' : ''), 'data-id': id }, h('span', { class: 'cbc-name' }, h('span', { class: 'chip' }, h('i', { style: `background:${pcol(id)}` }), cand(id).surname)), track, num));
+    }
+    return rows;
+  };
+  // the move from count k-1 to count k in rows: the excluded bar counts down, the others count up; everyone stays listed
+  const animateRowsTo = (k) => {
+    const C = D_.counts[k], prev = D_.counts[k - 1];
+    const chart = rowsChart(k - 1, true); chartSlot.replaceChildren(chart);
+    const rows = new Map([...chart.querySelectorAll('.cbc-row')].map(n => [n.dataset.id, n]));
+    const outRow = rows.get(C.out); if (outRow) outRow.classList.add('leaving');
+    for (const id of Object.keys(C.to)) { const r = rows.get(id); if (r) r.querySelector('.cbc-add').style.background = pcol(C.out); }
+    capSlot.textContent = caption(k); setCtl(k);
+    const T = Math.min(2200, 900 + 120 * Object.keys(C.to).length), t0 = performance.now(), moved = prev.totals[C.out];
+    const ease = (x) => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    const frame = (now) => {
+      const t = Math.min(1, (now - t0) / T), e = ease(t);
+      if (outRow) { outRow.querySelector('.cbc-base').style.width = `${(100 * moved * (1 - e) / scale).toFixed(2)}%`; const b = outRow.querySelector('.cbc-num b'); if (b) b.textContent = fmt(Math.round(moved * (1 - e))); }
+      for (const [id, v] of Object.entries(C.to)) { const r = rows.get(id); if (!r) continue; const add = v * e;
+        r.querySelector('.cbc-add').style.width = `${(100 * add / scale).toFixed(2)}%`;
+        r.querySelector('.cbc-num b').textContent = fmt(Math.round(prev.totals[id] + add)); r.querySelector('.cbc-num small').textContent = add >= 0.5 ? ` +${fmt(Math.round(add))}` : ''; }
+      if (t < 1) { anim = requestAnimationFrame(frame); return; }
+      anim = null;
+      setTimeout(() => { if (wrap.isConnected && st.k === k && !anim && st.view === 'rows') chartSlot.replaceChildren(rowsChart(k)); }, 350);
+    };
+    anim = requestAnimationFrame(frame);
+  };
+  // layout
+  const btn = (label, title, fn) => h('button', { type: 'button', class: 'cbc-btn', title, 'aria-label': title, onclick: fn }, label);
+  const bPrev = btn('‹', 'Previous count', () => { stopAll(); show(st.k - 1); }), bNext = btn('›', 'Next count', () => { stopAll(); step(); });
+  const bPlay = btn('Play', 'Play the count', () => {
+    if (timer) { stopAll(); setCtl(st.k); return; }
+    if (st.k >= N) show(0);
+    timer = setInterval(() => { if (!wrap.isConnected) { stopAll(); return; } if (st.k >= N) { stopAll(); setCtl(st.k); return; } step(); }, animOn() ? 2900 : 1500); step(); setCtl(st.k);
+  });
+  const range = h('input', { type: 'range', min: '0', max: String(N), value: String(st.k), step: '1', 'aria-label': 'Count', class: 'cbc-range', oninput: (e) => { stopAll(); show(+e.target.value); } });
+  const kLab = h('span', { class: 'cbc-k mono' });
+  const viewBtn = (v, label) => h('button', { type: 'button', class: 'cbc-tab' + (st.view === v ? ' on' : ''), onclick: (ev) => { stopAll(); st.view = v; CBC_STATE.set('view', v); for (const b of ev.target.parentNode.children) if (!b.classList.contains('cbc-anim')) b.classList.toggle('on', b === ev.target); show(st.k); } }, label);
+  const flowRows = [];
+  // the full table, folded away by default; open or closed is remembered for the visit
+  const flows = h('details', { class: 'cbc-flows', ontoggle: (ev) => CBC_STATE.set('flowsOpen', ev.currentTarget.open) }, h('summary', {}, h('span', {}, off ? 'Where preferences went' : 'Where preferences went (modelled)'), h('span', { class: 'hint' }, ` · ${N} exclusion${N === 1 ? '' : 's'}`)),
+    h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', { class: 'num' }, 'Count'), h('th', {}, 'Excluded'), h('th', { class: 'num' }, 'Votes'), h('th', {}, 'Where they went'))),
+      h('tbody', {}, ...D_.counts.slice(1).map((C, i) => {
+        const dest = Object.entries(C.to).sort((a, b) => b[1] - a[1]); const moved = C.moved || dest.reduce((a, [, v]) => a + v, 0); const ex = moved - dest.reduce((a, [, v]) => a + v, 0);
+        const bar = h('div', { class: 'cbc-fbar' }, ...dest.map(([id, v]) => h('b', { style: `width:${(100 * v / moved).toFixed(2)}%;background:${pcol(id)}`, title: `${cand(id).surname} ${fmt(Math.round(v))}` })));
+        const tr = h('tr', { class: 'cbc-frow', tabindex: '0', title: 'Show this count', onclick: () => { stopAll(); show(i + 1); }, onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); stopAll(); show(i + 1); } } },
+          h('td', { class: 'num' }, String(i + 1)), h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${pcol(C.out)}` }), cand(C.out).surname), h('div', { class: 'hint' }, pname(C.out))),
+          h('td', { class: 'num' }, fmt(Math.round(moved))),
+          h('td', {}, bar, h('div', { class: 'hint', style: 'margin-top:3px' }, dest.map(([id, v]) => `${cand(id).surname} ${fmt(Math.round(v))} (${pct(v / moved, 0)})`).join(' · ') + (ex >= 1 ? ` · exhausted ${fmt(Math.round(ex))}` : ''))));
+        flowRows.push(tr); return tr; })))));
+  if (CBC_STATE.get('flowsOpen')) flows.open = true;
+  const capSlot = h('div', { class: 'cbc-cap', 'aria-live': 'polite' }), chartSlot = h('div');
+  function setCtl(k) { flowRows.forEach((r, i) => r.classList.toggle('cur', i + 1 === k)); bPrev.disabled = k === 0; bNext.disabled = k >= N; range.value = String(k); kLab.textContent = k === 0 ? 'First preferences' : `Count ${k} of ${N}`; bPlay.textContent = timer ? 'Pause' : (k >= N ? 'Replay' : 'Play'); }
+  function show(k) { st.k = Math.max(0, Math.min(k, N)); CBC_STATE.set(key, st); capSlot.textContent = caption(st.k); chartSlot.replaceChildren(st.view === 'cols' ? colsChart(st.k) : rowsChart(st.k)); setCtl(st.k); }
+  // the count-up animation is the reader's choice (off by default for anyone who has asked their system for reduced motion); remembered for the visit
+  const animOn = () => CBC_STATE.has('anim') ? CBC_STATE.get('anim') : !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  function step() { if (st.k >= N) return; if (!animOn()) { show(st.k + 1); return; } st.k++; CBC_STATE.set(key, st); if (st.view === 'cols') animateTo(st.k); else animateRowsTo(st.k); }
+  const animBtn = h('button', { type: 'button', class: 'cbc-tab cbc-anim' + (animOn() ? ' on' : ''), 'aria-pressed': String(animOn()), title: 'Show the votes counting across, one exclusion at a time',
+    onclick: (ev) => { stopAll(); const v = !animOn(); CBC_STATE.set('anim', v); ev.currentTarget.classList.toggle('on', v); ev.currentTarget.setAttribute('aria-pressed', String(v)); ev.currentTarget.textContent = v ? 'Count up: on' : 'Count up: off'; show(st.k); } }, animOn() ? 'Count up: on' : 'Count up: off');
+  wrap.append(h('div', { class: 'cbc-tabs' }, viewBtn('rows', 'Rows'), viewBtn('cols', 'Columns'), animBtn),
+    h('div', { class: 'cbc-ctl' }, bPrev, bPlay, bNext, range, kLab), capSlot, chartSlot,
+    h('div', { class: 'hint', style: 'margin-top:6px' }, off
+      ? 'From the VEC’s distribution of preferences: the lowest candidate is excluded and their ballots go to the next preference still standing, until two remain. Striped: votes that arrived at this count.'
+      : (live ? 'Modelled from the first preferences counted so far, using how preferences have flowed in past counts' + (D_.cardsUsed ? ' and this seat’s how-to-vote cards' : '') + '. The VEC publishes its own distribution after the count (winners are expected to be declared 9 to 15 December) and it replaces this when it lands.'
+              : `Modelled from the final first preferences (${D_.label}).`)), flows);
+  show(st.k);
+  wrap.dataset.summary = `${N} exclusion${N === 1 ? '' : 's'} · ${off ? (live ? 'VEC count' : 'official') : 'modelled'}`;
+  return wrap;
+}
 // the registered how-to-vote cards of a seat, each as its full ordering, with how far that party's voters followed it (2022)
 function cardsBlock(eid, cid, rerender) {
   if (HTV[eid] === undefined) { ensureHtv(eid).then(() => { if (HTV[eid] && selected && selected.election === eid && selected.contest === cid) rerender(); }); return null; }
@@ -3871,6 +4075,7 @@ async function pollLive(manual) {
       if (selected && selected.election === LIVE.election) { if (selected.booth) renderDetail(LIVE.election, selected.booth); else if (selected.contest) renderContestDetail(LIVE.election, selected.contest); }
       status(`live feed updated ${fmtTime(j.fetched_at)}`);
       if (activeView() === 'dash') renderDash();
+      if (activeView() === 'seat' && SEAT.cid && !SEAT.cid.startsWith('vicr-')) { if (SEAT_RES.box && SEAT_RES.box.isConnected && SEAT_RES.cid === SEAT.cid) seatResultsFill(SEAT_RES.box, SEAT.cid); else if (seatLive(SEAT.cid)) renderSeat(); }
     }
     renderLiveBox();
   } catch (e) { LIVE.error = e.message; renderLiveBox(); }
@@ -3915,6 +4120,7 @@ function renderContestDetail2026(cid) {
     // the preference-flow model: a two-candidate result for any pair, from the first preferences counted so far
     if (PREF) { const mb = modelledBlock(eid, cid, pr && pr.method !== 'official' ? { compare: pr, compareLabel: pr.method === 'projected' ? 'VEC pair, projected' : 'VEC count' } : {}); if (mb) root.append(mb); }
     else Promise.all([ensurePref(), ensureHtv(eid), ensureHtv(HTV_BASE)]).then(() => { if (selected && selected.election === eid && selected.contest === cid) renderContestDetail2026(cid); });
+    { const cb = countByCount(eid, cid); if (cb) root.append(fold('countby26', 'Count by count', cb.dataset.summary, cb, true)); }
   }
   // candidates
   const nominated = cands.some(x => x.nominated);
@@ -4411,9 +4617,45 @@ function twoHouses(cid, c) {
   return box;
 }
 // one tap from an electorate or region page to its booths on the map (2022, after preferences), zoomed to fit
-function seatOnMap(cid) { setUnit('booth'); setElection('vic2022'); if (state.metric !== 'tcpwin') { el('sel-metric').value = 'tcpwin'; el('sel-metric').dispatchEvent(new Event('change')); } showView('map'); const oc = contestIn('vic2022', cid, LIVE.election); if (oc) setTimeout(() => selectContest('vic2022', oc.contest_id, true), 400); }
+// open the map on one electorate: fit to its boundary (read from the boundary file itself, so it works whichever layer is showing),
+// once the map has its real size after being unhidden, then select it
+async function flyToContest(eid, cid) {
+  if (!map) return; try { const fc = await loadGz('boundary_' + BOUND_FOR[eid], 'geojson'); const f = (fc.features || []).find(x => x.properties.contest_id === cid); if (!f) return;
+    map.resize(); map.fitBounds(bboxOf(f.geometry), { padding: { top: 40, bottom: 120, left: 40, right: 60 }, maxZoom: 13, duration: 700 }); } catch (e) { /* the selection still works without the fly */ }
+}
+function seatOnMap(cid) { setUnit('booth'); setElection('vic2022'); if (state.metric !== 'tcpwin') { el('sel-metric').value = 'tcpwin'; el('sel-metric').dispatchEvent(new Event('change')); } showView('map'); const oc = contestIn('vic2022', cid, LIVE.election);
+  if (oc) setTimeout(() => { selectContest('vic2022', oc.contest_id, false); flyToContest('vic2022', oc.contest_id); }, 400); }
 function regionOnMap(rid) { setUnit('lc'); setElection('vic2022'); showView('map'); setTimeout(() => selectRegion('vic2022', rid, true), 500); }
 const mapCta = (label, go) => { const ic = h('span', { 'aria-hidden': 'true', style: 'display:inline-flex' }); ic.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 3 3 5.5v15.5l6-2.5 6 2.5 6-2.5V3l-6 2.5L9 3zm0 2.2 6 2.5v11.1l-6-2.5V5.2z" fill="currentColor"/></svg>'; return h('button', { class: 'cta mapcta', onclick: go }, ic, label); };
+/* ---------- seat page: results on the night (from the live feed), with the count by count ---------- */
+const SEAT_RES = { cid: null, box: null };
+function seatLive(cid) { const lc = LIVE.latest && LIVE.latest.contests && LIVE.latest.contests[cid]; return lc && lc.counted ? lc : null; }
+function seatResultsFill(box, cid) {
+  box.innerHTML = '';
+  const eid = LIVE.election, lc = seatLive(cid); if (!lc) return;
+  const by = lc.counted.by_type || {}; const parts = Object.entries(by).filter(([, n]) => n).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k === 'ordinary' ? 'election day' : k.replaceAll('_', ' ')} ${fmt(n)}`);
+  const g = countProgress(cid);
+  box.append(h('div', { class: 'box' },
+    h('div', { style: 'font-size:17px' }, h('strong', {}, `${lc.counted.booths_reported} of ${lc.counted.booths_listed} election-day booths reported`), lc.counted.pct_enrolment != null ? h('span', { class: 'hint' }, ` · ${lc.counted.pct_enrolment}% of enrolment counted${g && g.pct22 != null ? ` (${Math.round(100 * g.pct22)}% of the 2022 vote)` : ''}`) : ''),
+    h('div', { class: 'hint', style: 'margin-top:4px' }, parts.length ? 'Counted so far: ' + parts.join(' · ') : 'Nothing counted yet', lc.stage ? ` · ${lc.stage}` : '', lc.updated_at ? ` · updated ${fmtTime(lc.updated_at)}` : '')));
+  const grid = h('div', { class: 'grid2', style: 'margin-top:16px' }); box.append(grid);
+  const cs = (lc.candidates || []).filter(x => x.fp_votes != null).sort((a, b) => b.fp_votes - a.fp_votes); const ft = cs.reduce((a, x) => a + x.fp_votes, 0);
+  const pn = (x) => PARTY_NAME[x.party] && x.party !== 'OTH' ? PARTY_NAME[x.party] : (x.party_name || '');
+  if (cs.length && ft) grid.append(h('div', { class: 'box' }, h('h3', {}, 'First preferences'),
+    ...cs.map(x => h('div', { style: 'margin:6px 0' },
+      h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), `${x.surname}${x.given_name ? ', ' + x.given_name : ''}`, h('span', { class: 'hint' }, ` ${pn(x)}`)), h('span', { class: 'mono' }, `${fmt(x.fp_votes)} · ${pct(x.fp_votes / ft)}`)),
+      h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.fp_votes / ft).toFixed(1)}%;background:${partyColor(x.party)}` })))),
+    lc.informal != null ? h('div', { class: 'hint' }, `${fmt(lc.informal)} informal (${pct(lc.informal / (ft + lc.informal))})`) : ''));
+  const pr = liveProjection(cid);
+  if (pr) grid.append(h('div', { class: 'box' }, h('h3', {}, pr.method === 'official' ? 'Final two' : pr.method === 'projected' ? 'Projected two-candidate result' : 'Two-candidate count so far'),
+    ...pr.pair.map(x => h('div', { style: 'margin:6px 0' },
+      h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), x.cand ? x.cand.surname : x.party), h('span', { class: 'mono' }, `${x.votes != null ? fmt(x.votes) + ' · ' : ''}${pct(x.share)}`)),
+      h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)}` })))),
+    h('div', { class: 'hint' }, pr.method === 'projected' ? `${PARTY_NAME[pr.baseParty]} had ${pct(pr.base)} after preferences in 2022; the ${pts(pr.swing)} pt swing is measured at ${pr.booths} matched booth${pr.booths === 1 ? '' : 's'}. Counted so far: ${pr.countedPair.map(x => `${x.cand ? x.cand.surname : x.party} ${pct(x.share)}`).join(' v ')}.` : pr.method === 'official' ? 'From the VEC distribution of preferences.' : 'The VEC’s two-candidate count so far.')));
+  const cb = h('div', { class: 'box', style: 'margin-top:16px' }, h('h3', {}, 'Count by count'), h('p', { class: 'hint', style: 'margin:0 0 8px' }, 'Who is knocked out, and where their votes go, until two candidates remain.')); box.append(cb);
+  if (PREF) { const w = countByCount(eid, cid); cb.append(w || h('div', { class: 'empty' }, 'This appears once there are first preferences to run through.')); }
+  else { cb.append(h('div', { class: 'empty' }, 'Loading…')); Promise.all([ensurePref(), ensureHtv(eid), ensureHtv(HTV_BASE)]).then(() => { if (box.isConnected) seatResultsFill(box, cid); }); }
+}
 function renderSeat() {
   const root = el('seat-root'); if (!root) return; root.innerHTML = '';
   if (SEAT.pending) { const p = SEAT.pending; SEAT.pending = null; if (idx.contestById.get(LIVE.election + '|' + p) || p.startsWith('vicr-')) SEAT.cid = p; }
@@ -4447,7 +4689,8 @@ function renderSeat() {
       lc ? h('span', { class: 'badge' }, `Margin ${(100 * lc.margin).toFixed(1)} points (${shortName(lc.e)})`) : '',
       ret.length ? h('span', { class: 'badge lime' }, 'Open seat: member retiring') : sitting ? h('span', { class: 'badge' }, `${sitting.given_name} ${sitting.surname} recontesting`) : ''),
     mapCta('See every booth on the map', () => seatOnMap(cid)))));
-  const secs = [['ballot', "Who's standing"], ['vote', 'How to vote'], ['history', 'Past results'], ['booths', 'Booth by booth'], ['timing', 'Timing'], ['people', 'Who lives here']];
+  const live = !!seatLive(cid);
+  const secs = [...(live ? [['results', 'Results']] : []), ['ballot', "Who's standing"], ['vote', 'How to vote'], ['history', 'Past results'], ['booths', 'Booth by booth'], ['timing', 'Timing'], ['people', 'Who lives here']];
   const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', 'data-id': id, class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
   const body = h('div', { class: 'wrap', style: 'padding-bottom:56px' }); root.append(body);
@@ -4460,6 +4703,8 @@ function renderSeat() {
     el.addEventListener('scroll', fn, { passive: true }); SEAT_SPY[key] = { el, fn }; }
   const sec = (id, n, title, sub) => { const s = h('section', { class: 'sec', id: 's-' + id }, h('h2', {}, h('span', { class: 'bnum r' + ((n % 3) + 1), style: 'width:40px;height:40px;font-size:20px' }, String(n)), title), sub ? h('p', { class: 'sub' }, sub) : ''); body.append(s); return s; };
   body.append(twoHouses(cid, c));
+  SEAT_RES.cid = cid; SEAT_RES.box = null;
+  if (live) { const s0 = sec('results', 1, 'Results', 'Live from the VEC count. Election-day booths, early and postal votes are added as they are counted.'); const rb = h('div'); s0.append(rb); SEAT_RES.box = rb; seatResultsFill(rb, cid); }
   // 1 candidates
   const nominated = cands.some(x => x.nominated);
   const s1 = sec('ballot', 1, `Who's standing in 2026`, `${cands.length} candidates · ${nominated ? 'in ballot order, as nominated with the VEC' : 'declared so far, A to Z until the ballot draw'}. We link to each candidate's own pages and don't write about them ourselves.`);
@@ -4499,6 +4744,9 @@ function renderSeat() {
   { const series = contestSeries('vic2022', cid); if (series.length > 1) g3.append(h('div', { class: 'box' }, h('h3', {}, 'First preferences by party'), seriesChart(series, 520, 260), h('div', { class: 'hint' }, 'Hover for the figures.'))); }
   if (hist.length) g3.append(h('div', { class: 'box' }, h('h3', {}, 'Results'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Election'), h('th', {}, 'Won by'), h('th', { class: 'num' }, '2CP'), ...['ALP', 'COAL', 'GRN'].map(p => h('th', { class: 'num' }, PARTY_SHORT[p])))),
     h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, shortName(x.e)), h('td', {}, x.w ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(x.w.party))}` }), x.w.surname) : '–'), h('td', { class: 'num' }, x.t && x.t.pair.length === 2 ? `${pct(x.t.pair[0].share)} ${PARTY_SHORT[grpParty(x.t.pair[0].party)] || ''}` : '–'), ...['ALP', 'COAL', 'GRN'].map(p => h('td', { class: 'num' }, x.ps[p] ? pct(x.ps[p].share) : '–')))))))));
+  { const o22 = contestIn('vic2022', cid, LIVE.election); if (o22) { const hb = h('div', { class: 'box', style: 'margin-top:16px' }, h('h3', {}, 'How preferences decided it in 2022'));
+      const fillCb = () => { hb.querySelectorAll('.cbc').forEach(n => n.remove()); const w = countByCount('vic2022', o22.contest_id); if (w) hb.append(w); return !!w; };
+      if (fillCb()) s3.append(hb); } }
   // 4 census
   const s4 = sec('people', 5, 'Who lives here', 'From the Census, matched to the 2022 boundaries, compared with Victoria.');
   const cbx = h('div', { class: 'box' }); s4.append(cbx);
@@ -4530,7 +4778,7 @@ function renderSeat() {
     };
     draw();
   }
-  { const order = ['ballot', 'vote', 'history', 'booths', 'timing', 'people']; let n = 0;
+  { const order = ['results', 'ballot', 'vote', 'history', 'booths', 'timing', 'people']; let n = 0;
     for (const id of order) { const sx = body.querySelector('#s-' + id); if (!sx) continue; n++; body.append(sx); const b = sx.querySelector('h2 .bnum'); if (b) { b.textContent = String(n); b.className = 'bnum r' + ((n % 3) + 1); } }
     const wrapN = nav.querySelector('.wrap'); for (const id of order) { const a = [...wrapN.querySelectorAll('a')].find(x => x.dataset.id === id); if (a) wrapN.append(a); } }
   body.append(h('div', { class: 'callout', style: 'margin-top:40px' }, h('div', {}, 'Going deeper: ', h('a', { href: '#compare', 'data-go': 'compare' }, 'compare elections venue by venue'), ' · ', h('a', { href: '#demog', 'data-go': 'demog' }, 'who votes how, seat by seat'), ' · ', h('a', { href: '#prefs', 'data-go': 'prefs' }, 'the Atlas books'))));
