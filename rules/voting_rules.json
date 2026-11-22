@@ -1,0 +1,32 @@
+{
+  "_about": "How to fill in each ballot paper, by election. The ONE source for any card, caption, reply or site text that tells people how to vote. Copy the 'say' wording exactly. Never write a rule from memory. Each entry records where it came from and when it was checked; an entry with verified=false must not be published until someone checks it against the official source.",
+  "vic2026": {
+    "jurisdiction": "Victoria", "election": "2026 state election, Saturday 28 November 2026",
+    "source": "https://www.vec.vic.gov.au/voting/learn-to-vote/how-to-fill-out-state-ballot-papers",
+    "checked": "2026-11-22", "verified": true,
+    "lower_house": {
+      "name": "Legislative Assembly", "rule": "number every box in the order of your choice",
+      "say": "Lower house: number every box, in any order you like."
+    },
+    "upper_house": {
+      "name": "Legislative Council", "rule": "above the line: number at least 5 boxes (groups); OR below the line: number at least 5 boxes (candidates); not both. No group voting tickets.",
+      "min_above": 5, "min_below": 5,
+      "say": "Upper house: number at least 5 boxes above the line, or at least 5 below.",
+      "say_short": "Upper house: at least 5 above the line, or 5 below."
+    },
+    "notes": "Changed by the 2026 amendments to the Electoral Act 2002. A single 1 above the line is INFORMAL in 2026."
+  },
+  "vic2022": {
+    "jurisdiction": "Victoria", "election": "2022 state election",
+    "source": "Atlas site text (group voting tickets: a single 1 above the line let the group decide preferences). Below-the-line minimum still to be confirmed from a VEC source.",
+    "checked": "2026-11-22", "verified": false,
+    "lower_house": {"rule": "number every box"},
+    "upper_house": {"rule": "a 1 above the line (group voting ticket) or number below the line (minimum to be confirmed)", "min_above": 1},
+    "notes": "Historical only: never give this as advice for 2026."
+  },
+  "federal": {
+    "jurisdiction": "Commonwealth", "election": "federal elections",
+    "source": "TO CHECK: aec.gov.au", "checked": null, "verified": false,
+    "notes": "Add House and Senate rules from the AEC before any federal card or reply mentions them."
+  }
+}
