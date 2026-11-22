@@ -201,6 +201,20 @@ if __name__ == '__main__':
     load(*sys.argv[1:4])
 
 
+def repair_indicative(df):
+    """A few VEC sheets name the excluded candidate differently from the ballot paper (a truncated given name), so the parser
+    misses the exclusion: that candidate's column is blank at the count. Mark them excluded with their previous total moving."""
+    df = df.copy()
+    for (c, n), g in df[df.count_no > 0].groupby(['contest_id', 'count_no']):
+        if (g.excluded == 1).any() or (g.transfer < 0).any(): continue
+        prev = df[(df.contest_id == c) & (df.count_no == n - 1)].set_index('candidate_id').progressive_total
+        for i, r in g[g.progressive_total.isna()].iterrows():
+            if prev.get(r.candidate_id, 0) > 0:
+                df.loc[i, ['transfer', 'progressive_total', 'excluded']] = [-prev[r.candidate_id], 0, 1]
+                print('repaired', c, n, r.candidate_id, -prev[r.candidate_id])
+    return df
+
+
 def load_indicative(year, files_dir, out, contests_csv):
     """Parse the VEC 'indicative distribution of preferences' spreadsheets (districts where the
     winner had a majority before the distribution finished) into dop_indicative.csv."""
@@ -233,7 +247,7 @@ def load_indicative(year, files_dir, out, contests_csv):
             rows.append({'election_id': eid, 'contest_id': cid, 'count_no': r['count_no'],
                          'candidate_id': cid_for(r['candidate']), 'transfer': r['transfer'],
                          'progressive_total': r['progressive_total'], 'excluded': r['excluded']})
-    df = pd.DataFrame(rows)
+    df = repair_indicative(pd.DataFrame(rows))
     df.to_csv(f'{out}/dop_indicative.csv', index=False)
     unmapped = df[~df.candidate_id.str.startswith('vic-')]
     print(f'{eid} dop_indicative: {len(df)} rows, {df.contest_id.nunique()} districts, unmapped candidates: {unmapped.candidate_id.unique().tolist()}')

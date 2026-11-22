@@ -74,6 +74,12 @@ def main(db, out):
     final = pd.concat([final, tcp_sum[[ (a, b) not in have for a, b in zip(tcp_sum.election_id, tcp_sum.contest_id)]]], ignore_index=True)
     sizes['contest_tcp'] = write(out, 'contest_tcp', final)
     sizes['dop'] = write(out, 'dop', q("""SELECT election_id, contest_id, count_no, candidate_id, transfer, progressive_total, excluded FROM dop"""))
+    # the VEC's indicative distributions (seats where someone passed half the vote before the count reached two), for the count by count
+    try:
+        di = q("""SELECT election_id, contest_id, count_no, candidate_id, ROUND(COALESCE(transfer, 0)) AS transfer, ROUND(COALESCE(progressive_total, 0)) AS progressive_total, COALESCE(excluded, 0) AS excluded FROM dop_indicative""")
+        sizes['dop_indicative'] = write(out, 'dop_indicative', di.astype({'transfer': int, 'progressive_total': int, 'excluded': int}))
+    except Exception as ex:
+        print('no dop_indicative table:', ex)
     sizes['lc_contests'] = write(out, 'lc_contests', q('SELECT * FROM lc_contests'))
     sizes['lc_candidates'] = write(out, 'lc_candidates', q('SELECT election_id, contest_id, candidate_id, "group", party, party_name, name, is_atl FROM lc_candidates'))
     for eid in [r[0] for r in con.execute("SELECT DISTINCT election_id FROM lc_votes WHERE booth_type <> 'region'")]:   # 2006: region totals only

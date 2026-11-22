@@ -50,6 +50,7 @@ if (/(\.github\.io|electionboothatlas\.(org|com))$/.test(location.hostname)) {
 .cbc-col.going .cbc-cnum{color:#b5452e;font-weight:600}.cbc-col.going .cbc-cname{text-decoration:line-through;color:var(--fg-3)}
 .cbc-col.gone{opacity:0;flex-grow:0.0001;margin:0 -4px}
 .cbc-cneed{position:absolute;left:0;right:0;border-top:1.5px dashed var(--fg-2);pointer-events:none;z-index:2}.cbc-cneed span{position:absolute;right:0;top:-16px;font-size:11px;color:var(--fg-2);background:var(--surface);padding:0 4px}
+.seatlink{display:inline-block;text-decoration:none;font-size:14px}.seatlink:hover{border-color:var(--accent)}
 .cbc-flows{margin-top:14px;border-top:1px solid var(--line);padding-top:8px}.cbc-flows>summary{cursor:pointer;font-size:14px;font-weight:600;padding:4px 0;list-style-position:inside}.cbc-flows[open]>summary{margin-bottom:6px}.cbc-fbar{display:flex;height:10px;border-radius:3px;overflow:hidden;background:var(--surface-2);min-width:120px}.cbc-fbar b{display:block;height:100%}
 .cbc-frow{cursor:pointer}.cbc-frow:hover td{background:var(--surface-2)}.cbc-frow.cur td{background:color-mix(in srgb,var(--accent) 12%,transparent)}.cbc-frow.cur td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
 .cbc-tabs{display:flex;gap:6px;margin:2px 0 8px;flex-wrap:wrap}.cbc-tab.cbc-anim{margin-left:auto}.cbc-tab{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg-2);cursor:pointer}.cbc-tab.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
@@ -1084,6 +1085,12 @@ function contestTcp(eid, cid) {
   return { source: rows[0].source, pair: rows.map(r => { const c = idx.candById.get(eid + '|' + r.candidate_id); return { cand: c, party: c ? c.party : '?', votes: r.votes, share: r.votes / tot }; }).sort((a, b) => b.votes - a.votes) };
 }
 // same contest name in another election (boundaries may differ: flagged in the legend)
+// from the map to the seat's own page: state lower-house seats with a 2026 electorate of the same name
+function seatPageLink(eid, cid) {
+  const c = idx.contestById.get(eid + '|' + cid); if (!c || c.house === 'HoR' || c.house === 'LC') return '';
+  const t = eid === LIVE.election ? c : contestIn(LIVE.election, cid, eid); if (!t || typeof openSeat !== 'function') return '';
+  return h('div', { style: 'margin:6px 0 10px' }, h('a', { class: 'btn seatlink', href: '#seat/' + encodeURIComponent(t.contest_id), title: `${t.contest_name}: who's standing, how to vote, past results and the count by count`, onclick: (ev) => { ev.preventDefault(); openSeat(t.contest_id); } }, `Go to the ${t.contest_name} page →`));
+}
 function contestIn(other, cid, eid) { const c = idx.contestById.get(eid + '|' + cid); if (!c) return null; return (idx.contestsByName.get(c.contest_name.toLowerCase()) || []).find(x => x.election_id === other) || null; }
 // party share table for a booth: {ALP:{votes,share}, COAL:..., formal}
 function partyShares(eid, bid) {
@@ -1385,7 +1392,7 @@ function renderContestDetail(eid, cid) {
   if (eid === LIVE.election && LIVE.register) return renderContestDetail2026(cid);
   const c = idx.contestById.get(eid + '|' + cid), e = idx.electionById.get(eid), ps = contestShares(eid, cid), w = idx.elected.get(eid + '|' + cid);
   const root = el('detail'); root.innerHTML = '';
-  root.append(h('h2', {}, c ? c.contest_name : cid), h('div', { class: 'meta' }, `${e.name} · ${c && c.house === 'HoR' ? 'federal division' : 'state electorate'}`));
+  root.append(h('h2', {}, c ? c.contest_name : cid), h('div', { class: 'meta' }, `${e.name} · ${c && c.house === 'HoR' ? 'federal division' : 'state electorate'}`), seatPageLink(eid, cid));
   if (suppNote(c)) root.append(h('div', { class: 'hint' }, suppNote(c)));
   if (w) root.append(h('div', { style: 'margin:4px 0 10px' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(w.party)}` }), h('strong', {}, `${w.surname}, ${w.given_name}`), ' elected'), h('div', { class: 'hint' }, w.party_name || PARTY_NAME[w.party] || '')));
   const enrol = c && c.enrolment ? `${fmt(c.enrolment)} enrolled · turnout ${pct((ps.formal + ps.informal) / c.enrolment)} · ` : '';
@@ -1471,7 +1478,7 @@ function expectBlock(eid, b) {
 function renderDetail(eid, bid) {
   const b = idx.boothsByKey.get(eid + '|' + bid); const c = idx.contestById.get(eid + '|' + b.contest_id); const e = idx.electionById.get(eid);
   const root = el('detail'); root.innerHTML = '';
-  root.append(h('h2', {}, b.booth_name, isFresh(eid, bid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(b.updated_at)) : ''), h('div', { class: 'meta' }, `${c ? c.contest_name : b.contest_id} · ${e.name} · ${b.geo_source === 'geocoded_approx' ? 'approximate location' : b.geo_source === 'aec' || b.geo_source === 'aec_name_match' || b.geo_source === 'aec_id_match' ? 'located' : 'not located'}`));
+  root.append(h('h2', {}, b.booth_name, isFresh(eid, bid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(b.updated_at)) : ''), h('div', { class: 'meta' }, `${c ? c.contest_name : b.contest_id} · ${e.name} · ${b.geo_source === 'geocoded_approx' ? 'approximate location' : b.geo_source === 'aec' || b.geo_source === 'aec_name_match' || b.geo_source === 'aec_id_match' ? 'located' : 'not located'}`), seatPageLink(eid, b.contest_id));
   if (suppNote(c)) root.append(h('div', { class: 'hint' }, suppNote(c)));
   if (eid === LIVE.election && !b.reported) {
     root.append(h('div', { class: 'hint', style: 'margin:6px 0' }, LIVE.available ? 'No figures from this booth yet.' : 'A 2022 booth, carried forward for 2026. Figures appear here on election night.'), h('div', { style: 'margin:4px 0 8px' }, h('button', { class: 'btn', onclick: () => { setUnit('contest'); selectContest(eid, b.contest_id, true); } }, `Open ${c ? c.contest_name : 'the electorate'}: candidates and history`)));
@@ -3482,8 +3489,17 @@ function cbcCand(eid, cid, id) {
   const lc = eid === LIVE.election && LIVE.latest && LIVE.latest.contests && LIVE.latest.contests[cid]; const x = lc && (lc.candidates || []).find(y => y.candidate_id === id);
   return x ? { surname: x.surname || x.name || id, given_name: x.given_name || '', party: x.party || 'OTH', party_name: x.party_name } : { surname: id, party: 'OTH' };
 }
+// the VEC stops its distribution once a candidate has more than half the formal votes (or never starts one when that happens on
+// first preferences); for those seats it publishes an indicative distribution that carries on to the final two
 function officialCounts(eid, cid) {
-  const rows = D.dop.filter(d => d.election_id === eid && d.contest_id === cid); if (!rows.length) return null;
+  const off = dopCounts(D.dop, eid, cid), left = (x) => Object.values(x.counts[x.counts.length - 1].totals).filter(v => v > 0).length;
+  if (off && left(off) <= 2) return off;
+  const ind = dopCounts(D.dopi || [], eid, cid);
+  if (ind && (!off || ind.counts.length > off.counts.length)) { ind.source = 'indicative'; return ind; }
+  return off;
+}
+function dopCounts(src, eid, cid) {
+  const rows = src.filter(d => d.election_id === eid && d.contest_id === cid); if (!rows.length) return null;
   const nos = [...new Set(rows.map(r => r.count_no))].sort((a, b) => a - b); if (nos[0] !== 0 || nos.length < 2) return null;
   const c0 = rows.filter(r => r.count_no === 0); const ids = c0.map(r => r.candidate_id);
   let tot = Object.fromEntries(c0.map(r => [r.candidate_id, r.progressive_total || 0]));
@@ -3525,7 +3541,8 @@ function countByCount(eid, cid) {
     const dest = Object.entries(C.to).sort((a, b) => b[1] - a[1]); const moved = C.moved || dest.reduce((a, [, v]) => a + v, 0);
     let cap = `${cand(C.out).surname} (${pname(C.out)}) is out. ${fmt(Math.round(moved))} votes move: ` + dest.slice(0, 3).map(([id, v]) => `${pct(v / moved, 0)} to ${cand(id).surname}`).join(', ') + (dest.length > 3 ? ', the rest spread' : '') + '.';
     if (k === N) { const fin = order.filter(id => C.totals[id] > 0).sort((a, b) => C.totals[b] - C.totals[a]); const ft = fin.reduce((a, id) => a + C.totals[id], 0);
-      cap += ` ${off ? 'Final two' : 'Modelled final two'}: ${fin.map(id => `${cand(id).surname} ${pct(C.totals[id] / ft)}`).join(', ')}.`; }
+      cap += fin.length > 2 ? ` ${cand(fin[0]).surname} has more than half the votes, so the VEC stopped here: ${fin.map(id => `${cand(id).surname} ${fmt(Math.round(C.totals[id]))}`).join(', ')}.`
+        : ` ${off ? 'Final two' : 'Modelled final two'}: ${fin.map(id => `${cand(id).surname} ${pct(C.totals[id] / ft)}`).join(', ')}.`; }
     return cap;
   };
   // columns: one per candidate still standing at count k; at count k the bar shows what they had (solid) and what just arrived (striped)
@@ -3644,12 +3661,15 @@ function countByCount(eid, cid) {
     onclick: (ev) => { stopAll(); const v = !animOn(); CBC_STATE.set('anim', v); ev.currentTarget.classList.toggle('on', v); ev.currentTarget.setAttribute('aria-pressed', String(v)); ev.currentTarget.textContent = v ? 'Count up: on' : 'Count up: off'; show(st.k); } }, animOn() ? 'Count up: on' : 'Count up: off');
   wrap.append(h('div', { class: 'cbc-tabs' }, viewBtn('rows', 'Rows'), viewBtn('cols', 'Columns'), animBtn),
     h('div', { class: 'cbc-ctl' }, bPrev, bPlay, bNext, range, kLab), capSlot, chartSlot,
-    h('div', { class: 'hint', style: 'margin-top:6px' }, off
-      ? 'From the VEC’s distribution of preferences: the lowest candidate is excluded and their ballots go to the next preference still standing, until two remain. Striped: votes that arrived at this count.'
+    h('div', { class: 'hint', style: 'margin-top:6px' }, off && off.source === 'indicative'
+      ? (() => { const w = order.find(id => D_.counts.some(x => x.totals[id] >= need)), at = D_.counts.findIndex(x => x.totals[w] >= need);
+          return `From the VEC’s indicative distribution of preferences. ${w ? `${cand(w).surname} already had more than half the formal votes ${at === 0 ? 'on first preferences' : `after count ${at}`}, which decides the seat, so the VEC ran the rest of the count afterwards to show the final two.` : ''} Its figures can differ by a few votes from the final count. Striped: votes that arrived at this count.`; })()
+      : off
+      ? 'From the VEC’s distribution of preferences: the lowest candidate is excluded and their ballots go to the next preference still standing, until two remain' + (Object.values(D_.counts[N].totals).filter(v => v > 0).length > 2 ? ' or one candidate has more than half the votes' : '') + '. Striped: votes that arrived at this count.'
       : (live ? 'Modelled from the first preferences counted so far, using how preferences have flowed in past counts' + (D_.cardsUsed ? ' and this seat’s how-to-vote cards' : '') + '. The VEC publishes its own distribution after the count (winners are expected to be declared 9 to 15 December) and it replaces this when it lands.'
               : `Modelled from the final first preferences (${D_.label}).`)), flows);
   show(st.k);
-  wrap.dataset.summary = `${N} exclusion${N === 1 ? '' : 's'} · ${off ? (live ? 'VEC count' : 'official') : 'modelled'}`;
+  wrap.dataset.summary = `${N} exclusion${N === 1 ? '' : 's'} · ${off ? (off.source === 'indicative' ? 'VEC indicative count' : live ? 'VEC count' : 'official') : 'modelled'}`;
   return wrap;
 }
 // the registered how-to-vote cards of a seat, each as its full ordering, with how far that party's voters followed it (2022)
@@ -4119,7 +4139,7 @@ function renderContestDetail2026(cid) {
   const eid = LIVE.election, c = idx.contestById.get(eid + '|' + cid), reg = LIVE.register, meta = LIVE.meta || {}, v = meta.voting || {};
   const root = el('detail'); root.innerHTML = '';
   const lc = LIVE.latest && LIVE.latest.contests[cid];
-  root.append(h('h2', {}, c.contest_name, isFresh(eid, null, cid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(lc.updated_at)) : ''), h('div', { class: 'meta' }, `Victorian state election 2026 · state electorate · held by ${c.held_by || '–'}`));
+  root.append(h('h2', {}, c.contest_name, isFresh(eid, null, cid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(lc.updated_at)) : ''), h('div', { class: 'meta' }, `Victorian state election 2026 · state electorate · held by ${c.held_by || '–'}`), seatPageLink(eid, cid));
   const cands = D.candidates.filter(x => x.election_id === eid && x.contest_id === cid);
   const sitting = cands.find(x => x.incumbent);
   if (sitting) root.append(h('div', { class: 'hint' }, `Sitting member: ${sitting.given_name} ${sitting.surname} (${sitting.party_name || PARTY_NAME[sitting.party] || sitting.party}), recontesting`));
@@ -4885,6 +4905,7 @@ async function boot() {
     try { const man = await (await fetch(DATA + 'manifest.json')).json(); if (man.ext === '.json') DATA_GZ = false; } catch (e) {}
     const names = ['elections', 'contests', 'candidates', 'booths', 'shares', 'fp', 'tcp', 'venues', 'dop', 'contest_party', 'contest_cand', 'contest_tcp'];
     const loaded = await Promise.all(names.map(table)); names.forEach((n, i) => D[n] = loaded[i]);
+    try { D.dopi = await table('dop_indicative'); } catch (e) { D.dopi = []; }
     foldSupplementary();
     // the 2026 register (declared candidates, key dates) makes 2026 an election in its own right, live-fed on the night
     try {
