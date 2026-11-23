@@ -51,6 +51,31 @@ if (/(\.github\.io|electionboothatlas\.(org|com))$/.test(location.hostname)) {
 .cbc-col.gone{opacity:0;flex-grow:0.0001;margin:0 -4px}
 .cbc-cneed{position:absolute;left:0;right:0;border-top:1.5px dashed var(--fg-2);pointer-events:none;z-index:2}.cbc-cneed span{position:absolute;right:0;top:-16px;font-size:11px;color:var(--fg-2);background:var(--surface);padding:0 4px}
 .seatlink{display:inline-block;text-decoration:none;font-size:14px}.seatlink:hover{border-color:var(--accent)}
+.v2 .badge.night{background:#1B2B4B;color:#fff;font-weight:600}.v2 .badge.night.called,.v2 .badge.night.declared{background:var(--accent);color:#fff}.v2 .badge.night.leaning{background:#3d5a80;color:#fff}.v2 .badge.night.plain{background:#fff;color:#1B2B4B;border:1.5px solid #1B2B4B}.pulse{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--lime,#a6d05a);box-shadow:0 0 0 3px rgba(166,208,90,.35);vertical-align:middle;margin-right:7px}
+.whatnext{margin:0;padding-left:20px;display:grid;gap:8px;font-size:15.5px;line-height:1.45}
+details.closedvote{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:12px 16px}details.closedvote>summary{cursor:pointer;font-weight:700;font-size:16px}details.closedvote[open]>summary{margin-bottom:10px}
+.res-right{display:flex;flex-direction:column;gap:16px;min-width:0}.res-right .mm-svg{max-height:380px}
+.mm{position:relative;--mm-fill:#EAF4FA}.mm-stage{position:relative;width:100%;background:var(--mm-bg,#F7F5EF);border-radius:12px;overflow:hidden;touch-action:none}.mm-svg{display:block;width:100%;height:auto;max-height:520px;cursor:grab}.mm-svg:active{cursor:grabbing}
+.mm-dot{cursor:pointer;transition:stroke-width .1s}.mm-dot:hover,.mm-dot:focus{stroke:#1B2B4B;outline:none}.mm-tip{position:absolute;z-index:3;width:240px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 10px;box-shadow:var(--shadow);font-size:13.5px;pointer-events:none}.mm-tip[hidden]{display:none}
+.mm-zs{position:absolute;top:8px;right:8px;display:flex;flex-direction:column;gap:4px}.mm-z{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-size:16px;line-height:1;cursor:pointer;color:var(--fg)}
+.mm-leg{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-top:10px;font-size:13px}.mm-foot{margin-top:8px;font-size:14px;font-weight:600}.mm-foot a{color:var(--accent);text-decoration:none}
+.fd-hg{display:flex;gap:24px;align-items:stretch;margin-top:12px}.fd-hgl{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:10px}.fd-hgl>*{margin-top:0!important}.fd-hgl>.house{align-self:flex-start}
+.fd-dcard{flex:0 1 540px;min-width:0;display:flex;gap:14px;background:var(--surface);border-radius:14px;padding:10px;color:var(--fg);text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid transparent}.fd-dcard:hover{border-color:var(--accent)}.fd-dcard[hidden]{display:none}
+.fd-dcard .fd-img{flex:none;width:118px;align-self:stretch;min-height:120px;border-radius:9px;overflow:hidden;border:1px solid var(--line);position:relative;background:#F1EDE4}.fd-dcard .fd-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}.fd-dcard .fd-img.vid::after{width:36px;height:36px;font-size:14px;padding-left:3px}
+.fd-dcard .fd-body{display:flex;flex-direction:column;gap:5px;min-width:0;padding:2px 4px 2px 0}.fd-dh{display:flex;justify-content:space-between;gap:8px;align-items:baseline}.fd-dcard .fd-txt{font-size:14px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line}.fd-open{margin-top:auto;font-size:13px;font-weight:600;color:var(--accent)}
+@media (min-width:1101px){.fd-hgl .fd-tick{display:none}}@media (max-width:1100px){.fd-dcard{display:none!important}.fd-hg{display:block}.fd-hgl{gap:10px}}
+.fd-tick{display:inline-flex;align-items:center;gap:8px;max-width:100%;min-width:0;height:36px;padding:0 12px 0 4px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg);text-decoration:none;font-size:13.5px}.fd-tick[hidden]{display:none}.fd-tick:hover{border-color:var(--accent)}
+.fd-tick .fd-img{flex:none;width:26px;height:26px;border-radius:50%;overflow:hidden;border:1px solid var(--line);position:relative}.fd-tick .fd-img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}.fd-tick .fd-img.vid::after{display:none}
+.fd-tl{flex:none;font-weight:700;color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.04em}.fd-tt{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fd-tick .fd-time{flex:none;color:var(--fg-3);font-size:12.5px}.fd-arr{flex:none;color:var(--accent)}
+#view-home .fd-tick{margin-top:12px;max-width:560px}#dash-head .fd-tick{max-width:560px;margin-top:10px}
+.fd-followrow{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;font-weight:600;color:var(--fg-2)}
+.fd-socials{display:flex;gap:2px}.fd-socials a{display:grid;place-items:center;width:32px;height:32px;border-radius:999px;color:var(--fg-2)}.fd-socials a:hover{background:var(--surface-2)}.fd-socials svg{width:16px;height:16px;fill:currentColor}
+.fd-img.vid::after{content:'▶';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:rgba(0,0,0,.55);color:#fff;display:grid;place-items:center;box-sizing:border-box}
+.fd-time{font-size:12.5px;color:var(--fg-3);font-weight:600}
+.controls .fd-left{margin-top:auto;border-top:1px solid var(--line);padding-top:12px}.fd-left[hidden]{display:none}.fd-mhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;font-size:13px}.fd-mhead strong{font-size:14px;color:var(--fg)}.fd-mhead a{color:var(--accent);text-decoration:none;font-weight:600}
+.fd-mlist{display:flex;flex-direction:column;gap:8px}.fd-mi{display:flex;gap:10px;align-items:flex-start;color:var(--fg);text-decoration:none;padding:6px;margin:0 -6px;border-radius:10px}.fd-mi:hover{background:var(--surface-2)}
+.fd-mi .fd-img{flex:none;width:52px;height:65px;border-radius:6px;overflow:hidden;border:1px solid var(--line);position:relative}.fd-mi .fd-img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}.fd-mi .fd-img.vid::after{width:24px;height:24px;font-size:10px;padding-left:2px}
+.fd-mi .fd-body{display:flex;flex-direction:column;gap:2px;min-width:0}.fd-mi .fd-txt{font-size:12.5px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.fd-mi .fd-time{font-size:11.5px}
 .cbc-flows{margin-top:14px;border-top:1px solid var(--line);padding-top:8px}.cbc-flows>summary{cursor:pointer;font-size:14px;font-weight:600;padding:4px 0;list-style-position:inside}.cbc-flows[open]>summary{margin-bottom:6px}.cbc-fbar{display:flex;height:10px;border-radius:3px;overflow:hidden;background:var(--surface-2);min-width:120px}.cbc-fbar b{display:block;height:100%}
 .cbc-frow{cursor:pointer}.cbc-frow:hover td{background:var(--surface-2)}.cbc-frow.cur td{background:color-mix(in srgb,var(--accent) 12%,transparent)}.cbc-frow.cur td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
 .cbc-tabs{display:flex;gap:6px;margin:2px 0 8px;flex-wrap:wrap}.cbc-tab.cbc-anim{margin-left:auto}.cbc-tab{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg-2);cursor:pointer}.cbc-tab.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
@@ -1888,8 +1913,8 @@ function renderDash() {
   if (live) {
     if (!LIVE.available) { const kd = (LIVE.meta && LIVE.meta.key_dates) || {}; const today = new Date(); const days = (iso) => Math.ceil((new Date(iso + 'T00:00:00') - today) / 86400000); const closed = Date.now() >= POLLS_CLOSE;
       head.append(h('div', { style: 'margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center' }, h('span', { class: 'pre-badge' }, h('span', { class: closed ? 'pulse' : 'pulse off' }), closed ? 'Polls have closed' : 'Pre-election preview'), countdownBlock()), closed ? voteTypeTable(t) : ''); { const el2 = earlyLines(null); if (el2.length && !closed) head.append(h('div', { class: 'early-now', style: 'margin-top:10px' }, ...el2)); } }
-    else head.append(h('div', { style: 'margin-top:10px' }, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${totalsText(t)} · ${t.freshB} booths and ${t.freshC} electorates changed since ${fmtTime(LIVE.seenAt)}`),
-      h('span', { style: 'margin-left:10px' }, h('button', { class: 'btn', onclick: () => { LIVE.seenAt = LIVE.fetchedAt || new Date().toISOString(); try { localStorage.setItem('atlas.liveSeenAt', LIVE.seenAt); } catch (e) {} renderDash(); if (mapReady) renderMap(); renderLiveBox(); } }, 'Mark all seen'), ' ', h('button', { class: 'btn', onclick: () => pollLive(true).then(renderDash) }, 'Refresh now'))), voteTypeTable(t));
+    else head.append(h('div', { style: 'margin-top:10px' }, h('span', { class: 'pulse' }), h('strong', {}, `Live · ${fmtTime(LIVE.fetchedAt)}`), h('span', { class: 'hint' }, ` · ${totalsText(t)}`),
+      h('span', { style: 'margin-left:10px' }, h('button', { class: 'btn', onclick: () => pollLive(true).then(renderDash) }, 'Refresh now'))), voteTypeTable(t));
   }
   head.append(h('div', { class: 'stats', style: 'margin-top:12px' },
     stat(`${declared + called}${total ? ' / ' + total : ''}`, live ? 'seats called or declared' : 'seats declared'),
@@ -4675,6 +4700,7 @@ const SEAT_RES = { cid: null, box: null };
 function seatLive(cid) { const lc = LIVE.latest && LIVE.latest.contests && LIVE.latest.contests[cid]; return lc && lc.counted ? lc : null; }
 function seatResultsFill(box, cid) {
   box.innerHTML = '';
+  { const bd = document.querySelector('#view-seat .shead .badges'); if (bd) { const nb = seatNightBadges(cid).filter(Boolean); if (nb.length) { bd.querySelectorAll('.badge.night').forEach(x => x.remove()); bd.prepend(...nb); } } }
   const eid = LIVE.election, lc = seatLive(cid); if (!lc) return;
   const by = lc.counted.by_type || {}; const parts = Object.entries(by).filter(([, n]) => n).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k === 'ordinary' ? 'election day' : k.replaceAll('_', ' ')} ${fmt(n)}`);
   const g = countProgress(cid);
@@ -4695,9 +4721,152 @@ function seatResultsFill(box, cid) {
       h('div', { class: 'row', style: 'justify-content:space-between;gap:8px;align-items:baseline' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.party)}` }), x.cand ? x.cand.surname : x.party), h('span', { class: 'mono' }, `${x.votes != null ? fmt(x.votes) + ' · ' : ''}${pct(x.share)}`)),
       h('div', { class: 'bar' }, h('b', { style: `width:${(100 * x.share).toFixed(1)}%;background:${partyColor(x.party)}` })))),
     h('div', { class: 'hint' }, pr.method === 'projected' ? `${PARTY_NAME[pr.baseParty]} had ${pct(pr.base)} after preferences in 2022; the ${pts(pr.swing)} pt swing is measured at ${pr.booths} matched booth${pr.booths === 1 ? '' : 's'}. Counted so far: ${pr.countedPair.map(x => `${x.cand ? x.cand.surname : x.party} ${pct(x.share)}`).join(' v ')}.` : pr.method === 'official' ? 'From the VEC distribution of preferences.' : 'The VEC’s two-candidate count so far.')));
+  { // the seat's map sits under the two-candidate result, beside the first preferences
+    const mapBox = h('div', { class: 'box' }, h('h3', {}, 'Booths on the map'), seatMiniMap(cid, 'live'), h('div', { class: 'mm-foot' }, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); setUnit('booth'); setElection(LIVE.election); showView('map'); flyToContest(LIVE.election, cid); } }, 'Show on the full map →')));
+    const right = h('div', { class: 'res-right' }), prb = grid.children[1];
+    if (prb) { prb.replaceWith(right); right.append(prb, mapBox); } else grid.append(mapBox); }
+  box.append(seatBoothsReporting(cid));
   const cb = h('div', { class: 'box', style: 'margin-top:16px' }, h('h3', {}, 'Count by count'), h('p', { class: 'hint', style: 'margin:0 0 8px' }, 'Who is knocked out, and where their votes go, until two candidates remain.')); box.append(cb);
   if (PREF) { const w = countByCount(eid, cid); cb.append(w || h('div', { class: 'empty' }, 'This appears once there are first preferences to run through.')); }
   else { cb.append(h('div', { class: 'empty' }, 'Loading…')); Promise.all([ensurePref(), ensureHtv(eid), ensureHtv(HTV_BASE)]).then(() => { if (box.isConnected) seatResultsFill(box, cid); }); }
+}
+/* ---------- the seat's own small map: its outline and its booths as dots (an SVG, no map engine or tiles) ----------
+   Before the night: who won each booth after preferences in 2022. From 6 pm: 2026 booths, grey until they report, then
+   coloured by who leads there (two-candidate count where there is one, else first preferences); rings mark the last 10 minutes.
+   Hover or tap a dot for its figures; click to open it on the main map. +/− zoom, drag to pan; the view is kept per seat. */
+const MINI = { view: new Map() };
+function seatMiniMap(cid, mode) {
+  const live = mode === 'live', eid = live ? LIVE.election : 'vic2022';
+  const oc = live ? { contest_id: cid } : contestIn('vic2022', cid, LIVE.election);
+  const wrap = h('div', { class: 'mm' }), stage = h('div', { class: 'mm-stage' }, h('div', { class: 'empty' }, 'Loading the map…')), tip = h('div', { class: 'mm-tip', hidden: true });
+  const leg = h('div', { class: 'mm-leg' });
+  const zb = (t, title, fn) => h('button', { type: 'button', class: 'mm-z', title, 'aria-label': title, onclick: fn }, t);
+  let svg = null, dots = [], base = null, vb = null;
+  const setVB = () => { if (!svg) return; svg.setAttribute('viewBox', vb.map(v => v.toFixed(1)).join(' ')); const z = base[2] / vb[2]; for (const d of dots) d.el.setAttribute('r', (d.r / Math.sqrt(z)).toFixed(2)); for (const r of svg.querySelectorAll('.mm-ring')) r.setAttribute('r', (+r.dataset.r / Math.sqrt(z)).toFixed(2)); svg.querySelector('.mm-out').setAttribute('stroke-width', (2 / z).toFixed(2)); MINI.view.set(mode + '|' + cid, vb.slice()); };
+  const zoom = (f) => { if (!vb) return; const cx = vb[0] + vb[2] / 2, cy = vb[1] + vb[3] / 2, w = Math.min(base[2], Math.max(base[2] / 12, vb[2] / f)), hh = w * base[3] / base[2]; vb = [cx - w / 2, cy - hh / 2, w, hh]; setVB(); };
+  wrap.append(stage, tip, h('div', { class: 'mm-zs' }, zb('+', 'Zoom in', () => zoom(1.6)), zb('−', 'Zoom out', () => zoom(1 / 1.6)), zb('⤢', 'Whole seat', () => { vb = base.slice(); setVB(); })), leg);
+  if (!oc) { stage.replaceChildren(h('div', { class: 'empty' }, 'No 2022 booths to show for this seat.')); return wrap; }
+  loadGz('boundary_vic_la_2022', 'geojson').then(fc => {
+    const f = (fc.features || []).find(x => x.properties.contest_id === cid); if (!f) { stage.replaceChildren(h('div', { class: 'empty' }, 'No boundary for this seat.')); return; }
+    const [[x0, y0], [x1, y1]] = bboxOf(f.geometry), k = Math.cos(((y0 + y1) / 2) * Math.PI / 180);
+    const W = 600, S = W / ((x1 - x0) * k), H = Math.max(200, Math.min(560, (y1 - y0) * S)), Sx = Math.min(S, H / (y1 - y0)), pad = 16;
+    const px = (x) => pad + (x - x0) * k * Sx, py = (y) => pad + (y1 - y) * Sx;
+    const ring = (r) => 'M' + r.map(([x, y]) => `${px(x).toFixed(1)} ${py(y).toFixed(1)}`).join('L') + 'Z';
+    const polys = (g) => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+    const Wd = (x1 - x0) * k * Sx + 2 * pad, Hd = (y1 - y0) * Sx + 2 * pad;
+    const ex = (x1 - x0) * .25, ey = (y1 - y0) * .25;
+    const near = (fc.features || []).filter(x => x !== f && (() => { const [[bx0, by0], [bx1, by1]] = bboxOf(x.geometry); return !(bx1 < x0 - ex || bx0 > x1 + ex || by1 < y0 - ey || by0 > y1 + ey); })());
+    const NS = 'http://www.w3.org/2000/svg', mk = (t, a) => { const e = document.createElementNS(NS, t); for (const [kk, v] of Object.entries(a)) e.setAttribute(kk, v); return e; };
+    svg = mk('svg', { class: 'mm-svg', role: 'img', 'aria-label': `Map of ${(idx.contestById.get(LIVE.election + '|' + cid) || {}).contest_name || cid} and its polling places`, preserveAspectRatio: 'xMidYMid meet' });
+    svg.append(mk('path', { d: near.flatMap(x => polys(x.geometry).flat().map(ring)).join(''), fill: 'none', stroke: 'var(--line)', 'stroke-width': 1, 'vector-effect': 'non-scaling-stroke' }),
+      mk('path', { d: polys(f.geometry).flat().map(ring).join(''), fill: 'var(--mm-fill)', 'fill-rule': 'evenodd', stroke: 'none' }),
+      mk('path', { class: 'mm-out', d: polys(f.geometry).flat().map(ring).join(''), fill: 'none', stroke: '#1B2B4B', 'stroke-width': 2, 'stroke-linejoin': 'round' }));
+    // booths
+    const bs = D.booths.filter(b => b.election_id === eid && b.contest_id === oc.contest_id && b.booth_type === 'ordinary' && b.lat != null && b.lon != null);
+    const recent = live && LIVE.fetchedAt ? Date.parse(LIVE.fetchedAt) - 10 * 60000 : null;
+    const info = bs.map(b => {
+      const ps = partyShares(eid, b.booth_id), t = (!live || b.reported) ? tcpShares(eid, b.booth_id) : null, top = t ? [...t].sort((a, c) => c.share - a.share)[0] : null;
+      let lead = null; for (const q of PARTIES) if (ps[q] && (!lead || ps[q].share > ps[lead].share)) lead = q;
+      const counted = !live || !!b.reported, party = top ? grpParty(top.party) : (counted ? lead : null);
+      return { b, ps, top, lead, counted, party, fresh: !!(recent && b.reported && b.updated_at && Date.parse(b.updated_at) >= recent) };
+    });
+    const maxF = Math.max(1, ...info.map(x => x.ps.formal || 0));
+    info.sort((a, c) => (a.counted - c.counted) || ((c.ps.formal || 0) - (a.ps.formal || 0)));   // uncounted underneath, small on top
+    dots = [];
+    for (const x of info) {
+      const cx = px(x.b.lon), cy = py(x.b.lat), r = x.counted ? 4 + 7 * Math.sqrt((x.ps.formal || 0) / maxF) : 5;
+      if (x.fresh) svg.append(mk('circle', { class: 'mm-ring', cx, cy, r: r + 4, 'data-r': r + 4, fill: 'none', stroke: '#1B2B4B', 'stroke-width': 1.6, 'vector-effect': 'non-scaling-stroke' }));
+      const c = mk('circle', { cx, cy, r, fill: x.counted && x.party ? partyColor(x.party) : 'var(--surface)', stroke: x.counted ? '#fff' : '#9aa0a8', 'stroke-width': x.counted ? 1.2 : 1.5, 'vector-effect': 'non-scaling-stroke', class: 'mm-dot', tabindex: '0' });
+      const show = () => {
+        const sw = live && x.top ? venueTcpSwing(eid, x.b, x.party, x.top.share) : null;
+        tip.replaceChildren(h('strong', {}, x.b.booth_name),
+          !x.counted ? h('div', { class: 'hint' }, 'Not counted yet') :
+            h('div', {}, x.top ? `${x.top.cand ? x.top.cand.surname : PARTY_SHORT[x.party]} (${PARTY_SHORT[x.party] || x.party}) ${pct(x.top.share)} after preferences` : x.lead ? `${PARTY_SHORT[x.lead]} leads on primaries, ${pct(x.ps[x.lead].share)}` : ''),
+          x.counted ? h('div', { class: 'hint' }, `${fmt(x.ps.formal || 0)} formal votes${sw != null ? ` · swing ${pts(sw)} since 2022` : ''}${live && x.b.updated_at ? ` · in at ${fmtTime(x.b.updated_at)}` : ''}`) : '',
+          h('div', { class: 'hint', style: 'margin-top:2px' }, 'Click to open it on the map'));
+        const sb = stage.getBoundingClientRect(), cb = c.getBoundingClientRect(); tip.hidden = false;
+        tip.style.left = Math.min(sb.width - 240, Math.max(0, cb.left - sb.left + cb.width / 2 - 120)) + 'px'; tip.style.top = (cb.top - sb.top + cb.height + 8) + 'px';
+      };
+      c.addEventListener('pointerenter', show); c.addEventListener('focus', show); c.addEventListener('pointerleave', () => { tip.hidden = true; }); c.addEventListener('blur', () => { tip.hidden = true; });
+      c.addEventListener('click', () => { setUnit('booth'); setElection(eid); showView('map'); setTimeout(() => select(eid, x.b.booth_id, true), 400); });
+      svg.append(c); dots.push({ el: c, r });
+    }
+    base = [0, 0, Wd, Hd]; vb = (MINI.view.get(mode + '|' + cid) || base).slice();
+    stage.replaceChildren(svg); setVB();
+    // drag to pan
+    let drag = null;
+    svg.addEventListener('pointerdown', (ev) => { if (ev.target.classList.contains('mm-dot')) return; drag = { x: ev.clientX, y: ev.clientY, vb: vb.slice() }; svg.setPointerCapture(ev.pointerId); });
+    svg.addEventListener('pointermove', (ev) => { if (!drag) return; const sc = vb[2] / svg.getBoundingClientRect().width; vb = [drag.vb[0] - (ev.clientX - drag.x) * sc, drag.vb[1] - (ev.clientY - drag.y) * sc, vb[2], vb[3]]; setVB(); });
+    svg.addEventListener('pointerup', () => { drag = null; });
+    // legend: the parties on the map, then the uncounted
+    const ps = [...new Set(info.filter(x => x.counted && x.party).map(x => x.party))];
+    leg.replaceChildren(h('span', { class: 'hint' }, live ? 'Who leads at each booth' : 'Who won each booth after preferences, 2022'),
+      ...ps.map(p => h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_SHORT[p] || p)),
+      live && info.some(x => !x.counted) ? h('span', { class: 'chip' }, h('i', { style: 'background:var(--surface);border:1.5px solid #9aa0a8;box-sizing:border-box' }), 'Not counted yet') : '',
+      live && info.some(x => x.fresh) ? h('span', { class: 'chip' }, h('i', { style: 'background:none;border:1.6px solid #1B2B4B;box-sizing:border-box' }), 'Last 10 minutes') : '');
+  }).catch(() => stage.replaceChildren(h('div', { class: 'empty' }, 'The map couldn’t be loaded.')));
+  return wrap;
+}
+
+/* ---------- seat pages on election night: from 6 pm the page leads with the count ---------- */
+// the badges at the top of a seat page from 6 pm: the state of the count, then (once a seat is called or declared) who holds or
+// gains it, with the margin after preferences. "Called" is the Atlas's call from the count so far; "declared" is the VEC's.
+const NIGHT_CODE = { Labor: 'ALP', Liberal: 'LIB', National: 'NAT', Nationals: 'NAT', Greens: 'GRN', Independent: 'IND' };
+const NIGHT_NAME = { ALP: 'Labor', LIB: 'Liberal', NAT: 'Nationals', GRN: 'Greens', IND: 'Independent', ONP: 'One Nation', VSP: 'Socialists' };
+function seatNightBadges(cid) {
+  if (Date.now() < POLLS_CLOSE) return [];
+  const B = (cls, ...k) => h('span', { class: 'badge night ' + cls }, ...k), pulse = () => h('span', { class: 'pulse' });
+  if (!seatLive(cid)) return [B('', pulse(), 'Counting from 6 pm')];
+  const c = idx.contestById.get(LIVE.election + '|' + cid), st = seatStatus(LIVE.election, cid), w = st.winner;
+  const code = (x) => x ? (x.cand && x.cand.party ? x.cand.party : x.party) : null, nm = (p) => NIGHT_NAME[p] || PARTY_NAME[p] || p || '';
+  const pair = (st.proj && st.proj.tcp && st.proj.tcp.pair) || (st.pr && st.pr.pair) || [];
+  if (!w || st.status === 'counting' || st.status === 'nocount') return [B('', pulse(), w && w.party ? `Counting · ${nm(w.party)} ahead on primaries` : 'Counting')];
+  const wp = code(w), how = st.basis === 'projection' ? 'projected' : st.basis === 'declared' ? 'final' : 'count so far';
+  const marg = st.margin != null ? B('plain', `Margin ${(100 * st.margin).toFixed(1)} points after preferences (${how})`) : '';
+  if (st.status === 'doubt') return [B('', pulse(), pair.length === 2 ? `In doubt: ${pair.map(x => nm(code(x))).join(' v ')}` : 'In doubt')];
+  if (st.status === 'leaning') return [B('leaning', pulse(), `${nm(wp)} ahead`), marg];
+  // called or declared: retain or gain
+  const held = NIGHT_CODE[c.held_by] || null, inc = !!(w.cand && w.cand.incumbent);
+  const retain = held === 'IND' ? inc : held === wp;
+  const what = retain ? `${nm(wp)} retain` : held ? `${nm(wp)} gain from ${nm(held)}` : `${nm(wp)} win`;
+  return [B(st.status, st.status === 'declared' ? '' : pulse(), what + (st.status === 'declared' ? ' · declared' : ' · called')), marg];
+}
+// two-candidate swing at a 2026 booth for one party, against the same venue's 2022 booth(s)
+function venueTcpSwing(eid, b, party, share) {
+  const other = PREV[eid]; if (!other || !b.venue_id) return null;
+  let votes = 0, tot = 0;
+  for (const x of (idx.boothsByVenue.get(b.venue_id) || []).filter(y => y.election_id === other && y.booth_type === 'ordinary')) { const q = tcpShares(other, x.booth_id); if (!q) continue; const m = q.find(y => grpParty(y.party) === party); if (!m) continue; tot += q.reduce((a, y) => a + y.votes, 0); votes += m.votes; }
+  return tot ? share - votes / tot : null;
+}
+function seatBoothsReporting(cid) {
+  const eid = LIVE.election, bs = D.booths.filter(b => b.election_id === eid && b.contest_id === cid && b.reported && b.booth_type === 'ordinary');
+  if (!bs.length) return '';
+  bs.sort((a, b) => String(b.updated_at || '').localeCompare(String(a.updated_at || '')) || a.booth_name.localeCompare(b.booth_name));
+  const chipP = (p, txt) => h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), txt);
+  const rows = bs.map(b => {
+    const ps = partyShares(eid, b.booth_id); let lead = null; for (const q of PARTIES) if (ps[q] && (!lead || ps[q].share > ps[lead].share)) lead = q;
+    const t = tcpShares(eid, b.booth_id), top = t ? [...t].sort((x, y) => y.share - x.share)[0] : null, tp = top ? grpParty(top.party) : null;
+    const sw = top ? venueTcpSwing(eid, b, tp, top.share) : null;
+    return h('tr', { class: 'clickable', title: 'Show this booth on the map', onclick: () => { setUnit('booth'); setElection(eid); showView('map'); setTimeout(() => select(eid, b.booth_id, true), 400); } },
+      h('td', {}, b.booth_name), h('td', { class: 'num' }, fmt(ps.formal)),
+      h('td', {}, lead ? chipP(lead, `${PARTY_SHORT[lead] || lead} ${pct(ps[lead].share)}`) : '–'),
+      h('td', {}, top ? chipP(tp, `${PARTY_SHORT[tp] || tp} ${pct(top.share)}`) : h('span', { class: 'hint' }, 'not yet')),
+      h('td', { class: 'num' }, sw == null ? '–' : `${PARTY_SHORT[tp] || tp} ${pts(sw)}`), h('td', { class: 'num hint' }, b.updated_at ? fmtTime(b.updated_at) : ''));
+  });
+  const n = D.booths.filter(b => b.election_id === eid && b.contest_id === cid && b.booth_type === 'ordinary').length;
+  return h('div', { class: 'box', style: 'margin-top:16px' }, h('h3', {}, `Booths reporting · ${bs.length} of ${n}`),
+    h('p', { class: 'hint', style: 'margin:0 0 8px' }, 'Election-day polling places, newest first. Swing: the two-candidate leader at that booth, against the same venue in 2022. Click a booth to see it on the map.'),
+    h('div', { class: 'tablewrap', style: 'max-height:420px;overflow:auto' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Polling place'), h('th', { class: 'num' }, 'Formal'), h('th', {}, 'Leads on primaries'), h('th', {}, 'Two-candidate'), h('th', { class: 'num' }, 'Swing since 2022'), h('th', { class: 'num' }, 'In at'))), h('tbody', {}, ...rows))));
+}
+function seatWhatNext() {
+  // from the VEC's published timeline (rules/vic2026_timeline_count.json, verified 22 November)
+  const li = (b, t) => h('li', {}, h('strong', {}, b), ' ', t);
+  return h('div', { class: 'box' }, h('ul', { class: 'whatnext' },
+    li('Tonight, from 6 pm:', 'first preferences and the VEC’s two-candidate count, for election-day votes at each voting centre, early votes cast in this district (at election hubs) and postal votes that arrived by election day.'),
+    li('From Sunday:', 'early votes cast in other districts and declaration votes are sorted and counted at a central site. From Monday every count is rechecked.'),
+    li('Postal votes:', 'accepted until 6 pm Friday 4 December.'),
+    li('Preferences:', 'distributed in full in every district, even where a candidate already has more than half the vote. Winners are expected to be declared between 9 and 15 December; the upper house between 16 and 18 December.')),
+    h('p', { class: 'hint', style: 'margin:10px 0 0' }, 'The two-candidate count on the night is an indication only and has no effect on the official result. If the VEC’s chosen pair looks wrong, it may withdraw that district’s two-candidate figures. Counting is by hand.'));
 }
 function renderSeat() {
   const root = el('seat-root'); if (!root) return; root.innerHTML = '';
@@ -4721,6 +4890,7 @@ function renderSeat() {
   const lc = seatLast(cid), hc = heldCode(c), ret = retiringIn(c);
   const cands = D.candidates.filter(x => x.election_id === LIVE.election && x.contest_id === cid).sort((a, b) => (a.ballot_position || 99) - (b.ballot_position || 99) || a.surname.localeCompare(b.surname));
   const sitting = cands.find(x => x.incumbent);
+  const night = Date.now() >= POLLS_CLOSE;
   // header
   const loc = h('div', { class: 'loc go', role: 'button', tabindex: '0', title: `See every booth in ${c.contest_name} on the map`, onclick: () => seatOnMap(cid), onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); seatOnMap(cid); } } }); locatorSvg(cid).then(svg => { loc.innerHTML = svg; }).catch(() => {});
   const c22 = idx.contestById.get('vic2022|' + cid);
@@ -4728,12 +4898,13 @@ function renderSeat() {
     h('div', { class: 'crumbs' }, h('button', { onclick: () => { SEAT.cid = null; renderSeat(); } }, 'Electorates'), ' › ', c.contest_name),
     h('h1', {}, c.contest_name),
     h('p', { class: 'lead', style: 'max-width:30em' }, `Legislative Assembly electorate. ${c22 && c22.enrolment ? fmt(c22.enrolment) + ' electors were enrolled in 2022.' : ''}`),
-    h('div', { class: 'badges' }, h('span', { class: 'badge' }, h('span', { class: 'dot', style: `background:${partyColor(hc)}` }), 'Held by ' + (c.held_by || '–')),
+    h('div', { class: 'badges' }, ...seatNightBadges(cid), h('span', { class: 'badge' }, h('span', { class: 'dot', style: `background:${partyColor(hc)}` }), 'Held by ' + (c.held_by || '–')),
       lc ? h('span', { class: 'badge' }, `Margin ${(100 * lc.margin).toFixed(1)} points (${shortName(lc.e)})`) : '',
-      ret.length ? h('span', { class: 'badge lime' }, 'Open seat: member retiring') : sitting ? h('span', { class: 'badge' }, `${sitting.given_name} ${sitting.surname} recontesting`) : ''),
+      night ? '' : ret.length ? h('span', { class: 'badge lime' }, 'Open seat: member retiring') : sitting ? h('span', { class: 'badge' }, `${sitting.given_name} ${sitting.surname} recontesting`) : ''),
     mapCta('See every booth on the map', () => seatOnMap(cid)))));
   const live = !!seatLive(cid);
-  const secs = [...(live ? [['results', 'Results']] : []), ['ballot', "Who's standing"], ['vote', 'How to vote'], ['history', 'Past results'], ['booths', 'Booth by booth'], ['timing', 'Timing'], ['people', 'Who lives here']];
+  const secs = night ? [['results', 'Results'], ['ballot', "Who's standing"], ['history', 'Past results'], ['booths', 'Booth by booth'], ['timing', 'What happens next'], ['people', 'Who lives here']]
+    : [...(live ? [['results', 'Results']] : []), ['ballot', "Who's standing"], ['vote', 'How to vote'], ['history', 'Past results'], ['booths', 'Booth by booth'], ['timing', 'Timing'], ['people', 'Who lives here']];
   const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', 'data-id': id, class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
   const body = h('div', { class: 'wrap', style: 'padding-bottom:56px' }); root.append(body);
@@ -4747,7 +4918,8 @@ function renderSeat() {
   const sec = (id, n, title, sub) => { const s = h('section', { class: 'sec', id: 's-' + id }, h('h2', {}, h('span', { class: 'bnum r' + ((n % 3) + 1), style: 'width:40px;height:40px;font-size:20px' }, String(n)), title), sub ? h('p', { class: 'sub' }, sub) : ''); body.append(s); return s; };
   body.append(twoHouses(cid, c));
   SEAT_RES.cid = cid; SEAT_RES.box = null;
-  if (live) { const s0 = sec('results', 1, 'Results', 'Live from the VEC count. Election-day booths, early and postal votes are added as they are counted.'); const rb = h('div'); s0.append(rb); SEAT_RES.box = rb; seatResultsFill(rb, cid); }
+  if (live || night) { const s0 = sec('results', 1, 'Results', 'Live from the VEC count. Election-day booths, early and postal votes are added as they are counted.'); const rb = h('div'); s0.append(rb); SEAT_RES.box = rb;
+    if (live) seatResultsFill(rb, cid); else rb.append(h('div', { class: 'box' }, h('div', { style: 'font-size:17px' }, h('span', { class: 'pulse' }), h('strong', {}, ' Polls closed at 6 pm.')), h('p', { class: 'hint', style: 'margin:6px 0 0' }, `Results for ${c.contest_name} appear here as the VEC publishes them: first preferences from each voting centre as it finishes its count, then the two-candidate count. This page updates itself; there's no need to reload.`))); }
   // 1 candidates
   const nominated = cands.some(x => x.nominated);
   const s1 = sec('ballot', 1, `Who's standing in 2026`, `${cands.length} candidates · ${nominated ? 'in ballot order, as nominated with the VEC' : 'declared so far, A to Z until the ballot draw'}. We link to each candidate's own pages and don't write about them ourselves.`);
@@ -4778,7 +4950,8 @@ function renderSeat() {
   s2.append(extra);
   { const dbx = h('div'); renderDailyBlock(dbx, cid, c); if (dbx.childNodes.length) s2.append(h('div', { class: 'box', style: 'margin-top:16px' }, dbx)); }
   // 3 timing
-  { const tb = timingBlock(cid, c, heldCode(c)); if (tb) { const st = sec('timing', 3, "It's all in the timing", 'Who votes on the day, who votes early, who posts it in, and what that does to the count on the night.'); st.append(tb); } }
+  if (night) { const st = sec('timing', 3, 'What happens next', 'How the count runs from tonight to the declaration.'); st.append(seatWhatNext()); }
+  else { const tb = timingBlock(cid, c, heldCode(c)); if (tb) { const st = sec('timing', 3, "It's all in the timing", 'Who votes on the day, who votes early, who posts it in, and what that does to the count on the night.'); st.append(tb); } }
   // 4 history
   const s3 = sec('history', 4, 'Past results', 'Every state election for a seat of this name. Boundaries move between elections, so treat long runs as a guide.');
   const hist = [];
@@ -4797,7 +4970,8 @@ function renderSeat() {
   if (DEMOG) fillCensus(); else { cbx.append(h('div', { class: 'empty' }, 'Loading…')); ensureDemog().then(fillCensus); }
   // 5 booths
   const s5 = sec('booths', 6, 'Booth by booth', `Each polling place in ${c.contest_name}, and how the same venue has voted over the years.`);
-  s5.append(h('div', { class: 'row', style: 'gap:10px;flex-wrap:wrap;margin-bottom:16px' }, h('button', { class: 'cta', style: 'height:46px;font-size:15px', onclick: () => seatOnMap(cid) }, `Open ${c.contest_name} on the map →`)));
+  if (!night) s5.append(h('div', { class: 'box', style: 'margin-bottom:16px' }, seatMiniMap(cid, 'past'), h('div', { class: 'mm-foot' }, h('a', { href: '#map', onclick: (ev) => { ev.preventDefault(); seatOnMap(cid); } }, 'Show on the full map →'))));
+  else s5.append(h('div', { class: 'row', style: 'gap:10px;flex-wrap:wrap;margin-bottom:16px' }, h('button', { class: 'cta', style: 'height:46px;font-size:15px', onclick: () => seatOnMap(cid) }, `Open ${c.contest_name} on the map →`)));
   const oc22 = contestIn('vic2022', cid, LIVE.election);
   const bl = oc22 ? D.booths.filter(b => b.election_id === 'vic2022' && b.contest_id === oc22.contest_id && b.booth_type === 'ordinary').sort((a, b) => a.booth_name.localeCompare(b.booth_name)) : [];
   if (bl.length) {
@@ -4821,9 +4995,11 @@ function renderSeat() {
     };
     draw();
   }
-  { const order = ['results', 'ballot', 'vote', 'history', 'booths', 'timing', 'people']; let n = 0;
+  if (night) { s2.remove(); const hd = s2.querySelector('h2'); if (hd) hd.remove(); body.append(h('details', { class: 'closedvote', style: 'margin-top:36px' }, h('summary', {}, 'How and when to vote · voting closed at 6 pm on Saturday'), s2)); }
+  { const order = night ? ['results', 'ballot', 'history', 'booths', 'timing', 'people'] : ['results', 'ballot', 'vote', 'history', 'booths', 'timing', 'people']; let n = 0;
     for (const id of order) { const sx = body.querySelector('#s-' + id); if (!sx) continue; n++; body.append(sx); const b = sx.querySelector('h2 .bnum'); if (b) { b.textContent = String(n); b.className = 'bnum r' + ((n % 3) + 1); } }
-    const wrapN = nav.querySelector('.wrap'); for (const id of order) { const a = [...wrapN.querySelectorAll('a')].find(x => x.dataset.id === id); if (a) wrapN.append(a); } }
+    const wrapN = nav.querySelector('.wrap'); for (const id of order) { const a = [...wrapN.querySelectorAll('a')].find(x => x.dataset.id === id); if (a) wrapN.append(a); }
+    const cv = body.querySelector(':scope > details.closedvote'); if (cv) body.append(cv); }
   body.append(h('div', { class: 'callout', style: 'margin-top:40px' }, h('div', {}, 'Going deeper: ', h('a', { href: '#compare', 'data-go': 'compare' }, 'compare elections venue by venue'), ' · ', h('a', { href: '#demog', 'data-go': 'demog' }, 'who votes how, seat by seat'), ' · ', h('a', { href: '#prefs', 'data-go': 'prefs' }, 'the Atlas books'))));
 }
 
@@ -4899,6 +5075,96 @@ function searchBooths(q) {
   for (const b of hits) box.append(h('button', { class: 'btn', style: 'display:block;width:100%;text-align:left;margin-top:4px', onclick: () => { select(state.election, b.booth_id, true); } }, b.booth_name, h('span', { class: 'hint' }, ' · ' + (idx.contestById.get(b.election_id + '|' + b.contest_id) || {}).contest_name)));
 }
 
+/* ---------- the Atlas's own Bluesky posts: a banner on the home page and Dashboard, a short list under the map controls ----------
+   Read in the visitor's browser from Bluesky's public API (no login, no embed script); our own posts only, no replies or reposts.
+   Re-read every 3 minutes while the page is visible, so posts made on election night appear without a reload. If Bluesky
+   can't be reached the banner says so quietly and keeps the follow links; the map list hides. */
+const FEED = { actor: 'electionboothatlas.org', posts: null, err: false, renders: [], timer: null };
+function feedTime(iso) {
+  const d = new Date(iso), mins = Math.round((Date.now() - d) / 60000);
+  const mel = new Intl.DateTimeFormat('en-AU', { timeZone: 'Australia/Melbourne', weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' }).format(d);
+  return { mel, rel: mins < 1 ? 'just now' : mins < 60 ? `${mins} min ago` : mins < 36 * 60 ? `${Math.round(mins / 60)} h ago` : mel };
+}
+// the caption without the trailing link and hashtag line(s)
+function feedGist(t) { const lines = String(t || '').split('\n'); while (lines.length && /^(\s*(electionboothatlas\.org\S*|#[\p{L}\p{N}_]+|https?:\/\/\S+)\s*)*$/u.test(lines[lines.length - 1])) lines.pop(); return lines.join('\n').replace(/\s*electionboothatlas\.org\s*(#\S+\s*)*$/u, '').replace(/\n{3,}/g, '\n\n').trim(); }
+function feedMedia(p) {
+  const e = p.embed || {}, em = e.media || e;
+  if (em.images && em.images[0]) return { src: em.images[0].thumb, alt: em.images[0].alt || '' };
+  if (em.thumbnail) return { src: em.thumbnail, alt: em.alt || 'Video', video: true };
+  if (em.external && em.external.thumb) return { src: em.external.thumb, alt: '' };
+  return null;
+}
+const feedUrl = (p) => `https://bsky.app/profile/${FEED.actor}/post/${p.uri.split('/').pop()}`;
+function feedCard(p, cls) {
+  const m = feedMedia(p), t = feedTime((p.record && p.record.createdAt) || p.indexedAt);
+  return h('a', { class: cls, href: feedUrl(p), target: '_blank', rel: 'noopener', title: `${t.mel}, Melbourne time. Open on Bluesky` },
+    m ? h('span', { class: 'fd-img' + (m.video ? ' vid' : '') }, h('img', { src: m.src, alt: m.alt, loading: 'lazy' })) : '',
+    h('span', { class: 'fd-body' }, h('span', { class: 'fd-time' }, t.rel), h('span', { class: 'fd-txt' }, feedGist(p.record && p.record.text))));
+}
+function feedSocials() { const icons = document.querySelector('header nav.socials'); if (!icons) return ''; const c = icons.cloneNode(true); c.className = 'fd-socials'; return c; }
+function feedTicker() {
+  // one line: the latest post, its time, and a link to it; reused (same node) wherever it is placed
+  const a = h('a', { class: 'fd-tick', target: '_blank', rel: 'noopener', hidden: true });
+  FEED.renders.push(() => {
+    const p = FEED.posts && FEED.posts[0]; a.hidden = !p; if (!p) return;
+    const m = feedMedia(p), t = feedTime((p.record && p.record.createdAt) || p.indexedAt), first = feedGist(p.record && p.record.text).split('\n')[0];
+    a.href = feedUrl(p); a.title = `${t.mel}, Melbourne time. Open on Bluesky`;
+    a.replaceChildren(m ? h('span', { class: 'fd-img' + (m.video ? ' vid' : '') }, h('img', { src: m.src, alt: '', loading: 'lazy' })) : '',
+      h('span', { class: 'fd-tl' }, 'Latest post'), h('span', { class: 'fd-tt' }, first), h('span', { class: 'fd-time' }, t.rel), h('span', { class: 'fd-arr', 'aria-hidden': 'true' }, '→'));
+  });
+  return a;
+}
+function feedDashCard() {
+  // the latest post in full beside the house switch and the countdown (wide screens; the one-line ticker stands in on narrow ones)
+  const a = h('a', { class: 'fd-dcard', target: '_blank', rel: 'noopener', hidden: true });
+  FEED.renders.push(() => {
+    const p = FEED.posts && FEED.posts[0]; a.hidden = !p; if (!p) return;
+    const m = feedMedia(p), t = feedTime((p.record && p.record.createdAt) || p.indexedAt);
+    a.href = feedUrl(p); a.title = `${t.mel}, Melbourne time. Open on Bluesky`;
+    a.replaceChildren(m ? h('span', { class: 'fd-img' + (m.video ? ' vid' : '') }, h('img', { src: m.src, alt: m.alt, loading: 'lazy' })) : '',
+      h('span', { class: 'fd-body' }, h('span', { class: 'fd-dh' }, h('span', { class: 'fd-tl' }, 'Latest post'), h('span', { class: 'fd-time' }, t.rel)),
+        h('span', { class: 'fd-txt' }, feedGist(p.record && p.record.text)), h('span', { class: 'fd-open' }, 'Open on Bluesky →')));
+  });
+  return a;
+}
+function feedFollowRow() { return h('div', { class: 'fd-followrow' }, h('span', {}, 'Follow the count'), feedSocials()); }
+function feedMini(n) {
+  const list = h('div', { class: 'fd-mlist' });
+  const box = h('div', { class: 'fd-left', hidden: true },
+    h('div', { class: 'fd-mhead' }, h('strong', {}, 'From the Atlas'), h('a', { href: `https://bsky.app/profile/${FEED.actor}`, target: '_blank', rel: 'noopener' }, 'Bluesky →')), list);
+  FEED.renders.push(() => { const ps = (FEED.posts || []).slice(0, n); list.replaceChildren(...ps.map(p => feedCard(p, 'fd-mi'))); box.hidden = !ps.length; });
+  return box;
+}
+async function feedLoad() {
+  try {
+    const r = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=${FEED.actor}&filter=posts_no_replies&limit=12`);
+    if (!r.ok) throw new Error(r.status);
+    const j = await r.json(); FEED.posts = (j.feed || []).filter(f => !f.reason && f.post && f.post.author && f.post.author.handle === FEED.actor).map(f => f.post); FEED.err = false;
+  } catch (e) { FEED.err = true; }
+  FEED.renders.forEach(f => { try { f(); } catch (e) {} });
+}
+function feedInit() {
+  // home: under the search box
+  const tryLine = el('home-try');
+  if (tryLine && !document.querySelector('#view-home .fd-tick')) tryLine.after(feedTicker());
+  // Dashboard: beside the countdown (or the live line on the night); the head is rebuilt on every refresh, so re-attach the same node
+  const dashTick = feedTicker(), dashCard = feedDashCard();
+  const _rd = renderDash; renderDash = function (...args) { const r = _rd.apply(this, args); try {
+    const head = el('dash-head'), house = head && head.querySelector(':scope > .house'), row = house && house.nextElementSibling;
+    if (!LIVE.available && house && row && !row.classList.contains('early-now') && !row.classList.contains('stats')) {
+      row.append(dashTick); const g = h('div', { class: 'fd-hg' }); house.before(g); g.append(h('div', { class: 'fd-hgl' }, house, row), dashCard);
+    } else if (head) { const lr = [...head.children].find(x => x.querySelector && x.querySelector(':scope > .pulse')) || head.querySelector('.pre-badge')?.parentNode || head.children[1]; if (lr) lr.after(dashTick); }
+  } catch (e) {} return r; };
+  // seat pages: a follow row under the map button
+  const _rs = renderSeat; renderSeat = function (...args) { const r = _rs.apply(this, args); try { const w = document.querySelector('#view-seat .shead .wrap'); if (w && !w.querySelector('.fd-followrow')) w.append(feedFollowRow()); } catch (e) {} return r; };
+  // map: the latest few posts in the empty space under the controls
+  const ctl = document.querySelector('#view-map .controls');
+  if (ctl && !ctl.querySelector('.fd-left')) ctl.append(feedMini(4));
+  feedLoad();
+  if (!FEED.timer) FEED.timer = setInterval(() => { if (document.visibilityState === 'visible') feedLoad(); }, 180000);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && FEED.posts) feedLoad(); });
+}
+
 async function boot() {
   try {
     status('loading tables…');
@@ -4916,6 +5182,7 @@ async function boot() {
       liveSetup({ contests: c26, candidates: k26, retiring: r26, meta });
     } catch (e) { console.warn('2026 register not loaded', e); }
     buildIndexes();
+    try { feedInit(); } catch (e) { console.warn('feed', e); }
     const ids = D.elections.filter(e => !e.election_id.startsWith('vicby') && e.election_id !== 'vic2023n').map(e => e.election_id).concat(D.elections.filter(e => e.election_id.startsWith('vicby')).map(e => e.election_id));
     fillElectionSelect(el('sel-election'), ids); el('sel-election').value = state.election; syncModelOptions();
     fillElectionSelect(el('sel-gap'), ids); el('sel-gap').value = state.gap;
