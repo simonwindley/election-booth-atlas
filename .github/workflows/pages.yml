@@ -1,4 +1,7 @@
 # Publishes the site/ folder to GitHub Pages on every push to main (including the election-night feed commits).
+# Two jobs: build (pages, 404, sitemap, then upload) and deploy. Deploying from a separate job avoids GitHub's intermittent
+# "No artifacts named github-pages were found" when the deploy looks for the upload a split second after it finishes
+# (actions/deploy-pages#451); if the deploy still fails it waits 20 seconds and tries once more.
 name: Publish the Election Booth Atlas
 on:
   push:
@@ -13,18 +16,29 @@ concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/configure-pages@v6
+      - name: Electorate and region pages (/seat/richmond), 404 and sitemap
+        run: python3 tools/build_pages.py
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - name: Electorate and region pages (/seat/richmond), 404 and sitemap
-        run: python3 tools/build_pages.py
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - name: Wait before trying again
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 20
+      - id: retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v5
