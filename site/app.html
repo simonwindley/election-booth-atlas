@@ -34,6 +34,8 @@
 .whatnext{margin:0;padding-left:20px;display:grid;gap:8px;font-size:15.5px;line-height:1.45}
 details.closedvote{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:12px 16px}details.closedvote>summary{cursor:pointer;font-weight:700;font-size:16px}details.closedvote[open]>summary{margin-bottom:10px}
 .res-right{display:flex;flex-direction:column;gap:16px;min-width:0}.res-right .mm-svg{max-height:380px}
+.mx{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}.mx>summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--accent)}.mx[open]>summary{margin-bottom:10px}.mx-list{margin:0 0 12px;padding-left:20px;display:grid;gap:6px;font-size:14.5px;line-height:1.45}
+.mx-t td{vertical-align:top}.mx-tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--surface-2);color:var(--fg-2);margin:0 4px 2px 0;white-space:nowrap}.mx-tag.mxc{background:#e3f1ef;color:#1f5f66}.mx-check{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:14px;background:#eef6ea}.mx-check.no{background:#fbeee8}
 .mm{position:relative;--mm-fill:#EAF4FA}.mm-stage{position:relative;width:100%;background:var(--mm-bg,#F7F5EF);border-radius:12px;overflow:hidden;touch-action:none}.mm-svg{display:block;width:100%;height:auto;max-height:520px;cursor:grab}.mm-svg:active{cursor:grabbing}
 .mm-dot{cursor:pointer;transition:stroke-width .1s}.mm-dot:hover,.mm-dot:focus{stroke:#1B2B4B;outline:none}.mm-tip{position:absolute;z-index:3;width:240px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 10px;box-shadow:var(--shadow);font-size:13.5px;pointer-events:none}.mm-tip[hidden]{display:none}
 .mm-zs{position:absolute;top:8px;right:8px;display:flex;flex-direction:column;gap:4px}.mm-z{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-size:16px;line-height:1;cursor:pointer;color:var(--fg)}
@@ -4704,7 +4706,7 @@ function seatResultsFill(box, cid) {
     if (prb) { prb.replaceWith(right); right.append(prb, mapBox); } else grid.append(mapBox); }
   box.append(seatBoothsReporting(cid));
   const cb = h('div', { class: 'box', style: 'margin-top:16px' }, h('h3', {}, 'Count by count'), h('p', { class: 'hint', style: 'margin:0 0 8px' }, 'Who is knocked out, and where their votes go, until two candidates remain.')); box.append(cb);
-  if (PREF) { const w = countByCount(eid, cid); cb.append(w || h('div', { class: 'empty' }, 'This appears once there are first preferences to run through.')); }
+  if (PREF) { const w = countByCount(eid, cid); cb.append(w || h('div', { class: 'empty' }, 'This appears once there are first preferences to run through.')); if (w && !officialCounts(eid, cid)) { const sn = (idx.contestById.get(eid + '|' + cid) || {}).contest_name || ''; const k = 'mx|' + cid; const d = seatModelExplainer(eid, cid, sn); if (SEAT_RES[k]) d.open = true; d.addEventListener('toggle', () => { SEAT_RES[k] = d.open; }); cb.append(d); } }
   else { cb.append(h('div', { class: 'empty' }, 'Loading…')); Promise.all([ensurePref(), ensureHtv(eid), ensureHtv(HTV_BASE)]).then(() => { if (box.isConnected) seatResultsFill(box, cid); }); }
 }
 /* ---------- the seat's own small map: its outline and its booths as dots (an SVG, no map engine or tiles) ----------
@@ -4783,6 +4785,53 @@ function seatMiniMap(cid, mode) {
       live && info.some(x => x.fresh) ? h('span', { class: 'chip' }, h('i', { style: 'background:none;border:1.6px solid #1B2B4B;box-sizing:border-box' }), 'Last 10 minutes') : '');
   }).catch(() => stage.replaceChildren(h('div', { class: 'empty' }, 'The map couldn’t be loaded.')));
   return wrap;
+}
+
+/* ---------- "How our model works for this seat": the preference model's run for one seat, explained step by step ----------
+   Before the night it is run on 2022's final first preferences and checked against the VEC's real count; on the night it
+   explains the modelled count by count. Loaded when opened (it needs the flows and the how-to-vote cards). */
+function seatModelExplainer(eid, cid, seatName, opts = {}) {
+  const det = h('details', { class: 'mx' }, h('summary', {}, opts.title || `How our model works for ${seatName}`));
+  const body = h('div', { class: 'mx-body' }, h('p', { class: 'hint' }, 'Loading the model…')); det.append(body);
+  let done = false;
+  const fill = () => {
+    const m = PREF && !PREF.missing ? modelledTcp(eid, cid) : null;
+    if (!m) { body.replaceChildren(h('p', { class: 'hint' }, 'The model needs first preferences for at least three candidates.')); return; }
+    const past = eid !== LIVE.election, steps = m.ladder, nm = (id) => candName((m.fp.find(f => f.id === id) || {}).cand);
+    const pn = (p, c) => NIGHT_NAME[p] || PARTY_NAME[p] || (c && c.party_name ? String(c.party_name).replace(/\s*-\s*Victoria(n Branch)?$/i, '') : p) || '';
+    const cardSteps = steps.filter(s => s.pick), adjSteps = steps.filter(s => s.adj), sc = typeof adjScaleSeat === 'function' ? adjScaleSeat(past ? cid : (contestIn('vic2022', cid, LIVE.election) || {}).contest_id || cid) : 1;
+    const fin = m.pair, fs = (x) => `${candName(x.cand)} (${pn(x.party, x.cand)}) ${pct(x.share)}`;
+    const li = (b, ...t) => h('li', {}, h('strong', {}, b), ' ', ...t);
+    const list = h('ul', { class: 'mx-list' },
+      li('Starting point:', past ? `the final first preferences of 2022, ${fmt(m.formal)} formal votes across ${m.fp.length} candidates.` : `the ${fmt(m.formal)} first preferences counted so far, across ${m.fp.length} candidates.`, ` The lowest is excluded each time, so ${steps.length} exclusion${steps.length === 1 ? '' : 's'} to get to two.`),
+      li('Where each pile goes:', `split by how that party's voters have numbered their ballots in past counts. ${m.label[0].toUpperCase() + m.label.slice(1)}. It's a party-by-party rule, not a guess about this seat's voters.`),
+      li('How-to-vote cards:', !m.cardsAvailable ? 'no registered cards were available to the model for this seat.'
+        : cardSteps.length ? `${cardSteps.length} of the ${steps.length} excluded candidates have a registered card. Where a card's next preference differs from what that party usually recommends, the share of its voters who follow cards (measured for each party) is moved to the card's pick.`
+        : 'none of the excluded candidates has a registered card the model can use, so the past flows decide every step.'),
+      adjSteps.length ? li('Ballot order:', `a small share of each pile goes to the candidates either side on the ballot paper and to the one at the top, as happens in real counts. In ${seatName} that effect is ${sc > 1.15 ? 'stronger' : sc < 0.85 ? 'weaker' : 'about as strong'} than the Victorian average, judged from the census profile of its polling places.`) : '',
+      li(past ? 'What it got:' : 'Where it ends up:', fin.length === 2 ? `${fs(fin[0])} v ${fs(fin[1])} after preferences.` : ''));
+    const rows = steps.map((s, i) => { const dest = Object.entries(s.to).sort((a, b) => b[1] - a[1]), tot = dest.reduce((a, [, v]) => a + v, 0) || 1;
+      return h('tr', {}, h('td', { class: 'num' }, String(i + 1)), h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(s.party)}` }), candName(s.cand)), h('div', { class: 'hint' }, pn(s.rawParty, s.cand))),
+        h('td', { class: 'num' }, fmt(Math.round(s.votes))),
+        h('td', {}, dest.slice(0, 3).map(([id, v]) => `${nm(id)} ${(100 * v / tot).toFixed(0)}%`).join(' · ') + (dest.length > 3 ? ' · rest spread' : '')),
+        h('td', {}, s.pick ? h('span', { class: 'mx-tag mxc' }, `card: ${nm(s.pick)}${s.f != null ? `, ~${Math.round(100 * s.f)}% follow` : ''}`) : h('span', { class: 'mx-tag' }, 'past flows'), s.adj ? h('span', { class: 'mx-tag' }, 'ballot order') : '')); });
+    const out = [h('p', { style: 'margin:0 0 8px' }, past
+      ? `Before the VEC counts preferences, we model them. Here's the model run on ${seatName}'s 2022 first preferences, so you can see how it reasons here and how it did.`
+      : `Until the VEC counts preferences, the count by count above is modelled. Here's how, for ${seatName}.`), list,
+      h('div', { class: 'tablewrap' }, h('table', { class: 'data mx-t' }, h('thead', {}, h('tr', {}, h('th', { class: 'num' }, '#'), h('th', {}, 'Excluded'), h('th', { class: 'num' }, 'Votes'), h('th', {}, 'Modelled to go'), h('th', {}, 'Based on'))), h('tbody', {}, ...rows)))];
+    if (past) { const real = contestTcp(eid, cid);
+      if (real && real.pair.length === 2 && fin.length === 2) {
+        const same = real.pair.every(x => fin.some(y => y.cand && x.cand && y.cand.candidate_id === x.cand.candidate_id));
+        const top = real.pair[0], mt = same ? fin.find(y => y.cand && top.cand && y.cand.candidate_id === top.cand.candidate_id) : null;
+        out.push(h('div', { class: 'mx-check ' + (same ? 'ok' : 'no') }, h('strong', {}, same ? '✓ Same final two as the real count. ' : '✗ A different final two from the real count. '),
+          `The VEC's count finished ${fs(top)} v ${fs(real.pair[1])}.` + (mt ? ` The model had ${candName(top.cand)} on ${pct(mt.share)}, ${Math.abs(100 * (mt.share - top.share)).toFixed(1)} points ${mt.share >= top.share ? 'high' : 'low'}${(mt.share > 0.5) === (top.share > 0.5) ? ', with the right winner' : ', and the wrong winner'}.` : '')));
+      } }
+    const V = PREF && PREF.validation;
+    out.push(h('p', { class: 'hint', style: 'margin:10px 0 0' }, 'The model is the same one behind the projected margins and the seats we call on the night. It doesn\'t use polls.' + (V && V.contests ? ` Trained on earlier elections and tested on 2022, it had the right final two in ${V.final_pair_right} of ${V.contests} seats.` : '')));
+    body.replaceChildren(...out);
+  };
+  det.addEventListener('toggle', () => { if (det.open && !done) { done = true; Promise.all([ensurePref(), ensureHtv(eid), ensureHtv(HTV_BASE)]).then(fill).catch(() => body.replaceChildren(h('p', { class: 'hint' }, 'The model couldn’t be loaded just now.'))); } });
+  return det;
 }
 
 /* ---------- seat pages on election night: from 6 pm the page leads with the count ---------- */
@@ -4939,7 +4988,7 @@ function renderSeat() {
     h('tbody', {}, ...hist.map(x => h('tr', {}, h('td', {}, shortName(x.e)), h('td', {}, x.w ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(x.w.party))}` }), x.w.surname) : '–'), h('td', { class: 'num' }, x.t && x.t.pair.length === 2 ? `${pct(x.t.pair[0].share)} ${PARTY_SHORT[grpParty(x.t.pair[0].party)] || ''}` : '–'), ...['ALP', 'COAL', 'GRN'].map(p => h('td', { class: 'num' }, x.ps[p] ? pct(x.ps[p].share) : '–')))))))));
   { const o22 = contestIn('vic2022', cid, LIVE.election); if (o22) { const hb = h('div', { class: 'box', style: 'margin-top:16px' }, h('h3', {}, 'How preferences decided it in 2022'));
       const fillCb = () => { hb.querySelectorAll('.cbc').forEach(n => n.remove()); const w = countByCount('vic2022', o22.contest_id); if (w) hb.append(w); return !!w; };
-      if (fillCb()) s3.append(hb); } }
+      if (fillCb()) { s3.append(hb); hb.append(seatModelExplainer('vic2022', o22.contest_id, c.contest_name, { title: `How our model does in ${c.contest_name}: tested on 2022` })); } } }
   // 4 census
   const s4 = sec('people', 5, 'Who lives here', 'From the Census, matched to the 2022 boundaries, compared with Victoria.');
   const cbx = h('div', { class: 'box' }); s4.append(cbx);
