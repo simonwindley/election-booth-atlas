@@ -16,6 +16,9 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'site')
 pages = json.load(open(os.path.join(ROOT, 'og', 'pages.json')))
 base = open(os.path.join(ROOT, 'index.html')).read()
 esc = lambda s: html.escape(s, quote=True)
+# from 6 pm on election night (07:00 UTC), electorate and region pages describe themselves as live results; the live feed pushes
+# every cycle, and each push rebuilds these pages, so they switch over on the first push after polls close
+NIGHT = datetime.datetime.now(datetime.timezone.utc) >= datetime.datetime(2026, 11, 28, 7, 0, tzinfo=datetime.timezone.utc)
 
 
 def meta(doc, title, desc, url, image, alt):
@@ -125,11 +128,21 @@ for kind in ('seat', 'region'):
 for p in pages:
     url = f"{SITE}/{p['kind']}/{p['slug']}/"
     image = f"{SITE}/og/{p['kind']}-{p['slug']}.png"
-    if p['kind'] == 'seat':
+    if p['kind'] == 'seat' and NIGHT:
+        title = f"{p['name']} 2026 results: live, booth by booth · Election Booth Atlas"
+        desc = (f"{p['name']} 2026 Victorian election results, live from 6 pm on 28 November: first preferences, the two-candidate count "
+                "and every polling booth as it reports, with swings since 2022 and booth results back to 1999.")
+        hash_ = f"#seat/{p['cid']}"
+    elif p['kind'] == 'seat':
         title = f"{p['name']}: every polling booth, results and 2026 candidates · Election Booth Atlas"
         desc = (f"{p['name']}, a Victorian electorate in the {p['region']} Region: results for every polling booth back to 1999, "
                 "the 2026 candidates in ballot order, census profiles of each booth's neighbourhood, and live counts on election night, 28 November.")
         hash_ = f"#seat/{p['cid']}"
+    elif NIGHT:
+        title = f"{p['name']} Region 2026 results: the upper-house count · Election Booth Atlas"
+        desc = (f"{p['name']} Region 2026 Legislative Council results as the count progresses, with booth-by-booth results for its "
+                f"{len(p['districts'])} electorates ({', '.join(p['districts'])}).")
+        hash_ = f"#region/{p['slug']}"
     else:
         title = f"{p['name']} Region: upper-house ballot and booth results · Election Booth Atlas"
         desc = (f"{p['name']} Region, Victorian Legislative Council: the 2026 upper-house ballot, booth-by-booth results, and its "

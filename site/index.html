@@ -5206,6 +5206,25 @@ function feedInit() {
   } catch (e) {} return r; };
   // seat pages: a follow row under the map button
   const _rs = renderSeat; renderSeat = function (...args) { const r = _rs.apply(this, args); try { const w = document.querySelector('#view-seat .shead .wrap'); if (w && !w.querySelector('.fd-followrow')) w.append(feedFollowRow()); } catch (e) {} return r; };
+  // the tab title follows the page, so bookmarks, shared links, browser history and analytics show the electorate or region by name
+  function atlasTitle() {
+    try {
+      let t = 'The Election Booth Atlas';
+      const v = document.querySelector('.view.active'), night = Date.now() >= POLLS_CLOSE;
+      if (v && v.id === 'view-seat' && SEAT.cid) {
+        if (SEAT.cid.startsWith('vicr-')) {
+          const rn = (typeof LCX !== 'undefined' && LCX && LCX.regions && LCX.regions[SEAT.cid] && LCX.regions[SEAT.cid].name) || SEAT.cid.slice(5).split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+          t = `${rn.replace(/ Region$/, '')} Region${night ? ' 2026 results' : ''} · Election Booth Atlas`;
+        } else {
+          const c = idx.contestById.get(LIVE.election + '|' + SEAT.cid);
+          if (c) t = `${c.contest_name}${night ? ' 2026 results' : ''} · Election Booth Atlas`;
+        }
+      }
+      if (document.title !== t) document.title = t;
+    } catch (e) {}
+  }
+  const _svT = showView; showView = function (...args) { const r = _svT.apply(this, args); atlasTitle(); return r; };
+  const _rsT = renderSeat; renderSeat = function (...args) { const r = _rsT.apply(this, args); atlasTitle(); return r; };
   // map: the latest few posts in the empty space under the controls
   const ctl = document.querySelector('#view-map .controls');
   if (ctl && !ctl.querySelector('.fd-left')) ctl.append(feedMini(4));
