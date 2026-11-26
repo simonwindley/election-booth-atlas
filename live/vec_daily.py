@@ -492,6 +492,15 @@ def run(args, log):
         cmd = args.publish_cmd or 'git add site/data/live/daily.json data/live_snapshots && (git diff --cached --quiet || (git commit -q -m "daily capture %s" && git push -q))' % today
         r = subprocess.run(cmd, shell=True, cwd=root, capture_output=True, text=True, timeout=180)
         log('published' if r.returncode == 0 else f'publish failed ({r.returncode}): {(r.stderr or r.stdout).strip()[-300:]}')
+    if args.publish and not args.no_polls:
+        # the Polls tab rides along with every published daily capture (its own commit; a failure here never stops the capture)
+        import subprocess, sys
+        root = os.path.abspath(os.path.join(HERE, '..'))
+        try:
+            r = subprocess.run([sys.executable, os.path.join(HERE, 'polls_update.py'), '--publish'], cwd=root, capture_output=True, text=True, timeout=600)
+            log('polls: ' + ((r.stdout or '').strip().splitlines() or ['done'])[-1] if r.returncode == 0 else f'polls update failed ({r.returncode}): {(r.stderr or r.stdout).strip()[-300:]}')
+        except Exception as e:
+            log(f'polls update skipped: {e}')
 
 
 def main(argv=None):
@@ -499,6 +508,7 @@ def main(argv=None):
     ap.add_argument('--out', default=os.path.join(HERE, '..', 'site', 'data', 'live'))
     ap.add_argument('--publish', action='store_true')
     ap.add_argument('--publish-cmd', default='')
+    ap.add_argument('--no-polls', action='store_true', help='with --publish, skip the Polls tab refresh that otherwise follows each capture')
     ap.add_argument('--candidates', action='store_true', help='re-read the candidate lists (skipped once all 88 districts are captured)')
     ap.add_argument('--full-htv', action='store_true', help='re-fetch every how-to-vote table, not just those whose count changed')
     args = ap.parse_args(argv)
