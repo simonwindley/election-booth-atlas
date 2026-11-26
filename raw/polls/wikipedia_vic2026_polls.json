@@ -1,7 +1,7 @@
 {
 "meta": {
-"retrieved": "2026-11-13T12:41:38.478512+00:00",
-"last_edited": "This page was last edited on 13 November 2026, at 12:34\u00a0(UTC).",
+"retrieved": "2026-11-26T09:38:13.029633+00:00",
+"last_edited": "This page was last edited on 26 November 2026, at 05:24\u00a0(UTC).",
 "url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Victorian_state_election"
 },
 "tables": [
@@ -58,6 +58,126 @@
 ""
 ],
 [
+"20-23 Nov",
+"Resolve",
+"The Age",
+"1,000",
+"20%",
+"31%",
+"13%",
+"25%",
+"4%",
+"7%",
+"41%",
+"59%",
+"\u2014N/a"
+],
+[
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"\u2014N/a",
+"66%",
+"34%"
+],
+[
+"20 Nov",
+"Lighthouse/Growth Intelligence Centre",
+"Herald Sun",
+"1,221",
+"22%",
+"31%",
+"15%",
+"24%",
+"8%",
+"<",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a"
+],
+[
+"18\u201319 Nov",
+"Roy Morgan",
+"\u2014N/a",
+"1,563",
+"22.5%",
+"31%",
+"13%",
+"20%",
+"5%",
+"8.5%",
+"45%",
+"55%",
+"\u2014N/a"
+],
+[
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"54%",
+"\u2014N/a",
+"46%"
+],
+[
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"\u2014N/a",
+"69%",
+"31%"
+],
+[
+"13\u201320 Nov",
+"RedBridge/Accent",
+"Australian Financial Review",
+"1,507",
+"22%",
+"33%",
+"15%",
+"23%",
+"7%",
+"<",
+"42%",
+"58%",
+"\u2014N/a"
+],
+[
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"<",
+"50%",
+"\u2014N/a",
+"50%"
+],
+[
 "13 Nov",
 "Lighthouse/Growth Intelligence Centre",
 "Herald Sun",
@@ -70,6 +190,66 @@
 "<",
 "\u2014N/a",
 "\u2014N/a",
+"\u2014N/a"
+],
+[
+"10\u201318 Nov",
+"Agenda C Synesis/Antenna",
+"\u2014N/a",
+"1,772",
+"25%",
+"33%",
+"11%",
+"24%",
+"7%",
+"<",
+"41%",
+"59%",
+"\u2014N/a"
+],
+[
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"<",
+"50%",
+"\u2014N/a",
+"50%"
+],
+[
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"^",
+"<",
+"\u2014N/a",
+"68%",
+"32%"
+],
+[
+"6\u201323 Nov",
+"YouGov",
+"News24/Herald Sun",
+"3,890",
+"20%",
+"31%",
+"16%",
+"21%",
+"4%",
+"9%",
+"42%",
+"58%",
 "\u2014N/a"
 ],
 [
@@ -240,7 +420,7 @@
 [
 "6-10 Oct",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2026-10-12 at the Wayback Machine",
 "1,000",
 "25%",
 "28%",
@@ -388,7 +568,7 @@
 "\u2014N/a"
 ],
 [
-"5 Aug\u20137 Aug",
+"5\u20137 Aug",
 "Roy Morgan",
 "\u2014N/a",
 "2,084",
@@ -693,7 +873,7 @@
 [
 "Mar \u2013 Apr",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2026-04-21 at the Wayback Machine",
 "1,047",
 "27%",
 "29%",
@@ -813,7 +993,7 @@
 [
 "12\u201316 Jan & 8\u201314 Feb",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2026-02-17 at the Wayback Machine",
 "1,100",
 "28%",
 "30%",
@@ -1010,7 +1190,7 @@
 [
 "12 Oct 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-10-13 at the Wayback Machine",
 "1,000",
 "30%",
 "33%",
@@ -1049,7 +1229,7 @@
 [
 "17 Aug 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-08-20 at the Wayback Machine",
 "1000",
 "32%",
 "33%",
@@ -1101,7 +1281,7 @@
 [
 "30 Mar 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-04-01 at the Wayback Machine",
 "1000",
 "24%",
 "41%",
@@ -1280,7 +1460,7 @@
 [
 "7 Sep 2024",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2024-09-10 at the Wayback Machine",
 "1,054",
 "27%",
 "37%",
@@ -1319,7 +1499,7 @@
 [
 "14 Jul 2024",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2024-07-17 at the Wayback Machine",
 "1,000",
 "27%",
 "37%",
@@ -1372,7 +1552,7 @@
 [
 "24 Mar 2024",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2024-03-27 at the Wayback Machine",
 "1,100",
 "33%",
 "35%",
@@ -1477,7 +1657,7 @@
 [
 "3 Dec 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-12-08 at the Wayback Machine",
 "1,100",
 "37%",
 "31%",
@@ -1491,7 +1671,7 @@
 [
 "Sep\u2013Oct 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-10-11 at the Wayback Machine",
 "1,100",
 "39%",
 "32%",
@@ -1534,7 +1714,7 @@
 [
 "Jul\u2013Aug 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-08-16 at the Wayback Machine",
 "1,100",
 "39%",
 "28%",
@@ -1562,7 +1742,7 @@
 [
 "May\u2013Jun 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-06-14 at the Wayback Machine",
 "1,003",
 "41%",
 "23%",
@@ -1604,7 +1784,7 @@
 [
 "15\u201318 Feb 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-02-19 at the Wayback Machine",
 "825",
 "41%",
 "30%",
@@ -1785,6 +1965,24 @@
 "ONP"
 ],
 [
+"18\u201319 Nov 2026",
+"Roy Morgan",
+"\u2014N/a",
+"1,563",
+"43%",
+"35%",
+"22%"
+],
+[
+"6\u201323 Nov 2026",
+"YouGov",
+"News24/Herald Sun",
+"3,890",
+"38%",
+"37%",
+"25%"
+],
+[
 "26\u201329 Oct 2026",
 "Roy Morgan",
 "\u2014N/a",
@@ -1881,6 +2079,18 @@
 "^"
 ],
 [
+"20\u201323 Nov 2026",
+"Resolve",
+"The Age",
+"1,000",
+"23%",
+"34%",
+"19%",
+"25%",
+"^",
+"11%"
+],
+[
 "3\u201310 Nov 2026",
 "RedBridge/Accent",
 "Australian Financial Review",
@@ -1889,8 +2099,18 @@
 "29%",
 "11%",
 "42%",
-"^",
 "11%"
+],
+[
+"6\u201323 Nov 2026",
+"YouGov",
+"News24/Herald Sun",
+"3,890",
+"19%",
+"34%",
+"19%",
+"29%",
+"15%"
 ],
 [
 "2\u20137 Nov 2026",
@@ -2156,7 +2376,7 @@
 [
 "Jan\u2013Feb 2026",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2026-02-17 at the Wayback Machine",
 "1,100",
 "20%",
 "39%",
@@ -2176,7 +2396,7 @@
 [
 "7 Dec 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-12-08 at the Wayback Machine",
 "1,000",
 "24%",
 "41%",
@@ -2277,7 +2497,7 @@
 [
 "12 Oct 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-10-13 at the Wayback Machine",
 "1,000",
 "27%",
 "33%",
@@ -2307,7 +2527,7 @@
 [
 "30 Mar 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-04-01 at the Wayback Machine",
 "1,000",
 "23%",
 "36%",
@@ -2386,7 +2606,7 @@
 [
 "10 Nov 2024",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2024-11-12 at the Wayback Machine",
 "1,000",
 "29%",
 "30%",
@@ -2396,7 +2616,7 @@
 [
 "7 Sep 2024",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2024-09-10 at the Wayback Machine",
 "1,054",
 "30%",
 "29%",
@@ -2406,7 +2626,7 @@
 [
 "14 Jul 2024",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2024-07-17 at the Wayback Machine",
 "1,000",
 "31%",
 "28%",
@@ -2426,7 +2646,7 @@
 [
 "24 Mar 2024",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2024-03-27 at the Wayback Machine",
 "1,100",
 "34%",
 "25%",
@@ -2436,7 +2656,7 @@
 [
 "3 Dec 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-12-08 at the Wayback Machine",
 "1,100",
 "34%",
 "22%",
@@ -2505,7 +2725,7 @@
 [
 "Jul\u2013Aug 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-08-16 at the Wayback Machine",
 "1,100",
 "41%",
 "32%",
@@ -2525,7 +2745,7 @@
 [
 "May un 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-06-14 at the Wayback Machine",
 "1,003",
 "49%",
 "26%",
@@ -2545,7 +2765,7 @@
 [
 "19\u201322 Apr 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-04-23 at the Wayback Machine",
 "1,609",
 "49%",
 "28%",
@@ -2555,7 +2775,7 @@
 [
 "15\u201318 Feb 2023",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2023-02-19 at the Wayback Machine",
 "825",
 "50%",
 "26%",
@@ -2636,6 +2856,24 @@
 "Net"
 ],
 [
+"13 \u2013 20 Nov 2026",
+"RedBridge/Accent",
+"Australian Financial Review",
+"1,507",
+"20%",
+"44%",
+"36%",
+"\u221224%",
+"37%",
+"29%",
+"34%",
+"+8%",
+"21%",
+"26%",
+"53%",
+"\u22125%"
+],
+[
 "13 Nov 2026",
 "Lighthouse/Growth Intelligence Centre",
 "Herald Sun",
@@ -2648,6 +2886,24 @@
 "\u2014N/a",
 "\u2014N/a",
 "+17%",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a"
+],
+[
+"6\u201323 Nov 2026",
+"YouGov",
+"News24/Herald Sun",
+"3,890",
+"30%",
+"59%",
+"11%",
+"\u221229%",
+"50%",
+"38%",
+"12%",
+"+12%",
 "\u2014N/a",
 "\u2014N/a",
 "\u2014N/a",
@@ -2668,7 +2924,7 @@
 "+7%",
 "17%",
 "25%",
-"36%",
+"58%",
 "\u22128%"
 ],
 [
@@ -2688,6 +2944,24 @@
 "\u2014N/a",
 "\u2014N/a",
 "+9%"
+],
+[
+"30 Oct \u2013 5 Nov 2026",
+"DemosAU/Premier National",
+"\u2014N/a",
+"1,562",
+"17%",
+"47%",
+"36%",
+"\u221230%",
+"38%",
+"25%",
+"37%",
+"+13%",
+"23%",
+"43%",
+"34%",
+"\u221220%"
 ],
 [
 "15 \u2013 22 Oct 2026",
@@ -2710,7 +2984,7 @@
 [
 "6 \u2013 10 Oct 2026",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2026-10-12 at the Wayback Machine",
 "1,000",
 "\u2014N/a",
 "\u2014N/a",
@@ -4399,7 +4673,7 @@
 [
 "7 Dec 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-12-08 at the Wayback Machine",
 "\u2014N/a",
 "28%",
 "36%",
@@ -4459,7 +4733,7 @@
 [
 "12 Oct 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-10-13 at the Wayback Machine",
 "\u2014N/a",
 "27%",
 "32%",
@@ -4489,7 +4763,7 @@
 [
 "17 Aug 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-08-20 at the Wayback Machine",
 "\u2014N/a",
 "32%",
 "28%",
@@ -4663,7 +4937,7 @@
 [
 "7 Dec 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-12-08 at the Wayback Machine",
 "\u2014N/a",
 "29%",
 "43%",
@@ -4723,7 +4997,7 @@
 [
 "12 Oct 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-10-13 at the Wayback Machine",
 "\u2014N/a",
 "34%",
 "34%",
@@ -4957,7 +5231,7 @@
 [
 "12 Oct 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-10-13 at the Wayback Machine",
 "\u2014N/a",
 "39%",
 "20%",
@@ -5123,7 +5397,7 @@
 [
 "12 Oct 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-10-13 at the Wayback Machine",
 "\u2014N/a",
 "30%",
 "29%",
@@ -5137,7 +5411,7 @@
 [
 "17 Aug 2025",
 "Resolve",
-"The Age",
+"The Age (limited access) Archived 2025-08-20 at the Wayback Machine",
 "\u2014N/a",
 "35%",
 "27%",
