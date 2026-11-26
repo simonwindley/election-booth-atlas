@@ -1,7 +1,7 @@
 {
 "meta": {
-"retrieved": "2026-11-26T09:40:11.882631+00:00",
-"last_edited": "This page was last edited on 26 November 2026, at 05:24\u00a0(UTC).",
+"retrieved": "2026-11-26T23:22:46.128212+00:00",
+"last_edited": "This page was last edited on 26 November 2026, at 20:37\u00a0(UTC).",
 "url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Victorian_state_election"
 },
 "tables": [
@@ -56,6 +56,36 @@
 "",
 "",
 ""
+],
+[
+"20\u201325 Nov",
+"Newspoll",
+"The Australian(subscription required)",
+"1,506",
+"20%",
+"33%",
+"17%",
+"18%",
+"12%",
+"<",
+"42.5%",
+"57.5%",
+"\u2014N/a"
+],
+[
+"21 \u2013 25 Nov",
+"DemosAU/Premier National",
+"\u2014N/a",
+"2,092",
+"19%",
+"34%",
+"16%",
+"16%",
+"6%",
+"9%",
+"45%",
+"55%",
+"\u2014N/a"
 ],
 [
 "20-23 Nov",
@@ -2079,6 +2109,18 @@
 "^"
 ],
 [
+"21\u201325 Nov 2026",
+"DemosAU/Premier National",
+"\u2014N/a",
+"2,092",
+"28%",
+"36%",
+"15%",
+"21%",
+"^",
+"8%"
+],
+[
 "20\u201323 Nov 2026",
 "Resolve",
 "The Age",
@@ -2087,7 +2129,6 @@
 "34%",
 "19%",
 "25%",
-"^",
 "11%"
 ],
 [
@@ -2854,6 +2895,24 @@
 "Neg.",
 "DK",
 "Net"
+],
+[
+"21 \u2013 25 Nov 2026",
+"DemosAU/Premier National",
+"\u2014N/a",
+"2,092",
+"18%",
+"50%",
+"32%",
+"\u221232%",
+"35%",
+"31%",
+"34%",
+"+4%",
+"22%",
+"43%",
+"35%",
+"\u221221%"
 ],
 [
 "13 \u2013 20 Nov 2026",
@@ -4372,6 +4431,20 @@
 "^"
 ],
 [
+"November 2026",
+"YouGov",
+"News24",
+"MRP",
+"4,360",
+"13",
+"55",
+"<",
+"8",
+"12",
+"0",
+"L/NP 11"
+],
+[
 "March 2026 - September 2026",
 "Roy Morgan",
 "N/A",
@@ -4482,6 +4555,21 @@
 "^"
 ],
 [
+"November 2026",
+"YouGov",
+"News24",
+"MRP",
+"4,360",
+"7",
+"13",
+"<",
+"7",
+"11",
+"2",
+"\u2014N/a",
+"\u2014N/a"
+],
+[
 "July \u2013 September 2026",
 "Roy Morgan",
 "\u2014N/a",
@@ -4492,7 +4580,7 @@
 "<",
 "8",
 "6",
-"",
+"0",
 "4",
 "\u2014N/a"
 ],
