@@ -518,6 +518,19 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .v2 .seatbtn { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 0; border-radius: 14px; box-shadow: var(--shadow); padding: 12px 14px; cursor: pointer; font: inherit; text-align: left; color: var(--fg); }
 .v2 .seatbtn:hover { background: var(--sky); }
 .v2 .seatbtn .m { margin-left: auto; color: var(--fg-3); font-size: 13px; }
+.v2 .seatbtn { position: relative; overflow: hidden; }
+.v2 .seatbtn.live { padding-bottom: 15px; }
+.v2 .seatbtn.live .m { text-align: right; line-height: 1.25; white-space: nowrap; }
+.v2 .seatgrid:has(.seatbtn.live) { grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); }
+.v2 .seatbtn.live .nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.v2 .seatbtn .m b { display: block; color: var(--fg); font-weight: 700; white-space: nowrap; }
+.v2 .seatbtn .sbar { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--line, #E4DED2); }
+.v2 .seatbtn .sbar i { display: block; height: 100%; }
+.v2 .dot.hollow { background: transparent; border: 2px solid #9aa0a8; box-sizing: border-box; }
+.v2 .dot.ring { outline: 2px solid currentColor; outline-offset: 2px; }
+.zoomp { display: flex; flex-wrap: wrap; gap: 6px; }
+.zoomp button { font: inherit; font-size: 13px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line, #E4DED2); background: var(--surface, #fff); color: var(--fg); cursor: pointer; }
+.zoomp button:hover { background: var(--sky, #EAF2F8); }
 .v2 table.data td, .v2 table.data th { font-size: 14px; }
 
 .pre-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 10px; border-radius: 999px; background: var(--lime-tint); font-weight: 600; font-size: 14px; color: var(--navy); }
@@ -724,6 +737,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div class="live-box" id="live-box" hidden></div>
         <div class="field"><label>Show</label>
           <div class="seg" id="seg-unit"><button data-v="booth" aria-pressed="true">Booths</button><button data-v="contest" aria-pressed="false">Electorates</button><button data-v="lc" aria-pressed="false">Upper house</button></div></div>
+        <div class="field"><label>Zoom to</label><div class="zoomp" id="zoom-presets"></div></div>
         <div class="field"><label for="sel-metric">Colour by</label>
           <select id="sel-metric">
             <optgroup label="Results">
@@ -2091,7 +2105,7 @@ function pollChart(opts) {
 const shortEvent = (t) => { if (/by-election/.test(t)) return t.split(' ')[0] + ' by-el.'; const m = t.match(/(Pesutto|Allan|Sandell|Battin|Wilson|Carroll|Pickering)/g); return m ? m[m.length - 1] : t.slice(0, 14); };  // the incoming leader (the last name mentioned), not the one resigning
 async function renderPolls() {
   if (!POLLS) {
-    try { POLLS = await (await fetch(DATA + 'polls_vic2026.json')).json(); } catch (e) { el('polls-head').innerHTML = ''; el('polls-head').append(h('div', { class: 'empty' }, 'No polling file (site/data/polls_vic2026.json).')); return; }
+    try { POLLS = await (await fetch(DATA + 'polls_vic2026.json', { cache: 'no-cache' })).json(); /* revalidate on every visit: the file changes with each polls update */ } catch (e) { el('polls-head').innerHTML = ''; el('polls-head').append(h('div', { class: 'empty' }, 'No polling file (site/data/polls_vic2026.json).')); return; }
     for (const b of el('polls-range').querySelectorAll('button')) b.addEventListener('click', () => { pollsUI.range = b.dataset.v; for (const o of el('polls-range').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); renderPolls(); });
     const firms = [...new Set(POLLS.polls.filter(p => !p.election).map(p => p.firm))].sort(); for (const f of firms) el('polls-firm').append(h('option', { value: f }, f));
     el('polls-firm').addEventListener('change', (e) => { pollsUI.firm = e.target.value; renderPollsTable(); });
@@ -4122,6 +4136,7 @@ async function pollLive(manual) {
       if (selected && selected.election === LIVE.election) { if (selected.booth) renderDetail(LIVE.election, selected.booth); else if (selected.contest) renderContestDetail(LIVE.election, selected.contest); }
       status(`live feed updated ${fmtTime(j.fetched_at)}`);
       if (activeView() === 'dash') renderDash();
+      if (activeView() === 'seat') refreshSeatTiles();
       if (activeView() === 'seat' && SEAT.cid && !SEAT.cid.startsWith('vicr-')) { if (SEAT_RES.box && SEAT_RES.box.isConnected && SEAT_RES.cid === SEAT.cid) seatResultsFill(SEAT_RES.box, SEAT.cid); else if (seatLive(SEAT.cid)) renderSeat(); }
     }
     renderLiveBox();
@@ -4652,7 +4667,7 @@ function drawRegion(root, rid) {
   // 4 electorates
   const s4 = sec('seats', 4, `The ${reg.districts.length} electorates in ${reg.name}`, 'Each elects one member to the Legislative Assembly; together they elect this region\'s five.');
   const grid = h('div', { class: 'seatgrid' });
-  for (const d of reg.districts) { const c = idx.contestById.get(LIVE.election + '|' + d); if (!c) continue; const lc = seatLast(d); grid.append(h('button', { class: 'seatbtn', onclick: () => openSeat(d) }, h('span', { class: 'dot', style: `background:${partyColor(heldCode(c))}` }), c.contest_name, h('span', { class: 'm' }, lc ? (100 * lc.margin).toFixed(1) : ''))); }
+  for (const d of reg.districts) { const t = seatTile(d); if (t) grid.append(t); }
   s4.append(grid);
 }
 // the two-houses note on a seat page
@@ -4839,6 +4854,35 @@ function seatModelExplainer(eid, cid, seatName, opts = {}) {
 // gains it, with the margin after preferences. "Called" is the Atlas's call from the count so far; "declared" is the VEC's.
 const NIGHT_CODE = { Labor: 'ALP', Liberal: 'LIB', National: 'NAT', Nationals: 'NAT', Greens: 'GRN', Independent: 'IND' };
 const NIGHT_NAME = { ALP: 'Labor', LIB: 'Liberal', NAT: 'Nationals', GRN: 'Greens', IND: 'Independent', ONP: 'One Nation', VSP: 'Socialists' };
+// one seat in a grid of seats (the Electorates index, a region's page): before polls close, the party holding it and its last margin;
+// from 6 pm on election night a live scoreboard tile: who is ahead now, the seat's status, and how many of its booths have reported
+function seatTile(cid) {
+  const c = idx.contestById.get(LIVE.election + '|' + cid); if (!c) return null;
+  const tile = (dot, right, bar) => { const b = h('button', { class: 'seatbtn' + (bar ? ' live' : ''), 'data-cid': cid, onclick: () => openSeat(cid) }, dot, h('span', { class: 'nm' }, c.contest_name), right); if (bar) b.append(bar); return b; };
+  if (Date.now() < POLLS_CLOSE) { const lc = seatLast(cid); return tile(h('span', { class: 'dot', style: `background:${partyColor(heldCode(c))}` }), h('span', { class: 'm' }, lc ? (100 * lc.margin).toFixed(1) : '')); }
+  let st = null; try { if (seatLive(cid)) st = seatStatus(LIVE.election, cid); } catch (e) { st = null; }
+  const nm = (p) => NIGHT_NAME[p] || PARTY_NAME[p] || p || '', code = (x) => x ? (x.cand && x.cand.party ? x.cand.party : x.party) : null;
+  if (!st || st.status === 'nocount') return tile(h('span', { class: 'dot hollow' }), h('span', { class: 'm' }, h('b', {}, 'No count yet'), 'counting from 6 pm'), h('span', { class: 'sbar' }));
+  const w = st.winner, wp = w ? code(w) : st.leader, col = wp ? partyColor(grpParty(wp)) : 'var(--fg-3)';
+  let label;
+  if (!w || st.status === 'counting') label = wp ? `${nm(wp)} leads primaries` : 'Counting';
+  else if (st.status === 'doubt') label = 'In doubt';
+  else if (st.status === 'leaning') label = `${nm(wp)} ahead`;
+  else { const held = NIGHT_CODE[c.held_by] || null, inc = !!(w.cand && w.cand.incumbent), retain = held === 'IND' ? inc : held === wp; label = `${nm(wp)} ${retain ? 'retain' : held ? 'gain' : 'win'} · ${st.status === 'declared' ? 'declared' : 'called'}`; }
+  const n = st.counted && st.counted.booths_listed, r = (st.counted && st.counted.booths_reported) || 0, f = n ? Math.max(0, Math.min(1, r / n)) : 0;
+  return tile(h('span', { class: 'dot' + (st.status === 'doubt' ? ' ring' : ''), style: `background:${col};color:${col}` }),
+    h('span', { class: 'm' }, h('b', {}, label), n ? `${r}/${n} booths` : ''),
+    h('span', { class: 'sbar' }, h('i', { style: `width:${(100 * f).toFixed(1)}%;background:${col}` })));
+}
+// one-click views on the map for the regional cities and both halves of Melbourne ([west, south], [east, north])
+const ZOOM_PRESETS = [['Victoria', [[140.96, -39.16], [149.98, -33.98]]], ['Melbourne west', [[144.55, -37.95], [145.0, -37.55]]], ['Melbourne east', [[144.95, -38.12], [145.45, -37.65]]],
+  ['Geelong', [[144.22, -38.32], [144.58, -38.0]]], ['Ballarat', [[143.72, -37.65], [143.96, -37.48]]], ['Bendigo', [[144.17, -36.85], [144.41, -36.67]]], ['Mornington Peninsula', [[144.65, -38.52], [145.25, -38.13]]]];
+function buildZoomPresets() {
+  const box = el('zoom-presets'); if (!box || box.childElementCount) return;
+  for (const [name, b] of ZOOM_PRESETS) box.append(h('button', { type: 'button', onclick: () => { if (!map || !mapReady) return; if (activeView() !== 'map') showView('map'); map.fitBounds(b, { padding: 30, duration: 700 }); } }, name));
+}
+// on each live update, redraw the tiles in place (the index keeps its search box and scroll position)
+function refreshSeatTiles() { try { for (const b of document.querySelectorAll('#view-seat .seatbtn[data-cid]')) { const t = seatTile(b.dataset.cid); if (t) b.replaceWith(t); } } catch (e) {} }
 function seatNightBadges(cid) {
   if (Date.now() < POLLS_CLOSE) return [];
   const B = (cls, ...k) => h('span', { class: 'badge night ' + cls }, ...k), pulse = () => h('span', { class: 'pulse' });
@@ -4903,11 +4947,11 @@ function renderSeat() {
     const head = h('div', { class: 'shead' }, h('div', { class: 'wrap', style: 'min-height:0;padding-bottom:32px' }, h('h1', { style: 'margin-top:0' }, 'Electorates'), h('p', { class: 'lead' }, `All ${all.length} Legislative Assembly electorates for the 2026 election. Find yours by name or suburb.`),
       h('div', { class: 'search', style: 'max-width:640px' }, h('input', { type: 'search', id: 'seat-q', placeholder: 'Electorate, suburb or postcode', 'aria-label': 'Electorate, suburb or postcode', autocomplete: 'off' }), h('div', { class: 'hits', id: 'seat-hits' }))));
     const grid = h('div', { class: 'seatgrid' });
-    for (const c of all) { const lc = seatLast(c.contest_id); grid.append(h('button', { class: 'seatbtn', onclick: () => openSeat(c.contest_id) }, h('span', { class: 'dot', style: `background:${partyColor(heldCode(c))}` }), c.contest_name, h('span', { class: 'm' }, lc ? (100 * lc.margin).toFixed(1) : ''))); }
+    for (const c of all) { const t = seatTile(c.contest_id); if (t) grid.append(t); }
     const up = h('div', { class: 'seatgrid' });
     const upSec = h('section', { class: 'sec', id: 's-upper', style: 'margin-top:44px' }, h('h2', {}, 'Upper house regions'), h('p', { class: 'sub' }, 'Your second, larger ballot paper is for the Legislative Council. Victoria is split into 8 regions of 11 electorates each, and every region elects 5 of the Council\'s 40 members.'), up);
     ensureLcx().then(() => { for (const [rid, r] of Object.entries(LCX.regions).sort((a, b) => a[1].name.localeCompare(b[1].name))) { const n = LCX.noms && LCX.noms.regions[rid] ? LCX.noms.regions[rid].reduce((a, g) => a + g.candidates.length, 0) : 0; up.append(h('button', { class: 'seatbtn', onclick: () => openRegion(rid) }, h('span', { class: 'dot', style: 'background:var(--lime)' }), r.name, h('span', { class: 'm' }, n ? n + ' candidates' : ''))); } }).catch(() => {});
-    root.append(head, h('div', { class: 'wrap', style: 'padding-block:28px 56px' }, h('h2', { style: 'margin:0 0 6px' }, 'Lower house electorates'), h('div', { class: 'hint', style: 'margin-bottom:12px' }, 'Dot: party holding the seat. Number: winning margin at the last contest, in points.'), grid, upSec));
+    root.append(head, h('div', { class: 'wrap', style: 'padding-block:28px 56px' }, h('h2', { style: 'margin:0 0 6px' }, 'Lower house electorates'), h('div', { class: 'hint', style: 'margin-bottom:12px' }, (Date.now() >= POLLS_CLOSE ? 'Dot: who is ahead now (hollow: no count yet). Bar: share of the seat\'s booths reported so far. Updates every minute.' : 'Dot: party holding the seat. Number: winning margin at the last contest, in points.')), grid, upSec));
     wireSearch(el('seat-q'), el('seat-hits'));
     return;
   }
@@ -5228,6 +5272,7 @@ async function boot() {
     } catch (e) { console.warn('2026 register not loaded', e); }
     buildIndexes();
     try { feedInit(); } catch (e) { console.warn('feed', e); }
+    try { buildZoomPresets(); } catch (e) { console.warn('zoom presets', e); }
     const ids = D.elections.filter(e => !e.election_id.startsWith('vicby') && e.election_id !== 'vic2023n').map(e => e.election_id).concat(D.elections.filter(e => e.election_id.startsWith('vicby')).map(e => e.election_id));
     fillElectionSelect(el('sel-election'), ids); el('sel-election').value = state.election; syncModelOptions();
     fillElectionSelect(el('sel-gap'), ids); el('sel-gap').value = state.gap;
