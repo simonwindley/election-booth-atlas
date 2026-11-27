@@ -1347,7 +1347,7 @@ async function renderMap() {
     return;
   }
   map.setLayoutProperty('contest-fill', 'visibility', 'none'); map.setLayoutProperty('contest-line', 'visibility', 'none'); map.setLayoutProperty('contest-stripes', 'visibility', 'none'); map.setFilter('contest-sel', ['==', 'contest_id', '']);
-  const feats = vals.map(x => { const fresh = isFresh(eid, x.b.booth_id); const col = colorOf(x); return { type: 'Feature', geometry: { type: 'Point', coordinates: [x.b.lon, x.b.lat] }, properties: { booth_id: x.b.booth_id, color: col || 'rgba(0,0,0,0)', stroke: fresh ? css('--fg') : x.m.projected ? css('--fg-3') : (col ? css('--map-bg') : css('--nodata')), sw: fresh ? 3 : 1, r: 2.5 + 7 * Math.sqrt((x.ps.formal || (eid === LIVE.election ? 800 : 0)) / 3000) } }; });
+  const feats = vals.map(x => { const fresh = isFresh(eid, x.b.booth_id); const col = colorOf(x); return { type: 'Feature', geometry: { type: 'Point', coordinates: [x.b.lon, x.b.lat] }, properties: { booth_id: x.b.booth_id, color: col || 'rgba(0,0,0,0)', stroke: fresh ? css('--fg') : x.m.projected ? css('--fg-3') : (col ? css('--map-bg') : css('--nodata')), sw: fresh ? 1.5 : 1, r: 2.5 + 7 * Math.sqrt((x.ps.formal || (eid === LIVE.election ? 800 : 0)) / 3000) } }; });
   // changed-since-last-look booths drawn last so their outline sits on top
   feats.sort((a, b) => a.properties.sw - b.properties.sw);
   map.getSource('booths').setData({ type: 'FeatureCollection', features: feats });
@@ -3404,8 +3404,10 @@ function rebuildLiveTables(latest) {
 }
 function isFresh(eid, bid, cid) {
   if (eid !== LIVE.election || !LIVE.latest || !LIVE.seenAt) return false;
-  if (bid) { const b = idx.boothsByKey.get(eid + '|' + bid); return !!(b && b.reported && b.updated_at && b.updated_at > LIVE.seenAt); }
-  const c = LIVE.latest.contests[cid]; return !!(c && c.updated_at && c.updated_at > LIVE.seenAt && (c.counted && (c.counted.booths_reported || Object.keys(c.counted.by_type || {}).length)));
+  // "just in": new since you last marked them seen, and within 10 minutes of the latest feed (measured on the feed's clock, so it also works in rehearsals)
+  const feedT = Date.parse(LIVE.latest.fetched_at || '') || Date.now(), recent = (t) => t && feedT - Date.parse(t) < 10 * 60 * 1000;
+  if (bid) { const b = idx.boothsByKey.get(eid + '|' + bid); return !!(b && b.reported && b.updated_at && b.updated_at > LIVE.seenAt && recent(b.updated_at)); }
+  const c = LIVE.latest.contests[cid]; return !!(c && c.updated_at && c.updated_at > LIVE.seenAt && recent(c.updated_at) && (c.counted && (c.counted.booths_reported || Object.keys(c.counted.by_type || {}).length)));
 }
 /* ---------- preference-flow model (src/pref_flows.py): a modelled two-candidate result from first preferences ---------- */
 let PREF = null, PREF_P = null, BALLOT = null, BALLOT_B = null;   // BALLOT: ballot-order effects (data/ballot_effects.json), applied with the flows; BALLOT_B: the booth-level susceptibility scores
@@ -4157,7 +4159,7 @@ async function pollLive(manual) {
     const changed = j.fetched_at !== LIVE.fetchedAt;
     LIVE.latest = j; LIVE.fetchedAt = j.fetched_at; LIVE.available = true; LIVE.error = null; projReset();
     if (state.election === LIVE.election) syncModelOptions();   // the election-night layers appear once there is a count
-    if (!LIVE.nightDefault) { LIVE.nightDefault = true; if (!LIVE.userTouched && !selected) { state.election = LIVE.election; state.metric = 'called'; el('sel-election').value = state.election; el('sel-metric').value = 'called'; syncModelOptions(); el('f-party').hidden = true; if (state.unit !== 'contest') setUnit('contest'); else if (mapReady) renderMap(); } }
+    if (!LIVE.nightDefault) { LIVE.nightDefault = true; if (!LIVE.userTouched && !selected) { state.election = LIVE.election; state.metric = 'tcpwin'; el('sel-election').value = state.election; el('sel-metric').value = 'tcpwin'; syncModelOptions(); el('f-party').hidden = true; if (state.unit !== 'booth') setUnit('booth'); else if (mapReady) renderMap(); } }
     if (changed) {
       rebuildLiveTables(j); buildIndexes(); refreshSql(); venueRows = null;
       if (state.election === LIVE.election && mapReady) renderMap();
@@ -5309,7 +5311,7 @@ async function boot() {
     for (const [k, f] of [['dash-status', 'status'], ['dash-party', 'party'], ['dash-held', 'held'], ['dash-sort', 'sort']]) el(k).addEventListener('change', (e) => { dash[f] = e.target.value; renderDashTable(); });
     el('dash-q').addEventListener('input', (e) => { dash.q = e.target.value; renderDashTable(); });
     try { dash.strip = localStorage.getItem('atlas.strip') || 'primary'; } catch (e) {}
-    if (Date.now() >= POLLS_CLOSE && !LIVE.userTouched && !selected && !location.hash.includes('/')) { LIVE.nightDefault = true; state.election = LIVE.election; state.metric = 'called'; state.unit = 'contest'; el('sel-election').value = state.election; el('sel-metric').value = 'called'; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === 'contest'); el('f-party').hidden = true; syncModelOptions(); }   // election night: open on the called-seats map of 2026
+    if (Date.now() >= POLLS_CLOSE && !LIVE.userTouched && !selected && !location.hash.includes('/')) { LIVE.nightDefault = true; state.election = LIVE.election; state.metric = 'tcpwin'; state.unit = 'booth'; el('sel-election').value = state.election; el('sel-metric').value = 'tcpwin'; for (const o of el('seg-unit').querySelectorAll('button')) o.setAttribute('aria-pressed', o.dataset.v === 'booth'); el('f-party').hidden = true; syncModelOptions(); }   // election night: open on the 2026 booths, coloured by who is ahead after preferences (seat calls are on the Dashboard and the Called seats layer)
     for (const b of el('strip-mode').querySelectorAll('button')) { b.setAttribute('aria-pressed', b.dataset.v === dash.strip); b.addEventListener('click', () => { dash.strip = b.dataset.v; for (const o of el('strip-mode').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); try { localStorage.setItem('atlas.strip', dash.strip); } catch (e) {} renderStrip(dashRows(state.election), state.election); }); }
     fillElectionSelect(el('cmp-a'), ids); fillElectionSelect(el('cmp-b'), ids); el('cmp-a').value = 'fed2022'; el('cmp-b').value = 'vic2022';
     el('sel-election').addEventListener('change', (e) => { LIVE.userTouched = true; setElection(e.target.value); });
