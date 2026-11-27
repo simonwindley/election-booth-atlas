@@ -1,7 +1,7 @@
 {
 "meta": {
-"retrieved": "2026-11-27T22:51:23.599132+00:00",
-"last_edited": "This page was last edited on 27 November 2026, at 15:46\u00a0(UTC).",
+"retrieved": "2026-11-27T22:57:50.166154+00:00",
+"last_edited": "This page was last edited on 27 November 2026, at 22:57\u00a0(UTC).",
 "url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Victorian_state_election"
 },
 "tables": [
@@ -133,21 +133,6 @@
 "34%"
 ],
 [
-"20 Nov",
-"Lighthouse/Growth Intelligence Centre",
-"Herald Sun",
-"1,221",
-"22%",
-"31%",
-"15%",
-"24%",
-"8%",
-"<",
-"\u2014N/a",
-"\u2014N/a",
-"\u2014N/a"
-],
-[
 "18\u201319 Nov",
 "Roy Morgan",
 "\u2014N/a",
@@ -223,21 +208,6 @@
 "50%"
 ],
 [
-"13 Nov",
-"Lighthouse/Growth Intelligence Centre",
-"Herald Sun",
-"1,351",
-"21%",
-"32%",
-"14%",
-"23%",
-"10%",
-"<",
-"\u2014N/a",
-"\u2014N/a",
-"\u2014N/a"
-],
-[
 "10\u201318 Nov",
 "Agenda C Synesis/Antenna",
 "\u2014N/a",
@@ -283,6 +253,21 @@
 "32%"
 ],
 [
+"9\u201322 Nov",
+"Lighthouse/Growth Intelligence Centre",
+"Herald Sun",
+"1,200",
+"22%",
+"28%",
+"15%",
+"26%",
+"9%",
+"<",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a"
+],
+[
 "6\u201323 Nov",
 "YouGov",
 "News24/Herald Sun",
@@ -326,6 +311,36 @@
 "55%",
 "\u2014N/a",
 "45%"
+],
+[
+"2-15 Nov",
+"Lighthouse/Growth Intelligence Centre",
+"Herald Sun",
+"1,221",
+"22%",
+"31%",
+"15%",
+"24%",
+"8%",
+"<",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a"
+],
+[
+"2-8 Nov",
+"Lighthouse/Growth Intelligence Centre",
+"Herald Sun",
+"1,351",
+"21%",
+"32%",
+"14%",
+"23%",
+"10%",
+"<",
+"\u2014N/a",
+"\u2014N/a",
+"\u2014N/a"
 ],
 [
 "2-7 Nov",
