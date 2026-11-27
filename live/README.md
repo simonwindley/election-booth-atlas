@@ -17,7 +17,7 @@ From the project folder on the Mac:
 The 2026 layer fills with the 2022 figures for those districts (labelled as 2026 — it is a rehearsal), the
 changed booths get the bold outline, and the electorate view shows the projection. When you are done:
 
-    rm -rf site/data/live        # so the 2026 layer goes back to the pre-election preview
+    rm -f site/data/live/latest.json site/data/live/changes.json site/data/live/status.json   # not the whole folder: daily.json lives there too
     git add -A site/data/live && git commit -m "clear rehearsal feed" && git push   # if you rehearsed with --publish
 
 ## On the night (Saturday 28 November, counting starts 6 pm)

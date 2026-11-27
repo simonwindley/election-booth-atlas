@@ -18,6 +18,8 @@ def main():
     ap.add_argument('out'); ap.add_argument('--swing-coal', type=float, default=3.0); ap.add_argument('--swing-grn', type=float, default=1.0)
     ap.add_argument('--reported', type=float, default=0.6); ap.add_argument('--pools', default='early'); ap.add_argument('--tcp', type=float, default=0.8); ap.add_argument('--seed', type=int, default=1)
     ap.add_argument('--noise', type=float, default=3.0, help='sd of the booth-level swing around the uniform swing, points')
+    ap.add_argument('--stable', action='store_true', help='each booth draws from its own random stream, so raising --reported only adds booths (for tools/trickle_feed.py)')
+    ap.add_argument('--now', action='store_true', help='stamp the feed with the current time instead of 7:30 pm on the night')
     a = ap.parse_args(); random.seed(a.seed)
     def gz(n): return json.load(gzip.open(os.path.join(ROOT, 'site/data', n + '.json.gz')))
     cand = gz('candidates'); C = [dict(zip(cand['cols'], r)) for r in cand['rows'] if r[0] == 'vic2022']
@@ -33,7 +35,9 @@ def main():
     pools = set(a.pools.split(',')) if a.pools else set()
     byC = defaultdict(list)
     for c in C: byC[c['contest_id']].append(c)
-    out = {'election_id': 'vic2026', 'base': 'synthetic', 'fetched_at': '2026-11-28T09:30:00+00:00', 'contests': {}, 'n_changed_booths': 0, 'n_changed_contests': 0}
+    import datetime
+    stamp = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat() if a.now else '2026-11-28T09:30:00+00:00'
+    out = {'election_id': 'vic2026', 'base': 'synthetic', 'fetched_at': stamp, 'contests': {}, 'n_changed_booths': 0, 'n_changed_contests': 0}
     grp = lambda p: 'COAL' if p in ('LIB', 'NAT') else p
     for cid, cands in byC.items():
         if CT.get(cid, {}).get('house') == 'LC': continue
@@ -50,11 +54,12 @@ def main():
             if not f: continue
             is_ord = b['booth_type'] == 'ordinary'
             if is_ord: n_ord += 1
-            reported = (random.random() < a.reported) if is_ord else (b['booth_type'] in pools)
+            rb = random.Random(f"{a.seed}|{b['booth_id']}") if a.stable else random
+            reported = (rb.random() < a.reported) if is_ord else (b['booth_type'] in pools)
             entry = {'booth_id': b['booth_id'], 'name': b['booth_name'], 'type': b['booth_type'], 'fp': {}, 'informal': row.get('INFORMAL', 0), 'total': 0, 'tcp': {}, 'reported': reported, 'sig': 'synth', 'updated_at': out['fetched_at'], 'first_seen': out['fetched_at']}
             if reported:
                 if is_ord: n_rep += 1
-                formal = sum(f.values()); sc = (a.swing_coal + random.gauss(0, a.noise)) / 100 if is_ord else a.swing_coal / 100; sg = (a.swing_grn + random.gauss(0, a.noise / 2)) / 100 if is_ord else a.swing_grn / 100
+                formal = sum(f.values()); sc = (a.swing_coal + rb.gauss(0, a.noise)) / 100 if is_ord else a.swing_coal / 100; sg = (a.swing_grn + rb.gauss(0, a.noise / 2)) / 100 if is_ord else a.swing_grn / 100
                 g = defaultdict(float)
                 for c in cands:
                     g[grp(c['party'])] += f.get(c['candidate_id'], 0)
@@ -70,7 +75,7 @@ def main():
                 for k, v in newf.items(): tot[k] = tot.get(k, 0) + v
                 by_type[b['booth_type']] += sum(newf.values()); informal += entry['informal']
                 t = TCP.get(b['booth_id'])
-                if t and pair and (random.random() < a.tcp or not is_ord):
+                if t and pair and (rb.random() < a.tcp or not is_ord):
                     tt = sum(t.values()); shift = sum(newf.values()) - formal
                     # keep the 2022 booth 2CP, shifted by the swing between the pair's party groups
                     pg = [grp(next(c['party'] for c in cands if c['candidate_id'] == k)) for k in pair]

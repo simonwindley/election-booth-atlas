@@ -252,6 +252,7 @@ table.data td.num, table.data th.num { text-align: right; font-family: var(--fon
 .tally { display: flex; height: 18px; border-radius: 4px; overflow: hidden; background: var(--surface-2); position: relative; margin: 0 0 6px; }
 .tally b { display: block; height: 100%; }
 .tally b.lean { opacity: .45; }
+.tally b.open { background: repeating-linear-gradient(135deg, var(--surface-2) 0 6px, transparent 6px 12px); }
 .tally-wrap { position: relative; padding-top: 18px; }
 .tally-wrap .maj { position: absolute; top: 14px; bottom: 2px; width: 2px; background: var(--fg); z-index: 1; }
 .tally-wrap .maj span { position: absolute; top: -13px; left: -24px; font-size: 10px; color: var(--fg-3); white-space: nowrap; }
@@ -549,6 +550,12 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .v2 .seatbtn .sbar i { display: block; height: 100%; }
 .v2 .dot.hollow { background: transparent; border: 2px solid #9aa0a8; box-sizing: border-box; }
 .v2 .dot.ring { outline: 2px solid currentColor; outline-offset: 2px; }
+.tcpwrap { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.tcpbar { position: relative; display: inline-block; width: 120px; height: 12px; border-radius: 6px; overflow: hidden; flex: none; }
+.tcpbar i { position: absolute; left: 0; top: 0; bottom: 0; }
+.tcpbar u { position: absolute; left: 50%; top: 0; bottom: 0; border-left: 2px solid #fff; }
+.tcpbar.soft { opacity: .55; }
+.tcpcell { min-width: 210px; }
 .zoomp { display: flex; flex-wrap: wrap; gap: 6px; }
 .zoomp button { font: inherit; font-size: 13px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line, #E4DED2); background: var(--surface, #fff); color: var(--fg); cursor: pointer; }
 .zoomp button:hover { background: var(--sky, #EAF2F8); }
@@ -1040,6 +1047,8 @@ GROUP BY c.contest_name, p.party ORDER BY votes DESC</textarea>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/alasql/4.3.3/alasql.min.js"></script>
 <script>
+// rehearsal: ?rehearse (or ?rehearse=2026-11-28T09:30:00Z) shifts the page's clock so election-night mode can be tried on a local copy before the night
+(function () { const m = location.search.match(/[?&]rehearse(?:=([^&]+))?/); if (!m) return; const t = m[1] ? Date.parse(decodeURIComponent(m[1])) : Date.parse('2026-11-28T08:30:00Z'); if (isNaN(t)) return; const off = t - Date.now(), real = Date.now; Date.now = () => real() + off; })();
 (() => {
 'use strict';
 const DATA = (window.__DATA_BASE || 'data/');
@@ -1940,8 +1949,8 @@ function renderDash() {
     stat(fmt(cur.formal), live ? 'formal votes counted' : 'formal votes'), cur.formal ? stat(pct(cur.informal / (cur.formal + cur.informal)), 'informal') : '',
     live && cur.enrolment && cur.formal ? stat(pct((cur.formal + cur.informal) / cur.enrolment), 'of enrolment counted') : '',
     live ? stat(`${fmt(t.reported)} / ${fmt(t.booths)}`, 'election-day booths reported') : '',
-    live ? (t.earlyListed > 88 ? stat(`${t.earlyRep} / ${t.earlyListed}`, 'early voting centres in') : stat(fmt(t.earlyVotes), `early votes counted${t.earlyReg ? ' of ' + fmt(t.earlyReg) + ' cast so far' : ''}${t.base.early ? ' (2022: ' + fmt(t.base.early) + ')' : ''}`)) : '',
-    live ? stat(fmt(t.byType.postal), `postal votes counted${t.postalRet ? ' · ' + fmt(t.postalRet) + ' returned' : ''}${t.postalReg ? ' of ' + fmt(t.postalReg) + ' applications' : t.base.postal ? ' (2022: ' + fmt(t.base.postal) + ')' : ''}`) : '',
+    live ? (t.earlyListed > 88 ? stat(`${t.earlyRep} / ${t.earlyListed}`, 'early voting centres in') : stat(t.earlyReg ? `${fmt(t.earlyVotes)} / ${fmt(t.earlyReg)}` : fmt(t.earlyVotes), `early votes counted${t.earlyReg ? ', of those cast' : ''}${t.base.early ? ' (2022: ' + fmt(t.base.early) + ' cast)' : ''}`)) : '',
+    live ? stat((t.postalRet || t.postalReg) ? `${fmt(t.byType.postal || 0)} / ${fmt(t.postalRet || t.postalReg)}` : fmt(t.byType.postal), `postal votes counted${t.postalRet ? ', of those returned so far' : t.postalReg ? ', of applications' : ''}${t.postalRet && t.postalReg ? ' (' + fmt(t.postalReg) + ' applications; more arrive until 4 December)' : t.base.postal ? ' (2022: ' + fmt(t.base.postal) + ')' : ''}`) : '',
     live ? stat(fmt(D.candidates.filter(x => x.election_id === eid && x.contest_id.startsWith('vic-')).length), (LIVE.daily && LIVE.daily.candidates && LIVE.daily.candidates.districts ? 'nominated' : 'declared') + ' lower-house candidates') : ''));
   // ---- statewide
   const st = el('dash-state'); st.innerHTML = '';
@@ -1956,7 +1965,13 @@ function renderDash() {
   else if (prevEid) for (const r of dashRows(prevEid)) if (r.wparty) seatsBase[r.wparty] = (seatsBase[r.wparty] || 0) + 1;   // settled: the previous parliament
   const order = ['ALP', 'GRN', 'VSP', 'IND', 'OTH', 'ONP', 'COAL'];
   const bar = h('div', { class: 'tally' }), wrap = h('div', { class: 'tally-wrap' }, bar);
-  for (const p of order) { if (seatsNow[p]) bar.append(h('b', { style: `width:${100 * seatsNow[p] / total}%;background:${partyColor(p)}`, title: `${PARTY_NAME[p]} ${seatsNow[p]}` })); if (seatsLean[p]) bar.append(h('b', { class: 'lean', style: `width:${100 * seatsLean[p] / total}%;background:${partyColor(p)}`, title: `${PARTY_NAME[p]} leaning ${seatsLean[p]}` })); }
+  // the chamber reads from the outside in: Labor and the Greens from the left, the Coalition from the right (called seats outermost, leaning
+  // seats inside them), independents and others next to the middle, and the seats not yet called in the middle, across the majority line
+  const seg = (p, n, lean) => n ? bar.append(h('b', { class: lean ? 'lean' : '', style: `width:${100 * n / total}%;background:${partyColor(p)}`, title: `${PARTY_NAME[p]} ${lean ? 'leaning ' : ''}${n}` })) : null;
+  for (const p of ['ALP', 'GRN', 'VSP', 'IND', 'OTH']) { seg(p, seatsNow[p], false); seg(p, seatsLean[p], true); }
+  const placed = order.reduce((a, p) => a + (seatsNow[p] || 0) + (seatsLean[p] || 0), 0);
+  if (total > placed) bar.append(h('b', { class: 'open', style: `width:${100 * (total - placed) / total}%`, title: `${total - placed} ${pre ? 'vacant' : 'not yet called'}` }));
+  for (const p of ['ONP', 'COAL']) { seg(p, seatsLean[p], true); seg(p, seatsNow[p], false); }
   if (majority) wrap.append(h('div', { class: 'maj', style: `left:${100 * majority / total}%` }, h('span', {}, `majority ${majority}`)));
   st.append(wrap, h('div', { class: 'tally-key' }, ...order.filter(p => seatsNow[p] || seatsLean[p]).map(p => h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), `${PARTY_NAME[p]} ${seatsNow[p] || 0}${seatsLean[p] ? ' (+' + seatsLean[p] + ' leaning)' : ''}`)), pre ? h('span', { class: 'hint' }, 'as held going in') : live && doubt + (total - counting) ? h('span', { class: 'hint' }, `${total - (declared + called)} not yet called`) : ''));
   const baseLabel = live ? 'who held each seat going in' : (prevE ? 'the ' + prevE.name.replace('Victorian ', '') + ' result' : '–');
@@ -2044,6 +2059,18 @@ function renderStrip(rows, eid) {
     ? `One box per seat, coloured by the party ahead after preferences; the deeper the colour, the larger its two-candidate share (50% to 75%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no two-candidate count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`
     : `One box per seat, coloured by the party leading on primary votes; the deeper the colour, the larger its share (25% to 55%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`;
 }
+// a seat's two-candidate split as a bar: the leader's colour from the left, the other finalist's after it, a white mark at 50%;
+// faded until the seat is called or declared (on past elections every seat is final)
+function tcpBar(r, eid) {
+  const s = Math.max(0, Math.min(1, r.share || 0)), w = r.winner;
+  const pair = (r.proj && r.proj.tcp && r.proj.tcp.pair) || (r.pr && r.pr.pair) || ((contestTcp(eid, r.cid) || {}).pair) || [];
+  const id = (x) => x && x.cand ? x.cand.candidate_id : null, pty = (x) => x ? grpParty((x.cand && x.cand.party) || x.party) : null;
+  const other = pair.length === 2 ? (pair.find(x => id(x) && id(x) !== id(w)) || pair.find(x => pty(x) !== r.wparty) || pair[1]) : null;
+  const oc = other ? partyColor(pty(other)) : 'var(--line, #E4DED2)';
+  const final = eid !== LIVE.election || r.status === 'called' || r.status === 'declared';
+  return h('span', { class: 'tcpbar' + (final ? '' : ' soft'), style: `background:${oc}`, title: other ? `${PARTY_NAME[r.wparty] || ''} ${pct(s)} v ${PARTY_NAME[pty(other)] || ''} ${pct(1 - s)}` : '' },
+    h('i', { style: `width:${(100 * s).toFixed(1)}%;background:${partyColor(r.wparty)}` }), h('u'));
+}
 function renderDashTable(rows, eid) {
   rows = rows || dashRows(eid || state.election); eid = eid || state.election;
   const live = eid === LIVE.election, q = dash.q.trim().toLowerCase();
@@ -2067,12 +2094,12 @@ function renderDashTable(rows, eid) {
       h('td', {}, h('strong', {}, r.name), r.changed || r.changing ? h('div', { class: 'gain' }, `${PARTY_NAME[wp]} ${r.changed ? 'gain' : 'leading'} from ${PARTY_NAME[r.held]}`) : ''),
       h('td', {}, r.held ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.held)}` }), r.heldLabel) : h('span', { class: 'hint' }, r.heldLabel || '–')),
       h('td', {}, wp ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(wp)}` }), `${name} (${PARTY_NAME[w.party] || w.party})`) : h('span', { class: 'hint' }, '–')),
-      h('td', { class: 'num' }, r.share != null ? pct(r.share) + how : '–'),
+      h('td', { class: 'num tcpcell' }, r.share != null ? h('span', { class: 'tcpwrap' }, tcpBar(r, eid), h('span', { class: 'tcpv' }, pct(r.share) + how)) : '–'),
       h('td', { class: 'num' }, r.margin != null ? (100 * r.margin).toFixed(1) : r.lastMargin != null ? h('span', { class: 'hint', title: `${PARTY_NAME[r.lastParty]} margin at the last contest here (${idx.electionById.get(r.lastEid).name})` }, `${PARTY_SHORT[r.lastParty]} ${(100 * r.lastMargin).toFixed(1)}`) : '–'),
       h('td', { class: 'num' }, r.swing != null ? pts(r.swing) : '–'),
       live ? h('td', {}, (() => { const pr = r.pr; if (!pr) return h('span', { class: 'hint' }, '–'); const a = pr.pair[0], g = grpParty(a.party); const same = !r.winner || !r.winner.cand || !a.cand || r.winner.cand.candidate_id === a.cand.candidate_id; return h('span', { class: 'chip', title: `${pr.pair.map(x => `${candName(x.cand)} ${pct(x.share)}`).join(' v ')} · ${pr.method === 'official' ? 'declared' : pr.method === 'projected' ? 'projected from matched booths' : 'counted so far'}${same ? '' : ' · a different leader from the Atlas projection'}` }, h('i', { style: `background:${partyColor(g)}` }), `${candName(a.cand)} ${pct(a.share)}`, same ? '' : h('span', { style: 'color:var(--alp)' }, ' ≠')); })()) : '',
       h('td', {}, r.leader ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.leader)}` }), `${PARTY_SHORT[r.leader]} ${pct(r.ps[r.leader].share)}`) : h('span', { class: 'hint' }, '–')),
-      h('td', { class: 'hint', style: live ? 'max-width:230px' : '' }, live ? (r.counted ? progressText(r.cid) : '–') : fmt(r.ps.formal)),
+      h('td', { class: 'hint', style: live ? 'min-width:180px;max-width:240px' : '' }, live ? (r.counted ? progressText(r.cid) : '–') : fmt(r.ps.formal)),
       h('td', {}, h('span', { class: 'st ' + r.status, title: (r.pairRisk || '') + (r.disagree ? ' · disagrees with ' + r.disagree.join(' and ') : '') }, STATUS_LABEL[r.status]), r.pairRisk ? h('div', { class: 'hint', style: 'max-width:220px' }, 'Pair at risk: ' + r.pairRisk.split(',')[0]) : '', r.disagree ? h('div', { class: 'hint', style: 'max-width:220px' }, 'Not called: ' + r.disagree.join('; ')) : ''),
       live ? h('td', { class: 'hint' }, r.updated ? fmtTime(r.updated) : '') : '');
     tb.append(tr);
@@ -4049,7 +4076,7 @@ function countProgress(cid) {
   const p22 = contestShares('vic2022', cid); const tot22 = p22.formal ? p22.formal + (p22.informal || 0) : null;
   const t22 = types22(cid); const reg = earlyReg(cid);   // once the VEC's early-voting statistics are captured: {early, postal_applications}
   return { boothsReported: lc.counted.booths_reported || 0, boothsListed: lc.counted.booths_listed || ord.length, earlyListed: early.length, earlyReported: earlyRep, earlyVotes: by.early || 0,
-    postal: by.postal || 0, absent: by.absent || 0, provisional: by.provisional || 0, ordinary: by.ordinary || 0, t22, postalReg: reg.postal_applications || null, earlyReg: reg.early || null,
+    postal: by.postal || 0, absent: by.absent || 0, provisional: by.provisional || 0, ordinary: by.ordinary || 0, t22, postalReg: reg.postal_applications || null, postalRet: reg.postal_returned || null, earlyReg: reg.early || null,
     tcpBooths, tcpOrd, votes, pctEnrol: lc.counted.pct_enrolment, pct22: tot22 ? votes / tot22 : null, stage: lc.stage || null, anyTcp: !!(lc.tcp_total && lc.tcp_total.length) };
 }
 // "4,144 postal (42% of 2022)" style fragments
@@ -4058,7 +4085,8 @@ function typeFrag(label, n, base, regLabel) { if (!n && !base) return null; cons
 function progressText(cid, long = false) {
   const g = countProgress(cid); if (!g) return 'no count yet';
   const parts = [`${g.boothsReported}/${g.boothsListed} booths`];
-  if (g.earlyListed > 1) parts.push(`${g.earlyReported}/${g.earlyListed} early centres`); else if (g.earlyVotes) parts.push(`${fmt(g.earlyVotes)} early votes`); else parts.push('no early votes yet');
+  if (g.earlyListed > 1) parts.push(`${g.earlyReported}/${g.earlyListed} early centres`); else if (g.earlyVotes) parts.push(g.earlyReg ? `${fmt(g.earlyVotes)}/${fmt(g.earlyReg)} early votes` : `${fmt(g.earlyVotes)} early votes`); else parts.push(g.earlyReg ? `0/${fmt(g.earlyReg)} early votes` : 'no early votes yet');
+  if (!long && (g.postalRet || g.postalReg)) parts.push(`${fmt(g.postal || 0)}/${fmt(g.postalRet || g.postalReg)} postals`);
   if (long) { const f1 = typeFrag('postal', g.postal, g.postalReg || g.t22.postal, g.postalReg ? 'applications' : null); if (f1) parts.push(f1); const f2 = typeFrag('absent', g.absent, g.t22.absent); if (f2) parts.push(f2); }
   if (g.tcpBooths) parts.push(`2CP at ${g.tcpOrd}/${g.boothsListed}`); else if (g.anyTcp) parts.push('2CP electorate total only');
   if (g.pct22 != null) parts.push(`${Math.round(100 * g.pct22)}% of the 2022 vote`); else if (g.pctEnrol != null) parts.push(`${g.pctEnrol}% of enrolment`);
