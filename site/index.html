@@ -720,6 +720,15 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .lclegend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; }
 .lclegend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
 .lclegend small.up { color: var(--accent); font-weight: 700; } .lclegend small.down { color: #B4441B; font-weight: 700; }
+.lcgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 6px 0 14px; }
+@media (max-width: 900px) { .lcgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lccard { display: flex; flex-direction: column; text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 10px 12px; cursor: pointer; color: var(--fg); font: inherit; }
+.lccard:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.lccard .nm { font-weight: 700; font-size: 14px; line-height: 1.2; } .lccard .sub { font-size: 11px; color: var(--fg-3); margin-top: 1px; }
+.lccard .shp { margin: 6px 0 4px; aspect-ratio: 4 / 3; } .lccard .shp svg { width: 100%; height: 100%; display: block; }
+.lcdots { display: flex; gap: 6px; margin-top: auto; padding-top: 6px; } .lcdots i { width: 18px; height: 18px; border-radius: 50%; display: block; box-sizing: border-box; }
+.lcdots i.part { opacity: .38; } .lcdots i.open { border: 1.5px dashed var(--fg-3); background: transparent; }
+.lcdq { font-size: 11px; color: var(--fg-3); margin-top: 4px; line-height: 1.3; }
 .lcq { position: relative; display: flex; height: 14px; width: 100%; min-width: 120px; background: var(--surface-2, #EEE9DF); border-radius: 4px; overflow: hidden; }
 .lcq i { display: block; height: 100%; }
 .lcq::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0, transparent calc(100% / 6 - 1px), var(--surface) calc(100% / 6 - 1px), var(--surface) calc(100% / 6)); pointer-events: none; }
@@ -1944,6 +1953,44 @@ function lcQuotaStrip(L) {
   for (const g of L.groups) if (g.q > 0) strip.append(h('i', { style: `width:${Math.min(100, 100 * g.q / 6).toFixed(2)}%;background:${partyColor(g.fam)}`, title: `${g.letter ? g.letter + '. ' : ''}${g.name}: ${g.q.toFixed(2)} quotas` }));
   return strip;
 }
+// a region's own outline for its card: its electorates filled, the neighbours faint, framed 4:3 on the region
+function regionShape(rid, fill) {
+  const reg = LCX.regions[rid]; if (!LOC || !reg) return '';
+  const k = Math.cos(37 * Math.PI / 180), X = (x) => x * k * 100, Y = (y) => -y * 100;
+  const mine = LOC.rings.filter(r => reg.districts.includes(r.cid)); let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (const r of mine) for (const p of r.polys) for (const [x, y] of p) { x0 = Math.min(x0, X(x)); x1 = Math.max(x1, X(x)); y0 = Math.min(y0, Y(y)); y1 = Math.max(y1, Y(y)); }
+  let w = x1 - x0, hh = y1 - y0; const pad = 0.08 * Math.max(w, hh); x0 -= pad; y0 -= pad; w += 2 * pad; hh += 2 * pad;
+  if (w / hh > 4 / 3) { const n = w * 3 / 4; y0 -= (n - hh) / 2; hh = n; } else { const n = hh * 4 / 3; x0 -= (n - w) / 2; w = n; }
+  const d = (polys) => polys.map(r => 'M' + r.map(([x, y]) => `${X(x).toFixed(2)} ${Y(y).toFixed(2)}`).join('L') + 'Z').join('');
+  return `<svg viewBox="${x0.toFixed(2)} ${y0.toFixed(2)} ${w.toFixed(2)} ${hh.toFixed(2)}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${reg.name} Region"><path d="${LOC.rings.map(r => d(r.polys)).join('')}" fill="#E6EFF5" stroke="#FFFFFF" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="${mine.map(r => d(r.polys)).join('')}" fill="${fill}" stroke="#1B2B4B" stroke-width="0.6" stroke-opacity="0.5" vector-effect="non-scaling-stroke"/></svg>`;
+}
+// five seats per region read off the first-preference quotas so far: a full quota fills a seat (solid); the rest go to the largest part-quotas (faded)
+function lcSeatsSoFar(L) {
+  const full = [], part = []; let n = 0;
+  for (const g of L.groups) { const f = Math.floor(g.q); for (let i = 0; i < f && n < 5; i++, n++) full.push(g); }
+  const rest = L.groups.map(g => ({ g, rem: g.q - Math.floor(g.q) })).sort((a, b) => b.rem - a.rem);
+  for (const x of rest) { if (n >= 5) break; if (x.rem <= 0) continue; part.push(x.g); n++; }
+  return { full, part, open: 5 - n };
+}
+function lcRegionCards(rows) {
+  const grid = h('div', { class: 'lcgrid' });
+  const shapes = [];
+  for (const x of rows) {
+    const L = x.L, seats = lcSeatsSoFar(L); let best = null; for (const p of PARTIES) if (L.sh[p] && (!best || L.sh[p] > L.sh[best])) best = p;
+    const fill = best ? mix('#FFFFFF', partyColor(best), 0.45) : '#CFE9F7';
+    const shp = h('div', { class: 'shp' }); shapes.push([shp, x.rid, fill]);
+    const lab = (g) => PARTY_SHORT[g.fam] !== 'OTH' ? PARTY_NAME[g.fam] : g.name;
+    const dots = h('div', { class: 'lcdots', role: 'img', 'aria-label': `On first-preference quotas so far: ${seats.full.map(lab).join(', ') || 'no full quotas'}${seats.part.length ? '; then ' + seats.part.map(lab).join(', ') : ''}` },
+      ...seats.full.map(g => h('i', { style: `background:${partyColor(g.fam)}`, title: `${g.name}: a full quota (${g.q.toFixed(2)} quotas)` })),
+      ...seats.part.map(g => h('i', { class: 'part', style: `background:${partyColor(g.fam)}`, title: `${g.name}: ${g.q.toFixed(2)} quotas; the largest part-quota left, preferences decide` })),
+      ...Array.from({ length: seats.open }, () => h('i', { class: 'open' })));
+    const qtxt = L.groups.filter(g => g.q >= 0.5).slice(0, 4).map(g => `${PARTY_SHORT[g.fam] !== 'OTH' ? PARTY_SHORT[g.fam] : g.name.split(' ')[0]} ${g.q.toFixed(2)}`).join(' · ');
+    grid.append(h('button', { type: 'button', class: 'lccard', onclick: () => openRegion(x.rid), title: `${x.reg.name} Region: the count by group` },
+      h('div', { class: 'nm' }, x.reg.name), h('div', { class: 'sub' }, `${L.pctEnrol != null ? L.pctEnrol + '% counted' : ''} · ${L.bIn}/${L.bAll} booths`), shp, dots, h('div', { class: 'lcdq' }, qtxt)));
+  }
+  locatorSvg([]).then(() => { for (const [el2, rid, fill] of shapes) el2.innerHTML = regionShape(rid, fill); }).catch(() => {});
+  return grid;
+}
 function lcLivePanel() {
   const regions = Object.entries(LCX.regions).sort((a, b) => a[1].name.localeCompare(b[1].name));
   const rows = regions.map(([rid, reg]) => ({ rid, reg, L: lcLive(rid), p22: LC.loaded ? lcShares('vic2022', rid) : null })).filter(x => x.L);
@@ -1968,7 +2015,9 @@ function lcLivePanel() {
   const at = LIVE.lc.fetched_at ? fmtTime(LIVE.lc.fetched_at) : '';
   return h('div', { class: 'panel' }, h('h3', {}, 'The upper-house count so far'),
     h('div', { class: 'hint' }, `First preferences counted in all ${rows.length} regions${at ? ', to ' + at : ''}. ${anyEarly ? 'Election-day booths plus the early and postal votes counted so far.' : 'Election-day booths only so far: no early or postal votes have been counted for the upper house yet.'} Change: against the same region in 2022.`),
-    state, h('div', { class: 'tablewrap' }, t),
+    state, lcRegionCards(rows),
+    h('p', { class: 'hint', style: 'margin:-6px 0 12px' }, 'Five seats per region, read off the first-preference quotas so far: solid for each full quota, faded for the largest part-quotas left, where preferences will decide. Not a prediction: the VEC distributes preferences over the next two weeks.'),
+    h('div', { class: 'tablewrap' }, t),
     h('p', { class: 'hint', style: 'margin-top:8px' }, 'Five seats per region. A quota is one sixth of the formal vote, plus one; the strip is each group\'s first-preference vote measured in quotas, with a line at every quota. Who fills the seats is decided on preferences, which the VEC counts over the next two weeks. Click a region for its count by group.'));
 }
 async function renderDashLc(eid) {
