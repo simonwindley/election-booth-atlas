@@ -2015,7 +2015,8 @@ function renderStrip(rows, eid) {
   // 2026 while counting: Primary / VEC two-candidate / Modelled preferences; once every seat has its declared distribution the modelled mode folds away
   const allDeclared = live && rows.length > 0 && rows.every(r => { const pr = liveProjection(r.cid); return pr && pr.method === 'official'; });
   { const counting = live && !allDeclared; const L = counting ? { primary: 'Primary', tcp: 'VEC two-candidate', model: 'Atlas estimate (count so far)', proj: 'Atlas projection' } : { primary: 'Primary leader', tcp: 'After preferences', model: 'Modelled' };
-    for (const b of el('strip-mode').querySelectorAll('button')) { b.textContent = L[b.dataset.v] || b.textContent; if (b.dataset.v === 'model' || b.dataset.v === 'proj') b.hidden = !counting; }
+    for (const b of el('strip-mode').querySelectorAll('button')) { b.textContent = L[b.dataset.v] || b.textContent; if (b.dataset.v === 'model') b.hidden = !counting; if (b.dataset.v === 'proj') b.hidden = true; }   // the projection stays in each seat's panel; the spectrum shows counted figures and the estimate on them
+    if (dash.strip === 'proj') { dash.strip = counting ? 'model' : 'tcp'; for (const b of el('strip-mode').querySelectorAll('button')) b.setAttribute('aria-pressed', b.dataset.v === dash.strip); }
     if (!counting && (dash.strip === 'proj' || dash.strip === 'model')) { dash.strip = 'tcp'; for (const b of el('strip-mode').querySelectorAll('button')) b.setAttribute('aria-pressed', b.dataset.v === 'tcp'); } }
   const items = rows.map(r => ({ r, v: stripValue(r) })).filter(x => x.v);
   const rank = (x) => { const i = STRIP_ORDER.indexOf(x.v.party); return i < 0 ? 4 : i; };
