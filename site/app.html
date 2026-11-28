@@ -844,12 +844,16 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
               <option value="swing">Party primary swing since the last election</option>
               <option value="tcpswing">Party swing after preferences (2CP) since the last election</option>
               <option value="gap">Party primary: change against an election you choose</option>
+              <option value="earlyday">Party primary: early votes v election day (2026, by electorate)</option>
             </optgroup>
             <optgroup label="Context">
               <option value="senate">Party Senate primary share (federal elections)</option>
               <option value="census">Census indicator (2021)</option>
             </optgroup>
           </select><p class="hint" id="metric-hint" style="margin:4px 0 0"></p></div>
+        <div class="field" id="f-vtype" hidden><label>Vote type</label>
+          <div class="seg" id="seg-vtype" role="group" aria-label="Vote types to include"><button type="button" data-v="day" aria-pressed="true">On the day</button><button type="button" data-v="early" aria-pressed="true">Early</button><button type="button" data-v="postal" aria-pressed="true">Postal</button></div>
+          <p class="hint" id="vtype-hint" style="margin:4px 0 0"></p></div>
         <div class="field" id="f-census" hidden><label for="sel-census">Indicator</label><select id="sel-census"></select></div>
         <div class="field" id="f-party" hidden><label for="sel-party">Party to show</label>
           <div class="partybtns" id="party-btns" role="group" aria-label="Party to show"></div>
@@ -1184,6 +1188,23 @@ function buildIndexes() {
   idx.elected = new Map(D.candidates.filter(c => c.elected).map(c => [c.election_id + '|' + c.contest_id, c]));
 }
 // electorate-wide shares (every vote type), same shape as partyShares
+// 2026 live, electorate view, first-preference colours: only the vote types switched on under Vote type (null when every type is on or it doesn't apply)
+const VT_TYPE = { day: 'ordinary', early: 'early', postal: 'postal' }, VT_NAME = { day: 'on the day', early: 'early', postal: 'postal' };
+const vtAll = () => state.vt.day && state.vt.early && state.vt.postal;
+const VT_METRICS = ['primary', 'share', 'tcpwin', 'tcp'];
+const vtApplies = () => state.election === LIVE.election && LIVE.available && state.unit === 'contest' && VT_METRICS.includes(state.metric);
+const vtLabel = () => Object.keys(VT_TYPE).filter(k => state.vt[k]).map(k => VT_NAME[k]).join(' + ');
+function vtShares(eid, cid) {
+  if (eid !== LIVE.election || !vtApplies() || vtAll() || !LIVE.latest) return null;
+  const c = LIVE.latest.contests[cid]; if (!c) return null;
+  const want = new Set(Object.keys(VT_TYPE).filter(k => state.vt[k]).map(k => VT_TYPE[k])), P = {};
+  for (const x of c.candidates) P[x.candidate_id] = grpParty(x.party);
+  const out = { formal: 0, informal: 0 };
+  for (const b of Object.values(c.booths || {})) { if (!want.has(b.type) || !b.reported || !b.fp) continue; out.informal += b.informal || 0;
+    for (const [k, v] of Object.entries(b.fp)) { const q = PARTIES.includes(P[k]) ? P[k] : 'OTH'; out[q] = out[q] || { votes: 0 }; out[q].votes += v || 0; out.formal += v || 0; } }
+  for (const q of PARTIES) if (out[q]) out[q].share = out[q].votes / (out.formal || 1);
+  return out;
+}
 function contestShares(eid, cid) {
   const rows = idx.contestParty.get(eid + '|' + cid) || [];
   const out = { formal: 0, informal: 0 };
@@ -1236,7 +1257,7 @@ function divColor(party, v, lim) { const t = Math.max(-1, Math.min(1, v / lim));
 
 /* ---------- map ---------- */
 let map, mapReady = false, hovered = null, selected = null;
-const state = { election: 'vic2022', metric: 'tcpwin', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth', showDay: true, showEvc: true };
+const state = { election: 'vic2022', metric: 'tcpwin', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth', showDay: true, showEvc: true, vt: { day: true, early: true, postal: true } };
 
 // when the browser can't draw the map (WebGL switched off or blocked), say so plainly and keep the rest of the site working
 function mapUnavailable() {
@@ -1315,14 +1336,26 @@ function tipForContest(cid) {
   if (eid === LIVE.election && LIVE.available) { const g = countProgress(cid); box.append(h('div', { class: 'k', style: 'margin-top:4px;border-top:1px solid var(--line);padding-top:4px' }, g ? `Count: ${progressText(cid, true)}${g.stage ? ' · ' + g.stage : ''}` : 'Count: nothing yet', h('div', {}, 'Click for the seat; switch to Booths to watch them come in.'))); }
   return box;
 }
+// one party's first-preference share among a seat's early votes and at its election-day booths, counted so far (2026 live)
+function earlyDayShares(cid, p) {
+  const c = LIVE.latest && LIVE.latest.contests[cid]; if (!c) return null;
+  const P = {}; for (const x of c.candidates) P[x.candidate_id] = grpParty(x.party);
+  const E = { t: 0, v: 0, n: 0 }, Dd = { t: 0, v: 0, n: 0 };
+  for (const b of Object.values(c.booths || {})) { const T = b.type === 'early' ? E : b.type === 'ordinary' ? Dd : null; if (!T || !b.reported || !b.fp) continue; T.n++;
+    for (const [k, v] of Object.entries(b.fp)) { T.t += v || 0; if (P[k] === p) T.v += v || 0; } }
+  if (!E.t || !Dd.t) return null;
+  return { e: E.v / E.t, d: Dd.v / Dd.t, gap: E.v / E.t - Dd.v / Dd.t, ne: E.n, nd: Dd.n, te: E.t };
+}
 function metricValueContest(cid) {
-  const eid = state.election, p = state.party, ps = contestShares(eid, cid);
+  const eid = state.election, p = state.party, ps = vtShares(eid, cid) || contestShares(eid, cid);
   if (eid === LIVE.election && !LIVE.available && !['census', 'senate'].includes(state.metric)) return { v: null, cat: null, label: 'Before the count', text: 'counting starts at 6 pm on 28 November' };   // 2026 before election night: nothing to show, and nothing projected
   if (state.metric === 'senate') { const ss = senateDivShares(eid, cid); return ss && ss.formal ? { v: ss[p] ? ss[p].share : 0, label: `${PARTY_NAME[p]} Senate primary`, text: pct(ss[p] ? ss[p].share : 0) } : { v: null, label: 'Senate', text: 'federal elections only' }; }
   if (state.metric === 'census') { const set = demogSet(eid), xid = demogId(state.census, set), xi = set && xid && set.ind.get(xid), d = demogFor(eid, cid); return xi && d && d[xid] != null ? { v: d[xid], label: xi.label, text: fmtInd(xi.kind, d[xid]) } : { v: null, label: 'Census', text: set ? 'no figure for this seat' : 'no census file for these boundaries' }; }
   if (state.metric === 'called') { if (eid !== LIVE.election) return { v: null, cat: null, label: 'Called', text: '2026 only' }; if (!PREF || !DEMOG_BOOTH || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined) { if (!projLoadKicked) { projLoadKicked = true; Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE), ensureDemogBooth()]).then(() => renderMap()); } } const r = seatStatus(eid, cid); const sure = r.status === 'called' || r.status === 'declared'; const gain = sure && r.changed; return { cat: sure ? r.wparty : null, strength: 1, label: sure ? (r.status === 'declared' ? 'Declared' : 'Called') : 'Not called', text: sure ? `${candName(r.winner.cand)} (${PARTY_NAME[r.winner.party] || r.winner.party})${gain ? `, ${PARTY_NAME[r.wparty]} gain from ${PARTY_NAME[r.held]}` : r.held ? ', held' : ''} · ${r.status === 'declared' ? 'declared by the VEC' : r.basis === 'projection' ? `projected ${pct(r.share)}, ${Math.round(100 * (r.countedShare || 0))}% in` : `VEC pair ${pct(r.share)} (model still loading)`}` : (r.status === 'nocount' ? 'no count yet' : `${STATUS_LABEL[r.status]}${r.winner ? ': ' + candName(r.winner.cand) + ' ' + pct(r.share) : ''}${r.disagree ? ' · ' + r.disagree.join('; ') : ''}`), called: sure, gain, from: gain ? r.held : null }; }
   if (state.metric === 'projwin' || state.metric === 'proj') { if (eid !== LIVE.election) return { v: null, cat: null, label: 'Projected', text: '2026 only' }; if (!PREF || !DEMOG_BOOTH || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined) { if (!projLoadKicked) { projLoadKicked = true; Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE), ensureDemogBooth()]).then(() => renderMap()); } return { v: null, cat: null, label: 'Projected', text: 'loading the model' }; } return projMetricContest(cid, p); }
   if (eid === LIVE.election && (state.metric === 'tcpwin' || state.metric === 'tcp')) { const mv = liveModelMetric(cid, p); if (mv) return mv; const lv = liveContestMetric(cid, p); if (lv) return lv; }
+  if (state.metric === 'earlyday') { if (eid !== LIVE.election) return { v: null, label: 'Early v on the day', text: '2026 only' }; const ed = earlyDayShares(cid, p);
+    return ed ? { v: ed.gap, label: `${PARTY_NAME[p]}: early votes v election day`, text: `${pct(ed.e)} early v ${pct(ed.d)} on the day (${pts(ed.gap)} pts) · ${ed.ne} early centre${ed.ne === 1 ? '' : 's'} counted` } : { v: null, label: 'Early v on the day', text: 'no early votes counted here yet' }; }
   if (state.metric === 'share') return !ps.formal ? { v: null, label: `${PARTY_NAME[p]} primary`, text: 'no count yet' } : { v: ps[p] ? ps[p].share : 0, label: `${PARTY_NAME[p]} primary`, text: pct(ps[p] ? ps[p].share : 0) };
   if (state.metric === 'primary') { let best = null; for (const q of PARTIES) if (ps[q] && (!best || ps[q].share > ps[best].share)) best = q; return { cat: best, strength: best ? ps[best].share : 0, label: 'Leads on primaries', text: best ? `${PARTY_NAME[best]} ${pct(ps[best].share)}` : '–' }; }
   if (state.metric === 'tcpwin') { const w = idx.elected.get(eid + '|' + cid); const t = contestTcp(eid, cid); const cat = w ? ((w.party === 'LIB' || w.party === 'NAT') ? 'COAL' : (PARTIES.includes(w.party) ? w.party : 'OTH')) : null; const win = t ? t.pair[0] : null; return { cat, strength: win ? win.share : 0.5, label: 'Elected', text: w ? `${w.surname}, ${PARTY_NAME[w.party] || w.party}${win ? ' · ' + pct(win.share) + ' 2CP' : ''}` : '–' }; }
@@ -1344,6 +1377,7 @@ function metricValueContest(cid) {
 // the value the map colours by, for one booth of the current election
 function metricValue(bid) {
   const eid = state.election, p = state.party, ps = partyShares(eid, bid);
+  if (state.metric === 'earlyday') return { v: null, label: 'Early v on the day', text: 'shown by electorate: choose Electorates above' };
   if (eid === LIVE.election && !LIVE.available && !['census', 'senate'].includes(state.metric)) return { v: null, cat: null, label: 'Before the count', text: 'counting starts at 6 pm on 28 November' };   // 2026 before election night: nothing to show, and nothing projected
   if (eid === LIVE.election && ['share', 'primary', 'swing', 'gap'].includes(state.metric)) { const bb = idx.boothsByKey.get(eid + '|' + bid); if (bb && !bb.reported) return { v: null, cat: null, label: 'Not counted yet', text: 'no figures from this booth yet' }; }   // an uncounted 2026 booth is not a 0% booth
   if (state.metric === 'senate') { const ss = senateShares(eid, bid); return ss && ss.formal ? { v: ss[p] ? ss[p].share : 0, label: `${PARTY_NAME[p]} Senate primary`, text: pct(ss[p] ? ss[p].share : 0) } : { v: null, label: 'Senate', text: eid.startsWith('fed') ? 'no Senate count at this booth' : 'federal elections only' }; }
@@ -1420,10 +1454,11 @@ async function evcFeatures() {
   return { type: 'FeatureCollection', features: feats };
 }
 async function renderMap() {
-  if (el('evc-checks')) el('evc-checks').hidden = !(state.unit === 'booth' && state.election === LIVE.election);
+  if (el('evc-checks')) el('evc-checks').hidden = true;   // replaced by the Vote type buttons
+  syncVtype();
   if (!mapReady) return;
   el('map-loading').hidden = false;
-  { const on = state.unit === 'booth' && state.election === LIVE.election; el('evc-checks') && (el('evc-checks').hidden = !on);
+  { const on = state.unit === 'booth' && state.election === LIVE.election; el('evc-checks') && (el('evc-checks').hidden = true);
     if (on && state.showEvc) evcFeatures().then(fc => { if (!mapReady) return; map.getSource('evc').setData(fc); const v = state.unit === 'booth' && state.election === LIVE.election && state.showEvc ? 'visible' : 'none'; map.setLayoutProperty('evc-pts', 'visibility', v); map.setLayoutProperty('evc-edge', 'visibility', v); evcLegend(v === 'visible'); });
     else { map.setLayoutProperty('evc-pts', 'visibility', 'none'); map.setLayoutProperty('evc-edge', 'visibility', 'none'); evcLegend(false); } }
   if (state.unit === 'lc') return renderLcMap();
@@ -1460,6 +1495,12 @@ async function renderMap() {
       colorOf = (x) => x.m.v == null ? null : mix(css('--map-bg'), css('--accent'), 0.1 + 0.9 * Math.max(0, Math.min(1, (x.m.v - lo) / ((hi - lo) || 1))));
       legend = legendRamp(title, [mix(css('--map-bg'), css('--accent'), 0.1), css('--accent')], [fmtInd(xi.kind, lo), fmtInd(xi.kind, hi) + (vs.some(v => v > hi) ? '+' : '')], note, null);
     }
+  } else if (state.metric === 'earlyday') {
+    const vs = vals.map(x => x.m.v).filter(v => v != null); const lim = Math.max(0.03, quantile(vs.map(Math.abs), 0.95) || 0.05);
+    colorOf = (x) => x.m.v == null ? null : divColor(state.party, x.m.v, lim);
+    const n = vs.length, up = vs.filter(v => v > 0).length;
+    legend = legendRamp(`${PARTY_NAME[state.party]} first preferences: early votes minus election-day booths`, [NEG(), css('--surface-2'), partyColor(state.party)], [pts(-lim, 0) + ' pts', '0', pts(lim, 0) + ' pts'],
+      `${n ? `Higher among early votes in ${up} of ${n} electorates with early votes counted. ` : ''}Each electorate's early voting centres against its election-day booths, first preferences counted so far, in points. Coloured towards the party where its share was higher among early votes; blank until early votes are counted. Postal and absent votes are not included.`, byContest);
   } else if (state.metric === 'share' || state.metric === 'tcp' || state.metric === 'senate') {
     const vs = vals.map(x => x.m.v).filter(v => v != null); const max = quantile(vs, 0.98) || 0.5;
     colorOf = (x) => x.m.v == null ? null : seqColor(state.party, x.m.v, max);
@@ -1472,6 +1513,7 @@ async function renderMap() {
     legend = legendRamp(`${PARTY_NAME[state.party]} ${what}, change since ${other ? idx.electionById.get(other).name : '–'}`, [NEG(), css('--surface-2'), partyColor(state.party)], [pts(-lim, 0), '0', pts(lim, 0)], state.metric === 'tcpswing' ? (byContest ? `Points of the 2CP, electorates matched by name. Hollow: ${PARTY_NAME[state.party]} not in the final two at one of the two elections.${eid === LIVE.election ? ' Live: projected from booth swings where the final two match 2022.' : ''}` : `Points of the 2CP at the same venue. Hollow: no 2CP count, or ${PARTY_NAME[state.party]} not in the final two at one of the two elections.`) : byContest ? 'Points of the formal vote, electorates matched by name. Boundaries can differ between elections, so read this as indicative.' : 'Points of the formal vote at the same venue. Hollow: no matching booth.', byContest);
   }
   if (eid === LIVE.election) legend.append(liveLegendNote(byContest));
+  if (vtApplies() && !vtAll()) legend.prepend(h('div', { class: 'hint', style: 'font-weight:600;color:var(--fg)' }, `Vote type: ${vtLabel()} votes only`));
   { const hints = [...legend.querySelectorAll('.hint')].filter(x => !x.closest('.lg-more')); if (hints.length) { const d = h('details', { class: 'lg-more' }, h('summary', {}, 'About this layer')); for (const x of hints) d.append(x); legend.append(d); } }
   el('legend').innerHTML = ''; el('legend').append(legend);
   if (byContest) {
@@ -3969,6 +4011,18 @@ function firstPrefs(eid, cid) {
 }
 // -> {pair: [{cand, party, votes, share}], ladder, label, fp} or null; keepIds: force these two to the end (e.g. the VEC's pair)
 // useCards: apply the seat's registered how-to-vote cards (when loaded) on top of the fitted flows
+// the same model, run on only the vote types switched on under Vote type (2026 live)
+function modelledTcpVt(cid) {
+  const eid = LIVE.election, pw = prefWeights(eid), lc = LIVE.latest && LIVE.latest.contests[cid]; if (!pw || !lc) return null;
+  const want = new Set(Object.keys(VT_TYPE).filter(k => state.vt[k]).map(k => VT_TYPE[k])), tally = {};
+  for (const b of Object.values(lc.booths || {})) { if (!want.has(b.type) || !b.reported || !b.fp) continue; for (const [k, v] of Object.entries(b.fp)) tally[k] = (tally[k] || 0) + (v || 0); }
+  const fps = lc.candidates.filter(c => tally[c.candidate_id] > 0).map(c => ({ id: c.candidate_id, party: c.party, votes: tally[c.candidate_id], cand: idx.candById.get(eid + '|' + c.candidate_id) || c }));
+  if (fps.length < 3) return null;
+  const cards = seatCards(eid, cid), base = HTV[HTV_BASE], pairwise = cards && base ? base.pairwise : null;
+  const { final } = simulateCount(fps, pw.W, null, { cards, pairwise, adj: BALLOT && BALLOT.model, adjScale: adjScaleSeat(cid) }); const tot = [...final.values()].reduce((a, b) => a + b, 0); if (!tot) return null;
+  const pair = [...final.entries()].map(([id, v]) => { const c = fps.find(f => f.id === id); return { cand: c.cand, party: c.party, votes: Math.round(v), share: v / tot }; }).sort((a, b) => b.votes - a.votes);
+  return { pair, formal: fps.reduce((a, f) => a + f.votes, 0) };
+}
 function modelledTcp(eid, cid, keepIds, useCards = true) {
   const pw = prefWeights(eid); if (!pw) return null; const fps = firstPrefs(eid, cid); if (fps.length < 3) return null;
   const cards = useCards ? seatCards(eid, cid) : null;
@@ -4238,9 +4292,14 @@ function liveProjection(cid) {
 // and a declared result takes over once the VEC publishes the distribution.
 let modelLoadKicked = false, projLoadKicked = false;   // separate: the estimate needs flows and cards, the projection and calls also the booth census profiles
 function liveModelMetric(cid, p) {
-  const pr = liveProjection(cid);
-  if (pr && pr.method === 'official') return null;
+  const pr = liveProjection(cid), vt = vtApplies() && !vtAll();
+  if (pr && pr.method === 'official' && !vt) return null;
   if (!PREF || HTV[LIVE.election] === undefined || HTV[HTV_BASE] === undefined) { if (!modelLoadKicked) { modelLoadKicked = true; Promise.all([ensurePref(), ensureHtv(LIVE.election), ensureHtv(HTV_BASE)]).then(() => renderMap()); } return null; }
+  if (vt) { const m = modelledTcpVt(cid); if (!m) return { cat: null, v: null, strength: 0, label: `After preferences, ${vtLabel()} votes`, text: `no ${vtLabel()} votes counted here yet` };
+    const top = m.pair[0], how = `${vtLabel()} votes only: modelled from ${fmt(m.formal)} first preferences`;
+    if (state.metric === 'tcpwin') return { cat: grpParty(top.party), strength: top.share, label: `Ahead after preferences, ${vtLabel()} votes (Atlas estimate)`, text: `${candName(top.cand)} ≈${pct(top.share)} · ${how}` };
+    const mine = m.pair.find(x => grpParty(x.party) === p);
+    return mine ? { v: mine.share, label: `${PARTY_NAME[p]} 2CP, ${vtLabel()} votes (modelled)`, text: `≈${pct(mine.share)} · ${how}` } : { v: null, label: '2CP (modelled)', text: `${PARTY_NAME[p]} not in the model's final two · ${how}` }; }
   const m = modelledTcp(LIVE.election, cid); if (!m) return null;
   const top = m.pair[0], cat = grpParty(top.party);
   const vec = pr ? ` · VEC ${pr.method === 'projected' ? 'pair, projected' : 'count'}: ${candName(pr.pair[0].cand)} ${pct(pr.pair[0].share)}` : '';
@@ -5653,16 +5712,26 @@ function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelect
 const METRIC_HINT = {
   share: 'The chosen party\'s share of first preferences (choose the party below).', primary: 'The party with the most first preferences.', tcp: 'The chosen party\'s share once preferences are distributed down to the final two (2CP); blank where it wasn\'t in the final two.', tcpwin: 'Who won once preferences were distributed.',
   swing: 'How the chosen party\'s first-preference share moved against the last election.', tcpswing: 'How the chosen party\'s share after preferences (2CP) moved against the last election.', gap: 'The chosen party\'s first-preference share here, minus its share at the same place in an election you pick (set it below). Positive: it did better this time.',
-  senate: 'The party\'s Senate (upper house) vote at the same booths.', census: 'A 2021 Census measure of the people who live around each booth or in each electorate.',
+  senate: 'The party\'s Senate (upper house) vote at the same booths.', earlyday: 'The chosen party\'s first-preference share among each electorate\'s early votes, minus its share at the electorate\'s election-day booths, counted so far. Shown by electorate.', census: 'A 2021 Census measure of the people who live around each booth or in each electorate.',
   live_tcp: 'Atlas estimate: the first preferences counted so far, run through the preference model, for the final two. Changes as booths come in.', live_tcpwin: 'Atlas estimate: who is ahead once the votes counted so far are run through the preference model. Changes as booths come in.',
   projwin: 'Atlas projection: what the finished count looks like, from what is counted plus what is expected from the booths and votes still to come. Changes as the night goes on.', proj: 'Atlas projection of each party\'s final share after preferences.', called: 'Only seats the Atlas projection has called or the VEC has declared are coloured; striped where a seat has changed hands. The most cautious view of the night.' };
 function metricHint() { const live = state.election === LIVE.election; const k = live && (state.metric === 'tcp' || state.metric === 'tcpwin') ? 'live_' + state.metric : state.metric; const t = METRIC_HINT[k] || ''; const box = el('metric-hint'); box.innerHTML = ''; box.append(t, /Atlas/.test(t) ? h('span', {}, ' ', h('a', { href: '#prefs', onclick: (ev) => { ev.preventDefault(); showView('prefs'); } }, 'How the Atlas model works')) : ''); }
+function syncVtype() {
+  const f = el('f-vtype'); if (!f) return; const night = state.election === LIVE.election && LIVE.available, booth = state.unit === 'booth';
+  f.hidden = !night || state.unit === 'lc' || !(booth || VT_METRICS.includes(state.metric));
+  if (booth) { state.vt.day = state.showDay; state.vt.early = state.showEvc; }
+  for (const b of el('seg-vtype').querySelectorAll('button')) { const v = b.dataset.v, off = booth && v === 'postal';
+    b.disabled = off; b.style.opacity = off ? '.45' : ''; b.title = off ? 'Postal votes have no polling place: choose Electorates above to include them' : '';
+    b.setAttribute('aria-pressed', String(!off && !!state.vt[v])); }
+  el('vtype-hint').textContent = booth ? 'On the day: the booth dots. Early: the early voting centre squares. Postal votes have no polling place, so they show by electorate.'
+    : `Colouring each electorate by ${vtAll() ? 'every vote counted so far, including absent and provisional votes' : 'only ' + vtLabel() + ' votes counted so far'}. Click a type to switch it on or off.`;
+}
 function syncModelOptions() { const live = state.election === LIVE.election, night = live && LIVE.available; el('og-live').hidden = !night;
   { const sm = el('sel-metric'), v = sm.value, tw = sm.querySelector('option[value="tcpwin"]'), pr = sm.querySelector('option[value="primary"]'), pj = sm.querySelector('option[value="proj"]'), live = el('og-live'), ahead = el('og-ahead');
     if (night) { if (tw.parentElement !== live) live.prepend(tw); if (pr.parentElement !== live) live.insertBefore(pr, pj); }   // on election night: count-so-far leader first, first-preference leader just above the party projection
     else { if (tw.parentElement !== ahead) ahead.prepend(tw); if (pr.parentElement !== ahead) ahead.append(pr); }
     ahead.hidden = !ahead.querySelector('option'); sm.value = v; }
- for (const o of el('sel-metric').options) { if (['projwin', 'proj', 'called'].includes(o.value)) o.hidden = !night; if (o.dataset.live) { if (!o.dataset.base) o.dataset.base = o.textContent; o.textContent = live ? o.dataset.live : o.dataset.base; } } if (!night && ['projwin', 'proj', 'called'].includes(state.metric)) { state.metric = 'share'; el('sel-metric').value = 'share'; el('f-party').hidden = false; } metricHint(); syncQuick(); }
+ for (const o of el('sel-metric').options) { if (['projwin', 'proj', 'called', 'earlyday'].includes(o.value)) o.hidden = !night; if (o.dataset.live) { if (!o.dataset.base) o.dataset.base = o.textContent; o.textContent = live ? o.dataset.live : o.dataset.base; } } if (!night && ['projwin', 'proj', 'called', 'earlyday'].includes(state.metric)) { state.metric = 'share'; el('sel-metric').value = 'share'; el('f-party').hidden = false; } metricHint(); syncQuick(); syncVtype(); }
 function syncQuick() { const q = el('seg-quick'); if (!q) return; const v = el('sel-metric').value; for (const b of q.querySelectorAll('button')) { b.setAttribute('aria-pressed', b.dataset.v === v); if (b.dataset.v === 'projwin') b.hidden = el('og-live').hidden; } }
 // v2: the election picker on the dashboard — State / Federal / By-elections, then a button per election (4 x 2)
 const YP = { kind: null };
@@ -5842,6 +5911,7 @@ async function boot() {
     el('sel-metric').addEventListener('change', syncQuick);
     el('sel-metric').addEventListener('change', async (e) => { state.metric = e.target.value; LIVE.userTouched = true; metricHint(); el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin' || state.metric === 'called' || state.metric === 'census'; el('f-gap').hidden = state.metric !== 'gap'; el('f-census').hidden = state.metric !== 'census';
       if (state.metric === 'census') { await ensureDemog(); fillCensusSelect(); }
+      if (state.metric === 'earlyday' && state.unit !== 'contest') { setUnit('contest'); return; }
       renderMap(); });
     el('sel-party').addEventListener('change', (e) => { state.party = e.target.value; renderMap(); });
     { const pb = el('party-btns'), sp = el('sel-party'); const draw = () => { pb.innerHTML = ''; for (const o of sp.options) { const on = o.value === sp.value, col = partyColor(o.value);
@@ -5851,6 +5921,10 @@ async function boot() {
     el('sel-bound').addEventListener('change', (e) => { state.bound = e.target.value; renderMap(); });
     for (const b of el('seg-unit').querySelectorAll('button')) b.addEventListener('click', () => setUnit(b.dataset.v));
     el('chk-day').addEventListener('change', (e) => { state.showDay = e.target.checked; renderMap(); }); el('chk-evc').addEventListener('change', (e) => { state.showEvc = e.target.checked; renderMap(); });
+    for (const b of el('seg-vtype').querySelectorAll('button')) b.addEventListener('click', () => { const v = b.dataset.v; if (b.disabled) return;
+      const booth = state.unit === 'booth', keys = booth ? ['day', 'early'] : ['day', 'early', 'postal'];
+      if (state.vt[v] && keys.filter(k => state.vt[k]).length === 1) return;   // keep at least one type on
+      state.vt[v] = !state.vt[v]; if (booth) { state.showDay = state.vt.day; state.showEvc = state.vt.early; } renderMap(); });
     for (const b of el('seg-layer').querySelectorAll('button')) b.addEventListener('click', () => { state.layer = b.dataset.v; for (const o of el('seg-layer').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); renderMap(); });
     el('inp-search').addEventListener('input', (e) => searchBooths(e.target.value));
     for (const b of document.querySelectorAll('nav.views button')) b.addEventListener('click', () => { if (b.dataset.view === 'seat') { SEAT.cid = null; navTo('seat'); } showView(b.dataset.view); });
@@ -5867,7 +5941,7 @@ async function boot() {
       let v = location.hash.replace('#', ''); if (v.startsWith('seat/')) { SEAT.cid = decodeURIComponent(v.slice(5)); v = 'seat'; } else if (v.startsWith('region/')) { SEAT.cid = 'vicr-' + decodeURIComponent(v.slice(7)); v = 'seat'; } else if (v === 'seat') SEAT.cid = null; if (v === 'model') v = 'prefs'; if (['home', 'seat', 'dash', 'map', 'venue', 'compare', 'polls', 'demog', 'prefs', 'query', 'about'].includes(v)) showView(v); };
     window.addEventListener('hashchange', onRoute); window.addEventListener('popstate', onRoute);
     { const fb = el('btn-mapfull'); if (fb) fb.addEventListener('click', () => setMapFull(!document.body.classList.contains('mapfull'))); }
-    if (/[?&]debug\b/.test(location.search)) window.__atlas = { dashRows, candName, showView, openSeat, grpParty, PARTY_SHORT, LIVE, selectContest, setUnit, evcLive, evcTip, renderEvcDetail, ensureEvc };
+    if (/[?&]debug\b/.test(location.search)) window.__atlas = { dashRows, candName, showView, openSeat, grpParty, PARTY_SHORT, LIVE, selectContest, setUnit, evcLive, evcTip, renderEvcDetail, ensureEvc, earlyDayShares, vtShares, state, modelledTcpVt, metricValueContest };
     document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && document.body.classList.contains('mapfull')) setMapFull(false); });
     document.addEventListener('click', (ev) => { const a = ev.target.closest('[data-go]'); if (!a) return; ev.preventDefault(); if (a.dataset.region) openRegion(a.dataset.region); else if (a.dataset.seat) openSeat(a.dataset.seat); else showView(a.dataset.go); window.scrollTo(0, 0); });
     if (v === 'model') v = 'prefs';
