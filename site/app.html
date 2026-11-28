@@ -341,6 +341,7 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
 .live-box { border: 1px solid var(--line); border-radius: 6px; padding: 10px; margin-top: 4px; background: var(--surface-2); }
 .live-box .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--grn); margin-right: 6px; vertical-align: middle; }
 .live-box .pulse.off { background: var(--nodata); }
+.v2 #seg-unit button, .v2 #seg-quick button, #seg-unit button, #seg-quick button { padding: 6px 4px; letter-spacing: -0.01em; }
 .strip-what { margin: 2px 0 8px; padding: 8px 12px; border-left: 3px solid var(--accent); border-radius: 6px; background: color-mix(in srgb, var(--accent) 9%, transparent); font-size: 14px; line-height: 1.4; }
 .strip-what b { font-weight: 700; }
 .live-box .fresh-list { max-height: 220px; overflow: auto; margin-top: 6px; }
@@ -745,11 +746,10 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
     <div class="bench">
       <aside class="controls">
         <div class="field"><label for="sel-election">Election</label><select id="sel-election"></select></div>
-        <div class="live-box" id="live-box" hidden></div>
         <div class="field"><label>Show</label>
           <div class="seg" id="seg-unit"><button data-v="booth" aria-pressed="true">Booths</button><button data-v="contest" aria-pressed="false">Electorates</button><button data-v="lc" aria-pressed="false">Upper house</button></div></div>
-        <div class="field"><label>Zoom to</label><div class="zoomp" id="zoom-presets"></div></div>
         <div class="field"><label for="sel-metric">Colour by</label>
+          <div class="seg" id="seg-quick" style="margin-bottom:6px"><button data-v="tcpwin" aria-pressed="true" title="Who is ahead after preferences: the Atlas estimate from the count so far">After prefs</button><button data-v="primary" aria-pressed="false" title="Who is ahead on first preferences">Primary</button><button data-v="projwin" aria-pressed="false" title="The Atlas projection: the count so far plus the uncounted votes projected, then preferences">Projection</button></div>
           <select id="sel-metric">
             <optgroup label="Results">
               <option value="share">Primary vote share</option>
@@ -776,6 +776,9 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
             <option value="ALP">Labor</option><option value="COAL">Coalition</option><option value="GRN">Greens</option><option value="ONP">One Nation</option><option value="VSP">Socialists</option><option value="IND">Independents</option><option value="OTH">Others</option>
           </select></div>
         <div class="field" id="f-gap" hidden><label for="sel-gap">Compared with</label><select id="sel-gap"></select></div>
+        <div class="field"><label for="inp-search">Find a booth or electorate</label><input type="search" id="inp-search" placeholder="e.g. Northcote, Bridport"><div id="search-hits"></div></div>
+        <div class="live-box" id="live-box" hidden></div>
+        <div class="field"><label>Zoom to</label><div class="zoomp" id="zoom-presets"></div></div>
         <div class="field"><label>Draw booths as</label>
           <div class="seg" id="seg-layer"><button data-v="dots" aria-pressed="true">Dots</button><button data-v="catch" aria-pressed="false">Catchments</button></div></div>
         <div class="field"><label for="sel-bound">Boundary outlines</label>
@@ -785,7 +788,6 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
             <option value="fed_2024">Federal divisions 2024</option><option value="fed_2021">Federal divisions 2021</option><option value="fed_2018">Federal divisions 2018</option><option value="fed_2010">Federal divisions 2010</option><option value="fed_2003">Federal divisions 2003</option>
             <option value="vic_lc_2022">Upper house regions 2022</option><option value="vic_lc_2013">Upper house regions 2013</option><option value="vic_lc_2005">Upper house regions 2005</option><option value="none">None</option>
           </select></div>
-        <div class="field"><label for="inp-search">Find a booth or electorate</label><input type="search" id="inp-search" placeholder="e.g. Northcote, Bridport"><div id="search-hits"></div></div>
         <p class="hint" id="unit-hint">Election-day booths only. Early, postal and absent votes are counted at electorate level and are shown in the booth panel for context.</p>
       </aside>
       <div class="mapwrap">
@@ -5187,7 +5189,8 @@ const METRIC_HINT = {
   live_tcp: 'Atlas estimate: the first preferences counted so far, run through the preference model, for the final two. Changes as booths come in.', live_tcpwin: 'Atlas estimate: who is ahead once the votes counted so far are run through the preference model. Changes as booths come in.',
   projwin: 'Atlas projection: what the finished count looks like, from what is counted plus what is expected from the booths and votes still to come. Changes as the night goes on.', proj: 'Atlas projection of each party\'s final share after preferences.', called: 'Only seats the Atlas projection has called or the VEC has declared are coloured; striped where a seat has changed hands. The most cautious view of the night.' };
 function metricHint() { const live = state.election === LIVE.election; const k = live && (state.metric === 'tcp' || state.metric === 'tcpwin') ? 'live_' + state.metric : state.metric; const t = METRIC_HINT[k] || ''; const box = el('metric-hint'); box.innerHTML = ''; box.append(t, /Atlas/.test(t) ? h('span', {}, ' ', h('a', { href: '#prefs', onclick: (ev) => { ev.preventDefault(); showView('prefs'); } }, 'How the Atlas model works')) : ''); }
-function syncModelOptions() { const live = state.election === LIVE.election, night = live && LIVE.available; el('og-live').hidden = !night; for (const o of el('sel-metric').options) { if (['projwin', 'proj', 'called'].includes(o.value)) o.hidden = !night; if (o.dataset.live) { if (!o.dataset.base) o.dataset.base = o.textContent; o.textContent = live ? o.dataset.live : o.dataset.base; } } if (!night && ['projwin', 'proj', 'called'].includes(state.metric)) { state.metric = 'share'; el('sel-metric').value = 'share'; el('f-party').hidden = false; } metricHint(); }
+function syncModelOptions() { const live = state.election === LIVE.election, night = live && LIVE.available; el('og-live').hidden = !night; for (const o of el('sel-metric').options) { if (['projwin', 'proj', 'called'].includes(o.value)) o.hidden = !night; if (o.dataset.live) { if (!o.dataset.base) o.dataset.base = o.textContent; o.textContent = live ? o.dataset.live : o.dataset.base; } } if (!night && ['projwin', 'proj', 'called'].includes(state.metric)) { state.metric = 'share'; el('sel-metric').value = 'share'; el('f-party').hidden = false; } metricHint(); syncQuick(); }
+function syncQuick() { const q = el('seg-quick'); if (!q) return; const v = el('sel-metric').value; for (const b of q.querySelectorAll('button')) { b.setAttribute('aria-pressed', b.dataset.v === v); if (b.dataset.v === 'projwin') b.hidden = el('og-live').hidden; } }
 // v2: the election picker on the dashboard — State / Federal / By-elections, then a button per election (4 x 2)
 const YP = { kind: null };
 function yearPicker(eid) {
@@ -5359,6 +5362,8 @@ async function boot() {
     for (const b of el('strip-mode').querySelectorAll('button')) { b.setAttribute('aria-pressed', b.dataset.v === dash.strip); b.addEventListener('click', () => { dash.strip = b.dataset.v; for (const o of el('strip-mode').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); try { localStorage.setItem('atlas.strip', dash.strip); } catch (e) {} renderStrip(dashRows(state.election), state.election); }); }
     fillElectionSelect(el('cmp-a'), ids); fillElectionSelect(el('cmp-b'), ids); el('cmp-a').value = 'fed2022'; el('cmp-b').value = 'vic2022';
     el('sel-election').addEventListener('change', (e) => { LIVE.userTouched = true; setElection(e.target.value); });
+    for (const b of el('seg-quick').querySelectorAll('button')) b.addEventListener('click', () => { const s = el('sel-metric'); if (s.value === b.dataset.v) return; s.value = b.dataset.v; s.dispatchEvent(new Event('change')); });
+    el('sel-metric').addEventListener('change', syncQuick);
     el('sel-metric').addEventListener('change', async (e) => { state.metric = e.target.value; LIVE.userTouched = true; metricHint(); el('f-party').hidden = state.metric === 'primary' || state.metric === 'tcpwin' || state.metric === 'projwin' || state.metric === 'called' || state.metric === 'census'; el('f-gap').hidden = state.metric !== 'gap'; el('f-census').hidden = state.metric !== 'census';
       if (state.metric === 'census') { await ensureDemog(); fillCensusSelect(); }
       renderMap(); });
