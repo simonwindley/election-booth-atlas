@@ -1,7 +1,7 @@
 {
- "fetched_at": "2026-11-28T13:20:12+00:00",
- "seconds": 495.7,
- "fetches": 155,
+ "fetched_at": "2026-11-28T13:21:51+00:00",
+ "seconds": 594.2,
+ "fetches": 188,
  "errors": [
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Lowan-District-results/Lowan-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Macedon-District-results/Macedon-2CP-results-by-voting-centre",
@@ -13,7 +13,7 @@
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Monbulk-District-results/Monbulk-2CP-results-by-voting-centre"
  ],
  "districts": 88,
- "changed_booths": 78,
+ "changed_booths": 125,
  "changed_contests": 6,
  "interval": 60,
  "partial": true
