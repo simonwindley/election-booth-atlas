@@ -5122,6 +5122,8 @@ function showView(name) {
   if (name === 'home') renderHome();
   if (name === 'seat') renderSeat();
   try { localStorage.setItem('atlas.view', name); } catch (e) {}
+  // keep the address in step with the tab, so a refresh comes back to the same place (seat and region pages keep their own #seat/… address)
+  try { const cur = location.hash.replace('#', ''); const want = name === 'seat' ? (/^(seat|region)\//.test(cur) ? cur : 'seat') : (name === 'prefs' ? 'model' : name); if (cur !== want) history.replaceState(null, '', '#' + want); } catch (e) {}
   gcCount(name);
 }
 // visit counts: one per tab opened, and per electorate or region page (e.g. /seat/richmond); nothing else is sent

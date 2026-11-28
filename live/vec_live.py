@@ -346,13 +346,8 @@ def scrape_district(f, dslug, path, election_id, log=print, prev_c=None):
     doc = f.get(path)
     if doc is None:
         return None
-    # skip the by-voting-centre pages when the VEC's 'Last updated' stamp for this district hasn't moved since our last full read
-    # (a full read is forced at least every REFRESH_SECONDS whatever the stamp says)
     mlu = re.search(r'Last updated:\s*([A-Za-z]+,\s*\d{1,2}\s+[A-Za-z]+\s+\d{4}\s+\d{1,2}:\d{2}:\d{2})', re.sub(r'<[^>]+>', ' ', doc))
-    lu = re.sub(r'\s+', ' ', mlu.group(1)) if mlu else None
-    if prev_c and lu and prev_c.get('vec_updated') == lu and time.time() - (prev_c.get('full_at') or 0) < REFRESH_SECONDS:
-        c = json.loads(json.dumps(prev_c)); c['_skipped'] = True
-        return c
+    lu = re.sub(r'\s+', ' ', mlu.group(1)) if mlu else None   # the VEC re-stamps every page every 5 minutes, so this is a record only
     p = parse_html(doc)
     title = next((h for h in p.headings if 'district' in h.lower()), dslug)
     dname = re.sub(r'\s+District.*$', '', title, flags=re.I).strip() or dslug.replace('-', ' ').title()
@@ -370,6 +365,16 @@ def scrape_district(f, dslug, path, election_id, log=print, prev_c=None):
     final = [{'candidate_id': cand_ids.get(r['name'], r['name']), 'votes': r['votes'], 'pct': r['pct']} for r in parse_final_table(p.tables)]
     tcp_total = [{'candidate_id': cand_ids.get(r['name'], r['name']), 'votes': r['votes'], 'pct': r['pct']} for r in parse_tcp_table(p.tables)]
     tpp = [{'candidate_id': cand_ids.get(r['name'], r['name']), 'party': canon_from_name(r['party_name']), 'votes': r['votes'], 'pct': r['pct']} for r in parse_tpp_table(p.tables)]
+    # skip the by-voting-centre pages when the district totals on this page (votes counted, every candidate's first preferences,
+    # the two-candidate and final counts) are exactly as they were at our last complete read; re-read in full at least every REFRESH_SECONDS
+    page_sig = digest({'s': [summary.get(k) for k in ('formal', 'informal', 'total_votes', 'elected')], 'c': [c['votes'] for c in cands],
+                       't': [r['votes'] for r in tcp_total], 'f': [r['votes'] for r in final]})
+    def _prev_sig(pc):   # the same signature rebuilt from a stored contest (for feeds written before page_sig existed)
+        return pc.get('page_sig') or digest({'s': [pc.get(k) for k in ('formal', 'informal', 'total_votes', 'elected')], 'c': [x.get('fp_votes') for x in pc.get('candidates', [])],
+                                             't': [r.get('votes') for r in pc.get('tcp_total', [])], 'f': [r.get('votes') for r in pc.get('final_pair', [])]})
+    if prev_c and prev_c.get('vec_updated') and _prev_sig(prev_c) == page_sig and time.time() - (prev_c.get('full_at') or 0) < REFRESH_SECONDS:
+        c = json.loads(json.dumps(prev_c)); c['_skipped'] = True
+        return c
     links = {k: v for k, v in p.links}
     hrefs = [v for _, v in p.links]
     def sub(suffix, link_id):
@@ -387,8 +392,10 @@ def scrape_district(f, dslug, path, election_id, log=print, prev_c=None):
             booths[bid] = {'booth_id': bid, 'name': label if (kind == 'ordinary' or evc) else f'{dname} {kind.replace("_", " ")}',
                            'type': kind, 'fp': {}, 'informal': None, 'total': None, 'tcp': {}, 'reported': False}
         return booths[bid]
+    complete = True
     if fp_path:
         d2 = f.get(fp_path)
+        complete &= d2 is not None
         if d2:
             rows = booth_rows(parse_html(d2).tables, list(cand_ids))
             for r in rows:
@@ -398,6 +405,7 @@ def scrape_district(f, dslug, path, election_id, log=print, prev_c=None):
                 b['reported'] = bool(r['total'])
     if tcp_path:
         d3 = f.get(tcp_path)
+        complete &= d3 is not None
         if d3:
             rows = booth_rows(parse_html(d3).tables, list(cand_ids))
             for r in rows:
@@ -416,7 +424,7 @@ def scrape_district(f, dslug, path, election_id, log=print, prev_c=None):
     # totals by vote type (ordinary = sum of election-day booths), handy for the % counted indicator
     return {'contest_id': cid, 'name': dname, 'election_id': election_id, **summary,
             'candidates': out_c, 'final_pair': final, 'tcp_total': tcp_total, 'tpp': tpp, 'tcp_pair': tcp_pair, 'booths': booths, 'dop': dop,
-            'pages': {'district': path, 'fp': fp_path, 'tcp': tcp_path, 'dist': dist_path}, 'vec_updated': lu, 'full_at': int(time.time())}
+            'pages': {'district': path, 'fp': fp_path, 'tcp': tcp_path, 'dist': dist_path}, 'vec_updated': lu if complete else None, 'page_sig': page_sig, 'full_at': int(time.time())}
 
 
 def _norm(x):
