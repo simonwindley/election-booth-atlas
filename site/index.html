@@ -732,6 +732,12 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .lccard .shp { margin: 6px 0 4px; aspect-ratio: 4 / 3; } .lccard .shp svg { width: 100%; height: 100%; display: block; }
 .lcgch { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 6px; font-size: 12px; color: var(--fg-2); line-height: 1.3; }
 .lcgch span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; } .lcgch i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: 0; } .lcgch b { color: var(--fg); margin-right: 3px; } .lcgch .ug { color: var(--fg-3); }
+.lccard.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+.lcdetail { grid-column: 1 / -1; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 12px; padding: 12px 16px 14px; background: var(--surface); min-width: 0; }
+.lcdetail h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--fg-3); margin: 12px 0 4px; }
+.lcdh { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; } .lcdh strong { font-size: 16px; } .lcdh .map-btn { margin-left: auto; }
+.lcseatlist { margin: 4px 0 10px; font-size: 13px; line-height: 1.5; } .lcseatlist h4 { margin: 0 0 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--fg-3); }
+.lcseatlist i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 7px; vertical-align: -1px; } .lcseatlist .part { color: var(--fg-2); } .lcseatlist .part i { opacity: .4; }
 .lcdots { display: flex; gap: 6px; margin-top: auto; padding-top: 6px; } .lcdots i { width: 18px; height: 18px; border-radius: 50%; display: block; box-sizing: border-box; }
 .lcdots i.part { opacity: .38; } .lcdots i.open { border: 1.5px dashed var(--fg-3); background: transparent; }
 .lcdq { font-size: 11px; color: var(--fg-3); margin-top: 4px; line-height: 1.3; }
@@ -875,7 +881,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div class="legend" id="legend"></div>
         <div class="tip" id="tip" hidden></div>
         <div class="loading" id="map-loading">Loading booths…</div>
-        <button type="button" class="mapfull-btn" id="btn-mapfull" aria-pressed="false" onclick="setMapFull(!document.body.classList.contains('mapfull'))">⤢ Full screen</button>
+        <button type="button" class="mapfull-btn" id="btn-mapfull" aria-pressed="false">⤢ Full screen</button>
       </div>
       <aside class="detail" id="detail"><div class="empty">Click a booth to see its results and how the same venue has voted across elections, or switch to Electorates and click a seat for the full result.</div></aside>
     </div>
@@ -1984,7 +1990,7 @@ async function drawY26Lc(box) {
   const regions = Object.entries(LCX.regions).sort((a, b) => a[1].name.localeCompare(b[1].name));
   const live = regions.map(([rid, reg]) => ({ rid, reg, L: lcLive(rid) })).filter(x => x.L);
   if (live.length) {
-    box.append(lcRegionCards(live), h('p', { class: 'hint', style: 'margin:-6px 0 0' }, 'The count so far. Map: each electorate shaded by who leads it in the lower house after preferences (the Atlas projection). Dots: the region\'s five upper-house seats read off first-preference quotas so far, solid for each full quota, faded for the largest part-quotas left. Not a prediction: preferences decide. Click a region for its ballot and count.'));
+    box.append(lcRegionCards(live), h('p', { class: 'hint', style: 'margin:-6px 0 0' }, 'The count so far. Map: each electorate shaded by who leads it in the lower house after preferences (the Atlas projection). Dots: the region\'s five upper-house seats read off first-preference quotas so far, solid for each full quota, faded for the largest part-quotas left. Not a prediction: preferences decide. Click a region for its count by group.'));
     return;
   }
   const grid = h('div', { class: 'lcgrid' }), shapes = [];
@@ -1999,6 +2005,22 @@ async function drawY26Lc(box) {
   }
   box.append(grid, h('p', { class: 'hint', style: 'margin:-6px 0 0' }, `Each region's groups in ballot-paper order (VEC${LCX.noms && LCX.noms.captured ? ', captured ' + LCX.noms.captured : ''}). Click a region for every candidate and a practice ballot. On election night these cards switch to the count.`));
   locatorSvg([]).then(() => { for (const [el2, rid] of shapes) el2.innerHTML = regionShape(rid, '#CFE9F7'); }).catch(() => {});
+}
+// a region card opens its count in place, across the full row beneath it (like the seat rows); the region page is a button inside
+function toggleLcDetail(grid, card, rid, dots) {
+  const open = grid.querySelector('.lcdetail'), same = open && open.dataset.rid === rid;
+  for (const c of grid.querySelectorAll('.lccard')) { c.classList.remove('on'); c.setAttribute('aria-expanded', 'false'); }
+  if (open) open.remove(); if (same) return;
+  card.classList.add('on'); card.setAttribute('aria-expanded', 'true');
+  let last = card; for (const c of grid.querySelectorAll('.lccard')) if (c.offsetTop === card.offsetTop) last = c;
+  const L = lcLive(rid); if (!L) return;
+  const seats = [...(dots ? dots.querySelectorAll('i') : [])].map(i => ({ t: i.title, part: i.classList.contains('part'), col: i.style.background })).filter(x => x.t);
+  const d = h('div', { class: 'lcdetail', 'data-rid': rid },
+    h('div', { class: 'lcdh' }, h('strong', {}, `${L.r.name} Region`), h('span', { class: 'hint' }, 'the count so far'), h('button', { type: 'button', class: 'map-btn', onclick: () => openRegion(rid) }, 'Region page →'), h('button', { type: 'button', class: 'more-btn', title: 'Close', onclick: () => toggleLcDetail(grid, card, rid) }, '✕')),
+    seats.length ? h('div', { class: 'lcseatlist' }, h('h4', {}, 'Five seats, on first-preference quotas so far'), ...seats.map(x => h('div', { class: x.part ? 'part' : '' }, h('i', { style: `background:${x.col}` }), x.t))) : '',
+    ...lcLiveNodes(rid));
+  last.after(d);
+  try { d.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
 }
 function lcRegionCards(rows) {
   const grid = h('div', { class: 'lcgrid' });
@@ -2019,8 +2041,9 @@ function lcRegionCards(rows) {
       ...seats.part.map(g => h('i', { class: 'part', style: `background:${partyColor(g.fam)}`, title: `${who(g)} (${g.name}): in the running on ${g.q.toFixed(2)} quotas; preferences decide` })),
       ...Array.from({ length: seats.open }, () => h('i', { class: 'open' })));
     const qtxt = L.groups.filter(g => g.q >= 0.5).slice(0, 4).map(g => `${PARTY_SHORT[g.fam] !== 'OTH' ? PARTY_SHORT[g.fam] : g.name.split(' ')[0]} ${g.q.toFixed(2)}`).join(' · ');
-    grid.append(h('button', { type: 'button', class: 'lccard', onclick: () => openRegion(x.rid), title: `${x.reg.name} Region: the count by group` },
-      h('div', { class: 'nm' }, x.reg.name), h('div', { class: 'sub' }, `${L.pctEnrol != null ? L.pctEnrol + '% counted' : ''} · ${L.bIn}/${L.bAll} booths`), h('div', { class: 'lcdq', style: 'margin:6px 0 0' }, 'Lower house, by electorate (after preferences):'), shp, h('div', { class: 'lcdq', style: 'margin:0 0 2px' }, 'Upper house, 5 seats (first-preference quotas):'), dots, h('div', { class: 'lcdq' }, qtxt)));
+    const card = h('button', { type: 'button', class: 'lccard', 'aria-expanded': 'false', onclick: () => toggleLcDetail(grid, card, x.rid, dots), title: `${x.reg.name} Region: click for the count by group` },
+      h('div', { class: 'nm' }, x.reg.name), h('div', { class: 'sub' }, `${L.pctEnrol != null ? L.pctEnrol + '% counted' : ''} · ${L.bIn}/${L.bAll} booths`), h('div', { class: 'lcdq', style: 'margin:6px 0 0' }, 'Lower house, by electorate (after preferences):'), shp, h('div', { class: 'lcdq', style: 'margin:0 0 2px' }, 'Upper house, 5 seats (first-preference quotas):'), dots, h('div', { class: 'lcdq' }, qtxt));
+    grid.append(card);
   }
   locatorSvg([]).then(() => { for (const [el2, rid, fill] of shapes) el2.innerHTML = regionShape(rid, fill); }).catch(() => {});
   return grid;
@@ -5713,6 +5736,8 @@ async function boot() {
       if (lastRoute.h === location.hash && Date.now() - lastRoute.t < 300) return; lastRoute = { h: location.hash, t: Date.now() };
       let v = location.hash.replace('#', ''); if (v.startsWith('seat/')) { SEAT.cid = decodeURIComponent(v.slice(5)); v = 'seat'; } else if (v.startsWith('region/')) { SEAT.cid = 'vicr-' + decodeURIComponent(v.slice(7)); v = 'seat'; } else if (v === 'seat') SEAT.cid = null; if (v === 'model') v = 'prefs'; if (['home', 'seat', 'dash', 'map', 'venue', 'compare', 'polls', 'demog', 'prefs', 'query', 'about'].includes(v)) showView(v); };
     window.addEventListener('hashchange', onRoute); window.addEventListener('popstate', onRoute);
+    { const fb = el('btn-mapfull'); if (fb) fb.addEventListener('click', () => setMapFull(!document.body.classList.contains('mapfull'))); }
+    if (/[?&]debug\b/.test(location.search)) window.__atlas = { dashRows, candName, showView, openSeat, grpParty, PARTY_SHORT, LIVE };
     document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && document.body.classList.contains('mapfull')) setMapFull(false); });
     document.addEventListener('click', (ev) => { const a = ev.target.closest('[data-go]'); if (!a) return; ev.preventDefault(); if (a.dataset.region) openRegion(a.dataset.region); else if (a.dataset.seat) openSeat(a.dataset.seat); else showView(a.dataset.go); window.scrollTo(0, 0); });
     if (v === 'model') v = 'prefs';
