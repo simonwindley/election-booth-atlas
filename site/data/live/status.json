@@ -1,20 +1,11 @@
 {
- "fetched_at": "2026-11-28T13:26:28+00:00",
- "seconds": 871.4,
- "fetches": 274,
- "errors": [
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Lowan-District-results/Lowan-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Macedon-District-results/Macedon-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Malvern-District-results/Malvern-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Melbourne-District-results/Melbourne-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Melton-District-results/Melton-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Mildura-District-results/Mildura-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Mill-Park-District-results/Mill-Park-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Monbulk-District-results/Monbulk-2CP-results-by-voting-centre"
- ],
+ "fetched_at": "2026-11-28T13:29:08+00:00",
+ "seconds": 98.1,
+ "fetches": 31,
+ "errors": [],
  "districts": 88,
- "changed_booths": 39,
- "changed_contests": 2,
+ "changed_booths": 8,
+ "changed_contests": 4,
  "interval": 60,
- "partial": false
+ "partial": true
 }
