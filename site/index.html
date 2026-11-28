@@ -388,8 +388,10 @@ body { font-variant-numeric: tabular-nums; }
 .brand { align-items: center; }
 .brand a.logo { display: flex; border-radius: 12px; }
 .brand a.logo img { height: 60px; width: auto; display: block; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .brand a.logo { background: #FAF7F0; padding: 4px 8px; } }
-:root[data-theme="dark"] .brand a.logo { background: #FAF7F0; padding: 4px 8px; }
+.brand a.logo img.logo-dark { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .brand a.logo img.logo-light { display: none; } :root:not([data-theme="light"]) .brand a.logo img.logo-dark { display: block; } }
+:root[data-theme="dark"] .brand a.logo img.logo-light { display: none; }
+:root[data-theme="dark"] .brand a.logo img.logo-dark { display: block; }
 nav.views { gap: 4px; }
 nav.views button { border-radius: 999px; padding: 8px 14px; font-weight: 600; color: var(--navy); font-size: 14px; }
 nav.views button[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
@@ -686,7 +688,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 <body>
 <div class="app">
   <header class="top">
-    <div class="brand"><h1 style="margin:0"><a class="logo" href="#home" data-go="home"><img src="logo.png" alt="The Election Booth Atlas: Every booth. Every election." width="176" height="46"></a></h1></div>
+    <div class="brand"><h1 style="margin:0"><a class="logo" href="#home" data-go="home"><img class="logo-light" src="logo.png" alt="The Election Booth Atlas: Every booth. Every election." width="176" height="46"><img class="logo-dark" src="logo-dark.png" alt="The Election Booth Atlas: Every booth. Every election." width="176" height="46"></a></h1></div>
     <nav class="views" aria-label="Views">
       <button data-view="dash">Dashboard</button>
       <button data-view="map" aria-current="page">Map</button>

@@ -30,7 +30,8 @@ import argparse, datetime, gzip, hashlib, html, importlib.util, json, os, re, sy
 import urllib.request, urllib.error
 from html.parser import HTMLParser
 
-DEFAULT_BASE = 'https://www.vec.vic.gov.au/results/state-election-results/2026-state-election-results'
+REFRESH_SECONDS = 900   # always re-read every district's voting-centre pages at least this often
+DEFAULT_BASE = 'https://www.vec.vic.gov.au/results/2026-results/district-election-page'
 UA = 'BoothAtlas live poller (personal research; contact via GitHub) python-urllib'
 VOTE_TYPE_ROWS = {
     'absent votes': 'absent', 'early votes': 'early', 'marked as voted votes': 'marked_as_voted',
@@ -186,8 +187,8 @@ class Fetcher:
 def district_links(index_html):
     """[(slug, path)] for every district on the results index."""
     out = {}
-    for m in re.finditer(r'href="([^"]*?/results-by-district/([a-z0-9-]+?)-district-results)/?"', index_html):
-        out.setdefault(m.group(2), m.group(1))
+    for m in re.finditer(r'href="([^"]*?/results-by-district/([A-Za-z0-9-]+?)-district-results)/?"', index_html, re.I):
+        out.setdefault(m.group(2).lower(), m.group(1))   # 2026 links are capitalised (Albert-Park-District-results)
     return sorted(out.items())
 
 
@@ -195,11 +196,11 @@ def parse_summary(p):
     t = p.text
     g = lambda pat: (re.search(pat, t, re.I) or [None, None])[1]
     elected = None
-    m = re.search(r'Elected member\s*\n?\s*(.+?)\s*\n', t)
-    if m and not re.match(r'(recheck|election night|first pref|preliminary|total)', m.group(1), re.I):
+    m = re.search(r'(?:Elected member|Successful candidate)\s*\n?\s*(.+?)\s*\n', t)
+    if m and not re.match(r'(recheck|election night|first pref|preliminary|total|the successful candidate|votes counted)', m.group(1), re.I):
         elected = m.group(1).strip()
     return {
-        'enrolment': num(g(r'close of rolls?:\s*([\d,]+)')),
+        'enrolment': num(g(r'(?:close of rolls?|Total enrolled voters):\s*([\d,]+)')),
         'formal': num(g(r'Formal votes:\s*([\d,]+)')),
         'informal': num(g(r'Informal votes:\s*([\d,]+)')),
         'total_votes': num(g(r'Total votes:\s*([\d,]+)')),
@@ -229,12 +230,15 @@ def parse_tcp_table(tables):
     for t in tables:
         if t and len(t[0]) >= 3 and t[0][0].lower().startswith('candidate') and 'preferred' in t[0][2].lower():
             return [{'name': r[0], 'party_name': r[1], 'votes': num(r[2]), 'pct': r[3] if len(r) > 3 else ''} for r in t[1:] if len(r) >= 3 and r[0]]
+        # 2026 layout: Party | Candidate | Preferred votes | % preferred votes
+        if t and len(t[0]) >= 3 and t[0][0].lower().startswith('party') and t[0][1].lower().startswith('candidate') and 'preferred' in t[0][2].lower():
+            return [{'name': r[1], 'party_name': r[0], 'votes': num(r[2]), 'pct': r[3] if len(r) > 3 else ''} for r in t[1:] if len(r) >= 3 and r[1]]
     return []
 
 
 def parse_tpp_table(tables):
     for t in tables:
-        if t and len(t[0]) >= 3 and t[0][0].lower().startswith('party') and 'preferred' in t[0][2].lower():
+        if t and len(t[0]) >= 3 and t[0][0].lower().startswith('party') and not t[0][1].lower().startswith('candidate') and 'preferred' in t[0][2].lower():
             return [{'party_name': r[0], 'name': r[1], 'votes': num(r[2]), 'pct': r[3] if len(r) > 3 else ''} for r in t[1:] if len(r) >= 3 and r[0]]
     return []
 
@@ -260,6 +264,50 @@ def parse_booth_table(rows):
                     'informal': num(r[inf_col]) if inf_col is not None else None,
                     'total': num(r[tot_col]) if tot_col is not None else None})
     return out, [n for _, n in cand_cols]
+
+
+SECTION_KIND = {'ordinary votes': 'ordinary', 'early voting centres': 'early', 'declaration votes': None}
+DECL_KIND = {'absent votes': 'absent', 'marked as voted votes': 'marked_as_voted', 'postal votes': 'postal', 'provisional votes': 'provisional',
+             'other early votes': 'early', 'early votes': 'early', 'hospital votes': 'hospital', 'early declaration votes': 'early_declaration'}
+
+
+def parse_booth_table_2026(rows, names):
+    """2026 layout: one header row ['', 'SURNAME, Given [party]', ..., ('Miss-sorts'), 'Informal votes', 'Total votes polled'],
+    then 'Total ...' and 'Percentage ...' rows, then sections: 'Ordinary votes' (booths) / 'Early voting centres' (EVCs, 'Other early votes') /
+    'Declaration votes' (absent, marked as voted, postal, provisional), each closed by a '... total' row."""
+    hdr = rows[0]
+    def match(h):
+        h = (h or '').strip()
+        for n in sorted(names, key=len, reverse=True):
+            if h == n or h.startswith(n + ' ') or _norm(h).startswith(_norm(n)):
+                return n
+        return None
+    cand_cols = [(i, match(h)) for i, h in enumerate(hdr) if i and match(h)]
+    inf_col = next((i for i, h in enumerate(hdr) if 'informal' in h.lower()), None)
+    tot_col = next((i for i, h in enumerate(hdr) if 'total' in h.lower()), None)
+    out, section = [], None
+    for r in rows[1:]:
+        if not r or not r[0]:
+            continue
+        label = r[0].strip(); low = label.lower()
+        if low in SECTION_KIND:
+            section = SECTION_KIND[low]; continue
+        if low.startswith('total') or low.startswith('percentage') or low.endswith(' total'):
+            continue
+        kind = DECL_KIND.get(low) or section or 'ordinary'
+        out.append({'label': label, 'kind': kind, 'votes': {n: num(r[i]) for i, n in cand_cols if i < len(r)},
+                    'informal': num(r[inf_col]) if inf_col is not None and inf_col < len(r) else None,
+                    'total': num(r[tot_col]) if tot_col is not None and tot_col < len(r) else None})
+    return out
+
+
+def booth_rows(tables, names):
+    """Booth rows from a by-voting-centre page, in either the 2026 or the 2022 layout."""
+    for t in tables:
+        if t and len(t) > 2 and any(r and r[0].strip().lower() in ('ordinary votes', 'total first preference votes', 'total two candidate preferred votes') for r in t[:5]):
+            return parse_booth_table_2026(t, names)
+    t = next((t for t in tables if t and len(t) > 2 and t[1] and t[1][0].lower().startswith('voting')), [])
+    return parse_booth_table(t)[0]
 
 
 def parse_distribution(rows):
@@ -293,11 +341,18 @@ def parse_distribution(rows):
 
 
 # ---------------------------------------------------------------- one district
-def scrape_district(f, dslug, path, election_id, log=print):
+def scrape_district(f, dslug, path, election_id, log=print, prev_c=None):
     cid = f'vic-{dslug}'
     doc = f.get(path)
     if doc is None:
         return None
+    # skip the by-voting-centre pages when the VEC's 'Last updated' stamp for this district hasn't moved since our last full read
+    # (a full read is forced at least every REFRESH_SECONDS whatever the stamp says)
+    mlu = re.search(r'Last updated:\s*([A-Za-z]+,\s*\d{1,2}\s+[A-Za-z]+\s+\d{4}\s+\d{1,2}:\d{2}:\d{2})', re.sub(r'<[^>]+>', ' ', doc))
+    lu = re.sub(r'\s+', ' ', mlu.group(1)) if mlu else None
+    if prev_c and lu and prev_c.get('vec_updated') == lu and time.time() - (prev_c.get('full_at') or 0) < REFRESH_SECONDS:
+        c = json.loads(json.dumps(prev_c)); c['_skipped'] = True
+        return c
     p = parse_html(doc)
     title = next((h for h in p.headings if 'district' in h.lower()), dslug)
     dname = re.sub(r'\s+District.*$', '', title, flags=re.I).strip() or dslug.replace('-', ' ').title()
@@ -326,27 +381,28 @@ def scrape_district(f, dslug, path, election_id, log=print):
     dist_path = sub('results-distribution', 'DistributionsLink')
     booths = {}
     def booth(label, kind):
-        bid = f'{cid}-{slug(label)}' if kind == 'ordinary' else f'{cid}-{kind}'
+        evc = kind == 'early' and label.lower() not in ('early votes',)
+        bid = f'{cid}-{slug(label)}' if kind == 'ordinary' else (f'{cid}-early-{slug(label)}' if evc else f'{cid}-{kind}')
         if bid not in booths:
-            booths[bid] = {'booth_id': bid, 'name': label if kind == 'ordinary' else f'{dname} {kind.replace("_", " ")}',
+            booths[bid] = {'booth_id': bid, 'name': label if (kind == 'ordinary' or evc) else f'{dname} {kind.replace("_", " ")}',
                            'type': kind, 'fp': {}, 'informal': None, 'total': None, 'tcp': {}, 'reported': False}
         return booths[bid]
     if fp_path:
         d2 = f.get(fp_path)
         if d2:
-            rows, _ = parse_booth_table(next((t for t in parse_html(d2).tables if t and len(t) > 2 and t[1] and t[1][0].lower().startswith('voting')), []))
+            rows = booth_rows(parse_html(d2).tables, list(cand_ids))
             for r in rows:
                 b = booth(r['label'], r['kind'])
-                b['fp'] = {cand_ids[n]: v for n, v in r['votes'].items() if n in cand_ids and v is not None}
+                b['fp'] = {cand_ids[n]: v for n, v in r['votes'].items() if n in cand_ids and v is not None} if r['total'] else {}
                 b['informal'], b['total'] = r['informal'], r['total']
                 b['reported'] = bool(r['total'])
     if tcp_path:
         d3 = f.get(tcp_path)
         if d3:
-            rows, _ = parse_booth_table(next((t for t in parse_html(d3).tables if t and len(t) > 2 and t[1] and t[1][0].lower().startswith('voting')), []))
+            rows = booth_rows(parse_html(d3).tables, list(cand_ids))
             for r in rows:
                 b = booth(r['label'], r['kind'])
-                b['tcp'] = {cand_ids[n]: v for n, v in r['votes'].items() if n in cand_ids and v is not None}
+                b['tcp'] = {cand_ids[n]: v for n, v in r['votes'].items() if n in cand_ids and v is not None} if r['total'] else {}
                 if not b['reported'] and r['total']:
                     b['reported'] = True
     dop = []
@@ -360,7 +416,7 @@ def scrape_district(f, dslug, path, election_id, log=print):
     # totals by vote type (ordinary = sum of election-day booths), handy for the % counted indicator
     return {'contest_id': cid, 'name': dname, 'election_id': election_id, **summary,
             'candidates': out_c, 'final_pair': final, 'tcp_total': tcp_total, 'tpp': tpp, 'tcp_pair': tcp_pair, 'booths': booths, 'dop': dop,
-            'pages': {'district': path, 'fp': fp_path, 'tcp': tcp_path, 'dist': dist_path}}
+            'pages': {'district': path, 'fp': fp_path, 'tcp': tcp_path, 'dist': dist_path}, 'vec_updated': lu, 'full_at': int(time.time())}
 
 
 def _norm(x):
@@ -434,16 +490,19 @@ def run_cycle(args, log=print):
             prev = json.load(open(latest_path))
         except Exception:
             prev = None
-    contests = {}
+    contests = {}; n_skip = 0
     for i, (dslug, path) in enumerate(links, start=1):
-        d = scrape_district(f, dslug, path, args.election_id, log)
+        d = scrape_district(f, dslug, path, args.election_id, log, prev_c=(prev or {}).get('contests', {}).get(f'vic-{dslug}'))
         if d is None:
             log(f'  [{i}/{len(links)}] {dslug}: not fetched' + (' (keeping previous)' if prev and f'vic-{dslug}' in prev.get('contests', {}) else ''))
             if prev and f'vic-{dslug}' in prev.get('contests', {}):
                 contests[f'vic-{dslug}'] = prev['contests'][f'vic-{dslug}']
             continue
+        skipped = d.pop('_skipped', False); n_skip += skipped
         d['counted'] = counted_summary(d)
         contests[d['contest_id']] = d
+        if skipped:
+            continue
         nb = sum(1 for b in d['booths'].values() if b['reported'] and b['type'] == 'ordinary')
         log(f'  [{i}/{len(links)}] {d["name"]}: {len(d["candidates"])} candidates, {nb} booths reported, {d["counted"]["pct_enrolment"]}% of enrolment counted')
     new = {'election_id': args.election_id, 'base': args.base, 'fetched_at': now, 'contests': contests}
@@ -470,7 +529,7 @@ def run_cycle(args, log=print):
               'districts': len(contests), 'changed_booths': new['n_changed_booths'], 'changed_contests': new['n_changed_contests'],
               'interval': args.loop}
     json.dump(status, open(os.path.join(args.out, 'status.json'), 'w'), indent=1)
-    log(f'cycle done in {status["seconds"]}s: {f.n_fetch} fetches, {len(f.errors)} errors, {new["n_changed_booths"]} booths changed in {new["n_changed_contests"]} districts')
+    log(f'cycle done in {status["seconds"]}s: {n_skip} districts unchanged (skipped), {f.n_fetch} fetches, {len(f.errors)} errors, {new["n_changed_booths"]} booths changed in {new["n_changed_contests"]} districts')
     if args.publish and not (new['n_changed_booths'] or new['n_changed_contests'] or not prev):
         # nothing new this cycle; still push in case an earlier push failed and a commit is waiting
         import subprocess
