@@ -1181,8 +1181,8 @@ function makeMap() {
     map.addLayer({ id: 'contest-stripes', type: 'fill', source: 'contests', paint: { 'fill-pattern': ['coalesce', ['get', 'stripe'], 'stripe-none'], 'fill-opacity': 0.85 }, layout: { visibility: 'none' } }, 'bounds-line');
     map.addLayer({ id: 'contest-line', type: 'line', source: 'contests', paint: { 'line-color': css('--map-bg'), 'line-width': 1 }, layout: { visibility: 'none' } }, 'bounds-line');
     // bold outline on electorates / catchments whose figures changed since the viewer last looked (live mode)
-    map.addLayer({ id: 'contest-fresh', type: 'line', source: 'contests', paint: { 'line-color': css('--fg'), 'line-width': ['case', ['boolean', ['feature-state', 'fresh'], false], 3.5, 0] } });
-    map.addLayer({ id: 'catch-fresh', type: 'line', source: 'catch', paint: { 'line-color': css('--fg'), 'line-width': ['case', ['boolean', ['feature-state', 'fresh'], false], 3, 0] }, layout: { visibility: 'none' } });
+    map.addLayer({ id: 'contest-fresh', type: 'line', source: 'contests', paint: { 'line-color': css('--fg'), 'line-width': ['case', ['boolean', ['feature-state', 'fresh'], false], 1.5, 0] } });
+    map.addLayer({ id: 'catch-fresh', type: 'line', source: 'catch', paint: { 'line-color': css('--fg'), 'line-width': ['case', ['boolean', ['feature-state', 'fresh'], false], 1.5, 0] }, layout: { visibility: 'none' } });
     map.addLayer({ id: 'contest-sel', type: 'line', source: 'contests', filter: ['==', 'contest_id', ''], paint: { 'line-color': css('--fg'), 'line-width': 2.5 } });
     map.addSource('booths', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
     map.addLayer({ id: 'booth-dots', type: 'circle', source: 'booths', paint: {
@@ -1398,6 +1398,7 @@ function select(eid, bid, fly) {
 }
 function selectContest(eid, cid, fly) {
   selected = { election: eid, contest: cid };
+  if (eid === LIVE.election && LIVE.latest && isFresh(eid, null, cid) && markSeen('c|' + cid, (LIVE.latest.contests[cid] || {}).updated_at)) setTimeout(() => { try { renderMap(); renderLiveBox(); } catch (err) {} }, 0);
   if (mapReady) { map.setFilter('contest-sel', ['==', 'contest_id', eid === state.election && state.unit === 'contest' ? cid : '']); map.setFilter('booth-sel', ['==', 'booth_id', '']);
     if (fly) { const f = (map.getSource('contests')._data.features || []).find(x => x.properties.contest_id === cid); if (f) { const b = bboxOf(f.geometry); map.fitBounds(b, { padding: 40, maxZoom: 12 }); } } }
   renderContestDetail(eid, cid);
@@ -1506,6 +1507,7 @@ function expectBlock(eid, b) {
 }
 function renderDetail(eid, bid) {
   const b = idx.boothsByKey.get(eid + '|' + bid); const c = idx.contestById.get(eid + '|' + b.contest_id); const e = idx.electionById.get(eid);
+  if (eid === LIVE.election && isFresh(eid, bid) && markSeen('b|' + bid, b.updated_at)) setTimeout(() => { try { renderMap(); renderLiveBox(); } catch (err) {} }, 0);
   const root = el('detail'); root.innerHTML = '';
   root.append(h('h2', {}, b.booth_name, isFresh(eid, bid) ? h('span', { class: 'fresh-tag' }, 'updated ' + fmtTime(b.updated_at)) : ''), h('div', { class: 'meta' }, `${c ? c.contest_name : b.contest_id} · ${e.name} · ${b.geo_source === 'geocoded_approx' ? 'approximate location' : b.geo_source === 'aec' || b.geo_source === 'aec_name_match' || b.geo_source === 'aec_id_match' ? 'located' : 'not located'}`), seatPageLink(eid, b.contest_id));
   if (suppNote(c)) root.append(h('div', { class: 'hint' }, suppNote(c)));
@@ -3358,6 +3360,8 @@ function rebuildLiveTables(latest) {
   for (const t of ['contests', 'candidates', 'booths', 'shares', 'fp', 'tcp', 'dop', 'contest_party', 'contest_cand', 'contest_tcp']) D[t] = D[t].filter(r => r.election_id !== eid);
   const live = latest ? latest.contests : {};
   const b22 = D.booths.filter(b => b.election_id === 'vic2022'); const b22ById = new Map(b22.map(b => [b.booth_id, b]));
+  // the VEC lists some polling places under a different district from 2022 (shared venues): fall back to the same-named 2022 booth anywhere in the state for its location
+  const nmKey = (x) => String(x || '').toLowerCase().replace(/[^a-z0-9]/g, ''); const b22ByName = new Map(); for (const x of b22) if (x.booth_type === 'ordinary' && x.lat != null && !b22ByName.has(nmKey(x.booth_name))) b22ByName.set(nmKey(x.booth_name), x);
   for (const rc of reg.contests.filter(c => c.house === 'LA')) {
     const cid = rc.contest_id, lc = live[cid];
     D.contests.push({ election_id: eid, contest_id: cid, contest_name: rc.contest_name, house: 'LA', enrolment: lc ? lc.enrolment : null, formal: lc ? lc.formal : null, informal: lc ? lc.informal : null, total_votes: lc ? lc.total_votes : null, held_by: rc.held_by, live: !!lc, updated_at: lc ? lc.updated_at : null, stage: lc ? lc.stage : null });
@@ -3383,7 +3387,7 @@ function rebuildLiveTables(latest) {
     }
     const seen = new Set();
     if (lc) for (const [bid, b] of Object.entries(lc.booths)) {
-      seen.add(bid); const o = b22ById.get(bid);
+      seen.add(bid); const o = b22ById.get(bid) || (b.type === 'ordinary' ? b22ByName.get(nmKey(b.name)) : null);
       D.booths.push({ election_id: eid, contest_id: cid, booth_id: bid, booth_name: b.name, booth_type: b.type, venue_id: o ? o.venue_id : null, lat: o ? o.lat : null, lon: o ? o.lon : null, geo_source: o ? o.geo_source : null, reported: !!b.reported, updated_at: b.updated_at, first_seen: b.first_seen });
       if (b.reported) {
         const pv = {}; let formal = 0;
@@ -3404,12 +3408,16 @@ function rebuildLiveTables(latest) {
     }
   }
 }
+// a booth or electorate you've clicked loses its 'just in' outline until its figures change again
+function seenItems() { if (!LIVE.seenItem) { LIVE.seenItem = {}; try { LIVE.seenItem = JSON.parse(localStorage.getItem('atlas.seenItems') || '{}') || {}; } catch (e) {} } return LIVE.seenItem; }
+function markSeen(key, at) { if (!at) return false; const s = seenItems(); if (s[key] && s[key] >= at) return false; s[key] = at; try { localStorage.setItem('atlas.seenItems', JSON.stringify(s)); } catch (e) {} return true; }
 function isFresh(eid, bid, cid) {
   if (eid !== LIVE.election || !LIVE.latest || !LIVE.seenAt) return false;
+  const seen = seenItems();
   // "just in": new since you last marked them seen, and within 10 minutes of the latest feed (measured on the feed's clock, so it also works in rehearsals)
   const feedT = Date.parse(LIVE.latest.fetched_at || '') || Date.now(), recent = (t) => t && feedT - Date.parse(t) < 10 * 60 * 1000;
-  if (bid) { const b = idx.boothsByKey.get(eid + '|' + bid); return !!(b && b.reported && b.updated_at && b.updated_at > LIVE.seenAt && recent(b.updated_at)); }
-  const c = LIVE.latest.contests[cid]; return !!(c && c.updated_at && c.updated_at > LIVE.seenAt && recent(c.updated_at) && (c.counted && (c.counted.booths_reported || Object.keys(c.counted.by_type || {}).length)));
+  if (bid) { const b = idx.boothsByKey.get(eid + '|' + bid); return !!(b && b.reported && b.updated_at && b.updated_at > LIVE.seenAt && recent(b.updated_at) && !(seen['b|' + bid] >= b.updated_at)); }
+  const c = LIVE.latest.contests[cid]; return !!(c && c.updated_at && c.updated_at > LIVE.seenAt && recent(c.updated_at) && !(seen['c|' + cid] >= c.updated_at) && (c.counted && (c.counted.booths_reported || Object.keys(c.counted.by_type || {}).length)));
 }
 /* ---------- preference-flow model (src/pref_flows.py): a modelled two-candidate result from first preferences ---------- */
 let PREF = null, PREF_P = null, BALLOT = null, BALLOT_B = null;   // BALLOT: ballot-order effects (data/ballot_effects.json), applied with the flows; BALLOT_B: the booth-level susceptibility scores
@@ -4058,7 +4066,7 @@ function countProgress(cid) {
   const t22 = types22(cid); const reg = earlyReg(cid);   // once the VEC's early-voting statistics are captured: {early, postal_applications}
   return { boothsReported: lc.counted.booths_reported || 0, boothsListed: lc.counted.booths_listed || ord.length, earlyListed: early.length, earlyReported: earlyRep, earlyVotes: by.early || 0,
     postal: by.postal || 0, absent: by.absent || 0, provisional: by.provisional || 0, ordinary: by.ordinary || 0, t22, postalReg: reg.postal_applications || null, postalRet: reg.postal_returned || null, earlyReg: reg.early || null,
-    tcpBooths, tcpOrd, votes, pctEnrol: lc.counted.pct_enrolment, pct22: tot22 ? votes / tot22 : null, stage: lc.stage || null, anyTcp: !!(lc.tcp_total && lc.tcp_total.length) };
+    tcpBooths, tcpOrd, votes, pctEnrol: lc.counted.pct_enrolment, pct22: tot22 ? votes / tot22 : null, stage: lc.stage || null, anyTcp: !!(lc.tcp_total && lc.tcp_total.some(x => x.votes > 0)) };
 }
 // "4,144 postal (42% of 2022)" style fragments
 function typeFrag(label, n, base, regLabel) { if (!n && !base) return null; const pc = base ? ` (${Math.round(100 * n / base)}% of ${regLabel || '2022'})` : ''; return `${fmt(n)} ${label}${pc}`; }
@@ -4074,7 +4082,7 @@ function progressText(cid, long = false) {
   return parts.join(' · ');
 }
 function liveTotals() {
-  const booths = D.booths.filter(b => b.election_id === LIVE.election && b.booth_type === 'ordinary');
+  const booths = D.booths.filter(b => b.election_id === LIVE.election && b.booth_type === 'ordinary' && (b.first_seen || b.reported || !LIVE.latest));   // the booths the VEC lists tonight (not 2022 placeholders)
   const rep = booths.filter(b => b.reported).length;
   const districts = LIVE.latest ? Object.values(LIVE.latest.contests).filter(c => c.counted && (c.counted.booths_reported || Object.values(c.counted.by_type || {}).some(v => v))).length : 0;
   const freshB = booths.filter(b => isFresh(LIVE.election, b.booth_id)).length;
@@ -4087,7 +4095,7 @@ function liveTotals() {
   for (const c of laContests('vic2022')) { const p22 = contestShares('vic2022', c.contest_id); votes22 += p22.formal ? p22.formal + (p22.informal || 0) : 0; const t = types22(c.contest_id); for (const k in base) base[k] += t[k] || 0; }   // the whole 2022 vote, so the share measures the night's progress
   // reporting pace: booths whose figures changed in the last 10 and 30 minutes, and the latest change
   const now = LIVE.fetchedAt ? new Date(LIVE.fetchedAt).getTime() : Date.now(); let last = null, in10 = 0, in30 = 0;
-  for (const b of booths) if (b.updated_at) { const t = new Date(b.updated_at).getTime(); if (!last || t > last) last = t; if (now - t <= 600000) in10++; if (now - t <= 1800000) in30++; }
+  for (const b of booths) if (b.updated_at && b.reported) { const t = new Date(b.updated_at).getTime(); if (!last || t > last) last = t; if (now - t <= 600000) in10++; if (now - t <= 1800000) in30++; }
   return { booths: booths.length, reported: rep, districts, freshB, freshC, earlyRep, earlyListed, earlyVotes, tcpBooths, tcpDistricts, votes, pct22: votes22 ? votes / votes22 : null, byType, base, postalReg, earlyReg, postalRet, pace10: in10, pace30: in30, lastChange: last };
 }
 // the dashboard's count-by-vote-type table: each type is a separate pool (election-day booths, early voting, postal, absent, provisional) against its 2022 size
