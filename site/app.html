@@ -2179,8 +2179,8 @@ function renderDash() {
     stat(fmt(cur.formal), live ? 'formal votes counted' : 'formal votes'), cur.formal ? stat(pct(cur.informal / (cur.formal + cur.informal)), 'informal') : '',
     live && cur.enrolment && cur.formal ? stat(pct((cur.formal + cur.informal) / cur.enrolment), 'of enrolment counted') : '',
     live ? stat(`${fmt(t.reported)} / ${fmt(t.booths)}`, 'election-day booths reported') : '',
-    live ? (t.earlyListed > 88 ? stat(`${t.earlyRep} / ${t.earlyListed}`, 'early voting centres in') : stat(t.earlyReg ? `${fmt(t.earlyVotes)} / ${fmt(t.earlyReg)}` : fmt(t.earlyVotes), `early votes counted${t.earlyReg ? ', of those cast' : ''}${t.base.early ? ' (2022: ' + fmt(t.base.early) + ' counted)' : ''}`)) : '',
-    live ? stat((t.postalRet || t.postalReg) ? `${fmt(t.byType.postal || 0)} / ${fmt(t.postalRet || t.postalReg)}` : fmt(t.byType.postal), `postal votes counted${t.postalRet ? ', of those returned so far' : t.postalReg ? ', of applications' : ''}${t.postalRet && t.postalReg ? ' (' + fmt(t.postalReg) + ' applications; more arrive until 4 December)' : t.base.postal ? ' (2022: ' + fmt(t.base.postal) + ')' : ''}`) : '',
+    live ? (t.earlyListed > 88 ? stat(`${t.earlyRep} / ${t.earlyListed}`, 'early voting centres in') : stat(t.earlyReg ? `${fmt(t.earlyVotes)} / ${fmt(t.earlyReg)}` : fmt(t.earlyVotes), `early votes counted${t.earlyReg ? ', of those cast' : ''}`)) : '',
+    live ? stat((t.postalRet || t.postalReg) ? `${fmt(t.byType.postal || 0)} / ${fmt(t.postalRet || t.postalReg)}` : fmt(t.byType.postal), `postal votes counted${t.postalRet ? ', of those returned so far' : t.postalReg ? ', of applications' : ''}${t.postalRet && t.postalReg ? ' (' + fmt(t.postalReg) + ' applications; more arrive until 4 December)' : ''}`) : '',
     live ? stat(fmt(D.candidates.filter(x => x.election_id === eid && x.contest_id.startsWith('vic-')).length), (LIVE.daily && LIVE.daily.candidates && LIVE.daily.candidates.districts ? 'nominated' : 'declared') + ' lower-house candidates') : ''));
   // ---- statewide
   const st = el('dash-state'); st.innerHTML = '';
@@ -2359,7 +2359,7 @@ function renderDashTableLive(list, rows, eid) {
     const prevM = r.lastMargin != null && r.lastParty ? ` · ${PARTY_SHORT[r.lastParty] || r.lastParty} margin ${(100 * Math.abs(r.lastMargin)).toFixed(1)}` : '';
     const more = h('button', { class: 'more-btn', 'aria-expanded': 'false', title: 'Show the count in detail', onclick: (ev) => { ev.stopPropagation(); const d = ev.currentTarget.closest('tr').nextElementSibling; const open = d.hidden; d.hidden = !open; ev.currentTarget.setAttribute('aria-expanded', open); ev.currentTarget.textContent = open ? '▾' : '▸'; } }, '▸');
     const g = countProgress(r.cid);
-    const inPct = r.countedShare != null && r.basis === 'projection' ? `${Math.round(100 * r.countedShare)}% in` : (g && g.pct22 != null ? `${Math.round(100 * g.pct22)}% of 2022 vote` : (g ? `${g.pctEnrol}% of enrolment` : '–'));
+    const inPct = r.countedShare != null && r.basis === 'projection' ? `${Math.round(100 * r.countedShare)}% in` : (g && g.pctEnrol != null ? `${g.pctEnrol}% of enrolment` : '–');
     const tr = h('tr', { class: 'clickable' + (isFresh(eid, null, r.cid) ? ' fresh' : ''), title: 'Click for the primary vote and the count in detail', onclick: (ev) => { const btn = ev.currentTarget.querySelector('.more-btn'); if (btn) btn.click(); } },
       h('td', {}, h('div', { class: 'seatcell' }, h('strong', {}, r.name), h('button', { class: 'map-btn', title: `Show ${r.name} on the map`, onclick: goMap }, 'Map →')), h('div', { class: 'seatprev' }, prev + prevM)),
       h('td', {}, r.share != null ? h('div', { class: 'tcp2' }, tcpBar(r, eid), h('div', { class: 'nm' }, h('b', {}, `${w && w.cand ? candName(w.cand) : PARTY_NAME[wp] || ''} ${pct(r.share)}`), o ? ` v ${o.cand ? candName(o.cand) : PARTY_NAME[o.party] || ''} ${pct(1 - r.share)}` : '')) : h('span', { class: 'hint' }, '–')),
@@ -2383,11 +2383,11 @@ function renderDashTableLive(list, rows, eid) {
       facts.append(row('Election-day booths', g.boothsReported, g.boothsListed, frac(g.boothsReported, g.boothsListed)));
       if (g.earlyListed > 1) facts.append(row('Early voting centres', g.earlyReported, g.earlyListed, frac(g.earlyReported, g.earlyListed)));
       else facts.append(row('Early votes', g.earlyVotes, g.earlyReg, g.earlyReg ? frac(g.earlyVotes, g.earlyReg, 'cast') : (g.earlyVotes ? fmt(g.earlyVotes) : 'none yet')));
-      const pBase = g.postalRet || g.postalReg || (g.t22 && g.t22.postal);
+      const pBase = g.postalRet || g.postalReg;
       facts.append(row('Postal votes', g.postal || 0, pBase, pBase ? `${fmt(g.postal || 0)} of ${fmt(pBase)} ${g.postalRet ? 'returned' : g.postalReg ? 'applications' : 'in 2022'} · ${Math.round(100 * (g.postal || 0) / pBase)}%` : fmt(g.postal || 0)));
-      if (g.absent || (g.t22 && g.t22.absent)) facts.append(row('Absent votes', g.absent || 0, g.t22 && g.t22.absent, g.t22 && g.t22.absent ? `${fmt(g.absent || 0)} · ${Math.round(100 * (g.absent || 0) / g.t22.absent)}% of 2022` : fmt(g.absent || 0)));
+      if (g.absent) facts.append(row('Absent votes', g.absent, 0, fmt(g.absent)));
       facts.append(row('Two-candidate count', g.tcpOrd, g.boothsListed, g.tcpBooths ? frac(g.tcpOrd, g.boothsListed, 'booths') : g.anyTcp ? 'electorate total only' : 'not started'));
-      if (g.pct22 != null) facts.append(row('All votes', g.pct22, 1, `${Math.round(100 * g.pct22)}% of the 2022 total`, 'all'));
+      if (r.countedShare != null && r.basis === 'projection') facts.append(row('All votes', r.countedShare, 1, `about ${Math.round(100 * r.countedShare)}% of the expected vote`, 'all'));
       else if (g.pctEnrol != null) facts.append(row('All votes', g.pctEnrol / 100, 1, `${g.pctEnrol}% of enrolment`, 'all'));
     }
     facts.append(h('div', { style: 'height:8px' }));
@@ -4452,9 +4452,9 @@ function progressText(cid, long = false) {
   const parts = [`${g.boothsReported}/${g.boothsListed} booths`];
   if (g.earlyListed > 1) parts.push(`${g.earlyReported}/${g.earlyListed} early centres`); else if (g.earlyVotes) parts.push(g.earlyReg ? `${fmt(g.earlyVotes)}/${fmt(g.earlyReg)} early votes` : `${fmt(g.earlyVotes)} early votes`); else parts.push(g.earlyReg ? `0/${fmt(g.earlyReg)} early votes` : 'no early votes yet');
   if (!long && (g.postalRet || g.postalReg)) parts.push(`${fmt(g.postal || 0)}/${fmt(g.postalRet || g.postalReg)} postals`);
-  if (long) { const f1 = typeFrag('postal', g.postal, g.postalReg || g.t22.postal, g.postalReg ? 'applications' : null); if (f1) parts.push(f1); const f2 = typeFrag('absent', g.absent, g.t22.absent); if (f2) parts.push(f2); }
+  if (long) { if (g.postal || g.postalReg) parts.push(g.postalReg ? `${fmt(g.postal || 0)} postal (${Math.round(100 * (g.postal || 0) / g.postalReg)}% of applications)` : `${fmt(g.postal)} postal`); if (g.absent) parts.push(`${fmt(g.absent)} absent`); }
   if (g.tcpBooths) parts.push(`2CP at ${g.tcpOrd}/${g.boothsListed}`); else if (g.anyTcp) parts.push('2CP electorate total only');
-  if (g.pct22 != null) parts.push(`${Math.round(100 * g.pct22)}% of the 2022 vote`); else if (g.pctEnrol != null) parts.push(`${g.pctEnrol}% of enrolment`);
+  if (g.pctEnrol != null) parts.push(`${g.pctEnrol}% of enrolment`);
   return parts.join(' · ');
 }
 function liveTotals() {
@@ -4472,16 +4472,24 @@ function liveTotals() {
   // reporting pace: booths whose figures changed in the last 10 and 30 minutes, and the latest change
   const now = LIVE.fetchedAt ? new Date(LIVE.fetchedAt).getTime() : Date.now(); let last = null, in10 = 0, in30 = 0;
   for (const b of booths) if (b.updated_at && b.reported) { const t = new Date(b.updated_at).getTime(); if (!last || t > last) last = t; if (now - t <= 600000) in10++; if (now - t <= 1800000) in30++; }
-  return { booths: booths.length, reported: rep, districts, freshB, freshC, earlyRep, earlyListed, earlyVotes, tcpBooths, tcpDistricts, votes, pct22: votes22 ? votes / votes22 : null, byType, base, postalReg, earlyReg, postalRet, pace10: in10, pace30: in30, lastChange: last };
+  const enrol = LIVE.latest ? Object.values(LIVE.latest.contests).reduce((a, c) => a + (c.enrolment || 0), 0) : 0;
+  return { booths: booths.length, reported: rep, districts, freshB, freshC, earlyRep, earlyListed, earlyVotes, tcpBooths, tcpDistricts, votes, enrol, pct22: votes22 ? votes / votes22 : null, byType, base, postalReg, earlyReg, postalRet, pace10: in10, pace30: in30, lastChange: last };
 }
-// the dashboard's count-by-vote-type table: each type is a separate pool (election-day booths, early voting, postal, absent, provisional) against its 2022 size
+// the dashboard's count-by-vote-type table: each type against its 2026 total where the VEC has published one (early votes cast, postal votes
+// returned or applied for); election-day booths by booths reported; absent and provisional have no 2026 total until the count is under way
 function voteTypeTable(t) {
-  const rows = [['ordinary', 'Election-day booths', `${fmt(t.reported)} of ${fmt(t.booths)} booths`], ['early', t.earlyListed > 88 ? 'Early voting centres' : 'Early (pre-poll) votes', t.earlyListed > 88 ? `${t.earlyRep} of ${t.earlyListed} centres` : ''], ['postal', 'Postal votes', t.postalReg ? `of ${fmt(t.postalReg)} applications` : ''], ['absent', 'Absent votes', 'counted from the Monday'], ['provisional', 'Provisional votes', '']];
+  const rows = [
+    ['ordinary', 'Election-day booths', t.reported, t.booths, 'booths reported', `${fmt(t.byType.ordinary || 0)} votes counted`],
+    ['early', 'Early (pre-poll) votes', t.byType.early || 0, t.earlyReg || 0, t.earlyReg ? 'of those cast (VEC)' : '', t.earlyListed > 88 ? `${t.earlyRep} of ${t.earlyListed} centres in` : ''],
+    ['postal', 'Postal votes', t.byType.postal || 0, t.postalRet || t.postalReg || 0, t.postalRet ? 'of those returned so far (VEC)' : t.postalReg ? 'of applications (VEC)' : '', 'more arrive until 4 December'],
+    ['absent', 'Absent votes', t.byType.absent || 0, 0, '', 'counted from the Monday'],
+    ['provisional', 'Provisional votes', t.byType.provisional || 0, 0, '', '']];
   const tb = h('tbody');
-  for (const [k, label, note] of rows) { const n = t.byType[k] || 0, b = t.base[k] || 0; if (!n && !b) continue; const pc = k === 'postal' && t.postalReg ? n / t.postalReg : b ? n / b : null;
-    tb.append(h('tr', {}, h('td', {}, label, note ? h('div', { class: 'hint' }, note) : ''), h('td', { class: 'num' }, fmt(n)), h('td', { class: 'num' }, b ? fmt(b) : '–'), h('td', { class: 'num' }, pc != null ? Math.round(100 * pc) + '%' : '–', h('span', { class: 'bar pbar' }, h('b', { style: `width:${Math.min(100, 100 * (pc || 0))}%;background:var(--fg-3)` }))))); }
-  return h('div', { class: 'tablewrap', style: 'margin-top:8px;max-width:640px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Vote type'), h('th', { class: 'num' }, 'Counted'), h('th', { class: 'num' }, '2022 total'), h('th', { class: 'num' }, 'Progress'))), tb),
-    h('div', { class: 'hint' }, `Election-day booths and early votes are counted on the night; postal votes are counted at the election office as they arrive (until the Friday after); absent votes are returned to the home electorate and counted from the Monday. Progress is against the same vote type's 2022 total${t.postalReg ? ', or postal applications where the VEC has published them' : ''}.`));
+  for (const [k, label, n, of, ofNote, note] of rows) { if (!n && !of && k !== 'absent') continue; const pc = of ? n / of : null;
+    tb.append(h('tr', {}, h('td', {}, label, note ? h('div', { class: 'hint' }, note) : ''), h('td', { class: 'num' }, fmt(n)), h('td', { class: 'num' }, of ? fmt(of) : '–', ofNote ? h('div', { class: 'hint' }, ofNote) : ''),
+      h('td', { class: 'num' }, pc != null ? Math.round(100 * pc) + '%' : '–', h('span', { class: 'bar pbar' }, h('b', { style: `width:${Math.min(100, 100 * (pc || 0))}%;background:var(--fg-3)` }))))); }
+  return h('div', { class: 'tablewrap', style: 'margin-top:8px;max-width:640px' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Vote type'), h('th', { class: 'num' }, 'Counted'), h('th', { class: 'num' }, 'Out of'), h('th', { class: 'num' }, 'Progress'))), tb),
+    h('div', { class: 'hint' }, 'Election-day booths and early votes are counted on the night; postal votes are counted at the election office as they arrive (until the Friday after); absent votes are returned to the home electorate and counted from the Monday. Progress is against this election\'s own totals from the VEC: early votes cast, postal votes returned so far (or applied for), and booths reported for election day.'));
 }
 // the statewide progress line used by the dashboard and the map note
 function totalsText(t) {
@@ -4489,7 +4497,7 @@ function totalsText(t) {
   const parts = [`${fmt(t.reported)} of ${fmt(t.booths)} booths reported`, `${t.districts} of 88 electorates counting`, t.reported ? `pace ${t.pace10} booths in the last 10 min (${t.pace30} in 30)${ago != null ? `, last change ${ago < 1 ? 'under a minute' : ago + ' min'} ago` : ''}` : ''].filter(Boolean);
   if (t.earlyListed > 88) parts.push(`${t.earlyRep} of ${t.earlyListed} early voting centres in`); else parts.push(t.earlyVotes ? `${fmt(t.earlyVotes)} early votes counted` : 'no early votes yet');
   parts.push(t.tcpBooths ? `two-candidate counts at ${fmt(t.tcpBooths)} booths in ${t.tcpDistricts} electorates` : t.tcpDistricts ? `two-candidate totals in ${t.tcpDistricts} electorates` : 'no two-candidate counts yet');
-  if (t.pct22 != null) parts.push(`${fmt(t.votes)} votes counted, ${Math.round(100 * t.pct22)}% of the 2022 total`);
+  if (t.votes) parts.push(`${fmt(t.votes)} votes counted${t.enrol ? `, ${Math.round(100 * t.votes / t.enrol)}% of enrolment` : ''}`);
   return parts.join(' · ');
 }
 function liveLegendNote(byContest) {
