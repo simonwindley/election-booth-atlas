@@ -1,6 +1,6 @@
 {
- "fetched_at": "2026-11-28T07:16:26+00:00",
- "seconds": 814.9,
+ "fetched_at": "2026-11-28T07:32:34+00:00",
+ "seconds": 806.9,
  "fetches": 262,
  "errors": [
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Carrum-District-results/Carrum-2CP-results-by-voting-centre",
@@ -8,7 +8,7 @@
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Frankston-District-results/Frankston-2CP-results-by-voting-centre"
  ],
  "districts": 88,
- "changed_booths": 2,
- "changed_contests": 88,
+ "changed_booths": 20,
+ "changed_contests": 11,
  "interval": 15
 }
