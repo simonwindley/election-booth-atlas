@@ -346,6 +346,12 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
 .more-btn:hover { color: var(--fg); }
 tr.detail-row td { padding: 4px 12px 10px; font-size: 13px; line-height: 1.45; border-top: 0; }
 tr.detail-row td div + div { margin-top: 2px; }
+.seatcell { display: flex; align-items: center; gap: 8px; }
+.map-btn { border: 1px solid var(--line); background: var(--surface-2); color: var(--accent); border-radius: 999px; padding: 1px 8px; font-size: 11px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.map-btn:hover { background: var(--accent); color: var(--accent-ink); }
+.strip-counts { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 8px; font-size: 14px; }
+.strip-counts .lbl { font-weight: 600; color: var(--fg-2); }
+.strip-counts b { font-variant-numeric: tabular-nums; }
 .strip-what { margin: 2px 0 8px; padding: 8px 12px; border-left: 3px solid var(--accent); border-radius: 6px; background: color-mix(in srgb, var(--accent) 9%, transparent); font-size: 14px; line-height: 1.4; }
 .strip-what b { font-weight: 700; }
 .live-box .fresh-list { max-height: 220px; overflow: auto; margin-top: 6px; }
@@ -2069,7 +2075,12 @@ function renderStrip(rows, eid) {
     primary: ['Primary leader', 'who led each seat on first preferences.'], tcp: ['After preferences', 'the final two-candidate result in each seat.'], model: ['Modelled', 'our preference model run on each seat\'s first preferences.'], proj: ['Atlas projection', 'our model\'s projection.'] };
   const wh = WHAT[dash.strip] || WHAT.primary;
   const whatEl = h('div', { class: 'strip-what' }, h('b', {}, `${wh[0]} shows `), wh[1]);
-  el('strip-note').replaceChildren(whatEl, stripShort, h('details', { style: 'display:inline' }, h('summary', { style: 'display:inline;cursor:pointer;color:var(--accent)' }, 'How to read this'), h('div', { style: 'margin-top:4px' }, stripLong)));
+  const cnt = {}; let pend = 0, sure = 0; for (const x of items) { if (x.v.hollow) { pend++; continue; } cnt[x.v.party] = (cnt[x.v.party] || 0) + 1; }
+  const order = STRIP_ORDER.filter(p => cnt[p]).concat(Object.keys(cnt).filter(p => !STRIP_ORDER.includes(p)));
+  const PLURAL = { IND: 'Independents', OTH: 'Others' };
+  const countLbl = dash.strip === 'primary' ? 'Leading on first preferences' : dash.strip === 'tcp' ? (live ? 'Ahead in the VEC count' : 'Won') : dash.strip === 'proj' ? 'Ahead in the projection' : 'Ahead in the estimate';
+  const countsEl = h('div', { class: 'strip-counts' }, h('span', { class: 'lbl' }, countLbl + ':'), ...order.map(p => h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), `${PLURAL[p] || PARTY_NAME[p] || p} `, h('b', {}, cnt[p]))), pend ? h('span', { class: 'hint' }, `${pend} not counted yet`) : '');
+  el('strip-note').replaceChildren(whatEl, countsEl, stripShort, h('details', { style: 'display:inline' }, h('summary', { style: 'display:inline;cursor:pointer;color:var(--accent)' }, 'How to read this'), h('div', { style: 'margin-top:4px' }, stripLong)));
 }
 // a seat's two-candidate split as a bar: the leader's colour from the left, the other finalist's after it, a white mark at 50%;
 // faded until the seat is called or declared (on past elections every seat is final)
@@ -2102,8 +2113,9 @@ function renderDashTable(rows, eid) {
   for (const r of list) {
     const w = r.winner, wp = r.wparty; const name = w && w.cand ? `${w.cand.surname}` : (wp ? PARTY_NAME[wp] : '–');
     const how = r.basis === 'projection' ? ` · ${Math.round(100 * (r.countedShare || 0))}% in` : r.pr ? (r.pr.method === 'official' ? '' : r.pr.method === 'projected' ? ' · VEC proj.' : ' · VEC count') : '';
-    const tr = h('tr', { class: 'clickable' + (live && isFresh(eid, null, r.cid) ? ' fresh' : ''), onclick: () => { setUnit('contest'); setElection(eid); selectContest(eid, r.cid, true); showView('map'); } },
-      h('td', {}, h('strong', {}, r.name), r.changed || r.changing ? h('div', { class: 'gain' }, `${PARTY_NAME[wp]} ${r.changed ? 'gain' : 'leading'} from ${PARTY_NAME[r.held]}`) : ''),
+    const goMap = (ev) => { ev.stopPropagation(); setUnit('contest'); setElection(eid); selectContest(eid, r.cid, true); showView('map'); };
+    const tr = h('tr', { class: 'clickable' + (live && isFresh(eid, null, r.cid) ? ' fresh' : ''), title: live ? 'Click for the count in detail' : '', onclick: (ev) => { const btn = ev.currentTarget.querySelector('.more-btn'); if (btn) btn.click(); } },
+      h('td', {}, h('div', { class: 'seatcell' }, h('strong', {}, r.name), h('button', { class: 'map-btn', title: `Show ${r.name} on the map`, onclick: goMap }, 'Map →')), r.changed || r.changing ? h('div', { class: 'gain' }, `${PARTY_NAME[wp]} ${r.changed ? 'gain' : 'leading'} from ${PARTY_NAME[r.held]}`) : ''),
       h('td', {}, r.held ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.held)}` }), r.heldLabel) : h('span', { class: 'hint' }, r.heldLabel || '–')),
       h('td', {}, wp ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(wp)}` }), `${name} (${PARTY_NAME[w.party] || w.party})`) : h('span', { class: 'hint' }, '–')),
       h('td', { class: 'num tcpcell' }, r.share != null ? h('span', { class: 'tcpwrap' }, tcpBar(r, eid), h('span', { class: 'tcpv' }, pct(r.share) + how)) : '–'),
@@ -2122,7 +2134,7 @@ function renderDashTable(rows, eid) {
       tb.append(h('tr', { class: 'detail-row', hidden: true }, h('td', { colspan: ncol, class: 'hint' }, ...bits))); }
   }
   el('dash-table').innerHTML = ''; el('dash-table').append(list.length ? t : h('div', { class: 'empty' }, 'No seats match.'));
-  el('dash-note').textContent = `${list.length} of ${rows.length} seats. Margin: the leader's two-candidate share above 50${live ? '; before a seat reports, the grey figure is the margin at the last contest there' : ''}. 2CP swing: for the leader's party against the same seat last time. Click a seat to open it on the map.`;
+  el('dash-note').textContent = `${list.length} of ${rows.length} seats. Margin: the leader's two-candidate share above 50${live ? '; before a seat reports, the grey figure is the margin at the last contest there' : ''}. 2CP swing: for the leader's party against the same seat last time. ${live ? 'Click a seat for the count in detail; ' : ''}Map → opens it on the map.`;
 }
 
 /* ---------- polls view ---------- */
