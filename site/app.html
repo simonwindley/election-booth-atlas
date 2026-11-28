@@ -342,6 +342,10 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
 .live-box .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--grn); margin-right: 6px; vertical-align: middle; }
 .live-box .pulse.off { background: var(--nodata); }
 .v2 #seg-unit button, .v2 #seg-quick button, #seg-unit button, #seg-quick button { padding: 6px 4px; letter-spacing: -0.01em; }
+.more-btn { margin-left: 6px; border: 1px solid var(--line); background: var(--surface-2); color: var(--fg-2); border-radius: 999px; width: 22px; height: 22px; line-height: 18px; font-size: 11px; cursor: pointer; padding: 0; }
+.more-btn:hover { color: var(--fg); }
+tr.detail-row td { padding: 4px 12px 10px; font-size: 13px; line-height: 1.45; border-top: 0; }
+tr.detail-row td div + div { margin-top: 2px; }
 .strip-what { margin: 2px 0 8px; padding: 8px 12px; border-left: 3px solid var(--accent); border-radius: 6px; background: color-mix(in srgb, var(--accent) 9%, transparent); font-size: 14px; line-height: 1.4; }
 .strip-what b { font-weight: 700; }
 .live-box .fresh-list { max-height: 220px; overflow: auto; margin-top: 6px; }
@@ -2009,9 +2013,10 @@ function renderStrip(rows, eid) {
     const und = (x) => x.v.hollow || x.v.firm === 'doubt';
     const tier = (x) => { const L = LEFT.has(x.v.party); if (und(x)) return x.v.hollow ? 2.5 : (L ? 2 : 3); return L ? 0 : 4; };
     const firmIdx = (x) => (x.v.firm === 'lean' ? 1 : 0);
-    items.sort((a, b) => tier(a) - tier(b) || (tier(a) === 0 ? rank(a) - rank(b) || firmIdx(a) - firmIdx(b) || b.v.strength - a.v.strength
-      : tier(a) === 4 ? rank(a) - rank(b) || firmIdx(b) - firmIdx(a) || a.v.strength - b.v.strength
-      : tier(a) === 2 ? rank(a) - rank(b) || b.v.strength - a.v.strength : tier(a) === 3 ? rank(a) - rank(b) || a.v.strength - b.v.strength : rank(a) - rank(b)));
+    // grouped by party like the other views (Labor, Greens, Socialists, independents, others | One Nation, Coalition); inside each party,
+    // decided seats at the outer end, then leaning, then in doubt, then not yet counted nearest the middle
+    const fr = (x) => x.v.hollow ? 3 : x.v.firm === 'doubt' ? 2 : x.v.firm === 'lean' ? 1 : 0;
+    items.sort((a, b) => rank(a) - rank(b) || (LEFT.has(a.v.party) ? fr(a) - fr(b) || b.v.strength - a.v.strength : fr(b) - fr(a) || a.v.strength - b.v.strength));
   }
   const total = rows.length, majority = eid.startsWith('vic') && total >= 80 ? 45 : null;
   for (const x of items) {
@@ -2048,7 +2053,7 @@ function renderStrip(rows, eid) {
   if (majority && items.length === total) {
     strip.append(h('div', { class: 'maj', style: `left:calc(${100 * majority / total}% - 1px)` }, h('span', { style: 'left:-24px' }, `majority ${majority}`)));
   }
-  const stripShort = live && rows.some(r => r.status !== 'declared') ? 'Seats build in from each end as they are decided; undecided seats wait in the middle. First side past the majority line wins. ' : '';
+  const stripShort = live && rows.some(r => r.status !== 'declared') ? 'Seats line up by party, strongest at the outer ends; within each party, undecided seats sit nearest the middle. First side past the majority line wins. ' : '';
   const stripLong = (dash.strip === 'proj'
     ? `One box per seat, coloured by the party the Atlas projection has winning; the deeper the colour, the larger its projected two-candidate share: the counted pools as they stand, the uncounted booths and vote types projected from 2022 plus the swing coming in (electorate, nearby, state, by vote type), all through the preference model. The fill is the projected share; the border is the call: plain for called or declared, dashed for leaning, dotted for in doubt (not enough counted for the margin, or the count so far or the VEC's pair reads differently), hollow and dashed where nothing is counted yet. Hover for the projected pair and how much of the expected vote is in.`
     : dash.strip === 'model'
@@ -2106,10 +2111,15 @@ function renderDashTable(rows, eid) {
       h('td', { class: 'num' }, r.swing != null ? pts(r.swing) : '–'),
       live ? h('td', {}, (() => { const pr = r.pr; if (!pr) return h('span', { class: 'hint' }, '–'); const a = pr.pair[0], g = grpParty(a.party); const same = !r.winner || !r.winner.cand || !a.cand || r.winner.cand.candidate_id === a.cand.candidate_id; return h('span', { class: 'chip', title: `${pr.pair.map(x => `${candName(x.cand)} ${pct(x.share)}`).join(' v ')} · ${pr.method === 'official' ? 'declared' : pr.method === 'projected' ? 'projected from matched booths' : 'counted so far'}${same ? '' : ' · a different leader from the Atlas projection'}` }, h('i', { style: `background:${partyColor(g)}` }), `${candName(a.cand)} ${pct(a.share)}`, same ? '' : h('span', { style: 'color:var(--alp)' }, ' ≠')); })()) : '',
       h('td', {}, r.leader ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.leader)}` }), `${PARTY_SHORT[r.leader]} ${pct(r.ps[r.leader].share)}`) : h('span', { class: 'hint' }, '–')),
-      h('td', { class: 'hint', style: live ? 'min-width:180px;max-width:240px' : '' }, live ? (r.counted ? progressText(r.cid) : '–') : fmt(r.ps.formal)),
-      h('td', {}, h('span', { class: 'st ' + r.status, title: (r.pairRisk || '') + (r.disagree ? ' · disagrees with ' + r.disagree.join(' and ') : '') }, STATUS_LABEL[r.status]), r.pairRisk ? h('div', { class: 'hint', style: 'max-width:220px' }, 'Pair at risk: ' + r.pairRisk.split(',')[0]) : '', r.disagree ? h('div', { class: 'hint', style: 'max-width:220px' }, 'Not called: ' + r.disagree.join('; ')) : ''),
+      h('td', { class: 'hint', style: 'white-space:nowrap' }, live ? (r.counted ? shortProgress(r) : '–') : fmt(r.ps.formal), live && (r.counted || r.pairRisk || r.disagree) ? h('button', { class: 'more-btn', 'aria-expanded': 'false', title: 'Show the count in detail', onclick: (ev) => { ev.stopPropagation(); const d = ev.currentTarget.closest('tr').nextElementSibling; const open = d.hidden; d.hidden = !open; ev.currentTarget.setAttribute('aria-expanded', open); ev.currentTarget.textContent = open ? '▾' : '▸'; } }, '▸') : ''),
+      h('td', {}, h('span', { class: 'st ' + r.status, title: (r.pairRisk || '') + (r.disagree ? ' · disagrees with ' + r.disagree.join(' and ') : '') }, STATUS_LABEL[r.status]), (r.pairRisk || r.disagree) && !live ? h('div', { class: 'hint', style: 'max-width:220px' }, r.pairRisk ? 'Pair at risk: ' + r.pairRisk.split(',')[0] : 'Not called: ' + r.disagree.join('; ')) : ''),
       live ? h('td', { class: 'hint' }, r.updated ? fmtTime(r.updated) : '') : '');
     tb.append(tr);
+    if (live) { const ncol = tr.children.length; const bits = [];
+      if (r.counted) bits.push(h('div', {}, h('b', {}, 'Count: '), progressText(r.cid, true)));
+      if (r.pairRisk) bits.push(h('div', {}, h('b', {}, 'Pair at risk: '), r.pairRisk));
+      if (r.disagree) bits.push(h('div', {}, h('b', {}, 'Not called: '), r.disagree.join('; ')));
+      tb.append(h('tr', { class: 'detail-row', hidden: true }, h('td', { colspan: ncol, class: 'hint' }, ...bits))); }
   }
   el('dash-table').innerHTML = ''; el('dash-table').append(list.length ? t : h('div', { class: 'empty' }, 'No seats match.'));
   el('dash-note').textContent = `${list.length} of ${rows.length} seats. Margin: the leader's two-candidate share above 50${live ? '; before a seat reports, the grey figure is the margin at the last contest there' : ''}. 2CP swing: for the leader's party against the same seat last time. Click a seat to open it on the map.`;
@@ -4098,6 +4108,7 @@ function countProgress(cid) {
 // "4,144 postal (42% of 2022)" style fragments
 function typeFrag(label, n, base, regLabel) { if (!n && !base) return null; const pc = base ? ` (${Math.round(100 * n / base)}% of ${regLabel || '2022'})` : ''; return `${fmt(n)} ${label}${pc}`; }
 // one line of it, for tooltips and tables
+function shortProgress(r) { const g = countProgress(r.cid); if (!g) return 'no count yet'; const pc = r.countedShare != null && r.basis === 'projection' ? ` · ${Math.round(100 * r.countedShare)}% in` : ''; return `${g.boothsReported}/${g.boothsListed} booths${pc}`; }
 function progressText(cid, long = false) {
   const g = countProgress(cid); if (!g) return 'no count yet';
   const parts = [`${g.boothsReported}/${g.boothsListed} booths`];
