@@ -1954,7 +1954,7 @@ function lcQuotaStrip(L) {
   return strip;
 }
 // a region's own outline for its card: its electorates filled, the neighbours faint, framed 4:3 on the region
-function regionShape(rid, fill) {
+function regionShape(rid, fill) {   // fill: a colour, or a function cid -> colour for each electorate
   const reg = LCX.regions[rid]; if (!LOC || !reg) return '';
   const k = Math.cos(37 * Math.PI / 180), X = (x) => x * k * 100, Y = (y) => -y * 100;
   const mine = LOC.rings.filter(r => reg.districts.includes(r.cid)); let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
@@ -1962,7 +1962,7 @@ function regionShape(rid, fill) {
   let w = x1 - x0, hh = y1 - y0; const pad = 0.08 * Math.max(w, hh); x0 -= pad; y0 -= pad; w += 2 * pad; hh += 2 * pad;
   if (w / hh > 4 / 3) { const n = w * 3 / 4; y0 -= (n - hh) / 2; hh = n; } else { const n = hh * 4 / 3; x0 -= (n - w) / 2; w = n; }
   const d = (polys) => polys.map(r => 'M' + r.map(([x, y]) => `${X(x).toFixed(2)} ${Y(y).toFixed(2)}`).join('L') + 'Z').join('');
-  return `<svg viewBox="${x0.toFixed(2)} ${y0.toFixed(2)} ${w.toFixed(2)} ${hh.toFixed(2)}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${reg.name} Region"><path d="${LOC.rings.map(r => d(r.polys)).join('')}" fill="#E6EFF5" stroke="#FFFFFF" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="${mine.map(r => d(r.polys)).join('')}" fill="${fill}" stroke="#1B2B4B" stroke-width="0.6" stroke-opacity="0.5" vector-effect="non-scaling-stroke"/></svg>`;
+  return `<svg viewBox="${x0.toFixed(2)} ${y0.toFixed(2)} ${w.toFixed(2)} ${hh.toFixed(2)}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${reg.name} Region"><path d="${LOC.rings.map(r => d(r.polys)).join('')}" fill="#E6EFF5" stroke="#FFFFFF" stroke-width="1" vector-effect="non-scaling-stroke"/>${typeof fill === 'function' ? mine.map(r => `<path d="${d(r.polys)}" fill="${fill(r.cid)}" stroke="#FFFFFF" stroke-width="1" vector-effect="non-scaling-stroke"><title>${(idx.contestById.get(LIVE.election + '|' + r.cid) || {}).contest_name || r.cid}</title></path>`).join('') : `<path d="${mine.map(r => d(r.polys)).join('')}" fill="${fill}" stroke="#1B2B4B" stroke-width="0.6" stroke-opacity="0.5" vector-effect="non-scaling-stroke"/>`}</svg>`;
 }
 // five seats per region read off the first-preference quotas so far: a full quota fills a seat (solid); the rest go to the largest part-quotas (faded)
 function lcSeatsSoFar(L) {
@@ -1974,11 +1974,13 @@ function lcSeatsSoFar(L) {
 }
 function lcRegionCards(rows) {
   const grid = h('div', { class: 'lcgrid' });
+  // each electorate shaded by who leads it in the lower house after preferences (the Atlas projection): deep once called or declared, pale while counting
+  let la = new Map(); try { la = new Map(dashRows(LIVE.election).map(r => [r.cid, r])); } catch (e) {}
+  const laFill = (cid) => { const r = la.get(cid); if (!r || !r.wparty || r.status === 'nocount') return '#DDD7CB'; return mix('#FFFFFF', partyColor(r.wparty), r.status === 'called' || r.status === 'declared' ? 0.85 : 0.42); };
   const shapes = [];
   for (const x of rows) {
     const L = x.L, seats = lcSeatsSoFar(L); let best = null; for (const p of PARTIES) if (L.sh[p] && (!best || L.sh[p] > L.sh[best])) best = p;
-    const fill = best ? mix('#FFFFFF', partyColor(best), 0.45) : '#CFE9F7';
-    const shp = h('div', { class: 'shp' }); shapes.push([shp, x.rid, fill]);
+    const shp = h('div', { class: 'shp' }); shapes.push([shp, x.rid, laFill]);
     const lab = (g) => PARTY_SHORT[g.fam] !== 'OTH' ? PARTY_NAME[g.fam] : g.name;
     const dots = h('div', { class: 'lcdots', role: 'img', 'aria-label': `On first-preference quotas so far: ${seats.full.map(lab).join(', ') || 'no full quotas'}${seats.part.length ? '; then ' + seats.part.map(lab).join(', ') : ''}` },
       ...seats.full.map(g => h('i', { style: `background:${partyColor(g.fam)}`, title: `${g.name}: a full quota (${g.q.toFixed(2)} quotas)` })),
@@ -1986,7 +1988,7 @@ function lcRegionCards(rows) {
       ...Array.from({ length: seats.open }, () => h('i', { class: 'open' })));
     const qtxt = L.groups.filter(g => g.q >= 0.5).slice(0, 4).map(g => `${PARTY_SHORT[g.fam] !== 'OTH' ? PARTY_SHORT[g.fam] : g.name.split(' ')[0]} ${g.q.toFixed(2)}`).join(' · ');
     grid.append(h('button', { type: 'button', class: 'lccard', onclick: () => openRegion(x.rid), title: `${x.reg.name} Region: the count by group` },
-      h('div', { class: 'nm' }, x.reg.name), h('div', { class: 'sub' }, `${L.pctEnrol != null ? L.pctEnrol + '% counted' : ''} · ${L.bIn}/${L.bAll} booths`), shp, dots, h('div', { class: 'lcdq' }, qtxt)));
+      h('div', { class: 'nm' }, x.reg.name), h('div', { class: 'sub' }, `${L.pctEnrol != null ? L.pctEnrol + '% counted' : ''} · ${L.bIn}/${L.bAll} booths`), h('div', { class: 'lcdq', style: 'margin:6px 0 0' }, 'Lower house, by electorate (after preferences):'), shp, h('div', { class: 'lcdq', style: 'margin:0 0 2px' }, 'Upper house, 5 seats (first-preference quotas):'), dots, h('div', { class: 'lcdq' }, qtxt)));
   }
   locatorSvg([]).then(() => { for (const [el2, rid, fill] of shapes) el2.innerHTML = regionShape(rid, fill); }).catch(() => {});
   return grid;
@@ -2016,7 +2018,7 @@ function lcLivePanel() {
   return h('div', { class: 'panel' }, h('h3', {}, 'The upper-house count so far'),
     h('div', { class: 'hint' }, `First preferences counted in all ${rows.length} regions${at ? ', to ' + at : ''}. ${anyEarly ? 'Election-day booths plus the early and postal votes counted so far.' : 'Election-day booths only so far: no early or postal votes have been counted for the upper house yet.'} Change: against the same region in 2022.`),
     state, lcRegionCards(rows),
-    h('p', { class: 'hint', style: 'margin:-6px 0 12px' }, 'Five seats per region, read off the first-preference quotas so far: solid for each full quota, faded for the largest part-quotas left, where preferences will decide. Not a prediction: the VEC distributes preferences over the next two weeks.'),
+    h('p', { class: 'hint', style: 'margin:-6px 0 12px' }, 'Two houses on each card. Map: the region\'s electorates, each shaded by who leads it in the lower house after preferences (the Atlas projection), deep once called, pale while counting, grey before a count. Dots: the region\'s five upper-house seats read off the first-preference quotas so far, solid for each full quota, faded for the largest part-quotas left, where preferences will decide. Not a prediction: the VEC distributes upper-house preferences over the next two weeks.'),
     h('div', { class: 'tablewrap' }, t),
     h('p', { class: 'hint', style: 'margin-top:8px' }, 'Five seats per region. A quota is one sixth of the formal vote, plus one; the strip is each group\'s first-preference vote measured in quotas, with a line at every quota. Who fills the seats is decided on preferences, which the VEC counts over the next two weeks. Click a region for its count by group.'));
 }
