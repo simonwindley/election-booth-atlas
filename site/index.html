@@ -409,6 +409,8 @@ tr.detail-row td div + div { margin-top: 2px; }
 .cnr { display: grid; grid-template-columns: 150px 1fr auto; align-items: center; gap: 8px; font-size: 13px; margin-top: 4px; color: var(--fg); }
 .cnr .t { height: 8px; background: var(--surface-2); border-radius: 3px; overflow: hidden; } .cnr .t i { display: block; height: 100%; background: var(--accent); }
 .cnr span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--fg-2); font-size: 12px; } .cnr.all { font-weight: 700; } .cnr.all span:last-child { color: var(--fg); font-weight: 700; }
+.cntbox { margin: 8px 0 6px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); } .cnth { font-size: 13px; margin-bottom: 2px; }
+.cnr.sm { grid-template-columns: 118px 1fr auto; font-size: 12px; margin-top: 3px; } .cnr.sm span:last-child { font-size: 11px; }
 .facts { font-size: 13px; line-height: 1.5; color: var(--fg-2); } .facts div + div { margin-top: 3px; } .facts b { color: var(--fg); }
 .map-btn { border: 1px solid var(--line); background: var(--surface-2); color: var(--accent); border-radius: 999px; padding: 1px 8px; font-size: 11px; font-weight: 600; cursor: pointer; white-space: nowrap; }
 .map-btn:hover { background: var(--accent); color: var(--accent-ink); }
@@ -852,10 +854,10 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
           <select id="sel-metric">
             <optgroup label="Election night 2026" id="og-live">
               <option value="projwin">Projected winner (Atlas projection)</option>
-              <option value="proj">Party's projected share after preferences (2CP)</option>
               <option value="called">Called and declared seats</option>
+              <option value="proj">Party's projected share after preferences (2CP)</option>
             </optgroup>
-            <optgroup label="Who's ahead">
+            <optgroup label="Who's ahead" id="og-ahead">
               <option value="tcpwin" selected data-live="Leader after preferences, count so far (Atlas estimate)">Winner after preferences</option>
               <option value="primary">Leader on first preferences</option>
             </optgroup>
@@ -4703,9 +4705,18 @@ function renderContestDetail2026(cid) {
   if (lc && lc.counted) {
     const by = lc.counted.by_type || {}; const parts = Object.entries(by).filter(([, n]) => n).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k === 'ordinary' ? 'election day' : k === 'early' ? 'pre-poll' : k.replaceAll('_', ' ')} ${fmt(n)}`);
     const g = countProgress(cid);
-    root.append(h('div', { style: 'margin:8px 0 2px' }, h('strong', {}, `${lc.counted.booths_reported} of ${lc.counted.booths_listed} election-day booths reported`), lc.counted.pct_enrolment != null ? h('span', { class: 'hint' }, ` · ${lc.counted.pct_enrolment}% of enrolment counted${g && g.pct22 != null ? ` (${Math.round(100 * g.pct22)}% of the 2022 vote)` : ''}`) : ''),
-      h('div', { class: 'hint' }, parts.join(' · ') || 'nothing counted yet', lc.stage ? ` · ${lc.stage}` : ''),
-      g ? h('div', { class: 'hint' }, `${g.earlyListed > 1 ? `${g.earlyReported} of ${g.earlyListed} early voting centres in` : g.earlyVotes ? 'Early votes in' : 'No early votes counted yet'} · ${g.tcpBooths ? `two-candidate count at ${g.tcpOrd} of ${g.boothsListed} booths` : g.anyTcp ? 'two-candidate count at electorate level only' : 'no two-candidate count yet'}.`) : '');
+    // what's counted, as proportions: election-day booths, early votes against those cast (VEC), postal votes against those returned
+    const crow = (label, n, of, txt) => h('div', { class: 'cnr sm' }, h('span', {}, label), h('div', { class: 't' }, h('i', { style: `width:${of ? Math.min(100, 100 * n / of).toFixed(1) : 0}%` })), h('span', {}, txt));
+    const cbox = h('div', { class: 'cntbox' }, h('div', { class: 'cnth' }, h('strong', {}, 'Counted so far'), lc.counted.pct_enrolment != null ? h('span', { class: 'hint' }, ` · ${lc.counted.pct_enrolment}% of enrolment`) : ''));
+    cbox.append(crow('Election-day booths', lc.counted.booths_reported, lc.counted.booths_listed, `${lc.counted.booths_reported}/${lc.counted.booths_listed}`));
+    if (g) {
+      cbox.append(crow('Early votes', g.earlyVotes || 0, g.earlyReg || 0, g.earlyReg ? `${fmt(g.earlyVotes || 0)} of ${fmt(g.earlyReg)} cast · ${Math.round(100 * (g.earlyVotes || 0) / g.earlyReg)}%` : fmt(g.earlyVotes || 0)));
+      if (g.earlyListed > 1) cbox.append(h('div', { class: 'hint', style: 'margin:-2px 0 2px 0;font-size:11px' }, `${g.earlyReported} of ${g.earlyListed} early voting centres reported for this seat`));
+      const pB = g.postalRet || g.postalReg; cbox.append(crow('Postal votes', g.postal || 0, pB || 0, pB ? `${fmt(g.postal || 0)} of ${fmt(pB)} ${g.postalRet ? 'returned' : 'applied'} · ${Math.round(100 * (g.postal || 0) / pB)}%` : fmt(g.postal || 0)));
+      cbox.append(crow('Two-candidate count', g.tcpOrd || 0, g.boothsListed || 0, g.tcpBooths ? `${g.tcpOrd}/${g.boothsListed} booths` : g.anyTcp ? 'electorate total only' : 'not started'));
+    }
+    cbox.append(h('div', { class: 'hint', style: 'margin-top:4px;font-size:11px' }, (parts.join(' · ') || 'nothing counted yet') + (lc.stage ? ` · ${lc.stage}` : '')));
+    root.append(cbox);
     if (cands.some(x => x.fp_total)) { candBlock(); candShown = true; }
     const pr = liveProjection(cid);
     if (pr) {
@@ -5664,7 +5675,12 @@ const METRIC_HINT = {
   live_tcp: 'Atlas estimate: the first preferences counted so far, run through the preference model, for the final two. Changes as booths come in.', live_tcpwin: 'Atlas estimate: who is ahead once the votes counted so far are run through the preference model. Changes as booths come in.',
   projwin: 'Atlas projection: what the finished count looks like, from what is counted plus what is expected from the booths and votes still to come. Changes as the night goes on.', proj: 'Atlas projection of each party\'s final share after preferences.', called: 'Only seats the Atlas projection has called or the VEC has declared are coloured; striped where a seat has changed hands. The most cautious view of the night.' };
 function metricHint() { const live = state.election === LIVE.election; const k = live && (state.metric === 'tcp' || state.metric === 'tcpwin') ? 'live_' + state.metric : state.metric; const t = METRIC_HINT[k] || ''; const box = el('metric-hint'); box.innerHTML = ''; box.append(t, /Atlas/.test(t) ? h('span', {}, ' ', h('a', { href: '#prefs', onclick: (ev) => { ev.preventDefault(); showView('prefs'); } }, 'How the Atlas model works')) : ''); }
-function syncModelOptions() { const live = state.election === LIVE.election, night = live && LIVE.available; el('og-live').hidden = !night; for (const o of el('sel-metric').options) { if (['projwin', 'proj', 'called'].includes(o.value)) o.hidden = !night; if (o.dataset.live) { if (!o.dataset.base) o.dataset.base = o.textContent; o.textContent = live ? o.dataset.live : o.dataset.base; } } if (!night && ['projwin', 'proj', 'called'].includes(state.metric)) { state.metric = 'share'; el('sel-metric').value = 'share'; el('f-party').hidden = false; } metricHint(); syncQuick(); }
+function syncModelOptions() { const live = state.election === LIVE.election, night = live && LIVE.available; el('og-live').hidden = !night;
+  { const sm = el('sel-metric'), v = sm.value, tw = sm.querySelector('option[value="tcpwin"]'), pr = sm.querySelector('option[value="primary"]'), pj = sm.querySelector('option[value="proj"]'), live = el('og-live'), ahead = el('og-ahead');
+    if (night) { if (tw.parentElement !== live) live.prepend(tw); if (pr.parentElement !== live) live.insertBefore(pr, pj); }   // on election night: count-so-far leader first, first-preference leader just above the party projection
+    else { if (tw.parentElement !== ahead) ahead.prepend(tw); if (pr.parentElement !== ahead) ahead.append(pr); }
+    ahead.hidden = !ahead.querySelector('option'); sm.value = v; }
+ for (const o of el('sel-metric').options) { if (['projwin', 'proj', 'called'].includes(o.value)) o.hidden = !night; if (o.dataset.live) { if (!o.dataset.base) o.dataset.base = o.textContent; o.textContent = live ? o.dataset.live : o.dataset.base; } } if (!night && ['projwin', 'proj', 'called'].includes(state.metric)) { state.metric = 'share'; el('sel-metric').value = 'share'; el('f-party').hidden = false; } metricHint(); syncQuick(); }
 function syncQuick() { const q = el('seg-quick'); if (!q) return; const v = el('sel-metric').value; for (const b of q.querySelectorAll('button')) { b.setAttribute('aria-pressed', b.dataset.v === v); if (b.dataset.v === 'projwin') b.hidden = el('og-live').hidden; } }
 // v2: the election picker on the dashboard — State / Federal / By-elections, then a button per election (4 x 2)
 const YP = { kind: null };
@@ -5869,7 +5885,7 @@ async function boot() {
       let v = location.hash.replace('#', ''); if (v.startsWith('seat/')) { SEAT.cid = decodeURIComponent(v.slice(5)); v = 'seat'; } else if (v.startsWith('region/')) { SEAT.cid = 'vicr-' + decodeURIComponent(v.slice(7)); v = 'seat'; } else if (v === 'seat') SEAT.cid = null; if (v === 'model') v = 'prefs'; if (['home', 'seat', 'dash', 'map', 'venue', 'compare', 'polls', 'demog', 'prefs', 'query', 'about'].includes(v)) showView(v); };
     window.addEventListener('hashchange', onRoute); window.addEventListener('popstate', onRoute);
     { const fb = el('btn-mapfull'); if (fb) fb.addEventListener('click', () => setMapFull(!document.body.classList.contains('mapfull'))); }
-    if (/[?&]debug\b/.test(location.search)) window.__atlas = { dashRows, candName, showView, openSeat, grpParty, PARTY_SHORT, LIVE };
+    if (/[?&]debug\b/.test(location.search)) window.__atlas = { dashRows, candName, showView, openSeat, grpParty, PARTY_SHORT, LIVE, selectContest, setUnit };
     document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && document.body.classList.contains('mapfull')) setMapFull(false); });
     document.addEventListener('click', (ev) => { const a = ev.target.closest('[data-go]'); if (!a) return; ev.preventDefault(); if (a.dataset.region) openRegion(a.dataset.region); else if (a.dataset.seat) openSeat(a.dataset.seat); else showView(a.dataset.go); window.scrollTo(0, 0); });
     if (v === 'model') v = 'prefs';
