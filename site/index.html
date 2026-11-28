@@ -2001,6 +2001,19 @@ function seatStatus(eid, cid) {
       if (disagree.length) { out.disagree = disagree; if (pairDiff || (f >= 0.85 && pr && pr.pair[0].cand && top.cand && pr.pair[0].cand.candidate_id !== top.cand.candidate_id)) { if (out.status !== 'doubt') out.status = 'doubt'; } else if (out.status === 'called') out.status = 'leaning'; }
       // wrong-pair risk inside the model: the last excluded candidate was close to the runner-up when excluded
       const L = out.proj.tcp.ladder; if (L && L.length) { const last = L[L.length - 1]; const runner = out.proj.tcp.pair[1]; const recv = runner && runner.cand ? (last.to[runner.cand.candidate_id] || 0) : 0; const before = runner ? runner.votes - recv : 0; if (before > 0 && last.votes >= 0.9 * before) { out.pairRisk = `${candName(last.cand)} (${PARTY_NAME[last.rawParty] || last.rawParty}) was within ${(100 * (before - last.votes) / out.proj.formal).toFixed(1)} pts of ${candName(runner.cand)} at the last exclusion; the final two could be different`; if (out.status === 'called') out.status = 'leaning'; } }
+      // the final two is uncertain, but does it matter? Run the model to every plausible final pair (the projection's, the model's on the count so far,
+      // the VEC's, and the last-excluded candidate's): if the same candidate wins each by the call margin, and the VEC count (where it includes them) agrees, call it
+      if ((pairDiff || out.pairRisk) && top.cand && lead >= thr) {
+        const tid = top.cand.candidate_id, rivals = new Set(); const add = (x) => { if (x && x.cand && x.cand.candidate_id !== tid) rivals.add(x.cand.candidate_id); };
+        let ok = true; const inPair = (q) => q && q.pair.length === 2 && q.pair.some(x => x.cand && x.cand.candidate_id === tid);
+        add(out.proj.tcp.pair[1]); if (m) { if (m.pair.length === 2 && !inPair(m)) ok = false; m.pair.forEach(add); } if (pr && pr.pair) { if (pr.pair.length === 2 && !inPair(pr)) ok = false; pr.pair.forEach(add); }
+        if (L && L.length) add(L[L.length - 1]);
+        let worst = lead; const parts = [];
+        if (ok) for (const rid of rivals) { const q = modelledTcp(eid, cid, [tid, rid]); const me = q && q.pair.find(x => x.cand && x.cand.candidate_id === tid), them = q && q.pair.find(x => x.cand && x.cand.candidate_id === rid);
+          if (!me || !them || me.votes < them.votes) { ok = false; break; } worst = Math.min(worst, me.share - 0.5); parts.push(`v ${candName(them.cand)} ≈${pct(me.share)}`); }
+        if (ok && pr && inPair(pr)) { const mv = pr.pair.find(x => x.cand && x.cand.candidate_id === tid); if (!mv || mv !== pr.pair[0]) ok = false; else worst = Math.min(worst, mv.share - 0.5); }
+        if (ok && rivals.size && worst >= thr) { out.status = 'called'; out.robust = `the final two is uncertain, but ${candName(top.cand)} wins whichever pair is left: ${parts.join(' · ')} (Atlas model on the count so far)${pr && inPair(pr) ? `; the VEC's own count has ${candName(top.cand)} ahead too` : ''}`; delete out.disagree; }
+      }
     } else if (pr) {
       const top = pr.pair[0]; out.winner = top; out.share = top.share; out.margin = top.share - 0.5; out.swing = swingFor(grpParty(top.party), top.share); out.basis = pr.method === 'official' ? 'declared' : 'vec';
       const lead = out.margin, f = out.frac;
@@ -2537,6 +2550,7 @@ function renderDashTableLive(list, rows, eid) {
     if (r.swing != null) facts.append(h('div', {}, h('b', {}, 'Swing: '), `${pts(r.swing)}% to ${PARTY_NAME[wp] || wp} on the two-candidate vote, against 2022`));
     if (r.pairRisk) facts.append(h('div', {}, h('b', {}, 'Pair at risk: '), r.pairRisk));
     if (r.disagree) facts.append(h('div', {}, h('b', {}, 'Not called: '), r.disagree.join('; ')));
+    if (r.robust) facts.append(h('div', {}, h('b', {}, 'Called: '), r.robust));
     facts.append(h('div', {}, h('b', {}, 'Status: '), STATUS_LABEL[r.status] + (r.updated ? ` · updated ${fmtTime(r.updated)}` : '')));
     tb.append(h('tr', { class: 'detail-row', hidden: true }, h('td', { colspan: 5 }, h('div', { class: 'seatmore' }, fpBox, facts))));
   }
@@ -2581,6 +2595,7 @@ function renderDashTable(rows, eid) {
       if (r.counted) bits.push(h('div', {}, h('b', {}, 'Count: '), progressText(r.cid, true)));
       if (r.pairRisk) bits.push(h('div', {}, h('b', {}, 'Pair at risk: '), r.pairRisk));
       if (r.disagree) bits.push(h('div', {}, h('b', {}, 'Not called: '), r.disagree.join('; ')));
+      if (r.robust) bits.push(h('div', {}, h('b', {}, 'Called: '), r.robust));
       tb.append(h('tr', { class: 'detail-row', hidden: true }, h('td', { colspan: ncol, class: 'hint' }, ...bits))); }
   }
   el('dash-table').innerHTML = ''; el('dash-table').append(list.length ? t : h('div', { class: 'empty' }, 'No seats match.'));
