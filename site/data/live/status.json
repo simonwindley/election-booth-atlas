@@ -1,7 +1,7 @@
 {
- "fetched_at": "2026-11-28T08:53:46+00:00",
- "seconds": 672.2,
- "fetches": 203,
+ "fetched_at": "2026-11-28T08:55:10+00:00",
+ "seconds": 756.7,
+ "fetches": 224,
  "errors": [
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Pascoe-Vale-District-results/Pascoe-Vale-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Point-Cook-District-results/Point-Cook-2CP-results-by-voting-centre",
@@ -12,11 +12,20 @@
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ripon-District-results/Ripon-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Rowville-District-results/Rowville-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Sandringham-District-results/Sandringham-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Shepparton-District-results/Shepparton-2CP-results-by-voting-centre"
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Shepparton-District-results/Shepparton-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/South-Barwon-District-results/South-Barwon-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/South-West-Coast-District-results/South-West-Coast-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Sunbury-District-results/Sunbury-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Sydenham-District-results/Sydenham-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Tarneit-District-results/Tarneit-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Thomastown-District-results/Thomastown-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Warrandyte-District-results/Warrandyte-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Wendouree-District-results/Wendouree-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Yan-Yean-District-results/Yan-Yean-2CP-results-by-voting-centre"
  ],
  "districts": 88,
- "changed_booths": 47,
- "changed_contests": 10,
+ "changed_booths": 26,
+ "changed_contests": 8,
  "interval": 15,
- "partial": true
+ "partial": false
 }
