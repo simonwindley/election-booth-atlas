@@ -327,6 +327,9 @@ table.data tr.clickable:hover td { background: var(--surface-2); }
 .strip .box:hover, .strip .box:focus { outline: 2px solid var(--fg); outline-offset: 1px; }
 .strip .maj { position: absolute; top: 16px; bottom: 2px; width: 2px; background: var(--fg); z-index: 1; pointer-events: none; }
 .strip .maj span { position: absolute; top: -13px; font-size: 10px; color: var(--fg-3); white-space: nowrap; }
+.strip .box.open { background: var(--surface-2); border: 1px dashed var(--fg-3); }
+.lcstrip { position: relative; } .lcstrip-tip { position: absolute; z-index: 20; width: 300px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; box-shadow: 0 4px 14px rgba(0,0,0,.15); font-size: 12px; }
+.lcstrip-tip .row { display: flex; justify-content: space-between; gap: 8px; margin-top: 3px; align-items: center; } .lcstrip-tip .row .chip { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .lcstrip-tip .row b { flex: none; } .lcstrip-tip .k { color: var(--fg-3); margin-top: 2px; }
 .strip-key { display: flex; justify-content: space-between; font-size: 11px; color: var(--fg-3); }
 
 /* charts */
@@ -834,6 +837,8 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div class="field"><label for="sel-election">Election</label><select id="sel-election"></select></div>
         <div class="field"><label>Show</label>
           <div class="seg" id="seg-unit"><button data-v="booth" aria-pressed="true">Booths</button><button data-v="contest" aria-pressed="false">Electorates</button><button data-v="lc" aria-pressed="false">Upper house</button></div></div>
+        <div class="field"><label>Draw booths as</label>
+          <div class="seg" id="seg-layer"><button data-v="dots" aria-pressed="true">Dots</button><button data-v="catch" aria-pressed="false">Catchments</button></div></div>
         <div class="field"><label for="sel-metric">Colour by</label>
           <div class="seg" id="seg-quick" style="margin-bottom:6px"><button data-v="tcpwin" aria-pressed="true" title="Who is ahead after preferences: the Atlas estimate from the count so far">After prefs</button><button data-v="primary" aria-pressed="false" title="Who is ahead on first preferences">Primary</button><button data-v="projwin" aria-pressed="false" title="The Atlas projection: the count so far plus the uncounted votes projected, then preferences">Projection</button></div>
           <select id="sel-metric">
@@ -865,8 +870,6 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div class="field"><label for="inp-search">Find a booth or electorate</label><input type="search" id="inp-search" placeholder="e.g. Northcote, Bridport"><div id="search-hits"></div></div>
         <div class="live-box" id="live-box" hidden></div>
         <div class="field"><label>Zoom to</label><div class="zoomp" id="zoom-presets"></div></div>
-        <div class="field"><label>Draw booths as</label>
-          <div class="seg" id="seg-layer"><button data-v="dots" aria-pressed="true">Dots</button><button data-v="catch" aria-pressed="false">Catchments</button></div></div>
         <div class="field"><label for="sel-bound">Boundary outlines</label>
           <select id="sel-bound">
             <option value="auto">This election’s</option>
@@ -2048,6 +2051,49 @@ function lcRegionCards(rows) {
   locatorSvg([]).then(() => { for (const [el2, rid, fill] of shapes) el2.innerHTML = regionShape(rid, fill); }).catch(() => {});
   return grid;
 }
+// one region's seats on first-preference quotas: each full quota a seat for that group's next candidate; the rest open, with who's in the running
+function lcSeatPlan(rid, L) {
+  const noms = (LCX.noms && LCX.noms.regions[rid]) || [];
+  const tc = (w) => String(w || '').toLowerCase().replace(/(^|[\s\-'’])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()).replace(/\bMc(\p{L})/gu, (m, b) => 'Mc' + b.toUpperCase());
+  const cand = (g, i) => { const n = noms.find(y => g.letter ? y.letter === g.letter : !y.letter && y.candidates.some(c => g.name.toLowerCase().startsWith(String(c.surname).toLowerCase())));
+    const c = n && (g.letter ? n.candidates[i] : n.candidates.find(c => g.name.toLowerCase().startsWith(String(c.surname).toLowerCase()))); return c ? `${c.given} ${tc(c.surname)}` : g.name; };
+  const full = []; for (const g of L.groups) for (let i = 0; i < Math.floor(g.q) && full.length < 5; i++) full.push({ g, who: cand(g, i), nth: i });
+  const contenders = L.groups.map(g => ({ g, rem: g.q - Math.floor(g.q), who: cand(g, Math.floor(g.q)) })).filter(x => x.rem > 0.05).sort((a, b) => b.rem - a.rem).slice(0, 5);
+  return { full, open: 5 - full.length, contenders };
+}
+// the whole Council on first-preference quotas: a seat for every full quota (party colours, lined up from each end), the rest grey in the middle
+function lcCouncilStrip(rows) {
+  const ORDER = ['ALP', 'GRN', 'VSP', 'OTH', 'OPEN', 'ONP', 'COAL'];
+  const items = [], tally = {};
+  for (const x of rows) { const plan = lcSeatPlan(x.rid, x.L);
+    for (const s of plan.full) { items.push({ fam: s.g.fam, region: x.reg.name, s, rid: x.rid }); tally[s.g.fam] = (tally[s.g.fam] || 0) + 1; }
+    for (let i = 0; i < plan.open; i++) { items.push({ fam: 'OPEN', region: x.reg.name, plan, rid: x.rid, k: i }); tally.OPEN = (tally.OPEN || 0) + 1; } }
+  items.sort((a, b) => ORDER.indexOf(a.fam) - ORDER.indexOf(b.fam) || (ORDER.indexOf(a.fam) < 4 ? b.s.g.q - a.s.g.q : a.fam === 'OPEN' ? a.region.localeCompare(b.region) : a.s.g.q - b.s.g.q));
+  const tip = h('div', { class: 'tip lcstrip-tip', hidden: true });
+  const strip = h('div', { class: 'strip', role: 'img', 'aria-label': `Upper house on first-preference quotas: ${ORDER.filter(f => tally[f]).map(f => `${f === 'OPEN' ? 'decided on preferences' : PARTY_NAME[f] || f} ${tally[f]}`).join(', ')}` });
+  const show = (it, ev) => {
+    tip.innerHTML = '';
+    if (it.fam === 'OPEN') {
+      tip.append(h('div', {}, h('strong', {}, `${it.region}: decided on preferences`)), h('div', { class: 'k' }, `${it.plan.open} of the region's 5 seats have no full quota yet. In the running, by part-quotas left:`));
+      for (const c of it.plan.contenders) tip.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(c.g.fam)}` }), `${c.who} (${niceParty(c.g.name).replace(/ Victoria$/, '')})`), h('b', {}, c.rem.toFixed(2))));
+    } else {
+      tip.append(h('div', {}, h('strong', {}, it.s.who)), h('div', { class: 'k' }, `${niceParty(it.s.g.name).replace(/ Victoria$/, '')}, ${it.region} · ${['1st', '2nd', '3rd', '4th', '5th'][it.s.nth] || ''} on the ticket`), h('div', { class: 'k' }, `a full quota on first preferences (${it.s.g.q.toFixed(2)} quotas for the group)`));
+    }
+    tip.hidden = false; const pr = strip.parentElement.getBoundingClientRect(), r = ev.currentTarget.getBoundingClientRect();
+    tip.style.left = Math.max(0, Math.min(pr.width - 300, r.left - pr.left - 120)) + 'px'; tip.style.top = (r.bottom - pr.top + 6) + 'px';
+  };
+  for (const it of items) {
+    const box = h('div', { class: 'box' + (it.fam === 'OPEN' ? ' open' : ''), tabindex: '0', style: it.fam === 'OPEN' ? '' : `background:${partyColor(it.fam)}`, 'aria-label': it.fam === 'OPEN' ? `${it.region}: decided on preferences` : `${it.s.who}, ${it.region}`,
+      onclick: () => openRegion(it.rid) });
+    box.addEventListener('mouseenter', (ev) => show(it, ev)); box.addEventListener('focus', (ev) => show(it, ev)); box.addEventListener('mouseleave', () => { tip.hidden = true; }); box.addEventListener('blur', () => { tip.hidden = true; });
+    strip.append(box);
+  }
+  if (items.length === 40) strip.append(h('div', { class: 'maj', style: `left:calc(${100 * 21 / 40}% - 1px)` }, h('span', { style: 'left:-24px' }, 'majority 21')));
+  const counts = h('div', { class: 'strip-counts' }, h('span', { class: 'lbl' }, 'Full quotas so far:'), ...ORDER.filter(f => tally[f] && f !== 'OPEN').map(f => h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(f)}` }), `${PARTY_NAME[f] || f} `, h('b', {}, tally[f]))),
+    tally.OPEN ? h('span', { class: 'chip' }, h('i', { style: 'background:var(--line);border:1px dashed var(--fg-3)' }), 'Decided on preferences ', h('b', {}, tally.OPEN)) : '');
+  return h('div', { class: 'strip-panel lcstrip', style: 'margin:6px 0 14px' }, counts, strip, tip,
+    h('p', { class: 'hint', style: 'margin:4px 0 0' }, 'The 40 Council seats read off first-preference quotas so far: a seat in party colour for every full quota, lined up from each end; grey where no group has a full quota yet and preferences will decide. Hover a grey seat for who is in the running. Not a prediction: the VEC distributes preferences over the next two weeks.'));
+}
 function lcLivePanel() {
   const regions = Object.entries(LCX.regions).sort((a, b) => a[1].name.localeCompare(b[1].name));
   const rows = regions.map(([rid, reg]) => ({ rid, reg, L: lcLive(rid), p22: LC.loaded ? lcShares('vic2022', rid) : null })).filter(x => x.L);
@@ -2072,7 +2118,7 @@ function lcLivePanel() {
   const at = LIVE.lc.fetched_at ? fmtTime(LIVE.lc.fetched_at) : '';
   return h('div', { class: 'panel' }, h('h3', {}, 'The upper-house count so far'),
     h('div', { class: 'hint' }, `First preferences counted in all ${rows.length} regions${at ? ', to ' + at : ''}. ${anyEarly ? 'Election-day booths plus the early and postal votes counted so far.' : 'Election-day booths only so far: no early or postal votes have been counted for the upper house yet.'} Change: against the same region in 2022.`),
-    state, lcRegionCards(rows),
+    state, rows.length === 8 ? lcCouncilStrip(rows) : '', lcRegionCards(rows),
     h('p', { class: 'hint', style: 'margin:-6px 0 12px' }, 'Two houses on each card. Map: the region\'s electorates, each shaded by who leads it in the lower house after preferences (the Atlas projection), deep once called, pale while counting, grey before a count. Dots: the region\'s five upper-house seats read off the first-preference quotas so far, solid for each full quota, faded for the largest part-quotas left, where preferences will decide. Not a prediction: the VEC distributes upper-house preferences over the next two weeks.'),
     h('div', { class: 'tablewrap' }, t),
     h('p', { class: 'hint', style: 'margin-top:8px' }, 'Five seats per region. A quota is one sixth of the formal vote, plus one; the strip is each group\'s first-preference vote measured in quotas, with a line at every quota. Who fills the seats is decided on preferences, which the VEC counts over the next two weeks. Click a region for its count by group.'));
