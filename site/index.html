@@ -2217,8 +2217,8 @@ function renderDashTableLive(list, rows, eid) {
     return h('span', { class: 'respill' + (firm(r.status) ? ' solid' : ''), style, title: `${pname} ${word}${sub ? ' · ' + sub : ''}` }, `${pname} ${word}`, sub ? h('small', {}, sub) : '');
   };
   // the figure column follows the sort: sort by swing and you see the swing, by update time and you see the time, otherwise the margin
-  const marginCell = (r) => r.margin != null ? (100 * r.margin).toFixed(1) : r.lastMargin != null ? h('span', { class: 'hint', style: 'font-weight:400', title: `${PARTY_NAME[r.lastParty] || ''} margin at the last contest here` }, `${PARTY_SHORT[r.lastParty] || ''} ${(100 * Math.abs(r.lastMargin)).toFixed(1)}`) : '–';
-  const KEY = dash.sort === 'swing' ? { head: '2CP swing', tip: 'swing to the leader\'s party in the two-candidate vote, against 2022', cell: (r) => r.swing != null ? h('span', { title: `to ${PARTY_NAME[r.wparty] || ''}` }, pts(r.swing), h('small', { class: 'hint', style: 'display:block;font-weight:400;font-size:11px' }, `to ${PARTY_SHORT[r.wparty] || ''}`)) : '–' }
+  const marginCell = (r) => r.margin != null ? (100 * r.margin).toFixed(1) + '%' : r.lastMargin != null ? h('span', { class: 'hint', style: 'font-weight:400', title: `${PARTY_NAME[r.lastParty] || ''} margin at the last contest here` }, `${PARTY_SHORT[r.lastParty] || ''} ${(100 * Math.abs(r.lastMargin)).toFixed(1)}%`) : '–';
+  const KEY = dash.sort === 'swing' ? { head: '2CP swing', tip: 'swing to the leader\'s party in the two-candidate vote, against 2022', cell: (r) => r.swing != null ? h('span', { title: `to ${PARTY_NAME[r.wparty] || ''}` }, pts(r.swing) + '%', h('small', { class: 'hint', style: 'display:block;font-weight:400;font-size:11px' }, `to ${PARTY_SHORT[r.wparty] || ''}`)) : '–' }
     : dash.sort === 'updated' ? { head: 'Updated', tip: 'when the VEC figures for this seat last changed', cell: (r) => r.updated ? fmtTime(r.updated) : '–' }
     : { head: 'Margin', tip: 'the leader\'s two-candidate share above 50%; before a seat reports, the grey figure is the margin at the last contest there', cell: marginCell };
   const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', { title: 'the Atlas projection\'s two-candidate split (the VEC\'s own pair until the model has loaded, and the declared result once published)' }, 'Two-candidate'), h('th', { class: 'num', title: KEY.tip }, KEY.head), h('th', {}, 'Result'), h('th', {}, 'Counted'))));
@@ -2262,8 +2262,8 @@ function renderDashTableLive(list, rows, eid) {
       else if (g.pctEnrol != null) facts.append(row('All votes', g.pctEnrol / 100, 1, `${g.pctEnrol}% of enrolment`, 'all'));
     }
     facts.append(h('div', { style: 'height:8px' }));
-    if (r.margin != null && KEY.head !== 'Margin') facts.append(h('div', {}, h('b', {}, 'Margin: '), `${(100 * r.margin).toFixed(1)} points`));
-    if (r.swing != null) facts.append(h('div', {}, h('b', {}, 'Swing: '), `${pts(r.swing)} to ${PARTY_NAME[wp] || wp} on the two-candidate vote, against 2022`));
+    if (r.margin != null && KEY.head !== 'Margin') facts.append(h('div', {}, h('b', {}, 'Margin: '), `${(100 * r.margin).toFixed(1)}%`));
+    if (r.swing != null) facts.append(h('div', {}, h('b', {}, 'Swing: '), `${pts(r.swing)}% to ${PARTY_NAME[wp] || wp} on the two-candidate vote, against 2022`));
     if (r.pairRisk) facts.append(h('div', {}, h('b', {}, 'Pair at risk: '), r.pairRisk));
     if (r.disagree) facts.append(h('div', {}, h('b', {}, 'Not called: '), r.disagree.join('; ')));
     facts.append(h('div', {}, h('b', {}, 'Status: '), STATUS_LABEL[r.status] + (r.updated ? ` · updated ${fmtTime(r.updated)}` : '')));
