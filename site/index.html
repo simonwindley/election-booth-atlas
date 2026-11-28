@@ -3410,8 +3410,8 @@ function rebuildLiveTables(latest) {
     }
     const seen = new Set();
     if (lc) for (const [bid, b] of Object.entries(lc.booths)) {
-      seen.add(bid); const o = b22ById.get(bid) || (b.type === 'ordinary' ? b22ByName.get(nmKey(b.name)) : null);
-      D.booths.push({ election_id: eid, contest_id: cid, booth_id: bid, booth_name: b.name, booth_type: b.type, venue_id: o ? o.venue_id : null, lat: o ? o.lat : null, lon: o ? o.lon : null, geo_source: o ? o.geo_source : null, reported: !!b.reported, updated_at: b.updated_at, first_seen: b.first_seen });
+      seen.add(bid); const o = b22ById.get(bid) || (b.type === 'ordinary' ? b22ByName.get(nmKey(b.name)) : null); const g26 = !o && b.type === 'ordinary' && LIVE.geo26 ? LIVE.geo26[bid] : null;
+      D.booths.push({ election_id: eid, contest_id: cid, booth_id: bid, booth_name: b.name, booth_type: b.type, venue_id: o ? o.venue_id : null, lat: o ? o.lat : (g26 ? g26[0] : null), lon: o ? o.lon : (g26 ? g26[1] : null), geo_source: o ? o.geo_source : (g26 ? (g26[2] === 'x' ? 'geocoded_approx' : 'vec_venue_2026') : null), reported: !!b.reported, updated_at: b.updated_at, first_seen: b.first_seen });
       if (b.reported) {
         const pv = {}; let formal = 0;
         for (const [cand, v] of Object.entries(b.fp || {})) { D.fp.push({ election_id: eid, booth_id: bid, candidate_id: cand, votes: v }); const c = lc.candidates.find(x => x.candidate_id === cand); const p = c ? c.party : 'OTH'; pv[p] = (pv[p] || 0) + v; formal += v; }
@@ -4184,6 +4184,7 @@ async function pollDaily() {
 async function pollLive(manual) {
   if (!LIVE.register) return;
   if (!LIVE.daily || manual) await pollDaily();
+  if (!LIVE.geo26) { try { const g = await fetch(`${DATA}booth_geo_2026.json?t=${Date.now()}`, { cache: 'no-store' }).then(r => r.ok ? r.json() : null); LIVE.geo26 = (g && g.booths) || {}; } catch (e) { LIVE.geo26 = {}; } }   // locations for 2026 polling places with no 2022 counterpart (VEC venues spreadsheet)
   try {
     const res = await fetch(`${DATA}live/latest.json?t=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) { LIVE.available = false; LIVE.error = res.status === 404 ? 'no feed yet' : 'HTTP ' + res.status; renderLiveBox(); return; }
