@@ -1,7 +1,7 @@
 {
- "fetched_at": "2026-11-28T09:53:24+00:00",
- "seconds": 292.7,
- "fetches": 71,
+ "fetched_at": "2026-11-28T09:55:10+00:00",
+ "seconds": 399.1,
+ "fetches": 91,
  "errors": [
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Albert-Park-District-results/Albert-Park-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ashwood-District-results/Ashwood-2CP-results-by-voting-centre",
@@ -37,11 +37,21 @@
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Gippsland-East-District-results/Gippsland-East-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Gippsland-South-District-results/Gippsland-South-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Glen-Waverley-District-results/Glen-Waverley-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Greenvale-District-results/Greenvale-2CP-results-by-voting-centre"
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Greenvale-District-results/Greenvale-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Hastings-District-results/Hastings-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Hawthorn-District-results/Hawthorn-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ivanhoe-District-results/Ivanhoe-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Kalkallo-District-results/Kalkallo-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Kew-District-results/Kew-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Kororoit-District-results/Kororoit-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Lara-District-results/Lara-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Laverton-District-results/Laverton-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Lowan-District-results/Lowan-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Macedon-District-results/Macedon-2CP-results-by-voting-centre"
  ],
  "districts": 88,
  "changed_booths": 16,
- "changed_contests": 10,
+ "changed_contests": 9,
  "interval": 15,
  "partial": true
 }
