@@ -1,10 +1,21 @@
 {
- "fetched_at": "2026-11-28T08:52:12+00:00",
- "seconds": 578.3,
- "fetches": 181,
- "errors": [],
+ "fetched_at": "2026-11-28T08:53:46+00:00",
+ "seconds": 672.2,
+ "fetches": 203,
+ "errors": [
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Pascoe-Vale-District-results/Pascoe-Vale-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Point-Cook-District-results/Point-Cook-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Polwarth-District-results/Polwarth-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Prahran-District-results/Prahran-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Preston-District-results/Preston-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ringwood-District-results/Ringwood-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ripon-District-results/Ripon-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Rowville-District-results/Rowville-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Sandringham-District-results/Sandringham-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Shepparton-District-results/Shepparton-2CP-results-by-voting-centre"
+ ],
  "districts": 88,
- "changed_booths": 32,
+ "changed_booths": 47,
  "changed_contests": 10,
  "interval": 15,
  "partial": true
