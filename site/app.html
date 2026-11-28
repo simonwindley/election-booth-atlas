@@ -2360,10 +2360,15 @@ function renderDash() {
 }
 // one box per seat, ordered from the strongest Labor seat on the left to the strongest Coalition seat on the right
 const STRIP_ORDER = ['ALP', 'GRN', 'VSP', 'IND', 'OTH', 'ONP', 'COAL'], STRIP_LEFT = new Set(['ALP', 'GRN', 'VSP']);
+// the VEC's own two-candidate figures for a live seat: the declared distribution, else the raw count so far between the VEC's pair
+function vecCount(r) { const pr = r.pr; if (!pr || !pr.pair) return null; if (pr.method === 'official') return pr; const cp = pr.countedPair || (pr.method === 'counted' ? pr.pair : null); return cp && cp.length === 2 ? { method: 'counted', pair: cp, counted: pr.counted } : null; }
 function stripValue(r) {
   if (dash.strip === 'proj') { const P = r.proj; if (P && P.tcp) return { party: grpParty(P.tcp.pair[0].party), strength: P.tcp.pair[0].share, lo: 0.5, hi: 0.75, firm: r.status === 'called' || r.status === 'declared' ? 'firm' : r.status === 'leaning' ? 'lean' : 'doubt' }; if (r.status === 'declared' && r.winner) return { party: grpParty(r.winner.party), strength: r.share || 0.5, lo: 0.5, hi: 0.75 }; return r.held ? { party: r.held, strength: 0, hollow: true } : null; }
   if (dash.strip === 'model') { const m = r.model || (r.model = PREF ? modelledTcp(r.c.election_id, r.cid) : null); if (m) return { party: grpParty(m.pair[0].party), strength: m.pair[0].share, lo: 0.5, hi: 0.75 }; }
-  else if (dash.strip === 'tcp') { if (r.share != null && r.wparty) return { party: r.wparty, strength: r.share, lo: 0.5, hi: 0.75 }; }
+  else if (dash.strip === 'tcp') {
+    // live: the VEC's own two-candidate count so far (not our projection, which drives r.wparty/r.share)
+    if (r.c.election_id === LIVE.election) { const v = vecCount(r); if (v) return { party: grpParty(v.pair[0].party), strength: v.pair[0].share, lo: 0.5, hi: 0.75 }; }
+    else if (r.share != null && r.wparty) return { party: r.wparty, strength: r.share, lo: 0.5, hi: 0.75 }; }
   else if (r.leader && r.ps.formal) return { party: r.leader, strength: r.ps[r.leader].share, lo: 0.25, hi: 0.55 };
   return r.held ? { party: r.held, strength: 0, hollow: true } : null;
 }
@@ -2399,7 +2404,7 @@ function renderStrip(rows, eid) {
       tip.innerHTML = ''; tip.append(h('div', {}, h('strong', {}, r.name)), h('div', { class: 'k' }, `${r.heldLabel && r.held ? 'held by ' + r.heldLabel : r.heldLabel || ''}${live ? ' · ' + STATUS_LABEL[r.status] : ''}`), r.robust ? h('div', { class: 'k' }, '⚑ Final two not settled: ' + r.robust.replace(/^the final two is uncertain, but /, '')) : r.pairRisk ? h('div', { class: 'k' }, 'Pair at risk: ' + r.pairRisk) : '');
       if (dash.strip === 'proj') {
         const P = r.proj; if (P && P.tcp) { for (const c of P.tcp.pair) tip.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(c.party))}` }), `${candName(c.cand)} (${PARTY_NAME[c.party] || c.party})`), h('b', {}, '≈' + pct(c.share))));
-          tip.append(h('div', { class: 'k' }, `${Math.round(100 * P.countedShare)}% of the expected vote counted (${P.boothsCounted}/${P.boothsListed} booths)` + (r.disagree ? ' · disagrees with ' + r.disagree.join(' and ') : ''))); }
+          tip.append(h('div', { class: 'k' }, `${Math.round(100 * P.countedShare)}% of the expected vote counted (${P.boothsCounted}/${P.boothsListed} booths)` + (r.disagree ? ' · ' + r.disagree.join('; ') : ''))); }
         else if (r.status === 'declared' && r.winner) tip.append(h('div', { class: 'k' }, `declared: ${candName(r.winner.cand)} ${pct(r.share)}`));
         else tip.append(h('div', { class: 'k' }, 'nothing counted yet'));
       } else if (dash.strip === 'model') {
@@ -2408,8 +2413,9 @@ function renderStrip(rows, eid) {
           tip.append(h('div', { class: 'k' }, `modelled from ${fmt(m.formal)} first preferences` + (diff ? ' · final two differ from the ' + (live ? 'VEC pair' : 'actual count') : vec ? ' · same pair as the ' + (live ? 'VEC' : 'count') : ''))); }
         else tip.append(h('div', { class: 'k' }, v.hollow ? 'no first preferences yet' : 'too few candidates'));
       } else if (dash.strip === 'tcp') {
-        const pr = r.pr || (r.share != null ? contestTcp(r.c.election_id, r.cid) : null);
-        if (pr && pr.pair) { for (const c of pr.pair) tip.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(c.party))}` }), `${c.cand ? c.cand.surname : ''} (${PARTY_NAME[c.party] || c.party})`), h('b', {}, pct(c.share)))); tip.append(h('div', { class: 'k' }, (pr.method === 'projected' ? 'projected · ' : pr.method === 'counted' ? 'count so far · ' : '') + (r.swing != null ? '2CP swing ' + pts(r.swing) + ' pts' : ''))); }
+        const pr = live ? vecCount(r) : (r.pr || (r.share != null ? contestTcp(r.c.election_id, r.cid) : null));
+        if (pr && pr.pair) { for (const c of pr.pair) tip.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(grpParty(c.party))}` }), `${c.cand ? c.cand.surname : ''} (${PARTY_NAME[c.party] || c.party})`), h('b', {}, pct(c.share))));
+          const ct = pr.counted; tip.append(h('div', { class: 'k' }, live ? (pr.method === 'official' ? 'VEC distribution of preferences' : 'VEC count so far' + (ct && ct.booths_listed ? ` · ${ct.booths_reported || 0}/${ct.booths_listed} booths` : '')) + (r.proj && r.proj.tcp && pr.method !== 'official' && !r.proj.tcp.pair.every(x => pr.pair.some(y => y.cand && x.cand && y.cand.candidate_id === x.cand.candidate_id)) ? ' · our projection has a different final two' : '') : (r.swing != null ? '2CP swing ' + pts(r.swing) + ' pts' : ''))); }
         else tip.append(h('div', { class: 'k' }, v.hollow ? 'no two-candidate count yet' : 'no final pair'));
       } else {
         if (r.ps.formal) { for (const p of PARTIES) if (r.ps[p]) tip.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p]), h('b', {}, pct(r.ps[p].share)))); }
@@ -2568,7 +2574,7 @@ function renderDashTable(rows, eid) {
       live ? h('td', {}, (() => { const pr = r.pr; if (!pr) return h('span', { class: 'hint' }, '–'); const a = pr.pair[0], g = grpParty(a.party); const same = !r.winner || !r.winner.cand || !a.cand || r.winner.cand.candidate_id === a.cand.candidate_id; return h('span', { class: 'chip', title: `${pr.pair.map(x => `${candName(x.cand)} ${pct(x.share)}`).join(' v ')} · ${pr.method === 'official' ? 'declared' : pr.method === 'projected' ? 'projected from matched booths' : 'counted so far'}${same ? '' : ' · a different leader from the Atlas projection'}` }, h('i', { style: `background:${partyColor(g)}` }), `${candName(a.cand)} ${pct(a.share)}`, same ? '' : h('span', { style: 'color:var(--alp)' }, ' ≠')); })()) : '',
       h('td', {}, r.leader ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.leader)}` }), `${PARTY_SHORT[r.leader]} ${pct(r.ps[r.leader].share)}`) : h('span', { class: 'hint' }, '–')),
       h('td', { class: 'hint', style: 'white-space:nowrap' }, live ? (r.counted ? shortProgress(r) : '–') : fmt(r.ps.formal), live && (r.counted || r.pairRisk || r.disagree) ? h('button', { class: 'more-btn', 'aria-expanded': 'false', title: 'Show the count in detail', onclick: (ev) => { ev.stopPropagation(); const d = ev.currentTarget.closest('tr').nextElementSibling; const open = d.hidden; d.hidden = !open; ev.currentTarget.setAttribute('aria-expanded', open); ev.currentTarget.textContent = open ? '▾' : '▸'; } }, '▸') : ''),
-      h('td', {}, h('span', { class: 'st ' + r.status, title: (r.pairRisk || '') + (r.disagree ? ' · disagrees with ' + r.disagree.join(' and ') : '') }, STATUS_LABEL[r.status]), (r.pairRisk || r.disagree) && !live ? h('div', { class: 'hint', style: 'max-width:220px' }, r.pairRisk ? 'Pair at risk: ' + r.pairRisk.split(',')[0] : 'Not called: ' + r.disagree.join('; ')) : ''),
+      h('td', {}, h('span', { class: 'st ' + r.status, title: (r.pairRisk || '') + (r.disagree ? ' · ' + r.disagree.join('; ') : '') }, STATUS_LABEL[r.status]), (r.pairRisk || r.disagree) && !live ? h('div', { class: 'hint', style: 'max-width:220px' }, r.pairRisk ? 'Pair at risk: ' + r.pairRisk.split(',')[0] : 'Not called: ' + r.disagree.join('; ')) : ''),
       live ? h('td', { class: 'hint' }, r.updated ? fmtTime(r.updated) : '') : '');
     tb.append(tr);
     if (live) { const ncol = tr.children.length; const bits = [];
