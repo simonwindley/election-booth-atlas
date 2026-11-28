@@ -362,6 +362,8 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
 .live-box { border: 1px solid var(--line); border-radius: 6px; padding: 10px; margin-top: 4px; background: var(--surface-2); }
 .live-box .pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--grn); margin-right: 6px; vertical-align: middle; }
 .live-box .pulse.off { background: var(--nodata); }
+.strip-what { margin: 2px 0 8px; padding: 8px 12px; border-left: 3px solid var(--accent); border-radius: 6px; background: color-mix(in srgb, var(--accent) 9%, transparent); font-size: 14px; line-height: 1.4; }
+.strip-what b { font-weight: 700; }
 .live-box .fresh-list { max-height: 220px; overflow: auto; margin-top: 6px; }
 .live-box .fresh-list button { display: block; width: 100%; text-align: left; background: none; border: 0; border-top: 1px solid var(--line); padding: 5px 2px; color: var(--fg); font: inherit; font-size: 12px; cursor: pointer; }
 .live-box .fresh-list button:hover { background: var(--surface); }
@@ -2015,8 +2017,7 @@ function renderStrip(rows, eid) {
   // 2026 while counting: Primary / VEC two-candidate / Modelled preferences; once every seat has its declared distribution the modelled mode folds away
   const allDeclared = live && rows.length > 0 && rows.every(r => { const pr = liveProjection(r.cid); return pr && pr.method === 'official'; });
   { const counting = live && !allDeclared; const L = counting ? { primary: 'Primary', tcp: 'VEC two-candidate', model: 'Atlas estimate (count so far)', proj: 'Atlas projection' } : { primary: 'Primary leader', tcp: 'After preferences', model: 'Modelled' };
-    for (const b of el('strip-mode').querySelectorAll('button')) { b.textContent = L[b.dataset.v] || b.textContent; if (b.dataset.v === 'model') b.hidden = !counting; if (b.dataset.v === 'proj') b.hidden = true; }   // the projection stays in each seat's panel; the spectrum shows counted figures and the estimate on them
-    if (dash.strip === 'proj') { dash.strip = counting ? 'model' : 'tcp'; for (const b of el('strip-mode').querySelectorAll('button')) b.setAttribute('aria-pressed', b.dataset.v === dash.strip); }
+    for (const b of el('strip-mode').querySelectorAll('button')) { b.textContent = L[b.dataset.v] || b.textContent; if (b.dataset.v === 'model') b.hidden = !counting; if (b.dataset.v === 'proj') b.hidden = !counting; }
     if (!counting && (dash.strip === 'proj' || dash.strip === 'model')) { dash.strip = 'tcp'; for (const b of el('strip-mode').querySelectorAll('button')) b.setAttribute('aria-pressed', b.dataset.v === 'tcp'); } }
   const items = rows.map(r => ({ r, v: stripValue(r) })).filter(x => x.v);
   const rank = (x) => { const i = STRIP_ORDER.indexOf(x.v.party); return i < 0 ? 4 : i; };
@@ -2076,7 +2077,15 @@ function renderStrip(rows, eid) {
     : dash.strip === 'tcp'
     ? `One box per seat, coloured by the party ahead after preferences; the deeper the colour, the larger its two-candidate share (50% to 75%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no two-candidate count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`
     : `One box per seat, coloured by the party leading on primary votes; the deeper the colour, the larger its share (25% to 55%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`);
-  el('strip-note').replaceChildren(stripShort, h('details', { style: 'display:inline' }, h('summary', { style: 'display:inline;cursor:pointer;color:var(--accent)' }, 'How to read this'), h('div', { style: 'margin-top:4px' }, stripLong)));
+  const WHAT = live && rows.some(r => r.status !== 'declared') ? {
+    primary: ['Primary', 'who is ahead in each seat on first preferences: the votes counted so far, before any preferences.'],
+    tcp: ['VEC two-candidate', 'the VEC\'s own preference count, between the two candidates it picked in each seat, on the votes counted so far.'],
+    model: ['Atlas estimate', 'our model on the votes counted so far: each seat\'s first preferences run through past preference flows. Nothing uncounted is filled in.'],
+    proj: ['Atlas projection', 'our model\'s projection: the votes counted so far, plus the uncounted booths, early and postal votes filled in from 2022 and tonight\'s swing, then preferences.'] } : {
+    primary: ['Primary leader', 'who led each seat on first preferences.'], tcp: ['After preferences', 'the final two-candidate result in each seat.'], model: ['Modelled', 'our preference model run on each seat\'s first preferences.'], proj: ['Atlas projection', 'our model\'s projection.'] };
+  const wh = WHAT[dash.strip] || WHAT.primary;
+  const whatEl = h('div', { class: 'strip-what' }, h('b', {}, `${wh[0]} shows `), wh[1]);
+  el('strip-note').replaceChildren(whatEl, stripShort, h('details', { style: 'display:inline' }, h('summary', { style: 'display:inline;cursor:pointer;color:var(--accent)' }, 'How to read this'), h('div', { style: 'margin-top:4px' }, stripLong)));
 }
 // a seat's two-candidate split as a bar: the leader's colour from the left, the other finalist's after it, a white mark at 50%;
 // faded until the seat is called or declared (on past elections every seat is final)
