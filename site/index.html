@@ -2020,6 +2020,18 @@ function renderStrip(rows, eid) {
   const items = rows.map(r => ({ r, v: stripValue(r) })).filter(x => x.v);
   const rank = (x) => { const i = STRIP_ORDER.indexOf(x.v.party); return i < 0 ? 4 : i; };
   items.sort((a, b) => rank(a) - rank(b) || (STRIP_LEFT.has(a.v.party) ? b.v.strength - a.v.strength : a.v.strength - b.v.strength));
+  // while the count is on: the race to the middle. Decided seats (called or declared, then leaning) build in from each end, progressive
+  // parties and independents from the left, One Nation and the Coalition from the right; seats still in doubt or not yet counted wait in the middle
+  const racing = live && rows.some(r => r.status !== 'declared');
+  if (racing) {
+    const LEFT = new Set(['ALP', 'GRN', 'VSP', 'IND', 'OTH']);
+    const und = (x) => x.v.hollow || x.v.firm === 'doubt';
+    const tier = (x) => { const L = LEFT.has(x.v.party); if (und(x)) return x.v.hollow ? 2.5 : (L ? 2 : 3); return L ? 0 : 4; };
+    const firmIdx = (x) => (x.v.firm === 'lean' ? 1 : 0);
+    items.sort((a, b) => tier(a) - tier(b) || (tier(a) === 0 ? rank(a) - rank(b) || firmIdx(a) - firmIdx(b) || b.v.strength - a.v.strength
+      : tier(a) === 4 ? rank(a) - rank(b) || firmIdx(b) - firmIdx(a) || a.v.strength - b.v.strength
+      : tier(a) === 2 ? a.v.strength - b.v.strength : tier(a) === 3 ? b.v.strength - a.v.strength : rank(a) - rank(b)));
+  }
   const total = rows.length, majority = eid.startsWith('vic') && total >= 80 ? 45 : null;
   for (const x of items) {
     const { r, v } = x; const t = Math.max(0, Math.min(1, (v.strength - v.lo) / (v.hi - v.lo)));
@@ -2055,13 +2067,13 @@ function renderStrip(rows, eid) {
   if (majority && items.length === total) {
     strip.append(h('div', { class: 'maj', style: `left:calc(${100 * majority / total}% - 1px)` }, h('span', { style: 'left:-24px' }, `majority ${majority}`)));
   }
-  el('strip-note').textContent = dash.strip === 'proj'
+  el('strip-note').textContent = (live && rows.some(r => r.status !== 'declared') ? 'The race to the middle: seats build in from each end as they are decided (Labor, Greens, Socialists and independents from the left; One Nation and the Coalition from the right); seats still in doubt or not yet counted wait in the middle, and the first side past the majority line has a majority. ' : '') + (dash.strip === 'proj'
     ? `One box per seat, coloured by the party the Atlas projection has winning; the deeper the colour, the larger its projected two-candidate share: the counted pools as they stand, the uncounted booths and vote types projected from 2022 plus the swing coming in (electorate, nearby, state, by vote type), all through the preference model. The fill is the projected share; the border is the call: plain for called or declared, dashed for leaning, dotted for in doubt (not enough counted for the margin, or the count so far or the VEC's pair reads differently), hollow and dashed where nothing is counted yet. Hover for the projected pair and how much of the expected vote is in.`
     : dash.strip === 'model'
     ? `One box per seat, coloured by the party the preference-flow model puts ahead, from first preferences alone (every candidate excluded in turn, their votes split by the fitted flow for their party and the registered how-to-vote cards; see the Preferences tab); the deeper the colour, the larger its modelled two-candidate share. It needs no VEC two-candidate count, so it works for any final pair${live ? ' and updates with every booth through the night. Dashed: no first preferences yet' : ''}. Hover for the pair and whether it matches the ${live ? 'VEC\'s' : 'actual'} final two.`
     : dash.strip === 'tcp'
     ? `One box per seat, coloured by the party ahead after preferences; the deeper the colour, the larger its two-candidate share (50% to 75%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no two-candidate count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`
-    : `One box per seat, coloured by the party leading on primary votes; the deeper the colour, the larger its share (25% to 55%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`;
+    : `One box per seat, coloured by the party leading on primary votes; the deeper the colour, the larger its share (25% to 55%+). Ordered Labor, Greens, Socialists, independents and others, One Nation, Coalition, strongest at the outer ends.${live ? ' Dashed: no count yet, placed with the party holding the seat going in.' : ''} Hover for the seat, click to open it on the map.`);
 }
 // a seat's two-candidate split as a bar: the leader's colour from the left, the other finalist's after it, a white mark at 50%;
 // faded until the seat is called or declared (on past elections every seat is final)
