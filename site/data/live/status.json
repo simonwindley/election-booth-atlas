@@ -1,7 +1,7 @@
 {
- "fetched_at": "2026-11-28T11:28:23+00:00",
- "seconds": 409.1,
- "fetches": 97,
+ "fetched_at": "2026-11-28T11:30:47+00:00",
+ "seconds": 553.3,
+ "fetches": 117,
  "errors": [
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Albert-Park-District-results/Albert-Park-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ashwood-District-results/Ashwood-2CP-results-by-voting-centre",
@@ -50,11 +50,21 @@
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Macedon-District-results/Macedon-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Malvern-District-results/Malvern-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Melbourne-District-results/Melbourne-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Melton-District-results/Melton-2CP-results-by-voting-centre"
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Melton-District-results/Melton-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Mildura-District-results/Mildura-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Mill-Park-District-results/Mill-Park-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Monbulk-District-results/Monbulk-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Mordialloc-District-results/Mordialloc-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Mornington-District-results/Mornington-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Morwell-District-results/Morwell-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Mulgrave-District-results/Mulgrave-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Murray-Plains-District-results/Murray-Plains-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Narracan-District-results/Narracan-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Narre-Warren-North-District-results/Narre-Warren-North-2CP-results-by-voting-centre"
  ],
  "districts": 88,
- "changed_booths": 11,
- "changed_contests": 11,
+ "changed_booths": 7,
+ "changed_contests": 7,
  "interval": 15,
  "partial": true
 }
