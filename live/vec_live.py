@@ -499,6 +499,54 @@ def run_cycle(args, log=print):
         except Exception:
             prev = None
     contests = {}; n_skip = 0
+    import subprocess
+    root = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+    st = {'prev_pub': prev, 'last_pub': time.time(), 'n_pub': 0}
+
+    def git_publish(stamp_t):
+        cmd = args.publish_cmd or ('git add site/data/live/latest.json site/data/live/status.json site/data/live/changes.json && '
+                                   f'(git diff --cached --quiet || (git commit -q -m "live feed {stamp_t}" && git push -q))')
+        try:
+            r = subprocess.run(cmd, shell=True, cwd=root, capture_output=True, text=True, timeout=180)
+            return r.returncode == 0, (r.stderr or r.stdout).strip()[-300:]
+        except Exception as e:  # noqa
+            return False, str(e)
+
+    def emit(final):
+        """Write latest.json (and publish) from what this sweep has read so far, on top of the last published state.
+        Mid-sweep emits only happen when something changed; times are the moment each change was first published."""
+        tnow = datetime.datetime.now().astimezone().isoformat(timespec='seconds')
+        pp = st['prev_pub']
+        merged = contests if final else {**(pp or {}).get('contests', {}), **contests}
+        new = {'election_id': args.election_id, 'base': args.base, 'fetched_at': tnow, 'contests': dict(merged)}
+        changes = stamp(new, pp, tnow)
+        new['n_changed_booths'] = sum(1 for ch in changes if ch['booth_id'])
+        new['n_changed_contests'] = len({ch['contest_id'] for ch in changes})
+        if not final and not changes:
+            return new, changes
+        tmp = latest_path + '.tmp'
+        with open(tmp, 'w') as fh:
+            json.dump(new, fh, separators=(',', ':'))
+        os.replace(tmp, latest_path)
+        log_path = os.path.join(args.out, 'changes.json')
+        old_log = []
+        if os.path.exists(log_path):
+            try:
+                old_log = json.load(open(log_path))
+            except Exception:
+                old_log = []
+        json.dump((changes + old_log)[:5000], open(log_path, 'w'), separators=(',', ':'))
+        status = {'fetched_at': tnow, 'seconds': round(time.time() - t0, 1), 'fetches': f.n_fetch, 'errors': f.errors,
+                  'districts': len(new['contests']), 'changed_booths': new['n_changed_booths'], 'changed_contests': new['n_changed_contests'],
+                  'interval': args.loop, 'partial': not final}
+        json.dump(status, open(os.path.join(args.out, 'status.json'), 'w'), indent=1)
+        st['prev_pub'] = new
+        if (args.publish or args.publish_cmd) and changes:
+            ok, msg = git_publish(tnow)
+            st['n_pub'] += ok; st['last_pub'] = time.time()
+            log(('published' if ok else f'publish failed: {msg}') + ('' if final else f' (mid-sweep: {new["n_changed_booths"]} booths in {new["n_changed_contests"]} districts)'))
+        return new, changes
+
     for i, (dslug, path) in enumerate(links, start=1):
         d = scrape_district(f, dslug, path, args.election_id, log, prev_c=(prev or {}).get('contests', {}).get(f'vic-{dslug}'))
         if d is None:
@@ -513,35 +561,17 @@ def run_cycle(args, log=print):
             continue
         nb = sum(1 for b in d['booths'].values() if b['reported'] and b['type'] == 'ordinary')
         log(f'  [{i}/{len(links)}] {d["name"]}: {len(d["candidates"])} candidates, {nb} booths reported, {d["counted"]["pct_enrolment"]}% of enrolment counted')
-    new = {'election_id': args.election_id, 'base': args.base, 'fetched_at': now, 'contests': contests}
-    changes = stamp(new, prev, now)
-    new['n_changed_booths'] = sum(1 for ch in changes if ch['booth_id'])
-    new['n_changed_contests'] = len({ch['contest_id'] for ch in changes})
+        if (args.publish or args.publish_cmd) and args.publish_every and time.time() - st['last_pub'] >= args.publish_every and i < len(links):
+            emit(final=False)
+    new, changes = emit(final=True)
     os.makedirs(os.path.join(args.out, 'snapshots'), exist_ok=True)
-    tmp = latest_path + '.tmp'
-    with open(tmp, 'w') as fh:
-        json.dump(new, fh, separators=(',', ':'))
-    os.replace(tmp, latest_path)
     if not args.no_snapshots:
-        with gzip.open(os.path.join(args.out, 'snapshots', now.replace(':', '').replace('+', 'p') + '.json.gz'), 'wt') as fh:
+        with gzip.open(os.path.join(args.out, 'snapshots', new['fetched_at'].replace(':', '').replace('+', 'p') + '.json.gz'), 'wt') as fh:
             json.dump(new, fh, separators=(',', ':'))
-    log_path = os.path.join(args.out, 'changes.json')
-    old_log = []
-    if os.path.exists(log_path):
-        try:
-            old_log = json.load(open(log_path))
-        except Exception:
-            old_log = []
-    json.dump((changes + old_log)[:5000], open(log_path, 'w'), separators=(',', ':'))
-    status = {'fetched_at': now, 'seconds': round(time.time() - t0, 1), 'fetches': f.n_fetch, 'errors': f.errors,
-              'districts': len(contests), 'changed_booths': new['n_changed_booths'], 'changed_contests': new['n_changed_contests'],
-              'interval': args.loop}
-    json.dump(status, open(os.path.join(args.out, 'status.json'), 'w'), indent=1)
-    log(f'cycle done in {status["seconds"]}s: {n_skip} districts unchanged (skipped), {f.n_fetch} fetches, {len(f.errors)} errors, {new["n_changed_booths"]} booths changed in {new["n_changed_contests"]} districts')
-    if args.publish and not (new['n_changed_booths'] or new['n_changed_contests'] or not prev):
-        # nothing new this cycle; still push in case an earlier push failed and a commit is waiting
-        import subprocess
-        root = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+    log(f'cycle done in {round(time.time() - t0, 1)}s: {n_skip} districts unchanged (skipped), {f.n_fetch} fetches, {len(f.errors)} errors, '
+        f'{new["n_changed_booths"]} booths changed in {new["n_changed_contests"]} districts since the last publish')
+    if args.publish and not changes:
+        # nothing new since the last publish; still push in case an earlier push failed and a commit is waiting
         try:
             r = subprocess.run('git rev-list --count @{u}..HEAD', shell=True, cwd=root, capture_output=True, text=True, timeout=30)
             pending = int((r.stdout or '0').strip() or 0) if r.returncode == 0 else 0
@@ -552,16 +582,6 @@ def run_cycle(args, log=print):
                 log('nothing new to publish')
         except Exception as e:  # noqa
             log(f'nothing new to publish ({e})')
-    elif args.publish or args.publish_cmd:
-        import subprocess
-        root = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
-        cmd = args.publish_cmd or ('git add site/data/live/latest.json site/data/live/status.json site/data/live/changes.json && '
-                                   f'(git diff --cached --quiet || (git commit -q -m "live feed {now}" && git push -q))')
-        try:
-            r = subprocess.run(cmd, shell=True, cwd=root, capture_output=True, text=True, timeout=180)
-            log('published' if r.returncode == 0 else f'publish failed ({r.returncode}): {(r.stderr or r.stdout).strip()[-300:]}')
-        except Exception as e:  # noqa
-            log(f'publish failed: {e}')
     return new
 
 
@@ -577,6 +597,7 @@ def main(argv=None):
     ap.add_argument('--fixtures', default='', help='offline: JSON of {url path: html} instead of the network')
     ap.add_argument('--no-snapshots', action='store_true')
     ap.add_argument('--publish', action='store_true', help='after each cycle, git commit and push the feed (for a GitHub Pages site)')
+    ap.add_argument('--publish-every', type=float, default=90, help='during a sweep, publish what has changed so far at most this often (seconds; 0 = only at the end of each sweep)')
     ap.add_argument('--publish-cmd', default='', help='shell command to run after each cycle instead of the git push')
     args = ap.parse_args(argv)
     args.out = os.path.abspath(args.out)
