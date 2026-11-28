@@ -177,6 +177,11 @@ select, input[type=text], input[type=search], textarea { width: 100%; background
 /* map */
 .mapwrap { position: relative; min-width: 0; min-height: 0; background: var(--map-bg); }
 #map { position: absolute; inset: 0; }
+.mapfull-btn { position: absolute; top: 10px; left: 10px; z-index: 5; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; font: inherit; font-size: 13px; font-weight: 700; box-shadow: 0 1px 4px rgba(0,0,0,.18); cursor: pointer; }
+body.mapfull { overflow: hidden; }
+body.mapfull .mapwrap { position: fixed; left: 0; right: 0; top: 0; bottom: 34vh; z-index: 1000; }
+body.mapfull .bench .detail { position: fixed; left: 0; right: 0; bottom: 0; height: 34vh; max-height: none; z-index: 1001; overflow: auto; background: var(--surface); border-top: 1px solid var(--line); border-left: 0; box-shadow: 0 -4px 14px rgba(0,0,0,.12); }
+@media (min-width: 1001px) { body.mapfull .mapwrap { right: 380px; bottom: 0; } body.mapfull .bench .detail { left: auto; width: 380px; top: 0; height: auto; border-left: 1px solid var(--line); border-top: 0; } }
 .legend { position: absolute; left: 12px; right: 12px; bottom: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 10px; box-shadow: var(--shadow); font-size: 12px; }
 .legend > div { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; }
 .legend h4 { margin: 0; white-space: nowrap; }
@@ -720,12 +725,13 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .lclegend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; }
 .lclegend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
 .lclegend small.up { color: var(--accent); font-weight: 700; } .lclegend small.down { color: #B4441B; font-weight: 700; }
-.lcgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 6px 0 14px; }
-@media (max-width: 900px) { .lcgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.lccard { display: flex; flex-direction: column; text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 10px 12px; cursor: pointer; color: var(--fg); font: inherit; }
+.lcgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr)); gap: 10px; margin: 6px 0 14px; }
+.lccard { min-width: 0; overflow: hidden; display: flex; flex-direction: column; text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 10px 12px; cursor: pointer; color: var(--fg); font: inherit; }
 .lccard:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,.08); }
 .lccard .nm { font-weight: 700; font-size: 14px; line-height: 1.2; } .lccard .sub { font-size: 11px; color: var(--fg-3); margin-top: 1px; }
 .lccard .shp { margin: 6px 0 4px; aspect-ratio: 4 / 3; } .lccard .shp svg { width: 100%; height: 100%; display: block; }
+.lcgch { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 6px; font-size: 12px; color: var(--fg-2); line-height: 1.3; }
+.lcgch span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; } .lcgch i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: 0; } .lcgch b { color: var(--fg); margin-right: 3px; } .lcgch .ug { color: var(--fg-3); }
 .lcdots { display: flex; gap: 6px; margin-top: auto; padding-top: 6px; } .lcdots i { width: 18px; height: 18px; border-radius: 50%; display: block; box-sizing: border-box; }
 .lcdots i.part { opacity: .38; } .lcdots i.open { border: 1.5px dashed var(--fg-3); background: transparent; }
 .lcdq { font-size: 11px; color: var(--fg-3); margin-top: 4px; line-height: 1.3; }
@@ -869,6 +875,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div class="legend" id="legend"></div>
         <div class="tip" id="tip" hidden></div>
         <div class="loading" id="map-loading">Loading booths…</div>
+        <button type="button" class="mapfull-btn" id="btn-mapfull" aria-pressed="false" onclick="setMapFull(!document.body.classList.contains('mapfull'))">⤢ Full screen</button>
       </div>
       <aside class="detail" id="detail"><div class="empty">Click a booth to see its results and how the same venue has voted across elections, or switch to Electorates and click a seat for the full result.</div></aside>
     </div>
@@ -934,7 +941,7 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div class="tablewrap" id="y26-table"></div>
         <p class="hint">Held by: the sitting member. Candidates: the VEC’s list of nominations, in ballot order, once captured (before that, Wikipedia’s register of declared candidates). Margins: the final two-candidate count at the last contest in that seat — the 2022 general election, or the by-election where there has been one since. Click a seat to open it on the map.</p></div>
       <div class="two">
-        <div class="panel"><h3>Upper house tickets, by region</h3><div id="y26-lc"></div></div>
+        <div class="panel"><h3>Upper house, by region</h3><div id="y26-lc"></div></div>
         <div><div class="panel" style="margin-bottom:16px"><h3>Not recontesting</h3><div class="tablewrap" id="y26-retiring"></div></div>
           <div class="panel"><h3>Withdrawals and disendorsements</h3><div class="tablewrap" id="y26-withdrawals"></div></div></div>
       </div>
@@ -1792,12 +1799,7 @@ async function render2026() {
   render2026Table();
   // upper house
   const lc = el('y26-lc'); lc.innerHTML = '';
-  for (const r of contests.filter(c => c.house === 'LC')) {
-    const cs = candidates.filter(c => c.contest_id === r.contest_id);
-    const groups = new Map(); for (const c of cs) (groups.get(c.party_label) || groups.set(c.party_label, []).get(c.party_label)).push(c);
-    lc.append(h('div', { style: 'margin-bottom:10px' }, h('strong', {}, r.contest_name), h('div', { class: 'hint' }, [...groups.entries()].map(([p, arr]) => `${p}: ${arr.sort((a, b) => (a.ticket_position || 0) - (b.ticket_position || 0)).map(c => c.name + (c.incumbent ? '*' : '')).join(', ')}`).join(' · '))));
-  }
-  lc.append(h('div', { class: 'hint' }, '* sitting member'));
+  drawY26Lc(lc);
   // retiring / withdrawals
   const rt = el('y26-retiring'); rt.innerHTML = '';
   rt.append(h('table', { class: 'data' }, h('tbody', {}, ...retiring.map(r => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(r.party)}` }), r.name)), h('td', {}, r.seat), h('td', { class: 'hint' }, `${r.announced || ''}${r.note ? ' · ' + r.note : ''}`))))));
@@ -1939,9 +1941,10 @@ async function pollLc() {
   } catch (e) { return false; }
 }
 function lcLive(rid) {
-  const r = LIVE.lc && LIVE.lc.regions && LIVE.lc.regions[rid]; if (!r || !r.formal) return null;
+  const r0 = LIVE.lc && LIVE.lc.regions && LIVE.lc.regions[rid]; if (!r0 || !r0.formal) return null;
+  const r = { ...r0, name: (LCX.regions && LCX.regions[rid] && LCX.regions[rid].name) || r0.name };   // our own region names (one VEC page heading has the wrong name)
   const qv = Math.floor(r.formal / 6) + 1;
-  const groups = r.groups.map(g => ({ ...g, fam: lcParty(g.name), q: g.quota !== '' && g.quota != null && !isNaN(parseFloat(g.quota)) ? parseFloat(g.quota) : (g.votes || 0) / qv })).sort((a, b) => (b.votes || 0) - (a.votes || 0));
+  const groups = r.groups.map(g => ({ ...g, fam: lcParty(g.name), q: (g.votes || 0) / qv })).sort((a, b) => (b.votes || 0) - (a.votes || 0));
   const sh = {}; for (const g of groups) sh[g.fam] = (sh[g.fam] || 0) + (g.votes || 0) / r.formal;
   const bs = Object.values(r.booths || {}), ord = bs.filter(b => b.type === 'ordinary');
   const early = bs.filter(b => b.type !== 'ordinary' && b.reported).length;
@@ -1972,6 +1975,31 @@ function lcSeatsSoFar(L) {
   for (const x of rest) { if (n >= 5) break; if (x.rem <= 0) continue; part.push(x.g); n++; }
   return { full, part, open: 5 - n };
 }
+// the 2026 page's upper-house panel: one card per region (its outline, its groups in ballot order); once the count is in, the same cards as the dashboard
+async function drawY26Lc(box) {
+  box.innerHTML = ''; box.append(h('div', { class: 'hint' }, 'Loading the upper house…'));
+  try { await ensureLcx(); } catch (e) { box.innerHTML = ''; box.append(h('div', { class: 'hint' }, 'Couldn\'t load the upper house.')); return; }
+  try { await ensureLc(); } catch (e) {}
+  box.innerHTML = '';
+  const regions = Object.entries(LCX.regions).sort((a, b) => a[1].name.localeCompare(b[1].name));
+  const live = regions.map(([rid, reg]) => ({ rid, reg, L: lcLive(rid) })).filter(x => x.L);
+  if (live.length) {
+    box.append(lcRegionCards(live), h('p', { class: 'hint', style: 'margin:-6px 0 0' }, 'The count so far. Map: each electorate shaded by who leads it in the lower house after preferences (the Atlas projection). Dots: the region\'s five upper-house seats read off first-preference quotas so far, solid for each full quota, faded for the largest part-quotas left. Not a prediction: preferences decide. Click a region for its ballot and count.'));
+    return;
+  }
+  const grid = h('div', { class: 'lcgrid' }), shapes = [];
+  for (const [rid, reg] of regions) {
+    const noms = (LCX.noms && LCX.noms.regions[rid]) || [], groups = noms.filter(g => g.letter), nC = noms.reduce((a, g) => a + g.candidates.length, 0);
+    const shp = h('div', { class: 'shp' }); shapes.push([shp, rid]);
+    const short = (n) => /^Unnamed|^Group [A-Z]$/.test(n) ? 'Group (no party name)' : niceParty(n).replace(/^Pauline Hanson's /, '').replace(/ Victoria$/, '');
+    const chips = h('div', { class: 'lcgch' }, ...groups.map(g => h('span', { title: `Group ${g.letter}: ${g.name} (${g.candidates.map(x => x.surname).join(', ')})` }, h('i', { style: `background:${partyColor(lcParty(g.name))}` }), h('b', {}, g.letter), short(g.name))),
+      noms.some(g => !g.letter) ? h('span', { class: 'ug' }, `+ ${noms.filter(g => !g.letter).reduce((a, g) => a + g.candidates.length, 0)} ungrouped`) : '');
+    grid.append(h('button', { type: 'button', class: 'lccard', onclick: () => openRegion(rid), title: `${reg.name} Region: the ballot and how to vote` },
+      h('div', { class: 'nm' }, reg.name), h('div', { class: 'sub' }, `${groups.length} groups · ${nC} candidates · 5 seats`), shp, chips));
+  }
+  box.append(grid, h('p', { class: 'hint', style: 'margin:-6px 0 0' }, `Each region's groups in ballot-paper order (VEC${LCX.noms && LCX.noms.captured ? ', captured ' + LCX.noms.captured : ''}). Click a region for every candidate and a practice ballot. On election night these cards switch to the count.`));
+  locatorSvg([]).then(() => { for (const [el2, rid] of shapes) el2.innerHTML = regionShape(rid, '#CFE9F7'); }).catch(() => {});
+}
 function lcRegionCards(rows) {
   const grid = h('div', { class: 'lcgrid' });
   // each electorate shaded by who leads it in the lower house after preferences (the Atlas projection): deep once called or declared, pale while counting
@@ -1982,9 +2010,13 @@ function lcRegionCards(rows) {
     const L = x.L, seats = lcSeatsSoFar(L); let best = null; for (const p of PARTIES) if (L.sh[p] && (!best || L.sh[p] > L.sh[best])) best = p;
     const shp = h('div', { class: 'shp' }); shapes.push([shp, x.rid, laFill]);
     const lab = (g) => PARTY_SHORT[g.fam] !== 'OTH' ? PARTY_NAME[g.fam] : g.name;
+    const noms = (LCX.noms && LCX.noms.regions[x.rid]) || [], used = new Map();
+    const tc = (w) => String(w || '').toLowerCase().replace(/(^|[\s\-'’])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()).replace(/\bMc(\p{L})/gu, (m, b) => 'Mc' + b.toUpperCase());
+    const who = (g) => { const n = noms.find(y => g.letter ? y.letter === g.letter : !y.letter && y.candidates.some(c => g.name.toLowerCase().startsWith(String(c.surname).toLowerCase()))); const i = used.get(g.group_id) || 0; used.set(g.group_id, i + 1);
+      const c = n && (g.letter ? n.candidates[i] : n.candidates.find(c => g.name.toLowerCase().startsWith(String(c.surname).toLowerCase()))); return c ? `${c.given} ${tc(c.surname)}${g.letter ? `, ${['1st', '2nd', '3rd', '4th', '5th'][i] || (i + 1) + 'th'} on the ticket` : ''}` : g.name; };
     const dots = h('div', { class: 'lcdots', role: 'img', 'aria-label': `On first-preference quotas so far: ${seats.full.map(lab).join(', ') || 'no full quotas'}${seats.part.length ? '; then ' + seats.part.map(lab).join(', ') : ''}` },
-      ...seats.full.map(g => h('i', { style: `background:${partyColor(g.fam)}`, title: `${g.name}: a full quota (${g.q.toFixed(2)} quotas)` })),
-      ...seats.part.map(g => h('i', { class: 'part', style: `background:${partyColor(g.fam)}`, title: `${g.name}: ${g.q.toFixed(2)} quotas; the largest part-quota left, preferences decide` })),
+      ...seats.full.map(g => h('i', { style: `background:${partyColor(g.fam)}`, title: `${who(g)} (${g.name}): a full quota on first preferences (${g.q.toFixed(2)} quotas)` })),
+      ...seats.part.map(g => h('i', { class: 'part', style: `background:${partyColor(g.fam)}`, title: `${who(g)} (${g.name}): in the running on ${g.q.toFixed(2)} quotas; preferences decide` })),
       ...Array.from({ length: seats.open }, () => h('i', { class: 'open' })));
     const qtxt = L.groups.filter(g => g.q >= 0.5).slice(0, 4).map(g => `${PARTY_SHORT[g.fam] !== 'OTH' ? PARTY_SHORT[g.fam] : g.name.split(' ')[0]} ${g.q.toFixed(2)}`).join(' · ');
     grid.append(h('button', { type: 'button', class: 'lccard', onclick: () => openRegion(x.rid), title: `${x.reg.name} Region: the count by group` },
@@ -4736,8 +4768,20 @@ function seatLast(cid) {   // the most recent state contest for this seat name, 
 function retiringIn(c) { return ((LIVE.register && LIVE.register.retiring) || []).filter(r => r.house === 'LA' && String(r.seat).toLowerCase() === c.contest_name.toLowerCase()); }
 function heldCode(c) { return HELD_CODE[c.held_by] || (c.held_by ? 'OTH' : null); }
 function daysTo(iso) { return Math.ceil((new Date(iso + 'T00:00:00+11:00') - Date.now()) / 86400000); }
+// navigation history: once the page has settled, every view, seat or region change is a real history entry, so the phone's back gesture
+// steps back through the site instead of leaving it (before that, the opening address is only tidied, not added to)
+const NAV = { ready: false };
+function navTo(hash) { try { if (location.hash === '#' + hash) return; if (NAV.ready) history.pushState(null, '', '#' + hash); else history.replaceState(null, '', '#' + hash); } catch (e) {} }
+// full-screen map (a history entry too, so back closes it)
+function setMapFull(on, fromPop) {
+  if (document.body.classList.contains('mapfull') === !!on) return;
+  document.body.classList.toggle('mapfull', !!on); const b = el('btn-mapfull'); if (b) { b.setAttribute('aria-pressed', String(!!on)); b.textContent = on ? '✕ Exit full screen' : '⤢ Full screen'; }
+  if (map) setTimeout(() => map.resize(), 60);
+  if (on && !fromPop) { try { history.pushState({ mapfull: 1 }, '', location.hash); } catch (e) {} }
+  if (!on && !fromPop && history.state && history.state.mapfull) { try { history.back(); } catch (e) {} }
+}
 function openSeat(cid) {
-  SEAT.cid = cid; try { localStorage.setItem('atlas.seat', cid); history.replaceState(null, '', '#seat/' + encodeURIComponent(cid)); } catch (e) {}
+  SEAT.cid = cid; try { localStorage.setItem('atlas.seat', cid); } catch (e) {} navTo('seat/' + encodeURIComponent(cid));
   showView('seat'); const v = el('view-seat'); if (v) v.scrollTop = 0;
 }
 // every Victorian suburb and postcode, mapped to the district or districts that cover it (ABS suburb and postal-area boundaries over the 2022 districts); loaded on first use
@@ -4903,7 +4947,7 @@ function ensureLcx() {
     .then(([rg, nm]) => { LCX.regions = rg.regions; LCX.noms = nm; LCX.regionOf = new Map(); for (const [rid, r] of Object.entries(rg.regions)) for (const d of r.districts) LCX.regionOf.set(d, rid); return LCX; });
   return LCX.p;
 }
-function openRegion(rid) { SEAT.cid = rid; try { history.replaceState(null, '', '#region/' + rid.replace(/^vicr-/, '')); } catch (e) {} if (activeView() !== 'seat') showView('seat'); else { renderSeat(); gcCount('seat'); } window.scrollTo(0, 0); }
+function openRegion(rid) { SEAT.cid = rid; navTo('region/' + rid.replace(/^vicr-/, '')); if (activeView() !== 'seat') showView('seat'); else { renderSeat(); gcCount('seat'); } window.scrollTo(0, 0); }
 const niceParty = (n) => { n = String(n || ''); if (/[a-z]/.test(n)) return n.replace(/ - Victorian Branch$/, ''); return n.toLowerCase().replace(/\b\w/g, m => m.toUpperCase()).replace(/'S\b/g, "'s").replace(/\b(Dlp|Aus|Vic)\b/g, m => m.toUpperCase()).replace(/ - Victorian Branch$/, ''); };
 const lcParty = (name) => { const n = String(name || '').toLowerCase(); return /labor party/.test(n) ? 'ALP' : /liberal|national/.test(n) && !/libertarian|democrats/.test(n) ? 'COAL' : /greens/.test(n) ? 'GRN' : /one nation/.test(n) ? 'ONP' : /victorian socialists/.test(n) ? 'VSP' : 'OTH'; };
 // a practice upper-house ballot: groups across the top; 2026 rules (no group voting tickets): number at least 5 boxes above the line, or at least 5 below it, not both
@@ -4959,7 +5003,7 @@ function drawRegion(root, rid) {
   const loc = h('div', { class: 'loc go', role: 'button', tabindex: '0', title: `See every booth in ${reg.name} Region on the map`, onclick: () => regionOnMap(rid), onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); regionOnMap(rid); } } }); locatorSvg(reg.districts).then(svg => { loc.innerHTML = svg; }).catch(() => {});
   const nCand = noms.reduce((a, g) => a + g.candidates.length, 0), nGrp = noms.filter(g => g.letter).length;
   root.append(h('div', { class: 'shead' }, h('div', { class: 'wrap' }, loc,
-    h('div', { class: 'crumbs' }, h('button', { onclick: () => { SEAT.cid = null; try { history.replaceState(null, '', '#seat'); } catch (e) {} renderSeat(); } }, 'Electorates'), ' › Upper house › ', reg.name),
+    h('div', { class: 'crumbs' }, h('button', { onclick: () => { SEAT.cid = null; navTo('seat'); renderSeat(); } }, 'Electorates'), ' › Upper house › ', reg.name),
     h('h1', {}, reg.name + ' Region'),
     h('p', { class: 'lead', style: 'max-width:32em' }, `One of the eight Legislative Council regions. Voters across its ${reg.districts.length} electorates elect 5 of the Council's 40 members, on the larger, wider ballot paper.`),
     h('div', { class: 'badges' }, res22.length ? h('span', { class: 'badge' }, 'Elected in 2022: ', ...res22.map(r => h('span', { class: 'dot', style: `background:${partyColor(r.party)};margin-left:4px`, title: `${r.name} (${niceParty(r.party_name || r.party)})` }))) : '', nCand ? h('span', { class: 'badge' }, `${nCand} candidates in ${nGrp} groups for 2026`) : ''),
@@ -5429,6 +5473,7 @@ function renderSeat() {
 /* ---------- wiring ---------- */
 const SEAT_SPY = {};   // each page's scroll listener for its section bar, one per view
 function showView(name) {
+  if (name !== 'map' && document.body.classList.contains('mapfull')) setMapFull(false, true);
   for (const s of document.querySelectorAll('.view')) s.classList.toggle('active', s.id === 'view-' + name);
   for (const b of document.querySelectorAll('nav.views button')) { if (b.dataset.view === name) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); }
   if (name === 'map' && map) setTimeout(() => map.resize(), 30);
@@ -5444,7 +5489,7 @@ function showView(name) {
   if (name === 'seat') renderSeat();
   try { localStorage.setItem('atlas.view', name); } catch (e) {}
   // keep the address in step with the tab, so a refresh comes back to the same place (seat and region pages keep their own #seat/… address)
-  try { const cur = location.hash.replace('#', ''); const want = name === 'seat' ? (/^(seat|region)\//.test(cur) ? cur : 'seat') : (name === 'prefs' ? 'model' : name); if (cur !== want) history.replaceState(null, '', '#' + want); } catch (e) {}
+  try { const cur = location.hash.replace('#', ''); const want = name === 'seat' ? (/^(seat|region)\//.test(cur) ? cur : 'seat') : (name === 'prefs' ? 'model' : name); if (cur !== want) navTo(want); } catch (e) {}
   gcCount(name);
 }
 // visit counts: one per tab opened, and per electorate or region page (e.g. /seat/richmond); nothing else is sent
@@ -5655,7 +5700,7 @@ async function boot() {
     for (const b of el('seg-unit').querySelectorAll('button')) b.addEventListener('click', () => setUnit(b.dataset.v));
     for (const b of el('seg-layer').querySelectorAll('button')) b.addEventListener('click', () => { state.layer = b.dataset.v; for (const o of el('seg-layer').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); renderMap(); });
     el('inp-search').addEventListener('input', (e) => searchBooths(e.target.value));
-    for (const b of document.querySelectorAll('nav.views button')) b.addEventListener('click', () => { if (b.dataset.view === 'seat') { SEAT.cid = null; try { history.replaceState(null, '', '#seat'); } catch (e) {} } showView(b.dataset.view); });
+    for (const b of document.querySelectorAll('nav.views button')) b.addEventListener('click', () => { if (b.dataset.view === 'seat') { SEAT.cid = null; navTo('seat'); } showView(b.dataset.view); });
     for (const [k, v] of [['cmp-a', renderCompare], ['cmp-b', renderCompare], ['cmp-party', renderCompare]]) el(k).addEventListener('change', v);
     setupQuery();
     if (typeof alasql !== 'undefined') for (const n of names) alasql.tables[n] = new alasql.Table({ data: D[n] });
@@ -5663,13 +5708,19 @@ async function boot() {
     if (typeof maplibregl === 'undefined') { el('map-loading').textContent = 'The map library did not load.'; } else { try { makeMap(); } catch (e) { console.warn('map unavailable', e); map = null; mapUnavailable(); } }
     renderLiveBox(); if (LIVE.register) startLivePolling();
     let v = 'home'; try { v = location.hash.replace('#', '') || localStorage.getItem('atlas.view') || 'home'; } catch (e) {}
-    window.addEventListener('hashchange', () => { let v = location.hash.replace('#', ''); if (v.startsWith('seat/')) { SEAT.cid = decodeURIComponent(v.slice(5)); v = 'seat'; } else if (v.startsWith('region/')) { SEAT.cid = 'vicr-' + decodeURIComponent(v.slice(7)); v = 'seat'; } else if (v === 'seat') SEAT.cid = null; if (v === 'model') v = 'prefs'; if (['home', 'seat', 'dash', 'map', 'venue', 'compare', 'polls', 'demog', 'prefs', 'query', 'about'].includes(v)) showView(v); });
+    let lastRoute = { h: null, t: 0 };
+    const onRoute = () => { if (document.body.classList.contains('mapfull') && !(history.state && history.state.mapfull)) { setMapFull(false, true); return; }
+      if (lastRoute.h === location.hash && Date.now() - lastRoute.t < 300) return; lastRoute = { h: location.hash, t: Date.now() };
+      let v = location.hash.replace('#', ''); if (v.startsWith('seat/')) { SEAT.cid = decodeURIComponent(v.slice(5)); v = 'seat'; } else if (v.startsWith('region/')) { SEAT.cid = 'vicr-' + decodeURIComponent(v.slice(7)); v = 'seat'; } else if (v === 'seat') SEAT.cid = null; if (v === 'model') v = 'prefs'; if (['home', 'seat', 'dash', 'map', 'venue', 'compare', 'polls', 'demog', 'prefs', 'query', 'about'].includes(v)) showView(v); };
+    window.addEventListener('hashchange', onRoute); window.addEventListener('popstate', onRoute);
+    document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && document.body.classList.contains('mapfull')) setMapFull(false); });
     document.addEventListener('click', (ev) => { const a = ev.target.closest('[data-go]'); if (!a) return; ev.preventDefault(); if (a.dataset.region) openRegion(a.dataset.region); else if (a.dataset.seat) openSeat(a.dataset.seat); else showView(a.dataset.go); window.scrollTo(0, 0); });
     if (v === 'model') v = 'prefs';
     if (v === 'y2026') v = 'dash';
     if (v.startsWith('seat/')) { SEAT.pending = decodeURIComponent(v.slice(5)); v = 'seat'; } else if (v.startsWith('region/')) { SEAT.pending = 'vicr-' + decodeURIComponent(v.slice(7)); v = 'seat'; }
     if (!['home', 'seat', 'dash', 'map', 'venue', 'compare', 'polls', 'demog', 'prefs', 'query', 'about'].includes(v)) v = 'home';
     showView(v);
+    setTimeout(() => { NAV.ready = true; }, 1500);
     // re-colour when the theme flips
     const mq = window.matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener('change', () => { if (mapReady) { map.setPaintProperty('bounds-line', 'line-color', css('--map-line')); map.setPaintProperty('contest-fresh', 'line-color', css('--fg')); map.setPaintProperty('catch-fresh', 'line-color', css('--fg')); if (!BASEMAP) map.setPaintProperty('bg', 'background-color', css('--map-bg')); renderMap(); } });
     new MutationObserver(() => { if (mapReady) { if (!BASEMAP) map.setPaintProperty('bg', 'background-color', css('--map-bg')); map.setPaintProperty('bounds-line', 'line-color', css('--map-line')); renderMap(); } }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
