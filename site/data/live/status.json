@@ -1,11 +1,11 @@
 {
- "fetched_at": "2026-11-28T14:22:31+00:00",
- "seconds": 494.9,
- "fetches": 163,
+ "fetched_at": "2026-11-28T14:24:12+00:00",
+ "seconds": 596.6,
+ "fetches": 196,
  "errors": [],
  "districts": 88,
- "changed_booths": 1,
- "changed_contests": 1,
+ "changed_booths": 2,
+ "changed_contests": 2,
  "interval": 60,
  "partial": true
 }
