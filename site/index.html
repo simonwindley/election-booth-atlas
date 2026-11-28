@@ -2030,7 +2030,7 @@ function renderStrip(rows, eid) {
     const firmIdx = (x) => (x.v.firm === 'lean' ? 1 : 0);
     items.sort((a, b) => tier(a) - tier(b) || (tier(a) === 0 ? rank(a) - rank(b) || firmIdx(a) - firmIdx(b) || b.v.strength - a.v.strength
       : tier(a) === 4 ? rank(a) - rank(b) || firmIdx(b) - firmIdx(a) || a.v.strength - b.v.strength
-      : tier(a) === 2 ? a.v.strength - b.v.strength : tier(a) === 3 ? b.v.strength - a.v.strength : rank(a) - rank(b)));
+      : tier(a) === 2 ? rank(a) - rank(b) || b.v.strength - a.v.strength : tier(a) === 3 ? rank(a) - rank(b) || a.v.strength - b.v.strength : rank(a) - rank(b)));
   }
   const total = rows.length, majority = eid.startsWith('vic') && total >= 80 ? 45 : null;
   for (const x of items) {
