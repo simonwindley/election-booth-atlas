@@ -1949,7 +1949,7 @@ function renderDash() {
     stat(fmt(cur.formal), live ? 'formal votes counted' : 'formal votes'), cur.formal ? stat(pct(cur.informal / (cur.formal + cur.informal)), 'informal') : '',
     live && cur.enrolment && cur.formal ? stat(pct((cur.formal + cur.informal) / cur.enrolment), 'of enrolment counted') : '',
     live ? stat(`${fmt(t.reported)} / ${fmt(t.booths)}`, 'election-day booths reported') : '',
-    live ? (t.earlyListed > 88 ? stat(`${t.earlyRep} / ${t.earlyListed}`, 'early voting centres in') : stat(t.earlyReg ? `${fmt(t.earlyVotes)} / ${fmt(t.earlyReg)}` : fmt(t.earlyVotes), `early votes counted${t.earlyReg ? ', of those cast' : ''}${t.base.early ? ' (2022: ' + fmt(t.base.early) + ' cast)' : ''}`)) : '',
+    live ? (t.earlyListed > 88 ? stat(`${t.earlyRep} / ${t.earlyListed}`, 'early voting centres in') : stat(t.earlyReg ? `${fmt(t.earlyVotes)} / ${fmt(t.earlyReg)}` : fmt(t.earlyVotes), `early votes counted${t.earlyReg ? ', of those cast' : ''}${t.base.early ? ' (2022: ' + fmt(t.base.early) + ' counted)' : ''}`)) : '',
     live ? stat((t.postalRet || t.postalReg) ? `${fmt(t.byType.postal || 0)} / ${fmt(t.postalRet || t.postalReg)}` : fmt(t.byType.postal), `postal votes counted${t.postalRet ? ', of those returned so far' : t.postalReg ? ', of applications' : ''}${t.postalRet && t.postalReg ? ' (' + fmt(t.postalReg) + ' applications; more arrive until 4 December)' : t.base.postal ? ' (2022: ' + fmt(t.base.postal) + ')' : ''}`) : '',
     live ? stat(fmt(D.candidates.filter(x => x.election_id === eid && x.contest_id.startsWith('vic-')).length), (LIVE.daily && LIVE.daily.candidates && LIVE.daily.candidates.districts ? 'nominated' : 'declared') + ' lower-house candidates') : ''));
   // ---- statewide
