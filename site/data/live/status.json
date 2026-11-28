@@ -1,7 +1,7 @@
 {
- "fetched_at": "2026-11-28T11:36:46+00:00",
- "seconds": 95.9,
- "fetches": 25,
+ "fetched_at": "2026-11-28T11:38:21+00:00",
+ "seconds": 191.2,
+ "fetches": 49,
  "errors": [
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Albert-Park-District-results/Albert-Park-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ashwood-District-results/Ashwood-2CP-results-by-voting-centre",
@@ -14,11 +14,23 @@
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Bentleigh-District-results/Bentleigh-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Berwick-District-results/Berwick-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Box-Hill-District-results/Box-Hill-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Brighton-District-results/Brighton-2CP-results-by-voting-centre"
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Brighton-District-results/Brighton-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Broadmeadows-District-results/Broadmeadows-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Brunswick-District-results/Brunswick-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Bulleen-District-results/Bulleen-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Bundoora-District-results/Bundoora-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Carrum-District-results/Carrum-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Caulfield-District-results/Caulfield-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Clarinda-District-results/Clarinda-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Cranbourne-District-results/Cranbourne-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Croydon-District-results/Croydon-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Dandenong-District-results/Dandenong-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Eildon-District-results/Eildon-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Eltham-District-results/Eltham-2CP-results-by-voting-centre"
  ],
  "districts": 88,
  "changed_booths": 9,
- "changed_contests": 7,
+ "changed_contests": 9,
  "interval": 15,
  "partial": true
 }
