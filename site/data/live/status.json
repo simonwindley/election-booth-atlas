@@ -1,7 +1,7 @@
 {
- "fetched_at": "2026-11-28T13:05:38+00:00",
- "seconds": 808.8,
- "fetches": 125,
+ "fetched_at": "2026-11-28T13:07:14+00:00",
+ "seconds": 904.6,
+ "fetches": 156,
  "errors": [
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Albert-Park-District-results/Albert-Park-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ashwood-District-results/Ashwood-2CP-results-by-voting-centre",
@@ -61,11 +61,13 @@
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Murray-Plains-District-results/Murray-Plains-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Narracan-District-results/Narracan-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Narre-Warren-North-District-results/Narre-Warren-North-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Narre-Warren-South-District-results/Narre-Warren-South-2CP-results-by-voting-centre"
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Narre-Warren-South-District-results/Narre-Warren-South-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Richmond-District-results/Richmond-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ringwood-District-results/Ringwood-2CP-results-by-voting-centre"
  ],
  "districts": 88,
- "changed_booths": 31,
- "changed_contests": 4,
+ "changed_booths": 190,
+ "changed_contests": 11,
  "interval": 60,
  "partial": true
 }
