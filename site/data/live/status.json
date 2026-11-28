@@ -1,7 +1,7 @@
 {
- "fetched_at": "2026-11-28T09:03:28+00:00",
- "seconds": 480.2,
- "fetches": 115,
+ "fetched_at": "2026-11-28T09:05:11+00:00",
+ "seconds": 583.0,
+ "fetches": 135,
  "errors": [
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Albert-Park-District-results/Albert-Park-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ashwood-District-results/Ashwood-2CP-results-by-voting-centre",
@@ -56,11 +56,21 @@
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Narracan-District-results/Narracan-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Narre-Warren-North-District-results/Narre-Warren-North-2CP-results-by-voting-centre",
   "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Narre-Warren-South-District-results/Narre-Warren-South-2CP-results-by-voting-centre",
-  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Nepean-District-results/Nepean-2CP-results-by-voting-centre"
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Nepean-District-results/Nepean-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Niddrie-District-results/Niddrie-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Northcote-District-results/Northcote-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Oakleigh-District-results/Oakleigh-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Ovens-Valley-District-results/Ovens-Valley-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Pakenham-District-results/Pakenham-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Pascoe-Vale-District-results/Pascoe-Vale-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Point-Cook-District-results/Point-Cook-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Polwarth-District-results/Polwarth-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Prahran-District-results/Prahran-2CP-results-by-voting-centre",
+  "https://www.vec.vic.gov.au/results/2026-results/district-election-page/results-by-district/Preston-District-results/Preston-2CP-results-by-voting-centre"
  ],
  "districts": 88,
- "changed_booths": 64,
- "changed_contests": 11,
+ "changed_booths": 31,
+ "changed_contests": 9,
  "interval": 15,
  "partial": true
 }
