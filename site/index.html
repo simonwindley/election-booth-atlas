@@ -177,6 +177,13 @@ select, input[type=text], input[type=search], textarea { width: 100%; background
 /* map */
 .mapwrap { position: relative; min-width: 0; min-height: 0; background: var(--map-bg); }
 #map { position: absolute; inset: 0; }
+.partybtns { display: flex; flex-wrap: wrap; gap: 6px; }
+.partybtns button { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 999px; padding: 5px 10px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.partybtns button i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.partybtns button[aria-pressed="true"] { color: #fff; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.evc-key { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--fg-2); margin-top: 6px; } .evc-key .evc-sw { width: 12px; height: 12px; background: #fff; border: 2.5px solid #1B2B4B; flex: none; }
+.evc-checks { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 13px; } .evc-checks .check { gap: 6px; }
 .mapfull-btn { position: absolute; top: 10px; left: 10px; z-index: 5; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; font: inherit; font-size: 13px; font-weight: 700; box-shadow: 0 1px 4px rgba(0,0,0,.18); cursor: pointer; }
 body.mapfull { overflow: hidden; }
 body.mapfull .mapwrap { position: fixed; left: 0; right: 0; top: 0; bottom: 34vh; z-index: 1000; }
@@ -838,32 +845,36 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
         <div class="field"><label>Show</label>
           <div class="seg" id="seg-unit"><button data-v="booth" aria-pressed="true">Booths</button><button data-v="contest" aria-pressed="false">Electorates</button><button data-v="lc" aria-pressed="false">Upper house</button></div></div>
         <div class="field"><label>Draw booths as</label>
-          <div class="seg" id="seg-layer"><button data-v="dots" aria-pressed="true">Dots</button><button data-v="catch" aria-pressed="false">Catchments</button></div></div>
+          <div class="seg" id="seg-layer"><button data-v="dots" aria-pressed="true">Dots</button><button data-v="catch" aria-pressed="false">Catchments</button></div>
+          <div class="evc-checks" id="evc-checks" hidden><label class="check"><input type="checkbox" id="chk-day" checked> Election-day booths</label><label class="check"><input type="checkbox" id="chk-evc" checked> Early voting centres</label></div></div>
         <div class="field"><label for="sel-metric">Colour by</label>
           <div class="seg" id="seg-quick" style="margin-bottom:6px"><button data-v="tcpwin" aria-pressed="true" title="Who is ahead after preferences: the Atlas estimate from the count so far">After prefs</button><button data-v="primary" aria-pressed="false" title="Who is ahead on first preferences">Primary</button><button data-v="projwin" aria-pressed="false" title="The Atlas projection: the count so far plus the uncounted votes projected, then preferences">Projection</button></div>
           <select id="sel-metric">
-            <optgroup label="Results">
-              <option value="share">Primary vote share</option>
-              <option value="primary">Leader on primary votes</option>
-              <option value="tcp" data-live="Live: share after preferences (Atlas estimate from the count so far)">Share after preferences (2CP)</option>
-              <option value="tcpwin" selected data-live="Live: leader after preferences (Atlas estimate from the count so far)">Winner after preferences</option>
-              <option value="swing">Primary swing since last election</option>
-              <option value="tcpswing">Swing after preferences since last election</option>
-              <option value="gap">Gap vs another election</option>
-            </optgroup>
             <optgroup label="Election night 2026" id="og-live">
-              <option value="projwin">Live: projection (Atlas projection, 2026)</option>
-              <option value="proj">Live: projected share after preferences (2026)</option>
-              <option value="called">Called seats (2026)</option>
+              <option value="projwin">Projected winner (Atlas projection)</option>
+              <option value="proj">Party's projected share after preferences (2CP)</option>
+              <option value="called">Called and declared seats</option>
+            </optgroup>
+            <optgroup label="Who's ahead">
+              <option value="tcpwin" selected data-live="Leader after preferences, count so far (Atlas estimate)">Winner after preferences</option>
+              <option value="primary">Leader on first preferences</option>
+            </optgroup>
+            <optgroup label="One party's vote (choose the party below)">
+              <option value="share">Party first-preference (primary) share</option>
+              <option value="tcp" data-live="Party share after preferences (2CP), count so far (Atlas estimate)">Party share after preferences (2CP)</option>
+              <option value="swing">Party primary swing since the last election</option>
+              <option value="tcpswing">Party swing after preferences (2CP) since the last election</option>
+              <option value="gap">Party primary: change against an election you choose</option>
             </optgroup>
             <optgroup label="Context">
-              <option value="senate">Senate primary share (federal only)</option>
-              <option value="census">Census indicator (2021, state seats)</option>
+              <option value="senate">Party Senate primary share (federal elections)</option>
+              <option value="census">Census indicator (2021)</option>
             </optgroup>
           </select><p class="hint" id="metric-hint" style="margin:4px 0 0"></p></div>
         <div class="field" id="f-census" hidden><label for="sel-census">Indicator</label><select id="sel-census"></select></div>
-        <div class="field" id="f-party" hidden><label for="sel-party">Party</label>
-          <select id="sel-party">
+        <div class="field" id="f-party" hidden><label for="sel-party">Party to show</label>
+          <div class="partybtns" id="party-btns" role="group" aria-label="Party to show"></div>
+          <select id="sel-party" class="vh" aria-hidden="true" tabindex="-1">
             <option value="ALP">Labor</option><option value="COAL">Coalition</option><option value="GRN">Greens</option><option value="ONP">One Nation</option><option value="VSP">Socialists</option><option value="IND">Independents</option><option value="OTH">Others</option>
           </select></div>
         <div class="field" id="f-gap" hidden><label for="sel-gap">Compared with</label><select id="sel-gap"></select></div>
@@ -1246,7 +1257,7 @@ function divColor(party, v, lim) { const t = Math.max(-1, Math.min(1, v / lim));
 
 /* ---------- map ---------- */
 let map, mapReady = false, hovered = null, selected = null;
-const state = { election: 'vic2022', metric: 'tcpwin', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth' };
+const state = { election: 'vic2022', metric: 'tcpwin', party: 'ALP', gap: 'fed2022', layer: 'dots', bound: 'auto', unit: 'booth', showDay: true, showEvc: true };
 
 // when the browser can't draw the map (WebGL switched off or blocked), say so plainly and keep the rest of the site working
 function mapUnavailable() {
@@ -1283,6 +1294,12 @@ function makeMap() {
       'circle-radius': ['interpolate', ['linear'], ['zoom'], 7, ['*', 0.45, ['get', 'r']], 11, ['get', 'r'], 14, ['*', 2, ['get', 'r']]],
       'circle-color': ['get', 'color'], 'circle-stroke-color': ['get', 'stroke'], 'circle-stroke-width': ['get', 'sw'],
       'circle-opacity': ['case', ['boolean', ['feature-state', 'dim'], false], 0.25, 0.92] } });
+    map.addSource('evc', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+    // early voting centres are squares (election-day booths are round): a dark square with the party-coloured square inside it
+    { const sz = 32, cv = document.createElement('canvas'); cv.width = cv.height = sz; const g = cv.getContext('2d'); g.fillStyle = '#000'; g.fillRect(2, 2, sz - 4, sz - 4); map.addImage('evc-sq', g.getImageData(0, 0, sz, sz), { sdf: true }); }
+    const evcSize = (k) => ['interpolate', ['linear'], ['zoom'], 7, ['*', 0.05 * k, ['get', 'r']], 11, ['*', 0.085 * k, ['get', 'r']], 14, ['*', 0.14 * k, ['get', 'r']]];
+    map.addLayer({ id: 'evc-edge', type: 'symbol', source: 'evc', layout: { visibility: 'none', 'icon-image': 'evc-sq', 'icon-size': evcSize(1.35), 'icon-allow-overlap': true, 'icon-ignore-placement': true }, paint: { 'icon-color': '#1B2B4B' } });
+    map.addLayer({ id: 'evc-pts', type: 'symbol', source: 'evc', layout: { visibility: 'none', 'icon-image': 'evc-sq', 'icon-size': evcSize(1), 'icon-allow-overlap': true, 'icon-ignore-placement': true }, paint: { 'icon-color': ['get', 'color'] } });
     map.addLayer({ id: 'booth-sel', type: 'circle', source: 'booths', filter: ['==', 'booth_id', ''], paint: { 'circle-radius': ['+', 4, ['get', 'r']], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': css('--fg'), 'circle-stroke-width': 2 } });
     mapReady = true;
     renderMap();
@@ -1290,10 +1307,13 @@ function makeMap() {
   const tip = el('tip');
   const showTip = (e, html) => { tip.innerHTML = ''; tip.append(html); tip.hidden = false; const w = el('map').clientWidth; tip.style.left = Math.min(e.point.x + 14, w - 270) + 'px'; tip.style.top = (e.point.y + 14) + 'px'; };
   for (const layer of ['booth-dots', 'catch-fill']) {
-    map.on('mousemove', layer, (e) => { map.getCanvas().style.cursor = 'pointer'; const f = e.features[0]; showTip(e, tipFor(f.properties.booth_id)); });
+    map.on('mousemove', layer, (e) => { if (map.getLayer('evc-pts') && map.queryRenderedFeatures(e.point, { layers: ['evc-pts'] }).length) return; map.getCanvas().style.cursor = 'pointer'; const f = e.features[0]; showTip(e, tipFor(f.properties.booth_id)); });
     map.on('mouseleave', layer, () => { map.getCanvas().style.cursor = ''; tip.hidden = true; });
-    map.on('click', layer, (e) => { select(state.election, e.features[0].properties.booth_id); });
+    map.on('click', layer, (e) => { if (map.getLayer('evc-pts') && map.queryRenderedFeatures(e.point, { layers: ['evc-pts'] }).length) return; select(state.election, e.features[0].properties.booth_id); });
   }
+  map.on('mousemove', 'evc-pts', (e) => { map.getCanvas().style.cursor = 'pointer'; showTip(e, evcTip(e.features[0].properties.name)); });
+  map.on('mouseleave', 'evc-pts', () => { map.getCanvas().style.cursor = ''; tip.hidden = true; });
+  map.on('click', 'evc-pts', (e) => { e.originalEvent && (e.originalEvent.__evc = true); renderEvcDetail(e.features[0].properties.name); });
   map.on('mousemove', 'contest-fill', (e) => { map.getCanvas().style.cursor = 'pointer'; showTip(e, state.unit === 'lc' ? tipForRegion(e.features[0].properties.contest_id) : tipForContest(e.features[0].properties.contest_id)); });
   map.on('mouseleave', 'contest-fill', () => { map.getCanvas().style.cursor = ''; tip.hidden = true; });
   map.on('click', 'contest-fill', (e) => { if (state.unit === 'lc') selectRegion(state.election, e.features[0].properties.contest_id); else selectContest(state.election, e.features[0].properties.contest_id); });
@@ -1339,7 +1359,7 @@ function metricValueContest(cid) {
   const oc = other ? contestIn(other, cid, eid) : null;
   if (!oc) return { v: null, label: state.metric === 'swing' ? 'Swing' : 'Gap', text: 'no electorate of this name' };
   const q = contestShares(other, oc.contest_id); const prev = q[p] ? q[p].share : 0, cur = ps[p] ? ps[p].share : 0;
-  return { v: cur - prev, label: `${PARTY_NAME[p]} ${state.metric === 'swing' ? 'swing' : 'gap'} vs ${idx.electionById.get(other).name.replace('Victorian ', '')}`, text: pts(cur - prev) + ' pts' };
+  return { v: cur - prev, label: `${PARTY_NAME[p]} ${state.metric === 'swing' ? 'swing' : 'change'} vs ${idx.electionById.get(other).name.replace('Victorian ', '')}`, text: pts(cur - prev) + ' pts' };
 }
 // the value the map colours by, for one booth of the current election
 function metricValue(bid) {
@@ -1372,11 +1392,56 @@ function metricValue(bid) {
   if (!prevBooths.length) return { v: null, label: state.metric === 'swing' ? 'Swing' : 'Gap', text: 'no booth there in ' + other };
   let votes = 0, formal = 0; for (const x of prevBooths) { const q = partyShares(other, x.booth_id); formal += q.formal; votes += q[p] ? q[p].votes : 0; }
   const prev = formal ? votes / formal : 0, cur = ps[p] ? ps[p].share : 0;
-  return { v: cur - prev, label: `${PARTY_NAME[p]} ${state.metric === 'swing' ? 'swing' : 'gap'} vs ${idx.electionById.get(other).name.replace('Victorian ', '')}`, text: pts(cur - prev) + ' pts' };
+  return { v: cur - prev, label: `${PARTY_NAME[p]} ${state.metric === 'swing' ? 'swing' : 'change'} vs ${idx.electionById.get(other).name.replace('Victorian ', '')}`, text: pts(cur - prev) + ' pts' };
+}
+// early voting centres, 2026: locations from the VEC venues spreadsheet (matched to the election-day venue at the same address), results
+// from the feed: each centre reports separately for every electorate whose voters used it, so its votes are added up across them
+const EVC = { list: null, p: null };
+function ensureEvc() { if (!EVC.p) EVC.p = fetch(DATA + 'evc_2026.json').then(r => r.ok ? r.json() : []).then(j => { EVC.list = j; EVC.by = new Map(j.map(e => [e.name, e])); return j; }).catch(() => { EVC.list = []; EVC.by = new Map(); return []; }); return EVC.p; }
+function evcLive(name) {
+  const out = { total: 0, rep: 0, listed: 0, sh: {}, seats: [] };
+  if (!LIVE.latest) return out;
+  for (const [cid, c] of Object.entries(LIVE.latest.contests)) { const b = Object.values(c.booths || {}).find(x => x.type === 'early' && x.name === name); if (!b) continue;
+    out.listed++; const P = {}; for (const x of c.candidates) P[x.candidate_id] = grpParty(x.party);
+    const t = Object.values(b.fp || {}).reduce((a, v) => a + (v || 0), 0); if (b.reported && t) { out.rep++; out.total += t; for (const [k, v] of Object.entries(b.fp)) out.sh[P[k]] = (out.sh[P[k]] || 0) + (v || 0); }
+    let lead = null; if (t) { const by = {}; for (const [k, v] of Object.entries(b.fp)) by[P[k]] = (by[P[k]] || 0) + (v || 0); lead = Object.entries(by).sort((a, z) => z[1] - a[1])[0]; }
+    out.seats.push({ cid, name: c.name, reported: !!(b.reported && t), votes: t, lead: lead ? [lead[0], lead[1] / t] : null }); }
+  for (const k in out.sh) out.sh[k] /= out.total || 1;
+  out.seats.sort((a, z) => z.votes - a.votes);
+  return out;
+}
+function evcTip(name) {
+  const e = EVC.by && EVC.by.get(name), L = evcLive(name), box = h('div');
+  box.append(h('div', { class: 'k', style: 'text-transform:uppercase;letter-spacing:.06em;font-size:10px;font-weight:700' }, '■ Early voting centre'), h('div', {}, h('strong', {}, e ? e.venue : name)), h('div', { class: 'k' }, `${e ? e.suburb : ''} · ${name}`));
+  box.append(h('div', { class: 'k' }, L.rep ? `${fmt(L.total)} votes counted (about ${fmt(e ? e.est : 0)} expected) · ${L.rep} of ${L.listed} electorates' results in` : `not counted yet · about ${fmt(e ? e.est : 0)} early votes expected`));
+  for (const [p, v] of Object.entries(L.sh).sort((a, z) => z[1] - a[1]).slice(0, 4)) box.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p] || p), h('b', {}, pct(v))));
+  return box;
+}
+function renderEvcDetail(name) {
+  const e = EVC.by && EVC.by.get(name), L = evcLive(name), root = el('detail'); root.innerHTML = '';
+  root.append(h('h2', {}, e ? e.venue : name), h('div', { class: 'meta' }, `Early voting centre · ${e ? e.suburb : ''} · ${name}`));
+  root.append(h('div', { class: 'hint', style: 'margin:6px 0' }, L.rep ? `${fmt(L.total)} first preferences counted so far, against the VEC's estimate of about ${fmt(e ? e.est : 0)} early votes here. ${L.rep} of the ${L.listed} electorates whose voters came here have their results in.` : `Not counted yet. The VEC expected about ${fmt(e ? e.est : 0)} early votes here.`));
+  if (L.rep) root.append(h('h3', {}, 'First preferences, all electorates combined'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('tbody', {}, ...Object.entries(L.sh).sort((a, z) => z[1] - a[1]).map(([p, v]) => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p] || p)), h('td', { class: 'num' }, pct(v))))))));
+  root.append(h('h3', {}, 'By electorate'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Electorate'), h('th', { class: 'num' }, 'Votes'), h('th', {}, 'Leading here'))),
+    h('tbody', {}, ...L.seats.map(x => h('tr', { class: 'clickable', onclick: () => selectContest(LIVE.election, x.cid, true) }, h('td', {}, x.name), h('td', { class: 'num' }, x.reported ? fmt(x.votes) : '–'), h('td', {}, x.lead ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.lead[0])}` }), `${PARTY_SHORT[x.lead[0]] || x.lead[0]} ${pct(x.lead[1])}`) : h('span', { class: 'hint' }, 'not counted'))))))));
+  root.append(h('p', { class: 'hint', style: 'margin-top:8px' }, 'Early votes are counted by the electorate each voter is enrolled in, so a centre reports a separate result for every electorate whose voters used it. Location from the VEC venues spreadsheet.'));
+}
+function evcLegend(on) { const lg = el('legend'); if (!lg) return; let k = lg.querySelector('.evc-key'); if (!on) { if (k) k.remove(); return; }
+  if (!k) { k = h('div', { class: 'evc-key' }, h('span', { class: 'evc-sw' }), h('span', {}, h('b', {}, 'Squares: early voting centres'), ' · coloured by who leads the early votes counted there (white: not counted yet); circles: election-day booths')); lg.append(k); } }
+async function evcFeatures() {
+  await ensureEvc(); const feats = [];
+  for (const e of EVC.list || []) { if (e.lat == null) continue; const L = evcLive(e.name); let best = null; for (const [p, v] of Object.entries(L.sh)) if (!best || v > L.sh[best]) best = p;
+    const col = best ? mix(css('--surface') || '#ffffff', partyColor(best), 0.45 + 0.55 * Math.max(0, Math.min(1, (L.sh[best] - 0.25) / 0.3))) : '#FFFFFF';
+    feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [e.lon, e.lat] }, properties: { name: e.name, color: col, r: 4 + Math.sqrt(e.est || 0) / 28 } }); }
+  return { type: 'FeatureCollection', features: feats };
 }
 async function renderMap() {
+  if (el('evc-checks')) el('evc-checks').hidden = !(state.unit === 'booth' && state.election === LIVE.election);
   if (!mapReady) return;
   el('map-loading').hidden = false;
+  { const on = state.unit === 'booth' && state.election === LIVE.election; el('evc-checks') && (el('evc-checks').hidden = !on);
+    if (on && state.showEvc) evcFeatures().then(fc => { if (!mapReady) return; map.getSource('evc').setData(fc); const v = state.unit === 'booth' && state.election === LIVE.election && state.showEvc ? 'visible' : 'none'; map.setLayoutProperty('evc-pts', 'visibility', v); map.setLayoutProperty('evc-edge', 'visibility', v); evcLegend(v === 'visible'); });
+    else { map.setLayoutProperty('evc-pts', 'visibility', 'none'); map.setLayoutProperty('evc-edge', 'visibility', 'none'); evcLegend(false); } }
   if (state.unit === 'lc') return renderLcMap();
   clearLcMarkers();
   if (state.metric === 'senate') await ensureSenate();
@@ -1458,12 +1523,14 @@ async function renderMap() {
     map.setLayoutProperty('catch-fill', 'visibility', 'none'); map.setLayoutProperty('catch-line', 'visibility', 'none'); map.setLayoutProperty('catch-fresh', 'visibility', 'none');
     map.setLayoutProperty('booth-dots', 'visibility', 'visible');
   }
+  if (!state.showDay && state.election === LIVE.election) { map.setLayoutProperty('booth-dots', 'visibility', 'none'); map.setLayoutProperty('catch-fill', 'visibility', 'none'); map.setLayoutProperty('catch-line', 'visibility', 'none'); map.setLayoutProperty('catch-fresh', 'visibility', 'none'); }
   // boundaries
   const bset = state.bound === 'auto' ? BOUND_FOR[eid] : state.bound;
   map.getSource('bounds').setData(bset === 'none' ? { type: 'FeatureCollection', features: [] } : await loadGz('boundary_' + bset, 'geojson'));
   map.setFilter('booth-sel', ['==', 'booth_id', selected && selected.booth && selected.election === eid ? selected.booth : '']);
   el('map-loading').hidden = true;
   el('mapnote') && (el('mapnote').textContent = '');
+  evcLegend(state.unit === 'booth' && state.election === LIVE.election && state.showEvc && !!(EVC.list && EVC.list.length));
 }
 function quantile(arr, q) { if (!arr.length) return null; const s = [...arr].sort((a, b) => a - b); return s[Math.min(s.length - 1, Math.floor(q * s.length))]; }
 function legendRamp(title, stops, labels, note, byContest) {
@@ -5508,6 +5575,10 @@ function renderSeat() {
       const fillCb = () => { hb.querySelectorAll('.cbc').forEach(n => n.remove()); const w = countByCount('vic2022', o22.contest_id); if (w) hb.append(w); return !!w; };
       if (fillCb()) { s3.append(hb); hb.append(seatModelExplainer('vic2022', o22.contest_id, c.contest_name, { title: `How our model does in ${c.contest_name}: tested on 2022` })); } } }
   // 4 census
+  // once the 2026 count is under way, the past results fold away behind one click (the section and its place in the page stay)
+  if (night && s3) { const kids = [...s3.children].filter(n => !(n.tagName === 'H2' || (n.tagName === 'P' && n.classList.contains('sub'))));
+    if (kids.length) { const d = h('details', { class: 'fold pastfold' }, h('summary', {}, h('span', { class: 'fold-t' }, 'Show the 2022 result and earlier elections'), h('span', { class: 'fold-s' }, 'first preferences over time, the 2022 count by count and how our model did')));
+      for (const k of kids) d.append(k); s3.append(d); } }
   const s4 = sec('people', 5, 'Who lives here', 'From the Census, matched to the 2022 boundaries, compared with Victoria.');
   const cbx = h('div', { class: 'box' }); s4.append(cbx);
   const fillCensus = () => { cbx.innerHTML = ''; const cb = censusBlock(LIVE.election, cid); if (cb) cbx.append(cb); else cbx.append(h('div', { class: 'empty' }, 'No census profile for this electorate.')); };
@@ -5584,8 +5655,8 @@ function setUnit(u) { state.unit = u; for (const o of el('seg-unit').querySelect
 // the projection and call layers belong to the live election only: past elections have their results, and once a result is declared the model has nothing to add
 // one line under the Colour-by menu saying what the chosen layer is, in plain words
 const METRIC_HINT = {
-  share: 'Each party\'s share of first preferences.', primary: 'The party with the most first preferences.', tcp: 'The final two candidates\' shares after preferences were distributed.', tcpwin: 'Who won once preferences were distributed.',
-  swing: 'How the party\'s first-preference share moved against the last election.', tcpswing: 'How the final-two share moved against the last election.', gap: 'The party\'s share here against the same place at another election.',
+  share: 'The chosen party\'s share of first preferences (choose the party below).', primary: 'The party with the most first preferences.', tcp: 'The chosen party\'s share once preferences are distributed down to the final two (2CP); blank where it wasn\'t in the final two.', tcpwin: 'Who won once preferences were distributed.',
+  swing: 'How the chosen party\'s first-preference share moved against the last election.', tcpswing: 'How the chosen party\'s share after preferences (2CP) moved against the last election.', gap: 'The chosen party\'s first-preference share here, minus its share at the same place in an election you pick (set it below). Positive: it did better this time.',
   senate: 'The party\'s Senate (upper house) vote at the same booths.', census: 'A 2021 Census measure of the people who live around each booth or in each electorate.',
   live_tcp: 'Atlas estimate: the first preferences counted so far, run through the preference model, for the final two. Changes as booths come in.', live_tcpwin: 'Atlas estimate: who is ahead once the votes counted so far are run through the preference model. Changes as booths come in.',
   projwin: 'Atlas projection: what the finished count looks like, from what is counted plus what is expected from the booths and votes still to come. Changes as the night goes on.', proj: 'Atlas projection of each party\'s final share after preferences.', called: 'Only seats the Atlas projection has called or the VEC has declared are coloured; striped where a seat has changed hands. The most cautious view of the night.' };
@@ -5772,9 +5843,13 @@ async function boot() {
       if (state.metric === 'census') { await ensureDemog(); fillCensusSelect(); }
       renderMap(); });
     el('sel-party').addEventListener('change', (e) => { state.party = e.target.value; renderMap(); });
+    { const pb = el('party-btns'), sp = el('sel-party'); const draw = () => { pb.innerHTML = ''; for (const o of sp.options) { const on = o.value === sp.value, col = partyColor(o.value);
+        pb.append(h('button', { type: 'button', 'aria-pressed': String(on), style: on ? `background:${col};border-color:${col}` : `border-color:${col}`, onclick: () => { sp.value = o.value; sp.dispatchEvent(new Event('change')); draw(); } }, on ? '' : h('i', { style: `background:${col}` }), o.textContent)); } };
+      draw(); sp.addEventListener('change', draw); }
     el('sel-gap').addEventListener('change', (e) => { state.gap = e.target.value; renderMap(); });
     el('sel-bound').addEventListener('change', (e) => { state.bound = e.target.value; renderMap(); });
     for (const b of el('seg-unit').querySelectorAll('button')) b.addEventListener('click', () => setUnit(b.dataset.v));
+    el('chk-day').addEventListener('change', (e) => { state.showDay = e.target.checked; renderMap(); }); el('chk-evc').addEventListener('change', (e) => { state.showEvc = e.target.checked; renderMap(); });
     for (const b of el('seg-layer').querySelectorAll('button')) b.addEventListener('click', () => { state.layer = b.dataset.v; for (const o of el('seg-layer').querySelectorAll('button')) o.setAttribute('aria-pressed', o === b); renderMap(); });
     el('inp-search').addEventListener('input', (e) => searchBooths(e.target.value));
     for (const b of document.querySelectorAll('nav.views button')) b.addEventListener('click', () => { if (b.dataset.view === 'seat') { SEAT.cid = null; navTo('seat'); } showView(b.dataset.view); });
