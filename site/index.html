@@ -369,7 +369,12 @@ tr.detail-row td { padding: 4px 12px 10px; font-size: 13px; line-height: 1.45; b
 tr.detail-row td div + div { margin-top: 2px; }
 .fd-vrow { display: flex; gap: 18px; align-items: flex-start; margin-top: 8px; }
 .fd-vrow > .tablewrap { flex: 1 1 600px; margin-top: 0 !important; }
-.fd-vrow > .fd-dcard { flex: 0 1 420px; align-self: stretch; }
+.fd-vrow > .fd-dcard { flex: 0 1 560px; align-self: flex-start; gap: 14px; padding: 10px; }
+.fd-vrow > .fd-dcard .fd-img { width: 264px; min-height: 0; aspect-ratio: 4 / 5; align-self: flex-start; background: #F6F2EA; }
+.fd-vrow > .fd-dcard .fd-img img { object-fit: contain; object-position: center; }
+.fd-vrow > .fd-dcard .fd-body { gap: 8px; padding-top: 4px; }
+.fd-vrow > .fd-dcard .fd-txt { font-size: 14px; line-height: 1.45; -webkit-line-clamp: 11; }
+@media (max-width:1300px) { .fd-vrow > .fd-dcard .fd-img { width: 210px; } .fd-vrow > .fd-dcard .fd-txt { -webkit-line-clamp: 8; } }
 @media (min-width:1101px) { #dash-head .fd-tick.fd-tick-wide-hide { display: none; } }
 @media (max-width:1100px) { .fd-vrow { display: block; } }
 .seatcell { display: flex; align-items: center; gap: 8px; }
