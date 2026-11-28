@@ -1379,14 +1379,16 @@ function metricValue(bid) {
 const EVC = { list: null, p: null };
 function ensureEvc() { if (!EVC.p) EVC.p = fetch(DATA + 'evc_2026.json').then(r => r.ok ? r.json() : []).then(j => { EVC.list = j; EVC.by = new Map(j.map(e => [e.name, e])); return j; }).catch(() => { EVC.list = []; EVC.by = new Map(); return []; }); return EVC.p; }
 function evcLive(name) {
-  const out = { total: 0, rep: 0, listed: 0, sh: {}, seats: [] };
+  const out = { total: 0, rep: 0, listed: 0, sh: {}, seats: [], inds: [] };
+  const tc = (n) => String(n || '').toLowerCase().replace(/(^|[\s'-])([a-z])/g, (m, q, c) => q + c.toUpperCase()).replace(/\bMc([a-z])/g, (m, c) => 'Mc' + c.toUpperCase());
   if (!LIVE.latest) return out;
   for (const [cid, c] of Object.entries(LIVE.latest.contests)) { const b = Object.values(c.booths || {}).find(x => x.type === 'early' && x.name === name); if (!b) continue;
     out.listed++; const P = {}; for (const x of c.candidates) P[x.candidate_id] = grpParty(x.party);
-    const t = Object.values(b.fp || {}).reduce((a, v) => a + (v || 0), 0); if (b.reported && t) { out.rep++; out.total += t; for (const [k, v] of Object.entries(b.fp)) out.sh[P[k]] = (out.sh[P[k]] || 0) + (v || 0); }
+    const t = Object.values(b.fp || {}).reduce((a, v) => a + (v || 0), 0); if (b.reported && t) { out.rep++; out.total += t; for (const [k, v] of Object.entries(b.fp)) { out.sh[P[k]] = (out.sh[P[k]] || 0) + (v || 0); if (P[k] === 'IND' && v) { const x = c.candidates.find(y => y.candidate_id === k); out.inds.push({ name: tc(x && (x.surname || x.name)), seat: c.name, votes: v }); } } }
     let lead = null; if (t) { const by = {}; for (const [k, v] of Object.entries(b.fp)) by[P[k]] = (by[P[k]] || 0) + (v || 0); lead = Object.entries(by).sort((a, z) => z[1] - a[1])[0]; }
     out.seats.push({ cid, name: c.name, reported: !!(b.reported && t), votes: t, lead: lead ? [lead[0], lead[1] / t] : null }); }
   for (const k in out.sh) out.sh[k] /= out.total || 1;
+  for (const x of out.inds) x.share = x.votes / (out.total || 1); out.inds.sort((a, z) => z.votes - a.votes);
   out.seats.sort((a, z) => z.votes - a.votes);
   return out;
 }
@@ -1394,7 +1396,8 @@ function evcTip(name) {
   const e = EVC.by && EVC.by.get(name), L = evcLive(name), box = h('div');
   box.append(h('div', { class: 'k', style: 'text-transform:uppercase;letter-spacing:.06em;font-size:10px;font-weight:700' }, '■ Early voting centre'), h('div', {}, h('strong', {}, e ? e.venue : name)), h('div', { class: 'k' }, `${e ? e.suburb : ''} · ${name}`));
   box.append(h('div', { class: 'k' }, L.rep ? `${fmt(L.total)} votes counted (about ${fmt(e ? e.est : 0)} expected) · ${L.rep} of ${L.listed} electorates' results in` : `not counted yet · about ${fmt(e ? e.est : 0)} early votes expected`));
-  for (const [p, v] of Object.entries(L.sh).sort((a, z) => z[1] - a[1]).slice(0, 4)) box.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p] || p), h('b', {}, pct(v))));
+  Object.entries(L.sh).sort((a, z) => z[1] - a[1]).filter(([p, v], i) => i < 4 || v >= 0.03).forEach(([p, v]) => box.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p] || p), h('b', {}, pct(v)))));
+  const ti = L.inds[0]; if (ti && ti.share >= 0.02) box.append(h('div', { class: 'k' }, `Top independent here: ${ti.name} (${ti.seat}) ${pct(ti.share)}`));
   return box;
 }
 function renderEvcDetail(name) {
@@ -1402,6 +1405,7 @@ function renderEvcDetail(name) {
   root.append(h('h2', {}, e ? e.venue : name), h('div', { class: 'meta' }, `Early voting centre · ${e ? e.suburb : ''} · ${name}`));
   root.append(h('div', { class: 'hint', style: 'margin:6px 0' }, L.rep ? `${fmt(L.total)} first preferences counted so far, against the VEC's estimate of about ${fmt(e ? e.est : 0)} early votes here. ${L.rep} of the ${L.listed} electorates whose voters came here have their results in.` : `Not counted yet. The VEC expected about ${fmt(e ? e.est : 0)} early votes here.`));
   if (L.rep) root.append(h('h3', {}, 'First preferences, all electorates combined'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('tbody', {}, ...Object.entries(L.sh).sort((a, z) => z[1] - a[1]).map(([p, v]) => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p] || p)), h('td', { class: 'num' }, pct(v))))))));
+  if (L.inds.length) root.append(h('h3', {}, 'Independents counted here'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Candidate'), h('th', {}, 'Standing in'), h('th', { class: 'num' }, 'Share of all votes here'))), h('tbody', {}, ...L.inds.slice(0, 8).map(x => h('tr', {}, h('td', {}, x.name), h('td', {}, x.seat), h('td', { class: 'num' }, pct(x.share))))))));
   root.append(h('h3', {}, 'By electorate'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Electorate'), h('th', { class: 'num' }, 'Votes'), h('th', {}, 'Leading here'))),
     h('tbody', {}, ...L.seats.map(x => h('tr', { class: 'clickable', onclick: () => selectContest(LIVE.election, x.cid, true) }, h('td', {}, x.name), h('td', { class: 'num' }, x.reported ? fmt(x.votes) : '–'), h('td', {}, x.lead ? h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(x.lead[0])}` }), `${PARTY_SHORT[x.lead[0]] || x.lead[0]} ${pct(x.lead[1])}`) : h('span', { class: 'hint' }, 'not counted'))))))));
   root.append(h('p', { class: 'hint', style: 'margin-top:8px' }, 'Early votes are counted by the electorate each voter is enrolled in, so a centre reports a separate result for every electorate whose voters used it. Location from the VEC venues spreadsheet.'));
@@ -5863,7 +5867,7 @@ async function boot() {
       let v = location.hash.replace('#', ''); if (v.startsWith('seat/')) { SEAT.cid = decodeURIComponent(v.slice(5)); v = 'seat'; } else if (v.startsWith('region/')) { SEAT.cid = 'vicr-' + decodeURIComponent(v.slice(7)); v = 'seat'; } else if (v === 'seat') SEAT.cid = null; if (v === 'model') v = 'prefs'; if (['home', 'seat', 'dash', 'map', 'venue', 'compare', 'polls', 'demog', 'prefs', 'query', 'about'].includes(v)) showView(v); };
     window.addEventListener('hashchange', onRoute); window.addEventListener('popstate', onRoute);
     { const fb = el('btn-mapfull'); if (fb) fb.addEventListener('click', () => setMapFull(!document.body.classList.contains('mapfull'))); }
-    if (/[?&]debug\b/.test(location.search)) window.__atlas = { dashRows, candName, showView, openSeat, grpParty, PARTY_SHORT, LIVE, selectContest, setUnit };
+    if (/[?&]debug\b/.test(location.search)) window.__atlas = { dashRows, candName, showView, openSeat, grpParty, PARTY_SHORT, LIVE, selectContest, setUnit, evcLive, evcTip, renderEvcDetail, ensureEvc };
     document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && document.body.classList.contains('mapfull')) setMapFull(false); });
     document.addEventListener('click', (ev) => { const a = ev.target.closest('[data-go]'); if (!a) return; ev.preventDefault(); if (a.dataset.region) openRegion(a.dataset.region); else if (a.dataset.seat) openSeat(a.dataset.seat); else showView(a.dataset.go); window.scrollTo(0, 0); });
     if (v === 'model') v = 'prefs';
