@@ -346,6 +346,11 @@ textarea.sql { font-family: var(--font-mono); font-size: 13px; min-height: 120px
 .more-btn:hover { color: var(--fg); }
 tr.detail-row td { padding: 4px 12px 10px; font-size: 13px; line-height: 1.45; border-top: 0; }
 tr.detail-row td div + div { margin-top: 2px; }
+.fd-vrow { display: flex; gap: 18px; align-items: flex-start; margin-top: 8px; }
+.fd-vrow > .tablewrap { flex: 1 1 600px; margin-top: 0 !important; }
+.fd-vrow > .fd-dcard { flex: 0 1 420px; align-self: stretch; }
+@media (min-width:1101px) { #dash-head .fd-tick.fd-tick-wide-hide { display: none; } }
+@media (max-width:1100px) { .fd-vrow { display: block; } }
 .seatcell { display: flex; align-items: center; gap: 8px; }
 .map-btn { border: 1px solid var(--line); background: var(--surface-2); color: var(--accent); border-radius: 999px; padding: 1px 8px; font-size: 11px; font-weight: 600; cursor: pointer; white-space: nowrap; }
 .map-btn:hover { background: var(--accent); color: var(--accent-ink); }
@@ -5323,7 +5328,10 @@ function feedInit() {
     const head = el('dash-head'), house = head && head.querySelector(':scope > .house'), row = house && house.nextElementSibling;
     if (!LIVE.available && house && row && !row.classList.contains('early-now') && !row.classList.contains('stats')) {
       row.append(dashTick); const g = h('div', { class: 'fd-hg' }); house.before(g); g.append(h('div', { class: 'fd-hgl' }, house, row), dashCard);
-    } else if (head) { const lr = [...head.children].find(x => x.querySelector && x.querySelector(':scope > .pulse')) || head.querySelector('.pre-badge')?.parentNode || head.children[1]; if (lr) lr.after(dashTick); }
+    } else if (head) { const lr = [...head.children].find(x => x.querySelector && x.querySelector(':scope > .pulse')) || head.querySelector('.pre-badge')?.parentNode || head.children[1]; if (lr) lr.after(dashTick);
+      // on the night: the latest post as a full card beside the vote-type table (wide screens); the one-line ticker stays for narrow ones
+      const vt = [...head.children].find(x => x.classList && x.classList.contains('tablewrap'));
+      if (vt) { const row = h('div', { class: 'fd-vrow' }); vt.before(row); row.append(vt, dashCard); dashTick.classList.add('fd-tick-wide-hide'); } }
   } catch (e) {} return r; };
   // seat pages: a follow row under the map button
   const _rs = renderSeat; renderSeat = function (...args) { const r = _rs.apply(this, args); try { const w = document.querySelector('#view-seat .shead .wrap'); if (w && !w.querySelector('.fd-followrow')) w.append(feedFollowRow()); } catch (e) {} return r; };
