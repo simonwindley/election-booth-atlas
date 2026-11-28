@@ -391,6 +391,9 @@ tr.detail-row td div + div { margin-top: 2px; }
 .fpr .t { height: 10px; background: var(--surface-2); border-radius: 3px; overflow: hidden; } .fpr .t i { display: block; height: 100%; }
 .fpr b { text-align: right; font-variant-numeric: tabular-nums; } .fpr small { text-align: right; font-size: 11px; color: var(--fg-3); font-variant-numeric: tabular-nums; }
 .fpr .n { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .fpr .n em { font-style: normal; color: var(--fg-3); margin-left: 4px; font-size: 12px; }
+.cnr { display: grid; grid-template-columns: 150px 1fr auto; align-items: center; gap: 8px; font-size: 13px; margin-top: 4px; color: var(--fg); }
+.cnr .t { height: 8px; background: var(--surface-2); border-radius: 3px; overflow: hidden; } .cnr .t i { display: block; height: 100%; background: var(--accent); }
+.cnr span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--fg-2); font-size: 12px; } .cnr.all { font-weight: 700; } .cnr.all span:last-child { color: var(--fg); font-weight: 700; }
 .facts { font-size: 13px; line-height: 1.5; color: var(--fg-2); } .facts div + div { margin-top: 3px; } .facts b { color: var(--fg); }
 .map-btn { border: 1px solid var(--line); background: var(--surface-2); color: var(--accent); border-radius: 999px; padding: 1px 8px; font-size: 11px; font-weight: 600; cursor: pointer; white-space: nowrap; }
 .map-btn:hover { background: var(--accent); color: var(--accent-ink); }
@@ -2213,7 +2216,12 @@ function renderDashTableLive(list, rows, eid) {
     const style = firm(r.status) ? `background:${col};border-color:${col}` : r.status === 'doubt' ? `border:1.5px dashed ${col};color:var(--fg)` : `background:${mix(css('--surface') || '#ffffff', col, 0.2)};border-color:${col};color:var(--fg)`;
     return h('span', { class: 'respill' + (firm(r.status) ? ' solid' : ''), style, title: `${pname} ${word}${sub ? ' · ' + sub : ''}` }, `${pname} ${word}`, sub ? h('small', {}, sub) : '');
   };
-  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', { title: 'the Atlas projection\'s two-candidate split (the VEC\'s own pair until the model has loaded, and the declared result once published)' }, 'Two-candidate'), h('th', {}, 'Result'), h('th', {}, 'Counted'))));
+  // the figure column follows the sort: sort by swing and you see the swing, by update time and you see the time, otherwise the margin
+  const marginCell = (r) => r.margin != null ? (100 * r.margin).toFixed(1) : r.lastMargin != null ? h('span', { class: 'hint', style: 'font-weight:400', title: `${PARTY_NAME[r.lastParty] || ''} margin at the last contest here` }, `${PARTY_SHORT[r.lastParty] || ''} ${(100 * Math.abs(r.lastMargin)).toFixed(1)}`) : '–';
+  const KEY = dash.sort === 'swing' ? { head: '2CP swing', tip: 'swing to the leader\'s party in the two-candidate vote, against 2022', cell: (r) => r.swing != null ? h('span', { title: `to ${PARTY_NAME[r.wparty] || ''}` }, pts(r.swing), h('small', { class: 'hint', style: 'display:block;font-weight:400;font-size:11px' }, `to ${PARTY_SHORT[r.wparty] || ''}`)) : '–' }
+    : dash.sort === 'updated' ? { head: 'Updated', tip: 'when the VEC figures for this seat last changed', cell: (r) => r.updated ? fmtTime(r.updated) : '–' }
+    : { head: 'Margin', tip: 'the leader\'s two-candidate share above 50%; before a seat reports, the grey figure is the margin at the last contest there', cell: marginCell };
+  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', { title: 'the Atlas projection\'s two-candidate split (the VEC\'s own pair until the model has loaded, and the declared result once published)' }, 'Two-candidate'), h('th', { class: 'num', title: KEY.tip }, KEY.head), h('th', {}, 'Result'), h('th', {}, 'Counted'))));
   const tb = h('tbody'); t.append(tb);
   for (const r of list) {
     const w = r.winner, wp = r.wparty, o = tcpOther(r);
@@ -2226,6 +2234,7 @@ function renderDashTableLive(list, rows, eid) {
     const tr = h('tr', { class: 'clickable' + (isFresh(eid, null, r.cid) ? ' fresh' : ''), title: 'Click for the primary vote and the count in detail', onclick: (ev) => { const btn = ev.currentTarget.querySelector('.more-btn'); if (btn) btn.click(); } },
       h('td', {}, h('div', { class: 'seatcell' }, h('strong', {}, r.name), h('button', { class: 'map-btn', title: `Show ${r.name} on the map`, onclick: goMap }, 'Map →')), h('div', { class: 'seatprev' }, prev + prevM)),
       h('td', {}, r.share != null ? h('div', { class: 'tcp2' }, tcpBar(r, eid), h('div', { class: 'nm' }, h('b', {}, `${w && w.cand ? candName(w.cand) : PARTY_NAME[wp] || ''} ${pct(r.share)}`), o ? ` v ${o.cand ? candName(o.cand) : PARTY_NAME[o.party] || ''} ${pct(1 - r.share)}` : '')) : h('span', { class: 'hint' }, '–')),
+      h('td', { class: 'num', style: 'font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap' }, KEY.cell(r)),
       h('td', {}, pill(r)),
       h('td', { class: 'cnt2' }, inPct, more, g ? h('small', {}, `${g.boothsReported}/${g.boothsListed} booths${r.updated ? ' · ' + fmtTime(r.updated) : ''}`) : ''));
     tb.append(tr);
@@ -2238,19 +2247,30 @@ function renderDashTableLive(list, rows, eid) {
         h('div', { class: 't' }, h('i', { style: `width:${(100 * sh / (mx || 1)).toFixed(1)}%;background:${partyColor(gp)}` })), h('b', {}, pct(sh)), h('small', {}, was != null ? pts(sh - was) : ''))); }
     else fpBox.append(h('div', { class: 'hint' }, 'No first preferences counted yet.'));
     if (tot) fpBox.append(h('div', { class: 'hint', style: 'margin-top:6px;font-size:11px' }, `${fmt(tot)} formal votes counted. Right: change on the party's 2022 primary here.`));
-    const facts = h('div', { class: 'facts' }, h('h4', {}, 'The count'));
-    if (g) facts.append(h('div', {}, h('b', {}, 'Counted: '), progressText(r.cid, true)));
-    if (r.margin != null) facts.append(h('div', {}, h('b', {}, 'Margin: '), `${(100 * r.margin).toFixed(1)} points${r.swing != null ? ` · swing ${pts(r.swing)} to ${PARTY_NAME[wp] || wp} on 2022` : ''}`));
-    if (r.pr) { const pr = r.pr, a = pr.pair[0]; const same = !w || !w.cand || !a.cand || w.cand.candidate_id === a.cand.candidate_id;
-      facts.append(h('div', {}, h('b', {}, 'VEC two-candidate count: '), `${pr.pair.map(x => `${candName(x.cand)} ${pct(x.share)}`).join(' v ')} (${pr.method === 'official' ? 'declared' : pr.method === 'projected' ? 'projected from matched booths' : 'counted so far'})`, same ? '' : h('span', { style: 'color:var(--alp);font-weight:600' }, ' · a different leader from the Atlas projection'))); }
-    if (r.leader && r.ps[r.leader]) facts.append(h('div', {}, h('b', {}, 'Leading on primaries: '), `${PARTY_NAME[r.leader]} ${pct(r.ps[r.leader].share)}`));
+    const facts = h('div', { class: 'facts' }, h('h4', {}, 'What\'s counted'));
+    if (g) {   // one row per kind of vote, as a proportion where there's something to measure against
+      const row = (label, n, of, txt, cls) => h('div', { class: 'cnr' + (cls ? ' ' + cls : '') }, h('span', {}, label), h('div', { class: 't' }, h('i', { style: `width:${of ? Math.min(100, 100 * n / of).toFixed(1) : 0}%` })), h('span', {}, txt));
+      const frac = (n, of, unit) => of ? `${fmt(n)}/${fmt(of)}${unit ? ' ' + unit : ''} · ${Math.round(100 * n / of)}%` : `${fmt(n)}${unit ? ' ' + unit : ''}`;
+      facts.append(row('Election-day booths', g.boothsReported, g.boothsListed, frac(g.boothsReported, g.boothsListed)));
+      if (g.earlyListed > 1) facts.append(row('Early voting centres', g.earlyReported, g.earlyListed, frac(g.earlyReported, g.earlyListed)));
+      else facts.append(row('Early votes', g.earlyVotes, g.earlyReg, g.earlyReg ? frac(g.earlyVotes, g.earlyReg, 'cast') : (g.earlyVotes ? fmt(g.earlyVotes) : 'none yet')));
+      const pBase = g.postalRet || g.postalReg || (g.t22 && g.t22.postal);
+      facts.append(row('Postal votes', g.postal || 0, pBase, pBase ? `${fmt(g.postal || 0)} of ${fmt(pBase)} ${g.postalRet ? 'returned' : g.postalReg ? 'applications' : 'in 2022'} · ${Math.round(100 * (g.postal || 0) / pBase)}%` : fmt(g.postal || 0)));
+      if (g.absent || (g.t22 && g.t22.absent)) facts.append(row('Absent votes', g.absent || 0, g.t22 && g.t22.absent, g.t22 && g.t22.absent ? `${fmt(g.absent || 0)} · ${Math.round(100 * (g.absent || 0) / g.t22.absent)}% of 2022` : fmt(g.absent || 0)));
+      facts.append(row('Two-candidate count', g.tcpOrd, g.boothsListed, g.tcpBooths ? frac(g.tcpOrd, g.boothsListed, 'booths') : g.anyTcp ? 'electorate total only' : 'not started'));
+      if (g.pct22 != null) facts.append(row('All votes', g.pct22, 1, `${Math.round(100 * g.pct22)}% of the 2022 total`, 'all'));
+      else if (g.pctEnrol != null) facts.append(row('All votes', g.pctEnrol / 100, 1, `${g.pctEnrol}% of enrolment`, 'all'));
+    }
+    facts.append(h('div', { style: 'height:8px' }));
+    if (r.margin != null && KEY.head !== 'Margin') facts.append(h('div', {}, h('b', {}, 'Margin: '), `${(100 * r.margin).toFixed(1)} points`));
+    if (r.swing != null) facts.append(h('div', {}, h('b', {}, 'Swing: '), `${pts(r.swing)} to ${PARTY_NAME[wp] || wp} on the two-candidate vote, against 2022`));
     if (r.pairRisk) facts.append(h('div', {}, h('b', {}, 'Pair at risk: '), r.pairRisk));
     if (r.disagree) facts.append(h('div', {}, h('b', {}, 'Not called: '), r.disagree.join('; ')));
     facts.append(h('div', {}, h('b', {}, 'Status: '), STATUS_LABEL[r.status] + (r.updated ? ` · updated ${fmtTime(r.updated)}` : '')));
-    tb.append(h('tr', { class: 'detail-row', hidden: true }, h('td', { colspan: 4 }, h('div', { class: 'seatmore' }, fpBox, facts))));
+    tb.append(h('tr', { class: 'detail-row', hidden: true }, h('td', { colspan: 5 }, h('div', { class: 'seatmore' }, fpBox, facts))));
   }
   el('dash-table').innerHTML = ''; el('dash-table').append(list.length ? t : h('div', { class: 'empty' }, 'No seats match.'));
-  el('dash-note').textContent = `${list.length} of ${rows.length} seats. Two-candidate: the Atlas projection's split between the final two. The pill: solid once a seat is called or declared, tinted while projected or leaning, dashed while in doubt. Click a seat for every candidate's primary vote, the margin, swing and the VEC's own count; Map → opens it on the map.`;
+  el('dash-note').textContent = `${list.length} of ${rows.length} seats. Two-candidate: the Atlas projection's split between the final two. The pill: solid once a seat is called or declared, tinted while projected or leaning, dashed while in doubt. ${KEY.head === 'Margin' ? 'Margin: the leader\'s two-candidate share above 50' : KEY.head === 'Updated' ? 'Updated: when the seat\'s figures last changed' : '2CP swing: to the leader\'s party, against 2022'}; pick another sort to see a different figure in that column. Click a seat for every candidate's primary vote, the swing and the count in detail; Map → opens it on the map.`;
 }
 function renderDashTable(rows, eid) {
   rows = rows || dashRows(eid || state.election); eid = eid || state.election;
