@@ -164,12 +164,12 @@ class Fetcher:
             return self.fixtures.get(key) or self.fixtures.get(key.rstrip('/'))
         url = self.url(path)
         self.last_404 = False
-        for attempt, wait in enumerate([0, 5, 15, 40]):
+        for attempt, wait in enumerate([0, 8, 20]):
             if wait:
                 time.sleep(wait)
             try:
                 req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'text/html'})
-                with urllib.request.urlopen(req, timeout=40) as r:
+                with urllib.request.urlopen(req, timeout=25) as r:
                     data = r.read()
                     if r.headers.get('Content-Encoding') == 'gzip':
                         data = gzip.decompress(data)
@@ -708,8 +708,17 @@ def run_cycle(args, log=print):
             log(('published' if ok else f'publish failed: {msg}') + ('' if final else f' (mid-sweep: {new["n_changed_booths"]} booths in {new["n_changed_contests"]} districts)'))
         return new, changes
 
+    fails = 0; broke = False
     for i, (dslug, path) in enumerate(links, start=1):
+        if fails >= 3:
+            if not broke:
+                log(f'  the VEC is not responding (3 districts in a row); ending this sweep early and keeping the last figures for the rest')
+                broke = True
+            if prev and f'vic-{dslug}' in prev.get('contests', {}):
+                contests[f'vic-{dslug}'] = prev['contests'][f'vic-{dslug}']
+            continue
         d = scrape_district(f, dslug, path, args.election_id, log, prev_c=(prev or {}).get('contests', {}).get(f'vic-{dslug}'))
+        fails = fails + 1 if d is None else 0
         if d is None:
             log(f'  [{i}/{len(links)}] {dslug}: not fetched' + (' (keeping previous)' if prev and f'vic-{dslug}' in prev.get('contests', {}) else ''))
             if prev and f'vic-{dslug}' in prev.get('contests', {}):
@@ -724,7 +733,7 @@ def run_cycle(args, log=print):
         log(f'  [{i}/{len(links)}] {d["name"]}: {len(d["candidates"])} candidates, {nb} booths reported, {d["counted"]["pct_enrolment"]}% of enrolment counted')
         if (args.publish or args.publish_cmd) and args.publish_every and time.time() - st['last_pub'] >= args.publish_every and i < len(links):
             emit(final=False)
-    if not args.no_lc:
+    if not args.no_lc and not broke:
         try:
             st['lc_changed'] = lc_sweep(f, args, log)
         except Exception as e:  # never let the upper house stop the lower-house feed
