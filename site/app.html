@@ -357,6 +357,20 @@ tr.detail-row td div + div { margin-top: 2px; }
 @media (min-width:1101px) { #dash-head .fd-tick.fd-tick-wide-hide { display: none; } }
 @media (max-width:1100px) { .fd-vrow { display: block; } }
 .seatcell { display: flex; align-items: center; gap: 8px; }
+.respill { display: inline-flex; flex-direction: column; align-items: flex-start; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 13px; line-height: 1.2; white-space: nowrap; border: 1.5px solid transparent; }
+.respill small { font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; opacity: .85; }
+.respill.solid { color: #fff; } .respill.none { background: var(--surface-2); color: var(--fg-3); font-weight: 600; }
+.seatprev { font-size: 12px; color: var(--fg-3); margin-top: 2px; }
+.tcp2 { display: flex; flex-direction: column; gap: 3px; } .tcp2 .tcpbar { width: 170px; height: 14px; } .tcp2 .nm { font-size: 12px; color: var(--fg-2); white-space: nowrap; } .tcp2 .nm b { color: var(--fg); }
+.cnt2 { white-space: nowrap; } .cnt2 small { display: block; font-size: 11px; color: var(--fg-3); }
+.seatmore { display: grid; grid-template-columns: minmax(260px, 1.1fr) minmax(240px, 1fr); gap: 10px 28px; padding: 4px 2px 6px; }
+@media (max-width: 760px) { .seatmore { grid-template-columns: 1fr; } }
+.seatmore h4 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--fg-3); }
+.fpr { display: grid; grid-template-columns: minmax(110px, 170px) 1fr 54px 46px; align-items: center; gap: 8px; font-size: 13px; margin-top: 4px; color: var(--fg); }
+.fpr .t { height: 10px; background: var(--surface-2); border-radius: 3px; overflow: hidden; } .fpr .t i { display: block; height: 100%; }
+.fpr b { text-align: right; font-variant-numeric: tabular-nums; } .fpr small { text-align: right; font-size: 11px; color: var(--fg-3); font-variant-numeric: tabular-nums; }
+.fpr .n { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .fpr .n em { font-style: normal; color: var(--fg-3); margin-left: 4px; font-size: 12px; }
+.facts { font-size: 13px; line-height: 1.5; color: var(--fg-2); } .facts div + div { margin-top: 3px; } .facts b { color: var(--fg); }
 .map-btn { border: 1px solid var(--line); background: var(--surface-2); color: var(--accent); border-radius: 999px; padding: 1px 8px; font-size: 11px; font-weight: 600; cursor: pointer; white-space: nowrap; }
 .map-btn:hover { background: var(--accent); color: var(--accent-ink); }
 .strip-counts { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 8px; font-size: 14px; }
@@ -682,6 +696,11 @@ table.data td { padding: 7px 8px; border-bottom-color: var(--surface-2); }
 .lclegend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; }
 .lclegend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
 .lclegend small.up { color: var(--accent); font-weight: 700; } .lclegend small.down { color: #B4441B; font-weight: 700; }
+.lcq { position: relative; display: flex; height: 14px; width: 100%; min-width: 120px; background: var(--surface-2, #EEE9DF); border-radius: 4px; overflow: hidden; }
+.lcq i { display: block; height: 100%; }
+.lcq::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0, transparent calc(100% / 6 - 1px), var(--surface) calc(100% / 6 - 1px), var(--surface) calc(100% / 6)); pointer-events: none; }
+.lclive td small.up, .lclive td small.down { display: block; font-size: 11px; font-weight: 600; } .lclive td small.up { color: var(--accent); } .lclive td small.down { color: #B4441B; }
+.lcqt { font-size: 12px; color: var(--fg-3); margin-top: 3px; white-space: nowrap; }
 .v2 .callout.touch { margin-top: 18px; background: var(--lime-tint); }
 .touchbox { background: var(--lime-tint, #F0F7E1); border: 0; }
 </style>
@@ -1876,12 +1895,63 @@ function countdownBlock() {
   return box;
 }
 const DASH = { house: 'la' };
+// ---- the upper-house count tonight (site/data/live/lc_latest.json, from the same VEC sweep): first preferences by group per region
+async function pollLc() {
+  try {
+    const r = await fetch(`${DATA}live/lc_latest.json?t=${Date.now()}`, { cache: 'no-store' }); if (!r.ok) return false;
+    const j = await r.json(); if (!j || !j.regions) return false;
+    const changed = j.fetched_at !== LIVE.lcAt; LIVE.lc = j; LIVE.lcAt = j.fetched_at; return changed;
+  } catch (e) { return false; }
+}
+function lcLive(rid) {
+  const r = LIVE.lc && LIVE.lc.regions && LIVE.lc.regions[rid]; if (!r || !r.formal) return null;
+  const qv = Math.floor(r.formal / 6) + 1;
+  const groups = r.groups.map(g => ({ ...g, fam: lcParty(g.name), q: g.quota !== '' && g.quota != null && !isNaN(parseFloat(g.quota)) ? parseFloat(g.quota) : (g.votes || 0) / qv })).sort((a, b) => (b.votes || 0) - (a.votes || 0));
+  const sh = {}; for (const g of groups) sh[g.fam] = (sh[g.fam] || 0) + (g.votes || 0) / r.formal;
+  const bs = Object.values(r.booths || {}), ord = bs.filter(b => b.type === 'ordinary');
+  const early = bs.filter(b => b.type !== 'ordinary' && b.reported).length;
+  return { r, groups, sh, qv, bIn: ord.filter(b => b.reported).length, bAll: ord.length, early, pctEnrol: r.counted ? r.counted.pct_enrolment : null };
+}
+const LC_FAM = ['ONP', 'COAL', 'ALP', 'GRN'];
+function lcQuotaStrip(L) {
+  const strip = h('div', { class: 'lcq', role: 'img', 'aria-label': L.groups.filter(g => g.q >= 0.1).map(g => `${g.name} ${g.q.toFixed(2)} quotas`).join(', ') });
+  for (const g of L.groups) if (g.q > 0) strip.append(h('i', { style: `width:${Math.min(100, 100 * g.q / 6).toFixed(2)}%;background:${partyColor(g.fam)}`, title: `${g.letter ? g.letter + '. ' : ''}${g.name}: ${g.q.toFixed(2)} quotas` }));
+  return strip;
+}
+function lcLivePanel() {
+  const regions = Object.entries(LCX.regions).sort((a, b) => a[1].name.localeCompare(b[1].name));
+  const rows = regions.map(([rid, reg]) => ({ rid, reg, L: lcLive(rid), p22: LC.loaded ? lcShares('vic2022', rid) : null })).filter(x => x.L);
+  if (!rows.length) return null;
+  const sgn = (d) => Math.abs(d) < 0.05 ? '±' : d > 0 ? '+' : '−';
+  const dch = (now, then) => { if (then == null) return ''; const d = 100 * (now - then); return h('small', { class: d >= 0 ? 'up' : 'down' }, `${sgn(d)}${Math.abs(d).toFixed(1)}`); };
+  // statewide: all regions counted so far, against the same regions' 2022 vote
+  const tot = { formal: 0 }, t22 = { formal: 0 };
+  for (const x of rows) { tot.formal += x.L.r.formal; for (const f of LC_FAM) tot[f] = (tot[f] || 0) + (x.L.sh[f] || 0) * x.L.r.formal; if (x.p22) { t22.formal += x.p22.formal; for (const f of LC_FAM) t22[f] = (t22[f] || 0) + (x.p22[f] ? x.p22[f].votes : 0); } }
+  const state = h('div', { class: 'lclegend', style: 'margin:4px 0 10px' }, ...LC_FAM.map(f => h('span', {}, h('i', { style: `background:${partyColor(f)}` }), h('strong', {}, pct(tot[f] / tot.formal)), ' ', PARTY_NAME[f],
+    t22.formal ? (() => { const d = 100 * (tot[f] / tot.formal - t22[f] / t22.formal); return h('small', { class: d >= 0 ? 'up' : 'down' }, ` ${sgn(d)}${Math.abs(d).toFixed(1)}`); })() : '')));
+  const t = h('table', { class: 'data lclive' }, h('thead', {}, h('tr', {}, h('th', {}, 'Region'), h('th', { class: 'num' }, 'Counted'), ...LC_FAM.map(f => h('th', { class: 'num' }, PARTY_SHORT[f])), h('th', {}, 'Quotas on first preferences'))));
+  const tb = h('tbody'); t.append(tb);
+  for (const x of rows) {
+    const L = x.L, top = L.groups.filter(g => g.q >= 0.5).slice(0, 5);
+    tb.append(h('tr', { class: 'clickable', onclick: () => openRegion(x.rid) }, h('td', {}, h('a', { href: '#region/' + x.rid.replace(/^vicr-/, ''), onclick: (ev) => { ev.preventDefault(); openRegion(x.rid); } }, x.reg.name)),
+      h('td', { class: 'num' }, L.pctEnrol != null ? L.pctEnrol + '%' : '–', h('small', { class: 'hint', style: 'display:block;font-size:11px' }, `${L.bIn}/${L.bAll} booths`)),
+      ...LC_FAM.map(f => h('td', { class: 'num' }, pct(L.sh[f] || 0), x.p22 ? dch(L.sh[f] || 0, x.p22[f] ? x.p22[f].share : 0) : '')),
+      h('td', { style: 'min-width:170px' }, lcQuotaStrip(L), h('div', { class: 'lcqt' }, top.map(g => `${PARTY_SHORT[g.fam] !== 'OTH' ? PARTY_SHORT[g.fam] : g.name} ${g.q.toFixed(2)}`).join(' · ')))));
+  }
+  const anyEarly = rows.some(x => x.L.early);
+  const at = LIVE.lc.fetched_at ? fmtTime(LIVE.lc.fetched_at) : '';
+  return h('div', { class: 'panel' }, h('h3', {}, 'The upper-house count so far'),
+    h('div', { class: 'hint' }, `First preferences counted in all ${rows.length} regions${at ? ', to ' + at : ''}. ${anyEarly ? 'Election-day booths plus the early and postal votes counted so far.' : 'Election-day booths only so far: no early or postal votes have been counted for the upper house yet.'} Change: against the same region in 2022.`),
+    state, h('div', { class: 'tablewrap' }, t),
+    h('p', { class: 'hint', style: 'margin-top:8px' }, 'Five seats per region. A quota is one sixth of the formal vote, plus one; the strip is each group\'s first-preference vote measured in quotas, with a line at every quota. Who fills the seats is decided on preferences, which the VEC counts over the next two weeks. Click a region for its count by group.'));
+}
 async function renderDashLc(eid) {
   let box = el('dash-lc'); if (!box) { box = h('div', { id: 'dash-lc' }); el('dash-head').after(box); }
   box.innerHTML = ''; box.append(h('div', { class: 'panel' }, h('div', { class: 'empty' }, 'Loading the upper house…')));
   try { await Promise.all([ensureLc(), ensureLcx()]); } catch (e) { box.innerHTML = ''; box.append(h('div', { class: 'panel' }, h('div', { class: 'empty' }, 'Couldn\'t load the upper house.'))); return; }
   if (state.election !== eid || DASH.house !== 'lc') return;
   box.innerHTML = '';
+  if (eid === LIVE.election && LIVE.lc) { const lp = lcLivePanel(); if (lp) box.append(lp); }
   const regions = Object.entries(LCX.regions).sort((a, b) => a[1].name.localeCompare(b[1].name));
   const have = LC.contests.some(c => c.election_id === eid);
   const shown = have ? eid : (eid === LIVE.election ? 'vic2022' : null);
@@ -2104,6 +2174,61 @@ function tcpBar(r, eid) {
   return h('span', { class: 'tcpbar' + (final ? '' : ' soft'), style: `background:${oc}`, title: other ? `${PARTY_NAME[r.wparty] || ''} ${pct(s)} v ${PARTY_NAME[pty(other)] || ''} ${pct(1 - s)}` : '' },
     h('i', { style: `width:${(100 * s).toFixed(1)}%;background:${partyColor(r.wparty)}` }), h('u'));
 }
+function renderDashTableLive(list, rows, eid) {
+  // simpler seat-by-seat for election night: seat (and who held it), the two-candidate bar, a result pill, how much is counted; the rest folds out
+  const tcpOther = (r) => { const w = r.winner, pair = (r.proj && r.proj.tcp && r.proj.tcp.pair) || (r.pr && r.pr.pair) || ((contestTcp(eid, r.cid) || {}).pair) || [];
+    const id = (x) => x && x.cand ? x.cand.candidate_id : null, pty = (x) => x ? grpParty((x.cand && x.cand.party) || x.party) : null;
+    const o = pair.length === 2 ? (pair.find(x => id(x) && id(x) !== id(w)) || pair.find(x => pty(x) !== r.wparty) || pair[1]) : null; return o ? { cand: o.cand, party: pty(o) } : null; };
+  const firm = (st) => st === 'called' || st === 'declared';
+  const pill = (r) => {
+    const wp = r.wparty; if (!wp || r.status === 'nocount') return h('span', { class: 'respill none' }, 'No count yet');
+    const pname = PARTY_NAME[wp] || wp, col = partyColor(wp), gain = r.held && r.held !== wp && r.held !== '–';
+    const heldP = (() => { const hl = String(r.heldLabel || '').toLowerCase(); return /labor/.test(hl) ? 'ALP' : /liberal|national/.test(hl) ? 'COAL' : /green/.test(hl) ? 'GRN' : /one nation/.test(hl) ? 'ONP' : /independent/.test(hl) ? 'IND' : null; })();
+    const isGain = heldP ? heldP !== wp : gain;
+    const sub = { declared: 'declared', called: 'called', leaning: 'leaning', doubt: 'in doubt', counting: 'projected' }[r.status] || '';
+    const word = r.status === 'doubt' ? 'ahead' : isGain ? 'gain' : 'hold';
+    const style = firm(r.status) ? `background:${col};border-color:${col}` : r.status === 'doubt' ? `border:1.5px dashed ${col};color:var(--fg)` : `background:${mix(css('--surface') || '#ffffff', col, 0.2)};border-color:${col};color:var(--fg)`;
+    return h('span', { class: 'respill' + (firm(r.status) ? ' solid' : ''), style, title: `${pname} ${word}${sub ? ' · ' + sub : ''}` }, `${pname} ${word}`, sub ? h('small', {}, sub) : '');
+  };
+  const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', { title: 'the Atlas projection\'s two-candidate split (the VEC\'s own pair until the model has loaded, and the declared result once published)' }, 'Two-candidate'), h('th', {}, 'Result'), h('th', {}, 'Counted'))));
+  const tb = h('tbody'); t.append(tb);
+  for (const r of list) {
+    const w = r.winner, wp = r.wparty, o = tcpOther(r);
+    const goMap = (ev) => { ev.stopPropagation(); setUnit('contest'); setElection(eid); selectContest(eid, r.cid, true); showView('map'); };
+    const prev = r.heldLabel && r.heldLabel !== '–' ? `Previously ${r.heldLabel}` : 'New seat';
+    const prevM = r.lastMargin != null && r.lastParty ? ` · ${PARTY_SHORT[r.lastParty] || r.lastParty} margin ${(100 * Math.abs(r.lastMargin)).toFixed(1)}` : '';
+    const more = h('button', { class: 'more-btn', 'aria-expanded': 'false', title: 'Show the count in detail', onclick: (ev) => { ev.stopPropagation(); const d = ev.currentTarget.closest('tr').nextElementSibling; const open = d.hidden; d.hidden = !open; ev.currentTarget.setAttribute('aria-expanded', open); ev.currentTarget.textContent = open ? '▾' : '▸'; } }, '▸');
+    const g = countProgress(r.cid);
+    const inPct = r.countedShare != null && r.basis === 'projection' ? `${Math.round(100 * r.countedShare)}% in` : (g && g.pct22 != null ? `${Math.round(100 * g.pct22)}% of 2022 vote` : (g ? `${g.pctEnrol}% of enrolment` : '–'));
+    const tr = h('tr', { class: 'clickable' + (isFresh(eid, null, r.cid) ? ' fresh' : ''), title: 'Click for the primary vote and the count in detail', onclick: (ev) => { const btn = ev.currentTarget.querySelector('.more-btn'); if (btn) btn.click(); } },
+      h('td', {}, h('div', { class: 'seatcell' }, h('strong', {}, r.name), h('button', { class: 'map-btn', title: `Show ${r.name} on the map`, onclick: goMap }, 'Map →')), h('div', { class: 'seatprev' }, prev + prevM)),
+      h('td', {}, r.share != null ? h('div', { class: 'tcp2' }, tcpBar(r, eid), h('div', { class: 'nm' }, h('b', {}, `${w && w.cand ? candName(w.cand) : PARTY_NAME[wp] || ''} ${pct(r.share)}`), o ? ` v ${o.cand ? candName(o.cand) : PARTY_NAME[o.party] || ''} ${pct(1 - r.share)}` : '')) : h('span', { class: 'hint' }, '–')),
+      h('td', {}, pill(r)),
+      h('td', { class: 'cnt2' }, inPct, more, g ? h('small', {}, `${g.boothsReported}/${g.boothsListed} booths${r.updated ? ' · ' + fmtTime(r.updated) : ''}`) : ''));
+    tb.append(tr);
+    // the fold: every candidate's primary vote, then the count's particulars
+    const lc = LIVE.latest && LIVE.latest.contests[r.cid], fpBox = h('div', {}, h('h4', {}, 'Primary vote'));
+    const cands = lc ? lc.candidates.slice().sort((a, b) => (b.fp_votes || 0) - (a.fp_votes || 0)) : [];
+    const tot = cands.reduce((a, x) => a + (x.fp_votes || 0), 0), p22 = contestShares('vic2022', r.cid), mx = cands.length ? Math.max(...cands.map(x => x.fp_votes || 0)) / (tot || 1) : 1;
+    if (tot) for (const x of cands) { const gp = grpParty(x.party), sh = (x.fp_votes || 0) / tot; const was = p22 && p22[gp] && gp !== 'IND' && gp !== 'OTH' && cands.filter(y => grpParty(y.party) === gp).length === 1 ? p22[gp].share : null;
+      fpBox.append(h('div', { class: 'fpr' }, h('span', { class: 'n', title: `${x.given_name || ''} ${x.surname} (${x.party_name || ''})` }, x.surname, h('em', {}, PARTY_SHORT[gp] !== 'OTH' && PARTY_SHORT[gp] !== 'IND' ? PARTY_SHORT[gp] : (x.party_name ? niceParty(x.party_name).slice(0, 18) : 'Ind.'))),
+        h('div', { class: 't' }, h('i', { style: `width:${(100 * sh / (mx || 1)).toFixed(1)}%;background:${partyColor(gp)}` })), h('b', {}, pct(sh)), h('small', {}, was != null ? pts(sh - was) : ''))); }
+    else fpBox.append(h('div', { class: 'hint' }, 'No first preferences counted yet.'));
+    if (tot) fpBox.append(h('div', { class: 'hint', style: 'margin-top:6px;font-size:11px' }, `${fmt(tot)} formal votes counted. Right: change on the party's 2022 primary here.`));
+    const facts = h('div', { class: 'facts' }, h('h4', {}, 'The count'));
+    if (g) facts.append(h('div', {}, h('b', {}, 'Counted: '), progressText(r.cid, true)));
+    if (r.margin != null) facts.append(h('div', {}, h('b', {}, 'Margin: '), `${(100 * r.margin).toFixed(1)} points${r.swing != null ? ` · swing ${pts(r.swing)} to ${PARTY_NAME[wp] || wp} on 2022` : ''}`));
+    if (r.pr) { const pr = r.pr, a = pr.pair[0]; const same = !w || !w.cand || !a.cand || w.cand.candidate_id === a.cand.candidate_id;
+      facts.append(h('div', {}, h('b', {}, 'VEC two-candidate count: '), `${pr.pair.map(x => `${candName(x.cand)} ${pct(x.share)}`).join(' v ')} (${pr.method === 'official' ? 'declared' : pr.method === 'projected' ? 'projected from matched booths' : 'counted so far'})`, same ? '' : h('span', { style: 'color:var(--alp);font-weight:600' }, ' · a different leader from the Atlas projection'))); }
+    if (r.leader && r.ps[r.leader]) facts.append(h('div', {}, h('b', {}, 'Leading on primaries: '), `${PARTY_NAME[r.leader]} ${pct(r.ps[r.leader].share)}`));
+    if (r.pairRisk) facts.append(h('div', {}, h('b', {}, 'Pair at risk: '), r.pairRisk));
+    if (r.disagree) facts.append(h('div', {}, h('b', {}, 'Not called: '), r.disagree.join('; ')));
+    facts.append(h('div', {}, h('b', {}, 'Status: '), STATUS_LABEL[r.status] + (r.updated ? ` · updated ${fmtTime(r.updated)}` : '')));
+    tb.append(h('tr', { class: 'detail-row', hidden: true }, h('td', { colspan: 4 }, h('div', { class: 'seatmore' }, fpBox, facts))));
+  }
+  el('dash-table').innerHTML = ''; el('dash-table').append(list.length ? t : h('div', { class: 'empty' }, 'No seats match.'));
+  el('dash-note').textContent = `${list.length} of ${rows.length} seats. Two-candidate: the Atlas projection's split between the final two. The pill: solid once a seat is called or declared, tinted while projected or leaning, dashed while in doubt. Click a seat for every candidate's primary vote, the margin, swing and the VEC's own count; Map → opens it on the map.`;
+}
 function renderDashTable(rows, eid) {
   rows = rows || dashRows(eid || state.election); eid = eid || state.election;
   const live = eid === LIVE.election, q = dash.q.trim().toLowerCase();
@@ -2118,6 +2243,7 @@ function renderDashTable(rows, eid) {
     return true; });
   const m = (r) => r.margin != null ? Math.abs(r.margin) : r.lastMargin != null ? Math.abs(r.lastMargin) : 9;
   list.sort((a, b) => dash.sort === 'name' ? a.name.localeCompare(b.name) : dash.sort === 'updated' ? String(b.updated || '').localeCompare(String(a.updated || '')) || m(a) - m(b) : dash.sort === 'swing' ? (b.swing ?? -9) - (a.swing ?? -9) : dash.sort === 'status' ? STATUS_RANK[a.status] - STATUS_RANK[b.status] || m(a) - m(b) : m(a) - m(b));
+  if (live) return renderDashTableLive(list, rows, eid);
   const t = h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Seat'), h('th', {}, 'Held by'), h('th', {}, live ? 'Leading / elected' : 'Elected'), h('th', { class: 'num', title: live ? 'the Atlas projection\'s two-candidate share for the leader (the VEC\'s own pair until the model has loaded, and the declared result once published)' : '' }, live ? 'Projected 2CP' : '2CP'), h('th', { class: 'num' }, 'Margin'), h('th', { class: 'num', title: live ? 'swing in the projected two-candidate share against 2022' : '' }, '2CP swing'), live ? h('th', { title: 'the VEC\'s indicative two-candidate count between its nominated pair (projected from matched booths until complete); ≠ when its leader differs from the projection' }, 'VEC 2CP') : '', h('th', {}, 'Primary leader'), h('th', {}, live ? 'Counted' : 'Formal'), h('th', {}, 'Status'), live ? h('th', {}, 'Updated') : '')));
   const tb = h('tbody'); t.append(tb);
   for (const r of list) {
@@ -3260,6 +3386,7 @@ async function renderLcMap() {
   const have = LC.contests.some(c => c.election_id === eid);
   for (const f of fc.features) {
     const cid = f.properties.contest_id; let color = 'rgba(0,0,0,0)';
+    if (!have && eid === LIVE.election) { const L = lcLive(cid); if (L) { let best = null; for (const p of PARTIES) if (L.sh[p] && (!best || L.sh[p] > L.sh[best])) best = p; if (best) { const t = Math.max(0, Math.min(1, (L.sh[best] - 0.25) / 0.3)); color = mix(css('--map-bg'), partyColor(best), 0.35 + 0.45 * t); } } }
     if (have) { const sh = lcShares(eid, cid); let best = null; for (const p of PARTIES) if (sh[p] && (!best || sh[p].share > sh[best].share)) best = p; if (best) { const t = Math.max(0, Math.min(1, (sh[best].share - 0.25) / 0.3)); color = mix(css('--map-bg'), partyColor(best), 0.35 + 0.45 * t); } }
     map.setFeatureState({ source: 'contests', id: cid }, { color, fresh: false });
     // elected members as a row of dots at the region's label point
@@ -3273,6 +3400,7 @@ async function renderLcMap() {
   }
   legend.append(h('h4', {}, have ? 'Legislative Council: members elected' : 'Legislative Council regions'));
   if (have) { legend.append(h('div', { class: 'swatches' }, ...PARTIES.map(p => h('div', { class: 'swatch' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p]))), h('div', { class: 'hint', style: 'margin-top:6px' }, 'Five dots per region, in the order the count filled the seats. Fill: the party with the largest share of the region vote (deeper = larger). Click a region for the full result, quota and preference flows.')); }
+  else if (eid === LIVE.election && LIVE.lc) { legend.innerHTML = ''; legend.append(h('h4', {}, 'Legislative Council: the count so far'), h('div', { class: 'swatches' }, ...LC_FAM.map(p => h('div', { class: 'swatch' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p]))), h('div', { class: 'hint', style: 'margin-top:6px' }, `Fill: the party with the largest share of the first preferences counted so far in the region (deeper = larger). Counted to ${fmtTime(LIVE.lc.fetched_at)}. Hover a region for its quotas; click for the count by group.`)); }
   else legend.append(h('div', { class: 'hint' }, `No upper-house results loaded for ${idx.electionById.get(eid).name} yet; regions shown for reference.`));
   el('legend').innerHTML = ''; el('legend').append(legend);
   map.setFilter('contest-sel', ['==', 'contest_id', selected && selected.region && selected.election === eid ? selected.region : '']);
@@ -3281,6 +3409,8 @@ async function renderLcMap() {
 function tipForRegion(cid) {
   const eid = state.election, box = h('div');
   if (eid.startsWith('fed')) { const c = idx.contestById.get(eid + '|' + cid), ss = senateDivShares(eid, cid); box.append(h('div', {}, h('strong', {}, c ? c.contest_name : cid))); if (ss) for (const p of PARTIES) if (ss[p] && ss[p].share > 0.03) box.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(p)}` }), PARTY_NAME[p]), h('b', {}, pct(ss[p].share)))); return box; }
+  const Lv = eid === LIVE.election && !LC.contestBy.get(eid + '|' + cid) ? lcLive(cid) : null;
+  if (Lv) { box.append(h('div', {}, h('strong', {}, Lv.r.name)), h('div', { class: 'k' }, `${Lv.pctEnrol != null ? Lv.pctEnrol + '% of enrolment counted' : ''} · ${Lv.bIn}/${Lv.bAll} booths`)); for (const g of Lv.groups.slice(0, 6)) box.append(h('div', { class: 'row' }, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(g.fam)}` }), g.name), h('b', {}, `${pct(g.votes / Lv.r.formal)} · ${g.q.toFixed(2)} q`))); return box; }
   const c = LC.contestBy.get(eid + '|' + cid);
   box.append(h('div', {}, h('strong', {}, c ? c.contest_name : cid.replace('vicr-', ''))));
   if (!c) { box.append(h('div', { class: 'k' }, 'no results loaded')); return box; }
@@ -3294,8 +3424,22 @@ function selectRegion(eid, cid, fly) {
   if (mapReady) { map.setFilter('contest-sel', ['==', 'contest_id', eid === state.election && state.unit === 'lc' ? cid : '']); if (fly) { const f = (map.getSource('contests')._data.features || []).find(x => x.properties.contest_id === cid); if (f) map.fitBounds(bboxOf(f.geometry), { padding: 40, maxZoom: 11 }); } }
   if (eid.startsWith('fed')) renderSenateDivision(eid, cid); else renderRegionDetail(eid, cid);
 }
+function lcLiveNodes(cid) {   // tonight's count for one region: progress, quota strip, groups, against 2022
+  const L = lcLive(cid); if (!L) return []; const r = L.r, p22 = LC.loaded ? lcShares('vic2022', cid) : null, out = [];
+  out.push(h('div', { class: 'hint' }, `${fmt(r.formal)} formal · ${fmt(r.informal)} informal (${pct(r.informal / (r.formal + r.informal))}) · ${L.pctEnrol != null ? L.pctEnrol + '% of enrolment' : ''} · ${L.bIn} of ${L.bAll} election-day booths${L.early ? ' + early/postal' : ''} · quota so far ${fmt(L.qv)}. Counted to ${fmtTime(LIVE.lc.fetched_at)}.`));
+  out.push(h('div', { style: 'margin:10px 0 4px' }, lcQuotaStrip(L)), h('div', { class: 'hint' }, 'Each group\'s first preferences in quotas, with a line at every quota. Five seats; preferences decide who fills them, counted by the VEC over the next two weeks.'));
+  out.push(h('h3', {}, 'First preferences by group'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, 'Group'), h('th', { class: 'num' }, 'Votes'), h('th', { class: 'num' }, '%'), h('th', { class: 'num' }, 'Quotas'), h('th', { class: 'num' }, 'Above the line'))),
+    h('tbody', {}, ...L.groups.map(g => h('tr', {}, h('td', {}, h('span', { class: 'chip' }, h('i', { style: `background:${partyColor(g.fam)}` }), `${g.letter ? g.letter + '. ' : ''}${g.name}`)), h('td', { class: 'num' }, fmt(g.votes)), h('td', { class: 'num' }, pct(g.votes / r.formal)), h('td', { class: 'num' }, g.q.toFixed(2)), h('td', { class: 'num' }, g.votes ? pct(g.atl / g.votes, 0) : '–')))))));
+  if (p22) out.push(h('h3', {}, 'Against 2022'), h('div', { class: 'tablewrap' }, h('table', { class: 'data' }, h('thead', {}, h('tr', {}, h('th', {}, ''), ...LC_FAM.map(f => h('th', { class: 'num' }, PARTY_NAME[f])))),
+    h('tbody', {}, h('tr', {}, h('td', {}, '2026 so far'), ...LC_FAM.map(f => h('td', { class: 'num' }, pct(L.sh[f] || 0)))), h('tr', {}, h('td', {}, '2022 final'), ...LC_FAM.map(f => h('td', { class: 'num' }, p22[f] ? pct(p22[f].share) : '–')))))));
+  return out;
+}
 function renderRegionDetail(eid, cid) {
   const c = LC.contestBy.get(eid + '|' + cid), e = idx.electionById.get(eid), root = el('detail'); root.innerHTML = '';
+  if (!c && eid === LIVE.election && lcLive(cid)) {
+    root.append(h('h2', {}, lcLive(cid).r.name), h('div', { class: 'meta' }, `${e.name} · Legislative Council region · count in progress`), ...lcLiveNodes(cid));
+    return;
+  }
   root.append(h('h2', {}, c ? c.contest_name : cid.replace('vicr-', '')), h('div', { class: 'meta' }, `${e.name} · Legislative Council region`));
   if (!c) { root.append(h('div', { class: 'empty' }, 'No upper-house results loaded for this election.')); return; }
   root.append(h('div', { class: 'hint' }, `${fmt(c.formal)} formal · ${fmt(c.informal)} informal (${pct(c.informal / (c.formal + c.informal))}) · ${c.vacancies} seats · quota ${fmt(c.quota)} (${pct(c.quota / c.formal)})`));
@@ -4221,6 +4365,12 @@ async function pollDaily() {
 async function pollLive(manual) {
   if (!LIVE.register) return;
   if (!LIVE.daily || manual) await pollDaily();
+  if (await pollLc()) {   // the upper-house count moved: redraw what shows it
+    if (activeView() === 'dash' && DASH.house === 'lc' && state.election === LIVE.election) renderDash();
+    if (state.unit === 'lc' && state.election === LIVE.election && mapReady) renderMap();
+    if (selected && selected.region && selected.election === LIVE.election) renderRegionDetail(LIVE.election, selected.region);
+    if (activeView() === 'seat' && SEAT.cid && SEAT.cid.startsWith('vicr-')) { const y = window.scrollY; renderSeat(); window.scrollTo(0, y); }
+  }
   if (!LIVE.geo26) { try { const g = await fetch(`${DATA}booth_geo_2026.json?t=${Date.now()}`, { cache: 'no-store' }).then(r => r.ok ? r.json() : null); LIVE.geo26 = (g && g.booths) || {}; } catch (e) { LIVE.geo26 = {}; } }   // locations for 2026 polling places with no 2022 counterpart (VEC venues spreadsheet)
   try {
     const res = await fetch(`${DATA}live/latest.json?t=${Date.now()}`, { cache: 'no-store' });
@@ -4720,7 +4870,8 @@ function drawRegion(root, rid) {
     h('p', { class: 'lead', style: 'max-width:32em' }, `One of the eight Legislative Council regions. Voters across its ${reg.districts.length} electorates elect 5 of the Council's 40 members, on the larger, wider ballot paper.`),
     h('div', { class: 'badges' }, res22.length ? h('span', { class: 'badge' }, 'Elected in 2022: ', ...res22.map(r => h('span', { class: 'dot', style: `background:${partyColor(r.party)};margin-left:4px`, title: `${r.name} (${niceParty(r.party_name || r.party)})` }))) : '', nCand ? h('span', { class: 'badge' }, `${nCand} candidates in ${nGrp} groups for 2026`) : ''),
     mapCta('See every booth and the count on the map', () => regionOnMap(rid)))));
-  const secs = [['ballot', "Who's standing"], ['how', 'How it works'], ['history', 'Past results'], ['seats', 'Electorates']];
+  const liveLc = lcLive(rid) ? lcLiveNodes(rid) : null;
+  const secs = [...(liveLc ? [['count', 'The count']] : []), ['ballot', "Who's standing"], ['how', 'How it works'], ['history', 'Past results'], ['seats', 'Electorates']];
   const nav = h('nav', { class: 'snav', 'aria-label': 'On this page' }, h('div', { class: 'wrap' }, ...secs.map(([id, t], i) => h('a', { href: '#', 'data-id': id, class: i === 0 ? 'on' : '', onclick: (ev) => { ev.preventDefault(); const t2 = root.querySelector('#s-' + id); if (t2) t2.scrollIntoView({ behavior: 'smooth' }); for (const a of nav.querySelectorAll('a')) a.classList.toggle('on', a === ev.currentTarget); } }, t))));
   root.append(nav);
   const body = h('div', { class: 'wrap', style: 'padding-bottom:56px' }); root.append(body);
@@ -4732,6 +4883,7 @@ function drawRegion(root, rid) {
     const vw = root.closest('.view'); const el = vw && getComputedStyle(vw).overflowY !== 'visible' ? vw : window; const fn = () => requestAnimationFrame(spy);
     el.addEventListener('scroll', fn, { passive: true }); SEAT_SPY[key] = { el, fn }; }
   const sec = (id, n, title, sub) => { const s = h('section', { class: 'sec', id: 's-' + id }, h('h2', {}, h('span', { class: 'bnum r' + ((n % 3) + 1), style: 'width:40px;height:40px;font-size:20px' }, String(n)), title), sub ? h('p', { class: 'sub' }, sub) : ''); body.append(s); return s; };
+  if (liveLc) { const s0 = h('section', { class: 'sec', id: 's-count' }, h('h2', {}, 'The count so far'), ...liveLc); body.append(s0); }
   // 1 the ballot
   const s1 = sec('ballot', 1, "Who's standing in 2026", nCand ? `${nCand} candidates in ${nGrp} groups${noms.some(g => !g.letter) ? ', plus ungrouped candidates' : ''}, in the order drawn for the ballot paper (VEC, captured ${LCX.noms.captured}).` : 'Nominations not loaded yet.');
   if (nCand) s1.append(lcBallot(rid, reg, noms));

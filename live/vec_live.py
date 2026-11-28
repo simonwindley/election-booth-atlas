@@ -19,6 +19,8 @@ What it writes (into --out, default site/data/live):
   changes.json          a rolling log of what changed when (most recent first, capped)
   snapshots/<ts>.json.gz  every cycle's latest.json, for replaying the night afterwards
   status.json           last cycle's timings, fetch counts and errors
+  lc_latest.json        the upper house: each region's first preferences by group (above/below the line, quotas) and by voting centre,
+                        from <region index>/region-summary-page/<r>-region-results (+ ...-results-by-voting-centre)
 
 Usage:
   python3 live/vec_live.py --base https://www.vec.vic.gov.au/results/state-election-results/2026-state-election-results
@@ -150,6 +152,7 @@ class Fetcher:
             self.fixtures = json.load(open(fixtures))
         self.n_fetch = self.n_err = 0
         self.errors = []
+        self.last_404 = False
 
     def url(self, path):
         return path if path.startswith('http') else self.host + path
@@ -160,6 +163,7 @@ class Fetcher:
             key = path.replace(self.host, '')
             return self.fixtures.get(key) or self.fixtures.get(key.rstrip('/'))
         url = self.url(path)
+        self.last_404 = False
         for attempt, wait in enumerate([0, 5, 15, 40]):
             if wait:
                 time.sleep(wait)
@@ -175,7 +179,9 @@ class Fetcher:
             except urllib.error.HTTPError as e:
                 self.log(f'  HTTP {e.code} {url} (attempt {attempt + 1})')
                 if e.code == 404:
+                    self.last_404 = True
                     break
+                self.last_404 = False
             except Exception as e:  # noqa
                 self.log(f'  {type(e).__name__}: {e} {url} (attempt {attempt + 1})')
         self.n_err += 1
@@ -393,9 +399,12 @@ def scrape_district(f, dslug, path, election_id, log=print, prev_c=None):
                            'type': kind, 'fp': {}, 'informal': None, 'total': None, 'tcp': {}, 'reported': False}
         return booths[bid]
     complete = True
+    prev_b = (prev_c or {}).get('booths', {})
     if fp_path:
         d2 = f.get(fp_path)
-        complete &= d2 is not None
+        complete &= d2 is not None or f.last_404
+        if d2 is None and prev_b and not f.last_404:   # rate-limited or down: keep the booths from the last good read, don't blank them
+            booths.update(json.loads(json.dumps(prev_b)))
         if d2:
             rows = booth_rows(parse_html(d2).tables, list(cand_ids))
             for r in rows:
@@ -405,7 +414,11 @@ def scrape_district(f, dslug, path, election_id, log=print, prev_c=None):
                 b['reported'] = bool(r['total'])
     if tcp_path:
         d3 = f.get(tcp_path)
-        complete &= d3 is not None
+        complete &= d3 is not None or f.last_404
+        if d3 is None and not f.last_404:
+            for bid, ob in prev_b.items():
+                if ob.get('tcp') and bid in booths:
+                    booths[bid]['tcp'] = dict(ob['tcp'])
         if d3:
             rows = booth_rows(parse_html(d3).tables, list(cand_ids))
             for r in rows:
@@ -477,6 +490,153 @@ def counted_summary(c):
             'pct_enrolment': round(100.0 * (c['total_votes'] or sum(by.values())) / c['enrolment'], 1) if c.get('enrolment') else None}
 
 
+# ---------------------------------------------------------------- upper house (Legislative Council regions)
+def region_links(index_html):
+    """[(slug, path)] for every region on the upper-house results index (slug like 'northern-victoria')."""
+    out = {}
+    for m in re.finditer(r'href="([^"]*?/region-summary-page/([A-Za-z0-9-]+?)-region-results)/?"', index_html, re.I):
+        out.setdefault(m.group(2).lower(), m.group(1))
+    return sorted(out.items())
+
+
+def parse_group_table(tables):
+    """Region page first preferences: (letter) | Group Name | Above the line | Below the line | Total votes counted | % | Indicative quota.
+    Ungrouped candidates have a blank letter and their own name in the Group Name column."""
+    for t in tables:
+        if not t or len(t[0]) < 5:
+            continue
+        hdr = [h.lower() for h in t[0]]
+        if not any('group name' in h for h in hdr) or not any('above the line' in h for h in hdr):
+            continue
+        col = lambda k: next((i for i, h in enumerate(hdr) if k in h), None)
+        iname, ia, ib, it, ip, iq = col('group name'), col('above the line'), col('below the line'), col('total'), col('%'), col('quota')
+        g = lambda r, i: r[i] if i is not None and i < len(r) else ''
+        out = []
+        for r in t[1:]:
+            if len(r) <= iname or not r[iname].strip():
+                continue
+            out.append({'letter': r[0].strip() if iname > 0 else '', 'name': r[iname].strip(), 'atl': num(g(r, ia)), 'btl': num(g(r, ib)),
+                        'votes': num(g(r, it)), 'pct': g(r, ip), 'quota': g(r, iq)})
+        return out
+    return []
+
+
+def scrape_region(f, rslug, path, election_id, log=print, prev_r=None):
+    rid = f'vicr-{rslug}'
+    doc = f.get(path)
+    if doc is None:
+        return None
+    mlu = re.search(r'Last updated:\s*([A-Za-z]+,\s*\d{1,2}\s+[A-Za-z]+\s+\d{4}\s+\d{1,2}:\d{2}:\d{2})', re.sub(r'<[^>]+>', ' ', doc))
+    lu = re.sub(r'\s+', ' ', mlu.group(1)) if mlu else None
+    p = parse_html(doc)
+    title = next((h for h in p.headings if 'region' in h.lower()), rslug)
+    rname = re.sub(r'\s+Region.*$', '', title, flags=re.I).strip() or rslug.replace('-', ' ').title()
+    summary = parse_summary(p)
+    if summary.get('elected') and re.search(r'will display|has been declared|votes counted', summary['elected'], re.I):
+        summary['elected'] = None   # 'The elected candidates will display when ... has been declared'
+    groups = parse_group_table(p.tables)
+    gids, out_g = {}, []
+    for pos, g in enumerate(groups, start=1):
+        gid = f'{rid}-{g["letter"].lower()}' if g['letter'] else f'{rid}-u-{slug(g["name"])}'
+        gids[g['name']] = gid
+        out_g.append({'group_id': gid, 'letter': g['letter'], 'name': g['name'], 'party': canon_from_name(g['name']), 'ballot_position': pos,
+                      'atl': g['atl'], 'btl': g['btl'], 'votes': g['votes'], 'pct': g['pct'], 'quota': g['quota']})
+    page_sig = digest({'s': [summary.get(k) for k in ('formal', 'informal', 'total_votes', 'elected')], 'g': [(g['atl'], g['btl'], g['votes']) for g in groups]})
+    if prev_r and prev_r.get('vec_updated') and prev_r.get('page_sig') == page_sig and time.time() - (prev_r.get('full_at') or 0) < REFRESH_SECONDS:
+        r = json.loads(json.dumps(prev_r)); r['_skipped'] = True
+        return r
+    vc_path = next((h for _, h in p.links if h.rstrip('/').lower().endswith('results-by-voting-centre') and rslug in h.lower()), None)
+    booths, complete = {}, True
+    if vc_path:
+        d2 = f.get(vc_path)
+        complete &= d2 is not None or f.last_404
+        if d2 is None and prev_r and not f.last_404:
+            booths.update(json.loads(json.dumps(prev_r.get('booths', {}))))
+        if d2:
+            for r in booth_rows(parse_html(d2).tables, list(gids)):
+                label, kind = r['label'], r['kind']
+                evc = kind == 'early' and label.lower() not in ('early votes',)
+                bid = f'{rid}-{slug(label)}' if kind == 'ordinary' else (f'{rid}-early-{slug(label)}' if evc else f'{rid}-{kind}')
+                booths[bid] = {'booth_id': bid, 'name': label if (kind == 'ordinary' or evc) else f'{rname} {kind.replace("_", " ")}', 'type': kind,
+                               'fp': {gids[n]: v for n, v in r['votes'].items() if n in gids and v is not None} if r['total'] else {},
+                               'informal': r['informal'], 'total': r['total'], 'reported': bool(r['total'])}
+    return {'region_id': rid, 'name': rname, 'election_id': election_id, **summary, 'groups': out_g, 'booths': booths,
+            'pages': {'region': path, 'vc': vc_path}, 'vec_updated': lu if complete else None, 'page_sig': page_sig, 'full_at': int(time.time())}
+
+
+def stamp_lc(new, prev, now):
+    """first_seen/updated_at for regions and their booths, as stamp() does for districts. Returns the number of booths changed."""
+    n = 0
+    pr = (prev or {}).get('regions', {})
+    for rid, r in new['regions'].items():
+        old = pr.get(rid) or {}
+        sig = digest({k: r.get(k) for k in ('enrolment', 'formal', 'informal', 'total_votes', 'elected', 'groups')})
+        r['sig'] = sig
+        if old.get('sig') == sig:
+            r['updated_at'], r['first_seen'] = old.get('updated_at'), old.get('first_seen')
+        else:
+            r['updated_at'], r['first_seen'] = now, old.get('first_seen') or now
+        ob = old.get('booths', {})
+        for bid, b in r['booths'].items():
+            b['sig'] = digest({'fp': b['fp'], 'informal': b['informal'], 'total': b['total']})
+            o = ob.get(bid) or {}
+            if o.get('sig') == b['sig']:
+                b['updated_at'], b['first_seen'] = o.get('updated_at'), o.get('first_seen')
+            else:
+                b['updated_at'], b['first_seen'] = now, o.get('first_seen') or now
+                n += bool(b['reported'])
+    return n
+
+
+def lc_sweep(f, args, log=print):
+    """Read the upper-house region pages and write lc_latest.json (+ a snapshot). Returns True if anything changed."""
+    lc_base = args.lc_base or args.base.replace('district-election-page', 'region-election-page')
+    if lc_base == args.base:
+        return False
+    index = f.get(lc_base if not args.fixtures else lc_base.replace(f.host, ''))
+    if index is None:
+        log('  upper house: could not fetch the region index')
+        return False
+    links = region_links(index)
+    path = os.path.join(args.out, 'lc_latest.json')
+    prev = None
+    if os.path.exists(path):
+        try:
+            prev = json.load(open(path))
+        except Exception:
+            prev = None
+    regions, n_skip = {}, 0
+    for rslug, rpath in links:
+        pr = (prev or {}).get('regions', {}).get(f'vicr-{rslug}')
+        r = scrape_region(f, rslug, rpath, args.election_id, log, prev_r=pr)
+        if r is None:
+            if pr:
+                regions[pr['region_id']] = pr
+            log(f'  upper house {rslug}: not fetched' + (' (keeping previous)' if pr else ''))
+            continue
+        n_skip += r.pop('_skipped', False)
+        r['counted'] = counted_summary(r)
+        regions[r['region_id']] = r
+    if not regions:
+        return False
+    tnow = datetime.datetime.now().astimezone().isoformat(timespec='seconds')
+    new = {'election_id': args.election_id, 'base': lc_base, 'fetched_at': tnow, 'regions': regions}
+    nb = stamp_lc(new, prev, tnow)
+    changed = nb > 0 or any(r['updated_at'] == tnow for r in regions.values()) or prev is None
+    new['n_changed_booths'] = nb
+    tmp = path + '.tmp'
+    with open(tmp, 'w') as fh:
+        json.dump(new, fh, separators=(',', ':'))
+    os.replace(tmp, path)
+    if changed and not args.no_snapshots:
+        os.makedirs(os.path.join(args.out, 'snapshots'), exist_ok=True)
+        with gzip.open(os.path.join(args.out, 'snapshots', 'lc_' + tnow.replace(':', '').replace('+', 'p') + '.json.gz'), 'wt') as fh:
+            json.dump(new, fh, separators=(',', ':'))
+    log(f'  upper house: {len(regions)} regions ({n_skip} unchanged), {nb} voting centres changed, '
+        + ', '.join(f'{r["name"]} {r["counted"]["pct_enrolment"]}%' for r in regions.values()))
+    return changed
+
+
 # ---------------------------------------------------------------- one cycle
 def run_cycle(args, log=print):
     t0 = time.time()
@@ -505,6 +665,7 @@ def run_cycle(args, log=print):
 
     def git_publish(stamp_t):
         cmd = args.publish_cmd or ('git add site/data/live/latest.json site/data/live/status.json site/data/live/changes.json && '
+                                   '{ [ ! -f site/data/live/lc_latest.json ] || git add site/data/live/lc_latest.json; } && '
                                    f'(git diff --cached --quiet || (git commit -q -m "live feed {stamp_t}" && git push -q))')
         try:
             r = subprocess.run(cmd, shell=True, cwd=root, capture_output=True, text=True, timeout=180)
@@ -541,7 +702,7 @@ def run_cycle(args, log=print):
                   'interval': args.loop, 'partial': not final}
         json.dump(status, open(os.path.join(args.out, 'status.json'), 'w'), indent=1)
         st['prev_pub'] = new
-        if (args.publish or args.publish_cmd) and changes:
+        if (args.publish or args.publish_cmd) and (changes or (final and st.get('lc_changed'))):
             ok, msg = git_publish(tnow)
             st['n_pub'] += ok; st['last_pub'] = time.time()
             log(('published' if ok else f'publish failed: {msg}') + ('' if final else f' (mid-sweep: {new["n_changed_booths"]} booths in {new["n_changed_contests"]} districts)'))
@@ -563,6 +724,12 @@ def run_cycle(args, log=print):
         log(f'  [{i}/{len(links)}] {d["name"]}: {len(d["candidates"])} candidates, {nb} booths reported, {d["counted"]["pct_enrolment"]}% of enrolment counted')
         if (args.publish or args.publish_cmd) and args.publish_every and time.time() - st['last_pub'] >= args.publish_every and i < len(links):
             emit(final=False)
+    if not args.no_lc:
+        try:
+            st['lc_changed'] = lc_sweep(f, args, log)
+        except Exception as e:  # never let the upper house stop the lower-house feed
+            import traceback; traceback.print_exc()
+            log(f'  upper house sweep failed: {e}')
     new, changes = emit(final=True)
     os.makedirs(os.path.join(args.out, 'snapshots'), exist_ok=True)
     if not args.no_snapshots:
@@ -596,6 +763,8 @@ def main(argv=None):
     ap.add_argument('--districts', default='', help='comma-separated district slugs to limit to')
     ap.add_argument('--fixtures', default='', help='offline: JSON of {url path: html} instead of the network')
     ap.add_argument('--no-snapshots', action='store_true')
+    ap.add_argument('--no-lc', action='store_true', help='skip the upper-house (Legislative Council) region pages')
+    ap.add_argument('--lc-base', default='', help='upper-house results index (default: --base with district-election-page -> region-election-page)')
     ap.add_argument('--publish', action='store_true', help='after each cycle, git commit and push the feed (for a GitHub Pages site)')
     ap.add_argument('--publish-every', type=float, default=90, help='during a sweep, publish what has changed so far at most this often (seconds; 0 = only at the end of each sweep)')
     ap.add_argument('--publish-cmd', default='', help='shell command to run after each cycle instead of the git push')
